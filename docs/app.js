@@ -18,6 +18,16 @@
     gra: "#c3c2b7"
   };
 
+  /* Prognosåren är en ordnad skala, så linjerna får en blå ramp:
+     ljus = äldsta prognosen, mörk = den senaste. Stegen är glesade så att
+     grannfärgerna går att skilja åt (validerad ordinal ramp). */
+  var RAMP = ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"];
+
+  function rampFarg(i, n) {
+    if (n <= 1) return RAMP[RAMP.length - 1];
+    return RAMP[Math.round(i * (RAMP.length - 1) / (n - 1))];
+  }
+
   function el(id) { return document.getElementById(id); }
 
   var KONF = document.body.dataset;
@@ -471,14 +481,6 @@
   function initSpagetti(data) {
     var ar = arsfonster(data);
 
-    /* Prognosåren är en ordnad skala, så linjerna får en blå ramp:
-       ljus = äldsta prognosen, mörk = den senaste. */
-    var RAMP = ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"];
-    function rampFarg(i, n) {
-      if (n <= 1) return RAMP[RAMP.length - 1];
-      return RAMP[Math.round(i * (RAMP.length - 1) / (n - 1))];
-    }
-
     var dataset = [];
     data.prognoser.forEach(function (p, i) {
       dataset.push({
@@ -598,59 +600,80 @@
     el("sektion-spagetti").hidden = false;
   }
 
-  /* ---------- Enbart utfallet, inzoomat ---------- */
+  /* ---------- Samma bild, inzoomad på åren med känt utfall ---------- */
 
   function initUtfall(data) {
-    /* Samma period som spagettidiagrammet, men utan prognoserna. Där måste
-       skalan rymma alla prognoser, vilket trycker ihop utfallskurvan; här
-       följer skalan utfallet så att förändringarna syns. */
-    var ar = arsfonster(data).filter(function (a) {
-      return data.utfall[String(a)] !== undefined;
-    });
+    /* Samma serier som spagettidiagrammet, men klippta vid sista året med
+       utfall. Där måste skalan rymma prognoser ända till 2050, vilket
+       trycker ihop kurvorna; här följer skalan de år som faktiskt går att
+       jämföra. */
+    var utfallAr = Object.keys(data.utfall).map(Number);
+    var sistaUtfall = Math.max.apply(null, utfallAr);
+    var ar = arsfonster(data).filter(function (a) { return a <= sistaUtfall; });
     if (ar.length < 2) return;
 
-    var varden = ar.map(function (a) { return data.utfall[String(a)]; });
+    var n = data.prognoser.length;
+    var dataset = [];
+    data.prognoser.forEach(function (p, i) {
+      var v = ar.map(function (a) {
+        return p.prognos[String(a)] !== undefined ? p.prognos[String(a)] : null;
+      });
+      if (!v.some(function (x) { return x !== null; })) return;  // ingen överlappning
+      dataset.push({
+        label: "Prognos " + p.prognosAr,
+        data: v,
+        borderColor: rampFarg(i, n),
+        backgroundColor: rampFarg(i, n),
+        borderWidth: 2,
+        pointRadius: 0,
+        pointHoverRadius: 5,
+        spanGaps: false,
+        tension: 0.1
+      });
+    });
+    dataset.push({
+      label: "Faktiskt utfall (SCB)",
+      data: ar.map(function (a) { return data.utfall[String(a)]; }),
+      borderColor: FARG.ink,
+      backgroundColor: FARG.ink,
+      borderWidth: 3,
+      pointRadius: 4,
+      pointHoverRadius: 7,
+      pointBorderColor: FARG.surface,
+      pointBorderWidth: 2,
+      tension: 0.1
+    });
 
     var ctx = el("diagram-utfall");
-    ctx.parentElement.style.height = "360px";
+    ctx.parentElement.style.height = "420px";
     new Chart(ctx, {
       type: "line",
-      data: {
-        labels: ar.map(String),
-        datasets: [{
-          label: "Faktiskt utfall (SCB)",
-          data: varden,
-          borderColor: FARG.ink,
-          backgroundColor: FARG.ink,
-          borderWidth: 3,
-          pointRadius: 4,
-          pointHoverRadius: 7,
-          pointBorderColor: FARG.surface,
-          pointBorderWidth: 2,
-          tension: 0.1
-        }]
-      },
+      data: { labels: ar.map(String), datasets: dataset },
       options: {
         maintainAspectRatio: false,
         responsive: true,
-        interaction: { mode: "index", intersect: false },
+        interaction: { mode: "nearest", intersect: false },
         plugins: {
-          legend: { display: false },   // en enda serie – rubriken säger vad det är
+          legend: {
+            display: true,
+            labels: {
+              generateLabels: function () {
+                var poster = [{ text: "Faktiskt utfall (SCB)", strokeStyle: FARG.ink, fillStyle: FARG.ink, lineWidth: 3 }];
+                if (n > 1) {
+                  poster.push({ text: "Äldsta prognosen (" + data.prognoser[0].prognosAr + ")",
+                    strokeStyle: rampFarg(0, n), fillStyle: rampFarg(0, n), lineWidth: 2 });
+                  poster.push({ text: "Senaste prognosen (" + data.prognoser[n - 1].prognosAr + ")",
+                    strokeStyle: rampFarg(n - 1, n), fillStyle: rampFarg(n - 1, n), lineWidth: 2 });
+                }
+                return poster;
+              }
+            }
+          },
           tooltip: {
             callbacks: {
               title: function (it) { return "År " + it[0].label; },
               label: function (it) {
-                var i = it.dataIndex;
-                var forra = i === 0
-                  ? data.utfall[String(ar[0] - 1)]
-                  : varden[i - 1];
-                var rader = [talSv(it.parsed.y) + " " + ENHET];
-                if (forra !== undefined) {
-                  var d = it.parsed.y - forra;
-                  rader.push((d >= 0 ? "+" : "−") + talSv(Math.abs(d)) +
-                    " mot året innan");
-                }
-                return rader;
+                return it.dataset.label + ": " + talSv(it.parsed.y) + " " + ENHET;
               }
             }
           }
@@ -666,7 +689,7 @@
             grid: { color: FARG.grid },
             border: { color: FARG.baseline },
             beginAtZero: false,
-            grace: "12%",   // luft runt kurvan, men låt skalan välja runda tal
+            grace: "8%",   // luft runt kurvorna, men låt skalan välja runda tal
             ticks: { callback: function (v) { return talSv(v); } }
           }
         }
@@ -674,21 +697,22 @@
     });
 
     el("kalla-utfall").textContent =
-      data.utfallMeta.matt + " enligt " + data.utfallMeta.kalla +
-      ". Skalan börjar inte på noll, utan följer utfallet – det gör små " +
-      "förändringar synliga, men får dem också att se större ut.";
+      "Svart linje: SCB:s faktiska siffror. Blå linjer: kommunens prognoser, " +
+      "klippta vid " + sistaUtfall + ". Skalan börjar inte på noll, utan följer " +
+      "kurvorna – det gör skillnaderna synliga, men får dem också att se större ut.";
 
+    /* Tabell: utfallet med förändring, som facit att läsa mot */
     var t = "<caption>" + (data.serie ? data.serie + ". " : "") +
       data.utfallMeta.matt + " enligt SCB. Hämtad " + data.utfallMeta.hamtad +
       ".</caption>";
-    t += "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Antal</th>" +
+    t += "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Utfall</th>" +
       "<th scope=\"col\">Förändring</th></tr></thead><tbody>";
     ar.forEach(function (a, i) {
-      var forra = i === 0 ? data.utfall[String(a - 1)] : varden[i - 1];
-      var d = forra === undefined ? null : varden[i] - forra;
-      t += "<tr><td>" + a + "</td><td>" + talSv(varden[i]) + "</td><td>" +
-        (d === null ? "–" : (d >= 0 ? "+" : "−") + talSv(Math.abs(d))) +
-        "</td></tr>";
+      var v = data.utfall[String(a)];
+      var forra = i === 0 ? data.utfall[String(a - 1)] : data.utfall[String(ar[i - 1])];
+      var d = forra === undefined ? null : v - forra;
+      t += "<tr><td>" + a + "</td><td>" + talSv(v) + "</td><td>" +
+        (d === null ? "–" : (d >= 0 ? "+" : "−") + talSv(Math.abs(d))) + "</td></tr>";
     });
     t += "</tbody>";
     el("tabell-utfall").innerHTML = t;
