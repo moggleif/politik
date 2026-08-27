@@ -29,9 +29,10 @@ from pathlib import Path
 ROT = Path(__file__).resolve().parent.parent
 
 SKOLOR = [
-    {"id": "aranas", "namn": "Aranäsgymnasiet"},
-    {"id": "elof", "namn": "Elof Lindälvs gymnasium"},
+    {"id": "aranas", "namn": "Aranäsgymnasiet", "kort": "Aranäs"},
+    {"id": "elof", "namn": "Elof Lindälvs gymnasium", "kort": "Elof Lindälv"},
 ]
+KORT = {s["namn"]: s["kort"] for s in SKOLOR}
 
 # Gymnasieskolans nationella program, med den indelning som styr hur
 # utbildningarna grupperas på sidan. Listan är också en kontroll: ett
@@ -176,6 +177,7 @@ def bygg(argangar: list) -> dict:
         medelar = {a: v["medel"] for a, v in serie["varden"].items() if v["medel"] is not None}
         serie["namn"] = serie["program"] + (
             " – " + serie["inriktning"] if serie["inriktning"] else "")
+        serie["skolaKort"] = KORT[serie["skola"]]
         serie["antalArMedMedel"] = len(medelar)
         if medelar:
             forsta, sista = min(medelar), max(medelar)
@@ -191,73 +193,149 @@ def bygg(argangar: list) -> dict:
 
     utbildningar.sort(key=lambda s: (s["skola"], s["program"], s["inriktning"]))
 
-    # Sammanfattning per skola och år. Medelvärdet är ovägt: varje utbildning
-    # räknas lika mycket oavsett hur många elever som antogs, eftersom
-    # rapporten inte redovisar antalet. Det står också i sidans text.
-    sammanfattning = []
-    for skola in SKOLOR:
-        for ar in ar_lista:
-            varden = [u["varden"][str(ar)]["medel"] for u in utbildningar
-                      if u["skola"] == skola["namn"]
-                      and u["typ"] != "introduktion"
-                      and str(ar) in u["varden"]
-                      and u["varden"][str(ar)]["medel"] is not None]
-            if not varden:
-                continue
-            koder = [u["varden"][str(ar)] for u in utbildningar
-                     if u["skola"] == skola["namn"]
-                     and u["typ"] != "introduktion"
-                     and str(ar) in u["varden"]]
-            # Hur rapporten säger att alla behöriga sökande kom in har
-            # bytt form. Till och med 2024 stod fotnoten 1) i stället för
-            # en antagningspoäng; från 2025 skrivs poängen alltid ut, och
-            # de utbildningar som inte hade några lediga platser kvar
-            # markeras i stället med fet stil. De två markörerna är
-            # varandras spegelbild – utom i gränsfallet där antalet
-            # behöriga sökande exakt fyllde platserna, som räknas åt olika
-            # håll. Vilken markör året vilar på följer med i utdatan.
-            fetstil = any(k["utanPlatser"] is not None for k in koder)
-            if fetstil:
-                med_grans = sum(1 for k in koder if k["utanPlatser"])
-                alla_antagna = sum(1 for k in koder
-                                   if k["utanPlatser"] is False and k["poang"] is not None)
-            else:
-                med_grans = sum(1 for k in koder if k["poang"] is not None)
-                alla_antagna = sum(1 for k in koder if k["kod"] == "1")
-            sammanfattning.append({
-                "skola": skola["namn"],
-                "ar": ar,
-                "antal": len(varden),
-                "medel": medel(varden),
-                "lagsta": min(varden),
-                "hogsta": max(varden),
-                "antalUtbildningar": len(koder),
-                "allaAntagna": alla_antagna,
-                "medGrans": med_grans,
-                "ovrigt": len(koder) - alla_antagna - med_grans,
-                "markor": "fetstil" if fetstil else "fotnot",
-            })
+    # Programserier. Kungsbacka flyttar program mellan sina två
+    # gymnasieskolor, och en serie per skola skulle då brytas mitt i av en
+    # organisationsförändring i stället för av att utbildningen ändrats.
+    # Serien följer därför programmet, inte skolan:
+    #
+    #   flyttat program   Har programmet legat på flera skolor utan att
+    #                     något år finnas på båda, är det samma utbildning
+    #                     som bytt hus. Åren slås ihop till en serie, med
+    #                     den skola som har programmet i dag som hemvist –
+    #                     det gamla datat följer med.
+    #   dubblett          Fanns programmet på båda skolorna samma år är det
+    #                     två utbildningar som konkurrerar om samma sökande.
+    #                     Då hålls skolorna isär, en serie var, och skolans
+    #                     namn skrivs ut i etiketten.
+    #
+    # Inom en och samma skola och år kan programmet ha flera inriktningar.
+    # De vägs ihop ovägt, av samma skäl som tidigare: rapporterna säger inte
+    # hur många som antogs, så varje annan vikt vore påhittad.
+    def skolordning(namn):
+        return [x["namn"] for x in SKOLOR].index(namn)
 
-    # Yrkesprogram mot högskoleförberedande, per år och skola.
+    per_program = {}
+    for u in utbildningar:
+        if u["typ"] == "introduktion":
+            continue
+        per_skola = per_program.setdefault(u["program"], {})
+        for ar_s, v in u["varden"].items():
+            if v["medel"] is None:
+                continue
+            per_skola.setdefault(u["skola"], {}).setdefault(ar_s, []).append(v["medel"])
+
+    def gruppera(per_skola: dict) -> list:
+        """Delar upp skolorna i serier: hopslagna om åren inte överlappar."""
+        kvar = sorted(per_skola,
+                      key=lambda n: (-max(int(a) for a in per_skola[n]), skolordning(n)))
+        grupper = []
+        while kvar:
+            hem = kvar.pop(0)                 # skolan med programmet senast
+            grupp, ar_i_grupp = [hem], set(per_skola[hem])
+            for annan in list(kvar):
+                if not ar_i_grupp & set(per_skola[annan]):
+                    grupp.append(annan)
+                    ar_i_grupp |= set(per_skola[annan])
+                    kvar.remove(annan)
+            grupper.append((hem, grupp))
+        return grupper
+
+    program = []
+    for namn in sorted(per_program):
+        per_skola = per_program[namn]
+        grupper = gruppera(per_skola)
+        for hem, grupp in grupper:
+            varden = {}
+            for skola in grupp:
+                for ar_s, lista in per_skola[skola].items():
+                    varden[ar_s] = {
+                        "medel": medel(lista),
+                        "antal": len(lista),
+                        "skola": KORT[skola],
+                    }
+            serie = {
+                "namn": namn,
+                # Skolan skrivs bara ut när programmet gått parallellt på
+                # båda skolorna – annars säger den inget läsaren behöver.
+                "etikett": namn + (" (%s)" % KORT[hem] if len(grupper) > 1 else ""),
+                "hem": KORT[hem],
+                "skolor": [KORT[s] for s in sorted(grupp, key=skolordning)],
+                "typ": typ_av(namn),
+                "varden": varden,
+            }
+            medelar = {a: v["medel"] for a, v in varden.items()}
+            serie["antalArMedMedel"] = len(medelar)
+            if medelar:
+                forsta, sista = min(medelar), max(medelar)
+                serie["forstaAr"], serie["sistaAr"] = int(forsta), int(sista)
+                serie["forsta"], serie["sista"] = medelar[forsta], medelar[sista]
+                serie["forandring"] = (round(medelar[sista] - medelar[forsta], 2)
+                                       if forsta != sista else None)
+            else:
+                serie["forstaAr"] = serie["sistaAr"] = None
+                serie["forandring"] = None
+            program.append(serie)
+    program.sort(key=lambda p: p["etikett"])
+
+    # Sammanfattning per år för kommunens båda skolor tillsammans.
+    # Medelvärdet är ovägt: varje utbildning räknas lika mycket oavsett hur
+    # många elever som antogs, eftersom rapporten inte redovisar antalet.
+    # Det står också i sidans text.
+    nationella = [u for u in utbildningar if u["typ"] != "introduktion"]
+    sammanfattning = []
+    for ar in ar_lista:
+        poster = [u["varden"][str(ar)] for u in nationella if str(ar) in u["varden"]]
+        varden = [p["medel"] for p in poster if p["medel"] is not None]
+        if not varden:
+            continue
+        # Hur rapporten säger att alla behöriga sökande kom in har bytt
+        # form. Till och med 2024 stod fotnoten 1) i stället för en
+        # antagningspoäng; från 2025 skrivs poängen alltid ut, och de
+        # utbildningar som inte hade några lediga platser kvar markeras i
+        # stället med fet stil. De två markörerna är varandras spegelbild –
+        # utom i gränsfallet där antalet behöriga sökande exakt fyllde
+        # platserna, som räknas åt olika håll. Vilken markör året vilar på
+        # följer med i utdatan.
+        fetstil = any(p["utanPlatser"] is not None for p in poster)
+        if fetstil:
+            med_grans = sum(1 for p in poster if p["utanPlatser"])
+            alla_antagna = sum(1 for p in poster
+                               if p["utanPlatser"] is False and p["poang"] is not None)
+        else:
+            med_grans = sum(1 for p in poster if p["poang"] is not None)
+            alla_antagna = sum(1 for p in poster if p["kod"] == "1")
+        sammanfattning.append({
+            "ar": ar,
+            "antal": len(varden),
+            "medel": medel(varden),
+            "lagsta": min(varden),
+            "hogsta": max(varden),
+            "antalUtbildningar": len(poster),
+            "allaAntagna": alla_antagna,
+            "medGrans": med_grans,
+            "ovrigt": len(poster) - alla_antagna - med_grans,
+            "markor": "fetstil" if fetstil else "fotnot",
+        })
+
+    # Yrkesprogram mot högskoleförberedande, per år, båda skolorna ihop.
     per_typ = []
-    for skola in SKOLOR:
-        for typ in ("hogskoleforberedande", "yrkesprogram"):
-            rad = {"skola": skola["namn"], "typ": typ, "varden": {}}
-            for ar in ar_lista:
-                varden = [u["varden"][str(ar)]["medel"] for u in utbildningar
-                          if u["skola"] == skola["namn"] and u["typ"] == typ
-                          and str(ar) in u["varden"]
-                          and u["varden"][str(ar)]["medel"] is not None]
-                if varden:
-                    rad["varden"][str(ar)] = {"medel": medel(varden), "antal": len(varden)}
-            if rad["varden"]:
-                per_typ.append(rad)
+    for typ in ("hogskoleforberedande", "yrkesprogram"):
+        rad = {"typ": typ, "varden": {}}
+        for ar in ar_lista:
+            varden = [u["varden"][str(ar)]["medel"] for u in nationella
+                      if u["typ"] == typ and str(ar) in u["varden"]
+                      and u["varden"][str(ar)]["medel"] is not None]
+            if varden:
+                rad["varden"][str(ar)] = {"medel": medel(varden), "antal": len(varden)}
+        if rad["varden"]:
+            per_typ.append(rad)
 
     return {
         "kommun": "Kungsbacka",
         "serie": "Meritvärden vid antagningen till gymnasiet",
         "ar": ar_lista,
         "skolor": SKOLOR,
+        "program": program,
         "utbildningar": utbildningar,
         "sammanfattning": sammanfattning,
         "perTyp": per_typ,

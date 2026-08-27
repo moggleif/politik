@@ -14,8 +14,11 @@ officiella befolkningsstatistik.
 - [16–19 år, gymnasieåldern](https://moggleif.github.io/politik/gymnasiealdern.html)
 
 **Meritvärden på gymnasiet** &ndash; vilka meritvärden eleverna som antogs till
-Aranäsgymnasiet och Elof Lindälvs gymnasium hade, program för program, ur
-Göteborgsregionens (GR) statistik över slutantagningen, 2017–2026.
+kommunens gymnasieprogram hade, program för program, ur Göteborgsregionens
+(GR) statistik över slutantagningen, 2017–2026. Enheten är programmet och
+inte skolan: kommunen flyttar program mellan Aranäsgymnasiet och Elof
+Lindälvs gymnasium, och en serie per skola skulle brytas av en
+organisationsförändring i stället för av att utbildningen ändrats.
 
 - [Meritvärden program för program](https://moggleif.github.io/politik/meritvarden.html)
 
@@ -39,7 +42,8 @@ scripts/
   extrahera_antagning.py        Läser meritvärdena för Kungsbackas
                                 gymnasieskolor ur GR:s antagningsrapport
   build_data.py                 Bygger docs/data.json och docs/data-16-19.json
-  build_meritvarden.py          Bygger docs/data-meritvarden.json
+  build_meritvarden.py          Bygger docs/data-meritvarden.json, med en
+                                serie per program i stället för per skola
 docs/                           Själva hemsidan (serveras av GitHub Pages)
   index.html                    Huvudmeny
   befolkningsprognos.html       Befolkningsprognoser, hela befolkningen

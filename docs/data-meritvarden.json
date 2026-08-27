@@ -15,11 +15,1254 @@
  "skolor": [
   {
    "id": "aranas",
-   "namn": "Aranäsgymnasiet"
+   "namn": "Aranäsgymnasiet",
+   "kort": "Aranäs"
   },
   {
    "id": "elof",
-   "namn": "Elof Lindälvs gymnasium"
+   "namn": "Elof Lindälvs gymnasium",
+   "kort": "Elof Lindälv"
+  }
+ ],
+ "program": [
+  {
+   "namn": "Barn- och fritidsprogrammet",
+   "etikett": "Barn- och fritidsprogrammet (Aranäs)",
+   "hem": "Aranäs",
+   "skolor": [
+    "Aranäs"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 212.6,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2019": {
+     "medel": 196.66,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2020": {
+     "medel": 206.6,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2021": {
+     "medel": 215.62,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2022": {
+     "medel": 190.15,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2024": {
+     "medel": 213.06,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2025": {
+     "medel": 226.66,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2026": {
+     "medel": 202.81,
+     "antal": 1,
+     "skola": "Aranäs"
+    }
+   },
+   "antalArMedMedel": 8,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 212.6,
+   "sista": 202.81,
+   "forandring": -9.79
+  },
+  {
+   "namn": "Barn- och fritidsprogrammet",
+   "etikett": "Barn- och fritidsprogrammet (Elof Lindälv)",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 192.5,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 211.25,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 205.42,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 223.75,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 189.38,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 183.75,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 154.08,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 203.12,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 173.75,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 192.5,
+   "sista": 173.75,
+   "forandring": -18.75
+  },
+  {
+   "namn": "Bygg- och anläggningsprogrammet",
+   "etikett": "Bygg- och anläggningsprogrammet (Aranäs)",
+   "hem": "Aranäs",
+   "skolor": [
+    "Aranäs"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 202.91,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2019": {
+     "medel": 206.17,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2020": {
+     "medel": 201.4,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2021": {
+     "medel": 207.82,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2022": {
+     "medel": 205.72,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2023": {
+     "medel": 193.04,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2024": {
+     "medel": 182.04,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2025": {
+     "medel": 199.13,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2026": {
+     "medel": 203.62,
+     "antal": 1,
+     "skola": "Aranäs"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 202.91,
+   "sista": 203.62,
+   "forandring": 0.71
+  },
+  {
+   "namn": "Bygg- och anläggningsprogrammet",
+   "etikett": "Bygg- och anläggningsprogrammet (Elof Lindälv)",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 187.05,
+     "antal": 5,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 183.63,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 177.21,
+     "antal": 5,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 176.45,
+     "antal": 5,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 193.45,
+     "antal": 5,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 192.6,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 169.69,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 197.06,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 207.31,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 187.05,
+   "sista": 207.31,
+   "forandring": 20.26
+  },
+  {
+   "namn": "Ekonomiprogrammet",
+   "etikett": "Ekonomiprogrammet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "hogskoleforberedande",
+   "varden": {
+    "2017": {
+     "medel": 253.72,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 252.58,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 255.16,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 243.47,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 252.48,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 255.66,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 268.39,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 265.14,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 263.58,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 253.72,
+   "sista": 263.58,
+   "forandring": 9.86
+  },
+  {
+   "namn": "El- och energiprogrammet",
+   "etikett": "El- och energiprogrammet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 206.06,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 210.78,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 223.03,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 218.36,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 220.51,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 225.92,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 226.03,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 237.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 239.07,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 206.06,
+   "sista": 239.07,
+   "forandring": 33.01
+  },
+  {
+   "namn": "Estetiska programmet",
+   "etikett": "Estetiska programmet",
+   "hem": "Aranäs",
+   "skolor": [
+    "Aranäs"
+   ],
+   "typ": "hogskoleforberedande",
+   "varden": {
+    "2017": {
+     "medel": 227.85,
+     "antal": 5,
+     "skola": "Aranäs"
+    },
+    "2019": {
+     "medel": 253.11,
+     "antal": 3,
+     "skola": "Aranäs"
+    },
+    "2020": {
+     "medel": 238.17,
+     "antal": 3,
+     "skola": "Aranäs"
+    },
+    "2021": {
+     "medel": 247.77,
+     "antal": 3,
+     "skola": "Aranäs"
+    },
+    "2022": {
+     "medel": 217.85,
+     "antal": 3,
+     "skola": "Aranäs"
+    },
+    "2023": {
+     "medel": 226.95,
+     "antal": 3,
+     "skola": "Aranäs"
+    },
+    "2024": {
+     "medel": 251.28,
+     "antal": 3,
+     "skola": "Aranäs"
+    },
+    "2025": {
+     "medel": 239.16,
+     "antal": 3,
+     "skola": "Aranäs"
+    },
+    "2026": {
+     "medel": 239.6,
+     "antal": 3,
+     "skola": "Aranäs"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 227.85,
+   "sista": 239.6,
+   "forandring": 11.75
+  },
+  {
+   "namn": "Fordons- och transportprogrammet",
+   "etikett": "Fordons- och transportprogrammet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 162.28,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 167.66,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 163.79,
+     "antal": 5,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 165.75,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 183.12,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 168.2,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 184.78,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 200.89,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 216.35,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 162.28,
+   "sista": 216.35,
+   "forandring": 54.07
+  },
+  {
+   "namn": "Försäljnings- och serviceprogrammet",
+   "etikett": "Försäljnings- och serviceprogrammet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2022": {
+     "medel": 223.04,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 208.33,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 205.69,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 216.38,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 223.53,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 5,
+   "forstaAr": 2022,
+   "sistaAr": 2026,
+   "forsta": 223.04,
+   "sista": 223.53,
+   "forandring": 0.49
+  },
+  {
+   "namn": "Handels- och administrationsprogrammet",
+   "etikett": "Handels- och administrationsprogrammet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 196.12,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 188.75,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 196.5,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 177.1,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 4,
+   "forstaAr": 2017,
+   "sistaAr": 2021,
+   "forsta": 196.12,
+   "sista": 177.1,
+   "forandring": -19.02
+  },
+  {
+   "namn": "Hantverksprogrammet",
+   "etikett": "Hantverksprogrammet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2019": {
+     "medel": 155.0,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 175.0,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 182.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 247.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 177.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 5,
+   "forstaAr": 2019,
+   "sistaAr": 2024,
+   "forsta": 155.0,
+   "sista": 177.5,
+   "forandring": 22.5
+  },
+  {
+   "namn": "Hotell- och turismprogrammet",
+   "etikett": "Hotell- och turismprogrammet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 174.63,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 191.44,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 198.44,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 175.89,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 216.67,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 159.24,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 196.11,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 207.4,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 181.98,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 174.63,
+   "sista": 181.98,
+   "forandring": 7.35
+  },
+  {
+   "namn": "Industritekniska programmet",
+   "etikett": "Industritekniska programmet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 223.75,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 171.0,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 190.0,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 161.96,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 196.47,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 206.88,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 210.0,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 182.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 160.83,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 223.75,
+   "sista": 210.0,
+   "forandring": -13.75
+  },
+  {
+   "namn": "Naturbruksprogrammet",
+   "etikett": "Naturbruksprogrammet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2021": {
+     "medel": 135.0,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 165.35,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 282.5,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 202.81,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 275.62,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 233.12,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 6,
+   "forstaAr": 2021,
+   "sistaAr": 2026,
+   "forsta": 135.0,
+   "sista": 233.12,
+   "forandring": 98.12
+  },
+  {
+   "namn": "Naturvetenskapsprogrammet",
+   "etikett": "Naturvetenskapsprogrammet (Aranäs)",
+   "hem": "Aranäs",
+   "skolor": [
+    "Aranäs"
+   ],
+   "typ": "hogskoleforberedande",
+   "varden": {
+    "2017": {
+     "medel": 293.26,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2019": {
+     "medel": 313.65,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2020": {
+     "medel": 311.11,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2021": {
+     "medel": 309.25,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2022": {
+     "medel": 300.09,
+     "antal": 3,
+     "skola": "Aranäs"
+    },
+    "2023": {
+     "medel": 306.86,
+     "antal": 4,
+     "skola": "Aranäs"
+    },
+    "2024": {
+     "medel": 297.37,
+     "antal": 4,
+     "skola": "Aranäs"
+    },
+    "2025": {
+     "medel": 279.89,
+     "antal": 4,
+     "skola": "Aranäs"
+    },
+    "2026": {
+     "medel": 290.51,
+     "antal": 4,
+     "skola": "Aranäs"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 293.26,
+   "sista": 290.51,
+   "forandring": -2.75
+  },
+  {
+   "namn": "Naturvetenskapsprogrammet",
+   "etikett": "Naturvetenskapsprogrammet (Elof Lindälv)",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "hogskoleforberedande",
+   "varden": {
+    "2017": {
+     "medel": 269.56,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 269.14,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 257.13,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 266.16,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 288.83,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 5,
+   "forstaAr": 2017,
+   "sistaAr": 2022,
+   "forsta": 269.56,
+   "sista": 288.83,
+   "forandring": 19.27
+  },
+  {
+   "namn": "Restaurang- och livsmedelsprogrammet",
+   "etikett": "Restaurang- och livsmedelsprogrammet",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2019": {
+     "medel": 204.58,
+     "antal": 4,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 170.83,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 174.03,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 187.43,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 197.41,
+     "antal": 3,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 193.62,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2017": {
+     "medel": 182.08,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 184.75,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 178.28,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 182.08,
+   "sista": 178.28,
+   "forandring": -3.8
+  },
+  {
+   "namn": "Samhällsvetenskapsprogrammet",
+   "etikett": "Samhällsvetenskapsprogrammet",
+   "hem": "Aranäs",
+   "skolor": [
+    "Aranäs"
+   ],
+   "typ": "hogskoleforberedande",
+   "varden": {
+    "2017": {
+     "medel": 240.78,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2019": {
+     "medel": 252.27,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2020": {
+     "medel": 259.67,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2021": {
+     "medel": 261.95,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2022": {
+     "medel": 262.1,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2023": {
+     "medel": 263.05,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2024": {
+     "medel": 260.11,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2025": {
+     "medel": 260.69,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2026": {
+     "medel": 261.64,
+     "antal": 1,
+     "skola": "Aranäs"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 240.78,
+   "sista": 261.64,
+   "forandring": 20.86
+  },
+  {
+   "namn": "Teknikprogrammet",
+   "etikett": "Teknikprogrammet (Aranäs)",
+   "hem": "Aranäs",
+   "skolor": [
+    "Aranäs"
+   ],
+   "typ": "hogskoleforberedande",
+   "varden": {
+    "2017": {
+     "medel": 268.38,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2019": {
+     "medel": 271.42,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2020": {
+     "medel": 285.89,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2021": {
+     "medel": 276.65,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2022": {
+     "medel": 270.64,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2023": {
+     "medel": 280.3,
+     "antal": 1,
+     "skola": "Aranäs"
+    }
+   },
+   "antalArMedMedel": 6,
+   "forstaAr": 2017,
+   "sistaAr": 2023,
+   "forsta": 268.38,
+   "sista": 280.3,
+   "forandring": 11.92
+  },
+  {
+   "namn": "Teknikprogrammet",
+   "etikett": "Teknikprogrammet (Elof Lindälv)",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "hogskoleforberedande",
+   "varden": {
+    "2017": {
+     "medel": 257.38,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 248.54,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 242.72,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 246.29,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 254.01,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 251.55,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 268.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 282.45,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 8,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 257.38,
+   "sista": 282.45,
+   "forandring": 25.07
+  },
+  {
+   "namn": "Vård- och omsorgsprogrammet",
+   "etikett": "Vård- och omsorgsprogrammet (Aranäs)",
+   "hem": "Aranäs",
+   "skolor": [
+    "Aranäs"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 189.75,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2019": {
+     "medel": 207.11,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2020": {
+     "medel": 208.9,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2021": {
+     "medel": 210.9,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2022": {
+     "medel": 202.25,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2023": {
+     "medel": 198.08,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2024": {
+     "medel": 191.57,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2025": {
+     "medel": 187.91,
+     "antal": 1,
+     "skola": "Aranäs"
+    },
+    "2026": {
+     "medel": 179.11,
+     "antal": 1,
+     "skola": "Aranäs"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 189.75,
+   "sista": 179.11,
+   "forandring": -10.64
+  },
+  {
+   "namn": "Vård- och omsorgsprogrammet",
+   "etikett": "Vård- och omsorgsprogrammet (Elof Lindälv)",
+   "hem": "Elof Lindälv",
+   "skolor": [
+    "Elof Lindälv"
+   ],
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "medel": 196.25,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2019": {
+     "medel": 203.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2020": {
+     "medel": 187.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2021": {
+     "medel": 150.83,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2022": {
+     "medel": 192.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2023": {
+     "medel": 197.5,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2024": {
+     "medel": 181.87,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2025": {
+     "medel": 198.75,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 152.0,
+     "antal": 1,
+     "skola": "Elof Lindälv"
+    }
+   },
+   "antalArMedMedel": 9,
+   "forstaAr": 2017,
+   "sistaAr": 2026,
+   "forsta": 196.25,
+   "sista": 152.0,
+   "forandring": -44.25
   }
  ],
  "utbildningar": [
@@ -79,6 +1322,7 @@
     }
    },
    "namn": "Barn- och fritidsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 8,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -148,6 +1392,7 @@
     }
    },
    "namn": "Bygg- och anläggningsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -217,6 +1462,7 @@
     }
    },
    "namn": "Estetiska programmet – Bild och formgivning",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -238,6 +1484,7 @@
     }
    },
    "namn": "Estetiska programmet – Dans",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 1,
    "forstaAr": 2017,
    "sistaAr": 2017,
@@ -259,6 +1506,7 @@
     }
    },
    "namn": "Estetiska programmet – Estetik och media",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 1,
    "forstaAr": 2017,
    "sistaAr": 2017,
@@ -328,6 +1576,7 @@
     }
    },
    "namn": "Estetiska programmet – Musik",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -397,6 +1646,7 @@
     }
    },
    "namn": "Estetiska programmet – Teater",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -454,6 +1704,7 @@
     }
    },
    "namn": "International Baccalaureate",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -479,6 +1730,7 @@
     }
    },
    "namn": "Introduktionsprogram",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 2,
    "forstaAr": 2025,
    "sistaAr": 2026,
@@ -506,6 +1758,7 @@
     }
    },
    "namn": "Introduktionsprogram – Barn och fritid",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 2,
    "forstaAr": 2025,
    "sistaAr": 2026,
@@ -533,6 +1786,7 @@
     }
    },
    "namn": "Introduktionsprogram – Bygg och anläggning",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 2,
    "forstaAr": 2025,
    "sistaAr": 2026,
@@ -590,6 +1844,7 @@
     }
    },
    "namn": "Introduktionsprogram – Individuellt alternativ",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -609,6 +1864,7 @@
     }
    },
    "namn": "Introduktionsprogram – Preparandutbildning",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -628,6 +1884,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat individuellt val mot Barn- och fritidsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 1,
    "forstaAr": 2017,
    "sistaAr": 2017,
@@ -649,6 +1906,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat individuellt val mot Vård- och omsorgsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 1,
    "forstaAr": 2017,
    "sistaAr": 2017,
@@ -694,6 +1952,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat val; mot Barn- och fritidsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 5,
    "forstaAr": 2019,
    "sistaAr": 2024,
@@ -739,6 +1998,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat val; mot Estetiska programmet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 5,
    "forstaAr": 2020,
    "sistaAr": 2024,
@@ -766,6 +2026,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat val; mot Samhällsvetenskapsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 2,
    "forstaAr": 2022,
    "sistaAr": 2023,
@@ -817,6 +2078,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat val; mot Vård- och omsorgsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 6,
    "forstaAr": 2019,
    "sistaAr": 2024,
@@ -850,6 +2112,7 @@
     }
    },
    "namn": "Introduktionsprogram – Språkintroduktion",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -869,6 +2132,7 @@
     }
    },
    "namn": "Introduktionsprogram – Yrkesintroduktion, Individbaserad",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -912,6 +2176,7 @@
     }
    },
    "namn": "Introduktionsprogram – Yrkesintroduktion, för enskild",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -943,6 +2208,7 @@
     }
    },
    "namn": "Introduktionsprogram – Yrkesintroduktion; mot Vård- och omsorgsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 3,
    "forstaAr": 2019,
    "sistaAr": 2022,
@@ -1012,6 +2278,7 @@
     }
    },
    "namn": "Naturvetenskapsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -1057,6 +2324,7 @@
     }
    },
    "namn": "Naturvetenskapsprogrammet – Bild, Särskild variant inom det estetiska området",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 5,
    "forstaAr": 2022,
    "sistaAr": 2026,
@@ -1102,6 +2370,7 @@
     }
    },
    "namn": "Naturvetenskapsprogrammet – Musik, Särskild variant inom det estetiska området",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 5,
    "forstaAr": 2022,
    "sistaAr": 2026,
@@ -1147,6 +2416,7 @@
     }
    },
    "namn": "Naturvetenskapsprogrammet – Teater, Särskild variant inom det estetiska området",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 4,
    "forstaAr": 2023,
    "sistaAr": 2026,
@@ -1216,6 +2486,7 @@
     }
    },
    "namn": "Samhällsvetenskapsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -1267,6 +2538,7 @@
     }
    },
    "namn": "Teknikprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 6,
    "forstaAr": 2017,
    "sistaAr": 2023,
@@ -1336,6 +2608,7 @@
     }
    },
    "namn": "Vård- och omsorgsprogrammet",
+   "skolaKort": "Aranäs",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -1405,6 +2678,7 @@
     }
    },
    "namn": "Barn- och fritidsprogrammet – Fritid och hälsa, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -1438,6 +2712,7 @@
     }
    },
    "namn": "Barn- och fritidsprogrammet – Pedagogiskt arbete, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2017,
    "sistaAr": 2020,
@@ -1489,6 +2764,7 @@
     }
    },
    "namn": "Barn- och fritidsprogrammet – Pedagogiskt och socialt arbete, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 6,
    "forstaAr": 2021,
    "sistaAr": 2026,
@@ -1522,6 +2798,7 @@
     }
    },
    "namn": "Barn- och fritidsprogrammet – Socialt arbete, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -1577,6 +2854,7 @@
     }
    },
    "namn": "Bygg- och anläggningsprogrammet – Anläggningsfordon, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 7,
    "forstaAr": 2017,
    "sistaAr": 2024,
@@ -1604,6 +2882,7 @@
     }
    },
    "namn": "Bygg- och anläggningsprogrammet – Byggnadsplåtslageri, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2025,
    "sistaAr": 2026,
@@ -1673,6 +2952,7 @@
     }
    },
    "namn": "Bygg- och anläggningsprogrammet – Husbyggnad, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -1742,6 +3022,7 @@
     }
    },
    "namn": "Bygg- och anläggningsprogrammet – Mark och anläggning, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 7,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -1811,6 +3092,7 @@
     }
    },
    "namn": "Bygg- och anläggningsprogrammet – Måleri, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -1868,6 +3150,7 @@
     }
    },
    "namn": "Bygg- och anläggningsprogrammet – Plåtslageri, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 6,
    "forstaAr": 2017,
    "sistaAr": 2023,
@@ -1937,6 +3220,7 @@
     }
    },
    "namn": "Ekonomiprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -2006,6 +3290,7 @@
     }
    },
    "namn": "El- och energiprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -2075,6 +3360,7 @@
     }
    },
    "namn": "Fordons- och transportprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -2102,6 +3388,7 @@
     }
    },
    "namn": "Fordons- och transportprogrammet – Fordonsskadeteknik och lackering, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2025,
    "sistaAr": 2026,
@@ -2135,6 +3422,7 @@
     }
    },
    "namn": "Fordons- och transportprogrammet – Godshantering, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 1,
    "forstaAr": 2020,
    "sistaAr": 2020,
@@ -2192,6 +3480,7 @@
     }
    },
    "namn": "Fordons- och transportprogrammet – Karosseri och lackering, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 6,
    "forstaAr": 2017,
    "sistaAr": 2024,
@@ -2261,6 +3550,7 @@
     }
    },
    "namn": "Fordons- och transportprogrammet – Lastbil och mobila maskiner, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 8,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -2330,6 +3620,7 @@
     }
    },
    "namn": "Fordons- och transportprogrammet – Personbil, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 8,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -2375,6 +3666,7 @@
     }
    },
    "namn": "Försäljnings- och serviceprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 5,
    "forstaAr": 2022,
    "sistaAr": 2026,
@@ -2408,6 +3700,7 @@
     }
    },
    "namn": "Försäljnings- och serviceprogrammet – Försäljnings- och serviceprogrammet, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 3,
    "forstaAr": 2022,
    "sistaAr": 2024,
@@ -2435,6 +3728,7 @@
     }
    },
    "namn": "Försäljnings- och serviceprogrammet – Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2025,
    "sistaAr": 2026,
@@ -2474,6 +3768,7 @@
     }
    },
    "namn": "Handels- och administrationsprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 4,
    "forstaAr": 2017,
    "sistaAr": 2021,
@@ -2513,6 +3808,7 @@
     }
    },
    "namn": "Handels- och administrationsprogrammet – Administrativ service, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 3,
    "forstaAr": 2019,
    "sistaAr": 2021,
@@ -2552,6 +3848,7 @@
     }
    },
    "namn": "Handels- och administrationsprogrammet – Handel och service, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 4,
    "forstaAr": 2017,
    "sistaAr": 2021,
@@ -2609,6 +3906,7 @@
     }
    },
    "namn": "Hantverksprogrammet – Florist, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 5,
    "forstaAr": 2019,
    "sistaAr": 2024,
@@ -2678,6 +3976,7 @@
     }
    },
    "namn": "Hotell- och turismprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -2711,6 +4010,7 @@
     }
    },
    "namn": "Hotell- och turismprogrammet – Hotell och konferens, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 3,
    "forstaAr": 2017,
    "sistaAr": 2020,
@@ -2762,6 +4062,7 @@
     }
    },
    "namn": "Hotell- och turismprogrammet – Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 6,
    "forstaAr": 2021,
    "sistaAr": 2026,
@@ -2795,6 +4096,7 @@
     }
    },
    "namn": "Hotell- och turismprogrammet – Turism och resor, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2019,
    "sistaAr": 2020,
@@ -2816,6 +4118,7 @@
     }
    },
    "namn": "Industritekniska programmet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 1,
    "forstaAr": 2017,
    "sistaAr": 2017,
@@ -2879,6 +4182,7 @@
     }
    },
    "namn": "Industritekniska programmet – Produkt och maskinteknik, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 6,
    "forstaAr": 2020,
    "sistaAr": 2026,
@@ -2942,6 +4246,7 @@
     }
    },
    "namn": "Industritekniska programmet – Svetsteknik, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 8,
    "forstaAr": 2019,
    "sistaAr": 2026,
@@ -2969,6 +4274,7 @@
     }
    },
    "namn": "Introduktionsprogram",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2025,
    "sistaAr": 2026,
@@ -3026,6 +4332,7 @@
     }
    },
    "namn": "Introduktionsprogram – Individuellt alternativ",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -3045,6 +4352,7 @@
     }
    },
    "namn": "Introduktionsprogram – Preparandutbildning",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -3064,6 +4372,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat individuellt val mot El och energiprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 1,
    "forstaAr": 2017,
    "sistaAr": 2017,
@@ -3085,6 +4394,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat individuellt val mot Fordons- och transportprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 1,
    "forstaAr": 2017,
    "sistaAr": 2017,
@@ -3106,6 +4416,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat individuellt val mot Handels- och administrationsprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 1,
    "forstaAr": 2017,
    "sistaAr": 2017,
@@ -3127,6 +4438,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat individuellt val mot Hotell- och turismprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 1,
    "forstaAr": 2017,
    "sistaAr": 2017,
@@ -3154,6 +4466,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat val; mot Fordons- och transportprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2019,
    "sistaAr": 2020,
@@ -3187,6 +4500,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat val; mot Försäljnings- och serviceprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 3,
    "forstaAr": 2022,
    "sistaAr": 2024,
@@ -3214,6 +4528,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat val; mot Handels- och administrationsprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2020,
    "sistaAr": 2021,
@@ -3259,6 +4574,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat val; mot Hotell- och turismprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 5,
    "forstaAr": 2020,
    "sistaAr": 2024,
@@ -3304,6 +4620,7 @@
     }
    },
    "namn": "Introduktionsprogram – Programinriktat val; mot Restaurang- och livsmedelsprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 3,
    "forstaAr": 2020,
    "sistaAr": 2024,
@@ -3325,6 +4642,7 @@
     }
    },
    "namn": "Introduktionsprogram – Restaurang och livsmedel",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 1,
    "forstaAr": 2026,
    "sistaAr": 2026,
@@ -3358,6 +4676,7 @@
     }
    },
    "namn": "Introduktionsprogram – Språkintroduktion",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -3377,6 +4696,7 @@
     }
    },
    "namn": "Introduktionsprogram – Yrkesintroduktion, Individbaserad",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -3420,6 +4740,7 @@
     }
    },
    "namn": "Introduktionsprogram – Yrkesintroduktion, för enskild",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -3469,6 +4790,7 @@
     }
    },
    "namn": "Introduktionsprogram – Yrkesintroduktion; mot Restaurang- och livsmedelsprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 6,
    "forstaAr": 2019,
    "sistaAr": 2024,
@@ -3520,6 +4842,7 @@
     }
    },
    "namn": "Naturbruksprogrammet – Djurvård, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 6,
    "forstaAr": 2021,
    "sistaAr": 2026,
@@ -3547,6 +4870,7 @@
     }
    },
    "namn": "Naturbruksprogrammet – Hästhållning",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2023,
    "sistaAr": 2024,
@@ -3574,6 +4898,7 @@
     }
    },
    "namn": "Naturbruksprogrammet – Hästhållning, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 2,
    "forstaAr": 2025,
    "sistaAr": 2026,
@@ -3619,6 +4944,7 @@
     }
    },
    "namn": "Naturvetenskapsprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 5,
    "forstaAr": 2017,
    "sistaAr": 2022,
@@ -3640,6 +4966,7 @@
     }
    },
    "namn": "Naturvetenskapsprogrammet – Särskild variant inom det estetiska området, bild",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -3659,6 +4986,7 @@
     }
    },
    "namn": "Naturvetenskapsprogrammet – Särskild variant inom det estetiska området, musik",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -3678,6 +5006,7 @@
     }
    },
    "namn": "Naturvetenskapsprogrammet – Särskild variant inom det estetiska området, teater",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 1,
    "forstaAr": 2022,
    "sistaAr": 2022,
@@ -3729,6 +5058,7 @@
     }
    },
    "namn": "Restaurang- och livsmedelsprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 6,
    "forstaAr": 2019,
    "sistaAr": 2024,
@@ -3750,6 +5080,7 @@
     }
    },
    "namn": "Restaurang- och livsmedelsprogrammet – Bageri",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 0,
    "forstaAr": null,
    "sistaAr": null,
@@ -3817,6 +5148,7 @@
     }
    },
    "namn": "Restaurang- och livsmedelsprogrammet – Bageri och konditori, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 8,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -3850,6 +5182,7 @@
     }
    },
    "namn": "Restaurang- och livsmedelsprogrammet – Färskvaror, delikatesser och catering, lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 1,
    "forstaAr": 2019,
    "sistaAr": 2019,
@@ -3919,6 +5252,7 @@
     }
    },
    "namn": "Restaurang- och livsmedelsprogrammet – Kök och servering, Lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -3982,6 +5316,7 @@
     }
    },
    "namn": "Teknikprogrammet",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 8,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -4051,6 +5386,7 @@
     }
    },
    "namn": "Vård- och omsorgsprogrammet – Anställd lärling",
+   "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 9,
    "forstaAr": 2017,
    "sistaAr": 2026,
@@ -4061,406 +5397,194 @@
  ],
  "sammanfattning": [
   {
-   "skola": "Aranäsgymnasiet",
    "ar": 2017,
-   "antal": 11,
-   "medel": 231.54,
-   "lagsta": 189.75,
-   "hogsta": 293.26,
-   "antalUtbildningar": 12,
-   "allaAntagna": 5,
-   "medGrans": 6,
-   "ovrigt": 1,
-   "markor": "fotnot"
-  },
-  {
-   "skola": "Aranäsgymnasiet",
-   "ar": 2019,
-   "antal": 9,
-   "medel": 245.18,
-   "lagsta": 196.66,
-   "hogsta": 313.65,
-   "antalUtbildningar": 10,
-   "allaAntagna": 3,
-   "medGrans": 6,
-   "ovrigt": 1,
-   "markor": "fotnot"
-  },
-  {
-   "skola": "Aranäsgymnasiet",
-   "ar": 2020,
-   "antal": 9,
-   "medel": 243.12,
-   "lagsta": 201.4,
-   "hogsta": 311.11,
-   "antalUtbildningar": 10,
-   "allaAntagna": 5,
-   "medGrans": 4,
-   "ovrigt": 1,
-   "markor": "fotnot"
-  },
-  {
-   "skola": "Aranäsgymnasiet",
-   "ar": 2021,
-   "antal": 9,
-   "medel": 247.28,
-   "lagsta": 207.82,
-   "hogsta": 309.25,
-   "antalUtbildningar": 10,
-   "allaAntagna": 5,
-   "medGrans": 4,
-   "ovrigt": 1,
-   "markor": "fotnot"
-  },
-  {
-   "skola": "Aranäsgymnasiet",
-   "ar": 2022,
-   "antal": 11,
-   "medel": 244.06,
-   "lagsta": 190.15,
-   "hogsta": 332.5,
-   "antalUtbildningar": 13,
-   "allaAntagna": 6,
-   "medGrans": 5,
-   "ovrigt": 2,
-   "markor": "fotnot"
-  },
-  {
-   "skola": "Aranäsgymnasiet",
-   "ar": 2023,
-   "antal": 11,
-   "medel": 258.43,
-   "lagsta": 193.04,
-   "hogsta": 321.87,
-   "antalUtbildningar": 12,
-   "allaAntagna": 5,
-   "medGrans": 6,
-   "ovrigt": 1,
-   "markor": "fotnot"
-  },
-  {
-   "skola": "Aranäsgymnasiet",
-   "ar": 2024,
-   "antal": 11,
-   "medel": 253.64,
-   "lagsta": 182.04,
-   "hogsta": 320.0,
-   "antalUtbildningar": 12,
-   "allaAntagna": 7,
-   "medGrans": 4,
-   "ovrigt": 1,
-   "markor": "fotnot"
-  },
-  {
-   "skola": "Aranäsgymnasiet",
-   "ar": 2025,
-   "antal": 11,
-   "medel": 246.5,
-   "lagsta": 187.91,
-   "hogsta": 298.75,
-   "antalUtbildningar": 11,
-   "allaAntagna": 3,
-   "medGrans": 8,
-   "ovrigt": 0,
-   "markor": "fetstil"
-  },
-  {
-   "skola": "Aranäsgymnasiet",
-   "ar": 2026,
-   "antal": 11,
-   "medel": 248.0,
-   "lagsta": 179.11,
-   "hogsta": 310.0,
-   "antalUtbildningar": 11,
-   "allaAntagna": 1,
-   "medGrans": 10,
-   "ovrigt": 0,
-   "markor": "fetstil"
-  },
-  {
-   "skola": "Elof Lindälvs gymnasium",
-   "ar": 2017,
-   "antal": 23,
-   "medel": 194.86,
+   "antal": 34,
+   "medel": 206.73,
    "lagsta": 105.0,
-   "hogsta": 269.56,
-   "antalUtbildningar": 29,
-   "allaAntagna": 16,
-   "medGrans": 7,
-   "ovrigt": 6,
-   "markor": "fotnot"
-  },
-  {
-   "skola": "Elof Lindälvs gymnasium",
-   "ar": 2019,
-   "antal": 24,
-   "medel": 198.42,
-   "lagsta": 152.5,
-   "hogsta": 269.14,
-   "antalUtbildningar": 31,
-   "allaAntagna": 17,
-   "medGrans": 7,
+   "hogsta": 293.26,
+   "antalUtbildningar": 41,
+   "allaAntagna": 21,
+   "medGrans": 13,
    "ovrigt": 7,
    "markor": "fotnot"
   },
   {
-   "skola": "Elof Lindälvs gymnasium",
+   "ar": 2019,
+   "antal": 33,
+   "medel": 211.17,
+   "lagsta": 152.5,
+   "hogsta": 313.65,
+   "antalUtbildningar": 41,
+   "allaAntagna": 20,
+   "medGrans": 13,
+   "ovrigt": 8,
+   "markor": "fotnot"
+  },
+  {
    "ar": 2020,
-   "antal": 28,
-   "medel": 190.02,
+   "antal": 37,
+   "medel": 202.94,
    "lagsta": 127.5,
-   "hogsta": 257.13,
-   "antalUtbildningar": 31,
-   "allaAntagna": 24,
-   "medGrans": 4,
-   "ovrigt": 3,
+   "hogsta": 311.11,
+   "antalUtbildningar": 41,
+   "allaAntagna": 29,
+   "medGrans": 8,
+   "ovrigt": 4,
    "markor": "fotnot"
   },
   {
-   "skola": "Elof Lindälvs gymnasium",
    "ar": 2021,
-   "antal": 26,
-   "medel": 185.7,
+   "antal": 35,
+   "medel": 201.53,
    "lagsta": 135.0,
-   "hogsta": 266.16,
-   "antalUtbildningar": 28,
-   "allaAntagna": 17,
-   "medGrans": 9,
-   "ovrigt": 2,
-   "markor": "fotnot"
-  },
-  {
-   "skola": "Elof Lindälvs gymnasium",
-   "ar": 2022,
-   "antal": 28,
-   "medel": 205.18,
-   "lagsta": 131.0,
-   "hogsta": 325.0,
-   "antalUtbildningar": 31,
-   "allaAntagna": 15,
+   "hogsta": 309.25,
+   "antalUtbildningar": 38,
+   "allaAntagna": 22,
    "medGrans": 13,
    "ovrigt": 3,
    "markor": "fotnot"
   },
   {
-   "skola": "Elof Lindälvs gymnasium",
-   "ar": 2023,
-   "antal": 25,
-   "medel": 198.14,
-   "lagsta": 120.0,
-   "hogsta": 316.25,
-   "antalUtbildningar": 26,
-   "allaAntagna": 11,
-   "medGrans": 14,
-   "ovrigt": 1,
+   "ar": 2022,
+   "antal": 39,
+   "medel": 216.15,
+   "lagsta": 131.0,
+   "hogsta": 332.5,
+   "antalUtbildningar": 44,
+   "allaAntagna": 21,
+   "medGrans": 18,
+   "ovrigt": 5,
    "markor": "fotnot"
   },
   {
-   "skola": "Elof Lindälvs gymnasium",
-   "ar": 2024,
-   "antal": 25,
-   "medel": 192.83,
-   "lagsta": 112.5,
-   "hogsta": 268.39,
-   "antalUtbildningar": 27,
+   "ar": 2023,
+   "antal": 36,
+   "medel": 216.56,
+   "lagsta": 120.0,
+   "hogsta": 321.87,
+   "antalUtbildningar": 38,
    "allaAntagna": 16,
-   "medGrans": 9,
+   "medGrans": 20,
    "ovrigt": 2,
    "markor": "fotnot"
   },
   {
-   "skola": "Elof Lindälvs gymnasium",
+   "ar": 2024,
+   "antal": 36,
+   "medel": 211.41,
+   "lagsta": 112.5,
+   "hogsta": 320.0,
+   "antalUtbildningar": 39,
+   "allaAntagna": 23,
+   "medGrans": 13,
+   "ovrigt": 3,
+   "markor": "fotnot"
+  },
+  {
    "ar": 2025,
-   "antal": 24,
-   "medel": 214.58,
+   "antal": 35,
+   "medel": 224.61,
    "lagsta": 137.5,
-   "hogsta": 281.25,
-   "antalUtbildningar": 24,
-   "allaAntagna": 1,
-   "medGrans": 23,
+   "hogsta": 298.75,
+   "antalUtbildningar": 35,
+   "allaAntagna": 4,
+   "medGrans": 31,
    "ovrigt": 0,
    "markor": "fetstil"
   },
   {
-   "skola": "Elof Lindälvs gymnasium",
    "ar": 2026,
-   "antal": 24,
-   "medel": 209.71,
+   "antal": 35,
+   "medel": 221.75,
    "lagsta": 141.25,
-   "hogsta": 282.45,
-   "antalUtbildningar": 24,
-   "allaAntagna": 0,
-   "medGrans": 24,
+   "hogsta": 310.0,
+   "antalUtbildningar": 35,
+   "allaAntagna": 1,
+   "medGrans": 34,
    "ovrigt": 0,
    "markor": "fetstil"
   }
  ],
  "perTyp": [
   {
-   "skola": "Aranäsgymnasiet",
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
-     "medel": 242.71,
-     "antal": 8
+     "medel": 247.48,
+     "antal": 11
     },
     "2019": {
-     "medel": 266.11,
-     "antal": 6
-    },
-    "2020": {
-     "medel": 261.86,
-     "antal": 6
-    },
-    "2021": {
-     "medel": 265.19,
-     "antal": 6
-    },
-    "2022": {
-     "medel": 260.82,
-     "antal": 8
-    },
-    "2023": {
-     "medel": 272.4,
+     "medel": 262.99,
      "antal": 9
     },
+    "2020": {
+     "medel": 258.46,
+     "antal": 9
+    },
+    "2021": {
+     "medel": 260.79,
+     "antal": 9
+    },
+    "2022": {
+     "medel": 264.23,
+     "antal": 12
+    },
+    "2023": {
+     "medel": 270.73,
+     "antal": 10
+    },
     "2024": {
-     "medel": 275.43,
-     "antal": 8
+     "medel": 272.34,
+     "antal": 10
     },
     "2025": {
-     "medel": 262.22,
-     "antal": 8
+     "medel": 263.14,
+     "antal": 10
     },
     "2026": {
-     "medel": 267.81,
-     "antal": 8
+     "medel": 268.85,
+     "antal": 10
     }
    }
   },
   {
-   "skola": "Aranäsgymnasiet",
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
-     "medel": 201.75,
-     "antal": 3
+     "medel": 187.23,
+     "antal": 23
     },
     "2019": {
-     "medel": 203.31,
-     "antal": 3
+     "medel": 191.74,
+     "antal": 24
     },
     "2020": {
-     "medel": 205.63,
-     "antal": 3
+     "medel": 185.09,
+     "antal": 28
     },
     "2021": {
-     "medel": 211.45,
-     "antal": 3
+     "medel": 181.02,
+     "antal": 26
     },
     "2022": {
-     "medel": 199.37,
-     "antal": 3
+     "medel": 194.78,
+     "antal": 27
     },
     "2023": {
-     "medel": 195.56,
-     "antal": 2
+     "medel": 195.73,
+     "antal": 26
     },
     "2024": {
-     "medel": 195.56,
-     "antal": 3
+     "medel": 187.98,
+     "antal": 26
     },
     "2025": {
-     "medel": 204.57,
-     "antal": 3
-    },
-    "2026": {
-     "medel": 195.18,
-     "antal": 3
-    }
-   }
-  },
-  {
-   "skola": "Elof Lindälvs gymnasium",
-   "typ": "hogskoleforberedande",
-   "varden": {
-    "2017": {
-     "medel": 260.22,
-     "antal": 3
-    },
-    "2019": {
-     "medel": 256.75,
-     "antal": 3
-    },
-    "2020": {
-     "medel": 251.67,
-     "antal": 3
-    },
-    "2021": {
-     "medel": 251.97,
-     "antal": 3
-    },
-    "2022": {
-     "medel": 271.04,
-     "antal": 4
-    },
-    "2023": {
-     "medel": 255.66,
-     "antal": 1
-    },
-    "2024": {
-     "medel": 259.97,
-     "antal": 2
-    },
-    "2025": {
-     "medel": 266.82,
-     "antal": 2
-    },
-    "2026": {
-     "medel": 273.01,
-     "antal": 2
-    }
-   }
-  },
-  {
-   "skola": "Elof Lindälvs gymnasium",
-   "typ": "yrkesprogram",
-   "varden": {
-    "2017": {
-     "medel": 185.05,
-     "antal": 20
-    },
-    "2019": {
-     "medel": 190.08,
-     "antal": 21
-    },
-    "2020": {
-     "medel": 182.63,
+     "medel": 209.2,
      "antal": 25
     },
-    "2021": {
-     "medel": 177.05,
-     "antal": 23
-    },
-    "2022": {
-     "medel": 194.21,
-     "antal": 24
-    },
-    "2023": {
-     "medel": 195.75,
-     "antal": 24
-    },
-    "2024": {
-     "medel": 186.99,
-     "antal": 23
-    },
-    "2025": {
-     "medel": 209.83,
-     "antal": 22
-    },
     "2026": {
-     "medel": 203.96,
-     "antal": 22
+     "medel": 202.9,
+     "antal": 25
     }
    }
   }
