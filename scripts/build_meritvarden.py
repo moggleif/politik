@@ -100,7 +100,8 @@ INRIKTNING_ALIAS = {
 # och inriktningens namn som det stod förr (normaliserat); värdet är namnet
 # som gäller i dag. Två rader kan peka på samma nya namn: 2021 års reform
 # slog ihop pedagogiskt och socialt arbete till en inriktning, och på samma
-# sätt hotell- och turismprogrammets två lärlingsspår.
+# sätt hotell- och turismprogrammets och försäljnings- och service-
+# programmets lärlingsspår.
 #
 # Till skillnad från programnamnen förs de gamla raderna INTE ihop till en
 # rad i utbildningslistan. Där ska varje rad stå kvar som rapporten skrev
@@ -117,6 +118,10 @@ INRIKTNING_BYTT_NAMN = {
         "Byggnadsplåtslageri, Lärling",
     ("Fordons- och transportprogrammet", "karosseri och lackering larling"):
         "Fordonsskadeteknik och lackering, Lärling",
+    # Programmets lärlingsspår hette efter sina inriktningar så länge det var
+    # Handels- och administrationsprogrammet; sedan 2022 finns bara ett spår.
+    ("Försäljnings- och serviceprogrammet", "handel och service larling"): "Lärling",
+    ("Försäljnings- och serviceprogrammet", "administrativ service larling"): "Lärling",
     ("Hotell- och turismprogrammet", "hotell och konferens larling"): "Lärling",
     ("Hotell- och turismprogrammet", "turism och resor larling"): "Lärling",
     ("Naturbruksprogrammet", "hasthallning"): "Hästhållning, Lärling",
