@@ -598,30 +598,101 @@
     el("sektion-spagetti").hidden = false;
   }
 
-  /* ---------- Enbart utfallet, för granskning ---------- */
+  /* ---------- Enbart utfallet, inzoomat ---------- */
 
   function initUtfall(data) {
-    /* Samma period som diagrammet ovan, så tabellen går att läsa mot det. */
+    /* Samma period som spagettidiagrammet, men utan prognoserna. Där måste
+       skalan rymma alla prognoser, vilket trycker ihop utfallskurvan; här
+       följer skalan utfallet så att förändringarna syns. */
     var ar = arsfonster(data).filter(function (a) {
       return data.utfall[String(a)] !== undefined;
     });
-    if (!ar.length) return;
+    if (ar.length < 2) return;
+
+    var varden = ar.map(function (a) { return data.utfall[String(a)]; });
+
+    var ctx = el("diagram-utfall");
+    ctx.parentElement.style.height = "360px";
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ar.map(String),
+        datasets: [{
+          label: "Faktiskt utfall (SCB)",
+          data: varden,
+          borderColor: FARG.ink,
+          backgroundColor: FARG.ink,
+          borderWidth: 3,
+          pointRadius: 4,
+          pointHoverRadius: 7,
+          pointBorderColor: FARG.surface,
+          pointBorderWidth: 2,
+          tension: 0.1
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: false },   // en enda serie – rubriken säger vad det är
+          tooltip: {
+            callbacks: {
+              title: function (it) { return "År " + it[0].label; },
+              label: function (it) {
+                var i = it.dataIndex;
+                var forra = i === 0
+                  ? data.utfall[String(ar[0] - 1)]
+                  : varden[i - 1];
+                var rader = [talSv(it.parsed.y) + " " + ENHET];
+                if (forra !== undefined) {
+                  var d = it.parsed.y - forra;
+                  rader.push((d >= 0 ? "+" : "−") + talSv(Math.abs(d)) +
+                    " mot året innan");
+                }
+                return rader;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            border: { color: FARG.baseline },
+            ticks: { maxRotation: 0, autoSkipPadding: 12 }
+          },
+          y: {
+            title: { display: true, text: ENHET_LANG, color: FARG.muted },
+            grid: { color: FARG.grid },
+            border: { color: FARG.baseline },
+            beginAtZero: false,
+            grace: "12%",   // luft runt kurvan, men låt skalan välja runda tal
+            ticks: { callback: function (v) { return talSv(v); } }
+          }
+        }
+      }
+    });
+
+    el("kalla-utfall").textContent =
+      data.utfallMeta.matt + " enligt " + data.utfallMeta.kalla +
+      ". Skalan börjar inte på noll, utan följer utfallet – det gör små " +
+      "förändringar synliga, men får dem också att se större ut.";
 
     var t = "<caption>" + (data.serie ? data.serie + ". " : "") +
-      data.utfallMeta.matt + " enligt " + data.utfallMeta.kalla +
-      ". Hämtad " + data.utfallMeta.hamtad + ".</caption>";
+      data.utfallMeta.matt + " enligt SCB. Hämtad " + data.utfallMeta.hamtad +
+      ".</caption>";
     t += "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Antal</th>" +
       "<th scope=\"col\">Förändring</th></tr></thead><tbody>";
     ar.forEach(function (a, i) {
-      var v = data.utfall[String(a)];
-      var forra = i === 0 ? data.utfall[String(a - 1)] : data.utfall[String(ar[i - 1])];
-      var d = forra === undefined ? null : v - forra;
-      t += "<tr><td>" + a + "</td><td>" + talSv(v) + "</td><td>" +
+      var forra = i === 0 ? data.utfall[String(a - 1)] : varden[i - 1];
+      var d = forra === undefined ? null : varden[i] - forra;
+      t += "<tr><td>" + a + "</td><td>" + talSv(varden[i]) + "</td><td>" +
         (d === null ? "–" : (d >= 0 ? "+" : "−") + talSv(Math.abs(d))) +
         "</td></tr>";
     });
     t += "</tbody>";
     el("tabell-utfall").innerHTML = t;
+    el("sektion-utfall").hidden = false;
   }
 
   /* ---------- Källor ---------- */
