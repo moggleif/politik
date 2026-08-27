@@ -23,8 +23,12 @@ data/
   scb/folkmangd_kungsbacka.json Faktisk folkmängd, hämtad från SCB:s öppna API
   KALLOR.md                     Dokumentation av var varje rapport hittades
 scripts/
-  fetch_scb.py                  Hämtar faktisk folkmängd från SCB (PxWeb-API)
-  build_data.py                 Bygger docs/data.json av innehållet i data/
+  fetch_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API),
+                                både total folkmängd och åldersgrupper
+  extrahera_prognos.py          Läser folkmängdstabellen ur en fristående
+                                prognosrapport
+  extrahera_budget.py           Läser prognostabellen ur en kommunbudget
+  build_data.py                 Bygger docs/data.json och docs/data-16-19.json
 docs/                           Själva hemsidan (serveras av GitHub Pages)
   index.html                    Hela befolkningen
   gymnasiealdern.html           Åldersgruppen 16–19 år
