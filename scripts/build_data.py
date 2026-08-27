@@ -70,20 +70,39 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str) -> dict:
     prognoser.sort(key=lambda p: p["prognosAr"])
 
     # Träffsäkerhet per avstånd (0 år = prognosens eget startår, 1 år i förväg, ...)
+    #
+    # Två olika mått, och skillnaden är själva poängen:
+    #   medelAbsPct  hur STORT felet är (riktningen borträknad)
+    #   medelPct     åt vilket HÅLL felet lutar, med tecken
+    # Slumpmässiga fel tar ut varandra och ger medelPct nära noll. Ligger
+    # medelPct tydligt skilt från noll är felet systematiskt, alltså något
+    # en modell kan korrigera för.
     per_avstand = {}
     for p in prognoser:
         for a in p["avvikelser"].values():
-            per_avstand.setdefault(a["avstand"], []).append(abs(a["pct"]))
+            per_avstand.setdefault(a["avstand"], []).append(a["pct"])
     avstand_lista = [
         {
             "avstand": avst,
-            "medelAbsPct": round(sum(v) / len(v), 2),
-            "maxAbsPct": round(max(v), 2),
+            "medelAbsPct": round(sum(abs(x) for x in v) / len(v), 2),
+            "maxAbsPct": round(max(abs(x) for x in v), 2),
+            "medelPct": round(sum(v) / len(v), 2),
+            "antalOver": sum(1 for x in v if x > 0),
             "antal": len(v),
         }
         for avst, v in sorted(per_avstand.items())
         if avst >= 0
     ]
+
+    alla = [a["pct"] for p in prognoser for a in p["avvikelser"].values()]
+    skevhet = None
+    if alla:
+        skevhet = {
+            "antal": len(alla),
+            "antalOver": sum(1 for x in alla if x > 0),
+            "medelPct": round(sum(alla) / len(alla), 2),
+            "medelAbsPct": round(sum(abs(x) for x in alla) / len(alla), 2),
+        }
 
     return {
         "kommun": scb["kommun"],
@@ -97,6 +116,7 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str) -> dict:
         },
         "prognoser": prognoser,
         "perAvstand": avstand_lista,
+        "skevhet": skevhet,
     }
 
 
