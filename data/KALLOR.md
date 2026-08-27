@@ -309,7 +309,8 @@ har i dag. Tabellen står i `INRIKTNING_BYTT_NAMN` i
 Karosseri och lackering blev Fordonsskadeteknik och lackering, Plåtslageri
 blev Byggnadsplåtslageri, Hästhållning fick lärlingsmarkering, barn- och
 fritidsprogrammets Pedagogiskt arbete och Socialt arbete blev en enda
-inriktning, och hotell- och turismprogrammets två lärlingsspår blev ett.
+inriktning, och lärlingsspåren på hotell- och turismprogrammet respektive
+försäljnings- och serviceprogrammet blev ett spår var.
 
 Till skillnad från programnamnen förs de gamla raderna **inte** ihop i
 utbildningslistan. Där står varje rad kvar som rapporten skrev den, med sin
