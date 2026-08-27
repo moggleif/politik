@@ -263,11 +263,14 @@
       Object.keys(p.prognos).forEach(function (a) { allaAr[a] = true; });
     });
     var ar = Object.keys(allaAr).map(Number).sort(function (a, b) { return a - b; });
-    /* Begränsa till ett läsbart fönster: från fem år före första prognosen */
+    /* Läsbart fönster: börja vid den tidigaste prognosen, men visa alltid
+       minst tio års faktisk utveckling som bakgrund. */
     var forstaPrognosAr = data.prognoser.length
       ? Math.min.apply(null, data.prognoser.map(function (p) { return p.prognosAr; }))
       : ar[0];
-    ar = ar.filter(function (a) { return a >= forstaPrognosAr - 5; });
+    var sistaUtfallsAr = Math.max.apply(null, utfallAr);
+    var start = Math.min(forstaPrognosAr, sistaUtfallsAr - 10);
+    ar = ar.filter(function (a) { return a >= start; });
 
     var dataset = [];
     data.prognoser.forEach(function (p) {
@@ -414,6 +417,15 @@
           "Prognossiffrorna håller på att samlas in. Titta gärna tillbaka snart.");
         if (data.utfallMeta) initKallor(data);
         return;
+      }
+      var antalJamforelser = data.prognoser.reduce(function (n, p) {
+        return n + Object.keys(p.avvikelser || {}).length;
+      }, 0);
+      if (!antalJamforelser) {
+        visaStatus("<strong>Jämförelserna är inte klara ännu.</strong> För att kunna " +
+          "visa hur väl prognoserna slagit in behövs äldre prognosrapporter, som " +
+          "gäller år där facit redan finns. De samlas in nu. Så länge visas " +
+          "kommunens senaste prognos tillsammans med den faktiska utvecklingen.");
       }
       initMalar(data);
       initAvstand(data);
