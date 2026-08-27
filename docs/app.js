@@ -276,6 +276,111 @@
     el("sektion-avstand").hidden = false;
   }
 
+  /* ---------- Sektion 2b: Systematisk skevhet ---------- */
+
+  function initSkevhet(data) {
+    var sk = data.skevhet, rader = data.perAvstand;
+    if (!sk || !rader || !rader.length) return;
+
+    var ctx = el("diagram-skevhet");
+    ctx.parentElement.style.height = "340px";
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: rader.map(function (r) {
+          return r.avstand === 0 ? "Samma år" : r.avstand + " år före";
+        }),
+        datasets: [{
+          data: rader.map(function (r) { return r.medelPct; }),
+          backgroundColor: rader.map(function (r) {
+            return r.medelPct >= 0 ? FARG.rod : FARG.bla;
+          }),
+          borderRadius: 4,
+          borderSkipped: "start",
+          maxBarThickness: 24
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function (it) {
+                var r = rader[it.dataIndex];
+                return [
+                  "Genomsnittligt fel: " + (r.medelPct >= 0 ? "+" : "−") +
+                    talSv(Math.abs(r.medelPct), 1) + " %",
+                  r.antalOver + " av " + r.antal + " prognoser låg för högt"
+                ];
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: { display: true, text: "Hur långt i förväg prognosen gjordes", color: FARG.muted },
+            grid: { display: false },
+            border: { color: FARG.baseline }
+          },
+          y: {
+            title: { display: true, text: "Genomsnittligt fel, med riktning", color: FARG.muted },
+            grid: { color: FARG.grid },
+            border: { color: FARG.baseline },
+            ticks: {
+              callback: function (v) { return (v > 0 ? "+" : "") + talSv(v, 1) + " %"; }
+            }
+          }
+        }
+      }
+    });
+
+    el("kalla-skevhet").textContent =
+      "Staplar över nollstrecket = prognosen låg för högt, under = för lågt. " +
+      "Slumpmässiga fel skulle ge staplar på båda sidor, nära noll.";
+
+    var over = sk.antalOver, n = sk.antal, under = n - over;
+    var dominans = Math.max(over, under);
+    var hall = over >= under ? "för högt" : "för lågt";
+    var systematiskt = dominans >= Math.ceil(n * 0.75);
+
+    var html = "<p><strong>" + dominans + " av " + n + "</strong> jämförelser " +
+      "ligger " + hall + ". Vore felen slumpmässiga skulle ungefär hälften " +
+      "hamna på var sida.</p>";
+    html += "<p>Genomsnittet över alla prognoser är <strong>" +
+      (sk.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(sk.medelPct), 1) +
+      " %</strong>. En modell utan systematisk skevhet skulle landa nära noll.</p>";
+    html += "<p>" + (systematiskt
+      ? "Felet drar alltså konsekvent åt samma håll. Ett sådant fel kallas " +
+        "systematiskt, och skiljer sig från slumpmässigt fel på en avgörande " +
+        "punkt: det går att räkna bort. Den som tar fram prognosen kan mäta " +
+        "skevheten mot tidigare utfall och justera modellens antaganden."
+      : "Felen fördelar sig åt båda håll, vilket tyder på slumpmässig " +
+        "spridning snarare än en systematisk skevhet i modellen.") + "</p>";
+
+    if (n < 10) {
+      html += "<p><strong>Läs med försiktighet:</strong> slutsatsen bygger på " +
+        n + " jämförelser. Riktningen är tydlig, men underlaget är litet.</p>";
+    }
+    el("slutsats-skevhet").innerHTML = html;
+
+    var t = "<caption>Genomsnittligt fel med riktning, per antal år i förväg. " +
+      "Plus betyder att prognosen låg för högt.</caption>";
+    t += "<thead><tr><th scope=\"col\">Hur långt i förväg</th>" +
+      "<th scope=\"col\">Genomsnittligt fel</th>" +
+      "<th scope=\"col\">Antal för höga</th>" +
+      "<th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
+    rader.forEach(function (r) {
+      t += "<tr><td>" + (r.avstand === 0 ? "Samma år" : r.avstand + " år före") +
+        "</td><td>" + (r.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) +
+        " %</td><td>" + r.antalOver + "</td><td>" + r.antal + "</td></tr>";
+    });
+    t += "</tbody>";
+    el("tabell-skevhet").innerHTML = t;
+    el("sektion-skevhet").hidden = false;
+  }
+
   /* ---------- Sektion 3: Spagettidiagram ---------- */
 
   function initSpagetti(data) {
@@ -476,6 +581,7 @@
       }
       initMalar(data);
       initAvstand(data);
+      initSkevhet(data);
       initSpagetti(data);
       initKallor(data);
     })
