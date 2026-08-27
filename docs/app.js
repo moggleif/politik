@@ -351,13 +351,63 @@
     html += "<p>Genomsnittet över alla prognoser är <strong>" +
       (sk.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(sk.medelPct), 1) +
       " %</strong>. En modell utan systematisk skevhet skulle landa nära noll.</p>";
-    html += "<p>" + (systematiskt
-      ? "Felet drar alltså konsekvent åt samma håll. Ett sådant fel kallas " +
-        "systematiskt, och skiljer sig från slumpmässigt fel på en avgörande " +
-        "punkt: det går att räkna bort. Den som tar fram prognosen kan mäta " +
-        "skevheten mot tidigare utfall och justera modellens antaganden."
-      : "Felen fördelar sig åt båda håll, vilket tyder på slumpmässig " +
-        "spridning snarare än en systematisk skevhet i modellen.") + "</p>";
+    var arg = data.perArgang || [];
+    var skiftar = sk.bytterRiktning && arg.length > 1;
+
+    if (systematiskt) {
+      html += "<p>Felet drar alltså konsekvent åt samma håll. Ett sådant fel " +
+        "kallas systematiskt, och skiljer sig från slumpmässigt fel på en " +
+        "avgörande punkt: det går att räkna bort. Den som tar fram prognosen " +
+        "kan mäta skevheten mot tidigare utfall och justera modellens " +
+        "antaganden.</p>";
+    } else if (skiftar) {
+      html += "<p>Felen går inte alla åt samma håll, men de är inte heller " +
+        "slumpmässiga: de följer ett mönster över tid. Se nästa stycke.</p>";
+    } else {
+      html += "<p>Felen fördelar sig åt båda håll utan tydligt mönster, " +
+        "vilket tyder på slumpmässig spridning snarare än en systematisk " +
+        "skevhet i modellen.</p>";
+    }
+
+    /* Har skevheten bytt riktning över tid? Det är ett annat fel än en
+       konstant lutning, och kräver en annan åtgärd. */
+    if (skiftar) {
+      var lag = arg.filter(function (r) { return r.medelPct < 0; });
+      var hog = arg.filter(function (r) { return r.medelPct > 0; });
+      html += "<p><strong>Riktningen har skiftat.</strong> Prognoserna från " +
+        lag.map(function (r) { return r.prognosAr; }).join(", ") +
+        " låg för lågt, medan de från " +
+        hog.map(function (r) { return r.prognosAr; }).join(", ") +
+        " låg för högt. Det talar för att modellen skriver fram den utveckling " +
+        "som varit och därför missar vändpunkter &ndash; åt båda hållen. Ett " +
+        "sådant fel försvinner inte genom att lägga på en fast korrigering; " +
+        "det är känsligheten för trendbrott som behöver ses över.</p>";
+    }
+
+    /* Har modellen blivit bättre? Bara jämförbart vid samma horisont –
+       en gammal årgång har utvärderats många år framåt, en ny bara på
+       kort sikt, så medelvärdena i sig går inte att ställa mot varandra. */
+    var ett = arg.filter(function (r) { return r.ettArPct !== null && r.ettArPct !== undefined; });
+    if (ett.length >= 4) {
+      var varst = ett.reduce(function (a, b) {
+        return Math.abs(b.ettArPct) > Math.abs(a.ettArPct) ? b : a;
+      });
+      var senast = ett[ett.length - 1];
+      var tecken = function (v) { return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), 1) + " %"; };
+      html += "<p><strong>Har det blivit bättre?</strong> För att svara måste " +
+        "man jämföra prognoser på samma sikt &ndash; en gammal prognos har " +
+        "hunnit prövas många år framåt, en ny bara på kort sikt. Ser man bara " +
+        "på hur fel prognoserna slagit <em>ett år framåt</em>, var " +
+        varst.prognosAr + " års prognos sämst (" + tecken(varst.ettArPct) +
+        ") och " + senast.prognosAr + " års senast mätbar (" +
+        tecken(senast.ettArPct) + "). " +
+        (Math.abs(senast.ettArPct) < Math.abs(varst.ettArPct)
+          ? "Felet har alltså minskat" +
+            (senast.ettArPct * varst.ettArPct > 0
+              ? ", men lutar fortfarande åt samma håll."
+              : " och bytt riktning.")
+          : "Felet har alltså inte minskat.") + "</p>";
+    }
 
     if (n < 10) {
       html += "<p><strong>Läs med försiktighet:</strong> slutsatsen bygger på " +
@@ -377,6 +427,22 @@
         " %</td><td>" + r.antalOver + "</td><td>" + r.antal + "</td></tr>";
     });
     t += "</tbody>";
+    if (arg.length) {
+      t += "<thead><tr><th scope=\"col\">Prognos gjord år</th>" +
+        "<th scope=\"col\">Fel ett år framåt</th>" +
+        "<th scope=\"col\">Genomsnitt, alla år</th>" +
+        "<th scope=\"col\">Prövad t.o.m.</th></tr></thead><tbody>";
+      arg.forEach(function (r) {
+        var e = (r.ettArPct === null || r.ettArPct === undefined)
+          ? "–"
+          : (r.ettArPct >= 0 ? "+" : "−") + talSv(Math.abs(r.ettArPct), 1) + " %";
+        t += "<tr><td>" + r.prognosAr + "</td><td>" + e + "</td><td>" +
+          (r.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) +
+          " %</td><td>" + (r.maxAvstand === 0 ? "samma år" : r.maxAvstand + " år framåt") +
+          "</td></tr>";
+      });
+      t += "</tbody>";
+    }
     el("tabell-skevhet").innerHTML = t;
     el("sektion-skevhet").hidden = false;
   }
