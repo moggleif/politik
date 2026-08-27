@@ -27,6 +27,7 @@
  "program": [
   {
    "namn": "Barn- och fritidsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Barn- och fritidsprogrammet (Aranäs)",
    "hem": "Aranäs",
    "skolor": [
@@ -84,6 +85,7 @@
   },
   {
    "namn": "Barn- och fritidsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Barn- och fritidsprogrammet (Elof Lindälv)",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -146,6 +148,7 @@
   },
   {
    "namn": "Bygg- och anläggningsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Bygg- och anläggningsprogrammet (Aranäs)",
    "hem": "Aranäs",
    "skolor": [
@@ -208,6 +211,7 @@
   },
   {
    "namn": "Bygg- och anläggningsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Bygg- och anläggningsprogrammet (Elof Lindälv)",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -270,6 +274,7 @@
   },
   {
    "namn": "Ekonomiprogrammet",
+   "tidigareNamn": [],
    "etikett": "Ekonomiprogrammet",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -332,6 +337,7 @@
   },
   {
    "namn": "El- och energiprogrammet",
+   "tidigareNamn": [],
    "etikett": "El- och energiprogrammet",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -394,6 +400,7 @@
   },
   {
    "namn": "Estetiska programmet",
+   "tidigareNamn": [],
    "etikett": "Estetiska programmet",
    "hem": "Aranäs",
    "skolor": [
@@ -456,6 +463,7 @@
   },
   {
    "namn": "Fordons- och transportprogrammet",
+   "tidigareNamn": [],
    "etikett": "Fordons- och transportprogrammet",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -518,6 +526,9 @@
   },
   {
    "namn": "Försäljnings- och serviceprogrammet",
+   "tidigareNamn": [
+    "Handels- och administrationsprogrammet"
+   ],
    "etikett": "Försäljnings- och serviceprogrammet",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -525,6 +536,30 @@
    ],
    "typ": "yrkesprogram",
    "varden": {
+    "2017": {
+     "medel": 196.12,
+     "antal": 2,
+     "skola": "Elof Lindälv",
+     "namn": "Handels- och administrationsprogrammet"
+    },
+    "2019": {
+     "medel": 188.75,
+     "antal": 3,
+     "skola": "Elof Lindälv",
+     "namn": "Handels- och administrationsprogrammet"
+    },
+    "2020": {
+     "medel": 196.5,
+     "antal": 3,
+     "skola": "Elof Lindälv",
+     "namn": "Handels- och administrationsprogrammet"
+    },
+    "2021": {
+     "medel": 177.1,
+     "antal": 3,
+     "skola": "Elof Lindälv",
+     "namn": "Handels- och administrationsprogrammet"
+    },
     "2022": {
      "medel": 223.04,
      "antal": 2,
@@ -551,52 +586,16 @@
      "skola": "Elof Lindälv"
     }
    },
-   "antalArMedMedel": 5,
-   "forstaAr": 2022,
-   "sistaAr": 2026,
-   "forsta": 223.04,
-   "sista": 223.53,
-   "forandring": 0.49
-  },
-  {
-   "namn": "Handels- och administrationsprogrammet",
-   "etikett": "Handels- och administrationsprogrammet",
-   "hem": "Elof Lindälv",
-   "skolor": [
-    "Elof Lindälv"
-   ],
-   "typ": "yrkesprogram",
-   "varden": {
-    "2017": {
-     "medel": 196.12,
-     "antal": 2,
-     "skola": "Elof Lindälv"
-    },
-    "2019": {
-     "medel": 188.75,
-     "antal": 3,
-     "skola": "Elof Lindälv"
-    },
-    "2020": {
-     "medel": 196.5,
-     "antal": 3,
-     "skola": "Elof Lindälv"
-    },
-    "2021": {
-     "medel": 177.1,
-     "antal": 3,
-     "skola": "Elof Lindälv"
-    }
-   },
-   "antalArMedMedel": 4,
+   "antalArMedMedel": 9,
    "forstaAr": 2017,
-   "sistaAr": 2021,
+   "sistaAr": 2026,
    "forsta": 196.12,
-   "sista": 177.1,
-   "forandring": -19.02
+   "sista": 223.53,
+   "forandring": 27.41
   },
   {
    "namn": "Hantverksprogrammet",
+   "tidigareNamn": [],
    "etikett": "Hantverksprogrammet",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -639,6 +638,7 @@
   },
   {
    "namn": "Hotell- och turismprogrammet",
+   "tidigareNamn": [],
    "etikett": "Hotell- och turismprogrammet",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -701,6 +701,7 @@
   },
   {
    "namn": "Industritekniska programmet",
+   "tidigareNamn": [],
    "etikett": "Industritekniska programmet",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -763,6 +764,7 @@
   },
   {
    "namn": "Naturbruksprogrammet",
+   "tidigareNamn": [],
    "etikett": "Naturbruksprogrammet",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -810,6 +812,7 @@
   },
   {
    "namn": "Naturvetenskapsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Naturvetenskapsprogrammet (Aranäs)",
    "hem": "Aranäs",
    "skolor": [
@@ -872,6 +875,7 @@
   },
   {
    "namn": "Naturvetenskapsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Naturvetenskapsprogrammet (Elof Lindälv)",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -914,6 +918,7 @@
   },
   {
    "namn": "Restaurang- och livsmedelsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Restaurang- och livsmedelsprogrammet",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -976,6 +981,7 @@
   },
   {
    "namn": "Samhällsvetenskapsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Samhällsvetenskapsprogrammet",
    "hem": "Aranäs",
    "skolor": [
@@ -1038,6 +1044,7 @@
   },
   {
    "namn": "Teknikprogrammet",
+   "tidigareNamn": [],
    "etikett": "Teknikprogrammet (Aranäs)",
    "hem": "Aranäs",
    "skolor": [
@@ -1085,6 +1092,7 @@
   },
   {
    "namn": "Teknikprogrammet",
+   "tidigareNamn": [],
    "etikett": "Teknikprogrammet (Elof Lindälv)",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -1142,6 +1150,7 @@
   },
   {
    "namn": "Vård- och omsorgsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Vård- och omsorgsprogrammet (Aranäs)",
    "hem": "Aranäs",
    "skolor": [
@@ -1204,6 +1213,7 @@
   },
   {
    "namn": "Vård- och omsorgsprogrammet",
+   "tidigareNamn": [],
    "etikett": "Vård- och omsorgsprogrammet (Elof Lindälv)",
    "hem": "Elof Lindälv",
    "skolor": [
@@ -1273,48 +1283,56 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 212.6,
      "poang": 152.5,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 196.66,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 206.6,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 215.62,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 190.15,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 213.06,
      "poang": 180.5,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 226.66,
      "poang": 185.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 202.81,
      "poang": 125.0,
      "kod": null,
@@ -1337,54 +1355,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 202.91,
      "poang": 182.5,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 206.17,
      "poang": 177.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 201.4,
      "poang": 170.5,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 207.82,
      "poang": 182.5,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 205.72,
      "poang": 180.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 193.04,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 182.04,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 199.13,
      "poang": 175.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 203.62,
      "poang": 177.5,
      "kod": null,
@@ -1407,54 +1434,63 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 231.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 228.33,
      "poang": 187.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 206.81,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 244.31,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 227.72,
      "poang": 260.0,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 218.12,
      "poang": 397.5,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 235.27,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 250.62,
      "poang": 387.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 232.5,
      "poang": 265.0,
      "kod": null,
@@ -1477,6 +1513,7 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 226.0,
      "poang": null,
      "kod": "1",
@@ -1499,6 +1536,7 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 227.5,
      "poang": 202.5,
      "kod": null,
@@ -1521,54 +1559,63 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 227.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 251.5,
      "poang": 353.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 220.19,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 270.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 225.83,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 230.22,
      "poang": 334.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 239.06,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 222.5,
      "poang": 202.5,
      "kod": null,
      "utanPlatser": false
     },
     "2026": {
+     "namn": null,
      "medel": 240.22,
      "poang": 217.5,
      "kod": null,
@@ -1591,54 +1638,63 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 227.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 279.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 287.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 229.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 200.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 232.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 279.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 244.37,
      "poang": 416.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 246.07,
      "poang": 332.5,
      "kod": null,
@@ -1661,42 +1717,49 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "2",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "2",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "2",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "2",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "2",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "2",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "2",
@@ -1717,12 +1780,14 @@
    "typ": "introduktion",
    "varden": {
     "2025": {
+     "namn": null,
      "medel": 184.0,
      "poang": 170.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 178.12,
      "poang": 162.5,
      "kod": null,
@@ -1745,12 +1810,14 @@
    "typ": "introduktion",
    "varden": {
     "2025": {
+     "namn": null,
      "medel": 208.33,
      "poang": 202.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 170.0,
      "poang": 170.0,
      "kod": null,
@@ -1773,12 +1840,14 @@
    "typ": "introduktion",
    "varden": {
     "2025": {
+     "namn": null,
      "medel": 153.75,
      "poang": 150.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 186.25,
      "poang": 182.5,
      "kod": null,
@@ -1801,42 +1870,49 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -1857,6 +1933,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -1877,6 +1954,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 168.75,
      "poang": 125.0,
      "kod": null,
@@ -1899,6 +1977,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 144.37,
      "poang": 105.0,
      "kod": null,
@@ -1921,30 +2000,35 @@
    "typ": "introduktion",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": 168.33,
      "poang": 150.0,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 116.87,
      "poang": 87.5,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 171.87,
      "poang": 142.5,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 173.75,
      "poang": 165.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 206.25,
      "poang": 195.0,
      "kod": null,
@@ -1967,30 +2051,35 @@
    "typ": "introduktion",
    "varden": {
     "2020": {
+     "namn": null,
      "medel": 140.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 184.37,
      "poang": 150.0,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 182.5,
      "poang": 182.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 160.0,
      "poang": 110.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 168.75,
      "poang": 132.5,
      "kod": null,
@@ -2013,12 +2102,14 @@
    "typ": "introduktion",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": 197.5,
      "poang": 170.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 194.5,
      "poang": 177.5,
      "kod": null,
@@ -2041,36 +2132,42 @@
    "typ": "introduktion",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": 202.5,
      "poang": 202.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 148.75,
      "poang": 67.5,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 128.61,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 107.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 121.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 149.16,
      "poang": 117.5,
      "kod": null,
@@ -2093,18 +2190,21 @@
    "typ": "introduktion",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -2125,6 +2225,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -2145,30 +2246,35 @@
    "typ": "introduktion",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -2189,18 +2295,21 @@
    "typ": "introduktion",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": 90.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 45.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 111.87,
      "poang": 92.5,
      "kod": null,
@@ -2223,54 +2332,63 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 293.26,
      "poang": 240.5,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 313.65,
      "poang": 290.0,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 311.11,
      "poang": 285.5,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 309.25,
      "poang": 265.5,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 309.78,
      "poang": 267.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 298.08,
      "poang": 238.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 289.48,
      "poang": 227.5,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 298.75,
      "poang": 250.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 290.72,
      "poang": 177.5,
      "kod": null,
@@ -2293,30 +2411,35 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": 332.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 313.12,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 320.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 230.83,
      "poang": 167.5,
      "kod": null,
      "utanPlatser": false
     },
     "2026": {
+     "namn": null,
      "medel": 275.5,
      "poang": 362.5,
      "kod": null,
@@ -2339,30 +2462,35 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": 258.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 321.87,
      "poang": 517.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 316.25,
      "poang": 486.5,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 292.5,
      "poang": 483.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 285.83,
      "poang": 451.0,
      "kod": null,
@@ -2385,30 +2513,35 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 294.37,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 263.75,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 297.5,
      "poang": 517.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 310.0,
      "poang": 530.0,
      "kod": null,
@@ -2431,54 +2564,63 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 240.78,
      "poang": 180.0,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 252.27,
      "poang": 205.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 259.67,
      "poang": 205.5,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 261.95,
      "poang": 217.5,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 262.1,
      "poang": 207.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 263.05,
      "poang": 213.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 260.11,
      "poang": 215.5,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 260.69,
      "poang": 218.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 261.64,
      "poang": 212.5,
      "kod": null,
@@ -2501,36 +2643,42 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 268.38,
      "poang": 210.0,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 271.42,
      "poang": 225.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 285.89,
      "poang": 248.0,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 276.65,
      "poang": 225.5,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 270.64,
      "poang": 202.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 280.3,
      "poang": 233.0,
      "kod": null,
@@ -2553,54 +2701,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 189.75,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 207.11,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 208.9,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 210.9,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 202.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 198.08,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 191.57,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 187.91,
      "poang": 80.0,
      "kod": null,
      "utanPlatser": false
     },
     "2026": {
+     "namn": null,
      "medel": 179.11,
      "poang": 82.5,
      "kod": null,
@@ -2623,54 +2780,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 191.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 211.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 185.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 232.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 152.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 173.33,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 151.66,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 177.5,
      "poang": 170.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 141.25,
      "poang": 110.0,
      "kod": null,
@@ -2693,18 +2859,21 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 193.75,
      "poang": 190.0,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 225.83,
      "poang": null,
      "kod": "1",
@@ -2727,36 +2896,42 @@
    "typ": "yrkesprogram",
    "varden": {
     "2021": {
+     "namn": null,
      "medel": 215.0,
      "poang": 210.0,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 226.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 194.16,
      "poang": 160.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 156.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 228.75,
      "poang": 222.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 206.25,
      "poang": 145.0,
      "kod": null,
@@ -2779,18 +2954,21 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
@@ -2811,42 +2989,49 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 181.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 171.66,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 189.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 193.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 182.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 176.66,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 233.75,
      "poang": null,
      "kod": "1",
@@ -2869,12 +3054,14 @@
    "typ": "yrkesprogram",
    "varden": {
     "2025": {
+     "namn": null,
      "medel": 182.5,
      "poang": 182.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 205.0,
      "poang": 205.0,
      "kod": null,
@@ -2897,54 +3084,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 197.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 172.5,
      "poang": 172.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 184.06,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 242.5,
      "poang": 215.0,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 217.5,
      "poang": 217.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 247.5,
      "poang": 235.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 180.0,
      "poang": 152.5,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 265.0,
      "poang": 237.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 257.5,
      "poang": 227.5,
      "kod": null,
@@ -2967,54 +3163,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 182.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 190.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 137.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 195.0,
      "poang": 190.0,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 152.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 203.25,
      "poang": 175.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 185.5,
      "poang": 170.0,
      "kod": null,
@@ -3037,54 +3242,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 218.75,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 187.85,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 176.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 174.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 189.0,
      "poang": 127.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 185.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 112.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 137.5,
      "poang": 127.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 181.25,
      "poang": 147.5,
      "kod": null,
@@ -3107,42 +3321,49 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 155.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 202.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 146.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 135.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 183.75,
      "poang": 182.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 161.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
@@ -3165,54 +3386,63 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 253.72,
      "poang": 213.0,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 252.58,
      "poang": 208.0,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 255.16,
      "poang": 208.0,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 243.47,
      "poang": 198.0,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 252.48,
      "poang": 207.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 255.66,
      "poang": 220.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 268.39,
      "poang": 230.5,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 265.14,
      "poang": 228.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 263.58,
      "poang": 227.5,
      "kod": null,
@@ -3235,54 +3465,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 206.06,
      "poang": 175.5,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 210.78,
      "poang": 165.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 223.03,
      "poang": 198.0,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 218.36,
      "poang": 190.5,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 220.51,
      "poang": 190.5,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 225.92,
      "poang": 195.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 226.03,
      "poang": 190.0,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 237.5,
      "poang": 213.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 239.07,
      "poang": 207.5,
      "kod": null,
@@ -3305,54 +3544,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 174.1,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 182.82,
      "poang": 90.0,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 184.93,
      "poang": 117.5,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 191.74,
      "poang": 160.0,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 194.81,
      "poang": 145.0,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 173.44,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 187.1,
      "poang": 120.0,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 192.3,
      "poang": 183.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 211.64,
      "poang": 180.5,
      "kod": null,
@@ -3375,12 +3623,14 @@
    "typ": "yrkesprogram",
    "varden": {
     "2025": {
+     "namn": null,
      "medel": 192.5,
      "poang": 182.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 231.25,
      "poang": 230.0,
      "kod": null,
@@ -3403,18 +3653,21 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 160.0,
      "poang": null,
      "kod": "1",
@@ -3437,42 +3690,49 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 180.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 152.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 201.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 237.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 121.25,
      "poang": 105.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 212.5,
      "poang": null,
      "kod": "1",
@@ -3495,54 +3755,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 105.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 132.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 150.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 169.16,
      "poang": 125.0,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 175.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 170.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 162.5,
      "poang": 135.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 220.0,
      "poang": 215.0,
      "kod": null,
@@ -3565,54 +3834,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 190.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 140.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 155.5,
      "poang": 105.5,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 131.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 203.12,
      "poang": 195.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 169.0,
      "poang": 132.5,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 256.25,
      "poang": 245.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 202.5,
      "poang": 197.5,
      "kod": null,
@@ -3634,31 +3912,64 @@
    "inriktning": "",
    "typ": "yrkesprogram",
    "varden": {
+    "2017": {
+     "namn": "Handels- och administrationsprogrammet",
+     "medel": 201.89,
+     "poang": 178.0,
+     "kod": null,
+     "utanPlatser": null
+    },
+    "2019": {
+     "namn": "Handels- och administrationsprogrammet",
+     "medel": 203.01,
+     "poang": 185.5,
+     "kod": null,
+     "utanPlatser": null
+    },
+    "2020": {
+     "namn": "Handels- och administrationsprogrammet",
+     "medel": 207.5,
+     "poang": 182.5,
+     "kod": null,
+     "utanPlatser": null
+    },
+    "2021": {
+     "namn": "Handels- och administrationsprogrammet",
+     "medel": 200.67,
+     "poang": 167.5,
+     "kod": null,
+     "utanPlatser": null
+    },
     "2022": {
+     "namn": null,
      "medel": 219.58,
      "poang": 193.0,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 199.52,
      "poang": 180.5,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 216.04,
      "poang": 195.5,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 232.09,
      "poang": 213.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 231.57,
      "poang": 210.0,
      "kod": null,
@@ -3667,147 +3978,49 @@
    },
    "namn": "Försäljnings- och serviceprogrammet",
    "skolaKort": "Elof Lindälv",
-   "antalArMedMedel": 5,
-   "forstaAr": 2022,
-   "sistaAr": 2026,
-   "forsta": 219.58,
-   "sista": 231.57,
-   "forandring": 11.99
-  },
-  {
-   "skola": "Elof Lindälvs gymnasium",
-   "program": "Försäljnings- och serviceprogrammet",
-   "inriktning": "Försäljnings- och serviceprogrammet, lärling",
-   "typ": "yrkesprogram",
-   "varden": {
-    "2022": {
-     "medel": 226.5,
-     "poang": 217.5,
-     "kod": null,
-     "utanPlatser": null
-    },
-    "2023": {
-     "medel": 217.14,
-     "poang": 187.5,
-     "kod": null,
-     "utanPlatser": null
-    },
-    "2024": {
-     "medel": 195.33,
-     "poang": 150.0,
-     "kod": null,
-     "utanPlatser": null
-    }
-   },
-   "namn": "Försäljnings- och serviceprogrammet – Försäljnings- och serviceprogrammet, lärling",
-   "skolaKort": "Elof Lindälv",
-   "antalArMedMedel": 3,
-   "forstaAr": 2022,
-   "sistaAr": 2024,
-   "forsta": 226.5,
-   "sista": 195.33,
-   "forandring": -31.17
-  },
-  {
-   "skola": "Elof Lindälvs gymnasium",
-   "program": "Försäljnings- och serviceprogrammet",
-   "inriktning": "Lärling",
-   "typ": "yrkesprogram",
-   "varden": {
-    "2025": {
-     "medel": 200.66,
-     "poang": 183.0,
-     "kod": null,
-     "utanPlatser": true
-    },
-    "2026": {
-     "medel": 215.5,
-     "poang": 195.0,
-     "kod": null,
-     "utanPlatser": true
-    }
-   },
-   "namn": "Försäljnings- och serviceprogrammet – Lärling",
-   "skolaKort": "Elof Lindälv",
-   "antalArMedMedel": 2,
-   "forstaAr": 2025,
-   "sistaAr": 2026,
-   "forsta": 200.66,
-   "sista": 215.5,
-   "forandring": 14.84
-  },
-  {
-   "skola": "Elof Lindälvs gymnasium",
-   "program": "Handels- och administrationsprogrammet",
-   "inriktning": "",
-   "typ": "yrkesprogram",
-   "varden": {
-    "2017": {
-     "medel": 201.89,
-     "poang": 178.0,
-     "kod": null,
-     "utanPlatser": null
-    },
-    "2019": {
-     "medel": 203.01,
-     "poang": 185.5,
-     "kod": null,
-     "utanPlatser": null
-    },
-    "2020": {
-     "medel": 207.5,
-     "poang": 182.5,
-     "kod": null,
-     "utanPlatser": null
-    },
-    "2021": {
-     "medel": 200.67,
-     "poang": 167.5,
-     "kod": null,
-     "utanPlatser": null
-    }
-   },
-   "namn": "Handels- och administrationsprogrammet",
-   "skolaKort": "Elof Lindälv",
-   "antalArMedMedel": 4,
+   "antalArMedMedel": 9,
    "forstaAr": 2017,
-   "sistaAr": 2021,
+   "sistaAr": 2026,
    "forsta": 201.89,
-   "sista": 200.67,
-   "forandring": -1.22
+   "sista": 231.57,
+   "forandring": 29.68
   },
   {
    "skola": "Elof Lindälvs gymnasium",
-   "program": "Handels- och administrationsprogrammet",
+   "program": "Försäljnings- och serviceprogrammet",
    "inriktning": "Administrativ service, lärling",
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": "Handels- och administrationsprogrammet",
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2019": {
+     "namn": "Handels- och administrationsprogrammet",
      "medel": 183.57,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": "Handels- och administrationsprogrammet",
      "medel": 207.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": "Handels- och administrationsprogrammet",
      "medel": 182.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     }
    },
-   "namn": "Handels- och administrationsprogrammet – Administrativ service, lärling",
+   "namn": "Försäljnings- och serviceprogrammet – Administrativ service, lärling",
    "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 3,
    "forstaAr": 2019,
@@ -3818,36 +4031,40 @@
   },
   {
    "skola": "Elof Lindälvs gymnasium",
-   "program": "Handels- och administrationsprogrammet",
+   "program": "Försäljnings- och serviceprogrammet",
    "inriktning": "Handel och service, lärling",
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": "Handels- och administrationsprogrammet",
      "medel": 190.35,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": "Handels- och administrationsprogrammet",
      "medel": 179.68,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": "Handels- och administrationsprogrammet",
      "medel": 174.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": "Handels- och administrationsprogrammet",
      "medel": 148.12,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     }
    },
-   "namn": "Handels- och administrationsprogrammet – Handel och service, lärling",
+   "namn": "Försäljnings- och serviceprogrammet – Handel och service, lärling",
    "skolaKort": "Elof Lindälv",
    "antalArMedMedel": 4,
    "forstaAr": 2017,
@@ -3858,47 +4075,105 @@
   },
   {
    "skola": "Elof Lindälvs gymnasium",
+   "program": "Försäljnings- och serviceprogrammet",
+   "inriktning": "Lärling",
+   "typ": "yrkesprogram",
+   "varden": {
+    "2022": {
+     "namn": null,
+     "medel": 226.5,
+     "poang": 217.5,
+     "kod": null,
+     "utanPlatser": null
+    },
+    "2023": {
+     "namn": null,
+     "medel": 217.14,
+     "poang": 187.5,
+     "kod": null,
+     "utanPlatser": null
+    },
+    "2024": {
+     "namn": null,
+     "medel": 195.33,
+     "poang": 150.0,
+     "kod": null,
+     "utanPlatser": null
+    },
+    "2025": {
+     "namn": null,
+     "medel": 200.66,
+     "poang": 183.0,
+     "kod": null,
+     "utanPlatser": true
+    },
+    "2026": {
+     "namn": null,
+     "medel": 215.5,
+     "poang": 195.0,
+     "kod": null,
+     "utanPlatser": true
+    }
+   },
+   "namn": "Försäljnings- och serviceprogrammet – Lärling",
+   "skolaKort": "Elof Lindälv",
+   "antalArMedMedel": 5,
+   "forstaAr": 2022,
+   "sistaAr": 2026,
+   "forsta": 226.5,
+   "sista": 215.5,
+   "forandring": -11.0
+  },
+  {
+   "skola": "Elof Lindälvs gymnasium",
    "program": "Hantverksprogrammet",
    "inriktning": "Florist, lärling",
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 155.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 175.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 182.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 247.5,
      "poang": 247.5,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 177.5,
      "poang": null,
      "kod": "1",
@@ -3921,54 +4196,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 188.02,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 211.81,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 200.31,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 181.78,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 192.08,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 192.22,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 208.05,
      "poang": 122.5,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 204.8,
      "poang": 175.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 199.58,
      "poang": 152.5,
      "kod": null,
@@ -3991,18 +4275,21 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 161.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 195.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 175.0,
      "poang": null,
      "kod": "1",
@@ -4025,36 +4312,42 @@
    "typ": "yrkesprogram",
    "varden": {
     "2021": {
+     "namn": null,
      "medel": 170.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 241.25,
      "poang": 235.0,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 126.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 184.16,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 210.0,
      "poang": 195.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 164.37,
      "poang": 135.0,
      "kod": null,
@@ -4077,18 +4370,21 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 167.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 220.0,
      "poang": null,
      "kod": "1",
@@ -4111,6 +4407,7 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 223.75,
      "poang": 178.0,
      "kod": null,
@@ -4133,48 +4430,56 @@
    "typ": "yrkesprogram",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 190.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 176.66,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 120.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 184.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 216.25,
      "poang": 190.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 207.5,
      "poang": 192.5,
      "kod": null,
@@ -4197,48 +4502,56 @@
    "typ": "yrkesprogram",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": 182.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 152.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 160.83,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 203.33,
      "poang": 185.0,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 203.92,
      "poang": 167.5,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 208.43,
      "poang": 195.0,
      "kod": null,
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 197.5,
      "poang": 175.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 212.5,
      "poang": 195.0,
      "kod": null,
@@ -4261,12 +4574,14 @@
    "typ": "introduktion",
    "varden": {
     "2025": {
+     "namn": null,
      "medel": 202.5,
      "poang": 175.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 198.33,
      "poang": 177.5,
      "kod": null,
@@ -4289,42 +4604,49 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -4345,6 +4667,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -4365,6 +4688,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 175.0,
      "poang": 175.0,
      "kod": null,
@@ -4387,6 +4711,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 152.5,
      "poang": 140.0,
      "kod": null,
@@ -4409,6 +4734,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 156.87,
      "poang": 132.5,
      "kod": null,
@@ -4431,6 +4757,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 117.5,
      "poang": null,
      "kod": "1",
@@ -4453,12 +4780,14 @@
    "typ": "introduktion",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": 162.5,
      "poang": 137.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 169.16,
      "poang": 165.0,
      "kod": null,
@@ -4481,18 +4810,21 @@
    "typ": "introduktion",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": 198.75,
      "poang": 185.0,
      "kod": null,
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 191.25,
      "poang": 185.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 193.75,
      "poang": 182.5,
      "kod": null,
@@ -4515,12 +4847,14 @@
    "typ": "introduktion",
    "varden": {
     "2020": {
+     "namn": null,
      "medel": 145.41,
      "poang": 100.0,
      "kod": null,
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 138.33,
      "poang": null,
      "kod": "1",
@@ -4543,30 +4877,35 @@
    "typ": "introduktion",
    "varden": {
     "2020": {
+     "namn": null,
      "medel": 183.75,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 108.33,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 107.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 130.0,
      "poang": 92.5,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 153.75,
      "poang": 127.5,
      "kod": null,
@@ -4589,30 +4928,35 @@
    "typ": "introduktion",
    "varden": {
     "2020": {
+     "namn": null,
      "medel": 72.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 138.75,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 120.62,
      "poang": 85.0,
      "kod": null,
@@ -4635,6 +4979,7 @@
    "typ": "introduktion",
    "varden": {
     "2026": {
+     "namn": null,
      "medel": 160.0,
      "poang": 160.0,
      "kod": null,
@@ -4657,18 +5002,21 @@
    "typ": "introduktion",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -4689,6 +5037,7 @@
    "typ": "introduktion",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -4709,30 +5058,35 @@
    "typ": "introduktion",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -4753,36 +5107,42 @@
    "typ": "introduktion",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": 96.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 51.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 30.83,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 28.75,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 100.83,
      "poang": 10.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 91.66,
      "poang": 82.5,
      "kod": null,
@@ -4805,36 +5165,42 @@
    "typ": "yrkesprogram",
    "varden": {
     "2021": {
+     "namn": null,
      "medel": 135.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 165.35,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 316.25,
      "poang": 307.5,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 230.62,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 281.25,
      "poang": 275.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 246.25,
      "poang": 232.5,
      "kod": null,
@@ -4857,12 +5223,14 @@
    "typ": "yrkesprogram",
    "varden": {
     "2023": {
+     "namn": null,
      "medel": 248.75,
      "poang": 190.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 175.0,
      "poang": null,
      "kod": "1",
@@ -4885,12 +5253,14 @@
    "typ": "yrkesprogram",
    "varden": {
     "2025": {
+     "namn": null,
      "medel": 270.0,
      "poang": 270.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 220.0,
      "poang": 220.0,
      "kod": null,
@@ -4913,30 +5283,35 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 269.56,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 269.14,
      "poang": 195.5,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 257.13,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 266.16,
      "poang": 207.5,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 252.66,
      "poang": null,
      "kod": "1",
@@ -4959,6 +5334,7 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
@@ -4979,6 +5355,7 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
@@ -4999,6 +5376,7 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": 325.0,
      "poang": null,
      "kod": "1",
@@ -5021,36 +5399,42 @@
    "typ": "yrkesprogram",
    "varden": {
     "2019": {
+     "namn": null,
      "medel": 180.41,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 210.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 188.33,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 198.12,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 189.1,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 213.92,
      "poang": null,
      "kod": "1",
@@ -5073,6 +5457,7 @@
    "typ": "yrkesprogram",
    "varden": {
     "2022": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "5",
@@ -5093,54 +5478,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 202.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 254.16,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 127.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 147.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 191.66,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 196.87,
      "poang": 165.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 180.0,
      "poang": 147.5,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 187.5,
      "poang": 175.0,
      "kod": null,
@@ -5163,18 +5557,21 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 170.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": null,
      "poang": null,
      "kod": "3",
@@ -5197,54 +5594,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 161.66,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 213.75,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 175.0,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 186.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 172.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 206.25,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 173.33,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 189.5,
      "poang": 165.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 169.06,
      "poang": 110.0,
      "kod": null,
@@ -5267,48 +5673,56 @@
    "typ": "hogskoleforberedande",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 257.38,
      "poang": 217.5,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 248.54,
      "poang": 215.0,
      "kod": null,
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 242.72,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 246.29,
      "poang": 215.0,
      "kod": null,
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 254.01,
      "poang": 217.5,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 251.55,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 268.5,
      "poang": 230.0,
      "kod": null,
      "utanPlatser": true
     },
     "2026": {
+     "namn": null,
      "medel": 282.45,
      "poang": 252.5,
      "kod": null,
@@ -5331,54 +5745,63 @@
    "typ": "yrkesprogram",
    "varden": {
     "2017": {
+     "namn": null,
      "medel": 196.25,
      "poang": 175.0,
      "kod": null,
      "utanPlatser": null
     },
     "2019": {
+     "namn": null,
      "medel": 203.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2020": {
+     "namn": null,
      "medel": 187.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2021": {
+     "namn": null,
      "medel": 150.83,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2022": {
+     "namn": null,
      "medel": 192.5,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2023": {
+     "namn": null,
      "medel": 197.5,
      "poang": 105.0,
      "kod": null,
      "utanPlatser": null
     },
     "2024": {
+     "namn": null,
      "medel": 181.87,
      "poang": null,
      "kod": "1",
      "utanPlatser": null
     },
     "2025": {
+     "namn": null,
      "medel": 198.75,
      "poang": 155.0,
      "kod": null,
      "utanPlatser": false
     },
     "2026": {
+     "namn": null,
      "medel": 152.0,
      "poang": 87.5,
      "kod": null,
