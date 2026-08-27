@@ -1,0 +1,240 @@
+/* Prognoskollen Kungsbacka — ljust, lugnt och lättläst.
+   Palettvärden följer en validerad standardpalett (se README). */
+
+:root {
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.10);
+  --blue: #2a78d6;      /* serie 1: utfall, sekventiell */
+  --blue-dark: #1c5cab;
+  --blue-light: #9ec5f4;
+  --red: #e34948;       /* divergerande motpol: prognosen för hög */
+  --neutral-mid: #f0efec;
+  --focus: #1c5cab;
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: light; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.1875rem;          /* 19px – stor bastext */
+  line-height: 1.65;
+}
+
+main, .sidhuvud-inre, .sidfot-inre {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Sidhuvud ---------- */
+
+header.sidhuvud {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2.5rem 0 2rem;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.ingress {
+  font-size: 1.25rem;
+  color: var(--ink-2);
+  max-width: 46rem;
+  margin: 0;
+}
+
+/* ---------- Sektioner ---------- */
+
+section {
+  margin: 3rem 0;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+.forklaring {
+  color: var(--ink-2);
+  max-width: 46rem;
+  margin-top: 0;
+}
+
+.kort {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.diagram-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.kalla-rad {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0.75rem 0 0;
+}
+
+/* ---------- Årsväljare ---------- */
+
+.valj-ar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 0;
+}
+
+.valj-ar label { font-weight: 600; }
+
+select {
+  font: inherit;
+  font-size: 1.25rem;
+  padding: 0.4rem 0.75rem;
+  border: 2px solid var(--baseline);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+select:focus-visible, a:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Klarspråkssammanfattning ---------- */
+
+.slutsats {
+  background: var(--neutral-mid);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0 0;
+  max-width: 46rem;
+}
+
+.slutsats p { margin: 0.4rem 0; }
+
+/* ---------- Tabeller ---------- */
+
+details {
+  margin-top: 1.25rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--blue-dark);
+  padding: 0.25rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 0.75rem;
+  font-size: 1.05rem;
+  background: var(--surface);
+}
+
+caption {
+  text-align: left;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  padding-bottom: 0.5rem;
+}
+
+th, td {
+  text-align: right;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--grid);
+  font-variant-numeric: tabular-nums;
+}
+
+th:first-child, td:first-child { text-align: left; }
+
+thead th {
+  border-bottom: 2px solid var(--baseline);
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.tabell-rull { overflow-x: auto; }
+
+/* ---------- Källor ---------- */
+
+ul.kallista {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+ul.kallista li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+ul.kallista .titel { font-weight: 600; }
+
+ul.kallista .lankar {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 1.05rem;
+  margin-top: 0.25rem;
+}
+
+a { color: var(--blue-dark); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+/* ---------- Sidfot ---------- */
+
+footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  margin-top: 4rem;
+  padding: 2rem 0;
+  color: var(--ink-2);
+  font-size: 1.05rem;
+}
+
+/* ---------- Status/felmeddelande ---------- */
+
+.status-ruta {
+  background: var(--neutral-mid);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 640px) {
+  body { font-size: 1.0625rem; }
+  .kort { padding: 1rem; }
+}
+
+@media print {
+  .kort { border: none; padding: 0; }
+  details { display: none; }
+}
