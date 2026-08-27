@@ -11,9 +11,11 @@ och vad som återstår.
 | Skript (`scripts/`) | Klara och körda |
 | Faktisk folkmängd 2000–2025 (SCB) | Klar |
 | Prognoser 2015–2026, samtliga tolv årgångar | Klara |
+| Meritvärden 2017 och 2019–2026 (GR) | Klara, 2018 saknas |
 
-Sajten bygger på tolv prognosårgångar (2015–2026) och ger 54
-jämförelsepunkter mot faktiskt utfall.
+Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
+jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på nio
+årgångar av GR:s slutantagning.
 
 **Kommunbudgeten är nyckeln till de äldre årgångarna.** Varje års
 kommunbudget innehåller ett avsnitt med den årets befolkningsprognos som
@@ -230,3 +232,85 @@ Ta bara med prognosår – rapporterna inleder ofta tabellen med föregående
 
 4. Kör `python3 scripts/build_data.py` och kontrollera sidan lokalt:
    `cd docs && python3 -m http.server 8000`
+
+## Meritvärden på gymnasiet (GR:s antagningsstatistik)
+
+Gymnasieantagningen för Kungsbacka sköts av Göteborgsregionen (GR), som
+efter varje antagningsomgång publicerar rapporten *Antagningspoäng och
+medelvärde*. Sidan använder genomgående **slutantagningen** – omgången i
+juni – eftersom siffrorna skiljer sig åt mellan preliminär-, slut- och
+reservantagning.
+
+Rapporterna läses med `scripts/extrahera_antagning.py` och sätts ihop till
+tidsserier med `scripts/build_meritvarden.py`.
+
+| Antagningsår | Status | Hittad var |
+|---|---|---|
+| 2017 | Inläst | Wayback (originalet borttaget) |
+| 2018 | **Saknas** | Varken original eller arkivkopia hittad |
+| 2019 | Inläst | GR:s webbplats, avlistad men kvar |
+| 2020 | Inläst | GR:s webbplats, avlistad men kvar |
+| 2021 | Inläst | Wayback (originalet borttaget) |
+| 2022 | Inläst | GR:s webbplats, aktuell fil |
+| 2023 | Inläst | GR:s webbplats, aktuell fil |
+| 2024 | Inläst | GR:s webbplats, aktuell fil |
+| 2025 | Inläst | GR:s webbplats, aktuell fil |
+| 2026 | Inläst | GR:s webbplats, aktuell fil |
+
+GR:s sida med antagningsstatistik listar bara de tre senaste åren, men
+avlistade filer ligger kvar på sina adresser. Årgångarna 2019 och 2020
+laddades upp på nytt i oktober 2021 (nodid `18.7da94c2d17c11704d8743…`)
+och svarar fortfarande, trots att inget längre länkar till dem. Notera att
+Internet Archive svarar 404 på just de adresserna – det säger ingenting om
+originalet, som svarar 200. Kontrollera alltid källan direkt innan en
+årgång skrivs av som förlorad.
+
+Kvar saknas bara 2018. Den filen låg under GR:s förra webbplats
+(`18.2e7e10e71643e5052412bc7d`, uppladdad 2018-06-27) och togs bort vid
+webbplatsbytet utan att fångas av Internet Archive. Kungsbackas nämnd för
+Gymnasium & Arbetsmarknad fick antagningen redovisad för sig den 23 oktober
+2018 – ärende 6, "Utfall av antagningen till gymnasieskolan läsåret
+2018/2019" – men som muntlig föredragning, så siffrorna finns inte i
+handlingarna. Nämndens handlingar för 2019 och 2020 finns inte heller kvar
+på webben, varken hos kommunen eller i Internet Archive. Dyker rapporten
+upp räcker det att spara PDF:en i `docs/rapporter/`, köra
+extraheringsskriptet och bygga om.
+
+**Rapporternas layout har bytt form tre gånger**, vilket skriptet hanterar:
+
+- 2017–2024: en avdelning per kommun, med samma tabell tryckt två gånger
+  (sorterad per skola respektive per utbildning). Att den trycks två gånger
+  används som kontroll – skriptet läser båda och jämför.
+- 2025: en rad per utbildning, med kommun och skola i egna kolumner, och
+  bara slutantagningens två tal.
+- 2026: som 2025, men med både preliminär- och slutantagning.
+
+**Ett mått bytte form 2025.** Till och med 2024 skrev rapporten fotnoten
+"1) Alla behöriga sökande är antagna" i stället för en antagningspoäng. Från
+2025 skrivs poängen alltid ut, och de utbildningar som inte hade några
+lediga platser kvar markeras i stället med fet stil. Skriptet läser båda
+formerna – fetstilen ur teckensnittet – och sidan redovisar öppet att
+serien vilar på två olika markörer.
+
+**Skolorna som ingår** är Kungsbackas två kommunala gymnasieskolor,
+Aranäsgymnasiet och Elof Lindälvs gymnasium. Rapporterna täcker hela
+Göteborgsregionen; urvalet görs i `scripts/extrahera_antagning.py`.
+
+**Serien följer programmet, inte skolan.** Kommunen flyttar program mellan
+sina två gymnasieskolor, och en serie per skola skulle då brytas av en
+organisationsförändring i stället för av att utbildningen ändrats.
+`build_meritvarden.py` grupperar därför så här:
+
+- Har ett program legat på flera skolor **utan** att något år finnas på
+  båda, är det samma utbildning som bytt hus. Åren slås ihop till en serie,
+  hemmahörande på den skola som har programmet i dag – det gamla datat
+  följer med.
+- Fanns programmet på **båda** skolorna samma år är det två utbildningar med
+  var sin antagning. Då hålls skolorna isär, en serie var, och skolans namn
+  skrivs ut i etiketten.
+
+I dagens data överlappar samtliga program som funnits på båda skolorna
+(barn- och fritids-, bygg- och anläggnings-, natur-, teknik- och vård- och
+omsorgsprogrammet), så hopslagningen av ett flyttat program är ännu inte
+prövad mot verkligt utfall – bara mot ett konstruerat fall. Den dagen ett
+program faktiskt byter hus sköter regeln sig själv.

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meritvärden på Kungsbackas gymnasieskolor</title>
+<meta name="description" content="Meritvärdena vid antagningen till Aranäsgymnasiet och Elof Lindälvs gymnasium, program för program, enligt Göteborgsregionens antagningsstatistik.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="sidhuvud">
+  <div class="sidhuvud-inre">
+    <p class="brodsmula"><a href="index.html">Kungsbacka i siffror</a>
+      <span aria-hidden="true">›</span> Meritvärden</p>
+    <h1>Meritvärden på Kungsbackas gymnasieskolor</h1>
+    <p class="ingress">
+      Vilka betyg hade eleverna som kom in på kommunens gymnasieprogram
+      &ndash; och hur har det förändrats? Alla program på Aranäsgymnasiet och
+      Elof Lindälvs gymnasium, program för program, ur Göteborgsregionens
+      (GR) statistik över slutantagningen.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="sektion-forklaring">
+    <h2>Två tal per utbildning</h2>
+    <p class="forklaring">
+      Ett meritvärde är summan av betygen från grundskolan, som mest 340
+      poäng. GR redovisar två tal för varje utbildning efter slutantagningen:
+    </p>
+    <ul class="forklaring">
+      <li><strong>Medelmeritvärdet</strong> &ndash; genomsnittet för dem som
+        antogs. Det säger något om vilken elevgrupp utbildningen fick, och är
+        måttet som används i diagrammen nedan.</li>
+      <li><strong>Antagningspoängen</strong> &ndash; meritvärdet hos den sist
+        antagna eleven, alltså den gräns som gällde för att komma in. Fanns
+        det plats åt alla behöriga sökande finns ingen gräns att redovisa.</li>
+    </ul>
+    <p class="forklaring">
+      Sidan följer <em>programmet</em>, inte skolan. Kommunen flyttar program
+      mellan sina två gymnasieskolor, och en kurva per skola skulle brytas av
+      en organisationsförändring i stället för av att utbildningen ändrats.
+      Har ett program bytt hus tar det därför sin historik med sig. Har det
+      i stället gått på båda skolorna samma år hålls de isär &ndash; då är
+      det två utbildningar som konkurrerar om samma sökande &ndash; och
+      skolans namn står inom parentes efter programmet.
+    </p>
+  </section>
+
+  <section id="sektion-utveckling" hidden>
+    <h2>Hur har meritvärdena utvecklats?</h2>
+    <p class="forklaring">
+      Varje linje är ett av kommunens gymnasieprogram, och visar
+      medelmeritvärdet för de antagna eleverna. Välj ett enskilt program för
+      att se dess inriktningar var för sig. Året 2018 saknas &ndash; den
+      rapporten går inte att få tag på &ndash; och linjerna är därför brutna
+      där.
+    </p>
+    <div class="valj-ar">
+      <label for="program-valjare">Visa program:</label>
+      <select id="program-valjare"></select>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-utveckling" aria-label="Diagram: medelmeritvärde per program och år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-utveckling"></p>
+    </div>
+    <div class="slutsats" id="slutsats-utveckling"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-utveckling"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-rangordning" hidden>
+    <h2>Vilka utbildningar hade högst meritvärde?</h2>
+    <p class="forklaring">
+      Samtliga utbildningar på båda gymnasieskolorna ett enskilt år,
+      sorterade efter medelmeritvärde. Här syns varje inriktning för sig,
+      eftersom det är på den nivån antagningen faktiskt sker. Vilken skola
+      utbildningen tillhör syns när du pekar på en stapel, och i tabellen.
+    </p>
+    <div class="valj-ar">
+      <label for="ar-valjare">Visa året:</label>
+      <select id="ar-valjare"></select>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-rangordning" aria-label="Diagram: medelmeritvärde per utbildning för valt år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-rangordning"></p>
+    </div>
+    <div class="slutsats" id="slutsats-rangordning"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-rangordning"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-forandring" hidden>
+    <h2>Vilka program har gått upp &ndash; och vilka ned?</h2>
+    <p class="forklaring">
+      Skillnaden mellan programmets första och senaste mätår. En stapel åt
+      höger betyder att de antagna eleverna hade högre betyg än förr.
+      Programmen har olika lång mätperiod, eftersom alla inte funnits alla
+      år; peka på en stapel för att se vilka år som jämförs.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-forandring" aria-label="Diagram: förändring i medelmeritvärde per program" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-forandring"></p>
+    </div>
+    <div class="slutsats" id="slutsats-forandring"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-forandring"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-konkurrens" hidden>
+    <h2>Hur hård var konkurrensen om platserna?</h2>
+    <p class="forklaring">
+      Ett meritvärde säger inget om hur svårt det var att komma in &ndash; det
+      gör däremot antagningspoängen. Diagrammet delar upp kommunens
+      utbildningar efter om alla behöriga sökande fick plats, eller om det
+      fanns fler sökande än platser och därmed en gräns att komma över.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-konkurrens" aria-label="Diagram: antal utbildningar med och utan antagningsgräns per år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-konkurrens"></p>
+    </div>
+    <div class="slutsats" id="slutsats-konkurrens"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-konkurrens"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-typ" hidden>
+    <h2>Yrkesprogram och högskoleförberedande program</h2>
+    <p class="forklaring">
+      Samma siffror, men sammanslagna till två grupper. Varje punkt är
+      genomsnittet av utbildningarnas medelmeritvärden i gruppen det året.
+      Varje utbildning räknas lika mycket, oavsett hur många elever som
+      antogs &ndash; antalet antagna framgår inte av rapporterna.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-typ" aria-label="Diagram: medelmeritvärde för yrkesprogram och högskoleförberedande program" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-typ"></p>
+    </div>
+    <div class="slutsats" id="slutsats-typ"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-typ"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Alla siffror kommer ur Göteborgsregionens rapport
+      &rdquo;Antagningspoäng och medelvärde&rdquo; efter varje års
+      slutantagning. Här kan du läsa rapporterna själv.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om">
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Varför just slutantagningen?</strong> Antagningen görs om flera
+      gånger per år: preliminärt i april, slutligt i juni och efter
+      reservantagningen i september. Siffrorna skiljer sig åt mellan
+      omgångarna, så sidan använder slutantagningen genomgående &ndash; den
+      omgång som ligger närmast hur klasserna faktiskt såg ut vid start.
+    </p>
+    <p class="forklaring">
+      <strong>Året 2018 saknas.</strong> GR listar bara de tre senaste årens
+      rapporter. Årgångarna 2019 och 2020 ligger kvar på deras webbplats men
+      står inte längre i listan &ndash; de laddades upp på nytt i oktober
+      2021 och blev kvar på sina adresser. 2017 och 2021 har hämtats ur
+      Internet Archive. 2018 års rapport går däremot inte att hitta: den togs
+      bort när GR bytte webbplats och finns varken arkiverad eller kvar hos
+      källan. Kungsbackas gymnasienämnd fick visserligen antagningen
+      redovisad för sig den 23 oktober 2018, men som muntlig föredragning
+      &ndash; siffrorna följde inte med i handlingarna. Vet du var rapporten
+      finns, hör gärna av dig.
+    </p>
+    <p class="forklaring">
+      <strong>Program som flyttat mellan skolorna följs som ett program.</strong>
+      Vilken av de två gymnasieskolorna som huserar ett program är ett
+      organisatoriskt beslut, och det har ändrats under perioden. Ett program
+      som bytt hus redovisas därför som en obruten serie, hemmahörande där det
+      ligger i dag. Undantaget är de år då samma program gick på båda skolorna
+      samtidigt: då är det två utbildningar med var sin antagning, och de
+      redovisas var för sig med skolans namn utsatt.
+    </p>
+    <p class="forklaring">
+      <strong>Program som bytt namn räknas som olika utbildningar.</strong>
+      Handels- och administrationsprogrammet ersattes 2021 av Försäljnings-
+      och serviceprogrammet, med annat innehåll. En linje som bytte namn mitt
+      i skulle dölja just den förändringen, så de redovisas var för sig.
+      Detsamma gäller inriktningar som slagits ihop eller delats.
+    </p>
+    <p class="forklaring">
+      <strong>Introduktionsprogrammen är inte med.</strong> De har ingen
+      antagning på betyg på samma sätt som de nationella programmen, och
+      redovisas i rapporterna med platshänvisningar i stället för poäng.
+      Siffrorna finns kvar i datafilerna för den som vill titta.
+    </p>
+    <p class="forklaring">
+      <strong>Antagningspoängen kan överstiga 340.</strong> Till utbildningar
+      med färdighetsprov &ndash; till exempel Estetiska programmets
+      inriktningar &ndash; läggs provresultatet till elevens meritvärde i
+      antagningspoängen. Medelmeritvärdet innehåller däremot bara betygen och
+      är därför jämförbart mellan alla utbildningar.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs varken av Kungsbacka kommun eller av
+      Göteborgsregionen. Alla beräkningar är öppna: källkoden och alla data
+      finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sidfot-inre">
+    <p>Data: Göteborgsregionen (GR), Gymnasieantagningen &ndash;
+    antagningsstatistik för slutantagningen.
+    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="merit.js"></script>
+</body>
+</html>

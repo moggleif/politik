@@ -3,27 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hur träffsäkra är prognoserna för 16–19-åringarna i Kungsbacka?</title>
-<meta name="description" content="Jämförelse av Kungsbacka kommuns prognoser för åldersgruppen 16–19 år med det faktiska utfallet enligt SCB.">
+<title>Hur träffsäkra är Kungsbackas befolkningsprognoser?</title>
+<meta name="description" content="Jämförelse av Kungsbacka kommuns befolkningsprognoser genom åren med den faktiska befolkningsutvecklingen enligt SCB.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-datafil="data-16-19.json" data-enhet="ungdomar" data-enhet-lang="Antal 16–19-åringar">
+<body data-datafil="data.json" data-enhet="invånare" data-enhet-lang="Antal invånare">
 
 <header class="sidhuvud">
   <div class="sidhuvud-inre">
     <p class="brodsmula"><a href="index.html">Kungsbacka i siffror</a>
       <span aria-hidden="true">›</span> Befolkningsprognoser</p>
-    <h1>Hur träffsäkra är prognoserna för 16&ndash;19-åringarna?</h1>
+    <h1>Hur träffsäkra är Kungsbackas befolkningsprognoser?</h1>
     <p class="ingress">
-      Antalet 16&ndash;19-åringar avgör hur många gymnasieplatser kommunen
-      behöver. Den här sidan visar vad Kungsbacka kommuns prognoser sa om
-      just den åldersgruppen &ndash; och hur det faktiskt blev, enligt
-      Statistiska centralbyrån (SCB).
+      Kungsbacka kommun tar varje år fram en prognos för hur många invånare
+      kommunen kommer att ha i framtiden. Prognoserna används när kommunen
+      planerar skolor, äldreboenden och bostäder. Den här sidan jämför vad
+      prognoserna sa &ndash; med hur det faktiskt blev, enligt Statistiska
+      centralbyrån (SCB).
     </p>
     <nav class="sidnav" aria-label="Välj vy">
-      <a href="befolkningsprognos.html">Hela befolkningen</a>
-      <span class="aktuell" aria-current="page">16&ndash;19 år (gymnasieåldern)</span>
+      <span class="aktuell" aria-current="page">Hela befolkningen</span>
+      <a href="gymnasiealdern.html">16–19 år (gymnasieåldern)</a>
     </nav>
   </div>
 </header>
@@ -37,7 +38,7 @@
     <p class="forklaring">
       Välj ett år. Diagrammet visar hur mycket varje års prognos räknade fel
       för just det året. En stapel åt höger betyder att prognosen trodde på
-      <em>fler</em> ungdomar än det blev. En stapel åt vänster betyder att
+      <em>fler</em> invånare än det blev. En stapel åt vänster betyder att
       prognosen trodde på <em>färre</em>.
     </p>
     <div class="valj-ar">
@@ -60,7 +61,7 @@
     <p class="forklaring">
       Här har vi räknat ihop alla prognoser. Diagrammet visar hur stort felet
       i genomsnitt har varit, beroende på hur många år i förväg prognosen
-      gjordes. Felet mäts i procent av det faktiska antalet 16&ndash;19-åringar.
+      gjordes. Felet mäts i procent av den faktiska folkmängden.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-avstand" aria-label="Diagram: genomsnittligt prognosfel per antal år i förväg" role="img"></canvas></div>
@@ -95,13 +96,14 @@
   <section id="sektion-spagetti" hidden>
     <h2>Alla prognoser i en bild</h2>
     <p class="forklaring">
-      Den svarta linjen visar hur antalet 16&ndash;19-åringar faktiskt har
-      utvecklats. Varje blå linje är en av kommunens årliga prognoser &ndash;
-      ju mörkare linje, desto senare är prognosen gjord. Peka på en linje för
-      att se vilken prognos det är.
+      Den svarta linjen visar hur folkmängden faktiskt har utvecklats. Varje
+      blå linje är en av kommunens årliga prognoser &ndash; ju mörkare linje,
+      desto senare är prognosen gjord. Här syns hur kommunens bild av
+      framtiden har förskjutits från år till år. Peka på en linje för att se
+      vilken prognos det är.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-spagetti" aria-label="Diagram: faktiskt antal 16–19-åringar och alla prognoser" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-spagetti" aria-label="Diagram: faktisk folkmängd och alla prognoser" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-spagetti"></p>
     </div>
     <details>
@@ -116,7 +118,7 @@
       Samma linjer som ovan, men bara fram till sista året med känt utfall.
       I diagrammet ovanför måste skalan rymma prognoserna ända till 2050,
       vilket trycker ihop kurvorna. Här syns i detalj hur nära prognoserna
-      låg antalet 16&ndash;19-åringar år för år.
+      låg folkmängden år för år.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-utfall" aria-label="Diagram: prognoserna mot utfallet, inzoomat" role="img"></canvas></div>
@@ -141,15 +143,10 @@
   <section id="sektion-om">
     <h2>Om den här sidan</h2>
     <p class="forklaring">
-      Siffrorna är hämtade ur tabellen &rdquo;Antal per åldersgrupp&rdquo; i
-      varje prognosrapports bilaga. Rapporten från 2021 saknas här: den
-      redovisar åldersgruppen 16&ndash;18 år i stället för 16&ndash;19, och
-      går därför inte att jämföra rakt av. Den finns med på
-      <a href="befolkningsprognos.html">sidan för hela befolkningen</a>.
-    </p>
-    <p class="forklaring">
-      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
-      beräkningar är öppna: källkoden och alla data finns på
+      Sidan är fristående och drivs inte av Kungsbacka kommun. Den är byggd
+      för att det ska vara lätt att i efterhand se hur bra prognoserna har
+      stämt &ndash; inget mer. Alla beräkningar är öppna:
+      källkoden och alla data finns på
       <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
       Hittar du ett fel? Lämna gärna en rättelse där.
     </p>
