@@ -449,7 +449,11 @@
 
   /* ---------- Sektion 3: Spagettidiagram ---------- */
 
-  function initSpagetti(data) {
+  /* Årsfönstret som diagrammet och dess tabeller visar: börja vid den
+     tidigaste prognosen, men visa alltid minst tio års faktisk utveckling
+     som bakgrund. Delas av spagettidiagrammet och utfallstabellen så att
+     de visar samma period. */
+  function arsfonster(data) {
     var utfallAr = Object.keys(data.utfall).map(Number);
     var allaAr = {};
     utfallAr.forEach(function (a) { allaAr[a] = true; });
@@ -457,14 +461,15 @@
       Object.keys(p.prognos).forEach(function (a) { allaAr[a] = true; });
     });
     var ar = Object.keys(allaAr).map(Number).sort(function (a, b) { return a - b; });
-    /* Läsbart fönster: börja vid den tidigaste prognosen, men visa alltid
-       minst tio års faktisk utveckling som bakgrund. */
     var forstaPrognosAr = data.prognoser.length
       ? Math.min.apply(null, data.prognoser.map(function (p) { return p.prognosAr; }))
       : ar[0];
-    var sistaUtfallsAr = Math.max.apply(null, utfallAr);
-    var start = Math.min(forstaPrognosAr, sistaUtfallsAr - 10);
-    ar = ar.filter(function (a) { return a >= start; });
+    var start = Math.min(forstaPrognosAr, Math.max.apply(null, utfallAr) - 10);
+    return ar.filter(function (a) { return a >= start; });
+  }
+
+  function initSpagetti(data) {
+    var ar = arsfonster(data);
 
     /* Prognosåren är en ordnad skala, så linjerna får en blå ramp:
        ljus = äldsta prognosen, mörk = den senaste. */
@@ -593,6 +598,32 @@
     el("sektion-spagetti").hidden = false;
   }
 
+  /* ---------- Enbart utfallet, för granskning ---------- */
+
+  function initUtfall(data) {
+    /* Samma period som diagrammet ovan, så tabellen går att läsa mot det. */
+    var ar = arsfonster(data).filter(function (a) {
+      return data.utfall[String(a)] !== undefined;
+    });
+    if (!ar.length) return;
+
+    var t = "<caption>" + (data.serie ? data.serie + ". " : "") +
+      data.utfallMeta.matt + " enligt " + data.utfallMeta.kalla +
+      ". Hämtad " + data.utfallMeta.hamtad + ".</caption>";
+    t += "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Antal</th>" +
+      "<th scope=\"col\">Förändring</th></tr></thead><tbody>";
+    ar.forEach(function (a, i) {
+      var v = data.utfall[String(a)];
+      var forra = i === 0 ? data.utfall[String(a - 1)] : data.utfall[String(ar[i - 1])];
+      var d = forra === undefined ? null : v - forra;
+      t += "<tr><td>" + a + "</td><td>" + talSv(v) + "</td><td>" +
+        (d === null ? "–" : (d >= 0 ? "+" : "−") + talSv(Math.abs(d))) +
+        "</td></tr>";
+    });
+    t += "</tbody>";
+    el("tabell-utfall").innerHTML = t;
+  }
+
   /* ---------- Källor ---------- */
 
   function initKallor(data) {
@@ -649,6 +680,7 @@
       initAvstand(data);
       initSkevhet(data);
       initSpagetti(data);
+      initUtfall(data);
       initKallor(data);
     })
     .catch(function (fel) {
