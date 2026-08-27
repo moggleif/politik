@@ -10,10 +10,23 @@
 </head>
 <body>
 
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
 <header class="sidhuvud">
   <div class="sidhuvud-inre">
-    <p class="brodsmula"><a href="index.html">Kungsbacka i siffror</a>
-      <span aria-hidden="true">›</span> Meritvärden</p>
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html" aria-current="page">Antagning</a>
+        <a href="slutbetyg.html">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+      </span>
+      <a href="metod.html">Metod</a>
+    </nav>
     <h1>Meritvärden på Kungsbackas gymnasieskolor</h1>
     <p class="ingress">
       Vilka betyg hade eleverna som kom in på kommunens gymnasieprogram
@@ -21,16 +34,20 @@
       Elof Lindälvs gymnasium, program för program, ur Göteborgsregionens
       (GR) statistik över slutantagningen.
     </p>
-    <nav class="sidnav" aria-label="Välj vy">
-      <span class="aktuell" aria-current="page">Meritvärden vid antagningen</span>
-      <a href="slutbetyg.html">Slutbetyg från gymnasiet</a>
-    </nav>
+    <p class="meta-rad" id="meta-rad" hidden></p>
   </div>
 </header>
 
-<main>
+<main id="huvudinnehall">
 
   <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
 
   <section id="sektion-forklaring">
     <h2>Två tal per utbildning</h2>
@@ -70,6 +87,7 @@
       <label for="program-valjare">Visa program:</label>
       <select id="program-valjare"></select>
     </div>
+    <div id="not-utveckling" hidden></div>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-utveckling" aria-label="Diagram: medelmeritvärde per program och år" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-utveckling"></p>
@@ -256,6 +274,7 @@
 </footer>
 
 <script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
 <script src="merit.js"></script>
 </body>
 </html>

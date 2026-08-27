@@ -25,6 +25,13 @@ i stället för av att utbildningen ändrats.
 - [Slutbetyg från gymnasiet](https://moggleif.github.io/politik/slutbetyg.html)
   &ndash; betygspoäng, examensgrad och högskolebehörighet hos avgångseleverna
   i hela kommunen, ur Skolverkets statistik, 2014–2025
+- [Från antagning till examen](https://moggleif.github.io/politik/antagning-till-examen.html)
+  &ndash; antagningen år X ställd mot avgångseleverna år X&nbsp;+&nbsp;3 för
+  samma program: samma kull, in och ut ur systemet. Måtten har olika skalor
+  och visas därför i skilda paneler &ndash; aldrig i samma diagram.
+
+Hur allting hämtas, räknas och kan reproduceras beskrivs på
+[metodsidan](https://moggleif.github.io/politik/metod.html).
 
 ## Så är repot uppbyggt
 
@@ -53,20 +60,36 @@ scripts/
   build_meritvarden.py          Bygger docs/data-meritvarden.json, med en
                                 serie per program i stället för per skola
   build_slutbetyg.py            Bygger docs/data-slutbetyg.json, på samma sätt
+  build_kull.py                 Bygger docs/data-kull.json: antagningen år X
+                                parad med avgångseleverna år X+3, per program
+tests/
+  test_berakningar.py           Kontrollräknar beräkningarna och stämmer av
+                                att docs/data*.json går att reproducera ur
+                                data/ (python3 -m unittest discover tests)
 docs/                           Själva hemsidan (serveras av GitHub Pages)
-  index.html                    Huvudmeny
+  index.html                    Startsida; ämneskorten fylls med beräknade
+                                sammanfattningar av index.js
   befolkningsprognos.html       Befolkningsprognoser, hela befolkningen
   gymnasiealdern.html           Befolkningsprognoser, åldersgruppen 16–19 år
   meritvarden.html              Meritvärden vid antagningen till gymnasiet
   slutbetyg.html                Slutbetyg från gymnasiet, program för program
+  antagning-till-examen.html    Antagningen mot examen tre år senare
+  metod.html                    Metodsidan: källor, transformationer, viktning
   style.css                     Delas av alla sidor
+  gemensam.js                   Delade byggstenar: färger, delbara URL:er
+                                (?year=, ?program=, …), sorterbara tabeller
+                                med CSV-nedladdning, "Kort sagt"-rutan,
+                                metadataraden och tonade linjer vid pekning
   app.js                        Driver de två prognossidorna; varje sida anger
                                 datafil och ordval via data-attribut på <body>
   merit.js                      Driver meritvärdessidan
   slutbetyg.js                  Driver slutbetygssidan
+  kull.js                       Driver antagning-till-examen-sidan
+  index.js                      Driver startsidans sammanfattningar
   data.json, data-16-19.json    Data till prognossidorna (genereras)
   data-meritvarden.json         Data till meritvärdessidan (genereras)
   data-slutbetyg.json           Data till slutbetygssidan (genereras)
+  data-kull.json                Data till antagning-till-examen (genereras)
   rapporter/*.pdf               Lokala kopior av käll­rapporterna
   rapporter/slutbetyg-*.csv     Skolverkets exportfiler, en per läsår
   chart.umd.js                  Chart.js v4 (vendrad, ingen CDN)
@@ -106,6 +129,19 @@ python3 scripts/hamta_slutbetyg.py    # hämtar alla läsår från Skolverket
 python3 scripts/build_slutbetyg.py    # bygger om docs/data-slutbetyg.json
 ```
 
+Kullarna (kör efter att meritvärdena och slutbetygen byggts om &ndash;
+skriptet läser de färdiga docs-filerna så att namnbyten och skolflyttar
+bara hanteras på ett ställe):
+
+```bash
+python3 scripts/build_kull.py         # bygger om docs/data-kull.json
+python3 -m unittest discover tests    # kontrollräknar beräkningarna
+```
+
+Testerna stämmer bland annat av att datafilerna i `docs/` är exakt vad
+byggskripten ger av innehållet i `data/` &ndash; inga siffror i utdatan
+får vara ändrade för hand.
+
 Hämtningen är helt automatisk &ndash; både CSV-filerna i `docs/rapporter/`
 och JSON-filerna i `data/slutbetyg/` skrivs om. Skolverket publicerar det
 gångna läsåret i november; dessförinnan svarar exporttjänsten med en tom
@@ -132,6 +168,28 @@ branch `main`, mapp `/docs`.
 - Skolverket, Utbildningsstatistik: *Gymnasieskola &ndash; Avgångselever,
   nationella program*, hämtad ur Skolverkets exporttjänst
   ([statistiken](https://www.skolverket.se/skolutveckling/statistik/sok-statistik-om-forskola-skola-och-vuxenutbildning))
+
+## Gemensamma byggstenar på sidorna
+
+Alla analyssidor delar samma komponenter (docs/gemensam.js):
+
+- **"Kort sagt"** överst: de viktigaste observationerna, beräknade ur
+  sidans datafil vid varje sidvisning &ndash; ingenting är hårdkodat.
+- **Delbara URL:er**: valen i reglagen speglas i adressraden
+  (t.ex. `slutbetyg.html?grupp=yrkesprogram&matt=andelexamen&year=2024`),
+  så att en länk ger samma vy; bakåt/framåt i webbläsaren fungerar.
+- **Tabeller**: sorterbara på kolumn, nedladdningsbara som CSV och
+  kopierbara. Saknade värden skiljer på sekretess (&rdquo;..&rdquo;,
+  färre än tio elever) och &rdquo;fanns inte&rdquo; (&ndash;).
+- **Databegränsningar** visas i en liten ruta intill det diagram där
+  begränsningen märks (2018 års saknade antagningsrapport, Skolverkets
+  dubbelprickning, prognosrapporten 2021 med annan åldersindelning).
+- **Metadataraden** under ingressen: källa, period, senaste data och
+  när datat hämtades.
+- I diagram med många linjer tonas övriga linjer ned när användaren
+  pekar på en linje eller på ett namn i teckenförklaringen. Serierna
+  skiljs åt med färg *och* punktform/streckning, så att ingen
+  information bärs av färgen ensam.
 
 ## Licens
 

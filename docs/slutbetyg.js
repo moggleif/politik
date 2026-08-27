@@ -9,35 +9,13 @@
 (function () {
   "use strict";
 
-  var FARG = {
-    ink: "#0b0b0b",
-    ink2: "#52514e",
-    muted: "#898781",
-    grid: "#e1e0d9",
-    baseline: "#c3c2b7",
-    surface: "#fcfcfb",
-    bla: "#2a78d6",
-    blaMork: "#1c5cab",
-    blaLjus: "#9ec5f4",
-    rod: "#e34948"
-  };
-
-  /* Kategorisk palett för linjerna. Programmen har ingen inbördes ordning,
-     så färgerna får inte heller antyda någon – och de måste gå att skilja åt
-     vid färgblindhet. Serier utöver palettens längd upprepar färgerna med
-     streckad linje i stället, så att inga två serier ser exakt likadana ut. */
-  var PALETT = [
-    "#1c5cab", "#e69f00", "#009e73", "#cc79a7",
-    "#56b4e9", "#d55e00", "#7a5195", "#6b8f00"
-  ];
-  var STRECK = [[], [7, 4], [2, 3], [9, 3, 2, 3]];
-
-  function serieStil(i) {
-    return {
-      farg: PALETT[i % PALETT.length],
-      streck: STRECK[Math.floor(i / PALETT.length) % STRECK.length]
-    };
-  }
+  /* Färger, kategorisk palett (validerad för färgblindhet), talformat
+     och diagraminställningar delas med de andra sidorna via gemensam.js.
+     Serierna skiljs inte bara med färg utan också med punktform, och
+     efter åtta serier med streckning. */
+  var K = window.KIS;
+  var FARG = K.FARG;
+  var serieStil = K.serieStil;
 
   /* De fyra talen rapporten redovisar. Betygspoängen är sidans huvudmått
      och styr rangordning och förändring; utvecklingen över tid går att
@@ -90,37 +68,39 @@
     return HUVUDMATT;
   }
 
-  function el(id) { return document.getElementById(id); }
-
-  function talSv(n, dec) {
-    return n.toLocaleString("sv-SE", {
-      minimumFractionDigits: dec || 0,
-      maximumFractionDigits: dec === undefined ? 0 : dec
-    });
-  }
+  var el = K.el;
+  var talSv = K.talSv;
+  var visaStatus = K.visaStatus;
+  var installChartDefaults = K.installChartDefaults;
 
   function visaTal(v, matt) {
     return v === null || v === undefined
       ? "–" : talSv(v, matt.dec) + matt.suffix;
   }
 
-  function visaStatus(html) {
-    var s = el("status");
-    s.innerHTML = html;
-    s.hidden = false;
+  /* Saknade värden i tabellerna, med orsaken utskriven: ".." är
+     Skolverkets dubbelprickning (sekretess), "–" betyder att utbildningen
+     inte redovisas alls det året. */
+  var SEKRETESS_CELL = '<abbr class="sekretess" title="Färre än tio ' +
+    'avgångselever – Skolverket redovisar inte värdet">..</abbr>';
+  var FANNS_EJ_CELL = '<span class="fanns-ej" title="Utbildningen ' +
+    'redovisas inte det året – den fanns inte, eller hade inga ' +
+    'avgångselever">–</span>';
+
+  function visaTalMedOrsak(u, ar, matt) {
+    var v = u.varden[String(ar)];
+    if (!v) return FANNS_EJ_CELL;
+    var tal = v[matt.id];
+    if (tal === null || tal === undefined) return SEKRETESS_CELL;
+    return talSv(tal, matt.dec) + matt.suffix;
   }
 
-  function installChartDefaults() {
-    Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
-    Chart.defaults.font.size = 15;
-    Chart.defaults.color = FARG.ink2;
-    Chart.defaults.borderColor = FARG.grid;
-    Chart.defaults.plugins.tooltip.backgroundColor = FARG.ink;
-    Chart.defaults.plugins.tooltip.titleFont = { size: 15, weight: "600" };
-    Chart.defaults.plugins.tooltip.bodyFont = { size: 15 };
-    Chart.defaults.plugins.tooltip.padding = 10;
-    Chart.defaults.plugins.tooltip.displayColors = false;
-  }
+  var TECKENFORKLARING =
+    "<strong>..</strong> = färre än tio avgångselever; Skolverket " +
+    "dubbelprickar uppgiften så att enskilda elever inte ska gå att räkna " +
+    "ut (sekretess). <strong>–</strong> = utbildningen redovisas inte det " +
+    "året: den fanns inte, eller hade inga avgångselever. En redovisad " +
+    "nolla skrivs ut som 0.";
 
   /* ---------- Gemensamt tillstånd ---------- */
 
@@ -288,9 +268,10 @@
             borderColor: stil.farg,
             backgroundColor: stil.farg,
             borderDash: stil.streck,
+            pointStyle: stil.punkt,
             borderWidth: 2.5,
-            pointRadius: 3,
-            pointHoverRadius: 6,
+            pointRadius: 3.5,
+            pointHoverRadius: 7,
             spanGaps: false,
             tension: 0.1
           };
@@ -337,8 +318,21 @@
       }
     }, Math.max(420, 300 + serier.length * 14));
 
+    /* Många linjer: peka på en linje eller ett namn i teckenförklaringen
+       så tonas de övriga ned. */
+    if (serier.length >= 3) K.aktiveraToning(diagram["diagram-utveckling"]);
+
     el("kalla-utveckling").textContent = matt.forklaring +
-      " Året är det år eleverna gick ut, i juni." + saknadeArText();
+      " Året är det år eleverna gick ut, i juni." + saknadeArText() +
+      (serier.length > 3
+        ? " Peka på ett namn i teckenförklaringen så tonas de andra " +
+          "linjerna ned; klicka för att dölja linjen."
+        : "");
+
+    K.sattDataNot("not-utveckling",
+      "<p>En linje bryts de år utbildningen hade <strong>färre än tio " +
+      "avgångselever</strong> – Skolverket redovisar då inte värdet, av " +
+      "sekretesskäl. I tabellen visas de åren som &rdquo;..&rdquo;.</p>");
 
     ritaSlutsatsUtveckling(serier, matt);
     ritaTabellUtveckling(matt);
@@ -408,20 +402,20 @@
     var ar = DATA.ar;
     var lista = synligaProgram();
     var t = "<caption>" + matt.namn + " per utbildning och år, Kungsbacka. " +
-      "Tomt fält betyder att utbildningen inte fanns, eller att den hade " +
-      "färre än tio avgångselever och därför inte redovisas.</caption>";
+      "Teckenförklaring under tabellen.</caption>";
     t += "<thead><tr><th scope=\"col\">Utbildning</th><th scope=\"col\">Skola</th>";
     ar.forEach(function (a) { t += "<th scope=\"col\">" + a + "</th>"; });
     t += "</tr></thead><tbody>";
     lista.forEach(function (u) {
       t += "<tr><td>" + u.namn + "</td><td>" + skolText(u) + "</td>";
       ar.forEach(function (a) {
-        t += "<td>" + visaTal(varde(u, a, matt), matt) + "</td>";
+        t += "<td>" + visaTalMedOrsak(u, a, matt) + "</td>";
       });
       t += "</tr>";
     });
     t += "</tbody>";
     el("tabell-utveckling").innerHTML = t;
+    el("teckenforklaring-utveckling").innerHTML = TECKENFORKLARING;
   }
 
   /* ---------- Avsnitt 2: rangordning ett enskilt år ---------- */
@@ -939,6 +933,84 @@
     ritaForandring();
   }
 
+  /* ---------- Kort sagt ---------- */
+
+  function initKortSagt() {
+    var punkter = [];
+    var sam = DATA.sammanfattning;
+    var medPoang = sam.filter(function (r) { return r.betygspoang !== null; });
+    if (!medPoang.length) return;
+    var forsta = medPoang[0], sista = medPoang[medPoang.length - 1];
+
+    punkter.push("Sidan följer <strong>" + DATA.utbildningar.length +
+      " utbildningar</strong> på " + DATA.skolor.length + " gymnasieskolor " +
+      "i Kungsbacka genom " + DATA.ar.length + " läsår, " + DATA.ar[0] +
+      "–" + DATA.ar[DATA.ar.length - 1] + ".");
+
+    var diff = sista.betygspoang - forsta.betygspoang;
+    punkter.push("Hela avgångskullens genomsnittliga betygspoäng var " +
+      talSv(sista.betygspoang, 1) + " år " + sista.ar + ", mot " +
+      talSv(forsta.betygspoang, 1) + " år " + forsta.ar + " (" +
+      (diff >= 0 ? "+" : "−") + talSv(Math.abs(diff), 1) + " på skalan 0–20).");
+
+    if (sista.andelExamen !== null && forsta.andelExamen !== null) {
+      punkter.push("Andelen avgångselever med gymnasieexamen var <strong>" +
+        talSv(sista.andelExamen, 1) + " %</strong> år " + sista.ar +
+        ", mot " + talSv(forsta.andelExamen, 1) + " % år " + forsta.ar + ".");
+    }
+
+    var sistaAr = DATA.ar[DATA.ar.length - 1];
+    var hf = DATA.perTyp.filter(function (r) { return r.typ === "hogskoleforberedande"; })[0];
+    var yp = DATA.perTyp.filter(function (r) { return r.typ === "yrkesprogram"; })[0];
+    if (hf && yp && hf.varden[String(sistaAr)] && yp.varden[String(sistaAr)]) {
+      var a = hf.varden[String(sistaAr)].betygspoang;
+      var b = yp.varden[String(sistaAr)].betygspoang;
+      punkter.push(Math.abs(a - b) < 0.05
+        ? "Högskoleförberedande program och yrkesprogram låg i princip lika " +
+          "i betygspoäng " + sistaAr + " (" + talSv(a, 1) + " mot " +
+          talSv(b, 1) + ", vägt per elev)."
+        : "Skillnaden mellan högskoleförberedande program och yrkesprogram " +
+          "var <strong>" + talSv(Math.abs(a - b), 1) + " betygspoäng</strong> " +
+          sistaAr + " (" + talSv(a, 1) + " mot " + talSv(b, 1) +
+          ", vägt per elev).");
+    }
+
+    /* Långsiktiga förändringar per utbildning – bara de med minst tre
+       mätår, så att en enskild årskull inte kallas trend. */
+    var langa = DATA.utbildningar.filter(function (u) {
+      return u.forandring !== null && u.antalArMedPoang >= 3;
+    });
+    if (langa.length > 1) {
+      var upp = langa.slice().sort(function (x, y) { return y.forandring - x.forandring; })[0];
+      var ner = langa.slice().sort(function (x, y) { return x.forandring - y.forandring; })[0];
+      var text = "";
+      if (upp.forandring > 0) {
+        text += "Mellan sitt första och sista mätår har <strong>" + upp.namn +
+          "</strong> stigit mest i betygspoäng (+" + talSv(upp.forandring, 1) +
+          ")";
+      }
+      if (ner.forandring < 0) {
+        text += (text ? " och " : "Mellan sitt första och sista mätår har ") +
+          "<strong>" + ner.namn + "</strong> sjunkit mest (−" +
+          talSv(Math.abs(ner.forandring), 1) + ")";
+      }
+      if (text) {
+        punkter.push(text + " – bland utbildningar med minst tre mätår.");
+      }
+    }
+
+    K.visaKortSagt(punkter);
+  }
+
+  function initMeta() {
+    K.visaMeta({
+      kalla: "Skolverket, Utbildningsstatistik",
+      period: DATA.ar[0] + "–" + DATA.ar[DATA.ar.length - 1],
+      senaste: "avgångna " + DATA.ar[DATA.ar.length - 1],
+      hamtad: DATA.kallor[DATA.kallor.length - 1].hamtad
+    });
+  }
+
   function init(data) {
     DATA = data;
     data.skolor.forEach(function (s) { KORT[s.namn] = s.kort; });
@@ -950,6 +1022,7 @@
         fyllValjare(gruppVal, [typ], function (t) { return TYPNAMN[t]; });
       }
     });
+    K.kopplaValjare(gruppVal, "grupp", ritaAllt);
     gruppVal.addEventListener("change", ritaAllt);
 
     var mattVal = el("matt-valjare");
@@ -959,17 +1032,27 @@
       o.textContent = m.namn;
       mattVal.appendChild(o);
     });
+    K.kopplaValjare(mattVal, "matt", ritaUtveckling);
     mattVal.addEventListener("change", ritaUtveckling);
 
     el("ar-valjare").addEventListener("change", ritaRangordning);
 
     el("valjarrad").hidden = false;
 
+    initKortSagt();
+    initMeta();
     ritaAllt();
+    /* Årväljarens alternativ finns först nu – koppla den till ?year=
+       och rita om ifall adressraden pekade ut ett annat år. */
+    var arVal = el("ar-valjare");
+    var innan = arVal.value;
+    K.kopplaValjare(arVal, "year", ritaRangordning);
+    if (arVal.value !== innan) ritaRangordning();
     ritaExamen();
     ritaTyp();
     initSkollista();
     initKallor();
+    K.aktiveraTabellverktyg();
   }
 
   fetch("data-slutbetyg.json")
