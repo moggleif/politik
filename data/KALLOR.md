@@ -303,6 +303,23 @@ med antagningen 2022. Serierna förs ihop till en, och vilket namn som gällde
 vilket år följer med i utdatan så att sidan kan skriva ut det. Tabellen står
 i `PROGRAM_BYTT_NAMN` i `scripts/build_meritvarden.py`.
 
+**Inriktningar som bytt namn förs ihop på samma sätt**, under det namn de
+har i dag. Tabellen står i `INRIKTNING_BYTT_NAMN` i
+`scripts/build_meritvarden.py` och omfattar reformerna 2021 och 2025:
+Karosseri och lackering blev Fordonsskadeteknik och lackering, Plåtslageri
+blev Byggnadsplåtslageri, Hästhållning fick lärlingsmarkering, barn- och
+fritidsprogrammets Pedagogiskt arbete och Socialt arbete blev en enda
+inriktning, och hotell- och turismprogrammets två lärlingsspår blev ett.
+
+Till skillnad från programnamnen förs de gamla raderna **inte** ihop i
+utbildningslistan. Där står varje rad kvar som rapporten skrev den, med sin
+egen antagningspoäng: 2017 gick det att söka till pedagogiskt och till
+socialt arbete var för sig, och de hade var sin antagning. Namnet används i
+stället när inriktningarna vägs ihop till serier, precis som flera
+inriktningar under samma program annars vägs ihop. De år då två inriktningar
+som sedan slagits ihop båda hade antagning blir seriens värde ett ovägt
+medelvärde av dem, och antalet syns i diagrammets ruta.
+
 **Serien följer programmet, inte skolan.** Kommunen flyttar program mellan
 sina två gymnasieskolor, och en serie per skola skulle då brytas av en
 organisationsförändring i stället för av att utbildningen ändrats.

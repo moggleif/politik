@@ -13,10 +13,12 @@ namnen olika. Tre saker skiljer sig åt:
   stavningen     "lärling" mot "Lärling", "anställd lärling" mot "Anställd
                  lärling", och inriktningar som upprepar programnamnet
 
-Ett program som bytt namn är fortfarande samma program. Handels- och
-administrationsprogrammet ersattes 2021 av Försäljnings- och service-
-programmet, och de förs ihop till en serie – vilket namn som gällde vilket
-år följer med i utdatan, så att sidan kan skriva ut det.
+Ett program eller en inriktning som bytt namn är fortfarande samma
+utbildning. Handels- och administrationsprogrammet ersattes 2021 av
+Försäljnings- och serviceprogrammet, och reformerna 2021 och 2025 döpte om
+flera inriktningar. De förs ihop till en serie under det namn som gäller i
+dag – vilket namn som gällde vilket år följer med i utdatan, så att sidan
+kan skriva ut det.
 
 Körs:  python3 scripts/build_meritvarden.py
 """
@@ -91,6 +93,33 @@ INRIKTNING_ALIAS = {
     "hotell och turism": "",
     "forsaljnings och service": "",
     "vard och omsorg": "",
+}
+
+
+# Inriktningar som bytt namn men är samma utbildning. Nyckeln är programmet
+# och inriktningens namn som det stod förr (normaliserat); värdet är namnet
+# som gäller i dag. Två rader kan peka på samma nya namn: 2021 års reform
+# slog ihop pedagogiskt och socialt arbete till en inriktning, och på samma
+# sätt hotell- och turismprogrammets två lärlingsspår.
+#
+# Till skillnad från programnamnen förs de gamla raderna INTE ihop till en
+# rad i utbildningslistan. Där ska varje rad stå kvar som rapporten skrev
+# den, med sin egen antagningspoäng – 2017 gick det att söka till
+# pedagogiskt och till socialt arbete var för sig, och de hade olika
+# antagning. Namnet används i stället när inriktningarna vägs ihop till
+# serier, precis som flera inriktningar under samma program vägs ihop.
+INRIKTNING_BYTT_NAMN = {
+    ("Barn- och fritidsprogrammet", "pedagogiskt arbete larling"):
+        "Pedagogiskt och socialt arbete, Lärling",
+    ("Barn- och fritidsprogrammet", "socialt arbete larling"):
+        "Pedagogiskt och socialt arbete, Lärling",
+    ("Bygg- och anläggningsprogrammet", "platslageri larling"):
+        "Byggnadsplåtslageri, Lärling",
+    ("Fordons- och transportprogrammet", "karosseri och lackering larling"):
+        "Fordonsskadeteknik och lackering, Lärling",
+    ("Hotell- och turismprogrammet", "hotell och konferens larling"): "Lärling",
+    ("Hotell- och turismprogrammet", "turism och resor larling"): "Lärling",
+    ("Naturbruksprogrammet", "hasthallning"): "Hästhållning, Lärling",
 }
 
 
@@ -183,6 +212,9 @@ def bygg(argangar: list) -> dict:
             })
             # Senaste årets stavning vinner – den är den som gäller i dag.
             serie["inriktning"] = inriktning
+            # Namnet inriktningen går under i dag, som serierna grupperas på
+            serie["inriktningNu"] = INRIKTNING_BYTT_NAMN.get(
+                (program, nyckla(inriktning)), inriktning)
             serie["varden"][ar] = {
                 # Namnet rapporten använde, när programmet sedan bytt namn
                 "namn": aretsnamn,
@@ -211,6 +243,7 @@ def bygg(argangar: list) -> dict:
             serie["forandring"] = None
         utbildningar.append(serie)
 
+
     utbildningar.sort(key=lambda s: (s["skola"], s["program"], s["inriktning"]))
 
     # Programserier. Kungsbacka flyttar program mellan sina två
@@ -234,19 +267,51 @@ def bygg(argangar: list) -> dict:
     def skolordning(namn):
         return [x["namn"] for x in SKOLOR].index(namn)
 
-    per_program = {}
-    for u in utbildningar:
-        if u["typ"] == "introduktion":
-            continue
-        per_skola = per_program.setdefault(u["program"], {})
-        for ar_s, v in u["varden"].items():
-            if v["medel"] is None:
-                continue
-            post = per_skola.setdefault(u["skola"], {}).setdefault(
-                ar_s, {"varden": [], "namn": None})
-            post["varden"].append(v["medel"])
-            if v.get("namn"):
-                post["namn"] = v["namn"]
+    def ar_med_medel(rader):
+        return {ar_s for u in rader for ar_s, v in u["varden"].items()
+                if v["medel"] is not None}
+
+    def vag_ihop(rader):
+        """Väger ihop rader till en serie med ett ovägt medelvärde per år."""
+        varden = {}
+        for u in rader:
+            for ar_s, v in u["varden"].items():
+                if v["medel"] is None:
+                    continue
+                post = varden.setdefault(
+                    ar_s, {"tal": [], "skolor": set(), "namn": None})
+                post["tal"].append(v["medel"])
+                post["skolor"].add(u["skola"])
+                if v.get("namn"):
+                    post["namn"] = v["namn"]
+        ut = {}
+        for ar_s, post in varden.items():
+            rad = {
+                "medel": medel(post["tal"]),
+                "antal": len(post["tal"]),
+                "skola": " + ".join(KORT[n] for n in
+                                    sorted(post["skolor"], key=skolordning)),
+            }
+            if post["namn"]:
+                rad["namn"] = post["namn"]
+            ut[ar_s] = rad
+        return ut
+
+    def satt_statistik(serie):
+        """Första och sista mätåret, och förändringen däremellan."""
+        medelar = {a: v["medel"] for a, v in serie["varden"].items()}
+        serie["antalArMedMedel"] = len(medelar)
+        if medelar:
+            forsta, sista = min(medelar), max(medelar)
+            serie["forstaAr"], serie["sistaAr"] = int(forsta), int(sista)
+            serie["forsta"], serie["sista"] = medelar[forsta], medelar[sista]
+            # Förändringen är bara meningsfull mellan två skilda år
+            serie["forandring"] = (round(medelar[sista] - medelar[forsta], 2)
+                                   if forsta != sista else None)
+        else:
+            serie["forstaAr"] = serie["sistaAr"] = None
+            serie["forandring"] = None
+        return serie
 
     def gruppera(per_skola: dict) -> list:
         """Delar upp skolorna i serier: hopslagna om åren inte överlappar."""
@@ -264,25 +329,63 @@ def bygg(argangar: list) -> dict:
             grupper.append((hem, grupp))
         return grupper
 
+    per_program = {}
+    for u in utbildningar:
+        if u["typ"] == "introduktion":
+            continue
+        per_program.setdefault(u["program"], []).append(u)
+
     program = []
     for namn in sorted(per_program):
-        per_skola = per_program[namn]
+        rader = per_program[namn]
+        per_skola = {}
+        for u in rader:
+            ar_s = ar_med_medel([u])
+            if ar_s:
+                per_skola.setdefault(u["skola"], set()).update(ar_s)
+        if not per_skola:
+            continue
         grupper = gruppera(per_skola)
         for hem, grupp in grupper:
-            varden = {}
-            for skola in grupp:
-                for ar_s, post in per_skola[skola].items():
-                    varden[ar_s] = {
-                        "medel": medel(post["varden"]),
-                        "antal": len(post["varden"]),
-                        "skola": KORT[skola],
-                    }
-                    if post["namn"]:
-                        varden[ar_s]["namn"] = post["namn"]
-            tidigare = sorted({v["namn"] for v in varden.values() if v.get("namn")})
-            serie = {
+            i_grupp = [u for u in rader if u["skola"] in grupp]
+            varden = vag_ihop(i_grupp)
+            # Inriktningarna under programmet, grupperade på det namn de går
+            # under i dag. En inriktning som bytt namn blir därmed en obruten
+            # serie, och de år då två inriktningar sedan slagits ihop till en
+            # vägs de ihop precis som flera inriktningar annars vägs ihop.
+            per_inriktning = {}
+            for u in i_grupp:
+                per_inriktning.setdefault(u["inriktningNu"], []).append(u)
+            inriktningar = []
+            for inr in sorted(per_inriktning):
+                varden_i = vag_ihop(per_inriktning[inr])
+                # Vilket namn inriktningen gick under de år den hette något
+                # annat, så att sidan kan skriva ut det vid rätt punkt
+                for u in per_inriktning[inr]:
+                    if u["inriktning"] == inr:
+                        continue
+                    for ar_s, v in u["varden"].items():
+                        if v["medel"] is None:
+                            continue
+                        da = varden_i[ar_s].setdefault("daNamn", [])
+                        if u["inriktning"] not in da:
+                            da.append(u["inriktning"])
+                for rad in varden_i.values():
+                    if "daNamn" in rad:
+                        rad["daNamn"] = sorted(rad["daNamn"])
+                delserie = satt_statistik({
+                    "namn": inr or "Utan särskild inriktning",
+                    "inriktning": inr,
+                    "tidigareNamn": sorted({u["inriktning"] for u in per_inriktning[inr]
+                                            if u["inriktning"] != inr}),
+                    "varden": varden_i,
+                })
+                if delserie["antalArMedMedel"]:
+                    inriktningar.append(delserie)
+            serie = satt_statistik({
                 "namn": namn,
-                "tidigareNamn": tidigare,
+                "tidigareNamn": sorted({v["namn"] for v in varden.values()
+                                        if v.get("namn")}),
                 # Skolan skrivs bara ut när programmet gått parallellt på
                 # båda skolorna – annars säger den inget läsaren behöver.
                 "etikett": namn + (" (%s)" % KORT[hem] if len(grupper) > 1 else ""),
@@ -290,18 +393,8 @@ def bygg(argangar: list) -> dict:
                 "skolor": [KORT[s] for s in sorted(grupp, key=skolordning)],
                 "typ": typ_av(namn),
                 "varden": varden,
-            }
-            medelar = {a: v["medel"] for a, v in varden.items()}
-            serie["antalArMedMedel"] = len(medelar)
-            if medelar:
-                forsta, sista = min(medelar), max(medelar)
-                serie["forstaAr"], serie["sistaAr"] = int(forsta), int(sista)
-                serie["forsta"], serie["sista"] = medelar[forsta], medelar[sista]
-                serie["forandring"] = (round(medelar[sista] - medelar[forsta], 2)
-                                       if forsta != sista else None)
-            else:
-                serie["forstaAr"] = serie["sistaAr"] = None
-                serie["forandring"] = None
+                "inriktningar": inriktningar,
+            })
             program.append(serie)
     program.sort(key=lambda p: p["etikett"])
 

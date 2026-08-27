@@ -115,19 +115,6 @@
     return u.namn + (delatProgram(u.program) ? " (" + u.skolaKort + ")" : "");
   }
 
-  function inriktningsnamn(u, visaSkola) {
-    return (u.inriktning || "Utan särskild inriktning") +
-      (visaSkola ? " (" + u.skolaKort + ")" : "");
-  }
-
-  /* Utbildningarna bakom en programserie: samma program, och en skola som
-     serien omfattar. En serie för ett flyttat program omfattar båda. */
-  function utbildningarIServie(serie) {
-    return nationella().filter(function (u) {
-      return u.program === serie.namn && serie.skolor.indexOf(u.skolaKort) !== -1;
-    });
-  }
-
   /* ---------- Avsnitt 1: utvecklingen program för program ---------- */
 
   function serierUtveckling(valdEtikett) {
@@ -138,27 +125,28 @@
         return p.etikett === valdEtikett;
       })[0];
       if (!serie) return [];
-      /* Skolan är redan vald i och med programmet – den behöver bara stå
-         med när serien följer ett program som bytt hus. */
-      var flerSkolor = serie.skolor.length > 1;
-      return utbildningarIServie(serie)
-        .filter(function (u) { return u.antalArMedMedel > 0; })
-        .map(function (u) {
-          return {
-            etikett: inriktningsnamn(u, flerSkolor),
-            varden: ar.map(function (a) {
-              var v = u.varden[String(a)];
-              return v && v.medel !== null ? v.medel : null;
-            }),
-            /* På inriktningsnivå är varje punkt en enda utbildning */
-            antal: ar.map(function () { return 1; }),
-            skola: ar.map(function () { return u.skolaKort; }),
-            aretsnamn: ar.map(function (a) {
-              var v = u.varden[String(a)];
-              return v && v.namn ? v.namn : null;
-            })
-          };
-        });
+      return serie.inriktningar.map(function (i) {
+        return {
+          etikett: i.namn,
+          varden: ar.map(function (a) {
+            var v = i.varden[String(a)];
+            return v ? v.medel : null;
+          }),
+          antal: ar.map(function (a) {
+            var v = i.varden[String(a)];
+            return v ? v.antal : null;
+          }),
+          skola: ar.map(function (a) {
+            var v = i.varden[String(a)];
+            return v ? v.skola : null;
+          }),
+          /* Inriktningar har bytt namn – visa vad den hette just det året */
+          aretsnamn: ar.map(function (a) {
+            var v = i.varden[String(a)];
+            return v && v.daNamn ? v.daNamn.join(" och ") : null;
+          })
+        };
+      });
     }
 
     return DATA.program.map(function (p) {
@@ -348,21 +336,22 @@
 
     if (valt) {
       var serie = DATA.program.filter(function (p) { return p.etikett === valt; })[0];
-      var utb = utbildningarIServie(serie).filter(function (u) {
-        return u.antalArMedMedel > 0;
-      });
+      var bytt = serie.inriktningar.filter(function (i) {
+        return i.tidigareNamn.length;
+      }).map(function (i) {
+        return " " + i.namn + " hette tidigare " + i.tidigareNamn.join(" och ") + ".";
+      }).join("");
       t = "<caption>Medelmeritvärde per inriktning och år, " + valt +
         ". Tomt fält betyder att inriktningen inte fanns eller att ingen " +
-        "antogs det året.</caption>";
-      t += "<thead><tr><th scope=\"col\">Inriktning</th><th scope=\"col\">Skola</th>";
+        "antogs det året." + bytt + "</caption>";
+      t += "<thead><tr><th scope=\"col\">Inriktning</th>";
       ar.forEach(function (a) { t += "<th scope=\"col\">" + a + "</th>"; });
       t += "</tr></thead><tbody>";
-      utb.forEach(function (u) {
-        t += "<tr><td>" + (u.inriktning || "Utan särskild inriktning") +
-          "</td><td>" + u.skolaKort + "</td>";
+      serie.inriktningar.forEach(function (i) {
+        t += "<tr><td>" + i.namn + "</td>";
         ar.forEach(function (a) {
-          var v = u.varden[String(a)];
-          t += "<td>" + (v && v.medel !== null ? talSv(v.medel, 1) : "–") + "</td>";
+          var v = i.varden[String(a)];
+          t += "<td>" + (v ? talSv(v.medel, 1) : "–") + "</td>";
         });
         t += "</tr>";
       });
@@ -454,6 +443,9 @@
                 var r = rader[it.dataIndex];
                 var rad = ["Medelmeritvärde: " + talSv(r.v.medel, 1)];
                 if (r.v.namn) rad.push("Hette då " + r.v.namn);
+                if (r.u.inriktningNu && r.u.inriktningNu !== r.u.inriktning) {
+                  rad.push("Heter i dag " + r.u.inriktningNu);
+                }
                 if (r.v.poang !== null) {
                   rad.push("Sist antagna elev: " + talSv(r.v.poang, 1));
                 }
