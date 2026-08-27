@@ -13,10 +13,10 @@ namnen olika. Tre saker skiljer sig åt:
   stavningen     "lärling" mot "Lärling", "anställd lärling" mot "Anställd
                  lärling", och inriktningar som upprepar programnamnet
 
-Programnamn som bytts av en skolreform (Handels- och administrations-
-programmet ersattes 2021 av Försäljnings- och serviceprogrammet) slås
-däremot INTE ihop. Det är olika utbildningar med olika innehåll, och en
-linje som byter namn mitt i skulle dölja just det.
+Ett program som bytt namn är fortfarande samma program. Handels- och
+administrationsprogrammet ersattes 2021 av Försäljnings- och service-
+programmet, och de förs ihop till en serie – vilket namn som gällde vilket
+år följer med i utdatan, så att sidan kan skriva ut det.
 
 Körs:  python3 scripts/build_meritvarden.py
 """
@@ -73,6 +73,15 @@ PROGRAM_ALIAS = {
     "Introduktionsprogram Yrkesintroduktion": "Introduktionsprogram",
 }
 
+# Program som bytt namn men är samma utbildning. Handels- och
+# administrationsprogrammet ersattes av Försäljnings- och serviceprogrammet
+# i 2021 års gymnasiereform; GR:s rapporter använder det nya namnet från och
+# med antagningen 2022. Serien förs ihop, och det gamla namnet följer med
+# per år så att det går att skriva ut.
+PROGRAM_BYTT_NAMN = {
+    "Handels- och administrationsprogrammet": "Försäljnings- och serviceprogrammet",
+}
+
 # Inriktningsnamn som betyder samma sak men skrivits olika mellan åren.
 # Nyckeln är normaliserad (gemener, utan skiljetecken) – se nyckla().
 INRIKTNING_ALIAS = {
@@ -94,7 +103,11 @@ def nyckla(text: str) -> str:
 
 
 def dela_utbildning(text: str):
-    """Delar "Program KOD - Inriktning" i program och inriktning."""
+    """Delar "Program KOD - Inriktning" i program, inriktning och årets namn.
+
+    Tredje värdet är det programnamn rapporten använde, om det skiljer sig
+    från det namn programmet går under i dag.
+    """
     text = text.strip()
     m = re.match(r"^(.*?)\s([A-ZÅÄÖ]{2})(?:\s*-\s*(.*))?$", text)
     if m:
@@ -105,12 +118,17 @@ def dela_utbildning(text: str):
         program, inriktning = text, ""
 
     program = PROGRAM_ALIAS.get(program, program)
+    aretsnamn = program
+    program = PROGRAM_BYTT_NAMN.get(program, program)
 
-    # En inriktning som bara upprepar programnamnet är ingen inriktning.
-    if nyckla(inriktning) == nyckla(program):
-        inriktning = ""
+    # En inriktning som bara upprepar programnamnet är ingen inriktning –
+    # varken hela inriktningen ("Vård- och omsorgsprogrammet") eller en del
+    # av den ("Försäljnings- och serviceprogrammet, lärling").
+    delar = [d.strip() for d in inriktning.split(",") if d.strip()]
+    delar = [d for d in delar if nyckla(d) != nyckla(aretsnamn)]
+    inriktning = ", ".join(delar)
     inriktning = INRIKTNING_ALIAS.get(nyckla(inriktning), inriktning)
-    return program, inriktning
+    return program, inriktning, (aretsnamn if aretsnamn != program else None)
 
 
 # Delar av ett inriktningsnamn som betyder samma sak. "anställd lärling"
@@ -152,7 +170,7 @@ def bygg(argangar: list) -> dict:
     for argang in argangar:
         ar = str(argang["ar"])
         for rad in argang["utbildningar"]:
-            program, inriktning = dela_utbildning(rad["utbildning"])
+            program, inriktning, aretsnamn = dela_utbildning(rad["utbildning"])
             if typ_av(program) == "okant":
                 okanda.add(program)
             nyckel = (rad["skola"], program, inriktningsnyckel(inriktning))
@@ -166,6 +184,8 @@ def bygg(argangar: list) -> dict:
             # Senaste årets stavning vinner – den är den som gäller i dag.
             serie["inriktning"] = inriktning
             serie["varden"][ar] = {
+                # Namnet rapporten använde, när programmet sedan bytt namn
+                "namn": aretsnamn,
                 "medel": rad["medelmeritvarde"],
                 "poang": rad["antagningspoang"],
                 "kod": rad["antagningspoangKod"],
@@ -222,7 +242,11 @@ def bygg(argangar: list) -> dict:
         for ar_s, v in u["varden"].items():
             if v["medel"] is None:
                 continue
-            per_skola.setdefault(u["skola"], {}).setdefault(ar_s, []).append(v["medel"])
+            post = per_skola.setdefault(u["skola"], {}).setdefault(
+                ar_s, {"varden": [], "namn": None})
+            post["varden"].append(v["medel"])
+            if v.get("namn"):
+                post["namn"] = v["namn"]
 
     def gruppera(per_skola: dict) -> list:
         """Delar upp skolorna i serier: hopslagna om åren inte överlappar."""
@@ -247,14 +271,18 @@ def bygg(argangar: list) -> dict:
         for hem, grupp in grupper:
             varden = {}
             for skola in grupp:
-                for ar_s, lista in per_skola[skola].items():
+                for ar_s, post in per_skola[skola].items():
                     varden[ar_s] = {
-                        "medel": medel(lista),
-                        "antal": len(lista),
+                        "medel": medel(post["varden"]),
+                        "antal": len(post["varden"]),
                         "skola": KORT[skola],
                     }
+                    if post["namn"]:
+                        varden[ar_s]["namn"] = post["namn"]
+            tidigare = sorted({v["namn"] for v in varden.values() if v.get("namn")})
             serie = {
                 "namn": namn,
+                "tidigareNamn": tidigare,
                 # Skolan skrivs bara ut när programmet gått parallellt på
                 # båda skolorna – annars säger den inget läsaren behöver.
                 "etikett": namn + (" (%s)" % KORT[hem] if len(grupper) > 1 else ""),

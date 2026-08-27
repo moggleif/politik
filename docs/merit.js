@@ -152,7 +152,11 @@
             }),
             /* På inriktningsnivå är varje punkt en enda utbildning */
             antal: ar.map(function () { return 1; }),
-            skola: ar.map(function () { return u.skolaKort; })
+            skola: ar.map(function () { return u.skolaKort; }),
+            aretsnamn: ar.map(function (a) {
+              var v = u.varden[String(a)];
+              return v && v.namn ? v.namn : null;
+            })
           };
         });
     }
@@ -171,6 +175,10 @@
         skola: ar.map(function (a) {
           var v = p.varden[String(a)];
           return v ? v.skola : null;
+        }),
+        aretsnamn: ar.map(function (a) {
+          var v = p.varden[String(a)];
+          return v && v.namn ? v.namn : null;
         })
       };
     });
@@ -204,6 +212,7 @@
             data: s.varden,
             antal: s.antal,
             skola: s.skola,
+            aretsnamn: s.aretsnamn,
             borderColor: stil.farg,
             backgroundColor: stil.farg,
             borderDash: stil.streck,
@@ -227,6 +236,9 @@
               label: function (it) {
                 var i = it.dataIndex, d = it.dataset;
                 var rader = [d.label + ": " + talSv(it.parsed.y, 1)];
+                if (d.aretsnamn && d.aretsnamn[i]) {
+                  rader.push("Hette då " + d.aretsnamn[i]);
+                }
                 if (d.skola && d.skola[i]) rader.push(d.skola[i]);
                 if (d.antal && d.antal[i] > 1) {
                   rader.push("Snitt av " + d.antal[i] + " inriktningar");
@@ -365,7 +377,7 @@
             "A = Aranäsgymnasiet, E = Elof Lindälvs gymnasium."
           : "") +
         " Tomt fält betyder att programmet inte fanns eller att ingen antogs " +
-        "det året.</caption>";
+        "det året." + namnbytesText() + "</caption>";
       t += "<thead><tr><th scope=\"col\">Program</th>";
       ar.forEach(function (a) { t += "<th scope=\"col\">" + a + "</th>"; });
       t += "</tr></thead><tbody>";
@@ -383,6 +395,21 @@
       t += "</tbody>";
     }
     el("tabell-utveckling").innerHTML = t;
+  }
+
+  /* Program som bytt namn under perioden. Skrivs ut i klartext, med det år
+     det gamla namnet användes sista gången. */
+  function namnbytesText() {
+    var texter = DATA.program.filter(function (p) {
+      return p.tidigareNamn && p.tidigareNamn.length;
+    }).map(function (p) {
+      var sistaAret = Object.keys(p.varden).filter(function (a) {
+        return p.varden[a].namn;
+      }).sort().pop();
+      return " " + p.namn + " hette " + p.tidigareNamn.join(" och ") +
+        " till och med " + sistaAret + ".";
+    });
+    return texter.join("");
   }
 
   /* ---------- Avsnitt 2: rangordning ett enskilt år ---------- */
@@ -426,6 +453,7 @@
               label: function (it) {
                 var r = rader[it.dataIndex];
                 var rad = ["Medelmeritvärde: " + talSv(r.v.medel, 1)];
+                if (r.v.namn) rad.push("Hette då " + r.v.namn);
                 if (r.v.poang !== null) {
                   rad.push("Sist antagna elev: " + talSv(r.v.poang, 1));
                 }

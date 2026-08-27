@@ -296,6 +296,13 @@ serien vilar på två olika markörer.
 Aranäsgymnasiet och Elof Lindälvs gymnasium. Rapporterna täcker hela
 Göteborgsregionen; urvalet görs i `scripts/extrahera_antagning.py`.
 
+**Ett program som bytt namn förs ihop.** Handels- och
+administrationsprogrammet ersattes av Försäljnings- och serviceprogrammet i
+2021 års gymnasiereform, och GR:s rapporter använder det nya namnet från och
+med antagningen 2022. Serierna förs ihop till en, och vilket namn som gällde
+vilket år följer med i utdatan så att sidan kan skriva ut det. Tabellen står
+i `PROGRAM_BYTT_NAMN` i `scripts/build_meritvarden.py`.
+
 **Serien följer programmet, inte skolan.** Kommunen flyttar program mellan
 sina två gymnasieskolor, och en serie per skola skulle då brytas av en
 organisationsförändring i stället för av att utbildningen ändrats.
