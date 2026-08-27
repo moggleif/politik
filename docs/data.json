@@ -185,6 +185,50 @@
    }
   },
   {
+   "prognosAr": 2023,
+   "rapportTitel": "Befolkningsprognos 2023–2032 (i Kommunbudget 2024)",
+   "publicerad": "2023-06",
+   "kallaUrl": "https://kungsbacka.se/download/18.3681ec99188bdbf7b0022f6/1750763170648/Kommunbudget%202024.pdf",
+   "arkivUrl": null,
+   "lokalPdf": "rapporter/kommunbudget-2024.pdf",
+   "sidhanvisning": "Avsnittet Befolkningsprognos, tabellen Ålder 2022–2032 (sid 30)",
+   "prognos": {
+    "2023": 86174,
+    "2024": 86675,
+    "2025": 87324,
+    "2026": 88170,
+    "2027": 88770,
+    "2028": 89544,
+    "2029": 90330,
+    "2030": 90897,
+    "2031": 91465,
+    "2032": 92004
+   },
+   "avvikelser": {
+    "2023": {
+     "prognos": 86174,
+     "utfall": 85653,
+     "diff": 521,
+     "pct": 0.61,
+     "avstand": 0
+    },
+    "2024": {
+     "prognos": 86675,
+     "utfall": 85792,
+     "diff": 883,
+     "pct": 1.03,
+     "avstand": 1
+    },
+    "2025": {
+     "prognos": 87324,
+     "utfall": 86332,
+     "diff": 992,
+     "pct": 1.15,
+     "avstand": 2
+    }
+   }
+  },
+  {
    "prognosAr": 2024,
    "rapportTitel": "Befolkningsprognos 2024–2033 (med framskrivning till 2050)",
    "publicerad": "2024",
@@ -325,27 +369,27 @@
  "perAvstand": [
   {
    "avstand": 0,
-   "medelAbsPct": 0.36,
-   "maxAbsPct": 0.53,
-   "medelPct": 0.28,
-   "antalOver": 3,
-   "antal": 4
+   "medelAbsPct": 0.41,
+   "maxAbsPct": 0.61,
+   "medelPct": 0.34,
+   "antalOver": 4,
+   "antal": 5
   },
   {
    "avstand": 1,
-   "medelAbsPct": 1.18,
+   "medelAbsPct": 1.14,
    "maxAbsPct": 1.39,
-   "medelPct": 1.18,
-   "antalOver": 3,
-   "antal": 3
+   "medelPct": 1.14,
+   "antalOver": 4,
+   "antal": 4
   },
   {
    "avstand": 2,
-   "medelAbsPct": 2.65,
+   "medelAbsPct": 2.15,
    "maxAbsPct": 3.01,
-   "medelPct": 2.65,
-   "antalOver": 2,
-   "antal": 2
+   "medelPct": 2.15,
+   "antalOver": 3,
+   "antal": 3
   },
   {
    "avstand": 3,
@@ -365,9 +409,9 @@
   }
  ],
  "skevhet": {
-  "antal": 12,
-  "antalOver": 11,
-  "medelPct": 1.9,
-  "medelAbsPct": 1.92
+  "antal": 15,
+  "antalOver": 14,
+  "medelPct": 1.7,
+  "medelAbsPct": 1.73
  }
 }
