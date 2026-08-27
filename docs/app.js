@@ -272,15 +272,23 @@
     var start = Math.min(forstaPrognosAr, sistaUtfallsAr - 10);
     ar = ar.filter(function (a) { return a >= start; });
 
+    /* Prognosåren är en ordnad skala, så linjerna får en blå ramp:
+       ljus = äldsta prognosen, mörk = den senaste. */
+    var RAMP = ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"];
+    function rampFarg(i, n) {
+      if (n <= 1) return RAMP[RAMP.length - 1];
+      return RAMP[Math.round(i * (RAMP.length - 1) / (n - 1))];
+    }
+
     var dataset = [];
-    data.prognoser.forEach(function (p) {
+    data.prognoser.forEach(function (p, i) {
       dataset.push({
         label: "Prognos " + p.prognosAr,
         data: ar.map(function (a) {
           return p.prognos[String(a)] !== undefined ? p.prognos[String(a)] : null;
         }),
-        borderColor: FARG.gra,
-        backgroundColor: FARG.gra,
+        borderColor: rampFarg(i, data.prognoser.length),
+        backgroundColor: rampFarg(i, data.prognoser.length),
         borderWidth: 2,
         pointRadius: 0,
         pointHoverRadius: 5,
@@ -293,8 +301,8 @@
       data: ar.map(function (a) {
         return data.utfall[String(a)] !== undefined ? data.utfall[String(a)] : null;
       }),
-      borderColor: FARG.bla,
-      backgroundColor: FARG.bla,
+      borderColor: FARG.ink,
+      backgroundColor: FARG.ink,
       borderWidth: 3,
       pointRadius: 3,
       pointHoverRadius: 6,
@@ -317,12 +325,26 @@
           legend: {
             display: true,
             labels: {
-              /* Visa bara två poster: utfallet och en samlad "Prognoser" */
-              generateLabels: function (chart) {
-                return [
-                  { text: "Faktisk folkmängd (SCB)", strokeStyle: FARG.bla, fillStyle: FARG.bla, lineWidth: 3 },
-                  { text: "Kommunens prognoser", strokeStyle: FARG.gra, fillStyle: FARG.gra, lineWidth: 2 }
-                ];
+              /* Sammanfatta: utfallet plus rampens ändpunkter */
+              generateLabels: function () {
+                var n = data.prognoser.length;
+                var poster = [{ text: "Faktisk folkmängd (SCB)", strokeStyle: FARG.ink, fillStyle: FARG.ink, lineWidth: 3 }];
+                if (n > 1) {
+                  poster.push({
+                    text: "Äldsta prognosen (" + data.prognoser[0].prognosAr + ")",
+                    strokeStyle: rampFarg(0, n), fillStyle: rampFarg(0, n), lineWidth: 2
+                  });
+                  poster.push({
+                    text: "Senaste prognosen (" + data.prognoser[n - 1].prognosAr + ")",
+                    strokeStyle: rampFarg(n - 1, n), fillStyle: rampFarg(n - 1, n), lineWidth: 2
+                  });
+                } else if (n === 1) {
+                  poster.push({
+                    text: "Prognos " + data.prognoser[0].prognosAr,
+                    strokeStyle: rampFarg(0, 1), fillStyle: rampFarg(0, 1), lineWidth: 2
+                  });
+                }
+                return poster;
               }
             }
           },
@@ -351,8 +373,10 @@
       }
     });
 
-    el("kalla-spagetti").textContent =
-      "Blå linje: SCB:s faktiska folkmängd 31 december. Grå linjer: kommunens prognoser.";
+    el("kalla-spagetti").textContent = data.prognoser.length > 1
+      ? "Svart linje: SCB:s faktiska folkmängd 31 december. Blå linjer: kommunens " +
+        "prognoser – ju mörkare linje, desto senare är prognosen gjord."
+      : "Svart linje: SCB:s faktiska folkmängd 31 december. Blå linje: kommunens prognos.";
 
     /* Tabell: matris år × prognos */
     var t = "<caption>Faktisk folkmängd och samtliga prognoser, antal invånare.</caption>";
