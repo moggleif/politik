@@ -104,6 +104,24 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str) -> dict:
             "medelAbsPct": round(sum(abs(x) for x in alla) / len(alla), 2),
         }
 
+    # Skevhet per årgång. En modell kan ha bytt riktning över tid – t.ex.
+    # underskattat under en tillväxtperiod och överskattat efter en
+    # vändning. Det är en annan sorts fel än en konstant skevhet, och
+    # kräver en annan åtgärd, så det redovisas separat.
+    per_argang = []
+    for p in prognoser:
+        v = [a["pct"] for a in p["avvikelser"].values()]
+        if v:
+            per_argang.append({
+                "prognosAr": p["prognosAr"],
+                "medelPct": round(sum(v) / len(v), 2),
+                "antalOver": sum(1 for x in v if x > 0),
+                "antal": len(v),
+            })
+    if skevhet is not None:
+        riktningar = {x["medelPct"] > 0 for x in per_argang}
+        skevhet["bytterRiktning"] = len(riktningar) > 1
+
     return {
         "kommun": scb["kommun"],
         "serie": etikett,
@@ -116,6 +134,7 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str) -> dict:
         },
         "prognoser": prognoser,
         "perAvstand": avstand_lista,
+        "perArgang": per_argang,
         "skevhet": skevhet,
     }
 

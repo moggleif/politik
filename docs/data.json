@@ -37,6 +37,51 @@
  },
  "prognoser": [
   {
+   "prognosAr": 2015,
+   "rapportTitel": "Befolkningsprognos 2015–2018 (i Kommunbudget 2016)",
+   "publicerad": "2015-02",
+   "kallaUrl": "https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/mal-och-resultat/kommunbudget/kungsbacka_budget2016_web.pdf",
+   "arkivUrl": "https://web.archive.org/web/20220319193931id_/https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/mal-och-resultat/kommunbudget/kungsbacka_budget2016_web.pdf",
+   "lokalPdf": "rapporter/kommunbudget-2016.pdf",
+   "sidhanvisning": "Avsnittet Befolkningsförändringar, tabellen Ålder 2014–2018 (sid 10). Prognosen är enligt rapporten framtagen av kommunstyrelsens förvaltning i februari 2015.",
+   "prognos": {
+    "2015": 79143,
+    "2016": 80168,
+    "2017": 81198,
+    "2018": 82231
+   },
+   "avvikelser": {
+    "2015": {
+     "prognos": 79143,
+     "utfall": 79144,
+     "diff": -1,
+     "pct": -0.0,
+     "avstand": 0
+    },
+    "2016": {
+     "prognos": 80168,
+     "utfall": 80442,
+     "diff": -274,
+     "pct": -0.34,
+     "avstand": 1
+    },
+    "2017": {
+     "prognos": 81198,
+     "utfall": 81986,
+     "diff": -788,
+     "pct": -0.96,
+     "avstand": 2
+    },
+    "2018": {
+     "prognos": 82231,
+     "utfall": 83348,
+     "diff": -1117,
+     "pct": -1.34,
+     "avstand": 3
+    }
+   }
+  },
+  {
    "prognosAr": 2021,
    "rapportTitel": "Befolkningsprognos 2021–2050 (framtagen av Sweco)",
    "publicerad": "2021-04",
@@ -369,35 +414,35 @@
  "perAvstand": [
   {
    "avstand": 0,
-   "medelAbsPct": 0.41,
+   "medelAbsPct": 0.34,
    "maxAbsPct": 0.61,
-   "medelPct": 0.34,
+   "medelPct": 0.29,
+   "antalOver": 4,
+   "antal": 6
+  },
+  {
+   "avstand": 1,
+   "medelAbsPct": 0.98,
+   "maxAbsPct": 1.39,
+   "medelPct": 0.85,
    "antalOver": 4,
    "antal": 5
   },
   {
-   "avstand": 1,
-   "medelAbsPct": 1.14,
-   "maxAbsPct": 1.39,
-   "medelPct": 1.14,
-   "antalOver": 4,
+   "avstand": 2,
+   "medelAbsPct": 1.85,
+   "maxAbsPct": 3.01,
+   "medelPct": 1.37,
+   "antalOver": 3,
    "antal": 4
   },
   {
-   "avstand": 2,
-   "medelAbsPct": 2.15,
-   "maxAbsPct": 3.01,
-   "medelPct": 2.15,
-   "antalOver": 3,
-   "antal": 3
-  },
-  {
    "avstand": 3,
-   "medelAbsPct": 3.67,
+   "medelAbsPct": 2.89,
    "maxAbsPct": 4.29,
-   "medelPct": 3.67,
+   "medelPct": 2.0,
    "antalOver": 2,
-   "antal": 2
+   "antal": 3
   },
   {
    "avstand": 4,
@@ -408,10 +453,49 @@
    "antal": 1
   }
  ],
+ "perArgang": [
+  {
+   "prognosAr": 2015,
+   "medelPct": -0.66,
+   "antalOver": 0,
+   "antal": 4
+  },
+  {
+   "prognosAr": 2021,
+   "medelPct": 2.94,
+   "antalOver": 5,
+   "antal": 5
+  },
+  {
+   "prognosAr": 2022,
+   "medelPct": 1.71,
+   "antalOver": 4,
+   "antal": 4
+  },
+  {
+   "prognosAr": 2023,
+   "medelPct": 0.93,
+   "antalOver": 3,
+   "antal": 3
+  },
+  {
+   "prognosAr": 2024,
+   "medelPct": 0.69,
+   "antalOver": 2,
+   "antal": 2
+  },
+  {
+   "prognosAr": 2025,
+   "medelPct": -0.17,
+   "antalOver": 0,
+   "antal": 1
+  }
+ ],
  "skevhet": {
-  "antal": 15,
+  "antal": 19,
   "antalOver": 14,
-  "medelPct": 1.7,
-  "medelAbsPct": 1.73
+  "medelPct": 1.21,
+  "medelAbsPct": 1.5,
+  "bytterRiktning": true
  }
 }

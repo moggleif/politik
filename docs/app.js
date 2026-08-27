@@ -351,13 +351,38 @@
     html += "<p>Genomsnittet över alla prognoser är <strong>" +
       (sk.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(sk.medelPct), 1) +
       " %</strong>. En modell utan systematisk skevhet skulle landa nära noll.</p>";
-    html += "<p>" + (systematiskt
-      ? "Felet drar alltså konsekvent åt samma håll. Ett sådant fel kallas " +
-        "systematiskt, och skiljer sig från slumpmässigt fel på en avgörande " +
-        "punkt: det går att räkna bort. Den som tar fram prognosen kan mäta " +
-        "skevheten mot tidigare utfall och justera modellens antaganden."
-      : "Felen fördelar sig åt båda håll, vilket tyder på slumpmässig " +
-        "spridning snarare än en systematisk skevhet i modellen.") + "</p>";
+    var arg = data.perArgang || [];
+    var skiftar = sk.bytterRiktning && arg.length > 1;
+
+    if (systematiskt) {
+      html += "<p>Felet drar alltså konsekvent åt samma håll. Ett sådant fel " +
+        "kallas systematiskt, och skiljer sig från slumpmässigt fel på en " +
+        "avgörande punkt: det går att räkna bort. Den som tar fram prognosen " +
+        "kan mäta skevheten mot tidigare utfall och justera modellens " +
+        "antaganden.</p>";
+    } else if (skiftar) {
+      html += "<p>Felen går inte alla åt samma håll, men de är inte heller " +
+        "slumpmässiga: de följer ett mönster över tid. Se nästa stycke.</p>";
+    } else {
+      html += "<p>Felen fördelar sig åt båda håll utan tydligt mönster, " +
+        "vilket tyder på slumpmässig spridning snarare än en systematisk " +
+        "skevhet i modellen.</p>";
+    }
+
+    /* Har skevheten bytt riktning över tid? Det är ett annat fel än en
+       konstant lutning, och kräver en annan åtgärd. */
+    if (skiftar) {
+      var lag = arg.filter(function (r) { return r.medelPct < 0; });
+      var hog = arg.filter(function (r) { return r.medelPct > 0; });
+      html += "<p><strong>Riktningen har skiftat.</strong> Prognoserna från " +
+        lag.map(function (r) { return r.prognosAr; }).join(", ") +
+        " låg för lågt, medan de från " +
+        hog.map(function (r) { return r.prognosAr; }).join(", ") +
+        " låg för högt. Det talar för att modellen skriver fram den utveckling " +
+        "som varit och därför missar vändpunkter &ndash; åt båda hållen. Ett " +
+        "sådant fel försvinner inte genom att lägga på en fast korrigering; " +
+        "det är känsligheten för trendbrott som behöver ses över.</p>";
+    }
 
     if (n < 10) {
       html += "<p><strong>Läs med försiktighet:</strong> slutsatsen bygger på " +
@@ -377,6 +402,18 @@
         " %</td><td>" + r.antalOver + "</td><td>" + r.antal + "</td></tr>";
     });
     t += "</tbody>";
+    if (arg.length) {
+      t += "<thead><tr><th scope=\"col\">Prognos gjord år</th>" +
+        "<th scope=\"col\">Genomsnittligt fel</th>" +
+        "<th scope=\"col\">Antal för höga</th>" +
+        "<th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
+      arg.forEach(function (r) {
+        t += "<tr><td>" + r.prognosAr + "</td><td>" +
+          (r.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) +
+          " %</td><td>" + r.antalOver + "</td><td>" + r.antal + "</td></tr>";
+      });
+      t += "</tbody>";
+    }
     el("tabell-skevhet").innerHTML = t;
     el("sektion-skevhet").hidden = false;
   }
