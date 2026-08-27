@@ -58,6 +58,37 @@ h1 {
   margin: 0;
 }
 
+/* ---------- Navigering mellan vyerna ---------- */
+
+.sidnav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.sidnav a, .sidnav .aktuell {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 2px solid var(--baseline);
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.sidnav a { color: var(--blue-dark); }
+
+.sidnav a:hover {
+  border-color: var(--blue-dark);
+  background: var(--neutral-mid);
+}
+
+.sidnav .aktuell {
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
+  color: #fff;
+  font-weight: 600;
+}
+
 /* ---------- Sektioner ---------- */
 
 section {

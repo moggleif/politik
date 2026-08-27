@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-"""Bygger docs/data.json av innehållet i data/.
+"""Bygger sidornas datafiler av innehållet i data/.
 
 Läser:
-  data/scb/folkmangd_kungsbacka.json   (faktisk folkmängd, från fetch_scb.py)
+  data/scb/folkmangd_kungsbacka.json   (faktiskt utfall, från fetch_scb.py)
   data/prognoser/prognos_*.json        (en fil per prognosrapport)
 
-Beräknar för varje prognos avvikelsen mot utfallet per målår, samt
+Skriver en fil per serie:
+  docs/data.json          hela befolkningen
+  docs/data-16-19.json    åldersgruppen 16–19 år (gymnasieåldern)
+
+För varje prognos beräknas avvikelsen mot utfallet per målår, samt
 träffsäkerheten som funktion av hur många år i förväg prognosen gjordes.
 
 Körs:  python3 scripts/build_data.py
@@ -16,19 +20,30 @@ from pathlib import Path
 
 ROT = Path(__file__).resolve().parent.parent
 
+# serienyckel -> (utfil, etikett, hur prognosserien hämtas ur en rapportfil)
+SERIER = {
+    "total": ("data.json", "Hela befolkningen", None),
+    "16-19": ("data-16-19.json", "16–19 år", "16-19"),
+}
+
 
 def lasa_json(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-def main() -> None:
-    scb = lasa_json(ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
-    utfall = {int(ar): v for ar, v in scb["folkmangd"].items()}
+def serie_ur_rapport(rapport: dict, grupp) -> dict:
+    if grupp is None:
+        return rapport["prognos"]
+    return rapport.get("aldersgrupper", {}).get(grupp, {})
 
+
+def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str) -> dict:
     prognoser = []
-    for fil in sorted((ROT / "data" / "prognoser").glob("prognos_*.json")):
-        p = lasa_json(fil)
-        prognos = {int(ar): v for ar, v in p["prognos"].items()}
+    for rapport in rapporter:
+        rad = serie_ur_rapport(rapport, grupp)
+        if not rad:
+            continue  # rapporten saknar den här serien, t.ex. annan åldersindelning
+        prognos = {int(a): v for a, v in rad.items()}
 
         avvikelser = {}
         for ar, varde in prognos.items():
@@ -39,8 +54,15 @@ def main() -> None:
                     "utfall": utfall[ar],
                     "diff": diff,
                     "pct": round(100.0 * diff / utfall[ar], 2),
-                    "avstand": ar - p["prognosAr"],
+                    "avstand": ar - rapport["prognosAr"],
                 }
+
+        p = {k: v for k, v in rapport.items() if k not in ("prognos", "aldersgrupper")}
+        if grupp is not None:
+            # åldersgruppssiffrorna står i en annan tabell än totalprognosen
+            p["sidhanvisning"] = (
+                f'Tabellen "Antal per åldersgrupp" i rapportens bilaga, raden {grupp} år'
+            )
         p["prognos"] = {str(k): v for k, v in sorted(prognos.items())}
         p["avvikelser"] = {str(k): v for k, v in sorted(avvikelser.items())}
         prognoser.append(p)
@@ -63,8 +85,9 @@ def main() -> None:
         if avst >= 0
     ]
 
-    ut = {
+    return {
         "kommun": scb["kommun"],
+        "serie": etikett,
         "utfall": {str(k): v for k, v in sorted(utfall.items())},
         "utfallMeta": {
             "matt": scb["matt"],
@@ -76,13 +99,29 @@ def main() -> None:
         "perAvstand": avstand_lista,
     }
 
-    utfil = ROT / "docs" / "data.json"
-    utfil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    n_avv = sum(len(p["avvikelser"]) for p in prognoser)
-    print(
-        f"Skrev {utfil}: {len(prognoser)} prognoser, {len(utfall)} utfallsår, "
-        f"{n_avv} jämförelsepunkter"
-    )
+
+def main() -> None:
+    scb = lasa_json(ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+    rapporter = [lasa_json(f) for f in sorted((ROT / "data" / "prognoser").glob("prognos_*.json"))]
+
+    for nyckel, (utnamn, etikett, grupp) in SERIER.items():
+        if grupp is None:
+            utfall = {int(a): v for a, v in scb["folkmangd"].items()}
+        else:
+            rad = scb.get("aldersgrupper", {}).get(grupp)
+            if not rad:
+                print(f"Hoppar över {nyckel}: SCB-utfall saknas")
+                continue
+            utfall = {int(a): v for a, v in rad.items()}
+
+        ut = bygg(scb, rapporter, utfall, grupp, etikett)
+        utfil = ROT / "docs" / utnamn
+        utfil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        n_avv = sum(len(p["avvikelser"]) for p in ut["prognoser"])
+        print(
+            f"Skrev {utfil.name}: {len(ut['prognoser'])} prognoser, "
+            f"{len(utfall)} utfallsår, {n_avv} jämförelsepunkter"
+        )
 
 
 if __name__ == "__main__":

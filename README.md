@@ -2,6 +2,11 @@
 
 **Hemsidan:** <https://moggleif.github.io/politik/>
 
+Två vyer med samma metod:
+
+- [Hela befolkningen](https://moggleif.github.io/politik/)
+- [16–19 år, gymnasieåldern](https://moggleif.github.io/politik/gymnasiealdern.html)
+
 En fristående, helt statisk hemsida som visar hur träffsäkra Kungsbacka kommuns
 befolkningsprognoser har varit genom åren — inklusive långtidsprognoserna.
 Prognossiffrorna kommer ur kommunens egna prognosrapporter och jämförs med den
@@ -21,8 +26,11 @@ scripts/
   fetch_scb.py                  Hämtar faktisk folkmängd från SCB (PxWeb-API)
   build_data.py                 Bygger docs/data.json av innehållet i data/
 docs/                           Själva hemsidan (serveras av GitHub Pages)
-  index.html, style.css, app.js
-  data.json                     All data sidan visar (genereras av build_data.py)
+  index.html                    Hela befolkningen
+  gymnasiealdern.html           Åldersgruppen 16–19 år
+  style.css, app.js             Delas av båda sidorna; varje sida anger
+                                datafil och ordval via data-attribut på <body>
+  data.json, data-16-19.json    All data sidorna visar (genereras)
   rapporter/*.pdf               Lokala kopior av prognosrapporterna
   chart.umd.js                  Chart.js v4 (vendrad, ingen CDN)
 ```

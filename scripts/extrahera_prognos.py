@@ -71,10 +71,43 @@ def ar_rad_och_vardesrad(text: str) -> dict:
     return ut
 
 
+GRUPPTAL = re.compile(r"\d{1,2}[  ]?\d{3}|\d{3,5}")
+
+
+def aldersgrupp(lasare, grupp: str) -> dict:
+    """Läser en åldersgrupps rad ur bilagans tabell "Antal per åldersgrupp".
+
+    Den tabellen används framför tabellerna i löptexten: den har en egen
+    årsrubrik och dess kolumner summerar till totalprognosen. Första året
+    är rapportens utfallsår.
+    """
+    lag, hog = grupp.split("-")
+    radmonster = re.compile(
+        rf"^[ \t]*{lag}[ \t]*[-–][ \t]*{hog}[ \t]+([\d  ]{{10,}})$", re.M
+    )
+    arsmonster = re.compile(
+        r"(?i)^[ \t]*Ålder[ \t]+((?:20\d\d[ \t]+)+20\d\d)[ \t]*$", re.M
+    )
+
+    for sida in lasare.pages:
+        t = sida.extract_text() or ""
+        if not re.search(r"(?i)antal per ålder", t):
+            continue
+        m_ar, m_rad = arsmonster.search(t), radmonster.search(t)
+        if not (m_ar and m_rad):
+            continue
+        ar = m_ar.group(1).split()
+        varden = [tal(m.group(0)) for m in GRUPPTAL.finditer(m_rad.group(1))]
+        if len(ar) == len(varden):
+            return dict(zip(ar, varden))
+    return {}
+
+
 def main() -> None:
-    if len(sys.argv) != 2:
+    if len(sys.argv) < 2:
         sys.exit(__doc__)
     pdf = sys.argv[1]
+    grupper = sys.argv[2:]  # t.ex. 16-19
 
     lasare = pypdf.PdfReader(pdf)
     text = "\n".join((sida.extract_text() or "") for sida in lasare.pages)
@@ -98,10 +131,27 @@ def main() -> None:
         "sidhanvisning": None,
         "prognos": dict(sorted(funna.items())),
     }
+
+    if grupper:
+        hittade = {}
+        for g in grupper:
+            serie = aldersgrupp(lasare, g)
+            if serie:
+                hittade[g] = serie
+            else:
+                print(
+                    f"# Hittade ingen rad för åldersgruppen {g}. Rapporten kan "
+                    "använda en annan indelning – kontrollera i PDF:en.",
+                    file=sys.stderr,
+                )
+        if hittade:
+            utkast["aldersgrupper"] = hittade
+
     print(json.dumps(utkast, ensure_ascii=False, indent=2))
     print(
         f"\n# {len(funna)} år funna ({min(funna)}–{max(funna)}) i {pdf}."
-        "\n# Fyll i metadatafälten och KONTROLLERA siffrorna mot rapporten.",
+        "\n# Fyll i metadatafälten och KONTROLLERA siffrorna mot rapporten."
+        "\n# Första året i varje serie är rapportens utfallsår, inte prognos.",
         file=sys.stderr,
     )
 

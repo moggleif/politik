@@ -1,4 +1,7 @@
-/* Prognoskollen Kungsbacka — läser data.json och ritar diagrammen. */
+/* Prognoskollen Kungsbacka — läser en datafil och ritar diagrammen.
+   Vilken fil och vilket ord som används om de räknade personerna styrs
+   från sidans <body data-datafil="…" data-enhet="…" data-enhet-lang="…">,
+   så att samma kod driver både totalsidan och åldersgruppssidan. */
 (function () {
   "use strict";
 
@@ -16,6 +19,11 @@
   };
 
   function el(id) { return document.getElementById(id); }
+
+  var KONF = document.body.dataset;
+  var DATAFIL = KONF.datafil || "data.json";
+  var ENHET = KONF.enhet || "invånare";                 // "invånare" / "ungdomar"
+  var ENHET_LANG = KONF.enhetLang || "Antal invånare";  // axelrubrik
 
   function talSv(n, dec) {
     return n.toLocaleString("sv-SE", {
@@ -86,8 +94,8 @@
               label: function (it) {
                 var a = punkter[it.dataIndex].avv;
                 return [
-                  "Prognosen sa: " + talSv(a.prognos) + " invånare",
-                  "Det blev: " + talSv(a.utfall) + " invånare",
+                  "Prognosen sa: " + talSv(a.prognos) + " " + ENHET,
+                  "Det blev: " + talSv(a.utfall) + " " + ENHET,
                   (a.diff >= 0 ? "För högt: " : "För lågt: ") + talSv(Math.abs(a.diff)) +
                     " personer (" + talSv(Math.abs(a.pct), 1) + " %)"
                 ];
@@ -112,7 +120,7 @@
     });
 
     el("kalla-malar").innerHTML =
-      "Utfall " + malAr + ": " + talSv(utfall) + " invånare (SCB). " +
+      "Utfall " + malAr + ": " + talSv(utfall) + " " + ENHET + " (SCB). " +
       "Röd stapel = prognosen för hög, blå = för låg. Källor: se längst ned.";
 
     /* Klarspråkssammanfattning */
@@ -120,7 +128,7 @@
     var html = "";
     html += "<p><strong>Tidigaste prognosen</strong> (gjord " + forsta.prognosAr + ", " +
       forsta.avv.avstand + " år i förväg) trodde på " + talSv(forsta.avv.prognos) +
-      " invånare år " + malAr + ". Det blev " + talSv(forsta.avv.utfall) +
+      " " + ENHET + " år " + malAr + ". Det blev " + talSv(forsta.avv.utfall) +
       " – prognosen låg " + talSv(Math.abs(forsta.avv.diff)) + " personer " +
       (forsta.avv.diff >= 0 ? "för högt" : "för lågt") +
       " (" + talSv(Math.abs(forsta.avv.pct), 1) + " %).</p>";
@@ -136,7 +144,7 @@
 
     /* Tabell */
     var t = "<caption>Prognoser för år " + malAr + " jämfört med utfallet " +
-      talSv(utfall) + " invånare.</caption>";
+      talSv(utfall) + " " + ENHET + ".</caption>";
     t += "<thead><tr><th scope=\"col\">Prognos gjord år</th><th scope=\"col\">Prognosen sa</th>" +
       "<th scope=\"col\">Skillnad (personer)</th><th scope=\"col\">Fel i procent</th></tr></thead><tbody>";
     punkter.forEach(function (p) {
@@ -238,6 +246,21 @@
     html += "<p>" + (battre
       ? "Prognoserna blir alltså i regel träffsäkrare ju närmare året man kommer – men även korta prognoser kan slå fel."
       : "Prognoserna har alltså inte blivit tydligt träffsäkrare av att göras närmare året.") + "</p>";
+
+    /* Var öppen med hur tunt underlaget är – flera staplar kan vila på en
+       enda prognos, och då säger jämförelsen mindre än den ser ut att göra. */
+    var tunna = rader.filter(function (r) { return r.antal < 3; });
+    if (tunna.length) {
+      html += "<p><strong>Läs med försiktighet:</strong> " +
+        (tunna.length === rader.length
+          ? "samtliga staplar bygger på färre än tre prognosvärden"
+          : "staplarna för " + tunna.map(function (r) {
+              return r.avstand === 0 ? "samma år" : r.avstand + " år före";
+            }).join(", ") + " bygger på färre än tre prognosvärden") +
+        ". Så få mätpunkter kan slå åt vilket håll som helst, så skillnaderna " +
+        "mellan staplarna ska inte övertolkas. Antalet syns när du pekar på en " +
+        "stapel, och i tabellen nedan.</p>";
+    }
     el("slutsats-avstand").innerHTML = html;
 
     var t = "<caption>Genomsnittligt prognosfel per antal år i förväg.</caption>";
@@ -297,7 +320,7 @@
       });
     });
     dataset.push({
-      label: "Faktisk folkmängd (SCB)",
+      label: "Faktiskt utfall (SCB)",
       data: ar.map(function (a) {
         return data.utfall[String(a)] !== undefined ? data.utfall[String(a)] : null;
       }),
@@ -328,7 +351,7 @@
               /* Sammanfatta: utfallet plus rampens ändpunkter */
               generateLabels: function () {
                 var n = data.prognoser.length;
-                var poster = [{ text: "Faktisk folkmängd (SCB)", strokeStyle: FARG.ink, fillStyle: FARG.ink, lineWidth: 3 }];
+                var poster = [{ text: "Faktiskt utfall (SCB)", strokeStyle: FARG.ink, fillStyle: FARG.ink, lineWidth: 3 }];
                 if (n > 1) {
                   poster.push({
                     text: "Äldsta prognosen (" + data.prognoser[0].prognosAr + ")",
@@ -352,7 +375,7 @@
             callbacks: {
               title: function (it) { return "År " + it[0].label; },
               label: function (it) {
-                return it.dataset.label + ": " + talSv(it.parsed.y) + " invånare";
+                return it.dataset.label + ": " + talSv(it.parsed.y) + " " + ENHET;
               }
             }
           }
@@ -364,7 +387,7 @@
             ticks: { maxRotation: 0, autoSkipPadding: 12 }
           },
           y: {
-            title: { display: true, text: "Antal invånare", color: FARG.muted },
+            title: { display: true, text: ENHET_LANG, color: FARG.muted },
             grid: { color: FARG.grid },
             border: { color: FARG.baseline },
             ticks: { callback: function (v) { return talSv(v); } }
@@ -374,12 +397,12 @@
     });
 
     el("kalla-spagetti").textContent = data.prognoser.length > 1
-      ? "Svart linje: SCB:s faktiska folkmängd 31 december. Blå linjer: kommunens " +
+      ? "Svart linje: SCB:s faktiska siffror 31 december. Blå linjer: kommunens " +
         "prognoser – ju mörkare linje, desto senare är prognosen gjord."
-      : "Svart linje: SCB:s faktiska folkmängd 31 december. Blå linje: kommunens prognos.";
+      : "Svart linje: SCB:s faktiska siffror 31 december. Blå linje: kommunens prognos.";
 
     /* Tabell: matris år × prognos */
-    var t = "<caption>Faktisk folkmängd och samtliga prognoser, antal invånare.</caption>";
+    var t = "<caption>Faktiskt utfall och samtliga prognoser, antal " + ENHET + ".</caption>";
     t += "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Utfall (SCB)</th>";
     data.prognoser.forEach(function (p) {
       t += "<th scope=\"col\">Prognos " + p.prognosAr + "</th>";
@@ -429,7 +452,7 @@
 
   /* ---------- Start ---------- */
 
-  fetch("data.json")
+  fetch(DATAFIL)
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
