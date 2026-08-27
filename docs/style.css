@@ -141,6 +141,7 @@ h2 {
 select {
   font: inherit;
   font-size: 1.25rem;
+  max-width: 100%;
   padding: 0.4rem 0.75rem;
   border: 2px solid var(--baseline);
   border-radius: 8px;
@@ -269,3 +270,84 @@ footer {
   .kort { border: none; padding: 0; }
   details { display: none; }
 }
+
+/* ---------- Huvudmeny ---------- */
+
+.dold {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.huvudmeny {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  margin-top: 2.5rem;
+}
+
+.meny-kort {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.meny-kort h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+.meny-kort h3 a { text-decoration: none; }
+
+.meny-kort h3 a:hover { text-decoration: underline; }
+
+.meny-kort .forklaring { margin-bottom: 1.25rem; }
+
+ul.undersidor {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.undersidor li {
+  border-top: 1px solid var(--grid);
+  padding: 0.75rem 0 0;
+  margin-top: 0.75rem;
+}
+
+ul.undersidor li:first-child { border-top: none; margin-top: 0; }
+
+ul.undersidor a { font-weight: 600; }
+
+.undertext {
+  display: block;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Brödsmula tillbaka till startsidan ---------- */
+
+.brodsmula {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+.brodsmula a { text-decoration: none; }
+
+.brodsmula a:hover { text-decoration: underline; }
+
+/* ---------- Reglage som styr hela sidan ---------- */
+
+.valjarrad {
+  background: var(--neutral-mid);
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  margin-top: 2rem;
+}
+
+.valjarrad .valj-ar { margin: 0; }

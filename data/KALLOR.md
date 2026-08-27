@@ -11,9 +11,11 @@ och vad som återstår.
 | Skript (`scripts/`) | Klara och körda |
 | Faktisk folkmängd 2000–2025 (SCB) | Klar |
 | Prognoser 2015–2026, samtliga tolv årgångar | Klara |
+| Meritvärden 2017 och 2021–2026 (GR) | Klara, 2018–2020 saknas |
 
-Sajten bygger på tolv prognosårgångar (2015–2026) och ger 54
-jämförelsepunkter mot faktiskt utfall.
+Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
+jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på sju
+årgångar av GR:s slutantagning.
 
 **Kommunbudgeten är nyckeln till de äldre årgångarna.** Varje års
 kommunbudget innehåller ett avsnitt med den årets befolkningsprognos som
@@ -230,3 +232,52 @@ Ta bara med prognosår – rapporterna inleder ofta tabellen med föregående
 
 4. Kör `python3 scripts/build_data.py` och kontrollera sidan lokalt:
    `cd docs && python3 -m http.server 8000`
+
+## Meritvärden på gymnasiet (GR:s antagningsstatistik)
+
+Gymnasieantagningen för Kungsbacka sköts av Göteborgsregionen (GR), som
+efter varje antagningsomgång publicerar rapporten *Antagningspoäng och
+medelvärde*. Sidan använder genomgående **slutantagningen** – omgången i
+juni – eftersom siffrorna skiljer sig åt mellan preliminär-, slut- och
+reservantagning.
+
+Rapporterna läses med `scripts/extrahera_antagning.py` och sätts ihop till
+tidsserier med `scripts/build_meritvarden.py`.
+
+| Antagningsår | Status | Hittad var |
+|---|---|---|
+| 2017 | Inläst | Wayback (originalet borttaget) |
+| 2018 | **Saknas** | Varken original eller arkivkopia hittad |
+| 2019 | **Saknas** | Bara preliminärantagningen finns arkiverad |
+| 2020 | **Saknas** | Bara reservantagningen finns arkiverad |
+| 2021 | Inläst | Wayback (originalet borttaget) |
+| 2022 | Inläst | GR:s webbplats, aktuell fil |
+| 2023 | Inläst | GR:s webbplats, aktuell fil |
+| 2024 | Inläst | GR:s webbplats, aktuell fil |
+| 2025 | Inläst | GR:s webbplats, aktuell fil |
+| 2026 | Inläst | GR:s webbplats, aktuell fil |
+
+GR:s sida med antagningsstatistik listar bara de tre senaste åren; äldre
+årgångar finns bara kvar i Internet Archive. Luckan 2018–2020 kommer av att
+just de filerna inte fångades upp där. Dyker de upp räcker det att spara
+PDF:en i `docs/rapporter/`, köra extraheringsskriptet och bygga om.
+
+**Rapporternas layout har bytt form tre gånger**, vilket skriptet hanterar:
+
+- 2017–2024: en avdelning per kommun, med samma tabell tryckt två gånger
+  (sorterad per skola respektive per utbildning). Att den trycks två gånger
+  används som kontroll – skriptet läser båda och jämför.
+- 2025: en rad per utbildning, med kommun och skola i egna kolumner, och
+  bara slutantagningens två tal.
+- 2026: som 2025, men med både preliminär- och slutantagning.
+
+**Ett mått bytte form 2025.** Till och med 2024 skrev rapporten fotnoten
+"1) Alla behöriga sökande är antagna" i stället för en antagningspoäng. Från
+2025 skrivs poängen alltid ut, och de utbildningar som inte hade några
+lediga platser kvar markeras i stället med fet stil. Skriptet läser båda
+formerna – fetstilen ur teckensnittet – och sidan redovisar öppet att
+serien vilar på två olika markörer.
+
+**Skolorna som ingår** är Kungsbackas två kommunala gymnasieskolor,
+Aranäsgymnasiet och Elof Lindälvs gymnasium. Rapporterna täcker hela
+Göteborgsregionen; urvalet görs i `scripts/extrahera_antagning.py`.
