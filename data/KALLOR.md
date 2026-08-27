@@ -9,12 +9,12 @@ och vad som återstår.
 |---|---|
 | Statisk hemsida (`docs/`) | Klar |
 | Skript (`scripts/`) | Klara och körda |
-| Faktisk folkmängd 2000–2025 (SCB) | **Klar** |
-| Befolkningsprognos 2026–2035 (+ framskrivning 2050) | **Klar** |
-| Prognoser 2015–2025 | **Saknas** – se "Vad som är provat" |
+| Faktisk folkmängd 2000–2025 (SCB) | Klar |
+| Prognosrapporter 2021, 2022, 2024, 2025, 2026 | Klara |
+| Prognoser 2015–2020 och 2023 | Saknas i Wayback-arkivet |
 
-Utan de äldre prognoserna finns inga år med facit att jämföra mot, så
-träffsäkerhetsdelen av sajten är tom. Det är den enda återstående luckan.
+Sajten bygger på fem prognosårgångar och ger 12 jämförelsepunkter mot
+faktiskt utfall.
 
 ## Faktisk folkmängd (SCB)
 
@@ -30,72 +30,47 @@ Siffrorna är dubbelkontrollerade mot kommunens egna årsredovisningar, som
 anger exakt samma folkmängd (2021: 85 301, 2022: 85 801, 2023: 85 653,
 2024: 85 792, 2025: 86 332).
 
-## Hittade prognosrapporter
+## Prognosrapporterna
 
-### Befolkningsprognos 2026–2035 (publicerad april 2026) — INLÄST
+Alla fem finns som lokala kopior i `docs/rapporter/` och är inlästa till
+`data/prognoser/`. Varje JSON-fil anger originallänk, arkivlänk och
+sidhänvisning.
 
-- Original: <https://kungsbacka.se/download/18.3ae5986a198e623c951df996/1782303262032/Befolkningsprognos%202025-2050%20total-%20och%20delomr%C3%A5desprognos.pdf>
-- Lokal kopia: `docs/rapporter/befolkningsprognos-2026-2035.pdf`
-- Siffror: Tabell 1 (sid 12) och Tabell 7, Förändringstabell (sid 37),
-  som ger hela serien 2026–2050 → `data/prognoser/prognos_2026.json`
+| Prognosår | Rapport | Hittad var |
+|---|---|---|
+| 2021 | Befolkningsprognos 2021–2050 (Sweco) | Wayback, `globalassets`-sökväg |
+| 2022 | Befolkningsprognos 2022–2050 | Wayback |
+| 2024 | Befolkningsprognos 2024–2033 | Wayback |
+| 2025 | Befolkningsprognos 2025–2034 | Wayback (ögonblicksbild 2026-01-05) |
+| 2026 | Befolkningsprognos 2026–2035 | Kommunens webbplats, aktuell fil |
 
-Observera att filnamnet på kommunens server säger "2025-2050" men att
-dokumentet är 2026 års rapport. Kommunen återanvänder samma URL-nod och
-skriver över filen när en ny årgång publiceras.
-
-### Befolkningsprognos 2024–2050 — DELVIS, ej inläst
-
-Rapporten själv går inte att nå, men den citeras i *Underlag till
-bostadsförsörjningsplan för Kungsbacka kommun* (maj 2025), figur 13 på
-sid 15, som anger fyra punkter:
-
-| | Värde |
-|---|---|
-| Utfall 2000 | 65 113 |
-| Utfall 2023 | 85 653 |
-| **Prognos 2033** | **94 064** |
-| **Framskrivning 2050** | **109 763** |
-
-Källa: <https://kungsbacka.se/download/18.348b667a196c7f4d0a31989c/1747230128135/Underlag%20till%20bostadsf%C3%B6rs%C3%B6rjningsplan%20f%C3%B6r%20Kungsbacka%20kommun.pdf>
-
-Jämförelsen med 2026 års rapport är slående: för år 2033 sa prognosen från
-2024 **94 064**, medan 2026 års säger **89 102**. För 2050 sa den
-**109 763** mot **94 267** – en nedjustering med drygt 15 000 personer på
-två år. Punkterna är dock för få för att lägga in som en prognosserie;
-hela tabellen behövs.
-
-## Vad som är provat för att hitta äldre rapporter
-
-| Väg | Utfall |
-|---|---|
-| Kommunens sida för befolkningsstatistik | Bara den allra senaste rapporten |
-| Gamla tidsstämplar i download-URL:en | Omdirigerar till senaste filen |
-| Kommunens sökfunktion | JavaScript-driven, inga träffar via HTTP |
-| Årsredovisningar 2023–2025 | Innehåller bara utfall, inga prognoser |
-| Kommunstyrelsens kallelser och protokoll 2024–2026 | Befolkningsprognosen är inget eget ärende; "prognos" avser ekonomisk uppföljning |
-| Nämnden för Förskola & Grundskola, lokalbehov 2024 och 2025 | Refererar prognoserna, men siffrorna ligger i bilder |
-| Underlag till bostadsförsörjningsplan | Fyra punkter ur prognos 2024, se ovan |
-| Alternativa webbarkiv (archive.ph, timetravel, cachedview) | Ej nåbara |
-| **Wayback Machine** | **Blockerad av miljöns nätverkspolicy** |
-
-Kommunens webbplats sparar alltså bara den senaste årgången. Sammanträdes-
-sidorna går bara tillbaka till januari 2024.
-
-## Nästa steg
-
-**Wayback Machine är den återstående vägen.** `archive.org` släpps igenom
-av nätverkspolicyn, men själva arkivinnehållet ligger på `web.archive.org`
-som fortfarande blockeras. Lägg till `web.archive.org` (eller
-`*.archive.org`) i miljöns tillåtna domäner, sedan:
+Kommunen återanvänder samma URL-nod och skriver över filen när en ny
+årgång publiceras, så äldre versioner finns bara i Wayback. Sökningen som
+hittade dem:
 
 ```bash
 curl -g "https://web.archive.org/cdx/search/cdx?url=kungsbacka.se&matchType=domain\
-&fl=timestamp,original&collapse=urlkey&filter=urlkey:.*rognos.*&limit=500"
+&fl=timestamp,original&collapse=urlkey&filter=urlkey:.*befolkning.*&limit=1000"
 ```
 
-och hämta träffarna via `https://web.archive.org/web/<timestamp>id_/<url>`.
+Hämta sedan varje träff med `https://web.archive.org/web/<timestamp>id_/<url>`.
+Wayback bryter anslutningen ofta – kör med omförsök.
 
-Alternativt går det att begära rapporterna av kommunen direkt med stöd av
+**Kvalitetskontroll:** varje rapport inleder sin tabell med föregående års
+*utfall*. De raderna är bortrensade ur prognosserierna, och de kontrolleras
+mot SCB vid inläsningen – alla stämde exakt, vilket bekräftar att
+extraheringen och gränsdragningen är rätt.
+
+## Årgångar som saknas (2015–2020, 2023)
+
+Wayback har inga ögonblicksbilder av dem. Vägar som provats utan resultat:
+kommunens sökfunktion (JavaScript-driven), årsredovisningar (innehåller bara
+utfall), kommunstyrelsens kallelser och protokoll 2024–2026 (befolknings-
+prognosen är inget eget ärende), nämnden för Förskola & Grundskolas
+lokalbehov (refererar prognoserna, men siffrorna ligger i bilder), samt
+alternativa webbarkiv (archive.ph, timetravel, cachedview – ej nåbara).
+
+Återstående möjlighet: begära rapporterna av kommunen med stöd av
 offentlighetsprincipen (info@kungsbacka.se, 0300-83 40 00).
 
 ## Lägga in en ny rapport

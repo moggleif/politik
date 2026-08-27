@@ -33,9 +33,17 @@ def tal(s: str) -> int:
 
 
 def rader_per_ar(text: str) -> dict:
-    """Förändringstabell: '2026  86 424  656  735 ...' – ett år per rad."""
+    """Förändringstabell: '2026  86 424  656  735 ...' – ett år per rad.
+
+    Vissa årgångar sätter en etikett före årtalet på den rad där prognosen
+    tar vid ("Progn 2021 85 754 ..."), så ett inledande ord tillåts.
+    """
     ut = {}
-    for m in re.finditer(r"^(20\d\d)\s+(\d{2,3}(?:[  ]?\d{3}))\s+\d", text, re.M):
+    monster = (
+        r"^[ \t]*(?:[A-Za-zÅÄÖåäö.]+[ \t]+)?"
+        r"(20\d\d)\s+(\d{2,3}(?:[  ]?\d{3}))\s+\d"
+    )
+    for m in re.finditer(monster, text, re.M):
         v = tal(m.group(2))
         if MIN_FOLKMANGD <= v <= MAX_FOLKMANGD:
             ut[m.group(1)] = v
