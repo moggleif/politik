@@ -12,10 +12,12 @@ och vad som återstår.
 | Faktisk folkmängd 2000–2025 (SCB) | Klar |
 | Prognoser 2015–2026, samtliga tolv årgångar | Klara |
 | Meritvärden 2017 och 2019–2026 (GR) | Klara, 2018 saknas |
+| Slutbetyg 2014–2025 (Skolverket) | Klara, samtliga läsår |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
 jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på nio
-årgångar av GR:s slutantagning.
+årgångar av GR:s slutantagning, slutbetygsdelen på tolv läsår ur
+Skolverkets statistik.
 
 **Kommunbudgeten är nyckeln till de äldre årgångarna.** Varje års
 kommunbudget innehåller ett avsnitt med den årets befolkningsprognos som
@@ -339,3 +341,96 @@ I dagens data överlappar samtliga program som funnits på båda skolorna
 omsorgsprogrammet), så hopslagningen av ett flyttat program är ännu inte
 prövad mot verkligt utfall – bara mot ett konstruerat fall. Den dagen ett
 program faktiskt byter hus sköter regeln sig själv.
+
+
+## Slutbetyg från gymnasiet (Skolverkets utbildningsstatistik)
+
+Skolverket publicerar varje höst hur det gick för dem som gick ut
+gymnasiet i juni: *Gymnasieskola – Avgångselever, nationella program*,
+per skolenhet och program. Statistiken börjar läsåret 2013/14, när
+Gy 2011-reformens första kull gick ut, och finns till och med 2024/25.
+
+Filerna hämtas med `scripts/hamta_slutbetyg.py` och sätts ihop till
+tidsserier med `scripts/build_slutbetyg.py`.
+
+### Hämtningen
+
+Uppgifterna ligger inte i Skolverkets PxWeb-databas
+(`statistikdatabasen.skolverket.se`) – den redovisar gymnasieskolan bara
+på kommunnivå, utan uppdelning per skola och program. Statistiken per
+skolenhet finns däremot i exporttjänsten bakom "Sök statistik", som
+svarar med CSV utan inloggning eller nyckel:
+
+```
+https://siris.skolverket.se/siris/reports/export_api/runexport/
+    ?pFormat=csv&pExportID=88&pAr=<år>&pKommun=1384&pFlikar=0
+```
+
+`pExportID=88` är rapporten *Avgångselever, nationella program*, `pAr` det
+år eleverna gick ut och `pKommun` skolkommunen. Andra rapport-ID:n i samma
+tjänst som kan bli aktuella: 58 (antal elever per program), 82
+(personalstatistik) och 54 (äldre slutbetyg till och med 2012/13, alltså
+programmen före Gy 2011).
+
+Ett år som ännu inte publicerats svarar med en tom tabell i stället för
+ett fel – hämtningen stannar då av sig själv. Läsåret publiceras i
+november.
+
+**Ett tredje alternativ, som inte används:** Skolverkets
+`planned-educations`-API (`api.skolverket.se`) redovisar också betygspoäng
+per skolenhet och program, men bara fem år bakåt och med luckor. Det gör
+det olämpligt som tidsserie.
+
+### Vad som behövde hanteras i inläsningen
+
+**En serie per utbildning, inte per skola.** Samma regel som på
+meritvärdessidan: redovisas ett program på två skolor samma år är det två
+utbildningar som får varsin serie med skolan i namnet; redovisas det bara
+på en skola i taget blir det en serie som tar de gamla åren med sig.
+Vilken skola varje år hör till följer med i utdatan. Med statistiken till
+och med 2024/25 blir det 29 serier, varav 15 delade på skola – det är
+parallella utbildningar (naturvetenskaps-, teknik-, samhällsvetenskaps-,
+ekonomi-, estetiska, bygg- och naturbruksprogrammen), inte flyttar.
+Kommunens omflyttningar från antagningen 2026 syns här först tre år
+senare, när den första kullen gått ut.
+
+**Skolenheter, inte skolor.** Skolverket redovisar per skolenhet.
+Aranäsgymnasiet har haft sex enheter samtidigt och Elof Lindälv sex, och
+ett program kan ligga på två enheter samma år. `build_slutbetyg.py` väger
+ihop enheterna till skola med antalet avgångselever som vikt. Att antalet
+elever redovisas är en skillnad mot GR:s antagningsrapporter, där
+meritvärdessidan måste nöja sig med ett ovägt snitt.
+
+**Skolnamnen skrivs olika mellan åren.** Fyra av kommunens sju
+gymnasieskolor har bytt namn i statistiken utan att byta skola:
+
+| Skrivs till och med | Skrivs från och med |
+|---|---|
+| Elof Lindälvs gymn | Elof Lindälvs Gymnasium (2021/22) |
+| Praktiska Kungsbacka | Praktiska Gymnasiet Kungsbacka (2018/19) |
+| Drottning Blankas Gymn. Kungsbacka | Drottning Blankas Gymnasieskola Kungsbacka (2018/19) |
+| LBS Ljud & Bildskolan Kungsbacka | LBS Kreativa Gymnasiet Kungsbacka (2018/19) |
+
+Namnen slås ihop i `SKOLNAMN` i `build_slutbetyg.py`. Ett skolnamn som
+inte står där ger en varning vid bygget – annars skulle skolan tyst bli
+två linjer i stället för en.
+
+**Dubbelprickning.** Uppgifter som bygger på färre än tio elever
+redovisas inte, utan skrivs `..` (`.` betyder att uppgiften saknas helt).
+Små program syns därför bara de år de var tillräckligt stora, och
+Kungsbackas IB-elever är så få att programmet aldrig redovisas. Sidan
+skriver ut den begränsningen. Rapportens egna summeringar –
+"Nationella program", "Yrkesprogram" och "Högskoleförberedande program" –
+räknar däremot med de dolda programmen, och används därför till
+avsnitten om examensgrad och programgrupper.
+
+**Skolkommun, inte hemkommun.** Urvalet är skolor som ligger i
+Kungsbacka, alltså även de fristående. Kungsbackaelever som går i skola i
+en annan kommun ingår inte.
+
+**Programnamn** hanteras som på meritvärdessidan: Handels- och
+administrationsprogrammet och Försäljnings- och serviceprogrammet är samma
+utbildning, som bytte namn vid gymnasiereformen 2021, och ligger i samma
+serie under det nya namnet. I slutbetygen sker bytet 2025 och i
+antagningen 2022 – tre års skillnad, eftersom slutbetygen avser den kull
+som antogs tre år tidigare.
