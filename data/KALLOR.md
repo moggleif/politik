@@ -61,6 +61,30 @@ Wayback bryter anslutningen ofta – kör med omförsök.
 mot SCB vid inläsningen – alla stämde exakt, vilket bekräftar att
 extraheringen och gränsdragningen är rätt.
 
+## Åldersgruppen 16–19 år (gymnasieåldern)
+
+Utfallet hämtas från samma SCB-tabell, summerat över ettårsklasserna
+16, 17, 18 och 19. Prognossiffrorna kommer ur tabellen "Antal per
+åldersgrupp" i varje rapports bilaga – inte ur tabellerna i löptexten,
+som i 2026 års rapport ger något andra tal. Bilagetabellen har en egen
+årsrubrik och dess kolumner summerar till totalprognosen.
+
+**2021 års rapport ingår inte.** Sweco redovisar där åldersgruppen
+16–18 år i stället för 16–19, vilket inte går att jämföra rakt av.
+
+Kontroll mot SCB av rapporternas utfallsrader:
+
+| Rapport | Utfallsår | Rapporten | SCB |
+|---|---|---|---|
+| 2022 | 2021 | 4 749 | 4 749 |
+| 2024 | 2023 | 4 971 | 4 971 |
+| 2025 | 2024 | 5 011 | 5 011 |
+| 2026 | 2025 | 5 046 | 5 043 |
+
+De tre första stämmer exakt. 2026 års rapport avviker med tre personer,
+troligen genom avrundning vid summering av delområden. Sidan använder
+genomgående SCB som facit.
+
 ## Årgångar som saknas (2015–2020, 2023)
 
 Wayback har inga ögonblicksbilder av dem. Vägar som provats utan resultat:
