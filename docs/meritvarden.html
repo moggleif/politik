@@ -16,10 +16,10 @@
       <span aria-hidden="true">›</span> Meritvärden</p>
     <h1>Meritvärden på Kungsbackas gymnasieskolor</h1>
     <p class="ingress">
-      Vilka betyg hade eleverna som kom in på Aranäsgymnasiet och Elof
-      Lindälvs gymnasium &ndash; och hur har det förändrats? Siffrorna kommer
-      ur Göteborgsregionens (GR) statistik över slutantagningen, program för
-      program.
+      Vilka betyg hade eleverna som kom in på kommunens gymnasieprogram
+      &ndash; och hur har det förändrats? Alla program på Aranäsgymnasiet och
+      Elof Lindälvs gymnasium, program för program, ur Göteborgsregionens
+      (GR) statistik över slutantagningen.
     </p>
   </div>
 </header>
@@ -27,13 +27,6 @@
 <main>
 
   <div id="status" class="status-ruta" hidden></div>
-
-  <div class="valjarrad" id="valjarrad" hidden>
-    <div class="valj-ar">
-      <label for="skol-valjare">Visa skola:</label>
-      <select id="skol-valjare"></select>
-    </div>
-  </div>
 
   <section id="sektion-forklaring">
     <h2>Två tal per utbildning</h2>
@@ -49,12 +42,21 @@
         antagna eleven, alltså den gräns som gällde för att komma in. Fanns
         det plats åt alla behöriga sökande finns ingen gräns att redovisa.</li>
     </ul>
+    <p class="forklaring">
+      Sidan följer <em>programmet</em>, inte skolan. Kommunen flyttar program
+      mellan sina två gymnasieskolor, och en kurva per skola skulle brytas av
+      en organisationsförändring i stället för av att utbildningen ändrats.
+      Har ett program bytt hus tar det därför sin historik med sig. Har det
+      i stället gått på båda skolorna samma år hålls de isär &ndash; då är
+      det två utbildningar som konkurrerar om samma sökande &ndash; och
+      skolans namn står inom parentes efter programmet.
+    </p>
   </section>
 
   <section id="sektion-utveckling" hidden>
     <h2>Hur har meritvärdena utvecklats?</h2>
     <p class="forklaring">
-      Varje linje är ett program på den valda skolan, och visar
+      Varje linje är ett av kommunens gymnasieprogram, och visar
       medelmeritvärdet för de antagna eleverna. Välj ett enskilt program för
       att se dess inriktningar var för sig. Året 2018 saknas &ndash; den
       rapporten går inte att få tag på &ndash; och linjerna är därför brutna
@@ -78,9 +80,10 @@
   <section id="sektion-rangordning" hidden>
     <h2>Vilka utbildningar hade högst meritvärde?</h2>
     <p class="forklaring">
-      Samtliga utbildningar på den valda skolan ett enskilt år, sorterade
-      efter medelmeritvärde. Här syns varje inriktning för sig, eftersom det
-      är på den nivån antagningen faktiskt sker.
+      Samtliga utbildningar på båda gymnasieskolorna ett enskilt år,
+      sorterade efter medelmeritvärde. Här syns varje inriktning för sig,
+      eftersom det är på den nivån antagningen faktiskt sker. Vilken skola
+      utbildningen tillhör syns när du pekar på en stapel, och i tabellen.
     </p>
     <div class="valj-ar">
       <label for="ar-valjare">Visa året:</label>
@@ -98,15 +101,15 @@
   </section>
 
   <section id="sektion-forandring" hidden>
-    <h2>Vilka utbildningar har gått upp &ndash; och vilka ned?</h2>
+    <h2>Vilka program har gått upp &ndash; och vilka ned?</h2>
     <p class="forklaring">
-      Skillnaden mellan utbildningens första och senaste mätår. En stapel åt
+      Skillnaden mellan programmets första och senaste mätår. En stapel åt
       höger betyder att de antagna eleverna hade högre betyg än förr.
-      Utbildningarna har olika lång mätperiod, eftersom alla inte funnits alla
+      Programmen har olika lång mätperiod, eftersom alla inte funnits alla
       år; peka på en stapel för att se vilka år som jämförs.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-forandring" aria-label="Diagram: förändring i medelmeritvärde per utbildning" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-forandring" aria-label="Diagram: förändring i medelmeritvärde per program" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-forandring"></p>
     </div>
     <div class="slutsats" id="slutsats-forandring"></div>
@@ -120,9 +123,9 @@
     <h2>Hur hård var konkurrensen om platserna?</h2>
     <p class="forklaring">
       Ett meritvärde säger inget om hur svårt det var att komma in &ndash; det
-      gör däremot antagningspoängen. Diagrammet delar upp skolans utbildningar
-      efter om alla behöriga sökande fick plats, eller om det fanns fler
-      sökande än platser och därmed en gräns att komma över.
+      gör däremot antagningspoängen. Diagrammet delar upp kommunens
+      utbildningar efter om alla behöriga sökande fick plats, eller om det
+      fanns fler sökande än platser och därmed en gräns att komma över.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-konkurrens" aria-label="Diagram: antal utbildningar med och utan antagningsgräns per år" role="img"></canvas></div>
@@ -184,6 +187,15 @@
       redovisad för sig den 23 oktober 2018, men som muntlig föredragning
       &ndash; siffrorna följde inte med i handlingarna. Vet du var rapporten
       finns, hör gärna av dig.
+    </p>
+    <p class="forklaring">
+      <strong>Program som flyttat mellan skolorna följs som ett program.</strong>
+      Vilken av de två gymnasieskolorna som huserar ett program är ett
+      organisatoriskt beslut, och det har ändrats under perioden. Ett program
+      som bytt hus redovisas därför som en obruten serie, hemmahörande där det
+      ligger i dag. Undantaget är de år då samma program gick på båda skolorna
+      samtidigt: då är det två utbildningar med var sin antagning, och de
+      redovisas var för sig med skolans namn utsatt.
     </p>
     <p class="forklaring">
       <strong>Program som bytt namn räknas som olika utbildningar.</strong>
