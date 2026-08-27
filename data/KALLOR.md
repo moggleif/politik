@@ -38,52 +38,47 @@ anger exakt samma folkmängd (2021: 85 301, 2022: 85 801, 2023: 85 653,
 
 ## Prognosrapporterna
 
-Alla fem finns som lokala kopior i `docs/rapporter/` och är inlästa till
-`data/prognoser/`. Varje JSON-fil anger originallänk, arkivlänk och
-sidhänvisning.
+Alla tolv årgångar finns som lokala kopior i `docs/rapporter/` och är
+inlästa till `data/prognoser/`. Varje JSON-fil anger originallänk,
+arkivlänk och sidhänvisning. Årgångarna är sorterade efter det år
+prognosen gjordes.
 
-| Prognosår | Rapport | Hittad var |
+| Prognosår | Källa | Hittad var |
 |---|---|---|
-| 2021 | Befolkningsprognos 2021–2050 (Sweco) | Wayback, `globalassets`-sökväg |
-| 2022 | Befolkningsprognos 2022–2050 | Wayback |
-| 2024 | Befolkningsprognos 2024–2033 | Wayback |
-| 2025 | Befolkningsprognos 2025–2034 | Wayback (ögonblicksbild 2026-01-05) |
-| 2026 | Befolkningsprognos 2026–2035 | Kommunens webbplats, aktuell fil |
 | 2015 | Kommunbudget 2016 | Wayback |
 | 2016 | Kommunbudget 2017–2019 | Wayback |
 | 2017 | Kommunbudget 2018 | Wayback |
 | 2018 | Kommunbudget 2019 | Wayback |
 | 2019 | Kommunbudget 2020 (KS-handling) | Wayback |
 | 2020 | Kommunbudget 2021 | Wayback |
+| 2021 | Befolkningsprognos 2021–2050 (Sweco) | Wayback |
+| 2022 | Befolkningsprognos 2022–2050 | Wayback |
 | 2023 | Kommunbudget 2024 | Kommunens webbplats, aktuell fil |
+| 2024 | Befolkningsprognos 2024–2033 | Wayback |
+| 2025 | Befolkningsprognos 2025–2034 | Wayback (ögonblicksbild 2026-01-05) |
+| 2026 | Befolkningsprognos 2026–2035 | Kommunens webbplats, aktuell fil |
 
-Årgångarna 2015–2020 och 2023 är hämtade ur kommunbudgetarna med
-`scripts/extrahera_budget.py`. Samtliga utfallskolumner stämmer exakt mot
-SCB, för både total folkmängd och åldersgruppen 16–19 – tio kontroller
-utan avvikelse.
+Två slags källor används. De fristående prognosrapporterna läses med
+`scripts/extrahera_prognos.py`, kommunbudgetarna med
+`scripts/extrahera_budget.py`.
 
-**Wayback-fällan:** varje budget har flera arkivkopior. Kopiorna från
-september 2020 kapas konsekvent vid 1 MiB och blir obrukbara, medan
-kopiorna från mars 2022 laddas ned kompletta. Kontrollera alltid att
-filen slutar med `%%EOF` innan du litar på den.
+### Kvalitetskontroll
 
-**Prognoshorisonten växer över tid:** Kommunbudget 2016 redovisar fyra år
-framåt, 2018–2019 åtta år, och från 2020 elva–tolv år. De äldsta
-årgångarna ger därför färre jämförelsepunkter.
-
-2015 års prognos är enligt Kommunbudget 2016 framtagen av kommunstyrelsens
-förvaltning i februari 2015, alltså internt och inte av konsult. Dess
-tabell sträcker sig bara fyra år framåt; de senare årgångarna sträcker sig
-elva–tolv år. De äldre budgettabellerna är alltså ett tunnare underlag än
-de fristående rapporterna.
+Varje källa inleder sin tabell med föregående års **utfall**. De raderna
+rensas bort ur prognosserierna, och de kontrolleras mot SCB vid
+inläsningen. Samtliga stämde exakt – för både total folkmängd och
+åldersgruppen 16–19 – vilket bekräftar att rätt rad lästs av och att
+gränsen mellan utfall och prognos dragits rätt.
 
 **Korskontroll budget mot fristående rapport:** Kommunbudget 2025 och den
 fristående *Befolkningsprognos 2024–2033* redovisar samma prognos, med som
 mest en persons skillnad per år (2033: 94 064 i båda, samma siffra som
-underlaget till bostadsförsörjningsplanen anger). De två källorna bekräftar
-alltså varandra.
+underlaget till bostadsförsörjningsplanen anger). De två källtyperna
+bekräftar alltså varandra.
 
-Kommunen återanvänder samma URL-nod och skriver över filen när en ny
+### Att tänka på vid hämtning
+
+**Kommunen skriver över filerna.** Samma URL-nod återanvänds när en ny
 årgång publiceras, så äldre versioner finns bara i Wayback. Sökningen som
 hittade dem:
 
@@ -93,12 +88,25 @@ curl -g "https://web.archive.org/cdx/search/cdx?url=kungsbacka.se&matchType=doma
 ```
 
 Hämta sedan varje träff med `https://web.archive.org/web/<timestamp>id_/<url>`.
-Wayback bryter anslutningen ofta – kör med omförsök.
 
-**Kvalitetskontroll:** varje rapport inleder sin tabell med föregående års
-*utfall*. De raderna är bortrensade ur prognosserierna, och de kontrolleras
-mot SCB vid inläsningen – alla stämde exakt, vilket bekräftar att
-extraheringen och gränsdragningen är rätt.
+**Wayback-fällan:** varje dokument har flera arkivkopior, och de kapas
+ibland tyst vid 1 MiB. För budgetarna gäller att kopiorna från september
+2020 är obrukbara medan de från mars 2022 är kompletta. Kontrollera alltid
+att filen slutar med `%%EOF` innan du litar på den – annars får du en halv
+tabell utan att märka det. Wayback bryter också anslutningen ofta, så kör
+med omförsök.
+
+**Prognoshorisonten växer över tid.** Kommunbudget 2016 redovisar fyra år
+framåt, 2018–2019 åtta år, och från 2020 elva–tolv år. De äldsta
+årgångarna ger därför färre jämförelsepunkter, och budgettabellerna är ett
+tunnare underlag än de fristående rapporterna.
+
+**Producent:** 2015 års prognos är enligt Kommunbudget 2016 framtagen av
+kommunstyrelsens förvaltning i februari 2015, och 2016 års av
+kommunledningskontoret i april 2016 – alltså internt. Först 2021 anlitades
+konsult (Sweco). Det förklarar varför inga fristående rapporter
+publicerades före hösten 2020: prognosen var ett internt planeringsunderlag
+som redovisades i budgeten.
 
 ## Åldersgruppen 16–19 år (gymnasieåldern)
 

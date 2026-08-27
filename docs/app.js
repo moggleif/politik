@@ -593,6 +593,27 @@
     el("sektion-spagetti").hidden = false;
   }
 
+  /* ---------- Enbart utfallet, för granskning ---------- */
+
+  function initUtfall(data) {
+    var ar = Object.keys(data.utfall).map(Number).sort(function (a, b) { return a - b; });
+    if (!ar.length) return;
+
+    var t = "<caption>" + data.utfallMeta.matt + " enligt " +
+      data.utfallMeta.kalla + ". Hämtad " + data.utfallMeta.hamtad + ".</caption>";
+    t += "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Antal</th>" +
+      "<th scope=\"col\">Förändring</th></tr></thead><tbody>";
+    ar.forEach(function (a, i) {
+      var v = data.utfall[String(a)];
+      var d = i === 0 ? null : v - data.utfall[String(ar[i - 1])];
+      t += "<tr><td>" + a + "</td><td>" + talSv(v) + "</td><td>" +
+        (d === null ? "–" : (d >= 0 ? "+" : "−") + talSv(Math.abs(d))) +
+        "</td></tr>";
+    });
+    t += "</tbody>";
+    el("tabell-utfall").innerHTML = t;
+  }
+
   /* ---------- Källor ---------- */
 
   function initKallor(data) {
@@ -649,6 +670,7 @@
       initAvstand(data);
       initSkevhet(data);
       initSpagetti(data);
+      initUtfall(data);
       initKallor(data);
     })
     .catch(function (fel) {
