@@ -3,163 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hur träffsäkra är Kungsbackas befolkningsprognoser?</title>
-<meta name="description" content="Jämförelse av Kungsbacka kommuns befolkningsprognoser genom åren med den faktiska befolkningsutvecklingen enligt SCB.">
+<title>Kungsbacka i siffror</title>
+<meta name="description" content="Öppna sammanställningar av Kungsbacka kommuns befolkningsprognoser och av meritvärdena vid antagningen till kommunens gymnasieskolor.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-datafil="data.json" data-enhet="invånare" data-enhet-lang="Antal invånare">
+<body>
 
 <header class="sidhuvud">
   <div class="sidhuvud-inre">
-    <h1>Hur träffsäkra är Kungsbackas befolkningsprognoser?</h1>
+    <h1>Kungsbacka i siffror</h1>
     <p class="ingress">
-      Kungsbacka kommun tar varje år fram en prognos för hur många invånare
-      kommunen kommer att ha i framtiden. Prognoserna används när kommunen
-      planerar skolor, äldreboenden och bostäder. Den här sidan jämför vad
-      prognoserna sa &ndash; med hur det faktiskt blev, enligt Statistiska
-      centralbyrån (SCB).
+      Två fristående sammanställningar av kommunens egna siffror, med alla
+      källor länkade. Välj vad du vill titta på.
     </p>
-    <nav class="sidnav" aria-label="Välj vy">
-      <span class="aktuell" aria-current="page">Hela befolkningen</span>
-      <a href="gymnasiealdern.html">16–19 år (gymnasieåldern)</a>
-    </nav>
   </div>
 </header>
 
 <main>
 
-  <div id="status" class="status-ruta" hidden></div>
+  <section class="huvudmeny">
+    <h2 class="dold">Välj ämne</h2>
 
-  <section id="sektion-malar" hidden>
-    <h2>Vad sa prognoserna om ett visst år?</h2>
-    <p class="forklaring">
-      Välj ett år. Diagrammet visar hur mycket varje års prognos räknade fel
-      för just det året. En stapel åt höger betyder att prognosen trodde på
-      <em>fler</em> invånare än det blev. En stapel åt vänster betyder att
-      prognosen trodde på <em>färre</em>.
-    </p>
-    <div class="valj-ar">
-      <label for="ar-valjare">Visa året:</label>
-      <select id="ar-valjare"></select>
+    <div class="meny-kort">
+      <h3><a href="befolkningsprognos.html">Befolkningsprognoser</a></h3>
+      <p class="forklaring">
+        Kungsbacka kommun tar varje år fram en prognos för hur många invånare
+        kommunen kommer att ha i framtiden. Prognoserna styr planeringen av
+        skolor, äldreboenden och bostäder. Här jämförs tolv årgångar av
+        prognoser &ndash; 2015 till 2026 &ndash; med hur det faktiskt blev
+        enligt SCB.
+      </p>
+      <ul class="undersidor">
+        <li><a href="befolkningsprognos.html">Hela befolkningen</a>
+          <span class="undertext">Alla invånare, 2000 och framåt</span></li>
+        <li><a href="gymnasiealdern.html">16&ndash;19 år (gymnasieåldern)</a>
+          <span class="undertext">Åldersgruppen som avgör behovet av gymnasieplatser</span></li>
+      </ul>
     </div>
-    <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-malar" aria-label="Diagram: prognosernas avvikelse för valt år" role="img"></canvas></div>
-      <p class="kalla-rad" id="kalla-malar"></p>
-    </div>
-    <div class="slutsats" id="slutsats-malar"></div>
-    <details>
-      <summary>Visa siffrorna som tabell</summary>
-      <div class="tabell-rull"><table id="tabell-malar"></table></div>
-    </details>
-  </section>
 
-  <section id="sektion-avstand" hidden>
-    <h2>Blir prognoserna bättre ju närmare året man kommer?</h2>
-    <p class="forklaring">
-      Här har vi räknat ihop alla prognoser. Diagrammet visar hur stort felet
-      i genomsnitt har varit, beroende på hur många år i förväg prognosen
-      gjordes. Felet mäts i procent av den faktiska folkmängden.
-    </p>
-    <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-avstand" aria-label="Diagram: genomsnittligt prognosfel per antal år i förväg" role="img"></canvas></div>
-      <p class="kalla-rad" id="kalla-avstand"></p>
+    <div class="meny-kort">
+      <h3><a href="meritvarden.html">Meritvärden på gymnasiet</a></h3>
+      <p class="forklaring">
+        Vilka meritvärden hade eleverna som kom in på Aranäsgymnasiet och
+        Elof Lindälvs gymnasium &ndash; och hur har det förändrats? Program
+        för program, ur Göteborgsregionens antagningsstatistik för
+        slutantagningen 2017 och 2021&ndash;2026.
+      </p>
+      <ul class="undersidor">
+        <li><a href="meritvarden.html">Meritvärden program för program</a>
+          <span class="undertext">Aranäsgymnasiet och Elof Lindälvs gymnasium</span></li>
+      </ul>
     </div>
-    <div class="slutsats" id="slutsats-avstand"></div>
-    <details>
-      <summary>Visa siffrorna som tabell</summary>
-      <div class="tabell-rull"><table id="tabell-avstand"></table></div>
-    </details>
-  </section>
 
-  <section id="sektion-skevhet" hidden>
-    <h2>Är felen slumpmässiga &ndash; eller systematiska?</h2>
-    <p class="forklaring">
-      Föregående diagram visar hur <em>stora</em> felen varit. Det här visar åt
-      vilket <em>håll</em> de lutar. Skillnaden är avgörande: fel som slumpar
-      sig åt båda hållen går inte att förutse, men ett fel som gång på gång
-      drar åt samma håll kan mätas och räknas bort i modellen.
-    </p>
-    <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-skevhet" aria-label="Diagram: genomsnittligt fel med riktning, per antal år i förväg" role="img"></canvas></div>
-      <p class="kalla-rad" id="kalla-skevhet"></p>
-    </div>
-    <div class="slutsats" id="slutsats-skevhet"></div>
-    <details>
-      <summary>Visa siffrorna som tabell</summary>
-      <div class="tabell-rull"><table id="tabell-skevhet"></table></div>
-    </details>
-  </section>
-
-  <section id="sektion-spagetti" hidden>
-    <h2>Alla prognoser i en bild</h2>
-    <p class="forklaring">
-      Den svarta linjen visar hur folkmängden faktiskt har utvecklats. Varje
-      blå linje är en av kommunens årliga prognoser &ndash; ju mörkare linje,
-      desto senare är prognosen gjord. Här syns hur kommunens bild av
-      framtiden har förskjutits från år till år. Peka på en linje för att se
-      vilken prognos det är.
-    </p>
-    <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-spagetti" aria-label="Diagram: faktisk folkmängd och alla prognoser" role="img"></canvas></div>
-      <p class="kalla-rad" id="kalla-spagetti"></p>
-    </div>
-    <details>
-      <summary>Visa siffrorna som tabell</summary>
-      <div class="tabell-rull"><table id="tabell-spagetti"></table></div>
-    </details>
-  </section>
-
-  <section id="sektion-utfall" hidden>
-    <h2>Bara den faktiska utvecklingen</h2>
-    <p class="forklaring">
-      Samma svarta linje som ovan, men utan prognoserna och med en skala som
-      följer utfallet. I diagrammet ovanför måste skalan rymma alla prognoser,
-      vilket trycker ihop den faktiska kurvan. Här syns den i detalj.
-    </p>
-    <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-utfall" aria-label="Diagram: enbart den faktiska utvecklingen" role="img"></canvas></div>
-      <p class="kalla-rad" id="kalla-utfall"></p>
-    </div>
-    <details>
-      <summary>Visa siffrorna som tabell</summary>
-      <div class="tabell-rull"><table id="tabell-utfall"></table></div>
-    </details>
-  </section>
-
-  <section id="sektion-kallor" hidden>
-    <h2>Källor</h2>
-    <p class="forklaring">
-      Alla siffror på den här sidan kommer från kommunens egna prognosrapporter
-      och från SCB:s officiella befolkningsstatistik. Här kan du läsa
-      rapporterna själv.
-    </p>
-    <ul class="kallista" id="lista-kallor"></ul>
   </section>
 
   <section id="sektion-om">
-    <h2>Om den här sidan</h2>
+    <h2>Om sidorna</h2>
     <p class="forklaring">
-      Sidan är fristående och drivs inte av Kungsbacka kommun. Den är byggd
-      för att det ska vara lätt att i efterhand se hur bra prognoserna har
-      stämt &ndash; inget mer. Alla beräkningar är öppna:
-      källkoden och alla data finns på
+      Sidorna är fristående och drivs inte av Kungsbacka kommun. De är byggda
+      för att det ska vara lätt att i efterhand se vad siffrorna säger &ndash;
+      inget mer. Alla beräkningar är öppna: källkoden och alla data finns på
       <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
       Hittar du ett fel? Lämna gärna en rättelse där.
     </p>
-    <p class="forklaring" id="om-uppdaterad"></p>
   </section>
 
 </main>
 
 <footer>
   <div class="sidfot-inre">
-    <p>Data: Kungsbacka kommuns befolkningsprognoser samt SCB:s befolkningsstatistik.
+    <p>Data: Kungsbacka kommuns befolkningsprognoser, SCB:s befolkningsstatistik
+    och Göteborgsregionens antagningsstatistik.
     Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
   </div>
 </footer>
 
-<script src="chart.umd.js"></script>
-<script src="app.js"></script>
 </body>
 </html>
