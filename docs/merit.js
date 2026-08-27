@@ -74,13 +74,27 @@
     diagram[id] = new Chart(ctx, konf);
   }
 
-  /* Alla år mellan första och sista mätår, även de utan mätning. Luckan
-     2018–2020 ska synas som en lucka och inte tryckas ihop – linjerna ritas
-     med spanGaps: false och bryts därför där. */
+  /* Alla år mellan första och sista mätår, även de utan mätning. Ett år utan
+     rapport ska synas som en lucka och inte tryckas ihop – linjerna ritas med
+     spanGaps: false och bryts därför där. */
   function arsskala() {
     var ar = [];
     for (var a = DATA.ar[0]; a <= DATA.ar[DATA.ar.length - 1]; a++) ar.push(a);
     return ar;
+  }
+
+  /* Vilka år inom skalan som saknar rapport. Skrivs ut i klartext i stället
+     för att hårdkodas, så att texten följer med när en årgång tillkommer. */
+  function saknadeAr() {
+    return arsskala().filter(function (a) { return DATA.ar.indexOf(a) === -1; });
+  }
+
+  function saknadeArText() {
+    var saknas = saknadeAr();
+    if (!saknas.length) return "";
+    if (saknas.length === 1) return " Året " + saknas[0] + " saknar rapport, därav luckan.";
+    return " Åren " + saknas.slice(0, -1).join(", ") + " och " +
+      saknas[saknas.length - 1] + " saknar rapport, därav luckorna.";
   }
 
   function utbildningarFor(skola) {
@@ -219,7 +233,7 @@
 
     el("kalla-utveckling").textContent =
       "Medelmeritvärdet för de antagna eleverna, slutantagningen. Högsta möjliga " +
-      "meritvärde är 340. Åren 2018–2020 saknas rapporter, därav luckan.";
+      "meritvärde är 340." + saknadeArText();
 
     ritaSlutsatsUtveckling(serier, program);
     ritaTabellUtveckling();

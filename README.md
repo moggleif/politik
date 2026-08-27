@@ -15,7 +15,7 @@ officiella befolkningsstatistik.
 
 **Meritvärden på gymnasiet** &ndash; vilka meritvärden eleverna som antogs till
 Aranäsgymnasiet och Elof Lindälvs gymnasium hade, program för program, ur
-Göteborgsregionens (GR) statistik över slutantagningen.
+Göteborgsregionens (GR) statistik över slutantagningen, 2017–2026.
 
 - [Meritvärden program för program](https://moggleif.github.io/politik/meritvarden.html)
 

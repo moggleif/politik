@@ -11,10 +11,10 @@ och vad som återstår.
 | Skript (`scripts/`) | Klara och körda |
 | Faktisk folkmängd 2000–2025 (SCB) | Klar |
 | Prognoser 2015–2026, samtliga tolv årgångar | Klara |
-| Meritvärden 2017 och 2021–2026 (GR) | Klara, 2018–2020 saknas |
+| Meritvärden 2017 och 2019–2026 (GR) | Klara, 2018 saknas |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
-jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på sju
+jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på nio
 årgångar av GR:s slutantagning.
 
 **Kommunbudgeten är nyckeln till de äldre årgångarna.** Varje års
@@ -248,8 +248,8 @@ tidsserier med `scripts/build_meritvarden.py`.
 |---|---|---|
 | 2017 | Inläst | Wayback (originalet borttaget) |
 | 2018 | **Saknas** | Varken original eller arkivkopia hittad |
-| 2019 | **Saknas** | Bara preliminärantagningen finns arkiverad |
-| 2020 | **Saknas** | Bara reservantagningen finns arkiverad |
+| 2019 | Inläst | GR:s webbplats, avlistad men kvar |
+| 2020 | Inläst | GR:s webbplats, avlistad men kvar |
 | 2021 | Inläst | Wayback (originalet borttaget) |
 | 2022 | Inläst | GR:s webbplats, aktuell fil |
 | 2023 | Inläst | GR:s webbplats, aktuell fil |
@@ -257,10 +257,24 @@ tidsserier med `scripts/build_meritvarden.py`.
 | 2025 | Inläst | GR:s webbplats, aktuell fil |
 | 2026 | Inläst | GR:s webbplats, aktuell fil |
 
-GR:s sida med antagningsstatistik listar bara de tre senaste åren; äldre
-årgångar finns bara kvar i Internet Archive. Luckan 2018–2020 kommer av att
-just de filerna inte fångades upp där. Dyker de upp räcker det att spara
-PDF:en i `docs/rapporter/`, köra extraheringsskriptet och bygga om.
+GR:s sida med antagningsstatistik listar bara de tre senaste åren, men
+avlistade filer ligger kvar på sina adresser. Årgångarna 2019 och 2020
+laddades upp på nytt i oktober 2021 (nodid `18.7da94c2d17c11704d8743…`)
+och svarar fortfarande, trots att inget längre länkar till dem. Notera att
+Internet Archive svarar 404 på just de adresserna – det säger ingenting om
+originalet, som svarar 200. Kontrollera alltid källan direkt innan en
+årgång skrivs av som förlorad.
+
+Kvar saknas bara 2018. Den filen låg under GR:s förra webbplats
+(`18.2e7e10e71643e5052412bc7d`, uppladdad 2018-06-27) och togs bort vid
+webbplatsbytet utan att fångas av Internet Archive. Kungsbackas nämnd för
+Gymnasium & Arbetsmarknad fick antagningen redovisad för sig den 23 oktober
+2018 – ärende 6, "Utfall av antagningen till gymnasieskolan läsåret
+2018/2019" – men som muntlig föredragning, så siffrorna finns inte i
+handlingarna. Nämndens handlingar för 2019 och 2020 finns inte heller kvar
+på webben, varken hos kommunen eller i Internet Archive. Dyker rapporten
+upp räcker det att spara PDF:en i `docs/rapporter/`, köra
+extraheringsskriptet och bygga om.
 
 **Rapporternas layout har bytt form tre gånger**, vilket skriptet hanterar:
 
