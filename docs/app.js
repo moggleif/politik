@@ -384,6 +384,31 @@
         "det är känsligheten för trendbrott som behöver ses över.</p>";
     }
 
+    /* Har modellen blivit bättre? Bara jämförbart vid samma horisont –
+       en gammal årgång har utvärderats många år framåt, en ny bara på
+       kort sikt, så medelvärdena i sig går inte att ställa mot varandra. */
+    var ett = arg.filter(function (r) { return r.ettArPct !== null && r.ettArPct !== undefined; });
+    if (ett.length >= 4) {
+      var varst = ett.reduce(function (a, b) {
+        return Math.abs(b.ettArPct) > Math.abs(a.ettArPct) ? b : a;
+      });
+      var senast = ett[ett.length - 1];
+      var tecken = function (v) { return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), 1) + " %"; };
+      html += "<p><strong>Har det blivit bättre?</strong> För att svara måste " +
+        "man jämföra prognoser på samma sikt &ndash; en gammal prognos har " +
+        "hunnit prövas många år framåt, en ny bara på kort sikt. Ser man bara " +
+        "på hur fel prognoserna slagit <em>ett år framåt</em>, var " +
+        varst.prognosAr + " års prognos sämst (" + tecken(varst.ettArPct) +
+        ") och " + senast.prognosAr + " års senast mätbar (" +
+        tecken(senast.ettArPct) + "). " +
+        (Math.abs(senast.ettArPct) < Math.abs(varst.ettArPct)
+          ? "Felet har alltså minskat" +
+            (senast.ettArPct * varst.ettArPct > 0
+              ? ", men lutar fortfarande åt samma håll."
+              : " och bytt riktning.")
+          : "Felet har alltså inte minskat.") + "</p>";
+    }
+
     if (n < 10) {
       html += "<p><strong>Läs med försiktighet:</strong> slutsatsen bygger på " +
         n + " jämförelser. Riktningen är tydlig, men underlaget är litet.</p>";
@@ -404,13 +429,17 @@
     t += "</tbody>";
     if (arg.length) {
       t += "<thead><tr><th scope=\"col\">Prognos gjord år</th>" +
-        "<th scope=\"col\">Genomsnittligt fel</th>" +
-        "<th scope=\"col\">Antal för höga</th>" +
-        "<th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
+        "<th scope=\"col\">Fel ett år framåt</th>" +
+        "<th scope=\"col\">Genomsnitt, alla år</th>" +
+        "<th scope=\"col\">Prövad t.o.m.</th></tr></thead><tbody>";
       arg.forEach(function (r) {
-        t += "<tr><td>" + r.prognosAr + "</td><td>" +
+        var e = (r.ettArPct === null || r.ettArPct === undefined)
+          ? "–"
+          : (r.ettArPct >= 0 ? "+" : "−") + talSv(Math.abs(r.ettArPct), 1) + " %";
+        t += "<tr><td>" + r.prognosAr + "</td><td>" + e + "</td><td>" +
           (r.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) +
-          " %</td><td>" + r.antalOver + "</td><td>" + r.antal + "</td></tr>";
+          " %</td><td>" + (r.maxAvstand === 0 ? "samma år" : r.maxAvstand + " år framåt") +
+          "</td></tr>";
       });
       t += "</tbody>";
     }

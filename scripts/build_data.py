@@ -108,15 +108,23 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str) -> dict:
     # underskattat under en tillväxtperiod och överskattat efter en
     # vändning. Det är en annan sorts fel än en konstant skevhet, och
     # kräver en annan åtgärd, så det redovisas separat.
+    # Medelvärdet per årgång blandar horisonter: en gammal årgång har hunnit
+    # utvärderas många år framåt, en ny bara på kort sikt. Årgångarna går
+    # därför inte att jämföra på det måttet. Felet vid en och samma horisont
+    # (ett år framåt) redovisas separat och är det som faktiskt går att följa
+    # över tid.
     per_argang = []
     for p in prognoser:
         v = [a["pct"] for a in p["avvikelser"].values()]
         if v:
+            ettar = [a["pct"] for a in p["avvikelser"].values() if a["avstand"] == 1]
             per_argang.append({
                 "prognosAr": p["prognosAr"],
                 "medelPct": round(sum(v) / len(v), 2),
                 "antalOver": sum(1 for x in v if x > 0),
                 "antal": len(v),
+                "maxAvstand": max(a["avstand"] for a in p["avvikelser"].values()),
+                "ettArPct": round(ettar[0], 2) if ettar else None,
             })
     if skevhet is not None:
         riktningar = {x["medelPct"] > 0 for x in per_argang}

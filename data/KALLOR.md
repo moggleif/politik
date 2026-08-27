@@ -10,11 +10,10 @@ och vad som återstår.
 | Statisk hemsida (`docs/`) | Klar |
 | Skript (`scripts/`) | Klara och körda |
 | Faktisk folkmängd 2000–2025 (SCB) | Klar |
-| Prognoser 2015, 2021, 2022, 2023, 2024, 2025, 2026 | Klara |
-| Prognoser 2016–2020 | Finns i respektive kommunbudget, ej inlästa |
+| Prognoser 2015–2026, samtliga tolv årgångar | Klara |
 
-Sajten bygger på sju prognosårgångar och ger 19 jämförelsepunkter mot
-faktiskt utfall.
+Sajten bygger på tolv prognosårgångar (2015–2026) och ger 54
+jämförelsepunkter mot faktiskt utfall.
 
 **Kommunbudgeten är nyckeln till de äldre årgångarna.** Varje års
 kommunbudget innehåller ett avsnitt med den årets befolkningsprognos som
@@ -50,8 +49,27 @@ sidhänvisning.
 | 2024 | Befolkningsprognos 2024–2033 | Wayback |
 | 2025 | Befolkningsprognos 2025–2034 | Wayback (ögonblicksbild 2026-01-05) |
 | 2026 | Befolkningsprognos 2026–2035 | Kommunens webbplats, aktuell fil |
-| 2015 | Befolkningsprognos 2015–2018, i Kommunbudget 2016 | Wayback |
-| 2023 | Befolkningsprognos 2023–2032, i Kommunbudget 2024 | Kommunens webbplats, aktuell fil |
+| 2015 | Kommunbudget 2016 | Wayback |
+| 2016 | Kommunbudget 2017–2019 | Wayback |
+| 2017 | Kommunbudget 2018 | Wayback |
+| 2018 | Kommunbudget 2019 | Wayback |
+| 2019 | Kommunbudget 2020 (KS-handling) | Wayback |
+| 2020 | Kommunbudget 2021 | Wayback |
+| 2023 | Kommunbudget 2024 | Kommunens webbplats, aktuell fil |
+
+Årgångarna 2015–2020 och 2023 är hämtade ur kommunbudgetarna med
+`scripts/extrahera_budget.py`. Samtliga utfallskolumner stämmer exakt mot
+SCB, för både total folkmängd och åldersgruppen 16–19 – tio kontroller
+utan avvikelse.
+
+**Wayback-fällan:** varje budget har flera arkivkopior. Kopiorna från
+september 2020 kapas konsekvent vid 1 MiB och blir obrukbara, medan
+kopiorna från mars 2022 laddas ned kompletta. Kontrollera alltid att
+filen slutar med `%%EOF` innan du litar på den.
+
+**Prognoshorisonten växer över tid:** Kommunbudget 2016 redovisar fyra år
+framåt, 2018–2019 åtta år, och från 2020 elva–tolv år. De äldsta
+årgångarna ger därför färre jämförelsepunkter.
 
 2015 års prognos är enligt Kommunbudget 2016 framtagen av kommunstyrelsens
 förvaltning i februari 2015, alltså internt och inte av konsult. Dess
