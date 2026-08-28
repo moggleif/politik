@@ -17,12 +17,11 @@ Sidan visar dem därför i skilda paneler med var sin skala. Vad som går
 att säga är hur samma program och ungefär samma årskull utvecklats genom
 systemet — inte varför.
 
-Parningen görs per program och kommunal skola: GR:s antagningsstatistik
-omfattar bara kommunens egna gymnasieskolor, så fristående skolors
-program lämnas utanför. Ett meritvärdesprogram paras med den
-slutbetygsserie som redovisats på samma skola. Program som bara finns på
-den ena sidan listas i utdatan under "oparade", med orsak, så att sidan
-kan visa det i klartext.
+Parningen görs per program och skola. Båda datafilerna omfattar
+Aranäsgymnasiet och Elof Lindälvs gymnasium, och ett meritvärdesprogram
+paras med den slutbetygsserie som redovisats på samma skola. Program som
+bara finns på den ena sidan listas i utdatan under "oparade", med orsak,
+så att sidan kan visa det i klartext.
 
 Körs:  python3 scripts/build_kull.py
 """
@@ -41,11 +40,11 @@ def lasa_json(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-def kommunala_skolor(slut: dict, merit: dict) -> dict:
+def gemensamma_skolor(slut: dict, merit: dict) -> dict:
     """Kortnamn -> fullt namn för de skolor som finns i antagningsdatat.
 
-    GR:s rapporter omfattar bara kommunens egna skolor, så skolorna i
-    meritvärdesdatat ÄR de kommunala. Fulla namn hämtas ur
+    Skärningen mellan de två filernas skollistor, så att en skola som bara
+    finns i den ena källan inte tas med. Fulla namn hämtas ur
     slutbetygsdatats skollista.
     """
     kort_till_namn = {s["kort"]: s["namn"] for s in slut["skolor"]}
@@ -65,8 +64,8 @@ def para_program(merit: dict, slut: dict):
     (par, meritUtanSlut, slutUtanMerit) där de oparade listas med namn
     för redovisning.
     """
-    skolnamn = kommunala_skolor(slut, merit)
-    kommunala = set(skolnamn.values())
+    skolnamn = gemensamma_skolor(slut, merit)
+    gemensamma = set(skolnamn.values())
 
     par = []
     parade_slut = set()
@@ -87,7 +86,7 @@ def para_program(merit: dict, slut: dict):
     slut_utan = [
         u for u in slut["utbildningar"]
         if id(u) not in parade_slut
-        and set(u["skolar"]) & kommunala
+        and set(u["skolar"]) & gemensamma
         and any(v.get("betygspoang") is not None for v in u["varden"].values())
     ]
     return par, merit_utan, slut_utan
