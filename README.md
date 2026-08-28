@@ -12,6 +12,11 @@ officiella befolkningsstatistik.
 
 - [Hela befolkningen](https://moggleif.github.io/politik/befolkningsprognos.html)
 - [16–19 år, gymnasieåldern](https://moggleif.github.io/politik/gymnasiealdern.html)
+  &ndash; innehåller också en **kohortframskrivning**: de barn som redan bor i
+  kommunen blir ett år äldre varje år, så antalet 16&ndash;19-åringar om
+  k år är summan av dagens 16&nbsp;&minus;&nbsp;k … 19&nbsp;&minus;&nbsp;k-åringar.
+  Ingen modell, inga antaganden om flyttning &ndash; och därför en ren
+  jämförelsepunkt mot kommunens prognos. Den ritas orange.
 
 **Betygen på gymnasiet** &ndash; vad eleverna hade med sig in, och vad de gick
 ut med, program för program. Enheten är programmet och inte skolan på båda
@@ -88,8 +93,9 @@ data/
   scb/folkmangd_kungsbacka.json Faktisk folkmängd, hämtad från SCB:s öppna API
   KALLOR.md                     Dokumentation av var varje rapport hittades
 scripts/
-  fetch_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API),
-                                både total folkmängd och åldersgrupper
+  fetch_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API):
+                                total folkmängd, åldersgrupper och
+                                folkmängden per enskild ålder 0–19 år
   extrahera_prognos.py          Läser folkmängdstabellen ur en fristående
                                 prognosrapport
   extrahera_budget.py           Läser prognostabellen ur en kommunbudget
@@ -101,7 +107,8 @@ scripts/
                                 samma exporttjänst, ett läsår per fil
   hamta_kullkedjan.py           Hämtar de fyra rapporter som sidan om nian
                                 och gymnasiet bygger på (109, 91, 89, 61/60)
-  build_data.py                 Bygger docs/data.json och docs/data-16-19.json
+  build_data.py                 Bygger docs/data.json och docs/data-16-19.json,
+                                inklusive kohortframskrivningen för 16–19 år
   build_meritvarden.py          Bygger docs/data-meritvarden.json, med en
                                 serie per program i stället för per skola
   build_slutbetyg.py            Bygger docs/data-slutbetyg.json, på samma sätt
@@ -163,6 +170,12 @@ Befolkningsprognoserna:
 python3 scripts/fetch_scb.py    # hämtar senaste utfallet från SCB
 python3 scripts/build_data.py   # bygger om docs/data.json
 ```
+
+`fetch_scb.py` hämtar också folkmängden per enskild ålder 0&ndash;19 år, som
+kohortframskrivningen bygger på, och varnar om de enskilda åldrarna inte
+summerar till åldersgrupperna &ndash; då har de två frågorna hämtat olika
+saker. `build_data.py` prövar dessutom framskrivningen bakåt mot facit och
+ställer den mot kommunens egen modell vid samma horisont.
 
 Nya prognosrapporter läggs till genom att spara PDF:en i `docs/rapporter/`,
 skapa en `data/prognoser/prognos_<år>.json` med siffrorna och källänken, och

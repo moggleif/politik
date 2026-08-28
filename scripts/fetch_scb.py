@@ -5,6 +5,13 @@ Hämtar tre serier: hela befolkningen, åldersgruppen 16–19 år
 (gymnasieåldern) och åldersgruppen 0–15 år (förskole- och
 grundskoleåldern), den senare som en enda grupp.
 
+Dessutom hämtas folkmängden **per enskild ålder 0–19 år**. Den behövs för
+kohortframskrivningen på gymnasiesidan: barnen som redan bor i kommunen
+blir ett år äldre varje år, så antalet 16–19-åringar om k år går att
+räkna direkt ur dagens åldersklasser 16−k … 19−k. Den framskrivningen
+kräver ingen modell och inga antaganden om födelsetal – bara att man vet
+hur många som finns i varje ålder i dag.
+
 Siffrorna kommer från två av SCB:s tabeller, eftersom SCB lagt de senaste
 årens uppgifter i egna tabeller i det nya API:t:
 
@@ -46,6 +53,10 @@ ALDERSGRUPPER = {
     "0-15": [str(a) for a in range(0, 16)],
 }
 
+# Enskilda åldrar som sparas var för sig. 0–19 räcker för att skriva fram
+# 16–19-åringarna så långt som till dagens nyfödda.
+ENSKILDA_ALDRAR = [str(a) for a in range(0, 20)]
+
 
 def posta(url: str, kropp: dict) -> dict:
     req = urllib.request.Request(
@@ -81,6 +92,35 @@ def hamta_serie(aldrar=None) -> dict:
     return dict(per_ar)
 
 
+def hamta_per_alder(aldrar: list) -> dict:
+    """Folkmängd per år OCH ålder, alltså utan summering över åldrarna.
+
+    Svarets nyckel är [Region, Alder, Tid] när ålder väljs som item."""
+    raw = posta(API_URL, fraga(aldrar))
+    per_ar = defaultdict(dict)
+    for rad in raw["data"]:
+        _, alder, ar = rad["key"]
+        if int(ar) >= FORSTA_AR:
+            per_ar[ar][alder] = int(rad["values"][0])
+    return dict(per_ar)
+
+
+def komplettera_per_alder(serie: dict, aldrar: list) -> dict:
+    """De senaste åren ligger i egna tabeller i det nya API:t, som bara
+    svarar för ett år i taget – där hämtas en ålder per anrop."""
+    for ar, tabell in SENARE_TABELLER.items():
+        rad = {}
+        for alder in aldrar:
+            try:
+                rad[alder] = hamta_senare_ar(ar, tabell, [alder])
+            except Exception as fel:
+                print(f"Varning: kunde inte hämta ålder {alder} år {ar}: {fel}")
+        if rad:
+            serie[ar] = rad
+    return {a: dict(sorted(v.items(), key=lambda x: int(x[0])))
+            for a, v in sorted(serie.items())}
+
+
 def hamta_senare_ar(ar: str, tabell: str, aldrar=None) -> int:
     """Ett enskilt år ur PxWeb API 2.0. TotSA/TotSa/SC = summa över ålder,
     kön och civilstånd; 000007ME är måttet Folkmängd."""
@@ -106,12 +146,34 @@ def komplettera(serie: dict, aldrar=None) -> dict:
     return dict(sorted(serie.items()))
 
 
+def kontrollera(per_alder: dict, grupper: dict) -> None:
+    """De enskilda åldrarna ska summera till åldersgrupperna.
+
+    Gör de inte det har någon av frågorna hämtat något annat än den andra,
+    och då är kohortframskrivningen byggd på fel underlag. Det ska synas
+    direkt, inte upptäckas i ett diagram långt senare."""
+    intervall = {"0-15": range(0, 16), "16-19": range(16, 20)}
+    for namn, aldrar in intervall.items():
+        for ar, rad in per_alder.items():
+            facit = grupper.get(namn, {}).get(ar)
+            if facit is None:
+                continue
+            summa = sum(rad.get(str(a), 0) for a in aldrar)
+            if summa != facit:
+                print(f"Varning: {ar} ålder {namn} summerar till {summa}, "
+                      f"men åldersgruppen säger {facit}")
+
+
 def main() -> None:
     folkmangd = komplettera(hamta_serie())
 
     grupper = {}
     for namn, aldrar in ALDERSGRUPPER.items():
         grupper[namn] = komplettera(hamta_serie(aldrar), aldrar)
+
+    per_alder = komplettera_per_alder(hamta_per_alder(ENSKILDA_ALDRAR),
+                                      ENSKILDA_ALDRAR)
+    kontrollera(per_alder, grupper)
 
     ut = {
         "kommun": "Kungsbacka",
@@ -125,6 +187,7 @@ def main() -> None:
         "hamtad": date.today().isoformat(),
         "folkmangd": folkmangd,
         "aldersgrupper": grupper,
+        "perAlder": per_alder,
     }
 
     utfil = Path(__file__).resolve().parent.parent / "data" / "scb" / "folkmangd_kungsbacka.json"
@@ -133,6 +196,9 @@ def main() -> None:
     print(f"Sparade {len(folkmangd)} år ({min(folkmangd)}–{max(folkmangd)}) till {utfil}")
     for namn, serie in grupper.items():
         print(f"  åldersgrupp {namn}: {len(serie)} år, senast {max(serie)} = {serie[max(serie)]}")
+    sista = max(per_alder)
+    print(f"  per enskild ålder 0–19: {len(per_alder)} år, "
+          f"{len(per_alder[sista])} åldrar senast ({sista})")
 
 
 if __name__ == "__main__":

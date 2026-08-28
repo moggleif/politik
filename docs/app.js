@@ -442,6 +442,12 @@
     data.prognoser.forEach(function (p) {
       Object.keys(p.prognos).forEach(function (a) { allaAr[a] = true; });
     });
+    /* Kohortframskrivningen räcker längre fram än prognoserna. Klipps
+       fönstret vid sista prognosåret ser den orange linjen ut att ta slut
+       där, som om datat vore slut. */
+    if (data.kohort) {
+      Object.keys(data.kohort.framskrivning).forEach(function (a) { allaAr[a] = true; });
+    }
     var ar = Object.keys(allaAr).map(Number).sort(function (a, b) { return a - b; });
     var forstaPrognosAr = data.prognoser.length
       ? Math.min.apply(null, data.prognoser.map(function (p) { return p.prognosAr; }))
@@ -469,6 +475,7 @@
         tension: 0.1
       });
     });
+    if (data.kohort) dataset.push(kohortDataset(data, ar, 2));
     dataset.push({
       label: "Faktiskt utfall (SCB)",
       data: ar.map(function (a) {
@@ -502,6 +509,12 @@
               generateLabels: function () {
                 var n = data.prognoser.length;
                 var poster = [{ text: "Faktiskt utfall (SCB)", strokeStyle: FARG.ink, fillStyle: FARG.ink, lineWidth: 3 }];
+                if (data.kohort) {
+                  poster.push({
+                    text: "Kohortframskrivning (SCB " + data.kohort.basAr + ")",
+                    strokeStyle: FARG.orange, fillStyle: FARG.orange, lineWidth: 2
+                  });
+                }
                 if (n > 1) {
                   poster.push({
                     text: "Äldsta prognosen (" + data.prognoser[0].prognosAr + ")",
@@ -550,15 +563,18 @@
        sammanfattad, så toningen styrs bara från själva diagrammet. */
     K.aktiveraToning(chart, false);
 
-    el("kalla-spagetti").textContent = data.prognoser.length > 1
+    el("kalla-spagetti").textContent = (data.prognoser.length > 1
       ? "Svart linje: SCB:s faktiska siffror 31 december. Blå linjer: kommunens " +
         "prognoser – ju mörkare linje, desto senare är prognosen gjord. " +
         "Peka på en linje så tonas de övriga ned."
-      : "Svart linje: SCB:s faktiska siffror 31 december. Blå linje: kommunens prognos.";
+      : "Svart linje: SCB:s faktiska siffror 31 december. Blå linje: kommunens prognos.") +
+      (data.kohort ? " Orange linje: kohortframskrivningen ur åldersklasserna "
+        + data.kohort.basAr + "." : "");
 
     /* Tabell: matris år × prognos */
     var t = "<caption>Faktiskt utfall och samtliga prognoser, antal " + ENHET + ".</caption>";
     t += "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Utfall (SCB)</th>";
+    if (data.kohort) t += "<th scope=\"col\">Kohortframskrivning</th>";
     data.prognoser.forEach(function (p) {
       t += "<th scope=\"col\">Prognos " + p.prognosAr + "</th>";
     });
@@ -566,6 +582,10 @@
     ar.forEach(function (a) {
       t += "<tr><td>" + a + "</td><td>" +
         (data.utfall[String(a)] !== undefined ? talSv(data.utfall[String(a)]) : "–") + "</td>";
+      if (data.kohort) {
+        var kv = data.kohort.framskrivning[String(a)];
+        t += "<td>" + (kv !== undefined ? talSv(kv) : "–") + "</td>";
+      }
       data.prognoser.forEach(function (p) {
         var v = p.prognos[String(a)];
         t += "<td>" + (v !== undefined ? talSv(v) : "–") + "</td>";
@@ -786,6 +806,17 @@
         talSv(eget, 1) + " % fel mot " + talSv(andra, 1) + " %.");
     }
 
+    if (data.kohort && data.kohort.motSenaste.length) {
+      var kf = data.kohort;
+      var forsta = kf.motSenaste[0];
+      punkter.push("De barn som redan bor i kommunen räcker till <strong>" +
+        talSv(kf.framskrivning[String(forsta.ar)]) + "</strong> " + ENHET +
+        " i åldern " + kf.aldrar[0] + "–" + kf.aldrar[1] + " år " + forsta.ar +
+        " och <strong>" + talSv(kf.framskrivning[String(kf.sistaAr)]) +
+        "</strong> år " + kf.sistaAr + ", om ingen flyttade – en ren " +
+        "framskrivning av dagens åldersklasser.");
+    }
+
     K.visaKortSagt(punkter);
   }
 
@@ -819,6 +850,316 @@
       senaste: "utfall t.o.m. " + Math.max.apply(null, utfallAr),
       hamtad: data.utfallMeta.hamtad
     });
+  }
+
+  /* ---------- Kohortframskrivningen ----------
+     Barnen som redan bor i kommunen blir ett år äldre varje år, så
+     antalet 16–19-åringar om k år är summan av dagens 16−k … 19−k-åringar.
+     Ingen modell, inga antaganden – men också ingen in- eller utflyttning,
+     vilket är precis vad skillnaden mot utfallet mäter. Sektionerna finns
+     bara på åldersgruppssidan, och datat bara i dess datafil, så båda
+     kontrolleras innan något ritas. */
+
+  function kohortAr(data) {
+    var k = data.kohort;
+    var utfallAr = Object.keys(data.utfall).map(Number);
+    var sistaUtfall = Math.max.apply(null, utfallAr);
+    /* Några år bakåt som sammanhang, sedan hela framskrivningen. */
+    var ar = [];
+    for (var a = sistaUtfall - 8; a <= k.sistaAr; a++) ar.push(a);
+    return ar;
+  }
+
+  function initKohort(data) {
+    if (!data.kohort || !el("diagram-kohort")) return;
+    var k = data.kohort;
+    var ar = kohortAr(data);
+    var senaste = data.prognoser.filter(function (p) {
+      return p.prognosAr === k.senastePrognosAr;
+    })[0];
+
+    var dataset = [{
+      label: "Faktiskt utfall (SCB)",
+      data: ar.map(function (a) {
+        var v = data.utfall[String(a)];
+        return v === undefined ? null : v;
+      }),
+      borderColor: FARG.ink,
+      backgroundColor: FARG.ink,
+      borderWidth: 3,
+      pointRadius: 3,
+      pointHoverRadius: 6,
+      pointBorderColor: FARG.surface,
+      pointBorderWidth: 2,
+      spanGaps: false,
+      tension: 0.1
+    }];
+    if (senaste) {
+      dataset.push({
+        label: "Kommunens prognos " + senaste.prognosAr,
+        data: ar.map(function (a) {
+          var v = senaste.prognos[String(a)];
+          return v === undefined ? null : v;
+        }),
+        borderColor: FARG.bla,
+        backgroundColor: FARG.bla,
+        borderWidth: 2,
+        borderDash: [7, 4],
+        pointStyle: "rect",
+        pointRadius: 3,
+        pointHoverRadius: 6,
+        spanGaps: false,
+        tension: 0.1
+      });
+    }
+    dataset.push(kohortDataset(data, ar, 3));
+
+    var ctx = el("diagram-kohort");
+    ctx.parentElement.style.height = "420px";
+    new Chart(ctx, {
+      type: "line",
+      data: { labels: ar.map(String), datasets: dataset },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        locale: "sv-SE",
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: true, position: "bottom",
+                    labels: { boxWidth: 22, usePointStyle: true } },
+          tooltip: {
+            callbacks: {
+              title: function (it) { return "År " + it[0].label; },
+              label: function (it) {
+                return it.dataset.label + ": " +
+                  (it.parsed.y === null ? "–"
+                    : talSv(it.parsed.y) + " " + ENHET);
+              }
+            }
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, border: { color: FARG.baseline },
+               ticks: { maxRotation: 0, autoSkipPadding: 12 } },
+          y: { title: { display: true, text: ENHET_LANG, color: FARG.muted },
+               grid: { color: FARG.grid }, border: { color: FARG.baseline },
+               ticks: { callback: function (v) { return talSv(v); } } }
+        }
+      }
+    });
+
+    el("kalla-kohort").textContent =
+      "Orange linje: SCB:s folkmängd per enskild ålder den 31 december " +
+      k.basAr + ", framskriven ett år i taget. Sista året som går att " +
+      "skriva fram är " + k.sistaAr + " – då är det " + k.basAr +
+      " års nyfödda som fyller " + k.aldrar[1] + ".";
+
+    /* Vad framskrivningen medvetet utelämnar, med siffror på hur mycket
+       det historiskt har betytt. */
+    var kort = k.traffsakerhet[0];
+    var langt = k.traffsakerhet[k.traffsakerhet.length - 1];
+    /* Riktningen på felet skiftar med horisonten, så den får inte
+       sammanfattas till ett håll: på ett par års sikt flyttar en del
+       18–19-åringar ut, på lång sikt flyttar det in fler barnfamiljer
+       än det flyttar ut. Båda tecknen läses ur datat. */
+    function riktning(r) {
+      return (r.medelPct > 0 ? "för högt" : "för lågt") + " (" +
+        (r.medelPct > 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) + " %)";
+    }
+    K.sattDataNot("not-kohort",
+      "Framskrivningen räknar <strong>varken in- eller utflyttning</strong> " +
+      "och ingen dödlighet. Den säger hur många som skulle bli " +
+      k.aldrar[0] + "–" + k.aldrar[1] + " år om ingen flyttade. Historiskt " +
+      "har den missat med i snitt " + talSv(kort.medelAbsPct, 1) + " % ett år " +
+      "framåt och " + talSv(langt.medelAbsPct, 1) + " % " + langt.avstand +
+      " år framåt. Riktningen skiftar: ett år framåt har den legat " +
+      riktning(kort) + ", " + langt.avstand + " år framåt " + riktning(langt) +
+      (langt.medelPct < 0
+        ? " – på den sikten hinner det flytta in fler barnfamiljer än det " +
+          "flyttar ut, och framskrivningen blir snarare en <em>undre gräns</em> " +
+          "än en prognos."
+        : "."));
+
+    /* Slutsats: var kommunens prognos ligger i förhållande till de barn
+       som redan bor här. */
+    var mot = k.motSenaste;
+    if (mot.length && senaste) {
+      var under = mot.filter(function (r) { return r.diff < 0; });
+      var forsta = mot[0];
+      var txt = "<p>Om ingen flyttade skulle Kungsbacka ha <strong>" +
+        talSv(k.framskrivning[String(forsta.ar)]) + "</strong> " + ENHET +
+        " i åldern " + k.aldrar[0] + "–" + k.aldrar[1] + " år " + forsta.ar +
+        " – de finns redan i kommunen, de är bara yngre än så. År " +
+        k.sistaAr + " är samma tal <strong>" +
+        talSv(k.framskrivning[String(k.sistaAr)]) + "</strong>, en minskning " +
+        "med " + talSv(Math.round(100 * (1 -
+          k.framskrivning[String(k.sistaAr)] /
+          k.framskrivning[String(forsta.ar)])), 0) + " %.</p>";
+      if (under.length) {
+        var storst = under.reduce(function (a, b) {
+          return Math.abs(b.diff) > Math.abs(a.diff) ? b : a;
+        });
+        var storstPct = 100 * Math.abs(storst.diff) / storst.kohort;
+        txt += "<p>Kommunens prognos från " + senaste.prognosAr + " ligger " +
+          "<strong>under</strong> framskrivningen för " +
+          (under.length === 1 ? "år " + under[0].ar
+            : under[0].ar + "–" + under[under.length - 1].ar) +
+          " – som mest " + talSv(Math.abs(storst.diff)) + " " + ENHET +
+          " (" + talSv(storstPct, 1) + " %) år " + storst.ar + ". För att " +
+          "den ska slå in krävs alltså en nettoutflyttning i de åldrarna. " +
+          "Det sker – framskrivningen har legat " + talSv(kort.medelPct, 1) +
+          " % för högt ett år framåt – men i en helt annan storleksordning " +
+          "än den skillnaden.</p>";
+      }
+      el("slutsats-kohort").innerHTML = txt;
+    }
+
+    var tabell = "<caption>Kohortframskrivningen jämförd med kommunens " +
+      "senaste prognos, antal " + ENHET + ".</caption>" +
+      "<thead><tr><th scope=\"col\">År</th>" +
+      "<th scope=\"col\">Kohortframskrivning</th>" +
+      "<th scope=\"col\">Åldrar " + k.basAr + "</th>" +
+      "<th scope=\"col\">Kommunens prognos</th>" +
+      "<th scope=\"col\">Skillnad</th></tr></thead><tbody>";
+    Object.keys(k.framskrivning).map(Number).sort(function (a, b) { return a - b; })
+      .forEach(function (a) {
+        var rad = mot.filter(function (r) { return r.ar === a; })[0];
+        var kallor = k.ursprung[String(a)];
+        tabell += "<tr><th scope=\"row\">" + a + "</th><td>" +
+          talSv(k.framskrivning[String(a)]) + "</td><td>" +
+          kallor[0].alder + "–" + kallor[kallor.length - 1].alder + " år</td><td>" +
+          (rad ? talSv(rad.kommun) : "–") + "</td><td>" +
+          (rad ? (rad.diff > 0 ? "+" : "−") + talSv(Math.abs(rad.diff)) : "–") +
+          "</td></tr>";
+      });
+    el("tabell-kohort").innerHTML = tabell + "</tbody>";
+    el("sektion-kohort").hidden = false;
+  }
+
+  /* Den orange linjen, återanvänd i tre diagram. `bredd` skiljer det
+     diagram där den är huvudsaken från dem där den är en linje bland
+     många. */
+  function kohortDataset(data, ar, bredd) {
+    var f = data.kohort.framskrivning;
+    return {
+      label: "Kohortframskrivning (SCB " + data.kohort.basAr + ")",
+      data: ar.map(function (a) {
+        return f[String(a)] === undefined ? null : f[String(a)];
+      }),
+      borderColor: FARG.orange,
+      backgroundColor: FARG.orange,
+      borderWidth: bredd,
+      pointStyle: "triangle",
+      pointRadius: bredd > 2 ? 3 : 0,
+      pointHoverRadius: 6,
+      spanGaps: false,
+      tension: 0.1
+    };
+  }
+
+  function initKohortfel(data) {
+    if (!data.kohort || !el("diagram-kohortfel")) return;
+    var rader = data.kohort.jamforelse;
+    if (rader.length < 2) return;
+
+    var ctx = el("diagram-kohortfel");
+    ctx.parentElement.style.height = "380px";
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: rader.map(function (r) {
+          return r.avstand === 0 ? "Samma år" : r.avstand + " år";
+        }),
+        datasets: [
+          {
+            label: "Kommunens prognos",
+            data: rader.map(function (r) { return r.kommunAbsPct; }),
+            backgroundColor: FARG.bla,
+            borderWidth: 0, borderRadius: 4
+          },
+          {
+            label: "Kohortframskrivning",
+            data: rader.map(function (r) { return r.kohortAbsPct; }),
+            backgroundColor: FARG.orange,
+            borderWidth: 0, borderRadius: 4
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        locale: "sv-SE",
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: true, position: "bottom",
+                    labels: { boxWidth: 22 } },
+          tooltip: {
+            callbacks: {
+              title: function (it) {
+                var r = rader[it[0].dataIndex];
+                return (r.avstand === 0 ? "Samma år" : r.avstand + " år i förväg") +
+                  " (" + r.antal + " jämförelser)";
+              },
+              label: function (it) {
+                return it.dataset.label + ": " + talSv(it.parsed.y, 1) + " % fel";
+              }
+            }
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, border: { color: FARG.baseline },
+               title: { display: true, text: "Antal år i förväg", color: FARG.muted } },
+          y: { beginAtZero: true,
+               title: { display: true, text: "Genomsnittligt fel (%)", color: FARG.muted },
+               grid: { color: FARG.grid }, border: { display: false },
+               ticks: { callback: function (v) { return talSv(v, 1) + " %"; } } }
+        }
+      }
+    });
+
+    var kohortBast = rader.filter(function (r) {
+      /* Bara horisonter där skillnaden syns även efter avrundningen till
+         en decimal – annars läses "1,9 % mot 1,9 %" som ett skrivfel. */
+      return r.kohortAbsPct < r.kommunAbsPct &&
+        Math.round(r.kommunAbsPct * 10) !== Math.round(r.kohortAbsPct * 10);
+    });
+    var vand = rader.filter(function (r) {
+      return r.kohortAbsPct >= r.kommunAbsPct;
+    });
+    el("kalla-kohortfel").textContent =
+      "Genomsnittligt fel utan tecken, i procent av det faktiska antalet. " +
+      "Bara målår där båda har ett värde och facit finns.";
+    el("slutsats-kohortfel").innerHTML =
+      "<p>På kort sikt är den enkla framskrivningen " +
+      (kohortBast.length
+        ? "<strong>träffsäkrare</strong> än kommunens modell: " +
+          kohortBast.map(function (r) {
+            return (r.avstand === 0 ? "samma år" : r.avstand + " år framåt") +
+              " " + talSv(r.kohortAbsPct, 1) + " % mot " +
+              talSv(r.kommunAbsPct, 1) + " %";
+          }).join(", ") + "."
+        : "inte träffsäkrare än kommunens modell vid någon horisont.") +
+      (vand.length
+        ? " Från " + vand[0].avstand + " år och framåt vänder det: då " +
+          "börjar inflyttningen betyda mer än vilka barn som redan bor här, " +
+          "och kommunens modell &ndash; som räknar med flyttning &ndash; " +
+          "tar över."
+        : "") +
+      " Staplarna bygger på få jämförelser vid de längsta horisonterna; " +
+      "antalet står i tooltipen.</p>";
+
+    var t = "<caption>Genomsnittligt fel utan tecken, per antal år i " +
+      "förväg.</caption><thead><tr><th scope=\"col\">År i förväg</th>" +
+      "<th scope=\"col\">Jämförelser</th>" +
+      "<th scope=\"col\">Kommunens prognos</th>" +
+      "<th scope=\"col\">Kohortframskrivning</th></tr></thead><tbody>";
+    rader.forEach(function (r) {
+      t += "<tr><th scope=\"row\">" + r.avstand + "</th><td>" + r.antal +
+        "</td><td>" + talSv(r.kommunAbsPct, 1) + " %</td><td>" +
+        talSv(r.kohortAbsPct, 1) + " %</td></tr>";
+    });
+    el("tabell-kohortfel").innerHTML = t + "</tbody>";
+    el("sektion-kohortfel").hidden = false;
   }
 
   /* ---------- Start ---------- */
@@ -859,6 +1200,8 @@
       initMalar(data);
       initAvstand(data);
       initSkevhet(data);
+      initKohort(data);
+      initKohortfel(data);
       initSpagetti(data);
       initUtfall(data);
       initKallor(data);
