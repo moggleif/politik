@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hur många barn och unga 0–15 år finns det i Kungsbacka?</title>
+<meta name="description" content="Antalet barn och unga 0–15 år i Kungsbacka 2000–2025 enligt SCB:s befolkningsstatistik. Enbart faktiskt utfall, inga prognoser.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+  <div class="sidhuvud-inre">
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="barn-och-unga.html" aria-current="page">0–15 år</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
+        <a href="amnesbetyg.html">Betyg per ämne</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html">Antagning</a>
+        <a href="slutbetyg.html">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+      </span>
+      <a href="metod.html">Metod</a>
+    </nav>
+    <h1>Hur många barn och unga finns det i Kungsbacka?</h1>
+    <p class="ingress">
+      Antalet 0&ndash;15-åringar avgör hur många förskole- och grundskoleplatser
+      kommunen behöver. Den här sidan visar hur gruppen faktiskt har utvecklats
+      sedan år 2000, enligt Statistiska centralbyrån (SCB).
+      <strong>Inga prognoser ingår</strong> &ndash; varje tal är folkmängd den
+      31 december ett år som varit.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <section id="sektion-antal" hidden>
+    <h2>Hur många är de?</h2>
+    <p class="forklaring">
+      Antalet barn och unga 0&ndash;15 år i Kungsbacka, år för år. Gruppen är
+      hämtad som en enda åldersgrupp &ndash; SCB redovisar ettårsklasser, som
+      här summeras till 0&ndash;15.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-antal" aria-label="Diagram: antal barn och unga 0–15 år per år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-antal"></p>
+    </div>
+    <div class="slutsats" id="slutsats-antal"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-antal"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-andel" hidden>
+    <h2>Hur stor del av kommunen är de?</h2>
+    <p class="forklaring">
+      Antalet säger inte allt: en kommun som växer får fler barn även om
+      barnen blir en mindre del av befolkningen. Här visas i stället hur
+      stor <em>andel</em> av folkmängden de två skolåldrarna utgör.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-andel" aria-label="Diagram: andel av folkmängden för åldersgrupperna 0–15 och 16–19 år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-andel"></p>
+    </div>
+    <div class="slutsats" id="slutsats-andel"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-andel"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-forandring" hidden>
+    <h2>Vilka år växte gruppen, och vilka år krympte den?</h2>
+    <p class="forklaring">
+      Samma tal som i första diagrammet, fast som skillnaden mot året innan.
+      Det gör vändpunkterna tydliga: en stapel under nollinjen betyder att
+      det fanns färre barn och unga i kommunen än året före.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-forandring" aria-label="Diagram: årlig förändring av antalet 0–15-åringar" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-forandring"></p>
+    </div>
+    <div class="slutsats" id="slutsats-forandring"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-forandring"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-index" hidden>
+    <h2>Växer barnkullarna lika snabbt som kommunen?</h2>
+    <p class="forklaring">
+      Grupperna är olika stora, så antalen går inte att jämföra rakt av. Här
+      är varje serie satt till 100 sitt första år, så att bara
+      <em>utvecklingstakten</em> jämförs. Ligger en linje under de andra har
+      den gruppen vuxit långsammare.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-index" aria-label="Diagram: indexerad utveckling för 0–15 år, 16–19 år och hela folkmängden" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-index"></p>
+    </div>
+    <div class="slutsats" id="slutsats-index"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-index"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Alla siffror på den här sidan kommer från SCB:s officiella
+      befolkningsstatistik, hämtad via deras öppna API.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      Sidan visar <strong>enbart faktiskt utfall</strong>. Vill du se hur väl
+      kommunens egna prognoser har träffat finns det på sidorna för
+      <a href="befolkningsprognos.html">hela befolkningen</a> och
+      <a href="gymnasiealdern.html">16&ndash;19-åringarna</a>.
+    </p>
+    <p class="forklaring">
+      Åldersgruppen hämtas som en enda grupp, 0&ndash;15 år. SCB redovisar
+      ettårsklasser; de summeras vid hämtningen i stället för att brytas ned
+      på förskole-, låg-, mellan- och högstadieålder.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
+      beräkningar är öppna: källkoden och alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sidfot-inre">
+    <p>Data: SCB:s befolkningsstatistik.
+    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="befolkning.js"></script>
+</body>
+</html>

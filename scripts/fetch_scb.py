@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Hämtar faktisk folkmängd för Kungsbacka kommun från SCB:s öppna API.
 
-Hämtar två serier: hela befolkningen och åldersgruppen 16–19 år
-(gymnasieåldern).
+Hämtar tre serier: hela befolkningen, åldersgruppen 16–19 år
+(gymnasieåldern) och åldersgruppen 0–15 år (förskole- och
+grundskoleåldern), den senare som en enda grupp.
 
 Siffrorna kommer från två av SCB:s tabeller, eftersom SCB lagt de senaste
 årens uppgifter i egna tabeller i det nya API:t:
@@ -40,7 +41,10 @@ REGION_KUNGSBACKA = "1384"
 FORSTA_AR = 2000
 
 # Åldersgrupper som hämtas utöver totalen. Nyckeln används i utdatafilen.
-ALDERSGRUPPER = {"16-19": ["16", "17", "18", "19"]}
+ALDERSGRUPPER = {
+    "16-19": [str(a) for a in range(16, 20)],
+    "0-15": [str(a) for a in range(0, 16)],
+}
 
 
 def posta(url: str, kropp: dict) -> dict:
