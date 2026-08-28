@@ -5,59 +5,27 @@
 (function () {
   "use strict";
 
-  var FARG = {
-    ink: "#0b0b0b",
-    ink2: "#52514e",
-    muted: "#898781",
-    grid: "#e1e0d9",
-    baseline: "#c3c2b7",
-    surface: "#fcfcfb",
-    bla: "#2a78d6",
-    blaMork: "#1c5cab",
-    rod: "#e34948",
-    gra: "#c3c2b7"
-  };
-
-  /* Prognosåren är en ordnad skala, så linjerna får en blå ramp:
-     ljus = äldsta prognosen, mörk = den senaste. Stegen är glesade så att
-     grannfärgerna går att skilja åt (validerad ordinal ramp). */
-  var RAMP = ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"];
-
-  function rampFarg(i, n) {
-    if (n <= 1) return RAMP[RAMP.length - 1];
-    return RAMP[Math.round(i * (RAMP.length - 1) / (n - 1))];
-  }
-
-  function el(id) { return document.getElementById(id); }
+  /* Färger, talformat och diagraminställningar delas med de andra
+     sidorna via gemensam.js (window.KIS). */
+  var K = window.KIS;
+  var FARG = K.FARG;
+  var rampFarg = K.rampFarg;
+  var el = K.el;
+  var visaStatus = K.visaStatus;
+  var installChartDefaults = K.installChartDefaults;
 
   var KONF = document.body.dataset;
   var DATAFIL = KONF.datafil || "data.json";
   var ENHET = KONF.enhet || "invånare";                 // "invånare" / "ungdomar"
   var ENHET_LANG = KONF.enhetLang || "Antal invånare";  // axelrubrik
+  var JAMFORFIL = KONF.jamforfil || null;               // seriens jämförelsefil
+  var JAMFORSERIE = KONF.jamforserie || "";
 
   function talSv(n, dec) {
     return n.toLocaleString("sv-SE", {
       minimumFractionDigits: dec || 0,
       maximumFractionDigits: dec || 0
     });
-  }
-
-  function visaStatus(html) {
-    var s = el("status");
-    s.innerHTML = html;
-    s.hidden = false;
-  }
-
-  function installChartDefaults() {
-    Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
-    Chart.defaults.font.size = 15;
-    Chart.defaults.color = FARG.ink2;
-    Chart.defaults.borderColor = FARG.grid;
-    Chart.defaults.plugins.tooltip.backgroundColor = FARG.ink;
-    Chart.defaults.plugins.tooltip.titleFont = { size: 15, weight: "600" };
-    Chart.defaults.plugins.tooltip.bodyFont = { size: 15 };
-    Chart.defaults.plugins.tooltip.padding = 10;
-    Chart.defaults.plugins.tooltip.displayColors = false;
   }
 
   /* ---------- Sektion 1: Vad sa prognoserna om år X? ---------- */
@@ -180,8 +148,12 @@
       o.value = a; o.textContent = a;
       valjare.appendChild(o);
     });
+    /* Valt år speglas i adressraden (?year=) så att vyn går att länka */
+    K.kopplaValjare(valjare, "year", function () {
+      ritaMalar(data, Number(valjare.value));
+    });
     valjare.addEventListener("change", function () { ritaMalar(data, Number(valjare.value)); });
-    ritaMalar(data, lista[0]);
+    ritaMalar(data, Number(valjare.value) || lista[0]);
     el("sektion-malar").hidden = false;
     return true;
   }
@@ -515,7 +487,7 @@
 
     var ctx = el("diagram-spagetti");
     ctx.parentElement.style.height = "420px";
-    new Chart(ctx, {
+    var chart = new Chart(ctx, {
       type: "line",
       data: { labels: ar.map(String), datasets: dataset },
       options: {
@@ -574,9 +546,14 @@
       }
     });
 
+    /* Peka på en linje så tonas de andra ned – teckenförklaringen är
+       sammanfattad, så toningen styrs bara från själva diagrammet. */
+    K.aktiveraToning(chart, false);
+
     el("kalla-spagetti").textContent = data.prognoser.length > 1
       ? "Svart linje: SCB:s faktiska siffror 31 december. Blå linjer: kommunens " +
-        "prognoser – ju mörkare linje, desto senare är prognosen gjord."
+        "prognoser – ju mörkare linje, desto senare är prognosen gjord. " +
+        "Peka på en linje så tonas de övriga ned."
       : "Svart linje: SCB:s faktiska siffror 31 december. Blå linje: kommunens prognos.";
 
     /* Tabell: matris år × prognos */
@@ -646,7 +623,7 @@
 
     var ctx = el("diagram-utfall");
     ctx.parentElement.style.height = "420px";
-    new Chart(ctx, {
+    var chart = new Chart(ctx, {
       type: "line",
       data: { labels: ar.map(String), datasets: dataset },
       options: {
@@ -696,10 +673,13 @@
       }
     });
 
+    K.aktiveraToning(chart, false);
+
     el("kalla-utfall").textContent =
       "Svart linje: SCB:s faktiska siffror. Blå linjer: kommunens prognoser, " +
       "klippta vid " + sistaUtfall + ". Skalan börjar inte på noll, utan följer " +
-      "kurvorna – det gör skillnaderna synliga, men får dem också att se större ut.";
+      "kurvorna – det gör skillnaderna synliga, men får dem också att se större ut. " +
+      "Peka på en linje så tonas de övriga ned.";
 
     /* Tabell: utfallet med förändring, som facit att läsa mot */
     var t = "<caption>" + (data.serie ? data.serie + ". " : "") +
@@ -747,14 +727,116 @@
       "Utfallssiffrorna hämtades från SCB " + data.utfallMeta.hamtad + ".";
   }
 
+  /* ---------- Kort sagt ----------
+     De viktigaste observationerna, beräknade ur datafilen och försiktigt
+     formulerade: inga slutsatser utöver vad talen faktiskt visar. */
+
+  function initKortSagt(data, jamfor) {
+    var sk = data.skevhet;
+    if (!sk || !sk.antal) return;
+    var punkter = [];
+    var tecken = function (v) { return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), 1) + " %"; };
+
+    punkter.push("I de <strong>" + sk.antal + " jämförelser</strong> som kan " +
+      "göras har prognoserna i genomsnitt avvikit <strong>" +
+      talSv(sk.medelAbsPct, 1) + " %</strong> från utfallet.");
+
+    var over = sk.antalOver, under = sk.antal - over;
+    if (over >= Math.ceil(sk.antal * 0.75)) {
+      punkter.push("Felen lutar åt ett håll: <strong>" + over + " av " + sk.antal +
+        "</strong> prognosvärden låg över utfallet.");
+    } else if (under >= Math.ceil(sk.antal * 0.75)) {
+      punkter.push("Felen lutar åt ett håll: <strong>" + under + " av " + sk.antal +
+        "</strong> prognosvärden låg under utfallet.");
+    } else {
+      punkter.push("Felen går åt båda hållen: " + over + " av " + sk.antal +
+        " prognosvärden låg över utfallet, " + under + " under.");
+    }
+
+    var rader = data.perAvstand || [];
+    if (rader.length > 1) {
+      var kort = rader[0], langt = rader[rader.length - 1];
+      var kortText = kort.avstand === 0 ? "samma år" : kort.avstand + " år i förväg";
+      punkter.push("Felet " + (langt.medelAbsPct > kort.medelAbsPct
+        ? "växer med prognoshorisonten" : "har inte vuxit entydigt med horisonten") +
+        ": i snitt " + talSv(kort.medelAbsPct, 1) + " % för prognoser gjorda " +
+        kortText + ", mot " + talSv(langt.medelAbsPct, 1) + " % för dem gjorda " +
+        langt.avstand + " år i förväg.");
+    }
+
+    /* Träffsäkraste årgången – jämför bara vid samma horisont (ett år
+       framåt), annars blandas kort och lång sikt. */
+    var ettar = (data.perArgang || []).filter(function (r) {
+      return r.ettArPct !== null && r.ettArPct !== undefined;
+    });
+    if (ettar.length >= 3) {
+      var bast = ettar.reduce(function (a, b) {
+        return Math.abs(b.ettArPct) < Math.abs(a.ettArPct) ? b : a;
+      });
+      punkter.push("Mätt på samma sikt – ett år framåt – har prognosen från " +
+        "<strong>" + bast.prognosAr + "</strong> hittills varit träffsäkrast (" +
+        tecken(bast.ettArPct) + ").");
+    }
+
+    if (jamfor && jamfor.skevhet && jamfor.skevhet.antal) {
+      var eget = sk.medelAbsPct, andra = jamfor.skevhet.medelAbsPct;
+      punkter.push("Osäkerheten är <strong>" +
+        (eget > andra ? "större" : "mindre") + "</strong> för den här " +
+        "åldersgruppen än för " + JAMFORSERIE + ": i snitt " +
+        talSv(eget, 1) + " % fel mot " + talSv(andra, 1) + " %.");
+    }
+
+    K.visaKortSagt(punkter);
+  }
+
+  /* Årgångar som finns för hela befolkningen men inte i den här serien –
+     på 16–19-sidan är det 2021 års rapport, som redovisar en annan
+     åldersindelning. Räknas fram ur de två filerna i stället för att
+     hårdkodas. */
+  function initNotArgangar(data, jamfor) {
+    if (!jamfor) return;
+    var egna = {};
+    data.prognoser.forEach(function (p) { egna[p.prognosAr] = true; });
+    var saknade = jamfor.prognoser
+      .map(function (p) { return p.prognosAr; })
+      .filter(function (a) { return !egna[a]; });
+    if (!saknade.length) return;
+    K.sattDataNot("not-argangar",
+      "<p>Prognosrapporten från <strong>" + saknade.join(", ") + "</strong> " +
+      "ingår inte på den här sidan: den redovisar åldersgrupperna på ett " +
+      "annat sätt (16–18 år i stället för 16–19) och går därför inte att " +
+      "jämföra rakt av. Den finns med på " +
+      "<a href=\"befolkningsprognos.html\">sidan för hela befolkningen</a>.</p>");
+  }
+
+  function initMeta(data) {
+    var prognosAr = data.prognoser.map(function (p) { return p.prognosAr; });
+    var utfallAr = Object.keys(data.utfall).map(Number);
+    K.visaMeta({
+      kalla: "Kungsbacka kommuns prognosrapporter och SCB",
+      period: "prognoser " + Math.min.apply(null, prognosAr) + "–" +
+        Math.max.apply(null, prognosAr),
+      senaste: "utfall t.o.m. " + Math.max.apply(null, utfallAr),
+      hamtad: data.utfallMeta.hamtad
+    });
+  }
+
   /* ---------- Start ---------- */
 
-  fetch(DATAFIL)
-    .then(function (r) {
+  function hamtaJson(fil) {
+    return fetch(fil).then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
-    })
-    .then(function (data) {
+    });
+  }
+
+  Promise.all([
+    hamtaJson(DATAFIL),
+    JAMFORFIL ? hamtaJson(JAMFORFIL).catch(function () { return null; })
+              : Promise.resolve(null)
+  ])
+    .then(function (svar) {
+      var data = svar[0], jamfor = svar[1];
       installChartDefaults();
       if (!data.prognoser || !data.prognoser.length) {
         visaStatus("<strong>Datat är inte på plats ännu.</strong> " +
@@ -771,12 +853,16 @@
           "gäller år där facit redan finns. De samlas in nu. Så länge visas " +
           "kommunens senaste prognos tillsammans med den faktiska utvecklingen.");
       }
+      initKortSagt(data, jamfor);
+      initNotArgangar(data, jamfor);
+      initMeta(data);
       initMalar(data);
       initAvstand(data);
       initSkevhet(data);
       initSpagetti(data);
       initUtfall(data);
       initKallor(data);
+      K.aktiveraTabellverktyg();
     })
     .catch(function (fel) {
       visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " + fel.message);

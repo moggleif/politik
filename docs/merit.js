@@ -6,62 +6,17 @@
 (function () {
   "use strict";
 
-  var FARG = {
-    ink: "#0b0b0b",
-    ink2: "#52514e",
-    muted: "#898781",
-    grid: "#e1e0d9",
-    baseline: "#c3c2b7",
-    surface: "#fcfcfb",
-    bla: "#2a78d6",
-    blaMork: "#1c5cab",
-    blaLjus: "#9ec5f4",
-    rod: "#e34948"
-  };
-
-  /* Kategorisk palett för linjerna. Programmen har ingen inbördes ordning,
-     så färgerna får inte heller antyda någon – och de måste gå att skilja åt
-     vid färgblindhet. Serier utöver palettens längd upprepar färgerna med
-     streckad linje i stället, så att inga två serier ser exakt likadana ut. */
-  var PALETT = [
-    "#1c5cab", "#e69f00", "#009e73", "#cc79a7",
-    "#56b4e9", "#d55e00", "#7a5195", "#6b8f00"
-  ];
-  var STRECK = [[], [7, 4], [2, 3], [9, 3, 2, 3]];
-
-  function serieStil(i) {
-    return {
-      farg: PALETT[i % PALETT.length],
-      streck: STRECK[Math.floor(i / PALETT.length) % STRECK.length]
-    };
-  }
-
-  function el(id) { return document.getElementById(id); }
-
-  function talSv(n, dec) {
-    return n.toLocaleString("sv-SE", {
-      minimumFractionDigits: dec || 0,
-      maximumFractionDigits: dec === undefined ? 0 : dec
-    });
-  }
-
-  function visaStatus(html) {
-    var s = el("status");
-    s.innerHTML = html;
-    s.hidden = false;
-  }
-
-  function installChartDefaults() {
-    Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
-    Chart.defaults.font.size = 15;
-    Chart.defaults.color = FARG.ink2;
-    Chart.defaults.borderColor = FARG.grid;
-    Chart.defaults.plugins.tooltip.backgroundColor = FARG.ink;
-    Chart.defaults.plugins.tooltip.titleFont = { size: 15, weight: "600" };
-    Chart.defaults.plugins.tooltip.bodyFont = { size: 15 };
-    Chart.defaults.plugins.tooltip.padding = 10;
-    Chart.defaults.plugins.tooltip.displayColors = false;
-  }
+  /* Färger, kategorisk palett (validerad för färgblindhet), talformat
+     och diagraminställningar delas med de andra sidorna via gemensam.js.
+     Serierna skiljs inte bara med färg utan också med punktform, och
+     efter åtta serier med streckning. */
+  var K = window.KIS;
+  var FARG = K.FARG;
+  var serieStil = K.serieStil;
+  var el = K.el;
+  var talSv = K.talSv;
+  var visaStatus = K.visaStatus;
+  var installChartDefaults = K.installChartDefaults;
 
   /* ---------- Gemensamt ---------- */
 
@@ -204,9 +159,10 @@
             borderColor: stil.farg,
             backgroundColor: stil.farg,
             borderDash: stil.streck,
+            pointStyle: stil.punkt,
             borderWidth: 2.5,
-            pointRadius: 3,
-            pointHoverRadius: 6,
+            pointRadius: 3.5,
+            pointHoverRadius: 7,
             spanGaps: false,
             tension: 0.1
           };
@@ -254,12 +210,25 @@
       }
     }, Math.max(440, 320 + serier.length * 14));
 
+    /* Många linjer: peka på en linje eller ett namn i teckenförklaringen
+       så tonas de övriga ned. */
+    if (serier.length >= 3) K.aktiveraToning(diagram["diagram-utveckling"]);
+
     el("kalla-utveckling").textContent =
       "Medelmeritvärdet för de antagna eleverna, slutantagningen. Högsta möjliga " +
       "meritvärde är 340." + saknadeArText() +
       (serier.length > 3
-        ? " Klicka på ett namn i teckenförklaringen för att dölja den linjen."
+        ? " Peka på ett namn i teckenförklaringen så tonas de andra linjerna " +
+          "ned; klicka för att dölja linjen."
         : "");
+
+    var saknas = saknadeAr();
+    K.sattDataNot("not-utveckling", saknas.length
+      ? "<p>" + (saknas.length === 1 ? "Året " : "Åren ") +
+        "<strong>" + saknas.join(", ") + "</strong> saknar rapport och " +
+        "linjerna bryts där. Varför rapporten inte går att få tag på " +
+        "beskrivs under <a href=\"#sektion-om\">Om den här sidan</a>.</p>"
+      : "");
 
     ritaSlutsatsUtveckling(serier, valt);
     ritaTabellUtveckling(valt);
@@ -869,26 +838,91 @@
     });
   }
 
+  /* ---------- Kort sagt ---------- */
+
+  function initKortSagt() {
+    var forsta = DATA.ar[0], sista = DATA.ar[DATA.ar.length - 1];
+    var punkter = [];
+    var namn = {};
+    DATA.program.forEach(function (p) { namn[p.namn] = true; });
+    var saknas = saknadeAr();
+
+    punkter.push("Sidan följer <strong>" + Object.keys(namn).length +
+      " program</strong> på kommunens två gymnasieskolor genom " +
+      DATA.ar.length + " antagningsomgångar, " + forsta + "–" + sista +
+      (saknas.length ? " (" + saknas.join(", ") + " saknas)" : "") + ".");
+
+    var senaste = nationella().map(function (u) {
+      var v = u.varden[String(sista)];
+      return (v && v.medel !== null) ? { u: u, medel: v.medel } : null;
+    }).filter(Boolean).sort(function (a, b) { return b.medel - a.medel; });
+    if (senaste.length > 1) {
+      var hogst = senaste[0], lagst = senaste[senaste.length - 1];
+      punkter.push("Vid slutantagningen " + sista + " hade <strong>" +
+        utbildningsetikett(hogst.u) + "</strong> högst medelmeritvärde (" +
+        talSv(hogst.medel, 1) + ") och <strong>" + utbildningsetikett(lagst.u) +
+        "</strong> lägst (" + talSv(lagst.medel, 1) + ").");
+    }
+
+    var medForandring = DATA.program.filter(function (p) {
+      return p.forandring !== null && p.antalArMedMedel >= 2;
+    });
+    if (medForandring.length) {
+      var upp = medForandring.filter(function (p) { return p.forandring > 0; }).length;
+      punkter.push("<strong>" + upp + " av " + medForandring.length +
+        "</strong> programserier har högre medelmeritvärde vid sitt sista " +
+        "mätår än vid sitt första – ett program som går på båda skolorna " +
+        "räknas per skola, och jämförelsen gäller bara de år serien kan " +
+        "mätas.");
+    }
+
+    var hf = DATA.perTyp.filter(function (r) { return r.typ === "hogskoleforberedande"; })[0];
+    var yp = DATA.perTyp.filter(function (r) { return r.typ === "yrkesprogram"; })[0];
+    if (hf && yp && hf.varden[String(sista)] && yp.varden[String(sista)]) {
+      var a = hf.varden[String(sista)].medel, b = yp.varden[String(sista)].medel;
+      punkter.push("Skillnaden mellan högskoleförberedande program och " +
+        "yrkesprogram var <strong>" + talSv(Math.abs(a - b), 1) +
+        " meritpoäng</strong> " + sista + " (" + talSv(a, 1) + " mot " +
+        talSv(b, 1) + ", ovägt snitt per utbildning).");
+    }
+
+    K.visaKortSagt(punkter);
+  }
+
+  function initMeta() {
+    K.visaMeta({
+      kalla: "Göteborgsregionen (GR), Gymnasieantagningen",
+      period: DATA.ar[0] + "–" + DATA.ar[DATA.ar.length - 1],
+      senaste: "slutantagningen " + DATA.ar[DATA.ar.length - 1],
+      hamtad: DATA.kallor[0].hamtad
+    });
+  }
+
   function init(data) {
     DATA = data;
 
     var programVal = el("program-valjare");
     fyllValjare(programVal, [""], function () { return "Alla program"; });
     fyllValjare(programVal, DATA.program.map(function (p) { return p.etikett; }));
+    K.kopplaValjare(programVal, "program", ritaUtveckling);
     programVal.addEventListener("change", ritaUtveckling);
 
     var arVal = el("ar-valjare");
     fyllValjare(arVal, data.ar.slice().reverse());
+    K.kopplaValjare(arVal, "year", ritaRangordning);
     arVal.addEventListener("change", ritaRangordning);
 
     el("sektion-utveckling").hidden = false;
 
+    initKortSagt();
+    initMeta();
     ritaUtveckling();
     ritaRangordning();
     ritaForandring();
     ritaKonkurrens();
     ritaTyp();
     initKallor();
+    K.aktiveraTabellverktyg();
   }
 
   fetch("data-meritvarden.json")

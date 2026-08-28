@@ -10,17 +10,19 @@
 </head>
 <body>
 
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
 <header class="sidhuvud">
   <div class="sidhuvud-inre">
     <h1>Kungsbacka i siffror</h1>
     <p class="ingress">
       Fristående sammanställningar av kommunens egna siffror, med alla
-      källor länkade. Välj vad du vill titta på.
+      källor länkade och alla beräkningar öppna. Välj vad du vill titta på.
     </p>
   </div>
 </header>
 
-<main>
+<main id="huvudinnehall">
 
   <section class="huvudmeny">
     <h2 class="dold">Välj ämne</h2>
@@ -28,33 +30,36 @@
     <div class="meny-kort">
       <h3><a href="befolkningsprognos.html">Befolkningsprognoser</a></h3>
       <p class="forklaring">
-        Kungsbacka kommun tar varje år fram en prognos för hur många invånare
-        kommunen kommer att ha i framtiden. Prognoserna styr planeringen av
-        skolor, äldreboenden och bostäder. Här jämförs tolv årgångar av
-        prognoser &ndash; 2015 till 2026 &ndash; med hur det faktiskt blev
-        enligt SCB.
+        Kungsbacka kommun tar varje år fram en prognos för hur många
+        invånare kommunen kommer att ha. Prognoserna styr planeringen av
+        skolor, äldreboenden och bostäder &ndash; här jämförs de med hur
+        det faktiskt blev enligt SCB.
       </p>
+      <ul class="kort-fakta" id="fakta-befolkning" hidden></ul>
       <ul class="undersidor">
         <li><a href="befolkningsprognos.html">Hela befolkningen</a>
-          <span class="undertext">Alla invånare, 2000 och framåt</span></li>
+          <span class="undertext" id="undertext-befolkning">Alla invånare, 2000 och framåt</span></li>
         <li><a href="gymnasiealdern.html">16&ndash;19 år (gymnasieåldern)</a>
-          <span class="undertext">Åldersgruppen som avgör behovet av gymnasieplatser</span></li>
+          <span class="undertext" id="undertext-gymnasiealdern">Åldersgruppen som avgör behovet av gymnasieplatser</span></li>
       </ul>
     </div>
 
     <div class="meny-kort">
       <h3><a href="meritvarden.html">Betygen på gymnasiet</a></h3>
       <p class="forklaring">
-        Vilka betyg hade eleverna med sig in på Kungsbackas gymnasieskolor
-        &ndash; och vad gick de ut med? Program för program, ur
-        Göteborgsregionens antagningsstatistik och Skolverkets statistik
-        över avgångseleverna.
+        Vilka betyg hade eleverna med sig in på Kungsbackas
+        gymnasieprogram &ndash; och vad gick de ut med tre år senare?
+        Program för program, ur Göteborgsregionens antagningsstatistik
+        och Skolverkets statistik över avgångseleverna.
       </p>
+      <ul class="kort-fakta" id="fakta-gymnasium" hidden></ul>
       <ul class="undersidor">
         <li><a href="meritvarden.html">Meritvärden vid antagningen</a>
-          <span class="undertext">Aranäsgymnasiet och Elof Lindälvs gymnasium, slutantagningen 2017&ndash;2026</span></li>
+          <span class="undertext" id="undertext-meritvarden">Aranäsgymnasiet och Elof Lindälvs gymnasium, slutantagningen</span></li>
         <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a>
-          <span class="undertext">Alla gymnasieskolor i Kungsbacka, avgångseleverna 2014&ndash;2025</span></li>
+          <span class="undertext" id="undertext-slutbetyg">Alla gymnasieskolor i Kungsbacka</span></li>
+        <li><a href="antagning-till-examen.html">Från antagning till examen</a>
+          <span class="undertext" id="undertext-kull">Följ samma kull genom systemet, program för program</span></li>
       </ul>
     </div>
 
@@ -63,12 +68,16 @@
   <section id="sektion-om">
     <h2>Om sidorna</h2>
     <p class="forklaring">
-      Sidorna är fristående och drivs inte av Kungsbacka kommun. De är byggda
-      för att det ska vara lätt att i efterhand se vad siffrorna säger &ndash;
-      inget mer. Alla beräkningar är öppna: källkoden och alla data finns på
-      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
-      Hittar du ett fel? Lämna gärna en rättelse där.
+      Sidorna är fristående och drivs inte av Kungsbacka kommun. De är
+      byggda för att det ska vara lätt att i efterhand se vad siffrorna
+      säger &ndash; inget mer. Alla beräkningar är öppna: källkoden och
+      alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>,
+      och hur siffrorna hämtats och räknats fram beskrivs på
+      <a href="metod.html">metodsidan</a>.
+      Hittar du ett fel? Lämna gärna en rättelse på GitHub.
     </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
   </section>
 
 </main>
@@ -81,5 +90,7 @@
   </div>
 </footer>
 
+<script src="gemensam.js"></script>
+<script src="index.js"></script>
 </body>
 </html>

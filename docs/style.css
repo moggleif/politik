@@ -6,7 +6,7 @@
   --surface: #fcfcfb;
   --ink: #0b0b0b;
   --ink-2: #52514e;
-  --muted: #898781;
+  --muted: #6e6c66;   /* mörkad från #898781 för att klara kontrastkravet AA */
   --grid: #e1e0d9;
   --baseline: #c3c2b7;
   --border: rgba(11, 11, 11, 0.10);
@@ -49,6 +49,13 @@ h1 {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   line-height: 1.2;
   margin: 0 0 0.75rem;
+}
+
+/* Långa svenska sammansättningar ("befolkningsprognoser") får avstavas
+   på smala skärmar i stället för att trycka ut sidan i sidled. */
+h1, h2, h3 {
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 .ingress {
@@ -149,10 +156,24 @@ select {
   color: var(--ink);
 }
 
-select:focus-visible, a:focus-visible, summary:focus-visible {
+select:focus-visible, a:focus-visible, summary:focus-visible,
+button:focus-visible, th[tabindex]:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
+
+/* Hopplänk för tangentbord och skärmläsare */
+.hoppa {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--surface);
+  color: var(--blue-dark);
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+
+.hoppa:focus-visible { left: 0.5rem; top: 0.5rem; }
 
 /* ---------- Klarspråkssammanfattning ---------- */
 
@@ -351,3 +372,227 @@ ul.undersidor a { font-weight: 600; }
 }
 
 .valjarrad .valj-ar { margin: 0; }
+
+/* ---------- Huvudnavigation ---------- */
+
+.huvudnav {
+  display: flex;
+  gap: 0.4rem 1.25rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  font-size: 1rem;
+  margin: 0 0 1rem;
+}
+
+.huvudnav a { text-decoration: none; }
+
+.huvudnav a:hover { text-decoration: underline; }
+
+.huvudnav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: default;
+}
+
+.huvudnav .navgrupp {
+  display: inline-flex;
+  gap: 0.4rem 0.6rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.huvudnav .navrubrik {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Metadataraden ---------- */
+
+.meta-rad {
+  display: flex;
+  gap: 0.25rem 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 1rem 0 0;
+}
+
+.meta-rad a { color: var(--blue-dark); }
+
+.meta-skilje { color: var(--baseline); }
+
+/* ---------- "Kort sagt" ---------- */
+
+.kort-sagt {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--blue-dark);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  max-width: 46rem;
+}
+
+.kort-sagt h2 {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.kort-sagt ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.kort-sagt li { margin: 0.4rem 0; }
+
+.kort-sagt .kort-sagt-not {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0.75rem 0 0;
+}
+
+/* ---------- Databegränsningar ---------- */
+
+.data-not {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: var(--neutral-mid);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0 0;
+  max-width: 46rem;
+  font-size: 1rem;
+  color: var(--ink-2);
+}
+
+.data-not p { margin: 0.25rem 0; }
+
+.data-not-marke {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 2px solid var(--ink-2);
+  color: var(--ink-2);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.15rem;
+  text-align: center;
+  margin-top: 0.15rem;
+}
+
+/* ---------- Tabellverktyg ---------- */
+
+.tabell-knappar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.tabell-knappar button {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.9rem;
+  border: 2px solid var(--baseline);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--blue-dark);
+  cursor: pointer;
+}
+
+.tabell-knappar button:hover {
+  border-color: var(--blue-dark);
+  background: var(--neutral-mid);
+}
+
+.tabell-tips {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+th[aria-sort] { cursor: pointer; }
+
+th[aria-sort]::after {
+  content: "";
+  display: inline-block;
+  width: 0.8em;
+  color: var(--muted);
+}
+
+th[aria-sort="ascending"]::after { content: " ↑"; }
+
+th[aria-sort="descending"]::after { content: " ↓"; }
+
+/* Saknade värden i tabeller: skilj sekretess från "fanns inte" */
+td .sekretess,
+td .fanns-ej {
+  color: var(--muted);
+}
+
+.tabell-teckenforklaring {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0;
+}
+
+/* ---------- Startsidans beräknade sammanfattningar ---------- */
+
+ul.kort-fakta {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  font-size: 1rem;
+  color: var(--ink-2);
+}
+
+ul.kort-fakta li {
+  padding: 0.3rem 0;
+  border-top: 1px dotted var(--grid);
+}
+
+ul.kort-fakta li:first-child { border-top: none; }
+
+ul.kort-fakta .siffra {
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Två paneler sida vid sida (antagning -> examen) ---------- */
+
+.panelpar {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  margin-top: 1.25rem;
+}
+
+.panelpar .kort { margin-top: 0; }
+
+.panelpar h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem;
+}
+
+.panelpar .panel-enhet {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem;
+}
+
+/* ---------- Metodsidan ---------- */
+
+.metod-lista dt {
+  font-weight: 600;
+  margin-top: 1.25rem;
+}
+
+.metod-lista dd {
+  margin: 0.25rem 0 0;
+  color: var(--ink-2);
+  max-width: 46rem;
+}

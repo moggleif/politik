@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metod – Kungsbacka i siffror</title>
+<meta name="description" content="Hur siffrorna på Kungsbacka i siffror hämtas, granskas och räknas fram – källor, transformationer, viktning, sekretessgränser och hur allt kan reproduceras.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+  <div class="sidhuvud-inre">
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html">Antagning</a>
+        <a href="slutbetyg.html">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+      </span>
+      <a href="metod.html" aria-current="page">Metod</a>
+    </nav>
+    <h1>Så är siffrorna framtagna</h1>
+    <p class="ingress">
+      Allt på webbplatsen går att räkna om från grunden: rådatat, koden som
+      läser det och koden som bygger diagrammens datafiler ligger öppet i
+      samma <a href="https://github.com/moggleif/politik">GitHub-repo</a>.
+      Den här sidan beskriver varje steg &ndash; och de val och
+      begränsningar som följer med.
+    </p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <section id="sektion-kallor">
+    <h2>Källorna</h2>
+    <dl class="metod-lista">
+      <dt>Kungsbacka kommuns befolkningsprognoser</dt>
+      <dd>Prognosrapporterna publiceras av kommunen, dels som fristående
+        rapporter, dels som tabeller i kommunbudgetarna. Varje rapport
+        finns sparad som PDF i
+        <a href="https://github.com/moggleif/politik/tree/main/docs/rapporter">docs/rapporter/</a>,
+        och siffrorna är avskrivna till en JSON-fil per årgång i
+        <a href="https://github.com/moggleif/politik/tree/main/data/prognoser">data/prognoser/</a>
+        med källänk och sidhänvisning. Var varje rapport hittades
+        dokumenteras i
+        <a href="https://github.com/moggleif/politik/blob/main/data/KALLOR.md">data/KALLOR.md</a>.</dd>
+      <dt>SCB:s befolkningsstatistik</dt>
+      <dd>Det faktiska utfallet &ndash; folkmängden 31 december per år,
+        totalt och för åldersgruppen 16&ndash;19 år &ndash; hämtas från
+        SCB:s öppna PxWeb-API med skriptet
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/fetch_scb.py">scripts/fetch_scb.py</a>
+        och sparas i
+        <a href="https://github.com/moggleif/politik/blob/main/data/scb/folkmangd_kungsbacka.json">data/scb/folkmangd_kungsbacka.json</a>.</dd>
+      <dt>Göteborgsregionens antagningsstatistik</dt>
+      <dd>GR:s rapport &rdquo;Antagningspoäng och medelvärde&rdquo; efter
+        varje års slutantagning, sparad som PDF och maskinellt utläst med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/extrahera_antagning.py">scripts/extrahera_antagning.py</a>
+        till en JSON-fil per år i
+        <a href="https://github.com/moggleif/politik/tree/main/data/antagning">data/antagning/</a>.</dd>
+      <dt>Skolverkets utbildningsstatistik</dt>
+      <dd>Statistiken över avgångselever på nationella program hämtas
+        direkt ur Skolverkets exporttjänst med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_slutbetyg.py">scripts/hamta_slutbetyg.py</a>,
+        ett läsår per fil. Exportfilerna sparas orörda som CSV i
+        docs/rapporter/ och som JSON i
+        <a href="https://github.com/moggleif/politik/tree/main/data/slutbetyg">data/slutbetyg/</a>.</dd>
+    </dl>
+  </section>
+
+  <section id="sektion-transformationer">
+    <h2>Vad som görs med rådatat</h2>
+    <p class="forklaring">
+      Fyra byggskript sätter ihop rådatat till de datafiler diagrammen
+      läser. De gör ingenting mer än det som står här:
+    </p>
+    <dl class="metod-lista">
+      <dt>Prognoserna jämförs med utfallet</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_data.py">build_data.py</a>
+        räknar för varje prognosvärde och år med känt utfall: skillnaden i
+        personer, felet i procent av utfallet, och hur många år i förväg
+        prognosen gjordes. Ur detta byggs genomsnittligt absolut fel
+        (hur <em>stort</em> felet är) och genomsnittligt fel med tecken
+        (åt vilket <em>håll</em> det lutar), per prognoshorisont och per
+        årgång. Skriver <a href="data.json">data.json</a> och
+        <a href="data-16-19.json">data-16-19.json</a>.</dd>
+      <dt>Antagningsrapporterna blir tidsserier</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_meritvarden.py">build_meritvarden.py</a>
+        känner igen samma utbildning mellan åren trots att rapporterna
+        skriver namnen olika, och bygger en serie per program.
+        Programmets medelmeritvärde är ett <strong>ovägt</strong> snitt av
+        dess inriktningar &ndash; rapporterna redovisar inte antal antagna,
+        så någon riktig vägning går inte att göra. Skriver
+        <a href="data-meritvarden.json">data-meritvarden.json</a>.</dd>
+      <dt>Skolenheterna vägs ihop till skolor</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_slutbetyg.py">build_slutbetyg.py</a>
+        slår ihop Skolverkets skolenheter (Aranäsgymnasiet har haft upp
+        till sex samtidigt) till skolor, <strong>vägt med antalet
+        avgångselever</strong> &ndash; här finns elevantalen, så vägningen
+        är riktig. Ligger ett program på två enheter samma år vägs de ihop
+        på samma sätt; är den ena enheten dubbelprickad bygger siffran
+        bara på den andra. Skriver
+        <a href="data-slutbetyg.json">data-slutbetyg.json</a>.</dd>
+      <dt>Antagning och examen paras till kullar</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_kull.py">build_kull.py</a>
+        parar antagningen år X med avgångseleverna år X&nbsp;+&nbsp;3 för
+        samma program och kommunala skola. Parningen kräver att
+        slutbetygsserien faktiskt har redovisade värden på samma skola som
+        antagningen gäller; program som bara finns i den ena källan
+        redovisas som oparade i utdatan. Skriver
+        <a href="data-kull.json">data-kull.json</a>.</dd>
+    </dl>
+  </section>
+
+  <section id="sektion-regler">
+    <h2>Återkommande regler</h2>
+    <dl class="metod-lista">
+      <dt>Program som bytt namn är samma program</dt>
+      <dd>Handels- och administrationsprogrammet ersattes 2021 av
+        Försäljnings- och serviceprogrammet &ndash; nytt namn och delvis
+        nytt innehåll, men samma utbildning i kommunens utbud, så serien
+        hålls obruten under dagens namn. Samma regel gäller inriktningar
+        som döptes om i reformerna 2021 och 2025. Vilket namn som gällde
+        ett visst år följer med i datat och visas i diagrammens tooltip.
+        Namnbytena är förtecknade i byggskripten
+        (<code>PROGRAM_ALIAS</code> och <code>NAMNBYTEN</code>), så att
+        varje sammanslagning är dokumenterad i kod.</dd>
+      <dt>Program som flyttat mellan skolor följs som ett program</dt>
+      <dd>Kommunen flyttar program mellan Aranäsgymnasiet och Elof
+        Lindälvs gymnasium. Enheten på sidorna är därför programmet: ett
+        program som bytt hus tar sin historik med sig, och vilken skola
+        som gällde varje enskilt år står i tabellerna. Undantaget är år
+        då samma program gick på två skolor samtidigt &ndash; då är det
+        två utbildningar som konkurrerar om samma sökande, och de
+        redovisas var för sig med skolan i namnet.</dd>
+      <dt>Sekretessgränsen: färre än tio elever</dt>
+      <dd>Skolverket dubbelprickar (skriver &rdquo;..&rdquo; i stället för
+        ett tal) alla uppgifter som bygger på färre än tio elever, så att
+        enskilda elever inte ska gå att räkna ut. Sådana år visas som
+        avbrott i linjerna och som &rdquo;..&rdquo; i tabellerna &ndash;
+        de är inte nollor och inte bortglömda, utan sekretessbelagda hos
+        källan.</dd>
+      <dt>Skolkommun, inte hemkommun</dt>
+      <dd>Betygsstatistiken avser <em>skolkommun</em>: alla som går i
+        skola i Kungsbacka, oavsett var de bor. Kungsbackaelever som
+        pendlar till skola i en annan kommun ingår alltså inte, medan
+        inpendlande elever från andra kommuner gör det.
+        Befolkningssiffrorna avser tvärtom de <em>folkbokförda</em> i
+        kommunen. De två perspektiven ska inte blandas ihop.</dd>
+      <dt>Varför vissa år saknas</dt>
+      <dd>Antagningsåret 2018 saknas därför att GR:s rapport från det året
+        inte gått att få tag på &ndash; den försvann när GR bytte
+        webbplats och finns varken arkiverad eller kvar hos källan.
+        Prognosrapporten 2021 ingår inte på sidan om 16&ndash;19-åringar,
+        eftersom den redovisar åldersgruppen 16&ndash;18 år och därför
+        inte kan jämföras rakt av. Luckorna visas alltid som luckor i
+        diagrammen &ndash; de trycks aldrig ihop.</dd>
+    </dl>
+  </section>
+
+  <section id="sektion-reproducera">
+    <h2>Räkna om allting själv</h2>
+    <p class="forklaring">
+      Datafilerna som diagrammen läser är byggda ur rådatat i repot, och
+      bygget är deterministiskt: samma indata ger samma utdata. Så här
+      återskapas allt från grunden:
+    </p>
+    <div class="kort"><pre style="margin:0;overflow-x:auto"><code>git clone https://github.com/moggleif/politik
+cd politik
+python3 scripts/build_data.py         # prognossidorna
+python3 scripts/build_meritvarden.py  # meritvärdessidan
+python3 scripts/build_slutbetyg.py    # slutbetygssidan
+python3 scripts/build_kull.py         # antagning till examen
+python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pre></div>
+    <p class="forklaring">
+      Skripten kräver bara Python 3 (utan paket). Att även hämta om
+      rådatat &ndash; <code>fetch_scb.py</code>,
+      <code>hamta_slutbetyg.py</code> och
+      <code>extrahera_antagning.py</code> &ndash; kräver nätverk och för
+      PDF-läsningen paketet <code>pdfplumber</code>; se
+      <a href="https://github.com/moggleif/politik#uppdatera-datat">README</a>.
+      Diagrammen ritas med Chart.js, som ligger vendrad i repot &ndash;
+      sidan hämtar ingenting utifrån.
+    </p>
+  </section>
+
+  <section id="sektion-om">
+    <h2>Om webbplatsen</h2>
+    <p class="forklaring">
+      Webbplatsen är fristående och drivs inte av Kungsbacka kommun,
+      Göteborgsregionen, SCB eller Skolverket. Den redovisar vad
+      siffrorna säger och avstår från att gissa varför &ndash; där ett
+      mönster kan ha flera förklaringar sägs det. Hittar du ett fel,
+      lämna gärna en rättelse på
+      <a href="https://github.com/moggleif/politik">GitHub</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sidfot-inre">
+    <p>Data: Kungsbacka kommuns befolkningsprognoser, SCB:s befolkningsstatistik,
+    Göteborgsregionens antagningsstatistik och Skolverkets utbildningsstatistik.
+    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

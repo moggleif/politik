@@ -10,10 +10,23 @@
 </head>
 <body>
 
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
 <header class="sidhuvud">
   <div class="sidhuvud-inre">
-    <p class="brodsmula"><a href="index.html">Kungsbacka i siffror</a>
-      <span aria-hidden="true">›</span> Slutbetyg</p>
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html">Antagning</a>
+        <a href="slutbetyg.html" aria-current="page">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+      </span>
+      <a href="metod.html">Metod</a>
+    </nav>
     <h1>Slutbetyg från gymnasiet i Kungsbacka</h1>
     <p class="ingress">
       Vilka betyg hade eleverna med sig när de gick ut gymnasiet &ndash; och
@@ -21,16 +34,20 @@
       avgångseleverna, program för program. Sidan följer programmen och inte
       skolorna: ett program som flyttat tar sina gamla år med sig.
     </p>
-    <nav class="sidnav" aria-label="Välj vy">
-      <a href="meritvarden.html">Meritvärden vid antagningen</a>
-      <span class="aktuell" aria-current="page">Slutbetyg från gymnasiet</span>
-    </nav>
+    <p class="meta-rad" id="meta-rad" hidden></p>
   </div>
 </header>
 
-<main>
+<main id="huvudinnehall">
 
   <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
 
   <div class="valjarrad" id="valjarrad" hidden>
     <div class="valj-ar">
@@ -94,6 +111,7 @@
       <label for="matt-valjare">Visa mått:</label>
       <select id="matt-valjare"></select>
     </div>
+    <div id="not-utveckling" hidden></div>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-utveckling" aria-label="Diagram: slutbetyg per program och år" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-utveckling"></p>
@@ -102,6 +120,7 @@
     <details>
       <summary>Visa siffrorna som tabell</summary>
       <div class="tabell-rull"><table id="tabell-utveckling"></table></div>
+      <p class="tabell-teckenforklaring" id="teckenforklaring-utveckling"></p>
     </details>
   </section>
 
@@ -289,6 +308,7 @@
 </footer>
 
 <script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
 <script src="slutbetyg.js"></script>
 </body>
 </html>
