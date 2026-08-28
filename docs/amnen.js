@@ -198,6 +198,117 @@
       }).join("") + "</tbody>";
   }
 
+  /* ---------- 2b. Alla ämnen i samma diagram ----------
+     Bara serien för alla elever — flickor och pojkar hör hemma i
+     diagrammet ovanför, där ett ämne i taget får plats. Med ett tjugotal
+     linjer bär färgen inte informationen ensam: varje ämne får också sin
+     egen streckning och punktform ur den delade serieStil(). */
+
+  var allaChart = null;
+
+  function ritaAlla() {
+    var ar = DATA.ar;
+    var amnen = redovisade();
+
+    /* Färgen följer ämnet, inte dess placering: stilen väljs på ämnets
+       plats i den alfabetiska listan, inte på sorteringen nedan. Så
+       byter ingen linje färg när ett ämne kläms bort eller datat växer. */
+    var stilIndex = {};
+    amnen.forEach(function (a, i) { stilIndex[a.namn] = i; });
+
+    var serier = amnen.map(function (a) {
+      return {
+        namn: a.namn,
+        varden: ar.map(function (y) { return cell(a, y, "betygspoang"); }),
+        sist: a.sista === null ? -1 : a.sista
+      };
+    });
+    /* Sortera efter senaste värdet, så att teckenförklaringen står i
+       samma ordning som linjerna ligger i diagrammets högerkant. */
+    serier.sort(function (x, y) { return y.sist - x.sist; });
+
+    var ctx = el("diagram-alla");
+    ctx.parentElement.style.height = "560px";
+
+    var opt = basOptions("Betygspoäng (max " + DATA.maxPoang + ")", function (it) {
+      return it.dataset.label + ": " + talSv(it.parsed.y, 1);
+    });
+    /* "nearest" i stället för "index": med tjugo linjer skulle en
+       samlad ruta bli en vägg av text. */
+    opt.interaction = { mode: "nearest", intersect: false };
+    opt.plugins.tooltip.callbacks.title = function (it) {
+      return "Läsåret " + lasar(Number(it[0].label));
+    };
+    opt.plugins.legend = {
+      display: true,
+      position: "bottom",
+      labels: { boxWidth: 40, padding: 10 }
+    };
+    opt.scales.y.beginAtZero = false;
+    opt.scales.x.ticks.autoSkip = true;
+
+    if (allaChart) allaChart.destroy();
+    allaChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ar.map(String),
+        datasets: serier.map(function (s) {
+          var stil = K.serieStil(stilIndex[s.namn]);
+          return {
+            label: s.namn,
+            data: s.varden,
+            borderColor: stil.farg,
+            backgroundColor: stil.farg,
+            borderDash: stil.streck,
+            pointStyle: stil.punkt,
+            borderWidth: 2,
+            pointRadius: 3,
+            pointHoverRadius: 7,
+            pointBorderColor: FARG.surface,
+            pointBorderWidth: 1,
+            spanGaps: false,
+            tension: 0.1
+          };
+        })
+      },
+      options: opt
+    });
+    K.aktiveraToning(allaChart);
+
+    el("kalla-alla").textContent =
+      "Källa: Skolverket, " + amnen.length + " ämnen, läsåren " +
+      lasar(ar[0]) + "–" + lasar(ar[ar.length - 1]) + ". Alla elever.";
+
+    tabellAlla(serier);
+  }
+
+  /* Visa eller dölj samtliga linjer på en gång. Chart.js håller reda på
+     vilka som är bortklickade; här sätts allihop i ett svep. */
+  function sattAllaSynliga(synliga) {
+    if (!allaChart) return;
+    allaChart.data.datasets.forEach(function (_, i) {
+      allaChart.setDatasetVisibility(i, synliga);
+    });
+    allaChart.update();
+  }
+
+  function tabellAlla(serier) {
+    var ar = DATA.ar;
+    var rubriker = serier.map(function (s) {
+      return "<th scope=\"col\">" + s.namn + "</th>";
+    }).join("");
+    var rader = ar.map(function (y, i) {
+      return "<tr><th scope=\"row\">" + lasar(y) + "</th>" +
+        serier.map(function (s) {
+          var v = s.varden[i];
+          return "<td>" + (v === null ? ".." : talSv(v, 1)) + "</td>";
+        }).join("") + "</tr>";
+    }).join("");
+    el("tabell-alla").innerHTML =
+      "<thead><tr><th scope=\"col\">Läsår</th>" + rubriker + "</tr></thead>" +
+      "<tbody>" + rader + "</tbody>";
+  }
+
   /* ---------- 3. Andelen med godkänt, över tid ---------- */
 
   function ritaGodkant() {
@@ -366,10 +477,17 @@
     K.kopplaValjare(el("amne-valjare"), "amne", ritaAmne);
     el("amne-valjare").addEventListener("change", ritaAmne);
     ritaAmne();
+    ritaAlla();
+    el("knapp-visa-alla").addEventListener("click", function () {
+      sattAllaSynliga(true);
+    });
+    el("knapp-dolj-alla").addEventListener("click", function () {
+      sattAllaSynliga(false);
+    });
     ritaGodkant();
     var harKon = ritaKon();
 
-    var sektioner = ["rang", "amne", "godkant", "kallor", "om"];
+    var sektioner = ["rang", "amne", "alla", "godkant", "kallor", "om"];
     if (harKon) sektioner.push("kon");
     sektioner.forEach(function (id) {
       var s = el("sektion-" + id);

@@ -98,6 +98,36 @@
     </details>
   </section>
 
+  <section id="sektion-alla" hidden>
+    <h2>Alla ämnen i samma diagram</h2>
+    <p class="forklaring">
+      Samtliga ämnen, läsår för läsår. Här visas bara linjen för
+      <strong>alla elever</strong> &ndash; flickor och pojkar var för sig
+      finns i diagrammet ovanför, där ett ämne i taget får plats.
+    </p>
+    <p class="forklaring">
+      <strong>Klicka på ett ämne i teckenförklaringen</strong> under
+      diagrammet för att dölja eller visa just den linjen. Peka på en linje
+      för att tona ned de andra. Med knapparna nedanför går det att dölja
+      allt och sedan klicka fram bara de ämnen du vill jämföra &ndash;
+      skalan ställer då om sig efter de linjer som visas, så att skillnader
+      som annars trängs ihop blir läsbara.
+    </p>
+    <div class="diagram-knappar">
+      <button type="button" id="knapp-dolj-alla">Dölj alla ämnen</button>
+      <button type="button" id="knapp-visa-alla">Visa alla ämnen</button>
+      <span class="tabell-tips">Klicka sedan på ämnena i teckenförklaringen för att välja ut några.</span>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-alla" aria-label="Diagram: betygspoäng över tid för samtliga ämnen" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-alla"></p>
+    </div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-alla"></table></div>
+    </details>
+  </section>
+
   <section id="sektion-godkant" hidden>
     <h2>Hur stor andel får godkänt?</h2>
     <p class="forklaring">

@@ -485,7 +485,7 @@ ul.undersidor a { font-weight: 600; }
 
 /* ---------- Tabellverktyg ---------- */
 
-.tabell-knappar {
+.tabell-knappar, .diagram-knappar {
   display: flex;
   gap: 0.75rem;
   align-items: center;
@@ -493,7 +493,7 @@ ul.undersidor a { font-weight: 600; }
   margin-top: 0.75rem;
 }
 
-.tabell-knappar button {
+.tabell-knappar button, .diagram-knappar button {
   font: inherit;
   font-size: 0.95rem;
   padding: 0.3rem 0.9rem;
@@ -504,7 +504,7 @@ ul.undersidor a { font-weight: 600; }
   cursor: pointer;
 }
 
-.tabell-knappar button:hover {
+.tabell-knappar button:hover, .diagram-knappar button:hover {
   border-color: var(--blue-dark);
   background: var(--neutral-mid);
 }
