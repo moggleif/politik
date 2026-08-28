@@ -1,0 +1,45 @@
+{
+ "kommun": "Kungsbacka",
+ "kommunkod": "1384",
+ "niva": "Skolkommun, samtliga skolor i kommunen",
+ "rapportTitel": "Grundskola – Slutbetyg årskurs 9, utan nyinvandrade och elever med okänd bakgrund",
+ "kalla": "Skolverket, utbildningsstatistik",
+ "kallaUrl": "https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&pExportID=109&pAr=2015&pKommun=1384&pFlikar=0",
+ "statistikUrl": "https://www.skolverket.se/skolutveckling/statistik/sok-statistik-om-forskola-skola-och-vuxenutbildning",
+ "koder": {
+  "..": "Färre än tio elever – Skolverket dubbelprickar uppgiften",
+  ".": "Uppgiften saknas",
+  "~100": "Färre än fem elever saknade måttet – Skolverket skriver ~100"
+ },
+ "hamtad": "2026-08-28",
+ "ar": 2015,
+ "lasar": "2014/15",
+ "urval": "Samtl. elever, exklusive nyinvandrade och med okänd bakgr.",
+ "meritamnen": 17,
+ "ungefarliga": [
+  "Enskild: andelBehorigYrkes"
+ ],
+ "rader": [
+  {
+   "huvudman": "Samtliga",
+   "antal": 922,
+   "andelAllaAmnen": 88.2,
+   "andelBehorigYrkes": 93.7,
+   "meritvarde": 242.7
+  },
+  {
+   "huvudman": "Kommunal",
+   "antal": 817,
+   "andelAllaAmnen": 87.1,
+   "andelBehorigYrkes": 93.4,
+   "meritvarde": 240.2
+  },
+  {
+   "huvudman": "Enskild",
+   "antal": 105,
+   "andelAllaAmnen": 96.2,
+   "andelBehorigYrkes": 100.0,
+   "meritvarde": 262.0
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "kommun": "Kungsbacka",
+ "kommunkod": "1384",
+ "niva": "Hemkommun och skolkommun, Kungsbacka",
+ "rapportTitel": "Pendling mellan hem- och skolkommun per typ av huvudman",
+ "kalla": "Skolverket, utbildningsstatistik",
+ "kallaUrl": "https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&pExportID=61&pAr=2011&pKommun=1384&pFlikar=0",
+ "statistikUrl": "https://www.skolverket.se/skolutveckling/statistik/sok-statistik-om-forskola-skola-och-vuxenutbildning",
+ "koder": {
+  "..": "Färre än tio elever – Skolverket dubbelprickar uppgiften",
+  ".": "Uppgiften saknas",
+  "~100": "Färre än fem elever saknade måttet – Skolverket skriver ~100"
+ },
+ "hamtad": "2026-08-28",
+ "ar": 2011,
+ "lasar": "2011/12",
+ "kallaUrlGrundskolan": "https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&pExportID=60&pAr=2011&pKommun=1384&pFlikar=0",
+ "gymnasiet": {
+  "folkbokforda": 3570,
+  "skolorKom": 2,
+  "skolorEnsk": 4,
+  "studerandeKom": 2790,
+  "studerandeEnsk": 550,
+  "folkbokfordaStuderandeKom": 2220,
+  "folkbokfordaStuderandeEnsk": 300,
+  "inpendlingKom": 570,
+  "inpendlingEnsk": 250,
+  "utpendlingKom": 440,
+  "utpendlingEnsk": 610
+ },
+ "grundskolan": {
+  "folkbokforda": 10150,
+  "skolorKom": 23,
+  "skolorEnsk": 5,
+  "studerandeKom": 8980,
+  "studerandeEnsk": 1170,
+  "folkbokfordaStuderandeKom": 8890,
+  "folkbokfordaStuderandeEnsk": 1120,
+  "inpendlingKom": 90,
+  "inpendlingEnsk": 50,
+  "utpendlingKom": 80,
+  "utpendlingEnsk": 60
+ }
+}

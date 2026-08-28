@@ -165,6 +165,44 @@
       "–" + sista.lasar + ").";
   }
 
+  /* ---------- Från nian till gymnasiet ---------- */
+
+  function visaNian(data) {
+    if (!data || !data.nian || !data.nian.length) return;
+    var n = data.nian[data.nian.length - 1];
+    var s = null, e = null;
+    data.start.forEach(function (p) { if (p.examen3 !== null) s = p; });
+    if (data.examen.length) e = data.examen[data.examen.length - 1];
+    var p = data.pendling.length
+      ? data.pendling[data.pendling.length - 1].gymnasiet : null;
+
+    var rader = [
+      rad("Behöriga till yrkesprogram i nian " + n.lasar,
+        talSv(n.andelBehorigYrkes, 1) + " %")
+    ];
+    if (s) {
+      rader.push(rad("Examen inom 3 år, började " + s.ar,
+        talSv(s.examen3, 1) + " %"));
+    }
+    if (e && e.betygspoang !== null) {
+      rader.push(rad("Betygspoäng vid examen " + e.ar,
+        talSv(e.betygspoang, 1) + " av " + data.poangMax));
+    }
+    if (p) {
+      rader.push(rad("Läser gymnasiet i en annan kommun",
+        talSv(p.andelUt, 1) + " % av kommunens elever"));
+    }
+    fyll("fakta-nian", rader);
+
+    var hela = data.kullar.filter(function (k) {
+      return k.start.status === "ok" && k.examen.status === "ok";
+    });
+    el("undertext-nian").textContent = hela.length
+      ? hela.length + " årskullar kan följas hela vägen: de som gick ut " +
+        "nian " + hela[0].ar + "–" + hela[hela.length - 1].ar + "."
+      : "Slutbetyget i nian, genomströmningen och avgångsbetygen.";
+  }
+
   /* ---------- Barn och unga 0–15 år ---------- */
 
   function visaBarn(data) {
@@ -183,6 +221,7 @@
 
   hamta("data-amnesbetyg.json").then(visaAmnesbetyg).catch(function () {});
   hamta("data-befolkning.json").then(visaBarn).catch(function () {});
+  hamta("data-nian-gymnasiet.json").then(visaNian).catch(function () {});
 
   Promise.all([
     hamta("data.json").catch(function () { return null; }),
