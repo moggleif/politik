@@ -64,6 +64,13 @@
       rader.push(rad("Genomsnittligt prognosfel, 16–19 år",
         talSv(u.medelAbsPct, 1) + " %"));
     }
+    /* Kohortframskrivningen: vad som redan är fött, utan någon modell. */
+    var k = unga && unga.kohort;
+    if (k && k.framskrivning[String(k.sistaAr)] !== undefined) {
+      rader.push(rad("16–19-åringar " + k.sistaAr + " av dem som redan bor här",
+        talSv(k.framskrivning[String(k.sistaAr)]) + " (mot " +
+        talSv(k.framskrivning[String(k.basAr + 1)]) + " år " + (k.basAr + 1) + ")"));
+    }
     fyll("fakta-befolkning", rader);
 
     if (t.antal && t.antalOver !== null) {
@@ -74,7 +81,11 @@
       el("undertext-befolkning").textContent =
         "I de år som kan jämföras: " + hall + ".";
     }
-    if (u && u.medelAbsPct !== null && t.medelAbsPct !== null) {
+    if (k) {
+      el("undertext-gymnasiealdern").textContent =
+        "Kommunens prognoser mot utfallet – och en ren framskrivning av de " +
+        "barn som redan bor i kommunen, fram till " + k.sistaAr + ".";
+    } else if (u && u.medelAbsPct !== null && t.medelAbsPct !== null) {
       el("undertext-gymnasiealdern").textContent =
         "Prognosfelet för åldersgruppen har i snitt varit " +
         (u.medelAbsPct > t.medelAbsPct ? "större" : "mindre") +

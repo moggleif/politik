@@ -12,6 +12,14 @@ Skriver en fil per serie:
 För varje prognos beräknas avvikelsen mot utfallet per målår, samt
 träffsäkerheten som funktion av hur många år i förväg prognosen gjordes.
 
+För åldersgruppen 16–19 år byggs dessutom en **kohortframskrivning**: de
+barn som redan bor i kommunen blir ett år äldre varje år, så antalet
+16–19-åringar om k år är summan av dagens åldersklasser 16−k … 19−k.
+Den räknar inte med någon in- eller utflyttning alls och är därför inte
+en prognos utan en undre gräns på vad som redan finns. Hur mycket den
+historiskt missat, och hur den står sig mot kommunens egen modell vid
+samma horisont, räknas fram här och redovisas på sidan.
+
 Körs:  python3 scripts/build_data.py
 """
 
@@ -20,10 +28,11 @@ from pathlib import Path
 
 ROT = Path(__file__).resolve().parent.parent
 
-# serienyckel -> (utfil, etikett, hur prognosserien hämtas ur en rapportfil)
+# serienyckel -> (utfil, etikett, hur prognosserien hämtas ur en rapportfil,
+#                 åldrarna serien omfattar för kohortframskrivningen)
 SERIER = {
-    "total": ("data.json", "Hela befolkningen", None),
-    "16-19": ("data-16-19.json", "16–19 år", "16-19"),
+    "total": ("data.json", "Hela befolkningen", None, None),
+    "16-19": ("data-16-19.json", "16–19 år", "16-19", (16, 19)),
 }
 
 
@@ -37,7 +46,143 @@ def serie_ur_rapport(rapport: dict, grupp) -> dict:
     return rapport.get("aldersgrupper", {}).get(grupp, {})
 
 
-def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str) -> dict:
+def per_alder(scb: dict) -> dict:
+    """SCB:s folkmängd per år och enskild ålder, som heltalsnycklar."""
+    return {int(ar): {int(a): v for a, v in rad.items()}
+            for ar, rad in scb.get("perAlder", {}).items()}
+
+
+def framskriv(bas: dict, k: int, aldrar: tuple):
+    """Antalet i åldersspannet om k år, räknat ur ett års åldersklasser.
+
+    Den som är a år i dag är a + k år om k år, så gruppen 16–19 år om k år
+    består av dagens 16−k … 19−k-åringar. Saknas någon av de åldrarna i
+    underlaget går året inte att skriva fram alls – ett halvt svar vore
+    värre än inget, eftersom det skulle se ut som en tvär nedgång.
+
+    Bara k ≥ 1 räknas: k = 0 är basåret självt, alltså inte en
+    framskrivning utan utfallet."""
+    if k < 1:
+        return None
+    lag, hog = aldrar
+    behovs = [a - k for a in range(lag, hog + 1)]
+    if any(a < 0 or a not in bas for a in behovs):
+        return None
+    return sum(bas[a] for a in behovs)
+
+
+def kohortfel(pa: dict, utfall: dict, aldrar: tuple) -> list:
+    """Hur mycket framskrivningen historiskt missat, per horisont.
+
+    Varje år med kända åldersklasser skrivs fram mot varje senare år som
+    har ett facit. Skillnaden är i praktiken nettoinflyttningen i de
+    åldrarna, plus dödlighet – det är just det framskrivningen medvetet
+    utelämnar."""
+    per_avstand = {}
+    for basar, rad in pa.items():
+        for malar in sorted(utfall):
+            k = malar - basar
+            varde = framskriv(rad, k, aldrar)
+            if varde is None:
+                continue
+            per_avstand.setdefault(k, []).append(
+                100.0 * (varde - utfall[malar]) / utfall[malar])
+    return [
+        {
+            "avstand": k,
+            "antal": len(v),
+            "medelAbsPct": round(sum(abs(x) for x in v) / len(v), 2),
+            "medelPct": round(sum(v) / len(v), 2),
+        }
+        for k, v in sorted(per_avstand.items())
+    ]
+
+
+def kohortjamforelse(pa: dict, prognoser: list, utfall: dict, aldrar: tuple) -> list:
+    """Kommunens modell mot framskrivningen, vid samma horisont.
+
+    En prognos gjord år P har kommunens folkmängd t.o.m. årsskiftet P−1 att
+    utgå från, så framskrivningen får samma utgångspunkt: basåret P−1. Bara
+    målår där båda har ett värde och det finns ett facit räknas, annars
+    jämförs de på olika underlag."""
+    per_avstand = {}
+    for p in prognoser:
+        bas = pa.get(p["prognosAr"] - 1)
+        if bas is None:
+            continue
+        for ar, varde in p["prognos"].items():
+            malar = int(ar)
+            if malar not in utfall:
+                continue
+            kohort = framskriv(bas, malar - (p["prognosAr"] - 1), aldrar)
+            if kohort is None:
+                continue
+            rad = per_avstand.setdefault(malar - p["prognosAr"], {"k": [], "p": []})
+            rad["p"].append(abs(100.0 * (varde - utfall[malar]) / utfall[malar]))
+            rad["k"].append(abs(100.0 * (kohort - utfall[malar]) / utfall[malar]))
+    return [
+        {
+            "avstand": avst,
+            "antal": len(v["p"]),
+            "kommunAbsPct": round(sum(v["p"]) / len(v["p"]), 2),
+            "kohortAbsPct": round(sum(v["k"]) / len(v["k"]), 2),
+        }
+        for avst, v in sorted(per_avstand.items())
+    ]
+
+
+def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None:
+    """Kohortframskrivningen: vad som redan är fött och redan bor här."""
+    if aldrar is None:
+        return None
+    pa = per_alder(scb)
+    if not pa:
+        return None
+
+    basar = max(pa)
+    bas = pa[basar]
+    framskrivning, ursprung = {}, {}
+    k = 1
+    while True:
+        varde = framskriv(bas, k, aldrar)
+        if varde is None:
+            break
+        framskrivning[basar + k] = varde
+        ursprung[basar + k] = [{"alder": a - k, "antal": bas[a - k]}
+                               for a in range(aldrar[0], aldrar[1] + 1)]
+        k += 1
+    if not framskrivning:
+        return None
+
+    # Kommunens senaste prognos vid sidan av framskrivningen, år för år.
+    senaste = prognoser[-1] if prognoser else None
+    mot_senaste = []
+    if senaste:
+        for ar, varde in sorted(senaste["prognos"].items(), key=lambda x: int(x[0])):
+            malar = int(ar)
+            if malar in framskrivning:
+                mot_senaste.append({
+                    "ar": malar,
+                    "kommun": varde,
+                    "kohort": framskrivning[malar],
+                    "diff": varde - framskrivning[malar],
+                })
+
+    return {
+        "basAr": basar,
+        "aldrar": list(aldrar),
+        "sistaAr": max(framskrivning),
+        "framskrivning": {str(a): v for a, v in sorted(framskrivning.items())},
+        "ursprung": {str(a): v for a, v in sorted(ursprung.items())},
+        "traffsakerhet": kohortfel(pa, utfall, aldrar),
+        "jamforelse": kohortjamforelse(pa, prognoser, utfall, aldrar),
+        "senastePrognosAr": senaste["prognosAr"] if senaste else None,
+        "motSenaste": mot_senaste,
+    }
+
+
+def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str,
+         aldrar=None) -> dict:
     prognoser = []
     for rapport in rapporter:
         rad = serie_ur_rapport(rapport, grupp)
@@ -144,6 +289,7 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str) -> dict:
         "perAvstand": avstand_lista,
         "perArgang": per_argang,
         "skevhet": skevhet,
+        "kohort": bygg_kohort(scb, prognoser, utfall, aldrar),
     }
 
 
@@ -151,7 +297,7 @@ def main() -> None:
     scb = lasa_json(ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
     rapporter = [lasa_json(f) for f in sorted((ROT / "data" / "prognoser").glob("prognos_*.json"))]
 
-    for nyckel, (utnamn, etikett, grupp) in SERIER.items():
+    for nyckel, (utnamn, etikett, grupp, aldrar) in SERIER.items():
         if grupp is None:
             utfall = {int(a): v for a, v in scb["folkmangd"].items()}
         else:
@@ -161,7 +307,7 @@ def main() -> None:
                 continue
             utfall = {int(a): v for a, v in rad.items()}
 
-        ut = bygg(scb, rapporter, utfall, grupp, etikett)
+        ut = bygg(scb, rapporter, utfall, grupp, etikett, aldrar)
         utfil = ROT / "docs" / utnamn
         utfil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         n_avv = sum(len(p["avvikelser"]) for p in ut["prognoser"])
@@ -169,6 +315,10 @@ def main() -> None:
             f"Skrev {utfil.name}: {len(ut['prognoser'])} prognoser, "
             f"{len(utfall)} utfallsår, {n_avv} jämförelsepunkter"
         )
+        if ut["kohort"]:
+            k = ut["kohort"]
+            print(f"  kohortframskrivning: basår {k['basAr']}, "
+                  f"{len(k['framskrivning'])} år fram till {k['sistaAr']}")
 
 
 if __name__ == "__main__":

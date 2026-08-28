@@ -25,6 +25,11 @@
     blaMork: "#1c5cab",
     blaLjus: "#9ec5f4",
     rod: "#e34948",
+    /* Orange bryter mot den blå prognosrampen utan att krocka med den
+       röda avvikelsefärgen; värdet är hämtat ur den kategoriska paletten
+       och är kontrast- och färgblindhetsvaliderat. */
+    orange: "#e69f00",
+    orangeMork: "#b57c00",
     gra: "#c3c2b7"
   };
 

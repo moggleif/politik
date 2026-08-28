@@ -165,6 +165,21 @@
         fast urval beror förändringen på betygen och inte på vilka ämnen
         som råkade redovisas. Skriver
         <a href="data-amnesbetyg.json">data-amnesbetyg.json</a>.</dd>
+      <dt>Barnen skrivs fram ett år i taget</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_data.py">build_data.py</a>
+        bygger också kohortframskrivningen på
+        <a href="gymnasiealdern.html">sidan om 16&ndash;19-åringarna</a>. Den
+        som är a år vid ett årsskifte är a&nbsp;+&nbsp;k år k årsskiften
+        senare, så antalet 16&ndash;19-åringar om k år är summan av dagens
+        16&nbsp;&minus;&nbsp;k … 19&nbsp;&minus;&nbsp;k-åringar, hämtade ur
+        SCB:s folkmängd per enskild ålder. Ingen modell, inga födelsetal och
+        <strong>ingen flyttning</strong> &ndash; den säger vad som redan
+        finns, inte vad som kommer att hända. Ett år där någon av de
+        åldrarna saknas i underlaget skrivs inte fram alls; ett halvt svar
+        skulle se ut som en tvär nedgång. Framskrivningen prövas bakåt mot
+        facit, och ställs mot kommunens modell vid samma horisont &ndash;
+        med samma utgångspunkt som kommunen hade, alltså folkmängden vid
+        det senast passerade årsskiftet.</dd>
       <dt>Nian, gymnasiestarten och examen ställs på samma årtal</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_nian_gymnasiet.py">build_nian_gymnasiet.py</a>
         sätter slutbetyget i årskurs 9 år X bredvid genomströmningen för
@@ -228,6 +243,14 @@
         <a href="nian-till-gymnasiet.html">sidan om nian och gymnasiet</a>:
         på gymnasienivå rör det sig om ungefär tre av tio av kommunens
         elever, på grundskolenivå om drygt en procent.</dd>
+      <dt>Framskrivning är inte prognos</dt>
+      <dd>Kohortframskrivningen räknar varken in- eller utflyttning. Den är
+        därför ingen prognos utan ett facit på vad som redan finns, och den
+        redovisas alltid med hur mycket den historiskt missat vid varje
+        horisont. Riktningen på felet skiftar: på ett par års sikt har den
+        legat något för högt, eftersom en del 18&ndash;19-åringar flyttar
+        ut, och på längre sikt kraftigt för lågt, eftersom det hinner
+        flytta in fler barnfamiljer än det flyttar ut.</dd>
       <dt>Varför vissa år saknas</dt>
       <dd>Antagningsåret 2018 saknas därför att GR:s rapport från det året
         inte gått att få tag på &ndash; den försvann när GR bytte

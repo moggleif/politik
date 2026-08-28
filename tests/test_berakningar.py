@@ -338,6 +338,78 @@ class TestAmnesbetyg(unittest.TestCase):
         self.assertIsNone(m[2025]["konsskillnad"])       # kön saknas 2025
 
 
+class TestKohortframskrivning(unittest.TestCase):
+    """build_data: barnen blir ett år äldre varje år.
+
+    Underlaget är påhittat men gjort så att facit går att räkna för hand:
+    varje ålder a år 2025 har exakt 100 + a personer."""
+
+    def setUp(self):
+        self.pa = {2025: {a: 100 + a for a in range(0, 20)}}
+        self.scb = {
+            "kommun": "Testköping",
+            "matt": "Folkmängd",
+            "kalla": "SCB",
+            "kallaUrl": "https://example.org",
+            "hamtad": "2026-01-01",
+            "perAlder": {"2025": {str(a): 100 + a for a in range(0, 20)}},
+        }
+
+    def test_framskrivning_summerar_ratt_aldrar(self):
+        """Om ett år är 16–19-åringarna dagens 15–18-åringar."""
+        self.assertEqual(
+            build_data.framskriv(self.pa[2025], 1, (16, 19)),
+            115 + 116 + 117 + 118)
+        self.assertEqual(
+            build_data.framskriv(self.pa[2025], 16, (16, 19)),
+            100 + 101 + 102 + 103)
+
+    def test_ar_utanfor_underlaget_ger_inget_varde(self):
+        """Ett halvt svar vore värre än inget: det skulle rita en tvär
+        nedgång som bara beror på att åldrarna tagit slut."""
+        self.assertIsNone(build_data.framskriv(self.pa[2025], 17, (16, 19)))
+        self.assertIsNone(build_data.framskriv(self.pa[2025], 0, (16, 19)))
+
+    def test_bygget_gar_sa_langt_underlaget_racker(self):
+        ut = build_data.bygg_kohort(self.scb, [], {2025: 466}, (16, 19))
+        self.assertEqual(ut["basAr"], 2025)
+        self.assertEqual(ut["sistaAr"], 2041)          # 2025 + 16
+        self.assertEqual(len(ut["framskrivning"]), 16)
+        self.assertEqual(ut["framskrivning"]["2026"], 466)
+        self.assertEqual(ut["ursprung"]["2026"][0], {"alder": 15, "antal": 115})
+
+    def test_ingen_kohort_utan_aldersspann(self):
+        """Totalsidan har inget åldersspann och ska inte få någon
+        framskrivning – bara 16–19-serien."""
+        self.assertIsNone(build_data.bygg_kohort(self.scb, [], {}, None))
+
+    def test_traffsakerheten_mater_avvikelsen_mot_utfallet(self):
+        # Framskrivet 2026 = 466. Sätt utfallet till 500 -> -6,8 %.
+        rader = build_data.kohortfel(self.pa, {2026: 500}, (16, 19))
+        self.assertEqual(len(rader), 1)
+        self.assertEqual(rader[0]["avstand"], 1)
+        self.assertEqual(rader[0]["antal"], 1)
+        self.assertAlmostEqual(rader[0]["medelPct"], -6.8)
+        self.assertAlmostEqual(rader[0]["medelAbsPct"], 6.8)
+
+    def test_jamforelsen_ger_kommunen_samma_utgangspunkt(self):
+        """En prognos gjord 2026 har folkmängden t.o.m. 2025 att utgå
+        från, så framskrivningen ska utgå från just 2025 – inte 2026."""
+        prognoser = [{"prognosAr": 2026, "prognos": {"2026": 480}}]
+        rader = build_data.kohortjamforelse(
+            self.pa, prognoser, {2026: 500}, (16, 19))
+        self.assertEqual(len(rader), 1)
+        self.assertEqual(rader[0]["avstand"], 0)
+        self.assertAlmostEqual(rader[0]["kommunAbsPct"], 4.0)   # 480 mot 500
+        self.assertAlmostEqual(rader[0]["kohortAbsPct"], 6.8)   # 466 mot 500
+
+    def test_jamforelsen_hoppar_over_ar_utan_facit(self):
+        prognoser = [{"prognosAr": 2026, "prognos": {"2026": 480, "2027": 470}}]
+        rader = build_data.kohortjamforelse(
+            self.pa, prognoser, {2026: 500}, (16, 19))
+        self.assertEqual([r["avstand"] for r in rader], [0])
+
+
 class TestNianTillGymnasiet(unittest.TestCase):
     """build_nian_gymnasiet: kullkedjan, meritvärdesbrottet, korrelationen
     och pendlingens kontrollsumma."""
