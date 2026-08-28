@@ -142,9 +142,46 @@
     }
   }
 
+  /* ---------- Grundskolan ---------- */
+
+  function visaAmnesbetyg(data) {
+    if (!data || !data.sammanfattning || !data.sammanfattning.length) return;
+    var sista = data.sammanfattning[data.sammanfattning.length - 1];
+    var forsta = data.sammanfattning[0];
+    var redovisade = data.amnen.filter(function (a) { return a.redovisas; });
+
+    fyll("fakta-amnesbetyg", [
+      rad("Ämnen som redovisas", redovisade.length + " (" +
+        forsta.lasar + "–" + sista.lasar + ")"),
+      rad("Betygspoäng " + sista.lasar + ", snitt över ämnena",
+        talSv(sista.betygspoang, 1) + " av " + data.maxPoang),
+      rad("Andel med godkänt " + sista.lasar,
+        talSv(sista.andelAE, 1) + " %")
+    ]);
+
+    el("undertext-amnesbetyg").textContent =
+      "Hela kommunen, " + data.ar.length + " läsår (" + forsta.lasar +
+      "–" + sista.lasar + ").";
+  }
+
+  /* ---------- Barn och unga 0–15 år ---------- */
+
+  function visaBarn(data) {
+    if (!data || !data.serier) return;
+    var s = null;
+    data.serier.forEach(function (x) { if (x.nyckel === "0-15") s = x; });
+    if (!s) return;
+    el("undertext-barn").textContent =
+      "Faktiskt utfall " + s.forstaAr + "–" + s.sistaAr + ", störst " +
+      s.hogstaAr + " (" + talSv(s.hogsta) + ").";
+  }
+
   /* ---------- Start ----------
      Varje kort fylls oberoende: går en fil inte att läsa står kortets
      beskrivande text kvar. */
+
+  hamta("data-amnesbetyg.json").then(visaAmnesbetyg).catch(function () {});
+  hamta("data-befolkning.json").then(visaBarn).catch(function () {});
 
   Promise.all([
     hamta("data.json").catch(function () { return null; }),

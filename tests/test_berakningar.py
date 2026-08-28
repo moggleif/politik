@@ -31,6 +31,8 @@ def ladda(namn: str):
 
 build_data = ladda("build_data")
 build_kull = ladda("build_kull")
+build_befolkning = ladda("build_befolkning")
+build_amnesbetyg = ladda("build_amnesbetyg")
 
 
 class TestPrognosberakningar(unittest.TestCase):
@@ -229,6 +231,112 @@ class TestKullparning(unittest.TestCase):
                              build_kull.FORSKJUTNING)
 
 
+class TestBefolkningEfterAlder(unittest.TestCase):
+    """Andel, förändring och index räknas för hand på små tal."""
+
+    SCB = {
+        "kommun": "Testköping",
+        "folkmangd": {"2000": "100", "2001": "110", "2002": "120"},
+        "aldersgrupper": {
+            "0-15": {"2000": "20", "2001": "22", "2002": "18"},
+            "16-19": {"2000": "10", "2001": "11", "2002": "12"},
+        },
+    }
+
+    def setUp(self):
+        self.ut = build_befolkning.bygg(self.SCB)
+        self.serier = {s["nyckel"]: s for s in self.ut["serier"]}
+
+    def test_andel_ar_gruppen_delad_med_folkmangden(self):
+        v = self.serier["0-15"]["varden"]
+        self.assertEqual(v[2000]["andel"], 20.0)   # 20/100
+        self.assertEqual(v[2002]["andel"], 15.0)   # 18/120
+
+    def test_forandring_saknas_forsta_aret(self):
+        v = self.serier["0-15"]["varden"]
+        self.assertIsNone(v[2000]["forandring"])
+        self.assertEqual(v[2001]["forandring"], 2)    # 22 - 20
+        self.assertEqual(v[2002]["forandring"], -4)   # 18 - 22
+
+    def test_index_utgar_fran_forsta_aret(self):
+        v = self.serier["0-15"]["varden"]
+        self.assertEqual(v[2000]["index"], 100.0)
+        self.assertEqual(v[2001]["index"], 110.0)   # 22/20
+        self.assertEqual(v[2002]["index"], 90.0)    # 18/20
+
+    def test_hogsta_och_lagsta_ar(self):
+        s = self.serier["0-15"]
+        self.assertEqual((s["hogsta"], s["hogstaAr"]), (22, 2001))
+        self.assertEqual((s["lagsta"], s["lagstaAr"]), (18, 2002))
+
+    def test_inga_prognoser_i_utdatan(self):
+        """Sidan ska bara innehålla utfall – aldrig prognossiffror."""
+        text = json.dumps(self.ut, ensure_ascii=False).lower()
+        self.assertNotIn("prognos", text)
+
+
+class TestAmnesbetyg(unittest.TestCase):
+    """Det fasta ämnesurvalet och dubbelprickningen."""
+
+    def arsfil(self, ar, lasar, rader):
+        return {
+            "ar": ar, "lasar": lasar, "kommun": "Testköping",
+            "niva": "Skolkommun", "rapportTitel": "T", "kalla": "T",
+            "kallaUrl": "u", "statistikUrl": "s", "hamtad": "2026-01-01",
+            "amnen": rader,
+        }
+
+    def rad(self, amne, poang, ae=None, antal=100, flickor=None, pojkar=None):
+        return {
+            "amne": amne, "huvudman": "Samtliga",
+            "markor": ".." if poang is None else None,
+            "antal": antal, "antalFlickor": None, "antalPojkar": None,
+            "betygspoang": poang, "andelAE": ae,
+            "betygspoangFlickor": flickor, "andelAEFlickor": None,
+            "betygspoangPojkar": pojkar, "andelAEPojkar": None,
+        }
+
+    def setUp(self):
+        # Matematik finns båda åren, Slöjd bara det första:
+        # bara Matematik hör till kärnurvalet.
+        self.ut = build_amnesbetyg.bygg([
+            self.arsfil(2024, "2023/24", [
+                self.rad("Matematik", 12.0, ae=90.0, flickor=13.0, pojkar=11.0),
+                self.rad("Slöjd", 16.0, ae=100.0),
+            ]),
+            self.arsfil(2025, "2024/25", [
+                self.rad("Matematik", 14.0, ae=94.0),
+                self.rad("Slöjd", None, ae=None),
+            ]),
+        ])
+        self.amnen = {a["namn"]: a for a in self.ut["amnen"]}
+
+    def test_karnamnen_ar_de_som_finns_alla_ar(self):
+        self.assertEqual(self.ut["karnamnen"], ["Matematik"])
+
+    def test_arssnittet_raknas_bara_over_karnamnen(self):
+        """Slöjd (16,0) får inte lyfta 2024 – annars driver
+        sammansättningen serien i stället för betygen."""
+        s = {r["ar"]: r for r in self.ut["sammanfattning"]}
+        self.assertEqual(s[2024]["betygspoang"], 12.0)
+        self.assertEqual(s[2025]["betygspoang"], 14.0)
+
+    def test_dubbelprickat_ar_ger_inget_varde(self):
+        slojd = self.amnen["Slöjd"]
+        self.assertIsNone(slojd["varden"][2025]["betygspoang"])
+        self.assertTrue(slojd["varden"][2025]["dolt"])
+        self.assertEqual(slojd["arMedPoang"], 1)
+        self.assertIsNone(slojd["forandring"])  # går inte att mäta på ett år
+
+    def test_forandring_over_hela_serien(self):
+        self.assertEqual(self.amnen["Matematik"]["forandring"], 2.0)
+
+    def test_konsskillnad_kraver_bada_talen(self):
+        m = self.amnen["Matematik"]["varden"]
+        self.assertEqual(m[2024]["konsskillnad"], 2.0)   # 13,0 - 11,0
+        self.assertIsNone(m[2025]["konsskillnad"])       # kön saknas 2025
+
+
 class TestGenereradeFiler(unittest.TestCase):
     """Datafilerna i docs/ ska vara exakt vad byggskripten ger av data/.
 
@@ -256,6 +364,22 @@ class TestGenereradeFiler(unittest.TestCase):
         ombyggd = build_kull.bygg(self.las("data-meritvarden.json"),
                                   self.las("data-slutbetyg.json"))
         self.assertEqual(ombyggd, self.las("data-kull.json"))
+
+    def test_data_befolkning_ar_reproducerbar(self):
+        scb = json.loads(
+            (ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+            .read_text(encoding="utf-8"))
+        # Åren är heltalsnycklar i bygget men strängar i JSON-filen
+        ombyggd = json.loads(json.dumps(build_befolkning.bygg(scb)))
+        self.assertEqual(ombyggd, self.las("data-befolkning.json"))
+
+    def test_data_amnesbetyg_ar_reproducerbar(self):
+        arsfiler = [
+            json.loads(f.read_text(encoding="utf-8"))
+            for f in sorted((ROT / "data" / "amnesbetyg").glob("amnesbetyg_*.json"))
+        ]
+        ombyggd = json.loads(json.dumps(build_amnesbetyg.bygg(arsfiler)))
+        self.assertEqual(ombyggd, self.las("data-amnesbetyg.json"))
 
 
 if __name__ == "__main__":

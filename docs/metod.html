@@ -18,7 +18,11 @@
       <a href="index.html">Start</a>
       <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
         <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="barn-och-unga.html">0–15 år</a>
         <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
+        <a href="amnesbetyg.html">Betyg per ämne</a>
       </span>
       <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
         <a href="meritvarden.html">Antagning</a>
@@ -55,7 +59,8 @@
         <a href="https://github.com/moggleif/politik/blob/main/data/KALLOR.md">data/KALLOR.md</a>.</dd>
       <dt>SCB:s befolkningsstatistik</dt>
       <dd>Det faktiska utfallet &ndash; folkmängden 31 december per år,
-        totalt och för åldersgruppen 16&ndash;19 år &ndash; hämtas från
+        totalt och för åldersgrupperna 0&ndash;15 och 16&ndash;19 år,
+        summerade ur SCB:s ettårsklasser &ndash; hämtas från
         SCB:s öppna PxWeb-API med skriptet
         <a href="https://github.com/moggleif/politik/blob/main/scripts/fetch_scb.py">scripts/fetch_scb.py</a>
         och sparas i
@@ -73,13 +78,22 @@
         ett läsår per fil. Exportfilerna sparas orörda som CSV i
         docs/rapporter/ och som JSON i
         <a href="https://github.com/moggleif/politik/tree/main/data/slutbetyg">data/slutbetyg/</a>.</dd>
+      <dt>Skolverkets statistik över årskurs 9</dt>
+      <dd>Slutbetygen per ämne i årskurs 9 hämtas ur samma exporttjänst
+        med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_amnesbetyg.py">scripts/hamta_amnesbetyg.py</a>
+        (rapport 92 i stället för 88), ett läsår per fil i
+        <a href="https://github.com/moggleif/politik/tree/main/data/amnesbetyg">data/amnesbetyg/</a>.
+        Här hämtas <strong>kommunnivå</strong>, inte skolenhet: den
+        rapport som finns per skola skulle till stor del döljas av
+        sekretessgränsen.</dd>
     </dl>
   </section>
 
   <section id="sektion-transformationer">
     <h2>Vad som görs med rådatat</h2>
     <p class="forklaring">
-      Fyra byggskript sätter ihop rådatat till de datafiler diagrammen
+      Sex byggskript sätter ihop rådatat till de datafiler diagrammen
       läser. De gör ingenting mer än det som står här:
     </p>
     <dl class="metod-lista">
@@ -117,6 +131,25 @@
         antagningen gäller; program som bara finns i den ena källan
         redovisas som oparade i utdatan. Skriver
         <a href="data-kull.json">data-kull.json</a>.</dd>
+      <dt>Ämnesbetygen räknas över ett fast ämnesurval</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_amnesbetyg.py">build_amnesbetyg.py</a>
+        bygger en serie per ämne i årskurs 9. Årssnittet är ett
+        <strong>ovägt</strong> medelvärde över de ämnen som redovisas
+        <em>samtliga</em> läsår. Skälet är att elevantalet inte går att
+        vikta med: från läsåret 2024/25 dubbelprickar Skolverket antalet
+        elever i engelska, matematik och svenska men redovisar ändå
+        betygen &ndash; en vägning skulle tyst utesluta just de ämnena och
+        lyfta snittet, eftersom matematik är ett av de lägsta. Med ett
+        fast urval beror förändringen på betygen och inte på vilka ämnen
+        som råkade redovisas. Skriver
+        <a href="data-amnesbetyg.json">data-amnesbetyg.json</a>.</dd>
+      <dt>Åldersgrupperna summeras ur ettårsklasser</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_befolkning.py">build_befolkning.py</a>
+        räknar fram andel av folkmängden, förändring mot föregående år och
+        index med första året som 100, för 0&ndash;15 år, 16&ndash;19 år
+        och hela folkmängden. Filen innehåller <strong>enbart faktiskt
+        utfall</strong> &ndash; inga prognossiffror alls. Skriver
+        <a href="data-befolkning.json">data-befolkning.json</a>.</dd>
     </dl>
   </section>
 
@@ -179,6 +212,8 @@ python3 scripts/build_data.py         # prognossidorna
 python3 scripts/build_meritvarden.py  # meritvärdessidan
 python3 scripts/build_slutbetyg.py    # slutbetygssidan
 python3 scripts/build_kull.py         # antagning till examen
+python3 scripts/build_amnesbetyg.py   # ämnesbetygen i årskurs 9
+python3 scripts/build_befolkning.py   # barn och unga 0–15 år
 python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pre></div>
     <p class="forklaring">
       Skripten kräver bara Python 3 (utan paket). Att även hämta om

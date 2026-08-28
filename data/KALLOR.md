@@ -9,10 +9,11 @@ och vad som återstår.
 |---|---|
 | Statisk hemsida (`docs/`) | Klar |
 | Skript (`scripts/`) | Klara och körda |
-| Faktisk folkmängd 2000–2025 (SCB) | Klar |
+| Faktisk folkmängd 2000–2025 (SCB), totalt samt 0–15 och 16–19 år | Klar |
 | Prognoser 2015–2026, samtliga tolv årgångar | Klara |
 | Meritvärden 2017 och 2019–2026 (GR) | Klara, 2018 saknas |
 | Slutbetyg 2014–2025 (Skolverket) | Klara, samtliga läsår |
+| Ämnesbetyg åk 9, 2013–2025 (Skolverket) | Klara, samtliga läsår |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
 jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på nio
@@ -39,6 +40,15 @@ Tabellen i Statistikdatabasen:
 Siffrorna är dubbelkontrollerade mot kommunens egna årsredovisningar, som
 anger exakt samma folkmängd (2021: 85 301, 2022: 85 801, 2023: 85 653,
 2024: 85 792, 2025: 86 332).
+
+Två åldersgrupper hämtas vid sidan av totalen, båda summerade ur SCB:s
+ettårsklasser: **16–19 år** (gymnasieåldern) och **0–15 år** (förskole- och
+grundskoleåldern). 0–15 hämtas medvetet som en enda grupp och bryts inte ned
+på förskole-, låg-, mellan- och högstadieålder.
+
+Sidan `barn-och-unga.html` bygger enbart på det här utfallet. Den innehåller
+inga prognossiffror alls, och ett test i `tests/` stämmer av att ordet
+"prognos" inte förekommer någonstans i dess datafil.
 
 ## Prognosrapporterna
 
@@ -434,3 +444,67 @@ utbildning, som bytte namn vid gymnasiereformen 2021, och ligger i samma
 serie under det nya namnet. I slutbetygen sker bytet 2025 och i
 antagningen 2022 – tre års skillnad, eftersom slutbetygen avser den kull
 som antogs tre år tidigare.
+
+## Slutbetyg per ämne i årskurs 9 (Skolverkets utbildningsstatistik)
+
+Där gymnasiet bara redovisas med ett samlat betygssnitt redovisas
+grundskolan **ämne för ämne**: genomsnittlig betygspoäng (0–20) och
+andelen som fick godkänt (A–E), per ämne och läsår. Statistiken börjar
+läsåret 2012/13 och finns till och med 2024/25.
+
+Filerna hämtas med `scripts/hamta_amnesbetyg.py` och sätts ihop till
+tidsserier med `scripts/build_amnesbetyg.py`.
+
+### Hämtningen
+
+Samma exporttjänst som gymnasiets slutbetyg, men rapport 92:
+
+```
+https://siris.skolverket.se/siris/reports/export_api/runexport/
+    ?pFormat=csv&pExportID=92&pAr=<år>&pKommun=1384&pFlikar=0
+```
+
+`pAr` är det år eleverna gick ut nian. Ett år som ännu inte publicerats
+svarar med en tom tabell i stället för ett fel – hämtningen stannar då av
+sig själv. Läsåret publiceras i november.
+
+Rapport **93** är samma statistik per skolenhet. Den används medvetet
+inte: små skolor och små ämnen skulle till stor del döljas av
+sekretessgränsen, och sidan skulle bli mest tomma rutor.
+
+### Vad som behövde hanteras i inläsningen
+
+**Kommunnivå, inte skolenhet.** Urvalet är skolkommun, alltså alla skolor
+som ligger i Kungsbacka – även de fristående. Rapporten redovisar tre
+huvudmannatyper (Samtliga, Kommunal, Enskild); alla tre sparas i
+`data/amnesbetyg/`, men sidan använder **Samtliga**.
+
+**Nitton ämnen har hela tidsserien.** Tre ämnen har det inte:
+
+| Ämne | Läsår med värde |
+|---|---|
+| Svenska som andraspråk | 11 av 13 |
+| Moderna språk, elevens val | 1 av 13 |
+| Moderna språk, skolans val | 0 av 13 |
+| Teckenspråk | 0 av 13 |
+
+De två sista redovisas aldrig för Kungsbacka – de bygger genomgående på
+färre än tio elever. Sidan skriver ut vilka ämnen det gäller i stället
+för att tyst utelämna dem.
+
+**Dubbelprickningen flyttade sig 2024/25.** Till och med 2023/24 dolde
+Skolverket bara små ämnen. Från läsåret 2024/25 dubbelprickas dessutom
+**elevantalet** i engelska, matematik och svenska, medan betygen för samma
+ämnen fortfarande redovisas.
+
+Det gör att årssnittet inte kan elevviktas: en viktning skulle tyst
+utesluta just de tre ämnena, och matematik är ett av de lägsta – snittet
+skulle lyftas av att ett lågt ämne försvann, inte av att betygen
+förbättrats. Snittet räknas därför som ett ovägt medelvärde över ett
+**fast ämnesurval**: de ämnen som redovisas samtliga läsår. Då beror
+förändringen på betygen och inte på vilka ämnen som råkade redovisas ett
+visst år. Ämnena läses av samma årskull och är nästan lika stora, så det
+ovägda snittet ligger mycket nära ett elevviktat.
+
+**Två mått, två skalor.** Betygspoäng (0–20) och andel med A–E (0–100 %)
+visas aldrig i samma diagram.

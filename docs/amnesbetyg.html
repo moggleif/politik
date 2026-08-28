@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slutbetygen per ämne i årskurs 9 i Kungsbacka</title>
+<meta name="description" content="Genomsnittlig betygspoäng och andel godkända per ämne i årskurs 9 i Kungsbacka kommun, läsåren 2012/13–2024/25, ur Skolverkets statistik.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+  <div class="sidhuvud-inre">
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="barn-och-unga.html">0–15 år</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
+        <a href="amnesbetyg.html" aria-current="page">Betyg per ämne</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html">Antagning</a>
+        <a href="slutbetyg.html">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+      </span>
+      <a href="metod.html">Metod</a>
+    </nav>
+    <h1>Slutbetygen per ämne i årskurs 9</h1>
+    <p class="ingress">
+      Gymnasiestatistiken visar bara ett samlat betygssnitt. Grundskolan
+      redovisas däremot <em>ämne för ämne</em>: här syns vad
+      niondeklassarna i Kungsbacka faktiskt fick i matematik, svenska,
+      engelska och alla andra ämnen &ndash; och hur det förändrats sedan
+      läsåret 2012/13. Siffrorna gäller <strong>hela kommunen</strong>,
+      kommunala som fristående skolor, sammanräknat.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <div id="not-dolda" hidden></div>
+
+  <section id="sektion-rang" hidden>
+    <h2>Vilka ämnen har högst och lägst betyg?</h2>
+    <p class="forklaring">
+      Genomsnittlig betygspoäng per ämne det senaste läsåret. Skalan går
+      från 0 till 20: betyget A ger 20 poäng, E ger 10 och F ger 0. Ett
+      snitt på 15 motsvarar alltså ungefär betyget C.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-rang" aria-label="Diagram: genomsnittlig betygspoäng per ämne, senaste läsåret" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-rang"></p>
+    </div>
+    <div class="slutsats" id="slutsats-rang"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-rang"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-amne" hidden>
+    <h2>Hur har ett enskilt ämne utvecklats?</h2>
+    <p class="forklaring">
+      Välj ett ämne. Diagrammet visar betygspoängen läsår för läsår, med
+      flickor och pojkar var för sig. Valet syns i adressraden, så att en
+      länk till sidan visar samma ämne.
+    </p>
+    <div class="valj-ar">
+      <label for="amne-valjare">Visa ämnet:</label>
+      <select id="amne-valjare"></select>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-amne" aria-label="Diagram: betygspoäng över tid för valt ämne" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-amne"></p>
+    </div>
+    <div id="not-amne" hidden></div>
+    <div class="slutsats" id="slutsats-amne"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-amne"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-godkant" hidden>
+    <h2>Hur stor andel får godkänt?</h2>
+    <p class="forklaring">
+      Betygspoängen säger hur höga betygen är. Det här måttet säger något
+      annat: hur stor andel som alls klarade godkänt (A&ndash;E) i sina
+      ämnen. Måtten har olika skalor och visas därför i skilda diagram,
+      aldrig i samma.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-godkant" aria-label="Diagram: andel med godkänt betyg över tid" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-godkant"></p>
+    </div>
+    <div class="slutsats" id="slutsats-godkant"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-godkant"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kon" hidden>
+    <h2>Skiljer sig flickors och pojkars betyg åt?</h2>
+    <p class="forklaring">
+      Skillnaden i betygspoäng mellan flickor och pojkar, ämne för ämne,
+      det senaste läsåret. En stapel åt höger betyder att flickorna hade
+      högre snitt, en stapel åt vänster att pojkarna hade det.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kon" aria-label="Diagram: skillnad i betygspoäng mellan flickor och pojkar per ämne" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kon"></p>
+    </div>
+    <div class="slutsats" id="slutsats-kon"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kon"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Ett läsår per fil, hämtade ur Skolverkets exporttjänst. Länkarna går
+      direkt till respektive läsårs CSV-fil.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Kommunnivå, inte skolnivå.</strong> Sidan redovisar hela
+      Kungsbacka sammanräknat. Skolverket publicerar samma statistik per
+      skolenhet, men den bryts inte ned här &ndash; små skolor och små
+      ämnen skulle då till stor del döljas av sekretessen.
+    </p>
+    <p class="forklaring">
+      <strong>Skolkommun, inte hemkommun.</strong> Urvalet är skolor som
+      ligger i Kungsbacka, alltså även de fristående. Elever från
+      Kungsbacka som går i skola i en annan kommun ingår inte.
+    </p>
+    <p class="forklaring">
+      <strong>Dubbelprickning.</strong> Uppgifter som bygger på färre än
+      tio elever redovisas inte av Skolverket, utan skrivs
+      &rdquo;..&rdquo;. Det gäller små ämnen, och sedan läsåret 2024/25
+      även elevantalet i några stora ämnen. Årssnittet räknas därför över
+      ett fast urval ämnen &ndash; de som redovisas samtliga läsår &ndash;
+      så att förändringen beror på betygen och inte på vilka ämnen som
+      råkade redovisas ett visst år.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
+      beräkningar är öppna: källkoden och alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sidfot-inre">
+    <p>Data: Skolverkets utbildningsstatistik.
+    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="amnen.js"></script>
+</body>
+</html>
