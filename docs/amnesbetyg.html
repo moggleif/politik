@@ -128,13 +128,32 @@
     </details>
   </section>
 
+  <section id="sektion-poang" hidden>
+    <h2>Hur höga är betygen totalt sett?</h2>
+    <p class="forklaring">
+      Genomsnittlig betygspoäng för hela årskullen, läsår för läsår.
+      Snittet räknas över ett <strong>fast urval ämnen</strong> &ndash; de
+      som redovisas samtliga läsår &ndash; så att förändringen beror på
+      betygen och inte på vilka ämnen som råkade redovisas ett visst år.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-poang" aria-label="Diagram: genomsnittlig betygspoäng över tid" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-poang"></p>
+    </div>
+    <div class="slutsats" id="slutsats-poang"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-poang"></table></div>
+    </details>
+  </section>
+
   <section id="sektion-godkant" hidden>
     <h2>Hur stor andel får godkänt?</h2>
     <p class="forklaring">
-      Betygspoängen säger hur höga betygen är. Det här måttet säger något
-      annat: hur stor andel som alls klarade godkänt (A&ndash;E) i sina
-      ämnen. Måtten har olika skalor och visas därför i skilda diagram,
-      aldrig i samma.
+      Betygspoängen ovanför säger hur höga betygen är. Det här måttet
+      säger något annat: hur stor andel som alls klarade godkänt
+      (A&ndash;E) i sina ämnen. Måtten har olika skalor och visas därför i
+      skilda diagram, aldrig i samma.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-godkant" aria-label="Diagram: andel med godkänt betyg över tid" role="img"></canvas></div>

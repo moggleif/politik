@@ -309,15 +309,18 @@
       "<tbody>" + rader + "</tbody>";
   }
 
-  /* ---------- 3. Andelen med godkänt, över tid ---------- */
+  /* ---------- 3. Årskullens två mått, över tid ----------
+     Betygspoäng (0–20) och andel med godkänt (0–100 %) mäter olika saker
+     på olika skalor. De får därför var sitt diagram — att lägga dem i
+     samma bild skulle kräva två y-axlar och göra kurvorna jämförbara på
+     ett sätt de inte är. Båda räknas över samma fasta ämnesurval. */
 
-  function ritaGodkant() {
-    var ar = DATA.ar;
-    var ctx = el("diagram-godkant");
+  function ritaOverTid(id, etikett, varden, ytitel, dec, suffix) {
+    var ctx = el("diagram-" + id);
     ctx.parentElement.style.height = "360px";
 
-    var opt = basOptions("Andel med betyget A–E (%)", function (it) {
-      return talSv(it.parsed.y, 1) + " %";
+    var opt = basOptions(ytitel, function (it) {
+      return talSv(it.parsed.y, dec) + suffix;
     });
     opt.scales.y.beginAtZero = false;
     opt.scales.x.ticks.autoSkip = true;
@@ -325,10 +328,10 @@
     new Chart(ctx, {
       type: "line",
       data: {
-        labels: ar.map(String),
+        labels: DATA.ar.map(String),
         datasets: [{
-          label: "Andel med A–E",
-          data: DATA.sammanfattning.map(function (s) { return s.andelAE; }),
+          label: etikett,
+          data: varden,
           borderColor: K.PALETT[0], backgroundColor: K.PALETT[0],
           borderWidth: 3, pointRadius: 3, pointHoverRadius: 6,
           pointBorderColor: FARG.surface, pointBorderWidth: 2, tension: 0.1
@@ -337,11 +340,44 @@
       options: opt
     });
 
-    el("kalla-godkant").textContent =
+    el("kalla-" + id).textContent =
       "Källa: Skolverket. Medelvärde över de " + DATA.karnamnen.length +
       " ämnen som redovisas samtliga läsår.";
+  }
 
+  function ritaPoang() {
     var f = DATA.sammanfattning[0], s = DATA.sammanfattning[DATA.sammanfattning.length - 1];
+
+    ritaOverTid("poang", "Betygspoäng",
+      DATA.sammanfattning.map(function (r) { return r.betygspoang; }),
+      "Genomsnittlig betygspoäng (max " + DATA.maxPoang + ")", 2, "");
+
+    var diff = s.betygspoang - f.betygspoang;
+    var riktning = diff > 0 ? "stigit" : (diff < 0 ? "sjunkit" : "legat stilla");
+    el("slutsats-poang").innerHTML =
+      "<p>Betygspoängen har <strong>" + riktning + "</strong> från " +
+      talSv(f.betygspoang, 2) + " (" + lasar(f.ar) + ") till <strong>" +
+      talSv(s.betygspoang, 2) + "</strong> (" + lasar(s.ar) + ") av " +
+      DATA.maxPoang + " &ndash; en förändring på " + (diff > 0 ? "+" : "") +
+      talSv(diff, 2) + " poäng. Ett snitt på 15 motsvarar ungefär betyget C.</p>";
+
+    el("tabell-poang").innerHTML =
+      "<thead><tr><th scope=\"col\">Läsår</th><th scope=\"col\">Betygspoäng</th>" +
+      "<th scope=\"col\">Elever</th></tr></thead><tbody>" +
+      DATA.sammanfattning.map(function (r) {
+        return "<tr><th scope=\"row\">" + lasar(r.ar) + "</th><td>" +
+          talSv(r.betygspoang, 2) + "</td><td>" +
+          (r.elever === null ? ".." : talSv(r.elever)) + "</td></tr>";
+      }).join("") + "</tbody>";
+  }
+
+  function ritaGodkant() {
+    var f = DATA.sammanfattning[0], s = DATA.sammanfattning[DATA.sammanfattning.length - 1];
+
+    ritaOverTid("godkant", "Andel med A–E",
+      DATA.sammanfattning.map(function (r) { return r.andelAE; }),
+      "Andel med betyget A–E (%)", 1, " %");
+
     el("slutsats-godkant").innerHTML =
       "<p>Andelen godkända betyg har gått från <strong>" + talSv(f.andelAE, 1) +
       "&nbsp;%</strong> (" + lasar(f.ar) + ") till <strong>" + talSv(s.andelAE, 1) +
@@ -350,13 +386,11 @@
       "vilka ämnen som råkat redovisas.</p>";
 
     el("tabell-godkant").innerHTML =
-      "<thead><tr><th scope=\"col\">Läsår</th><th scope=\"col\">Betygspoäng</th>" +
-      "<th scope=\"col\">Andel med A&ndash;E</th><th scope=\"col\">Elever</th></tr></thead><tbody>" +
+      "<thead><tr><th scope=\"col\">Läsår</th>" +
+      "<th scope=\"col\">Andel med A&ndash;E</th></tr></thead><tbody>" +
       DATA.sammanfattning.map(function (r) {
         return "<tr><th scope=\"row\">" + lasar(r.ar) + "</th><td>" +
-          talSv(r.betygspoang, 2) + "</td><td>" + talSv(r.andelAE, 1) +
-          "&nbsp;%</td><td>" + (r.elever === null ? ".." : talSv(r.elever)) +
-          "</td></tr>";
+          talSv(r.andelAE, 1) + "&nbsp;%</td></tr>";
       }).join("") + "</tbody>";
   }
 
@@ -484,10 +518,11 @@
     el("knapp-dolj-alla").addEventListener("click", function () {
       sattAllaSynliga(false);
     });
+    ritaPoang();
     ritaGodkant();
     var harKon = ritaKon();
 
-    var sektioner = ["rang", "amne", "alla", "godkant", "kallor", "om"];
+    var sektioner = ["rang", "amne", "alla", "poang", "godkant", "kallor", "om"];
     if (harKon) sektioner.push("kon");
     sektioner.forEach(function (id) {
       var s = el("sektion-" + id);
