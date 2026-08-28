@@ -33,6 +33,7 @@ build_data = ladda("build_data")
 build_kull = ladda("build_kull")
 build_befolkning = ladda("build_befolkning")
 build_amnesbetyg = ladda("build_amnesbetyg")
+build_nian_gymnasiet = ladda("build_nian_gymnasiet")
 
 
 class TestPrognosberakningar(unittest.TestCase):
@@ -337,6 +338,143 @@ class TestAmnesbetyg(unittest.TestCase):
         self.assertIsNone(m[2025]["konsskillnad"])       # kön saknas 2025
 
 
+class TestNianTillGymnasiet(unittest.TestCase):
+    """build_nian_gymnasiet: kullkedjan, meritvärdesbrottet, korrelationen
+    och pendlingens kontrollsumma."""
+
+    def nianfil(self, ar, lasar, meritamnen, meritvarde, behorig):
+        return {
+            "ar": ar, "lasar": lasar, "kommun": "Testköping",
+            "kommunkod": "0000", "niva": "Skolkommun", "urval": "T",
+            "meritamnen": meritamnen, "ungefarliga": [],
+            "rapportTitel": "Nian", "kalla": "T", "kallaUrl": "u",
+            "statistikUrl": "s", "koder": {}, "hamtad": "2026-01-01",
+            "rader": [{"huvudman": "Samtliga", "antal": 100,
+                       "meritvarde": meritvarde, "andelBehorigYrkes": behorig,
+                       "andelAllaAmnen": 80.0}],
+        }
+
+    def startfil(self, ar, examen3, program="Naturvetenskapsprogrammet"):
+        return {
+            "startAr": ar, "startLasar": f"{ar}/{str(ar + 1)[-2:]}",
+            "kommun": "Testköping", "kommunkod": "0000", "niva": "Skolkommun",
+            "ungefarliga": [], "rapportTitel": "Genomströmning", "kalla": "T",
+            "kallaUrl": "u", "statistikUrl": "s", "koder": {},
+            "hamtad": "2026-01-01",
+            "rader": [
+                {"huvudman": "Samtliga", "program": "Nationella program",
+                 "antal": 90, "examen3": examen3, "examen4": None,
+                 "examen5": None, "sammaProgram3": None,
+                 "sammaProgram4": None, "sammaProgram5": None},
+                {"huvudman": "Samtliga", "program": program, "antal": 40,
+                 "examen3": examen3, "examen4": None, "examen5": None,
+                 "sammaProgram3": None, "sammaProgram4": None,
+                 "sammaProgram5": None},
+                {"huvudman": "Kommunal", "program": "Nationella program",
+                 "antal": 80, "examen3": 1.0, "examen4": None,
+                 "examen5": None, "sammaProgram3": None,
+                 "sammaProgram4": None, "sammaProgram5": None},
+            ],
+        }
+
+    def examensfil(self, ar, betygspoang):
+        return {
+            "ar": ar, "lasar": f"{ar - 1}/{str(ar)[-2:]}",
+            "kommun": "Testköping", "kommunkod": "0000", "niva": "Skolkommun",
+            "ungefarliga": [], "rapportTitel": "Avgång", "kalla": "T",
+            "kallaUrl": "u", "statistikUrl": "s", "koder": {},
+            "hamtad": "2026-01-01",
+            "rader": [{"huvudman": "Samtliga", "program": "Nationella program",
+                       "antal": 85, "andelExamen": 90.0,
+                       "andelStudiebevis": 10.0, "andelGrundlBehorighet": 70.0,
+                       "betygspoang": betygspoang, "betygspoangExamen": None}],
+        }
+
+    def pendelfil(self, ar, folkbokforda, hemma, ut, in_):
+        def del_(f, h, u, i):
+            return {"folkbokforda": f, "skolorKom": 1, "skolorEnsk": 0,
+                    "studerandeKom": h + i, "studerandeEnsk": 0,
+                    "folkbokfordaStuderandeKom": h,
+                    "folkbokfordaStuderandeEnsk": 0,
+                    "inpendlingKom": i, "inpendlingEnsk": 0,
+                    "utpendlingKom": u, "utpendlingEnsk": 0}
+        return {
+            "ar": ar, "lasar": f"{ar}/{str(ar + 1)[-2:]}",
+            "kommun": "Testköping", "kommunkod": "0000", "niva": "Pendling",
+            "rapportTitel": "Pendling", "kalla": "T", "kallaUrl": "u",
+            "kallaUrlGrundskolan": "u2", "statistikUrl": "s", "koder": {},
+            "hamtad": "2026-01-01",
+            "gymnasiet": del_(folkbokforda, hemma, ut, in_),
+            "grundskolan": del_(1000, 990, 10, 5),
+        }
+
+    def setUp(self):
+        # Nian 2014–2017; gymnasiestart 2014–2015; examen 2017–2018.
+        # Bara 2014 och 2015 har alla tre mätpunkterna.
+        self.ut = build_nian_gymnasiet.bygg(
+            [self.nianfil(2014, "2013/14", 16, 228.0, 94.0),
+             self.nianfil(2015, "2014/15", 17, 242.0, 93.0),
+             self.nianfil(2016, "2015/16", 17, 244.0, 95.0),
+             self.nianfil(2017, "2016/17", 17, 240.0, 92.0)],
+            [self.startfil(2014, 77.0), self.startfil(2015, 79.0)],
+            [self.examensfil(2017, 13.8), self.examensfil(2018, 14.0)],
+            [self.pendelfil(2024, 1000, 700, 300, 200)])
+        self.kullar = {k["ar"]: k for k in self.ut["kullar"]}
+
+    def test_kullen_paras_med_examen_tre_ar_senare(self):
+        k = self.kullar[2015]
+        self.assertEqual(k["examensar"], 2018)
+        self.assertEqual(k["examen"]["ar"], 2018)
+        self.assertEqual(k["examen"]["betygspoang"], 14.0)
+        self.assertEqual(k["start"]["ar"], 2015)
+
+    def test_ar_utan_gymnasiedata_markeras_som_framtid(self):
+        """Ett år vars mätpunkter inte hunnit publiceras ska synas som en
+        lucka med orsak – inte som ett saknat värde utan förklaring."""
+        k = self.kullar[2017]
+        self.assertEqual(k["start"]["status"], "framtid")
+        self.assertEqual(k["examen"]["status"], "framtid")
+        self.assertEqual(self.ut["antalKompletta"], 2)
+
+    def test_brottsaret_for_meritvardet_hittas(self):
+        self.assertEqual(self.ut["meritamnenBrott"], 2015)
+
+    def test_meritsamband_hoppar_over_16_amnesaren(self):
+        """16 och 17 ämnen mäter olika saker och får inte ligga i samma
+        punktmoln. Kvar blir en enda punkt – för få för ett r."""
+        s = {x["nyckel"]: x for x in self.ut["samband"]}
+        merit = s["meritvarde-examen3"]
+        self.assertEqual([p["ar"] for p in merit["punkter"]], [2015])
+        self.assertIsNone(merit["r"])
+        # Behörigheten är jämförbar alla år och behåller båda kullarna
+        self.assertEqual(len(s["behorighet-examen3"]["punkter"]), 2)
+
+    def test_korrelation_kraver_minst_tre_punkter(self):
+        self.assertIsNone(build_nian_gymnasiet.pearson([(1, 2), (2, 4)]))
+        self.assertEqual(
+            build_nian_gymnasiet.pearson([(1, 2), (2, 4), (3, 6)])["r"], 1.0)
+
+    def test_pendlingen_summeras_och_stams_av(self):
+        g = self.ut["pendling"][0]["gymnasiet"]
+        self.assertEqual(g["utpendling"], 300)
+        self.assertEqual(g["inpendling"], 200)
+        self.assertEqual(g["studerarHar"], 900)     # 700 hemma + 200 inpendlare
+        self.assertEqual(g["netto"], -100)
+        self.assertEqual(g["andelUt"], 30.0)        # 300 av 1000
+        self.assertAlmostEqual(g["andelInAvEleverna"], 22.2)
+        self.assertTrue(g["stammer"])               # 700 + 300 = 1000
+
+    def test_summarader_hamnar_inte_bland_programmen(self):
+        namn = [p["namn"] for p in self.ut["program"]]
+        self.assertEqual(namn, ["Naturvetenskapsprogrammet"])
+        self.assertNotIn("Nationella program", namn)
+
+    def test_bara_huvudmannatypen_samtliga_anvands(self):
+        """Rapporterna upprepar varje rad per huvudman; tas fel rad blir
+        siffrorna kommunala skolors i stället för hela kommunens."""
+        self.assertEqual(self.kullar[2014]["start"]["examen3"], 77.0)
+
+
 class TestGenereradeFiler(unittest.TestCase):
     """Datafilerna i docs/ ska vara exakt vad byggskripten ger av data/.
 
@@ -372,6 +510,17 @@ class TestGenereradeFiler(unittest.TestCase):
         # Åren är heltalsnycklar i bygget men strängar i JSON-filen
         ombyggd = json.loads(json.dumps(build_befolkning.bygg(scb)))
         self.assertEqual(ombyggd, self.las("data-befolkning.json"))
+
+    def test_data_nian_gymnasiet_ar_reproducerbar(self):
+        def las_mapp(mapp, prefix):
+            return [json.loads(f.read_text(encoding="utf-8"))
+                    for f in sorted((ROT / "data" / mapp).glob(f"{prefix}_*.json"))]
+        ombyggd = build_nian_gymnasiet.bygg(
+            las_mapp("arskurs9", "arskurs9"),
+            las_mapp("genomstromning", "genomstromning"),
+            las_mapp("avgangskommun", "avgangskommun"),
+            las_mapp("pendling", "pendling"))
+        self.assertEqual(ombyggd, self.las("data-nian-gymnasiet.json"))
 
     def test_data_amnesbetyg_ar_reproducerbar(self):
         arsfiler = [

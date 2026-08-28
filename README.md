@@ -31,6 +31,22 @@ i stället för av att utbildningen ändrats.
   samma program: samma kull, in och ut ur systemet. Måtten har olika skalor
   och visas därför i skilda paneler &ndash; aldrig i samma diagram.
 
+**Från nian till gymnasiet** &ndash; samma årtal genom tre mätpunkter:
+slutbetyget i årskurs 9 år X, genomströmningen för dem som *började*
+gymnasiet hösten samma år, och avgångsbetygen tre år senare. Här räknas
+hela kommunen, också de fristående gymnasieskolorna.
+
+- [Från nian till gymnasiet](https://moggleif.github.io/politik/nian-till-gymnasiet.html)
+  &ndash; meritvärde och behörighet i nian, examen inom 3/4/5 år,
+  avgångsbetyg, samband och pendling mellan hem- och skolkommun,
+  läsåren 2008/09&ndash;2025/26
+
+Sidan innehåller också svaret på varför de tre mätpunkterna inte kan
+behandlas som samma elever: ungefär tre av tio av kommunens
+gymnasieelever läser i en annan kommun, och ungefär var femte elev i
+kommunens gymnasieskolor kommer utifrån. I grundskolan är motsvarande
+rörlighet drygt en procent.
+
 **Betygen i grundskolan** &ndash; vad niondeklassarna i Kungsbacka fick,
 ämne för ämne. Gymnasiestatistiken redovisar bara ett samlat betygssnitt;
 grundskolan redovisas per ämne.
@@ -61,6 +77,14 @@ data/
                                 program, ur Skolverkets statistik
   amnesbetyg/amnesbetyg_<år>.json Niondeklassarnas slutbetyg per ämne, hela
                                 kommunen, ur Skolverkets statistik
+  arskurs9/arskurs9_<år>.json   Meritvärde och behörighet i årskurs 9,
+                                kommunnivå, ur Skolverkets statistik
+  genomstromning/genomstromning_<år>.json  Andel med gymnasieexamen inom
+                                3, 4 och 5 år, efter startläsår
+  avgangskommun/avgangskommun_<år>.json    Avgångseleverna på kommunnivå,
+                                alltså inklusive de fristående skolorna
+  pendling/pendling_<år>.json   Pendling mellan hem- och skolkommun,
+                                gymnasiet och grundskolan
   scb/folkmangd_kungsbacka.json Faktisk folkmängd, hämtad från SCB:s öppna API
   KALLOR.md                     Dokumentation av var varje rapport hittades
 scripts/
@@ -75,6 +99,8 @@ scripts/
                                 Skolverkets exporttjänst, ett läsår per fil
   hamta_amnesbetyg.py           Hämtar niondeklassarnas betyg per ämne ur
                                 samma exporttjänst, ett läsår per fil
+  hamta_kullkedjan.py           Hämtar de fyra rapporter som sidan om nian
+                                och gymnasiet bygger på (109, 91, 89, 61/60)
   build_data.py                 Bygger docs/data.json och docs/data-16-19.json
   build_meritvarden.py          Bygger docs/data-meritvarden.json, med en
                                 serie per program i stället för per skola
@@ -85,6 +111,8 @@ scripts/
                                 ämne i årskurs 9
   build_befolkning.py           Bygger docs/data-befolkning.json: folkmängden
                                 efter ålder, enbart faktiskt utfall
+  build_nian_gymnasiet.py       Bygger docs/data-nian-gymnasiet.json: nian
+                                år X mot gymnasiet år X…X+3, plus pendlingen
 tests/
   test_berakningar.py           Kontrollräknar beräkningarna och stämmer av
                                 att docs/data*.json går att reproducera ur
@@ -96,6 +124,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   gymnasiealdern.html           Befolkningsprognoser, åldersgruppen 16–19 år
   barn-och-unga.html            Barn och unga 0–15 år, enbart faktiskt utfall
   amnesbetyg.html               Slutbetyg per ämne i årskurs 9
+  nian-till-gymnasiet.html      Från nian till gymnasiet, tre mätpunkter
   meritvarden.html              Meritvärden vid antagningen till gymnasiet
   slutbetyg.html                Slutbetyg från gymnasiet, program för program
   antagning-till-examen.html    Antagningen mot examen tre år senare
@@ -111,6 +140,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   slutbetyg.js                  Driver slutbetygssidan
   kull.js                       Driver antagning-till-examen-sidan
   amnen.js                      Driver ämnesbetygssidan
+  nian.js                       Driver sidan om nian och gymnasiet
   befolkning.js                 Driver sidan om barn och unga 0–15 år
   index.js                      Driver startsidans sammanfattningar
   data.json, data-16-19.json    Data till prognossidorna (genereras)
@@ -118,6 +148,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   data-slutbetyg.json           Data till slutbetygssidan (genereras)
   data-kull.json                Data till antagning-till-examen (genereras)
   data-amnesbetyg.json          Data till ämnesbetygssidan (genereras)
+  data-nian-gymnasiet.json      Data till sidan om nian och gymnasiet (genereras)
   data-befolkning.json          Data till sidan om barn och unga (genereras)
   rapporter/*.pdf               Lokala kopior av käll­rapporterna
   rapporter/slutbetyg-*.csv     Skolverkets exportfiler, en per läsår
@@ -169,6 +200,23 @@ Samma exporttjänst som slutbetygen, men rapport 92 i stället för 88, och på
 kommunnivå i stället för per skolenhet. Skriptet stannar av sig själv på ett
 läsår som ännu inte publicerats.
 
+Kedjan från nian till gymnasiet:
+
+```bash
+python3 scripts/hamta_kullkedjan.py        # alla fyra rapporterna, alla år
+python3 scripts/hamta_kullkedjan.py --del arskurs9   # eller en i taget
+python3 scripts/build_nian_gymnasiet.py    # bygger om docs/data-nian-gymnasiet.json
+```
+
+Samma exporttjänst som slutbetygen, men fyra andra rapporter: 109
+(slutbetyg årskurs 9, kommunnivå), 91 (genomströmning inom 3, 4 och 5
+år), 89 (avgångselever, kommunnivå) och 60/61 (pendling mellan hem- och
+skolkommun). Skriptet stannar av sig själv på ett år som ännu inte
+publicerats och avbryter om en rapports kolumner har ändrats. Rapport 109
+redovisar flera elevurval bredvid varandra, och vilka har ändrats genom
+åren &ndash; kolumnerna letas därför upp via grupprubriken och aldrig via
+position.
+
 Barn och unga 0&ndash;15 år (enbart utfall, inga prognoser):
 
 ```bash
@@ -217,6 +265,11 @@ branch `main`, mapp `/docs`.
   ([statistiken](https://www.skolverket.se/skolutveckling/statistik/sok-statistik-om-forskola-skola-och-vuxenutbildning))
 - Skolverket, Utbildningsstatistik: *Grundskola &ndash; Slutbetyg per ämne
   årskurs 9*, ur samma exporttjänst (rapport 92, kommunnivå)
+- Skolverket, Utbildningsstatistik: *Grundskola &ndash; Slutbetyg årskurs 9*
+  (rapport 109), *Gymnasieskola &ndash; Genomströmning inom 3, 4 och 5 år,
+  GY11* (91), *Gymnasieskola &ndash; Avgångselever, nationella program*
+  på kommunnivå (89) samt *Pendling mellan hem- och skolkommun* för
+  gymnasiet (61) och grundskolan (60), ur samma exporttjänst
 
 ## Gemensamma byggstenar på sidorna
 

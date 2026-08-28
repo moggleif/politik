@@ -28,6 +28,7 @@
         <a href="meritvarden.html">Antagning</a>
         <a href="slutbetyg.html">Slutbetyg</a>
         <a href="antagning-till-examen.html">Antagning till examen</a>
+        <a href="nian-till-gymnasiet.html">Nian till gymnasiet</a>
       </span>
       <a href="metod.html" aria-current="page">Metod</a>
     </nav>
@@ -87,13 +88,30 @@
         Här hämtas <strong>kommunnivå</strong>, inte skolenhet: den
         rapport som finns per skola skulle till stor del döljas av
         sekretessgränsen.</dd>
+      <dt>Skolverkets kedja nian &rarr; gymnasiet</dt>
+      <dd>Sidan <a href="nian-till-gymnasiet.html">Från nian till
+        gymnasiet</a> bygger på fyra rapporter till ur samma exporttjänst,
+        hämtade med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_kullkedjan.py">scripts/hamta_kullkedjan.py</a>:
+        slutbetygen i årskurs 9 på kommunnivå (rapport 109),
+        genomströmningen inom 3, 4 och 5 år (91), avgångseleverna på
+        kommunnivå (89) och pendlingen mellan hem- och skolkommun för
+        gymnasiet (61) och grundskolan (60). Ett år per fil i
+        <a href="https://github.com/moggleif/politik/tree/main/data/arskurs9">data/arskurs9/</a>,
+        <a href="https://github.com/moggleif/politik/tree/main/data/genomstromning">data/genomstromning/</a>,
+        <a href="https://github.com/moggleif/politik/tree/main/data/avgangskommun">data/avgangskommun/</a>
+        och
+        <a href="https://github.com/moggleif/politik/tree/main/data/pendling">data/pendling/</a>.
+        Rapport 89 är kommunnivåversionen av rapport 88 och räknar därför
+        med de fristående gymnasieskolorna, som slutbetygssidan inte
+        följer.</dd>
     </dl>
   </section>
 
   <section id="sektion-transformationer">
     <h2>Vad som görs med rådatat</h2>
     <p class="forklaring">
-      Sex byggskript sätter ihop rådatat till de datafiler diagrammen
+      Sju byggskript sätter ihop rådatat till de datafiler diagrammen
       läser. De gör ingenting mer än det som står här:
     </p>
     <dl class="metod-lista">
@@ -147,6 +165,20 @@
         fast urval beror förändringen på betygen och inte på vilka ämnen
         som råkade redovisas. Skriver
         <a href="data-amnesbetyg.json">data-amnesbetyg.json</a>.</dd>
+      <dt>Nian, gymnasiestarten och examen ställs på samma årtal</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_nian_gymnasiet.py">build_nian_gymnasiet.py</a>
+        sätter slutbetyget i årskurs 9 år X bredvid genomströmningen för
+        dem som började gymnasiet hösten år X och avgångsbetygen år
+        X&nbsp;+&nbsp;3. Grundskolerapporten redovisar flera elevurval,
+        och vilka har ändrats genom åren; det enda som finns samtliga år
+        är det som utesluter nyinvandrade elever och elever med okänd
+        bakgrund, så kolumnerna letas upp via grupprubriken och inte via
+        position. Meritvärdet räknades över 16 ämnen till och med läsåret
+        2013/14 och över 17 därefter &ndash; brottsåret skrivs ut i
+        utdatan, och serien ritas som två linjer. Korrelationerna mellan
+        mätpunkterna räknas fram här, alltid med sitt <em>n</em>, och
+        aldrig på färre än tre punkter. Skriver
+        <a href="data-nian-gymnasiet.json">data-nian-gymnasiet.json</a>.</dd>
       <dt>Åldersgrupperna summeras ur ettårsklasser</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_befolkning.py">build_befolkning.py</a>
         räknar fram andel av folkmängden, förändring mot föregående år och
@@ -191,7 +223,11 @@
         pendlar till skola i en annan kommun ingår alltså inte, medan
         inpendlande elever från andra kommuner gör det.
         Befolkningssiffrorna avser tvärtom de <em>folkbokförda</em> i
-        kommunen. De två perspektiven ska inte blandas ihop.</dd>
+        kommunen. De två perspektiven ska inte blandas ihop. Hur stort
+        glappet är mäts av Skolverkets pendlingsrapport och visas på
+        <a href="nian-till-gymnasiet.html">sidan om nian och gymnasiet</a>:
+        på gymnasienivå rör det sig om ungefär tre av tio av kommunens
+        elever, på grundskolenivå om drygt en procent.</dd>
       <dt>Varför vissa år saknas</dt>
       <dd>Antagningsåret 2018 saknas därför att GR:s rapport från det året
         inte gått att få tag på &ndash; den försvann när GR bytte
@@ -218,12 +254,13 @@ python3 scripts/build_slutbetyg.py    # slutbetygssidan
 python3 scripts/build_kull.py         # antagning till examen
 python3 scripts/build_amnesbetyg.py   # ämnesbetygen i årskurs 9
 python3 scripts/build_befolkning.py   # barn och unga 0–15 år
+python3 scripts/build_nian_gymnasiet.py  # från nian till gymnasiet
 python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pre></div>
     <p class="forklaring">
       Skripten kräver bara Python 3 (utan paket). Att även hämta om
       rådatat &ndash; <code>fetch_scb.py</code>,
-      <code>hamta_slutbetyg.py</code> och
-      <code>extrahera_antagning.py</code> &ndash; kräver nätverk och för
+      <code>hamta_slutbetyg.py</code>, <code>hamta_kullkedjan.py</code>
+      och <code>extrahera_antagning.py</code> &ndash; kräver nätverk och för
       PDF-läsningen paketet <code>pdfplumber</code>; se
       <a href="https://github.com/moggleif/politik#uppdatera-datat">README</a>.
       Diagrammen ritas med Chart.js, som ligger vendrad i repot &ndash;

@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Från nian till gymnasiet i Kungsbacka</title>
+<meta name="description" content="Slutbetygen i årskurs 9 i Kungsbacka ställda mot hur det sedan går på gymnasiet: genomströmning, examensgrad och betygspoäng – samt hur många elever som pendlar ut ur och in i kommunen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+  <div class="sidhuvud-inre">
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="barn-och-unga.html">0–15 år</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
+        <a href="amnesbetyg.html">Betyg per ämne</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html">Antagning</a>
+        <a href="slutbetyg.html">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+        <a href="nian-till-gymnasiet.html" aria-current="page">Nian till gymnasiet</a>
+      </span>
+      <a href="metod.html">Metod</a>
+    </nav>
+    <h1>Från nian till gymnasiet</h1>
+    <p class="ingress">
+      Vad hade årskullen med sig ut ur nian &ndash; och hur levererade den
+      sedan på gymnasiet? Sidan följer samma årtal genom tre mätpunkter:
+      slutbetyget i årskurs 9 år X, genomströmningen för dem som
+      <em>började</em> gymnasiet hösten samma år, och avgångsbetygen tre
+      år senare. Allt gäller <strong>hela Kungsbacka</strong>, kommunala
+      som fristående skolor. Sidans viktigaste förbehåll står i eget
+      avsnitt längre ned: de tre mätpunkterna följer inte samma individer.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <section id="sektion-nian" hidden>
+    <h2>Vad hade kullen med sig ut ur nian?</h2>
+    <p class="forklaring">
+      Två mått på samma årskull, och de har olika skalor &ndash; därför
+      två diagram. <strong>Meritvärdet</strong> är summan av
+      grundskolebetygen och kan som mest bli 340. <strong>Andelarna</strong>
+      säger hur stor del av kullen som nådde en gräns: behörighet till
+      gymnasiets yrkesprogram, respektive godkänt i samtliga ämnen.
+    </p>
+    <div class="panelpar">
+      <div class="kort">
+        <h3>Meritvärdet</h3>
+        <p class="panel-enhet">Genomsnittligt meritvärde i årskurs 9 (skala 0&ndash;340)</p>
+        <div class="diagram-wrap"><canvas id="diagram-merit" aria-label="Diagram: genomsnittligt meritvärde i årskurs 9 per år" role="img"></canvas></div>
+      </div>
+      <div class="kort">
+        <h3>Andelen som nådde kraven</h3>
+        <p class="panel-enhet">Andel av eleverna i årskurs 9 (procent)</p>
+        <div class="diagram-wrap"><canvas id="diagram-behorighet" aria-label="Diagram: andel behöriga till yrkesprogram och andel med godkänt i alla ämnen" role="img"></canvas></div>
+      </div>
+    </div>
+    <p class="kalla-rad" id="kalla-nian"></p>
+    <div id="not-merit" hidden></div>
+    <div class="slutsats" id="slutsats-nian"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-nian"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-gymnasiet" hidden>
+    <h2>Hur gick det sedan på gymnasiet?</h2>
+    <p class="forklaring">
+      Också här hålls skalorna isär. <strong>Genomströmningen</strong>
+      räknas på dem som <em>började</em> gymnasiet ett visst år: hur stor
+      andel som var klara med examen efter tre, fyra respektive fem år.
+      <strong>Avgångsbetygen</strong> räknas på dem som <em>gick ut</em>
+      ett visst år &ndash; ett annat urval, eftersom den som hoppat av
+      eller bytt program inte finns kvar i det.
+    </p>
+    <div class="panelpar">
+      <div class="kort">
+        <h3>Genomströmning</h3>
+        <p class="panel-enhet">Andel med examen inom 3, 4 och 5 år, efter startår (procent)</p>
+        <div class="diagram-wrap"><canvas id="diagram-genomstromning" aria-label="Diagram: andel med gymnasieexamen inom 3, 4 och 5 år per startår" role="img"></canvas></div>
+      </div>
+      <div class="kort">
+        <h3>Avgångselevernas betygspoäng</h3>
+        <p class="panel-enhet">Genomsnittlig betygspoäng vid examen (skala 0&ndash;20)</p>
+        <div class="diagram-wrap"><canvas id="diagram-poang" aria-label="Diagram: genomsnittlig betygspoäng hos avgångseleverna per år" role="img"></canvas></div>
+      </div>
+      <div class="kort">
+        <h3>Examen och högskolebehörighet</h3>
+        <p class="panel-enhet">Andel av avgångseleverna (procent)</p>
+        <div class="diagram-wrap"><canvas id="diagram-examen" aria-label="Diagram: andel av avgångseleverna med examen och med grundläggande högskolebehörighet" role="img"></canvas></div>
+      </div>
+    </div>
+    <p class="kalla-rad" id="kalla-gymnasiet"></p>
+    <div class="slutsats" id="slutsats-gymnasiet"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-gymnasiet"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kedjan" hidden>
+    <h2>Samma årtal, tre mätpunkter</h2>
+    <p class="forklaring">
+      Här står de tre mätpunkterna på samma rad: vad kullen fick i nian år
+      X, hur det gick för dem som började gymnasiet hösten år X, och vad
+      avgångseleverna år X&nbsp;+&nbsp;3 fick. Måtten får inte jämföras
+      med varandra som tal &ndash; de har olika skalor och olika urval.
+      Vad tabellen visar är i vilken riktning varje mått rört sig.
+    </p>
+    <details open>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kedjan"></table></div>
+    </details>
+    <div class="slutsats" id="slutsats-kedjan"></div>
+  </section>
+
+  <section id="sektion-samband" hidden>
+    <h2>Går det att se ett samband?</h2>
+    <p class="forklaring">
+      Varje punkt är en årskull: måttet från nian på ena axeln, måttet från
+      gymnasiet på den andra. Under diagrammet står korrelationen
+      (<em>r</em>) och hur många kullar den bygger på. Valet syns i
+      adressraden, så att en länk till sidan visar samma diagram.
+    </p>
+    <div class="valjarrad">
+      <div class="valj-ar">
+        <label for="samband-valjare">Visa sambandet:</label>
+        <select id="samband-valjare"></select>
+      </div>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-samband" aria-label="Spridningsdiagram: mått från årskurs 9 mot mått från gymnasiet, en punkt per årskull" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-samband"></p>
+    </div>
+    <div id="not-samband" hidden></div>
+    <div class="slutsats" id="slutsats-samband"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-samband"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-pendling" hidden>
+    <h2>Men det är inte samma elever</h2>
+    <p class="forklaring">
+      Grundskolestatistiken och gymnasiestatistiken ovanför avser båda
+      <strong>skolor som ligger i Kungsbacka</strong>. På grundskolenivå
+      är det nästan samma sak som kommunens egna barn. På gymnasienivå är
+      det något helt annat: en stor del av kommunens elever läser i en
+      annan kommun, samtidigt som en stor del av eleverna i kommunens
+      gymnasieskolor kommer utifrån. Det är därför de tre mätpunkterna
+      inte kan behandlas som samma personer.
+    </p>
+    <div class="panelpar">
+      <div class="kort">
+        <h3>Gymnasieelever, in och ut</h3>
+        <p class="panel-enhet">Antal elever per läsår</p>
+        <div class="diagram-wrap"><canvas id="diagram-pendling" aria-label="Diagram: folkbokförda gymnasieelever, elever i kommunens skolor, inpendling och utpendling" role="img"></canvas></div>
+      </div>
+      <div class="kort">
+        <h3>Andel som läser i en annan kommun</h3>
+        <p class="panel-enhet">Andel av de folkbokförda eleverna (procent)</p>
+        <div class="diagram-wrap"><canvas id="diagram-utpendling" aria-label="Diagram: andel av kommunens elever som läser i en annan kommun, gymnasiet jämfört med grundskolan" role="img"></canvas></div>
+      </div>
+    </div>
+    <p class="kalla-rad" id="kalla-pendling"></p>
+    <div id="not-pendling" hidden></div>
+    <div class="slutsats" id="slutsats-pendling"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-pendling"></table></div>
+    </details>
+    <p class="forklaring" id="grav-vidare"></p>
+  </section>
+
+  <section id="sektion-program" hidden>
+    <h2>Program för program</h2>
+    <p class="forklaring">
+      Genomströmningen per program, för dem som började på programmet ett
+      visst år. Till skillnad från
+      <a href="slutbetyg.html">slutbetygssidan</a> och
+      <a href="antagning-till-examen.html">kullsidan</a>, som följer
+      Aranäsgymnasiet och Elof Lindälvs gymnasium var för sig, räknas här
+      <strong>alla gymnasieskolor i kommunen</strong> ihop &ndash; också de
+      fristående.
+    </p>
+    <div class="valjarrad">
+      <div class="valj-ar">
+        <label for="program-valjare">Visa programmet:</label>
+        <select id="program-valjare"></select>
+      </div>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-program" aria-label="Diagram: andel med examen inom 3, 4 och 5 år för valt program" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-program"></p>
+    </div>
+    <div id="not-program" hidden></div>
+    <div class="slutsats" id="slutsats-program"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-program"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Fyra rapporter ur Skolverkets exporttjänst, ett år per fil. Länkarna
+      går direkt till respektive års CSV-fil.
+    </p>
+    <div id="kallgrupper"></div>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Skolkommun, inte hemkommun.</strong> Alla fyra rapporterna
+      redovisar skolor som <em>ligger i</em> Kungsbacka. Kommunens elever
+      som läser i en annan kommun ingår inte, och elever från andra
+      kommuner som läser här ingår. Hur stort det glappet är visas i
+      avsnittet om pendlingen.
+    </p>
+    <p class="forklaring">
+      <strong>Tre olika urval.</strong> Nian mäter en hel årskull.
+      Genomströmningen mäter dem som började gymnasiet, och räknar dem på
+      det program och den skola de <em>började</em> på &ndash; även om de
+      sedan bytt. Avgångsbetygen mäter dem som faktiskt gick ut, alltså
+      inte dem som hoppat av. Ett mått kan därför förbättras samtidigt som
+      ett annat försämras, utan att något är fel.
+    </p>
+    <p class="forklaring">
+      <strong>Meritvärdet bytte definition.</strong> Till och med läsåret
+      2013/14 räknades meritvärdet över 16 ämnen, därefter över 17. Hoppet
+      mellan de två åren är alltså en följd av regeländringen, inte av
+      bättre betyg, och serien ritas därför som två skilda linjer.
+    </p>
+    <p class="forklaring">
+      <strong>Nyinvandrade elever.</strong> Grundskolerapporten redovisar
+      flera elevurval, och vilka har ändrats genom åren. Det enda som
+      finns samtliga år är det som utesluter nyinvandrade elever och
+      elever med okänd bakgrund &ndash; därför är det det som används här.
+    </p>
+    <p class="forklaring">
+      <strong>Dubbelprickning.</strong> Uppgifter som bygger på färre än
+      tio elever redovisas inte av Skolverket, utan skrivs
+      &rdquo;..&rdquo;. Det slår hårdast mot de mindre yrkesprogrammen.
+      Står det &rdquo;~100&rdquo; i källan betyder det att 1&ndash;4
+      elever saknade måttet; det läses här som 100&nbsp;%.
+    </p>
+    <p class="forklaring">
+      <strong>Korrelation är inte orsak.</strong> Sambanden bygger på ett
+      dussin årskullar och på mätpunkter som inte följer samma individer.
+      De duger till att se om något rör sig åt samma håll &ndash; inte
+      till att slå fast varför.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
+      beräkningar är öppna: källkoden och alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sidfot-inre">
+    <p>Data: Skolverkets utbildningsstatistik.
+    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="nian.js"></script>
+</body>
+</html>
