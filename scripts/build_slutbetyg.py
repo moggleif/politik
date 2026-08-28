@@ -16,9 +16,8 @@ gymnasieskolor och en linje som bryts vid varje flytt döljer just det som
                   den här rapporten redovisar antalet elever.
 
   skolnamnen      Rapporterna skriver samma skola olika mellan åren:
-                  "Elof Lindälvs gymn" mot "Elof Lindälvs Gymnasium",
-                  "Praktiska Kungsbacka" mot "Praktiska Gymnasiet
-                  Kungsbacka". Namnbyten som bara är namnbyten slås ihop.
+                  "Elof Lindälvs gymn" mot "Elof Lindälvs Gymnasium".
+                  Namnbyten som bara är namnbyten slås ihop.
 
   flytt mot       Redovisas ett program på två skolor samma år är det två
   parallell       utbildningar som konkurrerar, och båda behåller sin egen
@@ -27,6 +26,12 @@ gymnasieskolor och en linje som bryts vid varje flytt döljer just det som
                   sig, oavsett vilken skola de kommer från. Vilken skola
                   varje enskilt år hör till följer med i utdatan, så att
                   sidan kan skriva ut det.
+
+Sidan visar Aranäsgymnasiet och Elof Lindälvs gymnasium. Skolverkets
+statistik gäller skolkommun och omfattar därför samtliga skolenheter i
+Kungsbacka – också de fristående skolorna och Beda Hallbergs gymnasium.
+Deras rader läses in men sorteras bort här, summeringsraderna med, så att
+sammanfattningen räknar på samma elever som programmen.
 
 Program som bytt namn slås ihop till en serie under det namn de har i
 dag – Handels- och administrationsprogrammet heter sedan 2021
@@ -45,7 +50,9 @@ ROT = Path(__file__).resolve().parent.parent
 # Skolans namn utan enhetsnummer, som det ska stå på sidan. Nyckeln är det
 # rapporten skriver; värdet det namn skolan går under i dag. Står en skola
 # inte här varnar bygget – ett okänt namn är oftast en skola som bytt namn
-# och som annars skulle bli två linjer i stället för en.
+# och som annars skulle bli två linjer i stället för en. Skolorna som inte
+# ska med står kvar i listan just därför: en bortsorterad skola ska gå att
+# skilja från en okänd.
 SKOLNAMN = {
     "Aranäsgymnasiet": "Aranäsgymnasiet",
     "Elof Lindälvs gymn": "Elof Lindälvs gymnasium",
@@ -60,19 +67,16 @@ SKOLNAMN = {
     "Sveriges Ridgymnasium Kungsbacka": "Sveriges Ridgymnasium",
 }
 
-# Skolorna, med den korta form som används när ett programnamn behöver
-# skiljas på skola i ett diagram. Kommunens egna först.
+# Skolorna sidan visar, med den korta form som används när ett programnamn
+# behöver skiljas på skola i ett diagram. Rader från övriga skolenheter i
+# rapporten sorteras bort.
 SKOLOR = [
     ("Aranäsgymnasiet", "Aranäs"),
     ("Elof Lindälvs gymnasium", "Elof Lindälv"),
-    ("Beda Hallbergs gymnasium", "Beda Hallberg"),
-    ("Drottning Blankas gymnasieskola", "Drottning Blanka"),
-    ("LBS Kreativa Gymnasiet", "LBS"),
-    ("Praktiska Gymnasiet", "Praktiska"),
-    ("Sveriges Ridgymnasium", "Ridgymnasiet"),
 ]
 SKOLORDNING = [namn for namn, _ in SKOLOR]
 KORTNAMN = dict(SKOLOR)
+MEDTAGNA = set(SKOLORDNING)
 
 # Rapportens sammanräknade rader. De är inte program utan summeringar av
 # enhetens program, och används till avsnittet om programgrupperna.
@@ -239,6 +243,7 @@ def bygg(argangar: list):
     per_skola = {}
     grupper = {}
 
+    bortsorterade = 0
     for argang in argangar:
         ar = str(argang["ar"])
 
@@ -247,6 +252,12 @@ def bygg(argangar: list):
         rader_program, rader_grupp = {}, {}
         for rad in argang["rader"]:
             skola = skolnamn(rad["skolenhet"], okanda_skolor)
+            if skola not in MEDTAGNA:
+                # Rapporten gäller skolkommun och tar med varje skolenhet i
+                # Kungsbacka. Summeringsraderna hör till sin skolenhet och
+                # faller därför bort på samma villkor som programraderna.
+                bortsorterade += 1
+                continue
             if rad["program"] in SUMMARADER:
                 rader_grupp.setdefault(SUMMARADER[rad["program"]], []).append(rad)
                 continue
@@ -360,7 +371,7 @@ def bygg(argangar: list):
             "hamtad": a["hamtad"],
         } for a in sorted(argangar, key=lambda a: a["ar"])],
     }
-    return ut, okanda_skolor, okanda_program
+    return ut, okanda_skolor, okanda_program, bortsorterade
 
 
 def main() -> None:
@@ -370,7 +381,7 @@ def main() -> None:
                          "scripts/hamta_slutbetyg.py först")
     argangar = [json.loads(f.read_text(encoding="utf-8")) for f in filer]
 
-    ut, okanda_skolor, okanda_program = bygg(argangar)
+    ut, okanda_skolor, okanda_program, bortsorterade = bygg(argangar)
     for skola in sorted(okanda_skolor):
         print(f"VARNING: okänd skola {skola!r} – lägg till den i SKOLNAMN")
     for program in sorted(okanda_program):
@@ -383,7 +394,8 @@ def main() -> None:
     med_serie = sum(1 for u in ut["utbildningar"] if u["antalArMedPoang"] >= 2)
     print(f"Skrev {utfil.name}: {len(ut['ar'])} år ({ut['ar'][0]}–{ut['ar'][-1]}), "
           f"{len(ut['skolor'])} skolor, {len(ut['utbildningar'])} program, "
-          f"{med_serie} med betygspoäng för minst två år")
+          f"{med_serie} med betygspoäng för minst två år "
+          f"({bortsorterade} rader från övriga skolor bortsorterade)")
 
 
 if __name__ == "__main__":
