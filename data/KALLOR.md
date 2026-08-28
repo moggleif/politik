@@ -411,8 +411,8 @@ ihop enheterna till skola med antalet avgångselever som vikt. Att antalet
 elever redovisas är en skillnad mot GR:s antagningsrapporter, där
 meritvärdessidan måste nöja sig med ett ovägt snitt.
 
-**Skolnamnen skrivs olika mellan åren.** Fyra av kommunens sju
-gymnasieskolor har bytt namn i statistiken utan att byta skola:
+**Skolnamnen skrivs olika mellan åren.** Fyra av de sju gymnasieskolorna
+i exporten har bytt namn i statistiken utan att byta skola:
 
 | Skrivs till och med | Skrivs från och med |
 |---|---|
@@ -421,9 +421,11 @@ gymnasieskolor har bytt namn i statistiken utan att byta skola:
 | Drottning Blankas Gymn. Kungsbacka | Drottning Blankas Gymnasieskola Kungsbacka (2018/19) |
 | LBS Ljud & Bildskolan Kungsbacka | LBS Kreativa Gymnasiet Kungsbacka (2018/19) |
 
-Namnen slås ihop i `SKOLNAMN` i `build_slutbetyg.py`. Ett skolnamn som
-inte står där ger en varning vid bygget – annars skulle skolan tyst bli
-två linjer i stället för en.
+Namnen slås ihop i `SKOLNAMN` i `build_slutbetyg.py`. Listan tar med
+också de skolor som sorteras bort, just för att en bortsorterad skola ska
+gå att skilja från en okänd: ett skolnamn som inte står där ger en
+varning vid bygget – annars skulle skolan tyst bli två linjer i stället
+för en.
 
 **Dubbelprickning.** Uppgifter som bygger på färre än tio elever
 redovisas inte, utan skrivs `..` (`.` betyder att uppgiften saknas helt).
@@ -434,9 +436,14 @@ skriver ut den begränsningen. Rapportens egna summeringar –
 räknar däremot med de dolda programmen, och används därför till
 avsnitten om examensgrad och programgrupper.
 
-**Skolkommun, inte hemkommun.** Urvalet är skolor som ligger i
-Kungsbacka, alltså även de fristående. Kungsbackaelever som går i skola i
-en annan kommun ingår inte.
+**Bara Aranäs och Elof Lindälv.** Skolverkets export gäller skolkommun –
+urvalet är skolor som ligger i Kungsbacka, alltså även de fristående och
+Beda Hallbergs gymnasium. Sidan visar samma två skolor som
+meritvärdessidan, så `build_slutbetyg.py` sorterar bort övriga skolors
+rader. Det gäller också rapportens summeringsrader, som hör till sin
+skolenhet: annars skulle avsnitten om examensgrad och programgrupper
+räkna på fler elever än programmen. Kungsbackaelever som går i skola i en
+annan kommun ingår inte i något av fallen.
 
 **Programnamn** hanteras som på meritvärdessidan: Handels- och
 administrationsprogrammet och Försäljnings- och serviceprogrammet är samma

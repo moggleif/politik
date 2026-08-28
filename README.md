@@ -24,7 +24,8 @@ i stället för av att utbildningen ändrats.
   statistik över slutantagningen, 2017–2026
 - [Slutbetyg från gymnasiet](https://moggleif.github.io/politik/slutbetyg.html)
   &ndash; betygspoäng, examensgrad och högskolebehörighet hos avgångseleverna
-  i hela kommunen, ur Skolverkets statistik, 2014–2025
+  på Aranäsgymnasiet och Elof Lindälvs gymnasium, ur Skolverkets statistik,
+  2014–2025
 - [Från antagning till examen](https://moggleif.github.io/politik/antagning-till-examen.html)
   &ndash; antagningen år X ställd mot avgångseleverna år X&nbsp;+&nbsp;3 för
   samma program: samma kull, in och ut ur systemet. Måtten har olika skalor

@@ -137,7 +137,8 @@
     }
     if (slut && slut.ar && slut.skolor) {
       el("undertext-slutbetyg").textContent =
-        slut.skolor.length + " gymnasieskolor i Kungsbacka, avgångseleverna " +
+        slut.skolor.map(function (s) { return s.namn; }).join(" och ") +
+        ", avgångseleverna " +
         slut.ar[0] + "–" + slut.ar[slut.ar.length - 1] + ".";
     }
   }

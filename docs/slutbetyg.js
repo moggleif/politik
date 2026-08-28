@@ -2,9 +2,11 @@
    och ritar diagrammen.
 
    Sidan är program för program, inte skola för skola: en linje är ett
-   program i kommunen. Ett program som flyttat mellan skolor är fortfarande
-   ett program och tar sina gamla år med sig. Låg samma program på två
-   skolor samtidigt är det däremot två utbildningar, och då står skolan i
+   program på Aranäsgymnasiet eller Elof Lindälvs gymnasium – övriga
+   skolenheter i Skolverkets rapport sorteras bort redan i bygget. Ett
+   program som flyttat mellan de två skolorna är fortfarande ett program
+   och tar sina gamla år med sig. Låg samma program på två skolor
+   samtidigt är det däremot två utbildningar, och då står skolan i
    namnet. Uppdelningen görs i scripts/build_slutbetyg.py. */
 (function () {
   "use strict";
@@ -234,7 +236,7 @@
         delete diagram["diagram-utveckling"];
       }
       kortDiv.hidden = true;
-      el("slutsats-utveckling").innerHTML = "<p>Inget av kommunens " +
+      el("slutsats-utveckling").innerHTML = "<p>Inget av de två skolornas " +
         gruppText() + " har " + matt.namn.toLowerCase() + " redovisad något " +
         "år. Skolverket redovisar inte uppgifter som bygger på färre än tio " +
         "elever.</p>";
@@ -504,16 +506,16 @@
       return s.ar === valtAr;
     })[0];
     if (sammanfattning && !valdGrupp()) {
-      html += "<p>Hela avgångskullen i Kungsbacka var " +
+      html += "<p>Hela avgångskullen på de två skolorna var " +
         sammanfattning.antal + " elever med " +
         visaTal(sammanfattning.betygspoang, HUVUDMATT) +
         " i snitt. Här räknas varje elev lika mycket, så de stora " +
         "utbildningarna väger tyngre än de små.";
       if (sammanfattning.antalProgram > sammanfattning.programMedPoang) {
         html += " " + (sammanfattning.antalProgram - sammanfattning.programMedPoang) +
-          " av kommunens " + sammanfattning.antalProgram + " utbildningar hade " +
+          " av de " + sammanfattning.antalProgram + " utbildningarna hade " +
           "för få avgångselever för att redovisas var för sig, men ingår i " +
-          "kommunsnittet.";
+          "snittet.";
       }
       html += "</p>";
     }
@@ -649,9 +651,9 @@
   }
 
   /* ---------- Avsnitt 4: examen eller studiebevis ----------
-     Hela kommunen, oberoende av programfiltret: siffrorna kommer ur
-     rapportens egen summering, som också räknar med de utbildningar som är
-     för små för att redovisas var för sig. */
+     Båda skolorna, oberoende av programfiltret: siffrorna kommer ur
+     rapportens egen summering för deras skolenheter, som också räknar med
+     de utbildningar som är för små för att redovisas var för sig. */
 
   function ritaExamen() {
     var rader = DATA.sammanfattning.filter(function (r) {
@@ -719,12 +721,12 @@
 
     el("kalla-examen").textContent =
       "Antalet elever är framräknat ur andelen med examen och avrundat till " +
-      "hela elever. Staplarna omfattar samtliga nationella program i " +
-      "kommunen, även de för små för att redovisas var för sig.";
+      "hela elever. Staplarna omfattar samtliga nationella program på de " +
+      "två skolorna, även de för små för att redovisas var för sig.";
 
     var forsta = rader[0], sista = rader[rader.length - 1];
     var html = "<p>" + sista.ar + " gick <strong>" + sista.medExamen + " av " +
-      sista.antal + "</strong> avgångselever ut Kungsbackas gymnasieskolor " +
+      sista.antal + "</strong> avgångselever ut Aranäs och Elof Lindälv " +
       "med en gymnasieexamen (" + talSv(sista.andelExamen, 1) + " procent). " +
       forsta.ar + " var det " + forsta.medExamen + " av " + forsta.antal +
       " (" + talSv(forsta.andelExamen, 1) + " procent).</p>";
@@ -827,7 +829,7 @@
 
     el("kalla-typ").textContent =
       "Genomsnittlig betygspoäng för alla avgångselever i respektive grupp, " +
-      "samtliga gymnasieskolor i kommunen. Varje elev räknas lika mycket.";
+      "på Aranäs och Elof Lindälv. Varje elev räknas lika mycket.";
 
     var sista = DATA.ar[DATA.ar.length - 1];
     var html = "";
@@ -943,8 +945,9 @@
     var forsta = medPoang[0], sista = medPoang[medPoang.length - 1];
 
     punkter.push("Sidan följer <strong>" + DATA.utbildningar.length +
-      " utbildningar</strong> på " + DATA.skolor.length + " gymnasieskolor " +
-      "i Kungsbacka genom " + DATA.ar.length + " läsår, " + DATA.ar[0] +
+      " utbildningar</strong> på " +
+      DATA.skolor.map(function (s) { return s.namn; }).join(" och ") +
+      " genom " + DATA.ar.length + " läsår, " + DATA.ar[0] +
       "–" + DATA.ar[DATA.ar.length - 1] + ".");
 
     var diff = sista.betygspoang - forsta.betygspoang;
