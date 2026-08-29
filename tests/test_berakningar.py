@@ -417,6 +417,61 @@ class TestKohortframskrivning(unittest.TestCase):
         self.assertIsNone(arg["ettArPct"])
         self.assertIsNone(arg["maxAvstand"])
 
+    def test_kvoterna_mater_hur_en_aldersklass_vaxer_pa_ett_ar(self):
+        """Med 100 + a personer i varje ålder båda åren blir kvoten för
+        steget a → a+1 exakt (101 + a) / (100 + a)."""
+        pa = {2024: {a: 100 + a for a in range(0, 20)},
+              2025: {a: 100 + a for a in range(0, 20)}}
+        r = build_data.kvoter_tom(pa, 2025, 19)
+        self.assertAlmostEqual(r[0], 101 / 100)
+        self.assertAlmostEqual(r[15], 116 / 115)
+        self.assertNotIn(19, r)          # skulle kräva ålder 20
+
+    def test_kvoterna_far_inte_se_efter_basaret(self):
+        """En framskrivning gjord år B får bara använda kvoter som gick
+        att räkna ut då – annars vet prövningen bakåt om framtiden."""
+        pa = {2023: {a: 100 + a for a in range(0, 20)},
+              2024: {a: 200 + a for a in range(0, 20)},
+              2025: {a: 1000 + a for a in range(0, 20)}}
+        tidig = build_data.kvoter_tom(pa, 2024, 19)
+        sen = build_data.kvoter_tom(pa, 2025, 19)
+        self.assertAlmostEqual(tidig[0], 201 / 100)      # bara 2023→2024
+        self.assertLess(tidig[0], sen[0])                # 2025 drar upp den
+        self.assertEqual(build_data.kvoter_tom(pa, 2023, 19), {})
+
+    def test_kompenserad_multiplicerar_langs_kohortens_vag(self):
+        """Kvoten (101 + a) / (100 + a) tar varje kohort exakt till nästa
+        åldersklass, så 16–19-åringarna om ett år blir 116+117+118+119."""
+        pa = {2024: {a: 100 + a for a in range(0, 20)},
+              2025: {a: 100 + a for a in range(0, 20)}}
+        r = build_data.kvoter_tom(pa, 2025, 19)
+        ut = build_data.kompenserad_for(pa[2025], 2025, (16, 19), r)
+        self.assertEqual(ut[2026], 116 + 117 + 118 + 119)
+        self.assertEqual(build_data.framskriv(pa[2025], 1, (16, 19)),
+                         115 + 116 + 117 + 118)
+
+    def test_kompenserad_stannar_nar_en_kvot_saknas(self):
+        """Utan kvot för hela vägen fram går året inte att räkna, av
+        samma skäl som den enkla framskrivningen stannar."""
+        pa = {2024: {a: 100 + a for a in range(0, 20)},
+              2025: {a: 100 + a for a in range(0, 20)}}
+        r = build_data.kvoter_tom(pa, 2025, 19)
+        del r[10]
+        # 16-åringen om k år är i dag 16 − k år och passerar åldrarna
+        # 16 − k … 15. Ålder 10 kommer med först vid k = 6.
+        ut = build_data.kompenserad_for(pa[2025], 2025, (16, 19), r)
+        self.assertEqual(max(ut), 2030)
+        self.assertNotIn(2031, ut)
+
+    def test_kvotprofilen_redovisar_spannet(self):
+        pa = {2023: {a: 100 for a in range(0, 20)},
+              2024: {a: 110 for a in range(0, 20)},
+              2025: {a: 110 for a in range(0, 20)}}
+        profil = {q["alder"]: q for q in build_data.kvotprofil(pa, 19)}
+        self.assertEqual(profil[0]["antal"], 2)          # två årsövergångar
+        self.assertAlmostEqual(profil[0]["minPct"], 0.0)   # 110 -> 110
+        self.assertAlmostEqual(profil[0]["maxPct"], 10.0)  # 100 -> 110
+
     def test_traffsakerheten_mater_avvikelsen_mot_utfallet(self):
         # Framskrivet 2026 = 466. Sätt utfallet till 500 -> -6,8 %.
         rader = build_data.kohortfel(self.pa, {2026: 500}, (16, 19))

@@ -184,6 +184,20 @@
         gör en ny prognos varje år; årgångarna börjar året före kommunens
         första prognos, så att varje prognos har en jämförbar
         framskrivning.</dd>
+      <dt>Flyttningen mäts som en kvot per ålder</dt>
+      <dd>Skillnaden mellan två framskrivningsårgångar är den flyttning som
+        den enkla modellen utelämnar, och den går att mäta:
+        <code>r(a) = N(a&nbsp;+&nbsp;1, år&nbsp;T&nbsp;+&nbsp;1) / N(a, år&nbsp;T)</code>
+        är hur mycket en åldersklass växer på ett år. Kvoterna vägs samman
+        som <strong>geometriskt</strong> medel, eftersom de multipliceras
+        ihop längs kohortens väg &ndash; då är det den multiplikativa
+        mittpunkten som gäller, inte den aritmetiska. Den
+        <em>kompenserade</em> framskrivningen multiplicerar varje kohort
+        med r(a) för varje år den åldras. I prövningen bakåt skattas
+        kvoterna alltid ur åren <em>före</em> basåret; annars vet
+        framskrivningen något om framtiden och prövningen mäter
+        ingenting. Ett år där någon kvot saknas på vägen räknas inte
+        fram.</dd>
       <dt>Nian, gymnasiestarten och examen ställs på samma årtal</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_nian_gymnasiet.py">build_nian_gymnasiet.py</a>
         sätter slutbetyget i årskurs 9 år X bredvid genomströmningen för
@@ -254,7 +268,11 @@
         horisont. Riktningen på felet skiftar: på ett par års sikt har den
         legat något för högt, eftersom en del 18&ndash;19-åringar flyttar
         ut, och på längre sikt kraftigt för lågt, eftersom det hinner
-        flytta in fler barnfamiljer än det flyttar ut.</dd>
+        flytta in fler barnfamiljer än det flyttar ut. Den kompenserade
+        framskrivningen rättar det, men bygger då på antagandet att
+        flyttmönstret består &ndash; den är alltså en modell, inte ett
+        facit, och redovisas som en egen serie och aldrig i den enkla
+        framskrivningens ställe.</dd>
       <dt>Varför vissa år saknas</dt>
       <dd>Antagningsåret 2018 saknas därför att GR:s rapport från det året
         inte gått att få tag på &ndash; den försvann när GR bytte

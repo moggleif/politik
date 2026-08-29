@@ -20,10 +20,24 @@ en prognos utan en undre gräns på vad som redan finns. Hur mycket den
 historiskt missat, och hur den står sig mot kommunens egen modell vid
 samma horisont, räknas fram här och redovisas på sidan.
 
+Skillnaden mellan två framskrivningsårgångar är just den flyttning som
+den enkla modellen utelämnar, och den går att mäta: kvoten
+
+    r(a) = N(a+1, år T+1) / N(a, år T)
+
+är hur mycket en åldersklass växer på ett år. Den är påfallande stabil
+över åren men starkt åldersberoende – störst för de yngsta, negativ när
+18-åringarna flyttar hemifrån. En **kompenserad framskrivning** multiplicerar
+därför varje kohort med r(a) längs vägen i stället för att bära den rakt
+fram. Den bygger, till skillnad från den enkla, på antagandet att
+flyttmönstret består; kvoterna skattas därför alltid ur åren *före*
+basåret, så att prövningen bakåt blir ärlig.
+
 Körs:  python3 scripts/build_data.py
 """
 
 import json
+import math
 from pathlib import Path
 
 ROT = Path(__file__).resolve().parent.parent
@@ -98,34 +112,116 @@ def kohortfel(pa: dict, utfall: dict, aldrar: tuple) -> list:
     ]
 
 
+def kvoter_tom(pa: dict, tom: int, hogsta_alder: int) -> dict:
+    """Åldersklassernas årliga tillväxt, skattad ur åren t.o.m. `tom`.
+
+    r(a) = N(a+1, T+1) / N(a, T), sammanvägt som **geometriskt** medel:
+    kvoterna multipliceras ihop längs kohortens väg, och då är det den
+    multiplikativa mittpunkten som ska användas, inte den aritmetiska.
+
+    `tom` finns för att prövningen bakåt ska bli ärlig: en framskrivning
+    gjord år B får bara använda kvoter som gick att räkna ut då."""
+    ar = sorted(pa)
+    ut = {}
+    for a in range(0, hogsta_alder):
+        v = [pa[T + 1][a + 1] / pa[T][a]
+             for T in ar
+             if T + 1 in pa and T + 1 <= tom
+             and pa[T].get(a) and pa[T + 1].get(a + 1)]
+        if v:
+            ut[a] = math.exp(sum(math.log(x) for x in v) / len(v))
+    return ut
+
+
+def kvotprofil(pa: dict, hogsta_alder: int) -> list:
+    """Kvoterna per ålder för redovisning, med spridning över åren."""
+    ar = sorted(pa)
+    ut = []
+    for a in range(0, hogsta_alder):
+        v = [pa[T + 1][a + 1] / pa[T][a]
+             for T in ar
+             if T + 1 in pa and pa[T].get(a) and pa[T + 1].get(a + 1)]
+        if not v:
+            continue
+        r = math.exp(sum(math.log(x) for x in v) / len(v))
+        ut.append({
+            "alder": a,
+            "kvot": round(r, 5),
+            "nettoPct": round(100 * (r - 1), 2),
+            "antal": len(v),
+            "minPct": round(100 * (min(v) - 1), 2),
+            "maxPct": round(100 * (max(v) - 1), 2),
+        })
+    return ut
+
+
+def kompenserad_for(bas: dict, basar: int, aldrar: tuple, kvoter: dict) -> dict:
+    """Framskrivningen med varje åldersklass uppräknad med sin kvot.
+
+    En kohort som i dag är a0 år och ska bli m år multipliceras med
+    r(a0)·r(a0+1)·…·r(m−1). Saknas någon kvot på vägen skrivs året inte
+    fram alls, av samma skäl som den enkla framskrivningen inte gör det."""
+    lag, hog = aldrar
+    ut = {}
+    k = 1
+    while True:
+        summa = 0.0
+        for m in range(lag, hog + 1):
+            a0 = m - k
+            if a0 < 0 or a0 not in bas:
+                return ut
+            varde = float(bas[a0])
+            for j in range(a0, m):
+                if j not in kvoter:
+                    return ut
+                varde *= kvoter[j]
+            summa += varde
+        ut[basar + k] = round(summa)
+        k += 1
+
+
 def kohortjamforelse(pa: dict, prognoser: list, utfall: dict, aldrar: tuple) -> list:
     """Kommunens modell mot framskrivningen, vid samma horisont.
 
     En prognos gjord år P har kommunens folkmängd t.o.m. årsskiftet P−1 att
-    utgå från, så framskrivningen får samma utgångspunkt: basåret P−1. Bara
-    målår där båda har ett värde och det finns ett facit räknas, annars
+    utgå från, så framskrivningen får samma utgångspunkt: basåret P−1, och
+    den kompenserade dessutom bara kvoter skattade t.o.m. samma år. Bara
+    målår där alla tre har ett värde och det finns ett facit räknas, annars
     jämförs de på olika underlag."""
     per_avstand = {}
     for p in prognoser:
-        bas = pa.get(p["prognosAr"] - 1)
+        basar = p["prognosAr"] - 1
+        bas = pa.get(basar)
         if bas is None:
             continue
+        komp = kompenserad_for(bas, basar, aldrar,
+                               kvoter_tom(pa, basar, aldrar[1]))
         for ar, varde in p["prognos"].items():
             malar = int(ar)
             if malar not in utfall:
                 continue
-            kohort = framskriv(bas, malar - (p["prognosAr"] - 1), aldrar)
+            kohort = framskriv(bas, malar - basar, aldrar)
             if kohort is None:
                 continue
-            rad = per_avstand.setdefault(malar - p["prognosAr"], {"k": [], "p": []})
+            rad = per_avstand.setdefault(malar - p["prognosAr"],
+                                         {"k": [], "p": [], "c": []})
             rad["p"].append(abs(100.0 * (varde - utfall[malar]) / utfall[malar]))
             rad["k"].append(abs(100.0 * (kohort - utfall[malar]) / utfall[malar]))
+            # Den kompenserade kräver kvoter hela vägen fram. Saknas de
+            # ska raden ändå finnas: jämförelsen mellan kommunen och den
+            # enkla framskrivningen står på egna ben.
+            if malar in komp:
+                rad["c"].append(
+                    abs(100.0 * (komp[malar] - utfall[malar]) / utfall[malar]))
     return [
         {
             "avstand": avst,
             "antal": len(v["p"]),
             "kommunAbsPct": round(sum(v["p"]) / len(v["p"]), 2),
             "kohortAbsPct": round(sum(v["k"]) / len(v["k"]), 2),
+            "kompenseradAntal": len(v["c"]),
+            "kompenseradAbsPct": (round(sum(v["c"]) / len(v["c"]), 2)
+                                  if v["c"] else None),
         }
         for avst, v in sorted(per_avstand.items())
     ]
@@ -158,6 +254,10 @@ def kohortargangar(pa: dict, utfall: dict, aldrar: tuple, forsta_basar: int) -> 
         framskrivning = framskrivning_for(pa[basar], basar, aldrar)
         if not framskrivning:
             continue
+        # Kvoterna skattas ur åren FÖRE basåret. Annars vet årgången något
+        # om framtiden, och prövningen bakåt mäter ingenting.
+        kompenserad = kompenserad_for(pa[basar], basar, aldrar,
+                                      kvoter_tom(pa, basar, aldrar[1]))
 
         avvikelser = {}
         for ar, varde in framskrivning.items():
@@ -170,17 +270,26 @@ def kohortargangar(pa: dict, utfall: dict, aldrar: tuple, forsta_basar: int) -> 
                     "pct": round(100.0 * diff / utfall[ar], 2),
                     "avstand": ar - basar,
                 }
+                if ar in kompenserad:
+                    avvikelser[ar]["kompenserad"] = kompenserad[ar]
+                    avvikelser[ar]["kompenseradPct"] = round(
+                        100.0 * (kompenserad[ar] - utfall[ar]) / utfall[ar], 2)
 
         v = [a["pct"] for a in avvikelser.values()]
+        c = [a["kompenseradPct"] for a in avvikelser.values()
+             if "kompenseradPct" in a]
         ettar = [a["pct"] for a in avvikelser.values() if a["avstand"] == 1]
         argangar.append({
             "basAr": basar,
             "sistaAr": max(framskrivning),
             "framskrivning": {str(a): x for a, x in sorted(framskrivning.items())},
+            "kompenserad": {str(a): x for a, x in sorted(kompenserad.items())},
             "avvikelser": {str(a): x for a, x in sorted(avvikelser.items())},
             "antal": len(v),
             "medelAbsPct": round(sum(abs(x) for x in v) / len(v), 2) if v else None,
             "medelPct": round(sum(v) / len(v), 2) if v else None,
+            "kompenseradAbsPct": round(sum(abs(x) for x in c) / len(c), 2) if c else None,
+            "kompenseradPct": round(sum(c) / len(c), 2) if c else None,
             "maxAvstand": max((a["avstand"] for a in avvikelser.values()),
                               default=None),
             "ettArPct": round(ettar[0], 2) if ettar else None,
@@ -215,6 +324,9 @@ def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None
                     if prognoser else min(pa))
     argangar = kohortargangar(pa, utfall, aldrar, forsta_basar)
 
+    kvoter = kvoter_tom(pa, basar, aldrar[1])
+    kompenserad = kompenserad_for(bas, basar, aldrar, kvoter)
+
     # Kommunens senaste prognos vid sidan av framskrivningen, år för år.
     senaste = prognoser[-1] if prognoser else None
     mot_senaste = []
@@ -227,6 +339,7 @@ def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None
                     "kommun": varde,
                     "kohort": framskrivning[malar],
                     "diff": varde - framskrivning[malar],
+                    "kompenserad": kompenserad.get(malar),
                 })
 
     return {
@@ -234,6 +347,9 @@ def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None
         "aldrar": list(aldrar),
         "sistaAr": max(framskrivning),
         "framskrivning": {str(a): v for a, v in sorted(framskrivning.items())},
+        "kompenserad": {str(a): v for a, v in sorted(kompenserad.items())},
+        "kvoter": kvotprofil(pa, aldrar[1]),
+        "kvotAr": [min(pa) + 1, basar],
         "ursprung": {str(a): v for a, v in sorted(ursprung.items())},
         "traffsakerhet": kohortfel(pa, utfall, aldrar),
         "jamforelse": kohortjamforelse(pa, prognoser, utfall, aldrar),
