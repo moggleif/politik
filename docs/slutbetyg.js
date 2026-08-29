@@ -339,9 +339,9 @@
 
     if (senast.length) {
       var hogst = senast[0], lagst = senast[senast.length - 1];
-      html += "<p><strong>" + esc(sista) + "</strong> hade " + esc(hogst.etikett) +
-        " högst " + matt.namn.toLowerCase() + " i Kungsbacka (" +
-        visaTal(hogst.v, matt) + ")";
+      html += "<p>Av de utbildningar som redovisas <strong>" + esc(sista) +
+        "</strong> hade " + esc(hogst.etikett) + " högst " +
+        matt.namn.toLowerCase() + " (" + visaTal(hogst.v, matt) + ")";
       if (senast.length > 1) {
         html += " och " + esc(lagst.etikett) + " lägst (" + visaTal(lagst.v, matt) + ").";
       } else {
@@ -356,24 +356,23 @@
       var stigande = helaPerioden.filter(function (r) { return r.diff > 0; }).length;
       html += "<p>Av de " + helaPerioden.length + " utbildningar som redovisas både " +
         esc(forsta) + " och " + esc(sista) + " har <strong>" + stigande +
-        "</strong> högre värde i dag än då.";
+        "</strong> högre värde " + esc(sista) + " än " + esc(forsta) + ".";
       if (upp.diff > 0) {
-        html += " Mest har " + esc(upp.etikett) + " stigit: " +
+        html += " Störst ökning har " + esc(upp.etikett) + ": " +
           visaTal(upp.forsta, matt) + " till " + visaTal(upp.sista, matt) + " (+" +
           talSv(upp.diff, matt.dec) + ").";
       }
       if (ner.diff < 0) {
-        html += " Mest har " + esc(ner.etikett) + " sjunkit: " +
+        html += " Störst minskning har " + esc(ner.etikett) + ": " +
           visaTal(ner.forsta, matt) + " till " + visaTal(ner.sista, matt) + " (−" +
           talSv(Math.abs(ner.diff), matt.dec) + ").";
       }
       html += "</p>";
     }
 
-    html += "<p><strong>Läs med försiktighet:</strong> ett program med en " +
-      "liten avgångskull kan svänga kraftigt mellan åren av rena " +
-      "tillfälligheter &ndash; tio elever räcker för att redovisas. Hur " +
-      "många eleverna var syns när du pekar på en punkt.</p>";
+    html += "<p>En utbildning redovisas de år den hade minst tio " +
+      "avgångselever. Antalet avgångselever bakom varje punkt står i " +
+      "rutan som visas när du pekar på punkten.</p>";
 
     el("slutsats-utveckling").innerHTML = html;
   }
@@ -475,21 +474,21 @@
       "Skalan går till 20, som är högsta möjliga betygspoäng.";
 
     var hogst = rader[0], lagst = rader[rader.length - 1];
-    var html = "<p>Högst betygspoäng " + valtAr + " hade <strong>" +
-      esc(hogst.u.namn) + "</strong> (" + visaTal(hogst.v.betygspoang, HUVUDMATT) +
-      "), lägst <strong>" + esc(lagst.u.namn) + "</strong> (" +
-      visaTal(lagst.v.betygspoang, HUVUDMATT) + "). Skillnaden är " +
+    var html = "<p>Av de utbildningar som redovisas " + valtAr +
+      " hade <strong>" + esc(hogst.u.namn) + "</strong> högst betygspoäng (" +
+      visaTal(hogst.v.betygspoang, HUVUDMATT) + ") och <strong>" +
+      esc(lagst.u.namn) + "</strong> lägst (" +
+      visaTal(lagst.v.betygspoang, HUVUDMATT) + "). Skillnaden mellan dem är " +
       talSv(hogst.v.betygspoang - lagst.v.betygspoang, 1) + " betygspoäng.</p>";
     var sammanfattning = DATA.sammanfattning.filter(function (s) {
       return s.ar === valtAr;
     })[0];
     if (sammanfattning && !valdGrupp()) {
-      html += "<p>Avgångseleverna på de nationella programmen vid de två " +
-        "skolorna var " +
-        esc(sammanfattning.antal) + " elever med " +
+      html += "<p>Rapportens summeringsrad Nationella program för de två " +
+        "skolorna omfattar " + esc(sammanfattning.antal) +
+        " avgångselever " + valtAr + " med " +
         visaTal(sammanfattning.betygspoang, HUVUDMATT) +
-        " i snitt. Här räknas varje elev lika mycket, så de stora " +
-        "utbildningarna väger tyngre än de små.";
+        " i genomsnittlig betygspoäng. Snittet är vägt per elev.";
       if (sammanfattning.antalProgram > sammanfattning.programMedPoang) {
         html += " " + (sammanfattning.antalProgram - sammanfattning.programMedPoang) +
           " av de " + esc(sammanfattning.antalProgram) + " utbildningarna hade " +
@@ -590,8 +589,8 @@
     }, Math.max(260, rader.length * 30 + 100));
 
     el("kalla-forandring").textContent =
-      "Blå stapel = högre betygspoäng än vid första mätåret, röd = lägre. " +
-      "Färgen visar bara riktningen, inte om utvecklingen är bra eller dålig.";
+      "Blå stapel = högre betygspoäng vid sista mätåret än vid det första, " +
+      "röd = lägre.";
 
     var upp = rader.filter(function (u) { return u.forandring > 0; }).length;
     var ner = rader.filter(function (u) { return u.forandring < 0; }).length;
@@ -606,9 +605,9 @@
     }
     var kortaste = rader.filter(function (u) { return u.antalArMedPoang === 2; }).length;
     if (kortaste) {
-      html += "<p><strong>Läs med försiktighet:</strong> " + kortaste +
-        " av utbildningarna har bara två mätår. Då är &rdquo;förändringen&rdquo; " +
-        "skillnaden mellan två enskilda årskullar, inte en trend.</p>";
+      html += "<p>" + kortaste + " av utbildningarna har två mätår. " +
+        "Förändringen är för dem skillnaden mellan de två redovisade " +
+        "årskullarna.</p>";
     }
     el("slutsats-forandring").innerHTML = html;
 
@@ -824,29 +823,22 @@
       var b = yp.varden[String(sista)].betygspoang;
       var grupperna = talSv(a, 1) + " för de högskoleförberedande programmen och " +
         talSv(b, 1) + " för yrkesprogrammen";
-      /* Under ett halvt tiondels poäng skulle skrivas ut som "0,0" – då är
-         det ärligare att säga att grupperna ligger lika. */
+      /* Under ett halvt tiondels poäng skulle skrivas ut som "0,0" – då
+         anges i stället att skillnaden är mindre än 0,05 poäng. */
       html += Math.abs(a - b) < 0.05
-        ? "<p>" + esc(sista) + " låg grupperna <strong>i princip lika</strong>: " +
-          grupperna + ".</p>"
+        ? "<p>" + esc(sista) + " var skillnaden mellan grupperna " +
+          "<strong>mindre än 0,05 betygspoäng</strong>: " + grupperna + ".</p>"
         : "<p>" + esc(sista) + " skilde det <strong>" + talSv(Math.abs(a - b), 1) +
           " betygspoäng</strong> mellan grupperna: " + grupperna + ".</p>";
       var forsta = DATA.ar[0];
       if (hf.varden[String(forsta)] && yp.varden[String(forsta)]) {
         var gammal = Math.abs(hf.varden[String(forsta)].betygspoang -
           yp.varden[String(forsta)].betygspoang);
-        var nu = Math.abs(a - b);
-        html += "<p>" + esc(forsta) + " var skillnaden " + talSv(gammal, 1) +
-          " betygspoäng &ndash; " +
-          (Math.abs(nu - gammal) < 0.05
-            ? "ungefär lika stor som nu"
-            : "alltså " + talSv(Math.abs(nu - gammal), 1) + " poäng " +
-              (nu > gammal ? "mindre" : "större") + " än " + esc(sista)) +
-          ". Det är en jämförelse mellan två enskilda år. Gruppernas " +
-          "siffror är elevviktade, men vilka program som ingår i varje " +
-          "grupp skiljer sig mellan åren, så skillnaden kan lika gärna " +
-          "komma av att programutbudet ändrats som av att programmen " +
-          "förändrats.</p>";
+        html += "<p>" + esc(forsta) + " var skillnaden mellan grupperna " +
+          talSv(gammal, 1) + " betygspoäng och " + esc(sista) + " " +
+          talSv(Math.abs(a - b), 1) + " betygspoäng. Gruppernas siffror är " +
+          "vägda per elev, och vilka program som ingår i varje grupp " +
+          "skiljer sig mellan åren.</p>";
       }
     }
     el("slutsats-typ").innerHTML = html;
@@ -958,17 +950,17 @@
       var a = hf.varden[String(sistaAr)].betygspoang;
       var b = yp.varden[String(sistaAr)].betygspoang;
       punkter.push(Math.abs(a - b) < 0.05
-        ? "Högskoleförberedande program och yrkesprogram låg i princip lika " +
-          "i betygspoäng " + esc(sistaAr) + " (" + talSv(a, 1) + " mot " +
-          talSv(b, 1) + ", vägt per elev)."
+        ? "Skillnaden mellan högskoleförberedande program och yrkesprogram " +
+          "var <strong>mindre än 0,05 betygspoäng</strong> " + esc(sistaAr) +
+          " (" + talSv(a, 1) + " mot " + talSv(b, 1) + ", vägt per elev)."
         : "Skillnaden mellan högskoleförberedande program och yrkesprogram " +
           "var <strong>" + talSv(Math.abs(a - b), 1) + " betygspoäng</strong> " +
           esc(sistaAr) + " (" + talSv(a, 1) + " mot " + talSv(b, 1) +
           ", vägt per elev).");
     }
 
-    /* Långsiktiga förändringar per utbildning – bara de med minst tre
-       mätår, så att en enskild årskull inte kallas trend. */
+    /* Förändring per utbildning – urvalet är de utbildningar som har
+       minst tre mätår. */
     var langa = DATA.utbildningar.filter(function (u) {
       return u.forandring !== null && u.antalArMedPoang >= 3;
     });

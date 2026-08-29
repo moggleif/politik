@@ -112,9 +112,8 @@
       <strong>Klicka på ett ämne i teckenförklaringen</strong> under
       diagrammet för att dölja eller visa just den linjen. Peka på en linje
       för att tona ned de andra. Med knapparna nedanför går det att dölja
-      allt och sedan klicka fram bara de ämnen du vill jämföra &ndash;
-      skalan ställer då om sig efter de linjer som visas, så att skillnader
-      som annars trängs ihop blir läsbara.
+      allt och sedan klicka fram enskilda ämnen &ndash; skalan ställer då om
+      sig efter de linjer som visas.
     </p>
     <div class="diagram-knappar">
       <button type="button" id="knapp-dolj-alla">Dölj alla ämnen</button>
@@ -136,16 +135,15 @@
     <p class="forklaring">
       Ett <strong>ovägt medel av ämnenas genomsnittliga betygspoäng</strong>,
       läsår för läsår, räknat över ett <strong>fast urval ämnen</strong>
-      &ndash; de som redovisas samtliga läsår &ndash; så att förändringen
-      beror på betygen och inte på vilka ämnen som råkade redovisas ett
-      visst år. Det är alltså inte årskullens elevviktade betygssnitt:
-      varje ämne väger lika tungt, oavsett hur många elever som läste det.
+      &ndash; de som redovisas samtliga läsår. Det är inte årskullens
+      elevviktade betygssnitt: varje ämne väger lika tungt, oavsett hur
+      många elever som läste det.
     </p>
     <p class="forklaring">
       Snittet elevviktas inte, eftersom elevantalet inte går att vikta med:
-      sedan läsåret 2024/25 döljer Skolverket antalet elever i engelska,
-      matematik och svenska men redovisar ändå betygen. En vägning skulle
-      tyst utesluta just de ämnena.
+      sedan läsåret 2024/25 redovisar Skolverket inte antalet elever i
+      engelska, matematik och svenska, men redovisar betygen. En vägning
+      skulle utesluta de ämnena.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-poang" aria-label="Diagram: ovägt medel av ämnenas genomsnittliga betygspoäng, över tid" role="img"></canvas></div>
@@ -161,12 +159,12 @@
   <section id="sektion-godkant" hidden>
     <h2>Hur stor andel får godkänt?</h2>
     <p class="forklaring">
-      Betygspoängen ovanför säger hur höga betygen är. Det här måttet
-      säger något annat: hur stor andel av betygen som är godkända
-      (A&ndash;E). Det räknas på samma sätt &ndash; ett ovägt medel av
-      ämnenas andelar godkända, över samma fasta ämnesurval &ndash; och är
-      alltså inte andelen elever som blev godkända i allt. Måtten har olika
-      skalor och visas därför i skilda diagram, aldrig i samma.
+      Det här måttet är andelen betyg som är godkända (A&ndash;E). Det
+      räknas på samma sätt som betygspoängen ovanför &ndash; ett ovägt medel
+      av ämnenas andelar godkända, över samma fasta ämnesurval &ndash; och
+      är inte andelen elever som blev godkända i alla ämnen. De två måtten
+      har olika skalor, 0&ndash;20 respektive 0&ndash;100 procent, och visas
+      därför i skilda diagram.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-godkant" aria-label="Diagram: ovägt medel av ämnenas andel med godkänt betyg, över tid" role="img"></canvas></div>
@@ -224,13 +222,11 @@
       tio elever redovisas inte av Skolverket, utan skrivs
       &rdquo;..&rdquo;. Det gäller små ämnen, och sedan läsåret 2024/25
       även elevantalet i några stora ämnen. Årssnittet räknas därför över
-      ett fast urval ämnen &ndash; de som redovisas samtliga läsår &ndash;
-      så att förändringen beror på betygen och inte på vilka ämnen som
-      råkade redovisas ett visst år. Av samma skäl vägs ämnena inte med
-      elevantalet: de dolda elevantalen finns just i engelska, matematik
-      och svenska, och en vägning skulle tyst utesluta dem. Årssnittet är
-      därmed ett ovägt medel av ämnenas värden, inte ett elevviktat snitt
-      för årskullen.
+      ett fast urval ämnen &ndash; de som redovisas samtliga läsår. Ämnena
+      vägs inte med elevantalet: de elevantal som inte redovisas finns i
+      engelska, matematik och svenska, och en vägning skulle utesluta dem.
+      Årssnittet är därmed ett ovägt medel av ämnenas värden, inte ett
+      elevviktat snitt för årskullen.
     </p>
     <p class="forklaring">
       Sidan är fristående och drivs inte av Kungsbacka kommun. Alla

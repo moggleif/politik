@@ -245,33 +245,33 @@
       var stigande = helaPerioden.filter(function (r) { return r.diff > 0; }).length;
       if (helaPerioden.length === 1) {
         html += "<p>" + (valt ? "Den enda inriktningen" : "Det enda programmet") +
-          " som finns med både " + esc(forsta) + " och " + esc(sista) + " har " +
+          " som har värden både " + esc(forsta) + " och " + esc(sista) + " har " +
           (stigande ? "<strong>högre</strong>" : "<strong>lägre</strong>") +
-          " medelmeritvärde i dag än då.";
+          " medelmeritvärde " + esc(sista) + " än " + esc(forsta) + ".";
       } else {
         html += "<p>Av de " + helaPerioden.length + " " +
-          (valt ? "inriktningar" : "program") + " som finns med både " +
+          (valt ? "inriktningar" : "program") + " som har värden både " +
           esc(forsta) + " och " + esc(sista) + " har <strong>" + stigande +
-          "</strong> högre medelmeritvärde i dag än då.";
+          "</strong> högre medelmeritvärde " + esc(sista) + " än " +
+          esc(forsta) + ".";
       }
       if (helaPerioden.length > 1 && upp.diff > 0) {
-        html += " Mest har " + esc(upp.etikett) + " stigit: " +
+        html += " Störst ökning har " + esc(upp.etikett) + ": " +
           talSv(upp.forsta, 1) + " till " + talSv(upp.sista, 1) + " (+" +
           talSv(upp.diff, 1) + ").";
       }
       if (helaPerioden.length > 1 && ner.diff < 0) {
-        html += " Mest har " + esc(ner.etikett) + " sjunkit: " +
+        html += " Störst minskning har " + esc(ner.etikett) + ": " +
           talSv(ner.forsta, 1) + " till " + talSv(ner.sista, 1) + " (−" +
           talSv(Math.abs(ner.diff), 1) + ").";
       }
       html += "</p>";
     }
 
-    html += "<p><strong>Läs med försiktighet:</strong> ett medelmeritvärde " +
-      "bygger på de elever som antogs, och ett program med få platser kan " +
-      "svänga kraftigt mellan åren av rena tillfälligheter. Rapporterna " +
-      "redovisar inte hur många som antogs, så hur tungt varje punkt väger " +
-      "går inte att se.</p>";
+    html += "<p>Varje värde är medelmeritvärdet för de elever som antogs " +
+      "till utbildningen det året. Rapporterna redovisar inte hur många " +
+      "elever som antogs, så antalet elever bakom varje punkt framgår inte " +
+      "av datat.</p>";
 
     el("slutsats-utveckling").innerHTML = html;
   }
@@ -527,8 +527,8 @@
     }, Math.max(260, rader.length * 30 + 100));
 
     el("kalla-forandring").textContent =
-      "Blå stapel = högre meritvärde än vid första mätåret, röd = lägre. " +
-      "Färgen visar bara riktningen, inte om utvecklingen är bra eller dålig.";
+      "Blå stapel = högre medelmeritvärde vid sista mätåret än vid det " +
+      "första, röd = lägre.";
 
     var upp = rader.filter(function (p) { return p.forandring > 0; }).length;
     var ner = rader.filter(function (p) { return p.forandring < 0; }).length;
@@ -537,9 +537,8 @@
       "vid sitt första, " + ner + " har lägre.</p>";
     var kortaste = rader.filter(function (p) { return p.antalArMedMedel === 2; }).length;
     if (kortaste) {
-      html += "<p><strong>Läs med försiktighet:</strong> " + kortaste +
-        " av programmen har bara två mätår. Då är &rdquo;förändringen&rdquo; " +
-        "skillnaden mellan två enskilda årskullar, inte en trend.</p>";
+      html += "<p>" + kortaste + " av programmen har två mätår. För dem är " +
+        "förändringen skillnaden mellan två enskilda årskullar.</p>";
     }
     el("slutsats-forandring").innerHTML = html;
 
@@ -635,22 +634,21 @@
       "hade fler behöriga sökande än platser (" + andel(sista) + " procent). " +
       esc(forsta.ar) + " var det " + esc(forsta.medGrans) + " av " +
       esc(forsta.antalUtbildningar) + " (" + andel(forsta) + " procent). " +
-      "Andelen säger hur många av utbildningarna som var översökta, inte hur " +
-      "många sökande som blev utan plats &ndash; en utbildning med några få " +
-      "sökande över platserna räknas lika mycket som en med många.</p>";
+      "Andelen räknar utbildningar, inte sökande: en utbildning med några få " +
+      "behöriga sökande över platserna räknas lika mycket som en med många.</p>";
 
     /* Två rapportformer bakom samma stapel – det måste läsaren veta om. */
     var bytesAr = rader.filter(function (r) { return r.markor === "fetstil"; });
     if (bytesAr.length && bytesAr.length < rader.length) {
-      html += "<p><strong>Jämför med urskillning:</strong> rapporterna säger " +
+      html += "<p><strong>Två redovisningssätt:</strong> rapporterna anger " +
         "detta på två olika sätt. Till och med " +
         esc(rader[rader.length - bytesAr.length - 1].ar) + " skrevs fotnoten " +
         "&rdquo;alla behöriga sökande är antagna&rdquo; i stället för en " +
         "antagningspoäng. Från " + esc(bytesAr[0].ar) + " skrivs poängen alltid ut, " +
         "och de utbildningar som saknade lediga platser markeras i stället med " +
-        "fet stil. Måtten är varandras spegelbild, men inte exakt samma sak: " +
-        "en utbildning där de behöriga sökande precis fyllde platserna räknas " +
-        "åt olika håll före och efter bytet.</p>";
+        "fet stil. Definitionerna sammanfaller inte helt: en utbildning där " +
+        "de behöriga sökande precis fyllde platserna räknas åt olika håll " +
+        "före och efter bytet.</p>";
     }
     el("slutsats-konkurrens").innerHTML = html;
 
@@ -765,18 +763,17 @@
         var da = Math.abs(hf.varden[String(forsta)].medel -
           yp.varden[String(forsta)].medel);
         html += "<p>" + esc(forsta) + " var skillnaden " + talSv(da, 1) +
-          " meritpoäng. Avståndet mellan de två ovägda gruppsnitten är alltså " +
+          " meritpoäng. Avståndet mellan de två ovägda gruppsnitten är " +
           (Math.abs(nu - da) < 0.05
-            ? "ungefär detsamma båda åren"
+            ? "lika stort båda åren, avrundat till en decimal"
             : talSv(Math.abs(nu - da), 1) + " meritpoäng " +
               (nu > da ? "större" : "mindre") + " " + esc(sista) + " än " +
               esc(forsta)) +
-          ". Det är en jämförelse av två årsvärden, inte ett mått på att " +
-          "gapet mellan programmen ändrats: utbudet av program och " +
-          "inriktningar skiljer sig mellan åren, och eftersom varje " +
-          "utbildning väger lika mycket kan skillnaden lika gärna komma av " +
-          "att sammansättningen ändrats som av att programmen förändrats. De " +
-          "två går inte att skilja åt i det här datat.</p>";
+          ". Båda talen är skillnader mellan ovägda gruppsnitt för ett " +
+          "enskilt år. Utbudet av program och inriktningar skiljer sig mellan " +
+          "åren och varje utbildning väger lika mycket i snittet, så datat " +
+          "skiljer inte förändringar i utbildningarnas värden från " +
+          "förändringar i gruppernas sammansättning.</p>";
       }
     }
     el("slutsats-typ").innerHTML = html;

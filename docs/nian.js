@@ -328,119 +328,18 @@
     });
     if (!k.length) return;
     var f = k[0], s = k[k.length - 1];
-    var nianUpp = s.nian.andelBehorigYrkes > f.nian.andelBehorigYrkes;
-    var gymUpp = s.start.examen3 > f.start.examen3;
     el("slutsats-kedjan").innerHTML =
       "<p><strong>" + k.length + "</strong> årskullar har alla tre " +
       "mätpunkterna: de som gick ut nian " + esc(f.ar) + "–" + esc(s.ar) + ". " +
-      "Mellan den första och den sista av dem har andelen behöriga i nian " +
-      (nianUpp ? "<strong>stigit</strong>" : "<strong>sjunkit</strong>") +
-      " från " + pct(f.nian.andelBehorigYrkes) + " till " +
-      pct(s.nian.andelBehorigYrkes) + ", medan andelen som tog examen inom " +
-      "tre år " + (gymUpp ? "<strong>stigit</strong>" : "<strong>sjunkit</strong>") +
-      " från " + pct(f.start.examen3) + " till " + pct(s.start.examen3) +
-      ". Måtten rör sig alltså " + (nianUpp === gymUpp ? "åt samma håll" :
-        "<strong>åt olika håll</strong>") + ".</p>";
+      "Mellan den första och den sista av dem gick andelen behöriga i nian " +
+      "från " + pct(f.nian.andelBehorigYrkes) + " till " +
+      pct(s.nian.andelBehorigYrkes) + ", och andelen som tog examen inom tre " +
+      "år från " + pct(f.start.examen3) + " till " + pct(s.start.examen3) +
+      ". Måtten har olika skalor och olika urval, och de tre mätpunkterna " +
+      "följer inte samma individer.</p>";
   }
 
-  /* ---------- 4. Sambanden ---------- */
-
-  function sambandFor(nyckel) {
-    for (var i = 0; i < DATA.samband.length; i++) {
-      if (DATA.samband[i].nyckel === nyckel) return DATA.samband[i];
-    }
-    return DATA.samband[0];
-  }
-
-  function fyllSambandValjare() {
-    el("samband-valjare").innerHTML = DATA.samband.map(function (s) {
-      return '<option value="' + esc(s.nyckel) + '">' + esc(s.etikett) + "</option>";
-    }).join("");
-  }
-
-  function ritaSamband() {
-    var s = sambandFor(el("samband-valjare").value);
-    var stil = K.serieStil(0);
-
-    hojd("diagram-samband", 400);
-    rita("diagram-samband", {
-      type: "scatter",
-      data: {
-        datasets: [{
-          label: "En punkt per årskull",
-          data: s.punkter.map(function (p) {
-            return { x: p.x, y: p.y, ar: p.ar };
-          }),
-          backgroundColor: stil.farg,
-          borderColor: stil.farg,
-          pointStyle: stil.punkt,
-          pointRadius: 6, pointHoverRadius: 9
-        }]
-      },
-      options: {
-        maintainAspectRatio: false,
-        responsive: true,
-        locale: "sv-SE",
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              title: function (it) {
-                return "Ut ur nian " + it[0].raw.ar;
-              },
-              label: function (it) {
-                return [s.xNamn + ": " + talSv(it.parsed.x, 1),
-                        s.yNamn + ": " + talSv(it.parsed.y, 1)];
-              }
-            }
-          }
-        },
-        scales: {
-          x: { type: "linear",
-               title: { display: true, text: s.xNamn, color: FARG.muted },
-               grid: { color: FARG.grid }, border: { display: false } },
-          y: { title: { display: true, text: s.yNamn, color: FARG.muted },
-               grid: { color: FARG.grid }, border: { display: false } }
-        }
-      }
-    });
-
-    el("kalla-samband").textContent =
-      "Källa: Skolverket. " + s.n + " årskullar. " +
-      (s.r === null ? "För få punkter för att räkna en korrelation."
-                    : "Korrelation r = " + talSv(s.r, 2) + ".");
-
-    K.sattDataNot("not-samband",
-      "Korrelationen bygger på <strong>" + esc(s.n) + " punkter</strong> och på " +
-      "mätpunkter som inte följer samma individer &ndash; " +
-      "<a href=\"#sektion-pendling\">ungefär tre av tio av kommunens " +
-      "gymnasieelever läser i en annan kommun</a>. Ett r nära noll betyder " +
-      "här att måtten inte rör sig i takt; det säger ingenting om enskilda " +
-      "elever, och ett r skilt från noll skulle inte visa någon orsak.");
-
-    el("slutsats-samband").innerHTML = s.r === null
-      ? "<p>Underlaget räcker inte för att räkna fram ett samband.</p>"
-      : "<p>Över de " + esc(s.n) + " kullar som har båda måtten är korrelationen " +
-        "<strong>r = " + talSv(s.r, 2) + "</strong> (n = " + esc(s.n) + " årskullar)" +
-        (s.r < 0 ? ", och tecknet är negativt: det som finns pekar åt " +
-          "<em>motsatt</em> håll mot vad man skulle vänta sig" : "") +
-        ". Siffran står här utan omdöme om styrka, och det av tre skäl. " +
-        "Med " + esc(s.n) + " punkter kan en enda årskull flytta r kraftigt, " +
-        "och något osäkerhetsintervall är inte räknat. Punkterna är " +
-        "årsgenomsnitt för hela kullar, inte enskilda elever. Och båda " +
-        "serierna löper över tid: en gemensam tidstrend kan ge ett högt r " +
-        "utan att kullarnas två mått har med varandra att göra.</p>";
-
-    el("tabell-samband").innerHTML =
-      "<thead><tr><th scope=\"col\">Ut ur nian</th><th scope=\"col\">" +
-      esc(s.xNamn) + "</th><th scope=\"col\">" + esc(s.yNamn) + "</th></tr></thead><tbody>" +
-      s.punkter.map(function (p) {
-        return "<tr><th scope=\"row\">" + esc(p.ar) + "</th><td>" + talSv(p.x, 1) +
-          "</td><td>" + talSv(p.y, 1) + "</td></tr>";
-      }).join("") + "</tbody>";
-  }
-
-  /* ---------- 5. Pendlingen ---------- */
+  /* ---------- 4. Pendlingen ---------- */
 
   function ritaPendling() {
     var serie = DATA.pendling.filter(function (p) { return p.gymnasiet; });
@@ -506,8 +405,6 @@
       "<strong>vart</strong> eller <strong>varifrån</strong>. Vilka kommuner " +
       "eleverna rör sig mellan går inte att läsa ur den här statistiken.");
 
-    var nettoText = s.gymnasiet.netto < 0
-      ? "fler elever ut än in" : "fler elever in än ut";
     el("slutsats-pendling").innerHTML =
       "<p>Läsåret " + esc(s.lasar) + " var <strong>" +
       talSv(s.gymnasiet.folkbokforda) + "</strong> gymnasieelever " +
@@ -516,36 +413,33 @@
       ") i en annan kommun. Samtidigt kom <strong>" +
       talSv(s.gymnasiet.inpendling) + "</strong> av eleverna i kommunens " +
       "gymnasieskolor utifrån &ndash; " + pct(s.gymnasiet.andelInAvEleverna) +
-      " av alla som läser här. Netto ger det " + nettoText + " (" +
-      (s.gymnasiet.netto > 0 ? "+" : "") + talSv(s.gymnasiet.netto) + ").</p>" +
-      "<p>I grundskolan är rörligheten en helt annan storleksordning: där " +
-      "läste " + pct(s.grundskolan.andelUt) + " av kommunens elever i en " +
-      "annan kommun samma läsår, mot " + pct(s.gymnasiet.andelUt) +
-      " på gymnasiet. Det är vid övergången till gymnasiet som årskullen " +
-      "delar på sig &ndash; och det är därför sidans tre mätpunkter mäter " +
-      "tre olika elevgrupper.</p>" +
-      "<p>Andelen utpendlare har legat påfallande stilla: mellan " +
-      pct(minAndel.gymnasiet.andelUt) + " och " + pct(maxAndel.gymnasiet.andelUt) +
-      " under hela perioden. Det som förändrats är <em>inpendlingen</em>. Som " +
-      "mest kom " + talSv(mestIn.gymnasiet.inpendling) + " elever utifrån (" +
-      esc(mestIn.lasar) + "); " + esc(s.lasar) + " är de " +
-      talSv(s.gymnasiet.inpendling) + ". Nettot har därmed gått från +" +
-      talSv(bastNetto.gymnasiet.netto) + " elever (" + esc(bastNetto.lasar) +
-      ") till " + talSv(s.gymnasiet.netto) + ".</p>";
+      " av alla som läser här. Inpendling minus utpendling ger " +
+      (s.gymnasiet.netto > 0 ? "+" : "") + talSv(s.gymnasiet.netto) +
+      " elever.</p>" +
+      "<p>Samma läsår läste " + pct(s.grundskolan.andelUt) + " av kommunens " +
+      "grundskoleelever i en annan kommun, mot " + pct(s.gymnasiet.andelUt) +
+      " av gymnasieeleverna. Uppgifterna avser folkbokförda elever i " +
+      "Kungsbacka; sidans övriga mått avser i stället skolor som ligger i " +
+      "kommunen.</p>" +
+      "<p>Över läsåren " + esc(f.lasar) + "&ndash;" + esc(s.lasar) +
+      " ligger andelen utpendlare på gymnasiet mellan " +
+      pct(minAndel.gymnasiet.andelUt) + " (" + esc(minAndel.lasar) + ") och " +
+      pct(maxAndel.gymnasiet.andelUt) + " (" + esc(maxAndel.lasar) +
+      "). Inpendlingens högsta värde är " +
+      talSv(mestIn.gymnasiet.inpendling) + " elever (" + esc(mestIn.lasar) +
+      "), mot " + talSv(s.gymnasiet.inpendling) + " läsåret " + esc(s.lasar) +
+      ". Nettots högsta värde är " +
+      (bastNetto.gymnasiet.netto > 0 ? "+" : "") +
+      talSv(bastNetto.gymnasiet.netto) +
+      " elever (" + esc(bastNetto.lasar) + "), mot " +
+      talSv(s.gymnasiet.netto) + " sista läsåret.</p>";
 
     el("grav-vidare").innerHTML =
-      "<strong>Värt att gräva vidare i.</strong> Kungsbacka ingår i " +
-      "Göteborgsregionens gemensamma gymnasieantagning, där eleverna söker " +
-      "på lika villkor till skolor i hela regionen. Att en stor del av " +
-      "kommunens elever läser i Göteborg, och att en stor del av inpendlingen " +
-      "kommer från grannkommunen Mölndal, är vad man skulle vänta sig av " +
-      "geografin och av det gemensamma antagningsområdet &ndash; men det är " +
-      "inget den här statistiken visar. Skolverkets pendlingsrapport ger " +
-      "bara summorna. För att kunna säga vilka kommuner eleverna rör sig " +
-      "mellan behövs en källa som redovisar hemkommun och skolkommun mot " +
-      "varandra. Det vore nästa steg, och skulle också göra det möjligt att " +
-      "följa kommunens <em>egna</em> elever genom gymnasiet i stället för " +
-      "skolorna som ligger här.";
+      "<strong>Urvalet är skolkommun.</strong> De tre mätpunkterna ovanför " +
+      "redovisar skolor som ligger i Kungsbacka, inte kommunens folkbokförda " +
+      "elever. Att i stället följa de folkbokförda eleverna genom gymnasiet " +
+      "kräver en källa som redovisar hemkommun mot skolkommun; " +
+      "pendlingsrapporten redovisar bara summorna per läsår.";
 
     el("tabell-pendling").innerHTML =
       "<thead><tr><th scope=\"col\">Läsår</th>" +
@@ -563,7 +457,7 @@
       }).join("") + "</tbody>";
   }
 
-  /* ---------- 6. Program för program ---------- */
+  /* ---------- 5. Program för program ---------- */
 
   function program(namn) {
     for (var i = 0; i < DATA.program.length; i++) {
@@ -625,8 +519,8 @@
         pct(s.start.examen3) + "</strong>.</p>";
     } else {
       el("slutsats-program").innerHTML =
-        "<p>" + esc(p.namn) + " har för få redovisade år för att en utveckling " +
-        "ska gå att läsa av.</p>";
+        "<p>" + esc(p.namn) + " har färre än två startår med redovisad andel " +
+        "examen inom tre år.</p>";
     }
 
     el("tabell-program").innerHTML =
@@ -654,8 +548,6 @@
     var s = sistaMed(DATA.start, "examen3");
     var e = DATA.examen[DATA.examen.length - 1];
     var p = DATA.pendling[DATA.pendling.length - 1].gymnasiet;
-    var starkast = DATA.samband.filter(function (x) { return x.r !== null; })
-      .sort(function (a, b) { return Math.abs(b.r) - Math.abs(a.r); })[0];
 
     var punkter = [
       "Läsåret " + esc(n.lasar) + " var <strong>" + pct(n.andelBehorigYrkes) +
@@ -672,12 +564,6 @@
         " av eleverna i kommunens gymnasieskolor kommer utifrån &ndash; " +
         "mätpunkterna ovan följer alltså inte samma individer."
     ];
-    if (starkast) {
-      punkter.push("Av sidans korrelationer mellan nian och gymnasiet ligger " +
-        "den som hamnar längst från noll på <strong>r = " + talSv(starkast.r, 2) +
-        "</strong> över " + esc(starkast.n) + " årskullar &ndash; årsgenomsnitt, " +
-        "inte elever, och för få punkter för att slå fast något.");
-    }
     K.visaKortSagt(punkter);
   }
 
@@ -723,10 +609,6 @@
     ritaExamen();
     ritaKedjan();
 
-    fyllSambandValjare();
-    K.kopplaValjare(el("samband-valjare"), "samband", ritaSamband);
-    ritaSamband();
-
     ritaPendling();
 
     fyllProgramValjare();
@@ -735,7 +617,7 @@
 
     visaKallor();
 
-    ["nian", "gymnasiet", "kedjan", "samband", "pendling", "program",
+    ["nian", "gymnasiet", "kedjan", "pendling", "program",
      "kallor", "om"].forEach(function (id) {
       var s = el("sektion-" + id);
       if (s) s.hidden = false;

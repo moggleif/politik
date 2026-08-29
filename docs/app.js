@@ -223,24 +223,18 @@
       "</strong> missat med " + talSv(langt.medelAbsPct, 1) + " %, medan de som gjorts " +
       (kort.avstand === 0 ? "<strong>samma år</strong>" : "<strong>" + esc(kort.avstand) + " år i förväg</strong>") +
       " missat med " + talSv(kort.medelAbsPct, 1) + " %.</p>";
-    var battre = langt.medelAbsPct > kort.medelAbsPct;
-    html += "<p>" + (battre
-      ? "Prognoserna blir alltså i regel träffsäkrare ju närmare året man kommer – men även korta prognoser kan slå fel."
-      : "Prognoserna har alltså inte blivit tydligt träffsäkrare av att göras närmare året.") + "</p>";
-
-    /* Var öppen med hur tunt underlaget är – flera staplar kan vila på en
-       enda prognos, och då säger jämförelsen mindre än den ser ut att göra. */
+    /* Hur många prognosvärden varje stapel vilar på är en uppgift om
+       datat, och står därför utskriven. */
     var tunna = rader.filter(function (r) { return r.antal < 3; });
     if (tunna.length) {
-      html += "<p><strong>Läs med försiktighet:</strong> " +
+      html += "<p>" +
         (tunna.length === rader.length
-          ? "samtliga staplar bygger på färre än tre prognosvärden"
-          : "staplarna för " + tunna.map(function (r) {
+          ? "Samtliga staplar bygger på färre än tre prognosvärden"
+          : "Staplarna för " + tunna.map(function (r) {
               return r.avstand === 0 ? "samma år" : esc(r.avstand) + " år före";
             }).join(", ") + " bygger på färre än tre prognosvärden") +
-        ". Så få mätpunkter kan slå åt vilket håll som helst, så skillnaderna " +
-        "mellan staplarna ska inte övertolkas. Antalet syns när du pekar på en " +
-        "stapel, och i tabellen nedan.</p>";
+        ". Antalet bakom varje stapel syns när du pekar på den, och i " +
+        "tabellen nedan.</p>";
     }
     el("slutsats-avstand").innerHTML = html;
 
@@ -393,10 +387,7 @@
         "sämre över tid &ndash; hela serien står i tabellen nedan.</p>";
     }
 
-    if (n < 10) {
-      html += "<p><strong>Läs med försiktighet:</strong> slutsatsen bygger på " +
-        esc(n) + " jämförelser. Riktningen är tydlig, men underlaget är litet.</p>";
-    }
+    html += "<p>Fördelningen bygger på " + esc(n) + " jämförelser.</p>";
     el("slutsats-skevhet").innerHTML = html;
 
     var t = "<caption>Genomsnittligt fel med riktning, per antal år i förväg. " +

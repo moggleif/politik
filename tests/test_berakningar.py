@@ -421,104 +421,6 @@ class TestKohortframskrivning(unittest.TestCase):
         self.assertIsNone(arg["ettArPct"])
         self.assertIsNone(arg["maxAvstand"])
 
-    def test_kvoterna_mater_hur_en_aldersklass_vaxer_pa_ett_ar(self):
-        """Med 100 + a personer i varje ålder båda åren blir kvoten för
-        steget a → a+1 exakt (101 + a) / (100 + a)."""
-        pa = {2024: {a: 100 + a for a in range(0, 20)},
-              2025: {a: 100 + a for a in range(0, 20)}}
-        r = build_data.kvoter_tom(pa, 2025, 19)
-        self.assertAlmostEqual(r[0], 101 / 100)
-        self.assertAlmostEqual(r[15], 116 / 115)
-        self.assertNotIn(19, r)          # skulle kräva ålder 20
-
-    def test_kvoterna_far_inte_se_efter_basaret(self):
-        """En framskrivning gjord år B får bara använda kvoter som gick
-        att räkna ut då – annars vet prövningen bakåt om framtiden."""
-        pa = {2023: {a: 100 + a for a in range(0, 20)},
-              2024: {a: 200 + a for a in range(0, 20)},
-              2025: {a: 1000 + a for a in range(0, 20)}}
-        tidig = build_data.kvoter_tom(pa, 2024, 19)
-        sen = build_data.kvoter_tom(pa, 2025, 19)
-        self.assertAlmostEqual(tidig[0], 201 / 100)      # bara 2023→2024
-        self.assertLess(tidig[0], sen[0])                # 2025 drar upp den
-        self.assertEqual(build_data.kvoter_tom(pa, 2023, 19), {})
-
-    def test_kompenserad_multiplicerar_langs_kohortens_vag(self):
-        """Kvoten (101 + a) / (100 + a) tar varje kohort exakt till nästa
-        åldersklass, så 16–19-åringarna om ett år blir 116+117+118+119."""
-        pa = {2024: {a: 100 + a for a in range(0, 20)},
-              2025: {a: 100 + a for a in range(0, 20)}}
-        r = build_data.kvoter_tom(pa, 2025, 19)
-        ut = build_data.kompenserad_for(pa[2025], 2025, (16, 19), r)
-        self.assertEqual(ut[2026], 116 + 117 + 118 + 119)
-        self.assertEqual(build_data.framskriv(pa[2025], 1, (16, 19)),
-                         115 + 116 + 117 + 118)
-
-    def test_kompenserad_stannar_nar_en_kvot_saknas(self):
-        """Utan kvot för hela vägen fram går året inte att räkna, av
-        samma skäl som den enkla framskrivningen stannar."""
-        pa = {2024: {a: 100 + a for a in range(0, 20)},
-              2025: {a: 100 + a for a in range(0, 20)}}
-        r = build_data.kvoter_tom(pa, 2025, 19)
-        del r[10]
-        # 16-åringen om k år är i dag 16 − k år och passerar åldrarna
-        # 16 − k … 15. Ålder 10 kommer med först vid k = 6.
-        ut = build_data.kompenserad_for(pa[2025], 2025, (16, 19), r)
-        self.assertEqual(max(ut), 2030)
-        self.assertNotIn(2031, ut)
-
-    def test_kvotprofilen_redovisar_spannet(self):
-        pa = {2023: {a: 100 for a in range(0, 20)},
-              2024: {a: 110 for a in range(0, 20)},
-              2025: {a: 110 for a in range(0, 20)}}
-        profil = {q["alder"]: q for q in build_data.kvotprofil(pa, 19)}
-        self.assertEqual(profil[0]["antal"], 2)          # två årsövergångar
-        self.assertAlmostEqual(profil[0]["minPct"], 0.0)   # 110 -> 110
-        self.assertAlmostEqual(profil[0]["maxPct"], 10.0)  # 100 -> 110
-
-    def test_fonstret_begransar_kvoterna_till_de_senaste_aren(self):
-        """Ett kort fönster ska följa den senaste utvecklingen, inte hela
-        historiken – annars kan det inte reagera på en trend."""
-        pa = {2023: {a: 100 for a in range(0, 20)},
-              2024: {a: 100 for a in range(0, 20)},
-              2025: {a: 200 for a in range(0, 20)}}
-        hela = build_data.kvoter_tom(pa, 2025, 19)
-        senaste = build_data.kvoter_tom(pa, 2025, 19, fonster=1)
-        self.assertAlmostEqual(senaste[0], 2.0)          # bara 2024→2025
-        self.assertAlmostEqual(hela[0], 2.0 ** 0.5)      # 1,0 och 2,0
-
-    def test_fordrojningen_lamnar_de_forsta_aren_okompenserade(self):
-        """Tre år utan kompensation ska ge exakt den enkla
-        framskrivningen så länge, och den kompenserade därefter."""
-        pa = {2024: {a: 100 + a for a in range(0, 20)},
-              2025: {a: 100 + a for a in range(0, 20)}}
-        r = build_data.kvoter_tom(pa, 2025, 19)
-        enkel = build_data.variant_for(pa[2025], 2025, (16, 19), None, 0)
-        komp = build_data.variant_for(pa[2025], 2025, (16, 19), r, 0)
-        hybrid = build_data.variant_for(pa[2025], 2025, (16, 19), r, 3)
-        for k in (1, 2, 3):
-            self.assertEqual(hybrid[2025 + k], enkel[2025 + k])
-        for k in (4, 5, 6):
-            self.assertEqual(hybrid[2025 + k], komp[2025 + k])
-
-    def test_varianterna_provas_pa_samma_underlag(self):
-        """Skillnaden mellan varianterna ska vara modellen och ingenting
-        annat – alltså samma basår och samma antal jämförelser."""
-        pa = {str(y): {str(a): 100 + a + y - 2000 for a in range(0, 20)}
-              for y in range(2000, 2016)}
-        scb = dict(self.scb, perAlder=pa)
-        utfall = {y: 4 * 116 for y in range(2004, 2016)}
-        ut = build_data.bygg_varianter(
-            {int(y): {int(a): v for a, v in r.items()} for y, r in pa.items()},
-            utfall, (16, 19))
-        self.assertEqual(ut["basAr"][0], 2003)           # 2000 + MINSTA_KVOTAR
-        nycklar = [m["nyckel"] for m in ut["modeller"]]
-        self.assertIn("enkel", nycklar)
-        self.assertIn("hybrid-fonster3", nycklar)
-        antal = {m["antal"] for m in ut["modeller"]}
-        self.assertEqual(len(antal), 1, "varianterna har olika många jämförelser")
-        self.assertIsNone(build_data.bygg_varianter({}, utfall, (16, 19)))
-
     def test_traffsakerheten_mater_avvikelsen_mot_utfallet(self):
         # Framskrivet 2026 = 466. Sätt utfallet till 500 -> -6,8 %.
         rader = build_data.kohortfel(self.pa, {2026: 500}, (16, 19))
@@ -646,21 +548,6 @@ class TestNianTillGymnasiet(unittest.TestCase):
 
     def test_brottsaret_for_meritvardet_hittas(self):
         self.assertEqual(self.ut["meritamnenBrott"], 2015)
-
-    def test_meritsamband_hoppar_over_16_amnesaren(self):
-        """16 och 17 ämnen mäter olika saker och får inte ligga i samma
-        punktmoln. Kvar blir en enda punkt – för få för ett r."""
-        s = {x["nyckel"]: x for x in self.ut["samband"]}
-        merit = s["meritvarde-examen3"]
-        self.assertEqual([p["ar"] for p in merit["punkter"]], [2015])
-        self.assertIsNone(merit["r"])
-        # Behörigheten är jämförbar alla år och behåller båda kullarna
-        self.assertEqual(len(s["behorighet-examen3"]["punkter"]), 2)
-
-    def test_korrelation_kraver_minst_tre_punkter(self):
-        self.assertIsNone(build_nian_gymnasiet.pearson([(1, 2), (2, 4)]))
-        self.assertEqual(
-            build_nian_gymnasiet.pearson([(1, 2), (2, 4), (3, 6)])["r"], 1.0)
 
     def test_pendlingen_summeras_och_stams_av(self):
         g = self.ut["pendling"][0]["gymnasiet"]
@@ -1046,12 +933,31 @@ class TestTolkningsregler(unittest.TestCase):
         for vag in ("docs/slutbetyg.html", "docs/slutbetyg.js"):
             self.assertNotIn("hela avgångskullen", self.las(vag).lower(), vag)
 
-    def test_inga_styrkeord_pa_korrelationerna(self):
-        """r på 8-12 årsaggregat bär inget omdöme om effektstorlek."""
-        js = self.las("docs/nian.js")
-        for forbjudet in ("ett svagt samband", "ett måttligt samband",
-                          "ett starkt samband"):
-            self.assertNotIn(forbjudet, js, forbjudet)
+    def test_inga_lasanvisningar_eller_omdomen(self):
+        """Sidorna beskriver datat; de talar inte om hur det ska läsas."""
+        import glob
+        for vag in sorted(glob.glob(str(ROT / "docs" / "*.js")) +
+                          glob.glob(str(ROT / "docs" / "*.html"))):
+            if vag.endswith("chart.umd.js"):
+                continue
+            text = open(vag, encoding="utf-8").read()
+            for forbjudet in ("Läs med försiktighet", "ska inte övertolkas",
+                              "tyder på", "talar för att"):
+                self.assertNotIn(forbjudet, text,
+                                 f"{Path(vag).name}: {forbjudet!r}")
+
+    def test_inga_egna_analysmodeller_kvar(self):
+        """Sidan visar källdata; den enda beräkning som inte kommer ur en
+        källa är kohortframskrivningen. Korrelationer, kompenserad
+        framskrivning och modellvarianter är borttagna."""
+        for namn in ("data-nian-gymnasiet.json",):
+            d = json.loads((ROT / "docs" / namn).read_text(encoding="utf-8"))
+            self.assertNotIn("samband", d, namn)
+        kohort = json.loads(
+            (ROT / "docs" / "data-16-19.json").read_text(encoding="utf-8"))["kohort"]
+        for falt in ("kompenserad", "kvoter", "varianter"):
+            self.assertNotIn(falt, kohort, falt)
+        self.assertIn("framskrivning", kohort)
 
     def test_gapet_pastas_inte_ha_vidgats(self):
         """Gruppsnitten är sammansättningskänsliga: utbudet ändras."""
