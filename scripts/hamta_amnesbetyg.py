@@ -29,25 +29,17 @@ Körs:  python3 scripts/hamta_amnesbetyg.py            (alla år)
 """
 
 import argparse
-import csv
-import io
 import json
-import ssl
-import urllib.request
 from datetime import date
 from pathlib import Path
 
+import skolverket
+from skolverket import KOMMUN, KOMMUNNAMN, tal
+
 ROT = Path(__file__).resolve().parent.parent
 
-EXPORT_URL = ("https://siris.skolverket.se/siris/reports/export_api/runexport/"
-              "?pFormat=csv&pExportID={export}&pAr={ar}&pKommun={kommun}&pFlikar=0")
 EXPORT_ID = 92
-KOMMUN = "1384"
-KOMMUNNAMN = "Kungsbacka"
 FORSTA_AR = 2013
-
-STATISTIK_URL = ("https://www.skolverket.se/skolutveckling/statistik/"
-                 "sok-statistik-om-forskola-skola-och-vuxenutbildning")
 
 # Kolumnernas ordning i CSV:en. Rubrikraden är tvådelad (en rad med
 # grupprubriker och en med kolumnnamn), så positionerna läses direkt.
@@ -61,34 +53,10 @@ KOL = {
 TAL_FALT = [k for k in KOL if k not in ("kommun", "kommunkod", "huvudman", "amne")]
 
 
-def hamta_csv(ar: int) -> str:
-    url = EXPORT_URL.format(export=EXPORT_ID, ar=ar, kommun=KOMMUN)
-    req = urllib.request.Request(url, headers={"User-Agent": "kungsbacka-i-siffror/1.0"})
-    with urllib.request.urlopen(req, timeout=120, context=ssl.create_default_context()) as r:
-        return r.read().decode("utf-8-sig")
-
-
-def tal(text: str):
-    """Skolverkets prickning: '..' = färre än tio elever (uppgiften döljs),
-    '.' = uppgiften saknas helt. Båda blir None, men skiljs åt i utdatan."""
-    t = (text or "").strip()
-    if t in ("", ".", ".."):
-        return None
-    t = t.replace("\xa0", "").replace(" ", "").replace(",", ".")
-    try:
-        return float(t) if "." in t else int(t)
-    except ValueError:
-        return None
-
-
 def lasa_ar(ar: int) -> dict | None:
-    text = hamta_csv(ar)
-    rader = list(csv.reader(io.StringIO(text), delimiter=";"))
-
-    lasar = ""
-    for rad in rader[:8]:
-        if rad and rad[0].startswith("Valt läsår"):
-            lasar = rad[0].split(":", 1)[1].strip()
+    text = skolverket.hamta_csv(EXPORT_ID, ar)
+    rader = skolverket.rader_i(text)
+    lasar = skolverket.lasar_ur(rader, "Valt läsår")
 
     amnen = []
     for rad in rader:
@@ -118,8 +86,8 @@ def lasa_ar(ar: int) -> dict | None:
         "niva": "Skolkommun, samtliga skolor i kommunen",
         "rapportTitel": "Grundskola – Slutbetyg per ämne årskurs 9",
         "kalla": "Skolverket, utbildningsstatistik",
-        "kallaUrl": EXPORT_URL.format(export=EXPORT_ID, ar=ar, kommun=KOMMUN),
-        "statistikUrl": STATISTIK_URL,
+        "kallaUrl": skolverket.export_url(EXPORT_ID, ar),
+        "statistikUrl": skolverket.STATISTIK_URL,
         "hamtad": date.today().isoformat(),
         "amnen": amnen,
     }

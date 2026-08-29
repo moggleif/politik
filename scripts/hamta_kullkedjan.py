@@ -37,25 +37,14 @@ Körs:  python3 scripts/hamta_kullkedjan.py                  (allt)
 """
 
 import argparse
-import csv
-import io
 import json
-import ssl
-import time
-import urllib.error
-import urllib.request
 from datetime import date
 from pathlib import Path
 
+import skolverket
+from skolverket import KOMMUN, KOMMUNNAMN, hamta_csv, lasar_ur, rader_i, rubrikrad
+
 ROT = Path(__file__).resolve().parent.parent
-
-EXPORT_URL = ("https://siris.skolverket.se/siris/reports/export_api/runexport/"
-              "?pFormat=csv&pExportID={export}&pAr={ar}&pKommun={kommun}&pFlikar=0")
-KOMMUN = "1384"
-KOMMUNNAMN = "Kungsbacka"
-
-STATISTIK_URL = ("https://www.skolverket.se/skolutveckling/statistik/"
-                 "sok-statistik-om-forskola-skola-och-vuxenutbildning")
 
 KODER = {
     "..": "Färre än tio elever – Skolverket dubbelprickar uppgiften",
@@ -66,62 +55,10 @@ KODER = {
 
 # ---------------------------------------------------------------- hämtning
 
-def hamta_csv(export: int, ar: int) -> str:
-    """CSV:en för ett år. Exporttjänsten bryter då och då kopplingen mitt
-    i ett svar; det är övergående och ska inte stoppa hela hämtningen."""
-    url = EXPORT_URL.format(export=export, ar=ar, kommun=KOMMUN)
-    req = urllib.request.Request(
-        url, headers={"User-Agent": "kungsbacka-i-siffror/1.0"})
-    sista = None
-    for forsok in range(4):
-        try:
-            with urllib.request.urlopen(
-                    req, timeout=120,
-                    context=ssl.create_default_context()) as r:
-                return r.read().decode("utf-8-sig")
-        except Exception as fel:          # nätverksfel, avbruten koppling
-            sista = fel
-            time.sleep(2 ** forsok)
-    raise sista
-
-
-def rader_i(text: str) -> list:
-    return list(csv.reader(io.StringIO(text), delimiter=";"))
-
-
-def rubrikrad(rader: list, forsta_kolumn: str) -> int:
-    """Radnumret för kolumnrubrikerna, hittad på sin första kolumn.
-
-    Rapporterna har en inledande textdel vars längd har ändrats genom
-    åren, så raden får inte pekas ut med ett fast index."""
-    for i, rad in enumerate(rader):
-        if rad and rad[0].strip() == forsta_kolumn:
-            return i
-    raise SystemExit(f"Hittade ingen rubrikrad som börjar med {forsta_kolumn!r} "
-                     "– exportens layout verkar ha ändrats.")
-
-
-def lasar_ur(rader: list, etikett: str) -> str:
-    for rad in rader[:8]:
-        if rad and rad[0].startswith(etikett):
-            return rad[0].split(":", 1)[1].strip()
-    return ""
-
-
 def tal(text: str):
-    """Skolverkets prickning: '..' = färre än tio elever, '.' = uppgiften
-    saknas. Båda blir None. '~100' betyder att 1–4 elever saknade måttet
-    och läses som 100,0 – markören sparas separat av `las_tal`."""
-    t = (text or "").strip()
-    if t in ("", ".", ".."):
-        return None
-    if t == "~100":
-        return 100.0
-    t = t.replace("\xa0", "").replace(" ", "").replace(",", ".")
-    try:
-        return float(t) if "." in t else int(t)
-    except ValueError:
-        return None
+    """Skolverkets prickning, med '~100' läst som 100,0 – markören
+    sparas separat av `las_tal`."""
+    return skolverket.tal(text, tilde_ar_100=True)
 
 
 def las_tal(rad: list, kol: dict, namn: str, ungefarliga: list, radnamn: str):
@@ -150,8 +87,8 @@ def gemensamt(export: int, ar: int, titel: str, niva: str) -> dict:
         "niva": niva,
         "rapportTitel": titel,
         "kalla": "Skolverket, utbildningsstatistik",
-        "kallaUrl": EXPORT_URL.format(export=export, ar=ar, kommun=KOMMUN),
-        "statistikUrl": STATISTIK_URL,
+        "kallaUrl": skolverket.export_url(export, ar),
+        "statistikUrl": skolverket.STATISTIK_URL,
         "koder": KODER,
         "hamtad": date.today().isoformat(),
     }
@@ -427,7 +364,7 @@ def las_pendling(ar: int) -> dict | None:
     d.update({
         "ar": ar,
         "lasar": lasar,
-        "kallaUrlGrundskolan": EXPORT_URL.format(export=60, ar=ar, kommun=KOMMUN),
+        "kallaUrlGrundskolan": skolverket.export_url(60, ar),
         "gymnasiet": gy,
         "grundskolan": gr,
     })

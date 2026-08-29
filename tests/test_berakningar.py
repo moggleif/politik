@@ -36,6 +36,7 @@ build_amnesbetyg = ladda("build_amnesbetyg")
 build_nian_gymnasiet = ladda("build_nian_gymnasiet")
 build_meritvarden = ladda("build_meritvarden")
 build_slutbetyg = ladda("build_slutbetyg")
+skolverket = ladda("skolverket")
 
 
 class TestPrognosberakningar(unittest.TestCase):
@@ -679,6 +680,36 @@ class TestNianTillGymnasiet(unittest.TestCase):
         """Rapporterna upprepar varje rad per huvudman; tas fel rad blir
         siffrorna kommunala skolors i stället för hela kommunens."""
         self.assertEqual(self.kullar[2014]["start"]["examen3"], 77.0)
+
+
+class TestSkolverketParsning(unittest.TestCase):
+    """skolverket: den delade tolkningen av exporttjänstens filer."""
+
+    def test_tal_lasar_svenska_tal(self):
+        self.assertEqual(skolverket.tal("16,7"), 16.7)
+        self.assertEqual(skolverket.tal("1 234"), 1234)
+        self.assertEqual(skolverket.tal("1\xa0234"), 1234)
+
+    def test_tal_prickning_blir_none(self):
+        self.assertIsNone(skolverket.tal(".."))
+        self.assertIsNone(skolverket.tal("."))
+        self.assertIsNone(skolverket.tal(""))
+        self.assertIsNone(skolverket.tal(None))
+
+    def test_tal_tilde100_styrs_av_flaggan(self):
+        self.assertIsNone(skolverket.tal("~100"))
+        self.assertEqual(skolverket.tal("~100", tilde_ar_100=True), 100.0)
+
+    def test_rubrikrad_hittas_pa_forsta_kolumnen(self):
+        rader = [["Rapportens titel"], [], ["Skola", "Program"], ["Aranäs", "NA"]]
+        self.assertEqual(skolverket.rubrikrad(rader, "Skola"), 2)
+        with self.assertRaises(SystemExit):
+            skolverket.rubrikrad(rader, "Kommun")
+
+    def test_lasar_ur_lases_ur_inledningen(self):
+        rader = [["Valt läsår: 2024/25"], ["Skola"]]
+        self.assertEqual(skolverket.lasar_ur(rader, "Valt läsår"), "2024/25")
+        self.assertEqual(skolverket.lasar_ur([["Skola"]], "Valt läsår"), "")
 
 
 class TestMeritvarden(unittest.TestCase):
