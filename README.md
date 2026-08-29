@@ -266,9 +266,9 @@ python3 scripts/build_kull.py         # bygger om docs/data-kull.json
 python3 -m unittest discover tests    # kontrollräknar beräkningarna
 ```
 
-Testerna stämmer bland annat av att datafilerna i `docs/` är exakt vad
-byggskripten ger av innehållet i `data/` &ndash; inga siffror i utdatan
-får vara ändrade för hand.
+Testerna stämmer bland annat av att samtliga datafiler i `docs/` är
+exakt vad byggskripten ger av innehållet i `data/` &ndash; inga siffror
+i utdatan får vara ändrade för hand.
 
 Hämtningen är helt automatisk &ndash; både CSV-filerna i `docs/rapporter/`
 och JSON-filerna i `data/slutbetyg/` skrivs om. Skolverket publicerar det
