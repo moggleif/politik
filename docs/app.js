@@ -1483,6 +1483,225 @@
     el("sektion-kompenserad").hidden = false;
   }
 
+  /* ---------- Modellvarianter ----------
+     Samma framskrivning med två rattar: hur långt tillbaka kvoterna
+     hämtas, och hur många år som lämnas okompenserade. Alla varianter
+     räknas fram med samma regler och redovisas med sitt utfall, också de
+     sämre — annars vore det bara att välja i efterhand. */
+
+  function initVarianter(data) {
+    if (!data.kohort || !data.kohort.varianter || !el("diagram-varianter")) return;
+    var v = data.kohort.varianter;
+    var mod = v.modeller || [];
+    if (mod.length < 2) return;
+
+    var horisonter = [];
+    mod.forEach(function (m) {
+      m.perAvstand.forEach(function (r) {
+        if (horisonter.indexOf(r.avstand) === -1) horisonter.push(r.avstand);
+      });
+    });
+    horisonter.sort(function (a, b) { return a - b; });
+
+    function felFor(m, k) {
+      for (var i = 0; i < m.perAvstand.length; i++) {
+        if (m.perAvstand[i].avstand === k) return m.perAvstand[i];
+      }
+      return null;
+    }
+
+    var ctx = el("diagram-varianter");
+    ctx.parentElement.style.height = "440px";
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: horisonter.map(String),
+        datasets: mod.map(function (m, i) {
+          var farg = K.rampFargOrange(i, mod.length);
+          return {
+            label: m.namn,
+            data: horisonter.map(function (k) {
+              var r = felFor(m, k);
+              return r ? r.medelAbsPct : null;
+            }),
+            borderColor: farg,
+            backgroundColor: farg,
+            borderWidth: 2,
+            borderDash: K.STRECK[i % K.STRECK.length],
+            pointStyle: ["circle", "rect", "triangle", "rectRot", "star"][i % 5],
+            pointRadius: 3,
+            pointHoverRadius: 6,
+            spanGaps: false,
+            tension: 0.1
+          };
+        })
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        locale: "sv-SE",
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: true, position: "bottom",
+                    labels: { boxWidth: 22, usePointStyle: true } },
+          tooltip: {
+            callbacks: {
+              title: function (it) {
+                var k = horisonter[it[0].dataIndex];
+                var r = felFor(mod[0], k);
+                return k + " år framåt" + (r ? " (" + r.antal + " jämförelser)" : "");
+              },
+              label: function (it) {
+                return it.dataset.label + ": " +
+                  (it.parsed.y === null ? "–" : talSv(it.parsed.y, 1) + " % fel");
+              }
+            }
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, border: { color: FARG.baseline },
+               title: { display: true, text: "Antal år i förväg", color: FARG.muted } },
+          y: { beginAtZero: true,
+               title: { display: true, text: "Genomsnittligt fel (%)", color: FARG.muted },
+               grid: { color: FARG.grid }, border: { display: false },
+               ticks: { callback: function (x) { return talSv(x, 0) + " %"; } } }
+        }
+      }
+    });
+
+    el("kalla-varianter").textContent =
+      "Genomsnittligt fel utan tecken, ur " + v.antalBasAr + " basår (" +
+      v.basAr[0] + "–" + v.basAr[1] + ") mot varje senare år med känt " +
+      "utfall: " + mod[0].antal + " jämförelser per variant.";
+
+    /* Vilken variant som vinner räknas fram, den skrivs inte in. */
+    var ordnad = mod.slice().sort(function (a, b) {
+      return a.medelAbsPct - b.medelAbsPct;
+    });
+    var bast = ordnad[0], samst = ordnad[ordnad.length - 1];
+    /* Flera varianter kan sluta lika. Att utropa en av dem till vinnare
+       vore att låtsas om en skillnad som materialet inte visar. */
+    var delad = ordnad.filter(function (m) {
+      return m.medelAbsPct - bast.medelAbsPct < 0.05;
+    });
+    var hela = mod.filter(function (m) {
+      return m.nyckel === "hela";
+    })[0];
+    var fonster = mod.filter(function (m) {
+      return m.fonster && !m.fordrojning;
+    })[0];
+
+    /* Var fönstret hjälper respektive stjälper — gränsen läses ur datat. */
+    var vandpunkt = null;
+    if (hela && fonster) {
+      horisonter.forEach(function (k) {
+        var a = felFor(hela, k), b = felFor(fonster, k);
+        if (!a || !b) return;
+        if (vandpunkt === null && b.medelAbsPct < a.medelAbsPct) vandpunkt = k;
+        if (vandpunkt !== null && b.medelAbsPct >= a.medelAbsPct &&
+            k < vandpunkt) vandpunkt = null;
+      });
+    }
+
+    var txt = "<p>Sett över alla jämförelser är " +
+      (delad.length > 1
+        ? "<strong>" + delad.length + " varianter likvärdiga</strong> på " +
+          talSv(bast.medelAbsPct, 1) + " % i genomsnittligt fel &ndash; " +
+          delad.map(function (m) { return m.namn.toLowerCase(); }).join(" och ")
+        : "<strong>" + bast.namn.toLowerCase() + "</strong> bäst med " +
+          talSv(bast.medelAbsPct, 1) + " % i genomsnittligt fel") +
+      ", mot " + talSv(samst.medelAbsPct, 1) + " % för " +
+      samst.namn.toLowerCase() + ". Det gemensamma för dem som ligger " +
+      "främst är det korta fönstret.</p>";
+
+    if (hela && fonster && vandpunkt !== null) {
+      var kortH = felFor(hela, 1), kortF = felFor(fonster, 1);
+      txt += "<p><strong>Kortare fönster hjälper &ndash; men först på " +
+        "längre sikt.</strong> Ett år framåt är hela historiken bättre (" +
+        talSv(kortH.medelAbsPct, 1) + " % mot " + talSv(kortF.medelAbsPct, 1) +
+        " %); från <strong>" + vandpunkt + " år</strong> och framåt vänder " +
+        "det, och då växer försprånget. Det är där en trend hinner göra " +
+        "skillnad: flyttmönstret ändrar sig långsamt, men på den sikten " +
+        "hinner avståndet mellan de senaste årens takt och " +
+        "tjugofemårssnittet bli större än bruset i skattningen.</p>";
+    }
+
+    if (hela) {
+      var hybridH = mod.filter(function (m) {
+        return m.fordrojning && !m.fonster;
+      })[0];
+      if (hybridH) {
+        var skillnad = hybridH.medelAbsPct - hela.medelAbsPct;
+        txt += "<p><strong>Att lämna de första åren okompenserade gör " +
+          (Math.abs(skillnad) < 0.1 ? "varken till eller från" :
+            (skillnad < 0 ? "nytta" : "skada")) + ".</strong> " +
+          talSv(hybridH.medelAbsPct, 1) + " % mot " + talSv(hela.medelAbsPct, 1) +
+          " % &ndash; korrigeringen är så liten på de horisonterna att det " +
+          "mest handlar om brus. Tanken stämmer i sak (de närmaste årens " +
+          "ungdomar bor redan här), men den syns knappt i siffrorna.</p>";
+      }
+    }
+
+    /* Vad trendkänsligheten säger just nu: åt vilket håll det korta
+       fönstret drar jämfört med hela historiken. */
+    if (hela && fonster) {
+      var sista = data.kohort.sistaAr;
+      var hv = hela.framskrivning[String(sista)];
+      var fv = fonster.framskrivning[String(sista)];
+      if (hv !== undefined && fv !== undefined && hv !== fv) {
+        txt += "<p><strong>Just nu drar trenden " +
+          (fv < hv ? "nedåt" : "uppåt") + ".</strong> Med hela historiken " +
+          "skrivs " + sista + " fram till " + talSv(hv) + " " + ENHET +
+          ", med de tre senaste årens kvoter till " + talSv(fv) + " &ndash; " +
+          talSv(Math.abs(fv - hv)) + " " +
+          (fv < hv ? "färre" : "fler") + ". Inflyttningen av små barn har " +
+          "alltså varit " + (fv < hv ? "svagare" : "starkare") + " de " +
+          "senaste åren än den varit i genomsnitt sedan 2001. Det är precis " +
+          "den känsligheten ett kort fönster är till för &ndash; och samma " +
+          "känslighet gör att en enskild avvikande årgång slår igenom " +
+          "hårdare.</p>";
+      }
+    }
+
+    txt += "<p>Jämförelserna överlappar varandra: samma målår räknas från " +
+      "flera basår, så de " + mod[0].antal + " punkterna är färre än de ser " +
+      "ut att vara. Skillnader under någon tiondels procentenhet ska inte " +
+      "tolkas. Sidans <a href=\"#sektion-kompenserad\">kompenserade " +
+      "framskrivning</a> använder hela historiken &ndash; den enklaste " +
+      "regeln, inte den som råkar vinna på det här materialet.</p>";
+    el("slutsats-varianter").innerHTML = txt;
+
+    var sistaAr = data.kohort.sistaAr;
+    var langa = horisonter.filter(function (k) { return k >= 8; });
+    function snitt(m, ks) {
+      var vikt = 0, summa = 0;
+      ks.forEach(function (k) {
+        var r = felFor(m, k);
+        if (r) { summa += r.medelAbsPct * r.antal; vikt += r.antal; }
+      });
+      return vikt ? summa / vikt : null;
+    }
+    var korta = horisonter.filter(function (k) { return k <= 3; });
+
+    var tab = "<caption>Varianterna prövade mot facit. Sista kolumnen är " +
+      "vad varje variant skriver fram till " + sistaAr + ".</caption>" +
+      "<thead><tr><th scope=\"col\">Variant</th><th scope=\"col\">Så räknar den</th>" +
+      "<th scope=\"col\">Fel totalt</th><th scope=\"col\">1–3 år</th>" +
+      "<th scope=\"col\">8 år och mer</th>" +
+      "<th scope=\"col\">Framskrivning " + sistaAr + "</th></tr></thead><tbody>";
+    mod.forEach(function (m) {
+      var l = snitt(m, langa), kt = snitt(m, korta);
+      var f = m.framskrivning[String(sistaAr)];
+      tab += "<tr><th scope=\"row\">" + m.namn + "</th><td>" + m.kort +
+        "</td><td>" + talSv(m.medelAbsPct, 1) + " %</td><td>" +
+        (kt === null ? "–" : talSv(kt, 1) + " %") + "</td><td>" +
+        (l === null ? "–" : talSv(l, 1) + " %") + "</td><td>" +
+        (f === undefined ? "–" : talSv(f)) + "</td></tr>";
+    });
+    el("tabell-varianter").innerHTML = tab + "</tbody>";
+    el("sektion-varianter").hidden = false;
+  }
+
   function initKohortfel(data) {
     if (!data.kohort || !el("diagram-kohortfel")) return;
     var rader = data.kohort.jamforelse;
@@ -1675,6 +1894,7 @@
       initKohortAlla(data);
       initKvoter(data);
       initKompenserad(data);
+      initVarianter(data);
       initKohortfel(data);
       initSpagetti(data);
       initUtfall(data);

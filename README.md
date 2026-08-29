@@ -29,7 +29,10 @@ officiella befolkningsstatistik.
   multiplicerar med de kvoterna längs vägen. Den halverar felet på lång
   sikt, men till priset av ett antagande: att flyttmönstret består.
   Kvoterna skattas därför alltid ur åren före basåret, så att prövningen
-  bakåt blir ärlig.
+  bakåt blir ärlig. Fem varianter av modellen prövas mot varandra på samma
+  basår och samma målår &ndash; med och utan kort skattningsfönster, med
+  och utan de tre första åren okompenserade &ndash; och alla redovisas,
+  också de som visar sig sämre.
 
 **Betygen på gymnasiet** &ndash; vad eleverna hade med sig in, och vad de gick
 ut med, program för program. Enheten är programmet och inte skolan på båda

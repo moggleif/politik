@@ -112,7 +112,7 @@ def kohortfel(pa: dict, utfall: dict, aldrar: tuple) -> list:
     ]
 
 
-def kvoter_tom(pa: dict, tom: int, hogsta_alder: int) -> dict:
+def kvoter_tom(pa: dict, tom: int, hogsta_alder: int, fonster=None) -> dict:
     """Åldersklassernas årliga tillväxt, skattad ur åren t.o.m. `tom`.
 
     r(a) = N(a+1, T+1) / N(a, T), sammanvägt som **geometriskt** medel:
@@ -120,16 +120,22 @@ def kvoter_tom(pa: dict, tom: int, hogsta_alder: int) -> dict:
     multiplikativa mittpunkten som ska användas, inte den aritmetiska.
 
     `tom` finns för att prövningen bakåt ska bli ärlig: en framskrivning
-    gjord år B får bara använda kvoter som gick att räkna ut då."""
+    gjord år B får bara använda kvoter som gick att räkna ut då.
+
+    `fonster` begränsar skattningen till de N senaste årsövergångarna.
+    Ett kort fönster följer en trend snabbare men skakar mer; vilket som
+    lönar sig prövas i variantjämförelsen och avgörs inte på förhand."""
     ar = sorted(pa)
     ut = {}
     for a in range(0, hogsta_alder):
-        v = [pa[T + 1][a + 1] / pa[T][a]
+        v = [(T, pa[T + 1][a + 1] / pa[T][a])
              for T in ar
              if T + 1 in pa and T + 1 <= tom
              and pa[T].get(a) and pa[T + 1].get(a + 1)]
+        if fonster:
+            v = v[-fonster:]
         if v:
-            ut[a] = math.exp(sum(math.log(x) for x in v) / len(v))
+            ut[a] = math.exp(sum(math.log(x) for _, x in v) / len(v))
     return ut
 
 
@@ -178,6 +184,129 @@ def kompenserad_for(bas: dict, basar: int, aldrar: tuple, kvoter: dict) -> dict:
             summa += varde
         ut[basar + k] = round(summa)
         k += 1
+
+
+# Modellvarianter som prövas mot varandra. Poängen med att lista dem här
+# är att ingen av dem ska kunna väljas i efterhand: alla räknas fram med
+# samma regler och redovisas med sitt utfall, också de som visar sig sämre.
+#
+#   fonster       antal senaste årsövergångar som kvoterna skattas ur
+#                 (None = alla år fram till basåret)
+#   fordrojning   horisont t.o.m. vilken ingen kompensation alls görs.
+#                 Tanken bakom den är att de närmaste årens ungdomar redan
+#                 bor i kommunen, och att flyttningen hinner betyda något
+#                 först längre fram.
+VARIANTER = [
+    {"nyckel": "enkel", "namn": "Enkel framskrivning",
+     "kort": "Ingen kompensation alls",
+     "kompensera": False, "fonster": None, "fordrojning": 0},
+    {"nyckel": "hela", "namn": "Kompenserad, hela historiken",
+     "kort": "Kvoter ur alla år fram till basåret",
+     "kompensera": True, "fonster": None, "fordrojning": 0},
+    {"nyckel": "fonster3", "namn": "Kompenserad, 3-årsfönster",
+     "kort": "Kvoter ur de tre senaste årsövergångarna",
+     "kompensera": True, "fonster": 3, "fordrojning": 0},
+    {"nyckel": "hybrid-hela", "namn": "Tre år utan, sedan hela historiken",
+     "kort": "Ingen kompensation de tre första åren",
+     "kompensera": True, "fonster": None, "fordrojning": 3},
+    {"nyckel": "hybrid-fonster3", "namn": "Tre år utan, sedan 3-årsfönster",
+     "kort": "Ingen kompensation de tre första åren, sedan kvoter ur de "
+             "tre senaste årsövergångarna",
+     "kompensera": True, "fonster": 3, "fordrojning": 3},
+]
+
+# Ett kort fönster kräver att det finns några årsövergångar att räkna på.
+# Prövningen börjar därför först när det gör det.
+MINSTA_KVOTAR = 3
+
+
+def variant_for(bas: dict, basar: int, aldrar: tuple, kvoter, fordrojning: int) -> dict:
+    """Framskrivningen för en modellvariant.
+
+    Är `kvoter` None bärs kohorterna rakt fram (den enkla modellen). I
+    övrigt multipliceras de med r(a) längs vägen, utom för horisonter
+    t.o.m. `fordrojning`, som lämnas okompenserade."""
+    lag, hog = aldrar
+    ut = {}
+    k = 1
+    while True:
+        summa = 0.0
+        for m in range(lag, hog + 1):
+            a0 = m - k
+            if a0 < 0 or a0 not in bas:
+                return ut
+            varde = float(bas[a0])
+            if kvoter is not None and k > fordrojning:
+                for j in range(a0, m):
+                    if j not in kvoter:
+                        return ut
+                    varde *= kvoter[j]
+            summa += varde
+        ut[basar + k] = round(summa)
+        k += 1
+
+
+def variantkvoter(pa: dict, basar: int, aldrar: tuple, v: dict):
+    if not v["kompensera"]:
+        return None
+    return kvoter_tom(pa, basar, aldrar[1], v["fonster"])
+
+
+def bygg_varianter(pa: dict, utfall: dict, aldrar: tuple) -> dict | None:
+    """Varje variant prövad bakåt från varje basår, horisont för horisont.
+
+    Alla varianter får exakt samma basår och samma målår, så att
+    skillnaden dem emellan är modellen och ingenting annat. Kvoterna
+    skattas ur åren före basåret, precis som i den övriga prövningen."""
+    if not pa:
+        return None
+    forsta_basar = min(pa) + MINSTA_KVOTAR
+    basar_lista = [b for b in sorted(pa) if b >= forsta_basar]
+    if not basar_lista:
+        return None
+
+    fel = {v["nyckel"]: {} for v in VARIANTER}
+    for basar in basar_lista:
+        for v in VARIANTER:
+            fr = variant_for(pa[basar], basar, aldrar,
+                             variantkvoter(pa, basar, aldrar, v),
+                             v["fordrojning"])
+            for ar, varde in fr.items():
+                if ar in utfall:
+                    fel[v["nyckel"]].setdefault(ar - basar, []).append(
+                        100.0 * (varde - utfall[ar]) / utfall[ar])
+
+    sista = max(pa)
+    modeller = []
+    for v in VARIANTER:
+        d = fel[v["nyckel"]]
+        alla = [x for k in d for x in d[k]]
+        if not alla:
+            continue
+        modeller.append({
+            "nyckel": v["nyckel"], "namn": v["namn"], "kort": v["kort"],
+            "fonster": v["fonster"], "fordrojning": v["fordrojning"],
+            "framskrivning": {
+                str(a): x for a, x in sorted(variant_for(
+                    pa[sista], sista, aldrar,
+                    variantkvoter(pa, sista, aldrar, v),
+                    v["fordrojning"]).items())},
+            "perAvstand": [
+                {"avstand": k, "antal": len(d[k]),
+                 "medelAbsPct": round(sum(abs(x) for x in d[k]) / len(d[k]), 2),
+                 "medelPct": round(sum(d[k]) / len(d[k]), 2)}
+                for k in sorted(d)
+            ],
+            "antal": len(alla),
+            "medelAbsPct": round(sum(abs(x) for x in alla) / len(alla), 2),
+            "medelPct": round(sum(alla) / len(alla), 2),
+        })
+
+    return {
+        "basAr": [basar_lista[0], basar_lista[-1]],
+        "antalBasAr": len(basar_lista),
+        "modeller": modeller,
+    }
 
 
 def kohortjamforelse(pa: dict, prognoser: list, utfall: dict, aldrar: tuple) -> list:
@@ -355,6 +484,7 @@ def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None
         "jamforelse": kohortjamforelse(pa, prognoser, utfall, aldrar),
         "forstaBasAr": forsta_basar,
         "argangar": argangar,
+        "varianter": bygg_varianter(pa, utfall, aldrar),
         "senastePrognosAr": senaste["prognosAr"] if senaste else None,
         "motSenaste": mot_senaste,
     }
@@ -499,6 +629,12 @@ def main() -> None:
             print(f"  kohortframskrivning: basår {k['basAr']}, "
                   f"{len(k['framskrivning'])} år fram till {k['sistaAr']}; "
                   f"{len(k['argangar'])} årgångar från {k['forstaBasAr']}")
+            if k.get("varianter"):
+                v = k["varianter"]
+                print(f"  modellvarianter, basåren {v['basAr'][0]}–{v['basAr'][1]}:")
+                for m in sorted(v["modeller"], key=lambda x: x["medelAbsPct"]):
+                    print(f"    {m['medelAbsPct']:5.2f}%  {m['namn']} "
+                          f"(n = {m['antal']})")
 
 
 if __name__ == "__main__":

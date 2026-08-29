@@ -2615,6 +2615,645 @@
     "ettArPct": null
    }
   ],
+  "varianter": {
+   "basAr": [
+    2003,
+    2025
+   ],
+   "antalBasAr": 23,
+   "modeller": [
+    {
+     "nyckel": "enkel",
+     "namn": "Enkel framskrivning",
+     "kort": "Ingen kompensation alls",
+     "fonster": null,
+     "fordrojning": 0,
+     "framskrivning": {
+      "2026": 5118,
+      "2027": 5098,
+      "2028": 5049,
+      "2029": 4869,
+      "2030": 4726,
+      "2031": 4626,
+      "2032": 4584,
+      "2033": 4527,
+      "2034": 4459,
+      "2035": 4404,
+      "2036": 4241,
+      "2037": 4182,
+      "2038": 3987,
+      "2039": 3757,
+      "2040": 3552,
+      "2041": 3235
+     },
+     "perAvstand": [
+      {
+       "avstand": 1,
+       "antal": 22,
+       "medelAbsPct": 0.88,
+       "medelPct": 0.69
+      },
+      {
+       "avstand": 2,
+       "antal": 21,
+       "medelAbsPct": 1.05,
+       "medelPct": 0.48
+      },
+      {
+       "avstand": 3,
+       "antal": 20,
+       "medelAbsPct": 1.18,
+       "medelPct": 0.12
+      },
+      {
+       "avstand": 4,
+       "antal": 19,
+       "medelAbsPct": 1.19,
+       "medelPct": -0.58
+      },
+      {
+       "avstand": 5,
+       "antal": 18,
+       "medelAbsPct": 1.56,
+       "medelPct": -1.33
+      },
+      {
+       "avstand": 6,
+       "antal": 17,
+       "medelAbsPct": 2.29,
+       "medelPct": -2.29
+      },
+      {
+       "avstand": 7,
+       "antal": 16,
+       "medelAbsPct": 3.36,
+       "medelPct": -3.36
+      },
+      {
+       "avstand": 8,
+       "antal": 15,
+       "medelAbsPct": 4.38,
+       "medelPct": -4.38
+      },
+      {
+       "avstand": 9,
+       "antal": 14,
+       "medelAbsPct": 5.55,
+       "medelPct": -5.55
+      },
+      {
+       "avstand": 10,
+       "antal": 13,
+       "medelAbsPct": 6.83,
+       "medelPct": -6.83
+      },
+      {
+       "avstand": 11,
+       "antal": 12,
+       "medelAbsPct": 8.32,
+       "medelPct": -8.32
+      },
+      {
+       "avstand": 12,
+       "antal": 11,
+       "medelAbsPct": 10.17,
+       "medelPct": -10.17
+      },
+      {
+       "avstand": 13,
+       "antal": 10,
+       "medelAbsPct": 12.3,
+       "medelPct": -12.3
+      },
+      {
+       "avstand": 14,
+       "antal": 9,
+       "medelAbsPct": 14.82,
+       "medelPct": -14.82
+      },
+      {
+       "avstand": 15,
+       "antal": 8,
+       "medelAbsPct": 17.8,
+       "medelPct": -17.8
+      },
+      {
+       "avstand": 16,
+       "antal": 7,
+       "medelAbsPct": 21.74,
+       "medelPct": -21.74
+      }
+     ],
+     "antal": 232,
+     "medelAbsPct": 5.19,
+     "medelPct": -4.72
+    },
+    {
+     "nyckel": "hela",
+     "namn": "Kompenserad, hela historiken",
+     "kort": "Kvoter ur alla år fram till basåret",
+     "fonster": null,
+     "fordrojning": 0,
+     "framskrivning": {
+      "2026": 5081,
+      "2027": 5069,
+      "2028": 5034,
+      "2029": 4878,
+      "2030": 4766,
+      "2031": 4699,
+      "2032": 4700,
+      "2033": 4677,
+      "2034": 4650,
+      "2035": 4643,
+      "2036": 4534,
+      "2037": 4548,
+      "2038": 4430,
+      "2039": 4295,
+      "2040": 4212,
+      "2041": 4041
+     },
+     "perAvstand": [
+      {
+       "avstand": 1,
+       "antal": 22,
+       "medelAbsPct": 0.53,
+       "medelPct": -0.15
+      },
+      {
+       "avstand": 2,
+       "antal": 21,
+       "medelAbsPct": 0.88,
+       "medelPct": -0.35
+      },
+      {
+       "avstand": 3,
+       "antal": 20,
+       "medelAbsPct": 1.17,
+       "medelPct": -0.5
+      },
+      {
+       "avstand": 4,
+       "antal": 19,
+       "medelAbsPct": 1.28,
+       "medelPct": -0.76
+      },
+      {
+       "avstand": 5,
+       "antal": 18,
+       "medelAbsPct": 1.39,
+       "medelPct": -1.02
+      },
+      {
+       "avstand": 6,
+       "antal": 17,
+       "medelAbsPct": 1.61,
+       "medelPct": -1.37
+      },
+      {
+       "avstand": 7,
+       "antal": 16,
+       "medelAbsPct": 2.02,
+       "medelPct": -1.86
+      },
+      {
+       "avstand": 8,
+       "antal": 15,
+       "medelAbsPct": 2.44,
+       "medelPct": -2.41
+      },
+      {
+       "avstand": 9,
+       "antal": 14,
+       "medelAbsPct": 3.05,
+       "medelPct": -3.05
+      },
+      {
+       "avstand": 10,
+       "antal": 13,
+       "medelAbsPct": 3.63,
+       "medelPct": -3.63
+      },
+      {
+       "avstand": 11,
+       "antal": 12,
+       "medelAbsPct": 4.29,
+       "medelPct": -4.29
+      },
+      {
+       "avstand": 12,
+       "antal": 11,
+       "medelAbsPct": 5.02,
+       "medelPct": -5.02
+      },
+      {
+       "avstand": 13,
+       "antal": 10,
+       "medelAbsPct": 5.74,
+       "medelPct": -5.74
+      },
+      {
+       "avstand": 14,
+       "antal": 9,
+       "medelAbsPct": 6.66,
+       "medelPct": -6.66
+      },
+      {
+       "avstand": 15,
+       "antal": 8,
+       "medelAbsPct": 7.53,
+       "medelPct": -7.53
+      },
+      {
+       "avstand": 16,
+       "antal": 7,
+       "medelAbsPct": 8.53,
+       "medelPct": -8.53
+      }
+     ],
+     "antal": 232,
+     "medelAbsPct": 2.73,
+     "medelPct": -2.48
+    },
+    {
+     "nyckel": "fonster3",
+     "namn": "Kompenserad, 3-årsfönster",
+     "kort": "Kvoter ur de tre senaste årsövergångarna",
+     "fonster": 3,
+     "fordrojning": 0,
+     "framskrivning": {
+      "2026": 5073,
+      "2027": 5042,
+      "2028": 4986,
+      "2029": 4806,
+      "2030": 4660,
+      "2031": 4566,
+      "2032": 4538,
+      "2033": 4493,
+      "2034": 4442,
+      "2035": 4413,
+      "2036": 4291,
+      "2037": 4277,
+      "2038": 4145,
+      "2039": 3995,
+      "2040": 3905,
+      "2041": 3731
+     },
+     "perAvstand": [
+      {
+       "avstand": 1,
+       "antal": 22,
+       "medelAbsPct": 0.58,
+       "medelPct": -0.0
+      },
+      {
+       "avstand": 2,
+       "antal": 21,
+       "medelAbsPct": 1.03,
+       "medelPct": 0.01
+      },
+      {
+       "avstand": 3,
+       "antal": 20,
+       "medelAbsPct": 1.56,
+       "medelPct": 0.07
+      },
+      {
+       "avstand": 4,
+       "antal": 19,
+       "medelAbsPct": 1.92,
+       "medelPct": 0.06
+      },
+      {
+       "avstand": 5,
+       "antal": 18,
+       "medelAbsPct": 2.02,
+       "medelPct": 0.01
+      },
+      {
+       "avstand": 6,
+       "antal": 17,
+       "medelAbsPct": 2.1,
+       "medelPct": -0.3
+      },
+      {
+       "avstand": 7,
+       "antal": 16,
+       "medelAbsPct": 2.19,
+       "medelPct": -0.89
+      },
+      {
+       "avstand": 8,
+       "antal": 15,
+       "medelAbsPct": 2.3,
+       "medelPct": -1.57
+      },
+      {
+       "avstand": 9,
+       "antal": 14,
+       "medelAbsPct": 2.33,
+       "medelPct": -2.26
+      },
+      {
+       "avstand": 10,
+       "antal": 13,
+       "medelAbsPct": 2.79,
+       "medelPct": -2.78
+      },
+      {
+       "avstand": 11,
+       "antal": 12,
+       "medelAbsPct": 3.29,
+       "medelPct": -3.29
+      },
+      {
+       "avstand": 12,
+       "antal": 11,
+       "medelAbsPct": 3.91,
+       "medelPct": -3.91
+      },
+      {
+       "avstand": 13,
+       "antal": 10,
+       "medelAbsPct": 4.36,
+       "medelPct": -4.36
+      },
+      {
+       "avstand": 14,
+       "antal": 9,
+       "medelAbsPct": 5.15,
+       "medelPct": -5.15
+      },
+      {
+       "avstand": 15,
+       "antal": 8,
+       "medelAbsPct": 6.21,
+       "medelPct": -6.21
+      },
+      {
+       "avstand": 16,
+       "antal": 7,
+       "medelAbsPct": 7.17,
+       "medelPct": -7.17
+      }
+     ],
+     "antal": 232,
+     "medelAbsPct": 2.52,
+     "medelPct": -1.64
+    },
+    {
+     "nyckel": "hybrid-hela",
+     "namn": "Tre år utan, sedan hela historiken",
+     "kort": "Ingen kompensation de tre första åren",
+     "fonster": null,
+     "fordrojning": 3,
+     "framskrivning": {
+      "2026": 5118,
+      "2027": 5098,
+      "2028": 5049,
+      "2029": 4878,
+      "2030": 4766,
+      "2031": 4699,
+      "2032": 4700,
+      "2033": 4677,
+      "2034": 4650,
+      "2035": 4643,
+      "2036": 4534,
+      "2037": 4548,
+      "2038": 4430,
+      "2039": 4295,
+      "2040": 4212,
+      "2041": 4041
+     },
+     "perAvstand": [
+      {
+       "avstand": 1,
+       "antal": 22,
+       "medelAbsPct": 0.88,
+       "medelPct": 0.69
+      },
+      {
+       "avstand": 2,
+       "antal": 21,
+       "medelAbsPct": 1.05,
+       "medelPct": 0.48
+      },
+      {
+       "avstand": 3,
+       "antal": 20,
+       "medelAbsPct": 1.18,
+       "medelPct": 0.12
+      },
+      {
+       "avstand": 4,
+       "antal": 19,
+       "medelAbsPct": 1.28,
+       "medelPct": -0.76
+      },
+      {
+       "avstand": 5,
+       "antal": 18,
+       "medelAbsPct": 1.39,
+       "medelPct": -1.02
+      },
+      {
+       "avstand": 6,
+       "antal": 17,
+       "medelAbsPct": 1.61,
+       "medelPct": -1.37
+      },
+      {
+       "avstand": 7,
+       "antal": 16,
+       "medelAbsPct": 2.02,
+       "medelPct": -1.86
+      },
+      {
+       "avstand": 8,
+       "antal": 15,
+       "medelAbsPct": 2.44,
+       "medelPct": -2.41
+      },
+      {
+       "avstand": 9,
+       "antal": 14,
+       "medelAbsPct": 3.05,
+       "medelPct": -3.05
+      },
+      {
+       "avstand": 10,
+       "antal": 13,
+       "medelAbsPct": 3.63,
+       "medelPct": -3.63
+      },
+      {
+       "avstand": 11,
+       "antal": 12,
+       "medelAbsPct": 4.29,
+       "medelPct": -4.29
+      },
+      {
+       "avstand": 12,
+       "antal": 11,
+       "medelAbsPct": 5.02,
+       "medelPct": -5.02
+      },
+      {
+       "avstand": 13,
+       "antal": 10,
+       "medelAbsPct": 5.74,
+       "medelPct": -5.74
+      },
+      {
+       "avstand": 14,
+       "antal": 9,
+       "medelAbsPct": 6.66,
+       "medelPct": -6.66
+      },
+      {
+       "avstand": 15,
+       "antal": 8,
+       "medelAbsPct": 7.53,
+       "medelPct": -7.53
+      },
+      {
+       "avstand": 16,
+       "antal": 7,
+       "medelAbsPct": 8.53,
+       "medelPct": -8.53
+      }
+     ],
+     "antal": 232,
+     "medelAbsPct": 2.78,
+     "medelPct": -2.28
+    },
+    {
+     "nyckel": "hybrid-fonster3",
+     "namn": "Tre år utan, sedan 3-årsfönster",
+     "kort": "Ingen kompensation de tre första åren, sedan kvoter ur de tre senaste årsövergångarna",
+     "fonster": 3,
+     "fordrojning": 3,
+     "framskrivning": {
+      "2026": 5118,
+      "2027": 5098,
+      "2028": 5049,
+      "2029": 4806,
+      "2030": 4660,
+      "2031": 4566,
+      "2032": 4538,
+      "2033": 4493,
+      "2034": 4442,
+      "2035": 4413,
+      "2036": 4291,
+      "2037": 4277,
+      "2038": 4145,
+      "2039": 3995,
+      "2040": 3905,
+      "2041": 3731
+     },
+     "perAvstand": [
+      {
+       "avstand": 1,
+       "antal": 22,
+       "medelAbsPct": 0.88,
+       "medelPct": 0.69
+      },
+      {
+       "avstand": 2,
+       "antal": 21,
+       "medelAbsPct": 1.05,
+       "medelPct": 0.48
+      },
+      {
+       "avstand": 3,
+       "antal": 20,
+       "medelAbsPct": 1.18,
+       "medelPct": 0.12
+      },
+      {
+       "avstand": 4,
+       "antal": 19,
+       "medelAbsPct": 1.92,
+       "medelPct": 0.06
+      },
+      {
+       "avstand": 5,
+       "antal": 18,
+       "medelAbsPct": 2.02,
+       "medelPct": 0.01
+      },
+      {
+       "avstand": 6,
+       "antal": 17,
+       "medelAbsPct": 2.1,
+       "medelPct": -0.3
+      },
+      {
+       "avstand": 7,
+       "antal": 16,
+       "medelAbsPct": 2.19,
+       "medelPct": -0.89
+      },
+      {
+       "avstand": 8,
+       "antal": 15,
+       "medelAbsPct": 2.3,
+       "medelPct": -1.57
+      },
+      {
+       "avstand": 9,
+       "antal": 14,
+       "medelAbsPct": 2.33,
+       "medelPct": -2.26
+      },
+      {
+       "avstand": 10,
+       "antal": 13,
+       "medelAbsPct": 2.79,
+       "medelPct": -2.78
+      },
+      {
+       "avstand": 11,
+       "antal": 12,
+       "medelAbsPct": 3.29,
+       "medelPct": -3.29
+      },
+      {
+       "avstand": 12,
+       "antal": 11,
+       "medelAbsPct": 3.91,
+       "medelPct": -3.91
+      },
+      {
+       "avstand": 13,
+       "antal": 10,
+       "medelAbsPct": 4.36,
+       "medelPct": -4.36
+      },
+      {
+       "avstand": 14,
+       "antal": 9,
+       "medelAbsPct": 5.15,
+       "medelPct": -5.15
+      },
+      {
+       "avstand": 15,
+       "antal": 8,
+       "medelAbsPct": 6.21,
+       "medelPct": -6.21
+      },
+      {
+       "avstand": 16,
+       "antal": 7,
+       "medelAbsPct": 7.17,
+       "medelPct": -7.17
+      }
+     ],
+     "antal": 232,
+     "medelAbsPct": 2.52,
+     "medelPct": -1.53
+    }
+   ]
+  },
   "senastePrognosAr": 2026,
   "motSenaste": [
    {
