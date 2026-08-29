@@ -969,6 +969,34 @@ class TestExaktSummering(unittest.TestCase):
             self.assertNotIn("round(sum(", kod, namn)
 
 
+class TestAvskrifter(unittest.TestCase):
+    """Vaktar avskrifterna mot kända fel i PDF-utläsningen."""
+
+    def test_inga_sidbrytningsfragment_i_antagningen(self):
+        """Ett utbildningsnamn som bryts mot en radlinje i GR:s rapport
+        blir en extra rad med avhugget namn och sidfotstext i
+        talkolumnerna. Kännetecknet: namnet är ett äkta prefix av ett
+        annat namn på samma skola, brottet ligger vid en ordgräns, och
+        raden saknar egna mätvärden. Ett sådant fragment låg i
+        antagning_2022 och blev en egen tom utbildning på sidan.
+        """
+        for fil in sorted((ROT / "data" / "antagning").glob("antagning_*.json")):
+            rader = json.loads(fil.read_text(encoding="utf-8"))["utbildningar"]
+            for u in rader:
+                if (u["antagningspoang"] is not None
+                        or u["medelmeritvarde"] is not None):
+                    continue
+                for annan in rader:
+                    if (annan is u or annan["skola"] != u["skola"]
+                            or not annan["utbildning"].startswith(u["utbildning"])
+                            or annan["utbildning"] == u["utbildning"]):
+                        continue
+                    rest = annan["utbildning"][len(u["utbildning"]):]
+                    self.assertNotIn(rest[:1], (" ", ","),
+                                     f"{fil.name}: {u['utbildning']!r} ser ut att "
+                                     f"vara ett avhugget {annan['utbildning']!r}")
+
+
 class TestPresentationsregler(unittest.TestCase):
     """Regressionsvakter för metodproblem i presentationen.
 

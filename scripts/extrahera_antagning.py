@@ -257,14 +257,29 @@ def sammanfoga(rader, fetmarkering: bool):
                 gammal[falt] = ny[falt]
             elif ny[falt] is not None and ny[falt] != gammal[falt]:
                 avvikande.append((skola, utbildning, falt, gammal[falt], ny[falt]))
-    # Ett namn som bryts mot en radlinje ger en extra rad med avhugget namn
-    # ("… - Svetsteknik,") och sidfotstext i talkolumnerna. Den fullständiga
-    # raden finns i rapportens andra sortering.
-    avhuggna = [(skola, utbildning) for skola, utbildning in sammanslaget
-                if utbildning.endswith(",")
-                and any(s2 == skola and u2 != utbildning and u2.startswith(utbildning)
-                        for s2, u2 in sammanslaget)]
-    for nyckel in avhuggna:
+    # Ett namn som bryts mot en radlinje ger en extra rad med avhugget
+    # namn ("… - Svetsteknik," eller "… - Bageri") och sidfotstext i
+    # talkolumnerna. Den fullständiga raden finns i rapportens andra
+    # sortering. Tre kännetecken måste stämma samtidigt, så att en riktig
+    # utbildning vars namn råkar vara ett prefix av en annan inte tas bort:
+    #
+    #   * namnet är ett äkta prefix av ett annat namn på samma skola
+    #   * brottet ligger vid en ordgräns (nästa tecken är blanksteg eller
+    #     komma) – annars är det två skilda namn
+    #   * raden saknar egna mätvärden; det som står i talkolumnerna kommer
+    #     från sidfoten och blir aldrig ett tal
+    def ar_fragment(skola, utbildning):
+        post = sammanslaget[(skola, utbildning)]
+        if post["antagningspoang"] is not None or post["medelmeritvarde"] is not None:
+            return False
+        for s2, u2 in sammanslaget:
+            if s2 != skola or u2 == utbildning or not u2.startswith(utbildning):
+                continue
+            if u2[len(utbildning):len(utbildning) + 1] in (" ", ","):
+                return True
+        return False
+
+    for nyckel in [n for n in sammanslaget if ar_fragment(*n)]:
         del sammanslaget[nyckel]
 
     return sammanslaget, avvikande
