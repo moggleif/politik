@@ -472,6 +472,49 @@ class TestKohortframskrivning(unittest.TestCase):
         self.assertAlmostEqual(profil[0]["minPct"], 0.0)   # 110 -> 110
         self.assertAlmostEqual(profil[0]["maxPct"], 10.0)  # 100 -> 110
 
+    def test_fonstret_begransar_kvoterna_till_de_senaste_aren(self):
+        """Ett kort fönster ska följa den senaste utvecklingen, inte hela
+        historiken – annars kan det inte reagera på en trend."""
+        pa = {2023: {a: 100 for a in range(0, 20)},
+              2024: {a: 100 for a in range(0, 20)},
+              2025: {a: 200 for a in range(0, 20)}}
+        hela = build_data.kvoter_tom(pa, 2025, 19)
+        senaste = build_data.kvoter_tom(pa, 2025, 19, fonster=1)
+        self.assertAlmostEqual(senaste[0], 2.0)          # bara 2024→2025
+        self.assertAlmostEqual(hela[0], 2.0 ** 0.5)      # 1,0 och 2,0
+
+    def test_fordrojningen_lamnar_de_forsta_aren_okompenserade(self):
+        """Tre år utan kompensation ska ge exakt den enkla
+        framskrivningen så länge, och den kompenserade därefter."""
+        pa = {2024: {a: 100 + a for a in range(0, 20)},
+              2025: {a: 100 + a for a in range(0, 20)}}
+        r = build_data.kvoter_tom(pa, 2025, 19)
+        enkel = build_data.variant_for(pa[2025], 2025, (16, 19), None, 0)
+        komp = build_data.variant_for(pa[2025], 2025, (16, 19), r, 0)
+        hybrid = build_data.variant_for(pa[2025], 2025, (16, 19), r, 3)
+        for k in (1, 2, 3):
+            self.assertEqual(hybrid[2025 + k], enkel[2025 + k])
+        for k in (4, 5, 6):
+            self.assertEqual(hybrid[2025 + k], komp[2025 + k])
+
+    def test_varianterna_provas_pa_samma_underlag(self):
+        """Skillnaden mellan varianterna ska vara modellen och ingenting
+        annat – alltså samma basår och samma antal jämförelser."""
+        pa = {str(y): {str(a): 100 + a + y - 2000 for a in range(0, 20)}
+              for y in range(2000, 2016)}
+        scb = dict(self.scb, perAlder=pa)
+        utfall = {y: 4 * 116 for y in range(2004, 2016)}
+        ut = build_data.bygg_varianter(
+            {int(y): {int(a): v for a, v in r.items()} for y, r in pa.items()},
+            utfall, (16, 19))
+        self.assertEqual(ut["basAr"][0], 2003)           # 2000 + MINSTA_KVOTAR
+        nycklar = [m["nyckel"] for m in ut["modeller"]]
+        self.assertIn("enkel", nycklar)
+        self.assertIn("hybrid-fonster3", nycklar)
+        antal = {m["antal"] for m in ut["modeller"]}
+        self.assertEqual(len(antal), 1, "varianterna har olika många jämförelser")
+        self.assertIsNone(build_data.bygg_varianter({}, utfall, (16, 19)))
+
     def test_traffsakerheten_mater_avvikelsen_mot_utfallet(self):
         # Framskrivet 2026 = 466. Sätt utfallet till 500 -> -6,8 %.
         rader = build_data.kohortfel(self.pa, {2026: 500}, (16, 19))
