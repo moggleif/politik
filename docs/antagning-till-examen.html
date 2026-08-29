@@ -36,8 +36,8 @@
     <h1>Från antagning till examen</h1>
     <p class="ingress">
       Här ställs antagningen till ett gymnasieprogram år X mot
-      avgångseleverna på samma program år X&nbsp;+&nbsp;3: medelmeritvärdet
-      från grundskolan vid antagningen, och betygspoängen och andelen med
+      avgångseleverna på samma program år X&nbsp;+&nbsp;3: meritvärdena från
+      grundskolan vid antagningen, och betygspoängen och andelen med
       examen vid examen. Välj ett program och se kull för kull.
     </p>
     <p class="meta-rad" id="meta-rad" hidden></p>
@@ -63,8 +63,10 @@
     </p>
     <ul class="forklaring">
       <li><strong>Meritvärdet vid antagningen</strong> är summan av
-        betygen från grundskolan, som mest 340 poäng. Det är räknat på dem
-        som antogs.</li>
+        betygen från grundskolan, som mest 340 poäng. Programmets tal är ett
+        <strong>ovägt</strong> genomsnitt av dess inriktningars
+        medelmeritvärden &ndash; GR redovisar inte hur många som antogs, så
+        inriktningarna kan inte vägas efter storlek.</li>
       <li><strong>Betygspoängen vid examen</strong> är genomsnittet av
         gymnasiebetygen, på en skala från 0 till 20. Det är räknat på
         avgångseleverna.</li>
@@ -95,8 +97,8 @@
     <div class="panelpar">
       <div class="kort">
         <h3>Vid antagningen</h3>
-        <p class="panel-enhet">Medelmeritvärde från grundskolan (skala 0&ndash;340)</p>
-        <div class="diagram-wrap"><canvas id="diagram-antagning" aria-label="Diagram: medelmeritvärde vid antagningen per kull" role="img"></canvas></div>
+        <p class="panel-enhet">Ovägt genomsnitt av inriktningarnas medelmeritvärden (skala 0&ndash;340)</p>
+        <div class="diagram-wrap"><canvas id="diagram-antagning" aria-label="Diagram: ovägt genomsnitt av inriktningarnas medelmeritvärden vid antagningen, per kull" role="img"></canvas></div>
       </div>
       <div class="kort">
         <h3>Vid examen, tre år senare</h3>

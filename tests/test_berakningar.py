@@ -964,6 +964,88 @@ class TestTolkningsregler(unittest.TestCase):
         for vag in ("docs/merit.js", "docs/slutbetyg.js"):
             self.assertNotIn("Gapet har alltså", self.las(vag), vag)
 
+    def test_programsiffran_kallas_inte_elevernas_medelmeritvarde(self):
+        """Programmets tal är ett ovägt snitt av inriktningarnas medelvärden.
+
+        GR redovisar inte antal antagna, så talet kan inte vägas efter hur
+        många eleverna var. Barn- och fritidsprogrammet på Elof Lindälv
+        2026 visar varför etiketten spelar roll: (141,25 + 206,25) / 2 =
+        173,75, ett tal som ingen elevgrupp behöver ha haft.
+        """
+        d = json.loads((ROT / "docs" / "data-meritvarden.json")
+                       .read_text(encoding="utf-8"))
+        traff = [p for p in d["program"]
+                 if p["namn"].startswith("Barn- och fritid")
+                 and "2026" in p["varden"]
+                 and p["varden"]["2026"]["skola"].startswith("Elof")]
+        self.assertEqual(len(traff), 1)
+        v = traff[0]["varden"]["2026"]
+        delar = [u["varden"]["2026"]["medel"] for u in d["utbildningar"]
+                 if u["program"] == traff[0]["namn"]
+                 and u["skola"].startswith("Elof")
+                 and u["varden"].get("2026")
+                 and u["varden"]["2026"]["medel"] is not None]
+        self.assertEqual(sorted(delar), [141.25, 206.25])
+        self.assertEqual(v["antal"], len(delar))
+        self.assertAlmostEqual(v["medel"], sum(delar) / len(delar), places=2)
+
+        # Ingen sida får kalla programnivåns tal elevernas genomsnitt.
+        for vag in ("docs/merit.js", "docs/meritvarden.html", "docs/kull.js",
+                    "docs/antagning-till-examen.html"):
+            text = self.las(vag)
+            for forbjudet in ("medelmeritvärdet för de antagna eleverna",
+                              "Medelmeritvärdet för de antagna eleverna"):
+                self.assertNotIn(forbjudet, text, vag)
+
+    def test_programnivan_beskrivs_som_ovagd(self):
+        """Där programsiffran visas ska ovägningen stå i klartext."""
+        for vag in ("docs/meritvarden.html", "docs/antagning-till-examen.html",
+                    "docs/metod.html"):
+            self.assertIn("ovägt", self.las(vag).lower(), vag)
+        self.assertIn("Ovägt genomsnitt av inriktningarnas medelmeritvärden",
+                      self.las("docs/merit.js"))
+
+    def test_antagningspoangen_kallas_inte_alltid_en_intagningsgrans(self):
+        """Från 2025 skrivs poängen ut även när alla behöriga kom in.
+
+        Då är den sist antagnas meritvärde ingen gräns som krävdes: någon
+        med lägre värde kunde ha kommit in om personen sökt.
+        """
+        text = self.las("docs/meritvarden.html")
+        self.assertNotIn("alltså den gräns som gällde för att komma in", text)
+        self.assertIn("faktisk konkurrensgräns när det fanns fler", text)
+
+        d = json.loads((ROT / "docs" / "data-meritvarden.json")
+                       .read_text(encoding="utf-8"))
+        # Efter definitionsbytet finns poäng även för utbildningar med
+        # lediga platser kvar – annars vore texten ovan onödig.
+        utan_konkurrens = [v for u in d["utbildningar"]
+                           for a, v in u["varden"].items()
+                           if int(a) >= 2025 and v.get("utanPlatser") is False
+                           and v.get("poang") is not None]
+        self.assertTrue(utan_konkurrens)
+
+    def test_prognoserna_avgor_ingenting(self):
+        """Sidan visar prognoser och utfall, inte vad de styr.
+
+        Elever pendlar över kommungränsen i båda riktningarna, vilket
+        sidan om nian till gymnasiet mäter – antalet 16–19-åringar avgör
+        alltså inte antalet gymnasieplatser.
+        """
+        for vag in ("docs/index.html", "docs/index.js", "docs/gymnasiealdern.html"):
+            text = self.las(vag)
+            for forbjudet in ("avgör behovet", "avgör hur många gymnasieplatser",
+                              "Prognoserna styr"):
+                self.assertNotIn(forbjudet, text, vag)
+
+    def test_systematiska_fel_pastas_inte_kunna_raknas_bort(self):
+        """Ett riktat historiskt fel går inte utan vidare att räkna bort."""
+        for vag in ("docs/befolkningsprognos.html", "docs/gymnasiealdern.html",
+                    "docs/app.js"):
+            text = self.las(vag)
+            self.assertNotIn("räknas bort i modellen", text, vag)
+            self.assertNotIn("kan mätas och räknas bort", text, vag)
+
 
 class TestPresentationsregler(unittest.TestCase):
     """Regressionsvakter för metodproblem i presentationen.
