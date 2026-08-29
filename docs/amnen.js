@@ -9,7 +9,8 @@
   var FARG = K.FARG;
   var el = K.el;
   var talSv = K.talSv;
-  var visaStatus = K.visaStatus;
+  var esc = K.esc;
+  var sakerUrl = K.sakerUrl;
 
   var DATAFIL = "data-amnesbetyg.json";
   var DATA = null;
@@ -82,9 +83,9 @@
 
     var hogst = rader[0], lagst = rader[rader.length - 1];
     el("slutsats-rang").innerHTML =
-      "<p>Läsåret " + lasar(ar) + " hade <strong>" + hogst.namn.toLowerCase() +
+      "<p>Läsåret " + esc(lasar(ar)) + " hade <strong>" + esc(hogst.namn.toLowerCase()) +
       "</strong> den högsta genomsnittliga betygspoängen (" + talSv(hogst.v, 1) +
-      ") och <strong>" + lagst.namn.toLowerCase() + "</strong> den lägsta (" +
+      ") och <strong>" + esc(lagst.namn.toLowerCase()) + "</strong> den lägsta (" +
       talSv(lagst.v, 1) + ").</p>";
 
     el("tabell-rang").innerHTML =
@@ -93,7 +94,7 @@
       rader.map(function (r) {
         var a = hittaAmne(r.namn);
         var ae = cell(a, ar, "andelAE");
-        return "<tr><th scope=\"row\">" + r.namn + "</th><td>" + talSv(r.v, 1) +
+        return "<tr><th scope=\"row\">" + esc(r.namn) + "</th><td>" + talSv(r.v, 1) +
           "</td><td>" + (ae === null ? ".." : talSv(ae, 1) + "&nbsp;%") + "</td></tr>";
       }).join("") + "</tbody>";
   }
@@ -110,7 +111,7 @@
   function fyllValjare() {
     var v = el("amne-valjare");
     v.innerHTML = redovisade().map(function (a) {
-      return '<option value="' + a.namn + '">' + a.namn + "</option>";
+      return '<option value="' + esc(a.namn) + '">' + esc(a.namn) + "</option>";
     }).join("");
     /* Matematik som förval om det finns — annars första ämnet. */
     if (hittaAmne("Matematik")) v.value = "Matematik";
@@ -171,18 +172,18 @@
     var riktning = a.forandring === null ? "" :
       (a.forandring > 0 ? "stigit" : (a.forandring < 0 ? "sjunkit" : "legat stilla"));
     el("slutsats-amne").innerHTML = a.forandring === null
-      ? "<p>" + namn + " redovisas bara " + a.arMedPoang + " av " + ar.length +
+      ? "<p>" + esc(namn) + " redovisas bara " + esc(a.arMedPoang) + " av " + ar.length +
         " läsår, så någon utveckling går inte att läsa av.</p>"
-      : "<p>I " + namn.toLowerCase() + " har betygspoängen <strong>" + riktning +
-        "</strong> från " + talSv(f, 1) + " (" + lasar(a.forstaAr) + ") till " +
-        talSv(s, 1) + " (" + lasar(a.sistaAr) + ") &ndash; en förändring på <strong>" +
+      : "<p>I " + esc(namn.toLowerCase()) + " har betygspoängen <strong>" + riktning +
+        "</strong> från " + talSv(f, 1) + " (" + esc(lasar(a.forstaAr)) + ") till " +
+        talSv(s, 1) + " (" + esc(lasar(a.sistaAr)) + ") &ndash; en förändring på <strong>" +
         (a.forandring > 0 ? "+" : "") + talSv(a.forandring, 1) + "</strong> poäng.</p>";
 
     /* Dubbelprickade år ska synas, inte tigas ihjäl. */
     var dolda = ar.filter(function (y) { return cell(a, y, "betygspoang") === null; });
     K.sattDataNot("not-amne", dolda.length
-      ? "Läsåren " + dolda.map(lasar).join(", ") + " redovisas inte för " +
-        namn.toLowerCase() + ": uppgiften bygger på färre än tio elever."
+      ? "Läsåren " + esc(dolda.map(lasar).join(", ")) + " redovisas inte för " +
+        esc(namn.toLowerCase()) + ": uppgiften bygger på färre än tio elever."
       : "");
 
     el("tabell-amne").innerHTML =
@@ -192,7 +193,7 @@
       ar.map(function (y, i) {
         var ae = cell(a, y, "andelAE");
         function t(v, dec) { return v === null ? ".." : talSv(v, dec); }
-        return "<tr><th scope=\"row\">" + lasar(y) + "</th><td>" + t(poang[i], 1) +
+        return "<tr><th scope=\"row\">" + esc(lasar(y)) + "</th><td>" + t(poang[i], 1) +
           "</td><td>" + t(flickor[i], 1) + "</td><td>" + t(pojkar[i], 1) +
           "</td><td>" + (ae === null ? ".." : talSv(ae, 1) + "&nbsp;%") + "</td></tr>";
       }).join("") + "</tbody>";
@@ -295,10 +296,10 @@
   function tabellAlla(serier) {
     var ar = DATA.ar;
     var rubriker = serier.map(function (s) {
-      return "<th scope=\"col\">" + s.namn + "</th>";
+      return "<th scope=\"col\">" + esc(s.namn) + "</th>";
     }).join("");
     var rader = ar.map(function (y, i) {
-      return "<tr><th scope=\"row\">" + lasar(y) + "</th>" +
+      return "<tr><th scope=\"row\">" + esc(lasar(y)) + "</th>" +
         serier.map(function (s) {
           var v = s.varden[i];
           return "<td>" + (v === null ? ".." : talSv(v, 1)) + "</td>";
@@ -356,16 +357,16 @@
     var riktning = diff > 0 ? "stigit" : (diff < 0 ? "sjunkit" : "legat stilla");
     el("slutsats-poang").innerHTML =
       "<p>Betygspoängen har <strong>" + riktning + "</strong> från " +
-      talSv(f.betygspoang, 2) + " (" + lasar(f.ar) + ") till <strong>" +
-      talSv(s.betygspoang, 2) + "</strong> (" + lasar(s.ar) + ") av " +
-      DATA.maxPoang + " &ndash; en förändring på " + (diff > 0 ? "+" : "") +
+      talSv(f.betygspoang, 2) + " (" + esc(lasar(f.ar)) + ") till <strong>" +
+      talSv(s.betygspoang, 2) + "</strong> (" + esc(lasar(s.ar)) + ") av " +
+      esc(DATA.maxPoang) + " &ndash; en förändring på " + (diff > 0 ? "+" : "") +
       talSv(diff, 2) + " poäng. Ett snitt på 15 motsvarar ungefär betyget C.</p>";
 
     el("tabell-poang").innerHTML =
       "<thead><tr><th scope=\"col\">Läsår</th><th scope=\"col\">Betygspoäng</th>" +
       "<th scope=\"col\">Elever</th></tr></thead><tbody>" +
       DATA.sammanfattning.map(function (r) {
-        return "<tr><th scope=\"row\">" + lasar(r.ar) + "</th><td>" +
+        return "<tr><th scope=\"row\">" + esc(lasar(r.ar)) + "</th><td>" +
           talSv(r.betygspoang, 2) + "</td><td>" +
           (r.elever === null ? ".." : talSv(r.elever)) + "</td></tr>";
       }).join("") + "</tbody>";
@@ -380,8 +381,8 @@
 
     el("slutsats-godkant").innerHTML =
       "<p>Andelen godkända betyg har gått från <strong>" + talSv(f.andelAE, 1) +
-      "&nbsp;%</strong> (" + lasar(f.ar) + ") till <strong>" + talSv(s.andelAE, 1) +
-      "&nbsp;%</strong> (" + lasar(s.ar) + "). Måttet räknas över samma fasta " +
+      "&nbsp;%</strong> (" + esc(lasar(f.ar)) + ") till <strong>" + talSv(s.andelAE, 1) +
+      "&nbsp;%</strong> (" + esc(lasar(s.ar)) + "). Måttet räknas över samma fasta " +
       "ämnesurval varje år, så förändringen beror på betygen och inte på " +
       "vilka ämnen som råkat redovisas.</p>";
 
@@ -389,7 +390,7 @@
       "<thead><tr><th scope=\"col\">Läsår</th>" +
       "<th scope=\"col\">Andel med A&ndash;E</th></tr></thead><tbody>" +
       DATA.sammanfattning.map(function (r) {
-        return "<tr><th scope=\"row\">" + lasar(r.ar) + "</th><td>" +
+        return "<tr><th scope=\"row\">" + esc(lasar(r.ar)) + "</th><td>" +
           talSv(r.andelAE, 1) + "&nbsp;%</td></tr>";
       }).join("") + "</tbody>";
   }
@@ -440,9 +441,9 @@
 
     var flick = rader.filter(function (r) { return r.v > 0; }).length;
     el("slutsats-kon").innerHTML =
-      "<p>Av " + rader.length + " redovisade ämnen läsåret " + lasar(ar) +
+      "<p>Av " + rader.length + " redovisade ämnen läsåret " + esc(lasar(ar)) +
       " hade flickorna högre betygspoäng i <strong>" + flick + "</strong>. " +
-      "Störst är skillnaden i " + rader[0].namn.toLowerCase() + " (" +
+      "Störst är skillnaden i " + esc(rader[0].namn.toLowerCase()) + " (" +
       (rader[0].v > 0 ? "+" : "") + talSv(rader[0].v, 1) + " poäng).</p>";
 
     el("tabell-kon").innerHTML =
@@ -450,7 +451,7 @@
       "<th scope=\"col\">Pojkar</th><th scope=\"col\">Skillnad</th></tr></thead><tbody>" +
       rader.map(function (r) {
         var a = hittaAmne(r.namn);
-        return "<tr><th scope=\"row\">" + r.namn + "</th><td>" +
+        return "<tr><th scope=\"row\">" + esc(r.namn) + "</th><td>" +
           talSv(cell(a, ar, "betygspoangFlickor"), 1) + "</td><td>" +
           talSv(cell(a, ar, "betygspoangPojkar"), 1) + "</td><td>" +
           (r.v > 0 ? "+" : "") + talSv(r.v, 1) + "</td></tr>";
@@ -469,14 +470,14 @@
     var upp = med.filter(function (a) { return a.forandring > 0; }).length;
 
     K.visaKortSagt([
-      "Läsåret " + lasar(s.ar) + " var den genomsnittliga betygspoängen i " +
+      "Läsåret " + esc(lasar(s.ar)) + " var den genomsnittliga betygspoängen i " +
         "årskurs 9 <strong>" + talSv(s.betygspoang, 2) + "</strong> av " +
-        DATA.maxPoang + ", över " + DATA.karnamnen.length + " ämnen.",
+        esc(DATA.maxPoang) + ", över " + DATA.karnamnen.length + " ämnen.",
       "Andelen godkända betyg (A&ndash;E) var <strong>" + talSv(s.andelAE, 1) +
         "&nbsp;%</strong>, mot " + talSv(f.andelAE, 1) + "&nbsp;% läsåret " +
-        lasar(f.ar) + ".",
+        esc(lasar(f.ar)) + ".",
       "Av " + med.length + " ämnen med hela tidsserien har betygspoängen stigit i <strong>" +
-        upp + "</strong> sedan " + lasar(f.ar) + ".",
+        upp + "</strong> sedan " + esc(lasar(f.ar)) + ".",
       "Siffrorna avser <strong>alla skolor i Kungsbacka kommun</strong>, " +
         "kommunala som fristående, sammanräknat."
     ]);
@@ -488,7 +489,7 @@
       K.sattDataNot("not-dolda",
         "Följande ämnen finns i statistiken men redovisas aldrig för Kungsbacka, " +
         "eftersom de bygger på färre än tio elever: <strong>" +
-        utan.map(function (a) { return a.namn.toLowerCase(); }).join(", ") +
+        esc(utan.map(function (a) { return a.namn.toLowerCase(); }).join(", ")) +
         "</strong>. De ingår inte i något diagram.");
     }
   }
@@ -509,7 +510,6 @@
     ritaRangordning();
     fyllValjare();
     K.kopplaValjare(el("amne-valjare"), "amne", ritaAmne);
-    el("amne-valjare").addEventListener("change", ritaAmne);
     ritaAmne();
     ritaAlla();
     el("knapp-visa-alla").addEventListener("click", function () {
@@ -532,8 +532,11 @@
     var lista = el("lista-kallor");
     if (lista) {
       lista.innerHTML = DATA.kallor.slice().reverse().map(function (k) {
-        return '<li><a href="' + k.kallaUrl + '">' + k.rapportTitel + ", läsåret " +
-          k.lasar + "</a> &ndash; " + k.kalla + ", hämtad " + k.hamtad + ".</li>";
+        var url = sakerUrl(k.kallaUrl);
+        var text = esc(k.rapportTitel) + ", läsåret " + esc(k.lasar);
+        return "<li>" +
+          (url ? '<a href="' + url + '">' + text + "</a>" : text) +
+          " &ndash; " + esc(k.kalla) + ", hämtad " + esc(k.hamtad) + ".</li>";
       }).join("");
     }
     var upp = el("om-uppdaterad");
@@ -541,19 +544,5 @@
       (DATA.kallor[DATA.kallor.length - 1] || {}).hamtad + ".";
   }
 
-  function main() {
-    K.installChartDefaults();
-    K.aktiveraTabellverktyg();
-    fetch(DATAFIL).then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    }).then(start).catch(function (fel) {
-      visaStatus("Kunde inte läsa <code>" + DATAFIL + "</code>: " + fel.message +
-        ". Kör <code>python3 scripts/build_amnesbetyg.py</code> och ladda om sidan.");
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", main);
-  } else { main(); }
+  K.starta(DATAFIL, { init: start });
 })();

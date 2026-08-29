@@ -73,6 +73,31 @@
     });
   }
 
+  /* All HTML på sidorna byggs som strängar. Värden som kommer ur
+     datafilerna (namn, källtexter, årtal …) ska alltid gå genom esc()
+     innan de hamnar i markupen — datat härstammar från externa källor
+     (SCB, Skolverket, GR), och en förgiftad datafil får inte kunna bli
+     körbar kod hos besökaren. Fasta strängar i koden behöver inte escapas. */
+  function esc(v) {
+    return String(v)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  /* Adresser ur datafilerna släpps bara igenom som https eller relativ
+     sökväg — aldrig javascript:, data: eller protokollrelativt — och
+     attributescapas. Tom sträng betyder att länken inte ska ritas. */
+  function sakerUrl(url) {
+    url = String(url == null ? "" : url).trim();
+    if (!url) return "";
+    if (/^https:\/\//i.test(url)) return esc(url);
+    if (url.indexOf(":") === -1 && url.slice(0, 2) !== "//") return esc(url);
+    return "";
+  }
+
   function installChartDefaults() {
     Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
     Chart.defaults.font.size = 15;
@@ -90,6 +115,77 @@
     if (!s) return;
     s.innerHTML = html;
     s.hidden = false;
+  }
+
+  /* ---------- Diagramregister ----------
+     Rita (eller rita om) ett diagram på en canvas. En tidigare instans
+     för samma id förstörs först, så att sidorna kan rita om vid omval
+     utan att läcka. Ges `hojd` sätts omslagets höjd i pixlar. */
+  var diagramRegister = {};
+
+  function rita(id, konf, hojd) {
+    var ctx = el(id);
+    if (diagramRegister[id]) diagramRegister[id].destroy();
+    if (hojd !== undefined) ctx.parentElement.style.height = hojd + "px";
+    diagramRegister[id] = new Chart(ctx, konf);
+    return diagramRegister[id];
+  }
+
+  function diagramFor(id) { return diagramRegister[id]; }
+
+  function taBortDiagram(id) {
+    if (diagramRegister[id]) {
+      diagramRegister[id].destroy();
+      delete diagramRegister[id];
+    }
+  }
+
+  /* ---------- Uppstart ----------
+     Gemensam start för sidorna: vänta in DOM:en, sätt diagramstandarderna,
+     aktivera tabellverktygen (observern fångar tabeller som byggs senare),
+     hämta sidans datafil och kör igång.
+
+       K.starta("data-x.json", {
+         init: function (data, jamfor) { ... },   // körs med inläst data
+         tomt: function (data) { ... },   // valfri: räknas datat som ofärdigt?
+         tomtText: "…",                   // mening i så fall, före "Titta gärna…"
+         vidTomt: function (data) { ... },// valfri: rita det som ändå går
+         jamforfil: "data-y.json"         // valfri: andrafil, null om den saknas
+       }); */
+  function starta(datafil, alternativ) {
+    function hamtaJson(fil) {
+      return fetch(fil).then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      });
+    }
+    function kor() {
+      installChartDefaults();
+      aktiveraTabellverktyg();
+      Promise.all([
+        hamtaJson(datafil),
+        alternativ.jamforfil
+          ? hamtaJson(alternativ.jamforfil).catch(function () { return null; })
+          : Promise.resolve(null)
+      ])
+        .then(function (svar) {
+          var data = svar[0];
+          if (alternativ.tomt && alternativ.tomt(data)) {
+            visaStatus("<strong>Datat är inte på plats ännu.</strong> " +
+              alternativ.tomtText + " Titta gärna tillbaka snart.");
+            if (alternativ.vidTomt) alternativ.vidTomt(data);
+            return;
+          }
+          alternativ.init(data, svar[1]);
+        })
+        .catch(function (fel) {
+          visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " +
+            esc(fel.message) + " (" + esc(datafil) + ")");
+        });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", kor);
+    } else { kor(); }
   }
 
   /* Webbadressvänlig form av en etikett: "Vård- och omsorgsprogrammet
@@ -135,8 +231,8 @@
 
   /* Koppla ett <select> till en nyckel i adressraden. Vid start väljs
      värdet ur adressraden om det finns bland alternativen (matchat som
-     slug); vid ändring uppdateras adressraden; vid bakåt/framåt ställs
-     reglaget om och omritningen körs. */
+     slug); vid ändring uppdateras adressraden och omritningen körs;
+     vid bakåt/framåt ställs reglaget om och omritningen körs. */
   function kopplaValjare(valjare, nyckel, ritaOm) {
     function valdOption(sokt) {
       if (sokt === null) return null;
@@ -153,6 +249,7 @@
       var o = {};
       o[nyckel] = valjare.value ? slug(valjare.value) : null;
       urlSatt(o);
+      ritaOm();
     });
     urlLyssna(function (p) {
       var v = valdOption(p.get(nyckel));
@@ -184,10 +281,10 @@
     var m = el("meta-rad");
     if (!m) return;
     var delar = [];
-    if (f.kalla) delar.push("<span>Källa: " + f.kalla + "</span>");
-    if (f.period) delar.push("<span>Period: " + f.period + "</span>");
-    if (f.senaste) delar.push("<span>Senaste data: " + f.senaste + "</span>");
-    if (f.hamtad) delar.push("<span>Data hämtad: " + f.hamtad + "</span>");
+    if (f.kalla) delar.push("<span>Källa: " + esc(f.kalla) + "</span>");
+    if (f.period) delar.push("<span>Period: " + esc(f.period) + "</span>");
+    if (f.senaste) delar.push("<span>Senaste data: " + esc(f.senaste) + "</span>");
+    if (f.hamtad) delar.push("<span>Data hämtad: " + esc(f.hamtad) + "</span>");
     delar.push('<span>Data och källkod: <a href="https://github.com/moggleif/politik">GitHub</a></span>');
     m.innerHTML = delar.join('<span class="meta-skilje" aria-hidden="true">·</span>');
     m.hidden = false;
@@ -278,11 +375,6 @@
      om när användaren byter val, så dekorationen görs via delegerade
      händelser plus en observer som sätter attributen på nya tabeller. */
 
-  function tabellFor(nod) {
-    var rull = nod.closest(".tabell-rull");
-    return rull ? rull.querySelector("table") : null;
-  }
-
   function cellvarde(cell) {
     var text = cell.textContent.replace(/ /g, " ").trim();
     if (text === "" || text === "–" || text === "–" || text === ".." || text === "×") {
@@ -325,6 +417,10 @@
     Array.prototype.forEach.call(tabell.rows, function (rad) {
       var celler = Array.prototype.map.call(rad.cells, function (c) {
         var t = c.textContent.replace(/ /g, " ").replace(/\s+/g, " ").trim();
+        /* En cell som inleds med =, + eller @ skulle kunna tolkas som
+           formel när filen öppnas i ett kalkylprogram. Talen på sidorna
+           börjar aldrig så; neutralisera med en inledande apostrof. */
+        if (/^[=+@]/.test(t)) t = "'" + t;
         if (skilje === ";" && /[";\n]/.test(t)) t = '"' + t.replace(/"/g, '""') + '"';
         return t;
       });
@@ -425,8 +521,14 @@
     rampFargOrange: rampFargOrange,
     el: el,
     talSv: talSv,
+    esc: esc,
+    sakerUrl: sakerUrl,
     slug: slug,
     installChartDefaults: installChartDefaults,
+    rita: rita,
+    diagramFor: diagramFor,
+    taBortDiagram: taBortDiagram,
+    starta: starta,
     visaStatus: visaStatus,
     urlLas: urlLas,
     urlSatt: urlSatt,

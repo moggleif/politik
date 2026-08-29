@@ -28,9 +28,10 @@ Körs:  python3 scripts/build_amnesbetyg.py
 import json
 from pathlib import Path
 
+from program import POANG_MAX
+
 ROT = Path(__file__).resolve().parent.parent
 HUVUDMAN = "Samtliga"
-MAX_POANG = 20
 
 # Mått som bärs över per ämne och år
 FALT = ["antal", "antalFlickor", "antalPojkar", "betygspoang", "andelAE",
@@ -124,7 +125,7 @@ def bygg(arsfiler: list) -> dict:
         "serie": "Slutbetyg per ämne i årskurs 9",
         "niva": arsfiler[-1]["niva"],
         "matt": "Genomsnittlig betygspoäng (0–20) och andel med betyget A–E (%)",
-        "maxPoang": MAX_POANG,
+        "maxPoang": POANG_MAX,
         "huvudman": HUVUDMAN,
         "karnamnen": karnamnen,
         "ar": ar,

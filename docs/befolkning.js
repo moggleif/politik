@@ -10,7 +10,8 @@
   var PALETT = K.PALETT;
   var el = K.el;
   var talSv = K.talSv;
-  var visaStatus = K.visaStatus;
+  var esc = K.esc;
+  var sakerUrl = K.sakerUrl;
 
   var DATAFIL = "data-befolkning.json";
   var HUVUD = "0-15";           // sidans huvudgrupp
@@ -118,9 +119,9 @@
     var topp = s.hogsta - s.sista;
     el("slutsats-antal").innerHTML =
       "<p>Antalet barn och unga 0&ndash;15 år var som störst <strong>" +
-      s.hogstaAr + "</strong> (" + talSv(s.hogsta) + " personer) och har sedan dess " +
+      esc(s.hogstaAr) + "</strong> (" + talSv(s.hogsta) + " personer) och har sedan dess " +
       "minskat med <strong>" + talSv(topp) + "</strong> personer, till " +
-      talSv(s.sista) + " år " + s.sistaAr + ".</p>";
+      talSv(s.sista) + " år " + esc(s.sistaAr) + ".</p>";
 
     tabellAntal(data, s);
   }
@@ -128,7 +129,7 @@
   function tabellAntal(data, s) {
     var rader = data.ar.map(function (a) {
       var f = cell(s, a, "forandring");
-      return "<tr><th scope=\"row\">" + a + "</th><td>" + talSv(cell(s, a, "antal")) +
+      return "<tr><th scope=\"row\">" + esc(a) + "</th><td>" + talSv(cell(s, a, "antal")) +
         "</td><td>" + (f === null ? "&ndash;" : (f > 0 ? "+" : "") + talSv(f)) +
         "</td><td>" + talSv(cell(s, a, "andel"), 1) + "&nbsp;%</td></tr>";
     }).join("");
@@ -173,8 +174,8 @@
     var f = cell(a15, data.ar[0], "andel"), sist = cell(a15, a15.sistaAr, "andel");
     el("slutsats-andel").innerHTML =
       "<p>Andelen 0&ndash;15-åringar har fallit från <strong>" + talSv(f, 1) +
-      "&nbsp;%</strong> år " + data.ar[0] + " till <strong>" + talSv(sist, 1) +
-      "&nbsp;%</strong> år " + a15.sistaAr + ". Gruppen har alltså vuxit långsammare " +
+      "&nbsp;%</strong> år " + esc(data.ar[0]) + " till <strong>" + talSv(sist, 1) +
+      "&nbsp;%</strong> år " + esc(a15.sistaAr) + ". Gruppen har alltså vuxit långsammare " +
       "än kommunen i övrigt &ndash; en del år har den krympt medan folkmängden ökat.</p>";
 
     tabellAndel(data, a15, a19);
@@ -182,7 +183,7 @@
 
   function tabellAndel(data, a15, a19) {
     var rader = data.ar.map(function (a) {
-      return "<tr><th scope=\"row\">" + a + "</th><td>" +
+      return "<tr><th scope=\"row\">" + esc(a) + "</th><td>" +
         talSv(cell(a15, a, "andel"), 1) + "&nbsp;%</td><td>" +
         talSv(cell(a19, a, "andel"), 1) + "&nbsp;%</td></tr>";
     }).join("");
@@ -240,7 +241,7 @@
 
     var rader = ar.map(function (a, i) {
       var v = varden[i];
-      return "<tr><th scope=\"row\">" + a + "</th><td>" +
+      return "<tr><th scope=\"row\">" + esc(a) + "</th><td>" +
         (v > 0 ? "+" : "") + talSv(v) + "</td></tr>";
     }).join("");
     el("tabell-forandring").innerHTML =
@@ -280,19 +281,19 @@
 
     var a15 = hittaSerie(data, HUVUD), tot = hittaSerie(data, "total");
     el("slutsats-index").innerHTML =
-      "<p>Sedan " + ar[0] + " har hela folkmängden vuxit till index <strong>" +
+      "<p>Sedan " + esc(ar[0]) + " har hela folkmängden vuxit till index <strong>" +
       talSv(cell(tot, tot.sistaAr, "index"), 1) + "</strong>, medan 0&ndash;15-åringarna " +
       "bara nått <strong>" + talSv(cell(a15, a15.sistaAr, "index"), 1) +
       "</strong>. Kommunen växer alltså, men inte i barnkullarna.</p>";
 
     var rader = ar.map(function (a) {
-      return "<tr><th scope=\"row\">" + a + "</th>" + data.serier.map(function (s) {
+      return "<tr><th scope=\"row\">" + esc(a) + "</th>" + data.serier.map(function (s) {
         return "<td>" + talSv(cell(s, a, "index"), 1) + "</td>";
       }).join("") + "</tr>";
     }).join("");
     el("tabell-index").innerHTML =
       "<thead><tr><th scope=\"col\">År</th>" + data.serier.map(function (s) {
-        return "<th scope=\"col\">" + s.etikett + "</th>";
+        return "<th scope=\"col\">" + esc(s.etikett) + "</th>";
       }).join("") + "</tr></thead><tbody>" + rader + "</tbody>";
   }
 
@@ -305,13 +306,13 @@
     var sedanTopp = a15.hogsta - a15.sista;
 
     K.visaKortSagt([
-      "År " + a15.sistaAr + " fanns <strong>" + talSv(a15.sista) +
+      "År " + esc(a15.sistaAr) + " fanns <strong>" + talSv(a15.sista) +
         "</strong> barn och unga 0&ndash;15 år i Kungsbacka.",
-      "Gruppen var som störst <strong>" + a15.hogstaAr + "</strong> och har sedan dess " +
+      "Gruppen var som störst <strong>" + esc(a15.hogstaAr) + "</strong> och har sedan dess " +
         "minskat med " + talSv(sedanTopp) + " personer.",
       "Andelen av befolkningen har fallit från " + talSv(forstaAndel, 1) +
         "&nbsp;% till <strong>" + talSv(sistaAndel, 1) + "&nbsp;%</strong> sedan " +
-        data.ar[0] + ".",
+        esc(data.ar[0]) + ".",
       "Under samma tid växte hela folkmängden från " + talSv(tot.forsta) + " till " +
         talSv(tot.sista) + " invånare."
     ]);
@@ -340,28 +341,17 @@
 
     var lista = el("lista-kallor");
     if (lista) {
+      var kallaUrl = sakerUrl(data.kallaUrl);
       lista.innerHTML =
-        '<li><a href="' + data.kallaUrl + '">' + data.kalla + '</a>' +
+        "<li>" + (kallaUrl
+          ? '<a href="' + kallaUrl + '">' + esc(data.kalla) + '</a>'
+          : esc(data.kalla)) +
         ' &ndash; folkmängd 31 december, hämtad ur SCB:s öppna API ' +
-        data.hamtad + ".</li>";
+        esc(data.hamtad) + ".</li>";
     }
     var upp = el("om-uppdaterad");
     if (upp) upp.textContent = "Datat på den här sidan hämtades " + data.hamtad + ".";
   }
 
-  function main() {
-    K.installChartDefaults();
-    K.aktiveraTabellverktyg();
-    fetch(DATAFIL).then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    }).then(start).catch(function (fel) {
-      visaStatus("Kunde inte läsa <code>" + DATAFIL + "</code>: " + fel.message +
-        ". Kör <code>python3 scripts/build_befolkning.py</code> och ladda om sidan.");
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", main);
-  } else { main(); }
+  K.starta(DATAFIL, { init: start });
 })();

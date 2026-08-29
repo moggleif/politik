@@ -10,7 +10,7 @@ Två sorters test:
     data/ – annars har någon ändrat utdatan för hand eller glömt bygga om
 """
 
-import importlib.util
+import importlib
 import json
 import sys
 import unittest
@@ -18,15 +18,15 @@ from pathlib import Path
 
 ROT = Path(__file__).resolve().parent.parent
 
+# Skripten importerar varandra som vanliga moduler (import program) och
+# räknar med att scripts/ ligger på sökvägen – det gör den när de körs
+# som `python3 scripts/<skript>.py`, och här ordnas samma sak för testerna.
+sys.path.insert(0, str(ROT / "scripts"))
+
 
 def ladda(namn: str):
     """Importera ett byggskript från scripts/ som modul."""
-    spec = importlib.util.spec_from_file_location(
-        namn, ROT / "scripts" / f"{namn}.py")
-    modul = importlib.util.module_from_spec(spec)
-    sys.modules[namn] = modul
-    spec.loader.exec_module(modul)
-    return modul
+    return importlib.import_module(namn)
 
 
 build_data = ladda("build_data")
@@ -34,6 +34,9 @@ build_kull = ladda("build_kull")
 build_befolkning = ladda("build_befolkning")
 build_amnesbetyg = ladda("build_amnesbetyg")
 build_nian_gymnasiet = ladda("build_nian_gymnasiet")
+build_meritvarden = ladda("build_meritvarden")
+build_slutbetyg = ladda("build_slutbetyg")
+skolverket = ladda("skolverket")
 
 
 class TestPrognosberakningar(unittest.TestCase):
@@ -679,6 +682,168 @@ class TestNianTillGymnasiet(unittest.TestCase):
         self.assertEqual(self.kullar[2014]["start"]["examen3"], 77.0)
 
 
+class TestSkolverketParsning(unittest.TestCase):
+    """skolverket: den delade tolkningen av exporttjänstens filer."""
+
+    def test_tal_lasar_svenska_tal(self):
+        self.assertEqual(skolverket.tal("16,7"), 16.7)
+        self.assertEqual(skolverket.tal("1 234"), 1234)
+        self.assertEqual(skolverket.tal("1\xa0234"), 1234)
+
+    def test_tal_prickning_blir_none(self):
+        self.assertIsNone(skolverket.tal(".."))
+        self.assertIsNone(skolverket.tal("."))
+        self.assertIsNone(skolverket.tal(""))
+        self.assertIsNone(skolverket.tal(None))
+
+    def test_tal_tilde100_styrs_av_flaggan(self):
+        self.assertIsNone(skolverket.tal("~100"))
+        self.assertEqual(skolverket.tal("~100", tilde_ar_100=True), 100.0)
+
+    def test_rubrikrad_hittas_pa_forsta_kolumnen(self):
+        rader = [["Rapportens titel"], [], ["Skola", "Program"], ["Aranäs", "NA"]]
+        self.assertEqual(skolverket.rubrikrad(rader, "Skola"), 2)
+        with self.assertRaises(SystemExit):
+            skolverket.rubrikrad(rader, "Kommun")
+
+    def test_lasar_ur_lases_ur_inledningen(self):
+        rader = [["Valt läsår: 2024/25"], ["Skola"]]
+        self.assertEqual(skolverket.lasar_ur(rader, "Valt läsår"), "2024/25")
+        self.assertEqual(skolverket.lasar_ur([["Skola"]], "Valt läsår"), "")
+
+
+class TestMeritvarden(unittest.TestCase):
+    """build_meritvarden: namntolkning och medelvärden."""
+
+    def test_dela_utbildning_program_kod_inriktning(self):
+        program, inriktning, aretsnamn = build_meritvarden.dela_utbildning(
+            "Naturvetenskapsprogrammet NA - Naturvetenskap")
+        self.assertEqual(program, "Naturvetenskapsprogrammet")
+        self.assertEqual(inriktning, "Naturvetenskap")
+        self.assertIsNone(aretsnamn)
+
+    def test_dela_utbildning_utan_inriktning(self):
+        program, inriktning, aretsnamn = build_meritvarden.dela_utbildning(
+            "Teknikprogrammet TE")
+        self.assertEqual(program, "Teknikprogrammet")
+        self.assertEqual(inriktning, "")
+        self.assertIsNone(aretsnamn)
+
+    def test_dela_utbildning_namnbyte_ger_aretsnamn(self):
+        """Handels ska föras till dagens namn men minnas rapportens."""
+        program, _, aretsnamn = build_meritvarden.dela_utbildning(
+            "Handels- och administrationsprogrammet HA - Handel och service")
+        self.assertEqual(program, "Försäljnings- och serviceprogrammet")
+        self.assertEqual(aretsnamn, "Handels- och administrationsprogrammet")
+
+    def test_inriktning_som_upprepar_programnamnet_stryks(self):
+        program, inriktning, _ = build_meritvarden.dela_utbildning(
+            "Vård- och omsorgsprogrammet VO - Vård- och omsorgsprogrammet")
+        self.assertEqual(program, "Vård- och omsorgsprogrammet")
+        self.assertEqual(inriktning, "")
+
+    def test_inriktningsnyckel_ar_ordningsokanslig(self):
+        a = build_meritvarden.inriktningsnyckel(
+            "Särskild variant inom det estetiska området, Bild")
+        b = build_meritvarden.inriktningsnyckel(
+            "Bild, Särskild variant inom det estetiska området")
+        self.assertEqual(a, b)
+
+    def test_inriktningsnyckel_anstalld_larling_ar_larling(self):
+        self.assertEqual(build_meritvarden.inriktningsnyckel("Anställd lärling"),
+                         build_meritvarden.inriktningsnyckel("Lärling"))
+
+    def test_typ_av(self):
+        self.assertEqual(build_meritvarden.typ_av("Naturvetenskapsprogrammet"),
+                         "hogskoleforberedande")
+        self.assertEqual(build_meritvarden.typ_av("Vård- och omsorgsprogrammet"),
+                         "yrkesprogram")
+        self.assertEqual(
+            build_meritvarden.typ_av("Introduktionsprogram, yrkesintroduktion"),
+            "introduktion")
+        self.assertEqual(build_meritvarden.typ_av("Påhittade programmet"),
+                         "okant")
+
+    def test_medel_ar_ovagt_och_avrundat(self):
+        self.assertEqual(build_meritvarden.medel([200.0, 250.5]), 225.25)
+        self.assertIsNone(build_meritvarden.medel([]))
+
+
+class TestSlutbetyg(unittest.TestCase):
+    """build_slutbetyg: elevvägd sammanslagning och seriebygget."""
+
+    def rad(self, antal, poang, examen=None):
+        r = {"antal": antal, "betygspoang": poang, "betygspoangExamen": None,
+             "andelExamen": examen, "andelGrundlBehorighet": None}
+        return r
+
+    def test_vag_ihop_vager_med_antal_elever(self):
+        # 10 elever à 10,0 och 30 elever à 14,0 -> (100+420)/40 = 13,0
+        ut = build_slutbetyg.vag_ihop([self.rad(10, 10.0), self.rad(30, 14.0)])
+        self.assertEqual(ut["antal"], 40)
+        self.assertEqual(ut["betygspoang"], 13.0)
+        self.assertEqual(ut["betygspoangVikt"], 40)
+
+    def test_vag_ihop_vager_varje_matt_for_sig(self):
+        """En rad med dold examensandel får inte vikt i det måttet."""
+        ut = build_slutbetyg.vag_ihop([
+            self.rad(10, 10.0, examen=80.0),
+            self.rad(30, 14.0, examen=None),
+        ])
+        self.assertEqual(ut["betygspoang"], 13.0)     # båda raderna
+        self.assertEqual(ut["andelExamen"], 80.0)     # bara första raden
+        self.assertEqual(ut["andelExamenVikt"], 10)
+        self.assertEqual(ut["dolda"], 0)
+
+    def test_vag_ihop_helt_dolda_rader(self):
+        ut = build_slutbetyg.vag_ihop([self.rad(None, None)])
+        self.assertIsNone(ut["antal"])
+        self.assertIsNone(ut["betygspoang"])
+        self.assertEqual(ut["dolda"], 1)
+
+    def test_gor_serie_odelad_lagger_skolornas_ar_efter_varandra(self):
+        """Ett program som flyttat tar de gamla åren med sig i en serie."""
+        v1 = {"antal": 50, "betygspoang": 13.0, "betygspoangExamen": None,
+              "andelExamen": None, "andelGrundlBehorighet": None}
+        v2 = dict(v1, betygspoang=14.0)
+        serie = build_slutbetyg.gor_serie(
+            "Testprogrammet",
+            {"Aranäsgymnasiet": {"2014": v1},
+             "Elof Lindälvs gymnasium": {"2015": v2}},
+            {"Aranäsgymnasiet": ["2014"],
+             "Elof Lindälvs gymnasium": ["2015"]},
+            delad=False)
+        self.assertEqual(serie["namn"], "Testprogrammet")
+        self.assertEqual(serie["skola"], "Elof Lindälvs gymnasium")
+        self.assertEqual(serie["forstaAr"], 2014)
+        self.assertEqual(serie["sistaAr"], 2015)
+        self.assertEqual(serie["forandring"], 1.0)
+        self.assertEqual(serie["varden"]["2014"]["skola"], "Aranäsgymnasiet")
+
+    def test_gor_serie_delad_far_skolan_i_namnet(self):
+        v = {"antal": 50, "betygspoang": 13.0, "betygspoangExamen": None,
+             "andelExamen": None, "andelGrundlBehorighet": None}
+        serie = build_slutbetyg.gor_serie(
+            "Testprogrammet", {"Aranäsgymnasiet": {"2014": v}},
+            {"Aranäsgymnasiet": ["2014"]}, delad=True)
+        self.assertIn("–", serie["namn"])
+        self.assertTrue(serie["delad"])
+
+    def test_tom_skola_skuggar_inte_redovisat_ar(self):
+        """Skolan som redovisar året vinner över en tom rad för samma år."""
+        tom = {"antal": None, "betygspoang": None, "betygspoangExamen": None,
+               "andelExamen": None, "andelGrundlBehorighet": None}
+        full = dict(tom, antal=50, betygspoang=13.0)
+        serie = build_slutbetyg.gor_serie(
+            "Testprogrammet",
+            {"Aranäsgymnasiet": {"2014": full},
+             "Elof Lindälvs gymnasium": {"2014": tom}},
+            {"Aranäsgymnasiet": ["2014"]},
+            delad=False)
+        self.assertEqual(serie["varden"]["2014"]["skola"], "Aranäsgymnasiet")
+        self.assertEqual(serie["varden"]["2014"]["betygspoang"], 13.0)
+
+
 class TestGenereradeFiler(unittest.TestCase):
     """Datafilerna i docs/ ska vara exakt vad byggskripten ger av data/.
 
@@ -701,6 +866,40 @@ class TestGenereradeFiler(unittest.TestCase):
         ombyggd = build_data.bygg(scb, rapporter, utfall, None,
                                   "Hela befolkningen")
         self.assertEqual(ombyggd, self.las("data.json"))
+
+    def test_data_16_19_ar_reproducerbar(self):
+        """Kohortfilen – den mest komplexa utdatan – ska också gå att bygga om."""
+        scb = json.loads(
+            (ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+            .read_text(encoding="utf-8"))
+        rapporter = [
+            json.loads(f.read_text(encoding="utf-8"))
+            for f in sorted((ROT / "data" / "prognoser").glob("prognos_*.json"))
+        ]
+        utfall = {int(a): v
+                  for a, v in scb["aldersgrupper"]["16-19"].items()}
+        ombyggd = build_data.bygg(scb, rapporter, utfall, "16-19",
+                                  "16–19 år", (16, 19))
+        self.assertEqual(ombyggd, self.las("data-16-19.json"))
+
+    def test_data_meritvarden_ar_reproducerbar(self):
+        argangar = [
+            json.loads(f.read_text(encoding="utf-8"))
+            for f in sorted((ROT / "data" / "antagning").glob("antagning_*.json"))
+        ]
+        ombyggd, okanda = build_meritvarden.bygg(argangar)
+        self.assertEqual(okanda, set())
+        self.assertEqual(ombyggd, self.las("data-meritvarden.json"))
+
+    def test_data_slutbetyg_ar_reproducerbar(self):
+        argangar = [
+            json.loads(f.read_text(encoding="utf-8"))
+            for f in sorted((ROT / "data" / "slutbetyg").glob("slutbetyg_*.json"))
+        ]
+        ombyggd, okanda_skolor, okanda_program, _ = build_slutbetyg.bygg(argangar)
+        self.assertEqual(okanda_skolor, set())
+        self.assertEqual(okanda_program, set())
+        self.assertEqual(ombyggd, self.las("data-slutbetyg.json"))
 
     def test_data_kull_ar_reproducerbar(self):
         ombyggd = build_kull.bygg(self.las("data-meritvarden.json"),

@@ -15,20 +15,13 @@
   var serieStil = K.serieStil;
   var el = K.el;
   var talSv = K.talSv;
-  var visaStatus = K.visaStatus;
-  var installChartDefaults = K.installChartDefaults;
+  var esc = K.esc;
+  var sakerUrl = K.sakerUrl;
 
   /* ---------- Gemensamt ---------- */
 
   var DATA = null;
-  var diagram = {};        // id -> Chart, så att de kan ritas om vid omval
-
-  function rita(id, konf, hojd) {
-    var ctx = el(id);
-    if (diagram[id]) diagram[id].destroy();
-    ctx.parentElement.style.height = hojd + "px";
-    diagram[id] = new Chart(ctx, konf);
-  }
+  var rita = K.rita;
 
   /* Alla år mellan första och sista mätår, även de utan mätning. Ett år utan
      rapport ska synas som en lucka och inte tryckas ihop – linjerna ritas med
@@ -212,7 +205,7 @@
 
     /* Många linjer: peka på en linje eller ett namn i teckenförklaringen
        så tonas de övriga ned. */
-    if (serier.length >= 3) K.aktiveraToning(diagram["diagram-utveckling"]);
+    if (serier.length >= 3) K.aktiveraToning(K.diagramFor("diagram-utveckling"));
 
     el("kalla-utveckling").textContent =
       "Medelmeritvärdet för de antagna eleverna, slutantagningen. Högsta möjliga " +
@@ -225,7 +218,7 @@
     var saknas = saknadeAr();
     K.sattDataNot("not-utveckling", saknas.length
       ? "<p>" + (saknas.length === 1 ? "Året " : "Åren ") +
-        "<strong>" + saknas.join(", ") + "</strong> saknar rapport och " +
+        "<strong>" + esc(saknas.join(", ")) + "</strong> saknar rapport och " +
         "linjerna bryts där. Varför rapporten inte går att få tag på " +
         "beskrivs under <a href=\"#sektion-om\">Om den här sidan</a>.</p>"
       : "");
@@ -254,10 +247,10 @@
     var html = "";
     if (senast.length) {
       var hogst = senast[0], lagst = senast[senast.length - 1];
-      html += "<p><strong>" + sista + "</strong> hade " + hogst.etikett +
+      html += "<p><strong>" + esc(sista) + "</strong> hade " + esc(hogst.etikett) +
         " högst medelmeritvärde (" + talSv(hogst.v, 1) + ")";
       html += senast.length > 1
-        ? " och " + lagst.etikett + " lägst (" + talSv(lagst.v, 1) + ").</p>"
+        ? " och " + esc(lagst.etikett) + " lägst (" + talSv(lagst.v, 1) + ").</p>"
         : ".</p>";
     }
 
@@ -267,22 +260,22 @@
       var stigande = helaPerioden.filter(function (r) { return r.diff > 0; }).length;
       if (helaPerioden.length === 1) {
         html += "<p>" + (valt ? "Den enda inriktningen" : "Det enda programmet") +
-          " som finns med både " + forsta + " och " + sista + " har " +
+          " som finns med både " + esc(forsta) + " och " + esc(sista) + " har " +
           (stigande ? "<strong>högre</strong>" : "<strong>lägre</strong>") +
           " medelmeritvärde i dag än då.";
       } else {
         html += "<p>Av de " + helaPerioden.length + " " +
           (valt ? "inriktningar" : "program") + " som finns med både " +
-          forsta + " och " + sista + " har <strong>" + stigande +
+          esc(forsta) + " och " + esc(sista) + " har <strong>" + stigande +
           "</strong> högre medelmeritvärde i dag än då.";
       }
       if (helaPerioden.length > 1 && upp.diff > 0) {
-        html += " Mest har " + upp.etikett + " stigit: " +
+        html += " Mest har " + esc(upp.etikett) + " stigit: " +
           talSv(upp.forsta, 1) + " till " + talSv(upp.sista, 1) + " (+" +
           talSv(upp.diff, 1) + ").";
       }
       if (helaPerioden.length > 1 && ner.diff < 0) {
-        html += " Mest har " + ner.etikett + " sjunkit: " +
+        html += " Mest har " + esc(ner.etikett) + " sjunkit: " +
           talSv(ner.forsta, 1) + " till " + talSv(ner.sista, 1) + " (−" +
           talSv(Math.abs(ner.diff), 1) + ").";
       }
@@ -308,16 +301,16 @@
       var bytt = serie.inriktningar.filter(function (i) {
         return i.tidigareNamn.length;
       }).map(function (i) {
-        return " " + i.namn + " hette tidigare " + i.tidigareNamn.join(" och ") + ".";
+        return " " + esc(i.namn) + " hette tidigare " + esc(i.tidigareNamn.join(" och ")) + ".";
       }).join("");
-      t = "<caption>Medelmeritvärde per inriktning och år, " + valt +
+      t = "<caption>Medelmeritvärde per inriktning och år, " + esc(valt) +
         ". Tomt fält betyder att inriktningen inte fanns eller att ingen " +
         "antogs det året." + bytt + "</caption>";
       t += "<thead><tr><th scope=\"col\">Inriktning</th>";
-      ar.forEach(function (a) { t += "<th scope=\"col\">" + a + "</th>"; });
+      ar.forEach(function (a) { t += "<th scope=\"col\">" + esc(a) + "</th>"; });
       t += "</tr></thead><tbody>";
       serie.inriktningar.forEach(function (i) {
-        t += "<tr><td>" + i.namn + "</td>";
+        t += "<tr><td>" + esc(i.namn) + "</td>";
         ar.forEach(function (a) {
           var v = i.varden[String(a)];
           t += "<td>" + (v ? talSv(v.medel, 1) : "–") + "</td>";
@@ -337,15 +330,15 @@
         " Tomt fält betyder att programmet inte fanns eller att ingen antogs " +
         "det året." + namnbytesText() + "</caption>";
       t += "<thead><tr><th scope=\"col\">Program</th>";
-      ar.forEach(function (a) { t += "<th scope=\"col\">" + a + "</th>"; });
+      ar.forEach(function (a) { t += "<th scope=\"col\">" + esc(a) + "</th>"; });
       t += "</tr></thead><tbody>";
       rader.forEach(function (p) {
-        t += "<tr><td>" + p.etikett + "</td>";
+        t += "<tr><td>" + esc(p.etikett) + "</td>";
         var visaSkola = p.skolor.length > 1;
         ar.forEach(function (a) {
           var v = p.varden[String(a)];
           t += "<td>" + (v
-            ? talSv(v.medel, 1) + (visaSkola ? " " + v.skola.charAt(0) : "")
+            ? talSv(v.medel, 1) + (visaSkola ? " " + esc(v.skola.charAt(0)) : "")
             : "–") + "</td>";
         });
         t += "</tr>";
@@ -364,8 +357,8 @@
       var sistaAret = Object.keys(p.varden).filter(function (a) {
         return p.varden[a].namn;
       }).sort().pop();
-      return " " + p.namn + " hette " + p.tidigareNamn.join(" och ") +
-        " till och med " + sistaAret + ".";
+      return " " + esc(p.namn) + " hette " + esc(p.tidigareNamn.join(" och ")) +
+        " till och med " + esc(sistaAret) + ".";
     });
     return texter.join("");
   }
@@ -439,7 +432,7 @@
             grid: { color: FARG.grid },
             border: { color: FARG.baseline },
             beginAtZero: true,
-            max: 340,
+            max: DATA.meritMax || 340,
             ticks: { callback: function (v) { return talSv(v); } }
           },
           y: { grid: { display: false }, border: { color: FARG.baseline } }
@@ -453,16 +446,16 @@
 
     var hogst = rader[0], lagst = rader[rader.length - 1];
     var html = "<p>Högst medelmeritvärde " + valtAr + " hade <strong>" +
-      utbildningsetikett(hogst.u) + "</strong> (" + talSv(hogst.v.medel, 1) +
-      ") på " + hogst.u.skola + ", lägst <strong>" + utbildningsetikett(lagst.u) +
-      "</strong> (" + talSv(lagst.v.medel, 1) + ") på " + lagst.u.skola +
+      esc(utbildningsetikett(hogst.u)) + "</strong> (" + talSv(hogst.v.medel, 1) +
+      ") på " + esc(hogst.u.skola) + ", lägst <strong>" + esc(utbildningsetikett(lagst.u)) +
+      "</strong> (" + talSv(lagst.v.medel, 1) + ") på " + esc(lagst.u.skola) +
       ". Skillnaden är " + talSv(hogst.v.medel - lagst.v.medel, 1) +
       " meritpoäng.</p>";
     var sammanfattning = DATA.sammanfattning.filter(function (s) {
       return s.ar === valtAr;
     })[0];
     if (sammanfattning) {
-      html += "<p>Genomsnittet för kommunens " + sammanfattning.antal +
+      html += "<p>Genomsnittet för kommunens " + esc(sammanfattning.antal) +
         " utbildningar var " + talSv(sammanfattning.medel, 1) +
         ". Det är ett ovägt genomsnitt: varje utbildning räknas lika mycket, " +
         "oavsett hur många elever som antogs.</p>";
@@ -477,7 +470,7 @@
     rader.forEach(function (r) {
       var grans = r.v.poang !== null ? talSv(r.v.poang, 1)
         : (r.v.kod === "1" ? "alla antagna" : "–");
-      t += "<tr><td>" + r.u.namn + "</td><td>" + r.u.skolaKort + "</td><td>" +
+      t += "<tr><td>" + esc(r.u.namn) + "</td><td>" + esc(r.u.skolaKort) + "</td><td>" +
         talSv(r.v.medel, 1) + "</td><td>" + grans + "</td></tr>";
     });
     t += "</tbody>";
@@ -570,10 +563,10 @@
       "<th scope=\"col\">Sista mätåret</th><th scope=\"col\">Förändring</th>" +
       "<th scope=\"col\">Antal mätår</th></tr></thead><tbody>";
     rader.forEach(function (p) {
-      t += "<tr><td>" + p.etikett + "</td><td>" + p.forstaAr + ": " +
-        talSv(p.forsta, 1) + "</td><td>" + p.sistaAr + ": " + talSv(p.sista, 1) +
+      t += "<tr><td>" + esc(p.etikett) + "</td><td>" + esc(p.forstaAr) + ": " +
+        talSv(p.forsta, 1) + "</td><td>" + esc(p.sistaAr) + ": " + talSv(p.sista, 1) +
         "</td><td>" + (p.forandring >= 0 ? "+" : "−") +
-        talSv(Math.abs(p.forandring), 1) + "</td><td>" + p.antalArMedMedel +
+        talSv(Math.abs(p.forandring), 1) + "</td><td>" + esc(p.antalArMedMedel) +
         "</td></tr>";
     });
     t += "</tbody>";
@@ -651,10 +644,10 @@
 
     var forsta = rader[0], sista = rader[rader.length - 1];
     function andel(r) { return Math.round(100 * r.medGrans / r.antalUtbildningar); }
-    var html = "<p>" + sista.ar + " hade <strong>" + sista.medGrans + " av " +
-      sista.antalUtbildningar + "</strong> utbildningar fler behöriga sökande " +
-      "än platser (" + andel(sista) + " procent). " + forsta.ar + " var det " +
-      forsta.medGrans + " av " + forsta.antalUtbildningar + " (" +
+    var html = "<p>" + esc(sista.ar) + " hade <strong>" + esc(sista.medGrans) + " av " +
+      esc(sista.antalUtbildningar) + "</strong> utbildningar fler behöriga sökande " +
+      "än platser (" + andel(sista) + " procent). " + esc(forsta.ar) + " var det " +
+      esc(forsta.medGrans) + " av " + esc(forsta.antalUtbildningar) + " (" +
       andel(forsta) + " procent).</p>";
 
     /* Två rapportformer bakom samma stapel – det måste läsaren veta om. */
@@ -662,9 +655,9 @@
     if (bytesAr.length && bytesAr.length < rader.length) {
       html += "<p><strong>Jämför med urskillning:</strong> rapporterna säger " +
         "detta på två olika sätt. Till och med " +
-        rader[rader.length - bytesAr.length - 1].ar + " skrevs fotnoten " +
+        esc(rader[rader.length - bytesAr.length - 1].ar) + " skrevs fotnoten " +
         "&rdquo;alla behöriga sökande är antagna&rdquo; i stället för en " +
-        "antagningspoäng. Från " + bytesAr[0].ar + " skrivs poängen alltid ut, " +
+        "antagningspoäng. Från " + esc(bytesAr[0].ar) + " skrivs poängen alltid ut, " +
         "och de utbildningar som saknade lediga platser markeras i stället med " +
         "fet stil. Måtten är varandras spegelbild, men inte exakt samma sak: " +
         "en utbildning där de behöriga sökande precis fyllde platserna räknas " +
@@ -680,9 +673,9 @@
       "<th scope=\"col\">Ingen antagning på betyg</th>" +
       "<th scope=\"col\">Totalt</th></tr></thead><tbody>";
     rader.forEach(function (r) {
-      t += "<tr><td>" + r.ar + "</td><td>" + r.medGrans + "</td><td>" +
-        r.allaAntagna + "</td><td>" + r.ovrigt + "</td><td>" +
-        r.antalUtbildningar + "</td></tr>";
+      t += "<tr><td>" + esc(r.ar) + "</td><td>" + esc(r.medGrans) + "</td><td>" +
+        esc(r.allaAntagna) + "</td><td>" + esc(r.ovrigt) + "</td><td>" +
+        esc(r.antalUtbildningar) + "</td></tr>";
     });
     t += "</tbody>";
     el("tabell-konkurrens").innerHTML = t;
@@ -774,13 +767,13 @@
     var html = "";
     if (hf && yp && hf.varden[String(sista)] && yp.varden[String(sista)]) {
       var a = hf.varden[String(sista)].medel, b = yp.varden[String(sista)].medel;
-      html += "<p>" + sista + " skilde det <strong>" + talSv(Math.abs(a - b), 1) +
+      html += "<p>" + esc(sista) + " skilde det <strong>" + talSv(Math.abs(a - b), 1) +
         " meritpoäng</strong> mellan grupperna: " + talSv(a, 1) +
         " för de högskoleförberedande programmen och " + talSv(b, 1) +
         " för yrkesprogrammen.</p>";
       if (hf.varden[String(forsta)] && yp.varden[String(forsta)]) {
         var gammal = hf.varden[String(forsta)].medel - yp.varden[String(forsta)].medel;
-        html += "<p>" + forsta + " var skillnaden " + talSv(Math.abs(gammal), 1) +
+        html += "<p>" + esc(forsta) + " var skillnaden " + talSv(Math.abs(gammal), 1) +
           ". Gapet har alltså " +
           (Math.abs(a - b) > Math.abs(gammal) ? "vidgats" : "krympt") + ".</p>";
       }
@@ -792,14 +785,14 @@
       "parentes.</caption>";
     t += "<thead><tr><th scope=\"col\">År</th>";
     rader.forEach(function (r) {
-      t += "<th scope=\"col\">" + (TYPNAMN[r.typ] || r.typ) + "</th>";
+      t += "<th scope=\"col\">" + esc(TYPNAMN[r.typ] || r.typ) + "</th>";
     });
     t += "</tr></thead><tbody>";
     DATA.ar.forEach(function (a) {
-      t += "<tr><td>" + a + "</td>";
+      t += "<tr><td>" + esc(a) + "</td>";
       rader.forEach(function (r) {
         var v = r.varden[String(a)];
-        t += "<td>" + (v ? talSv(v.medel, 1) + " (" + v.antal + ")" : "–") + "</td>";
+        t += "<td>" + (v ? talSv(v.medel, 1) + " (" + esc(v.antal) + ")" : "–") + "</td>";
       });
       t += "</tr>";
     });
@@ -812,12 +805,15 @@
   function initKallor() {
     var html = "";
     DATA.kallor.slice().reverse().forEach(function (k) {
-      html += "<li><span class=\"titel\">" + k.rapportTitel + "</span>";
-      html += "<br><span class=\"undertext\">" + k.kalla + "</span>";
+      var lokalPdf = sakerUrl(k.lokalPdf);
+      var kallaUrl = sakerUrl(k.kallaUrl);
+      var arkivUrl = sakerUrl(k.arkivUrl);
+      html += "<li><span class=\"titel\">" + esc(k.rapportTitel) + "</span>";
+      html += "<br><span class=\"undertext\">" + esc(k.kalla) + "</span>";
       html += "<div class=\"lankar\">";
-      if (k.lokalPdf) html += "<a href=\"" + k.lokalPdf + "\">Läs rapporten (PDF)</a>";
-      if (k.kallaUrl) html += "<a href=\"" + k.kallaUrl + "\">Original hos källan</a>";
-      if (k.arkivUrl) html += "<a href=\"" + k.arkivUrl + "\">Arkiverad kopia</a>";
+      if (lokalPdf) html += "<a href=\"" + lokalPdf + "\">Läs rapporten (PDF)</a>";
+      if (kallaUrl) html += "<a href=\"" + kallaUrl + "\">Original hos källan</a>";
+      if (arkivUrl) html += "<a href=\"" + arkivUrl + "\">Arkiverad kopia</a>";
       html += "</div></li>";
     });
     el("lista-kallor").innerHTML = html;
@@ -849,8 +845,8 @@
 
     punkter.push("Sidan följer <strong>" + Object.keys(namn).length +
       " program</strong> på kommunens två gymnasieskolor genom " +
-      DATA.ar.length + " antagningsomgångar, " + forsta + "–" + sista +
-      (saknas.length ? " (" + saknas.join(", ") + " saknas)" : "") + ".");
+      DATA.ar.length + " antagningsomgångar, " + esc(forsta) + "–" + esc(sista) +
+      (saknas.length ? " (" + esc(saknas.join(", ")) + " saknas)" : "") + ".");
 
     var senaste = nationella().map(function (u) {
       var v = u.varden[String(sista)];
@@ -858,9 +854,9 @@
     }).filter(Boolean).sort(function (a, b) { return b.medel - a.medel; });
     if (senaste.length > 1) {
       var hogst = senaste[0], lagst = senaste[senaste.length - 1];
-      punkter.push("Vid slutantagningen " + sista + " hade <strong>" +
-        utbildningsetikett(hogst.u) + "</strong> högst medelmeritvärde (" +
-        talSv(hogst.medel, 1) + ") och <strong>" + utbildningsetikett(lagst.u) +
+      punkter.push("Vid slutantagningen " + esc(sista) + " hade <strong>" +
+        esc(utbildningsetikett(hogst.u)) + "</strong> högst medelmeritvärde (" +
+        talSv(hogst.medel, 1) + ") och <strong>" + esc(utbildningsetikett(lagst.u)) +
         "</strong> lägst (" + talSv(lagst.medel, 1) + ").");
     }
 
@@ -882,7 +878,7 @@
       var a = hf.varden[String(sista)].medel, b = yp.varden[String(sista)].medel;
       punkter.push("Skillnaden mellan högskoleförberedande program och " +
         "yrkesprogram var <strong>" + talSv(Math.abs(a - b), 1) +
-        " meritpoäng</strong> " + sista + " (" + talSv(a, 1) + " mot " +
+        " meritpoäng</strong> " + esc(sista) + " (" + talSv(a, 1) + " mot " +
         talSv(b, 1) + ", ovägt snitt per utbildning).");
     }
 
@@ -905,12 +901,10 @@
     fyllValjare(programVal, [""], function () { return "Alla program"; });
     fyllValjare(programVal, DATA.program.map(function (p) { return p.etikett; }));
     K.kopplaValjare(programVal, "program", ritaUtveckling);
-    programVal.addEventListener("change", ritaUtveckling);
 
     var arVal = el("ar-valjare");
     fyllValjare(arVal, data.ar.slice().reverse());
     K.kopplaValjare(arVal, "year", ritaRangordning);
-    arVal.addEventListener("change", ritaRangordning);
 
     el("sektion-utveckling").hidden = false;
 
@@ -922,24 +916,11 @@
     ritaKonkurrens();
     ritaTyp();
     initKallor();
-    K.aktiveraTabellverktyg();
   }
 
-  fetch("data-meritvarden.json")
-    .then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
-    .then(function (data) {
-      installChartDefaults();
-      if (!data.program || !data.program.length) {
-        visaStatus("<strong>Datat är inte på plats ännu.</strong> " +
-          "Antagningsstatistiken håller på att läsas in. Titta gärna tillbaka snart.");
-        return;
-      }
-      init(data);
-    })
-    .catch(function (fel) {
-      visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " + fel.message);
-    });
+  K.starta("data-meritvarden.json", {
+    tomt: function (data) { return !data.program || !data.program.length; },
+    tomtText: "Antagningsstatistiken håller på att läsas in.",
+    init: init
+  });
 })();

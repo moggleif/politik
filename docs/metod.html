@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Metod – Kungsbacka i siffror</title>
 <meta name="description" content="Hur siffrorna på Kungsbacka i siffror hämtas, granskas och räknas fram – källor, transformationer, viktning, sekretessgränser och hur allt kan reproduceras.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
@@ -63,7 +64,7 @@
         totalt och för åldersgrupperna 0&ndash;15 och 16&ndash;19 år,
         summerade ur SCB:s ettårsklasser &ndash; hämtas från
         SCB:s öppna PxWeb-API med skriptet
-        <a href="https://github.com/moggleif/politik/blob/main/scripts/fetch_scb.py">scripts/fetch_scb.py</a>
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_scb.py">scripts/hamta_scb.py</a>
         och sparas i
         <a href="https://github.com/moggleif/politik/blob/main/data/scb/folkmangd_kungsbacka.json">data/scb/folkmangd_kungsbacka.json</a>.</dd>
       <dt>Göteborgsregionens antagningsstatistik</dt>
@@ -194,9 +195,10 @@
         mittpunkten som gäller, inte den aritmetiska. Den
         <em>kompenserade</em> framskrivningen multiplicerar varje kohort
         med r(a) för varje år den åldras. I prövningen bakåt skattas
-        kvoterna alltid ur åren <em>före</em> basåret; annars vet
-        framskrivningen något om framtiden och prövningen mäter
-        ingenting. Ett år där någon kvot saknas på vägen räknas inte
+        kvoterna alltid ur årsövergångar <em>till och med</em> basåret
+        &ndash; bara befolkningsdata som var känd vid prognostillfället;
+        annars vet framskrivningen något om framtiden och prövningen
+        mäter ingenting. Ett år där någon kvot saknas på vägen räknas inte
         fram.</dd>
       <dt>Modellvarianterna prövas mot varandra</dt>
       <dd>Två saker går att skruva på: hur långt tillbaka kvoterna hämtas
@@ -303,7 +305,7 @@
       bygget är deterministiskt: samma indata ger samma utdata. Så här
       återskapas allt från grunden:
     </p>
-    <div class="kort"><pre style="margin:0;overflow-x:auto"><code>git clone https://github.com/moggleif/politik
+    <div class="kort"><pre class="kodblock"><code>git clone https://github.com/moggleif/politik
 cd politik
 python3 scripts/build_data.py         # prognossidorna
 python3 scripts/build_meritvarden.py  # meritvärdessidan
@@ -315,7 +317,7 @@ python3 scripts/build_nian_gymnasiet.py  # från nian till gymnasiet
 python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pre></div>
     <p class="forklaring">
       Skripten kräver bara Python 3 (utan paket). Att även hämta om
-      rådatat &ndash; <code>fetch_scb.py</code>,
+      rådatat &ndash; <code>hamta_scb.py</code>,
       <code>hamta_slutbetyg.py</code>, <code>hamta_kullkedjan.py</code>
       och <code>extrahera_antagning.py</code> &ndash; kräver nätverk och för
       PDF-läsningen paketet <code>pdfplumber</code>; se

@@ -29,7 +29,7 @@ raderad ändå går att återskapa.
 
 ## Faktisk folkmängd (SCB)
 
-Hämtas med `python3 scripts/fetch_scb.py` ur två av SCB:s tabeller:
+Hämtas med `python3 scripts/hamta_scb.py` ur två av SCB:s tabeller:
 
 - 2000–2024: `BefolkningNy` via det äldre doris-API:t
 - 2025: `TAB5557` via PxWeb API 2.0 (SCB lägger de senaste åren i egna tabeller)
@@ -398,9 +398,9 @@ meritvärdessidan: redovisas ett program på två skolor samma år är det två
 utbildningar som får varsin serie med skolan i namnet; redovisas det bara
 på en skola i taget blir det en serie som tar de gamla åren med sig.
 Vilken skola varje år hör till följer med i utdatan. Med statistiken till
-och med 2024/25 blir det 29 serier, varav 15 delade på skola – det är
-parallella utbildningar (naturvetenskaps-, teknik-, samhällsvetenskaps-,
-ekonomi-, estetiska, bygg- och naturbruksprogrammen), inte flyttar.
+och med 2024/25 blir det 22 serier, varav 8 delade på skola – det är
+parallella utbildningar (naturvetenskaps-, teknik-, samhällsvetenskaps-
+samt bygg- och anläggningsprogrammen), inte flyttar.
 Kommunens omflyttningar från antagningen 2026 syns här först tre år
 senare, när den första kullen gått ut.
 
@@ -486,7 +486,7 @@ som ligger i Kungsbacka – även de fristående. Rapporten redovisar tre
 huvudmannatyper (Samtliga, Kommunal, Enskild); alla tre sparas i
 `data/amnesbetyg/`, men sidan använder **Samtliga**.
 
-**Nitton ämnen har hela tidsserien.** Tre ämnen har det inte:
+**Arton ämnen har hela tidsserien.** Fyra ämnen har det inte:
 
 | Ämne | Läsår med värde |
 |---|---|

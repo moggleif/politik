@@ -6,7 +6,7 @@ utfallet, innehåller den här filen **enbart faktiskt utfall** från SCB.
 Inga prognossiffror ingår.
 
 Läser:
-  data/scb/folkmangd_kungsbacka.json   (från fetch_scb.py)
+  data/scb/folkmangd_kungsbacka.json   (från hamta_scb.py)
 
 Skriver:
   docs/data-befolkning.json
