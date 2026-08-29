@@ -10,7 +10,7 @@ Två sorters test:
     data/ – annars har någon ändrat utdatan för hand eller glömt bygga om
 """
 
-import importlib.util
+import importlib
 import json
 import sys
 import unittest
@@ -18,15 +18,15 @@ from pathlib import Path
 
 ROT = Path(__file__).resolve().parent.parent
 
+# Skripten importerar varandra som vanliga moduler (import program) och
+# räknar med att scripts/ ligger på sökvägen – det gör den när de körs
+# som `python3 scripts/<skript>.py`, och här ordnas samma sak för testerna.
+sys.path.insert(0, str(ROT / "scripts"))
+
 
 def ladda(namn: str):
     """Importera ett byggskript från scripts/ som modul."""
-    spec = importlib.util.spec_from_file_location(
-        namn, ROT / "scripts" / f"{namn}.py")
-    modul = importlib.util.module_from_spec(spec)
-    sys.modules[namn] = modul
-    spec.loader.exec_module(modul)
-    return modul
+    return importlib.import_module(namn)
 
 
 build_data = ladda("build_data")

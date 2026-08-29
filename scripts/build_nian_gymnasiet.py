@@ -27,15 +27,15 @@ som korrelationer med sitt n utskrivet – underlaget är tolv kullar, och
 sidan säger uttryckligen att det inte räcker för att slå fast något.
 
 Programindelningen (yrkesprogram/högskoleförberedande) och namnbyten
-lånas från build_slutbetyg.py, så att den bara underhålls på ett ställe.
+kommer ur program.py, så att de bara underhålls på ett ställe.
 
 Körs:  python3 scripts/build_nian_gymnasiet.py
 """
 
-import importlib.util
 import json
-import sys
 from pathlib import Path
+
+import program
 
 ROT = Path(__file__).resolve().parent.parent
 
@@ -52,24 +52,6 @@ INTRODUKTION = "Introduktionsprogram"
 # och ska inte hamna i programlistan.
 SUMMARADER = {NATIONELLA, "Yrkesprogram", "Högskoleförberedande program",
               INTRODUKTION}
-
-
-def _ladda(namn: str):
-    """Importera ett annat byggskript som modul (samma grepp som testerna).
-
-    Programnamnen och indelningen i yrkesprogram och högskoleförberedande
-    program ska vara desamma här som på slutbetygssidan; att låna dem i
-    stället för att kopiera dem gör att ett namnbyte bara behöver föras
-    in på ett ställe."""
-    spec = importlib.util.spec_from_file_location(
-        namn, ROT / "scripts" / f"{namn}.py")
-    modul = importlib.util.module_from_spec(spec)
-    sys.modules.setdefault(namn, modul)
-    spec.loader.exec_module(modul)
-    return modul
-
-
-slutbetyg = _ladda("build_slutbetyg")
 
 
 def lasa_json(p: Path):
@@ -368,7 +350,7 @@ def bygg_program(start: dict, examen: dict) -> list:
     def hamta(namn):
         return per_program.setdefault(namn, {
             "namn": namn,
-            "typ": slutbetyg.typ_av(namn),
+            "typ": program.typ_av(namn),
             "start": {},
             "examen": {},
         })
@@ -377,7 +359,7 @@ def bygg_program(start: dict, examen: dict) -> list:
         for rad in d["rader"]:
             if rad["huvudman"] != HUVUDMAN:
                 continue
-            namn = slutbetyg.programnamn(rad["program"])
+            namn = program.programnamn(rad["program"])
             if namn in SUMMARADER or namn.startswith(TOTALT_PREFIX):
                 continue
             hamta(namn)["start"][str(ar)] = plocka(rad, START_FALT)
@@ -386,7 +368,7 @@ def bygg_program(start: dict, examen: dict) -> list:
         for rad in d["rader"]:
             if rad["huvudman"] != HUVUDMAN:
                 continue
-            namn = slutbetyg.programnamn(rad["program"])
+            namn = program.programnamn(rad["program"])
             if namn in SUMMARADER or namn.startswith(TOTALT_PREFIX):
                 continue
             hamta(namn)["examen"][str(ar)] = plocka(rad, EXAMEN_FALT)
@@ -447,7 +429,7 @@ def main() -> None:
     for p in ut["program"]:
         if p["typ"] == "okant":
             print(f"  okänt program: {p['namn']} – kontrollera indelningen "
-                  "i build_slutbetyg.py")
+                  "i program.py")
     for rad in ut["pendling"]:
         for del_ in ("gymnasiet", "grundskolan"):
             v = rad[del_]

@@ -28,43 +28,14 @@ import re
 import unicodedata
 from pathlib import Path
 
+from program import SKOLOR, PROGRAM_BYTT_NAMN, typ_av  # noqa: F401 – delade listor
+
 ROT = Path(__file__).resolve().parent.parent
 
-SKOLOR = [
-    {"id": "aranas", "namn": "Aranäsgymnasiet", "kort": "Aranäs"},
-    {"id": "elof", "namn": "Elof Lindälvs gymnasium", "kort": "Elof Lindälv"},
-]
 KORT = {s["namn"]: s["kort"] for s in SKOLOR}
 
-# Gymnasieskolans nationella program, med den indelning som styr hur
-# utbildningarna grupperas på sidan. Listan är också en kontroll: ett
-# program som inte står här är ett tecken på att namnet lästs fel.
-HOGSKOLEFORBEREDANDE = {
-    "Ekonomiprogrammet",
-    "Estetiska programmet",
-    "Humanistiska programmet",
-    "International Baccalaureate",
-    "Naturvetenskapsprogrammet",
-    "Samhällsvetenskapsprogrammet",
-    "Teknikprogrammet",
-}
-YRKESPROGRAM = {
-    "Barn- och fritidsprogrammet",
-    "Bygg- och anläggningsprogrammet",
-    "El- och energiprogrammet",
-    "Fordons- och transportprogrammet",
-    "Försäljnings- och serviceprogrammet",
-    "Handels- och administrationsprogrammet",
-    "Hantverksprogrammet",
-    "Hotell- och turismprogrammet",
-    "Industritekniska programmet",
-    "Naturbruksprogrammet",
-    "Restaurang- och livsmedelsprogrammet",
-    "VVS- och fastighetsprogrammet",
-    "Vård- och omsorgsprogrammet",
-}
-
-# Programnamn som behöver städas innan de matchar listorna ovan.
+# Programnamn som behöver städas innan de matchar de delade listorna i
+# program.py.
 PROGRAM_ALIAS = {
     # 2017 skrev in hela lärlingsupplägget i programnamnet
     "Industritekniska programmet (Svensk Gymnasial lärlingsutbildning "
@@ -73,15 +44,6 @@ PROGRAM_ALIAS = {
     "Introduktionsprogram, Programinriktat val": "Introduktionsprogram",
     "Introduktionsprogram Programinriktat val": "Introduktionsprogram",
     "Introduktionsprogram Yrkesintroduktion": "Introduktionsprogram",
-}
-
-# Program som bytt namn men är samma utbildning. Handels- och
-# administrationsprogrammet ersattes av Försäljnings- och serviceprogrammet
-# i 2021 års gymnasiereform; GR:s rapporter använder det nya namnet från och
-# med antagningen 2022. Serien förs ihop, och det gamla namnet följer med
-# per år så att det går att skriva ut.
-PROGRAM_BYTT_NAMN = {
-    "Handels- och administrationsprogrammet": "Försäljnings- och serviceprogrammet",
 }
 
 # Inriktningsnamn som betyder samma sak men skrivits olika mellan åren.
@@ -180,18 +142,26 @@ def inriktningsnyckel(inriktning: str) -> str:
     return " | ".join(sorted(DELALIAS.get(d, d) for d in delar))
 
 
-def typ_av(program: str) -> str:
-    if program.startswith("Introduktionsprogram"):
-        return "introduktion"
-    if program in HOGSKOLEFORBEREDANDE:
-        return "hogskoleforberedande"
-    if program in YRKESPROGRAM:
-        return "yrkesprogram"
-    return "okant"
-
-
 def medel(varden):
     return round(sum(varden) / len(varden), 2) if varden else None
+
+
+def satt_statistik(serie: dict) -> dict:
+    """Första och sista mätåret, och förändringen däremellan."""
+    medelar = {a: v["medel"] for a, v in serie["varden"].items()
+               if v["medel"] is not None}
+    serie["antalArMedMedel"] = len(medelar)
+    if medelar:
+        forsta, sista = min(medelar), max(medelar)
+        serie["forstaAr"], serie["sistaAr"] = int(forsta), int(sista)
+        serie["forsta"], serie["sista"] = medelar[forsta], medelar[sista]
+        # Förändringen är bara meningsfull mellan två skilda år
+        serie["forandring"] = (round(medelar[sista] - medelar[forsta], 2)
+                               if forsta != sista else None)
+    else:
+        serie["forstaAr"] = serie["sistaAr"] = None
+        serie["forandring"] = None
+    return serie
 
 
 def bygg(argangar: list) -> dict:
@@ -231,23 +201,10 @@ def bygg(argangar: list) -> dict:
 
     utbildningar = []
     for serie in serier.values():
-        medelar = {a: v["medel"] for a, v in serie["varden"].items() if v["medel"] is not None}
         serie["namn"] = serie["program"] + (
             " – " + serie["inriktning"] if serie["inriktning"] else "")
         serie["skolaKort"] = KORT[serie["skola"]]
-        serie["antalArMedMedel"] = len(medelar)
-        if medelar:
-            forsta, sista = min(medelar), max(medelar)
-            serie["forstaAr"], serie["sistaAr"] = int(forsta), int(sista)
-            serie["forsta"], serie["sista"] = medelar[forsta], medelar[sista]
-            # Förändringen är bara meningsfull mellan två skilda år
-            serie["forandring"] = (round(medelar[sista] - medelar[forsta], 2)
-                                   if forsta != sista else None)
-        else:
-            serie["forstaAr"] = serie["sistaAr"] = None
-            serie["forandring"] = None
-        utbildningar.append(serie)
-
+        utbildningar.append(satt_statistik(serie))
 
     utbildningar.sort(key=lambda s: (s["skola"], s["program"], s["inriktning"]))
 
@@ -301,22 +258,6 @@ def bygg(argangar: list) -> dict:
                 rad["namn"] = post["namn"]
             ut[ar_s] = rad
         return ut
-
-    def satt_statistik(serie):
-        """Första och sista mätåret, och förändringen däremellan."""
-        medelar = {a: v["medel"] for a, v in serie["varden"].items()}
-        serie["antalArMedMedel"] = len(medelar)
-        if medelar:
-            forsta, sista = min(medelar), max(medelar)
-            serie["forstaAr"], serie["sistaAr"] = int(forsta), int(sista)
-            serie["forsta"], serie["sista"] = medelar[forsta], medelar[sista]
-            # Förändringen är bara meningsfull mellan två skilda år
-            serie["forandring"] = (round(medelar[sista] - medelar[forsta], 2)
-                                   if forsta != sista else None)
-        else:
-            serie["forstaAr"] = serie["sistaAr"] = None
-            serie["forandring"] = None
-        return serie
 
     def gruppera(per_skola: dict) -> list:
         """Delar upp skolorna i serier: hopslagna om åren inte överlappar."""

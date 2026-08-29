@@ -45,6 +45,9 @@ import json
 import re
 from pathlib import Path
 
+import program
+from program import HOGSKOLEFORBEREDANDE, YRKESPROGRAM, programnamn, typ_av  # noqa: F401
+
 ROT = Path(__file__).resolve().parent.parent
 
 # Skolans namn utan enhetsnummer, som det ska stå på sidan. Nyckeln är det
@@ -67,13 +70,10 @@ SKOLNAMN = {
     "Sveriges Ridgymnasium Kungsbacka": "Sveriges Ridgymnasium",
 }
 
-# Skolorna sidan visar, med den korta form som används när ett programnamn
-# behöver skiljas på skola i ett diagram. Rader från övriga skolenheter i
-# rapporten sorteras bort.
-SKOLOR = [
-    ("Aranäsgymnasiet", "Aranäs"),
-    ("Elof Lindälvs gymnasium", "Elof Lindälv"),
-]
+# Skolorna sidan visar (ur den delade listan i program.py), med den korta
+# form som används när ett programnamn behöver skiljas på skola i ett
+# diagram. Rader från övriga skolenheter i rapporten sorteras bort.
+SKOLOR = [(s["namn"], s["kort"]) for s in program.SKOLOR]
 SKOLORDNING = [namn for namn, _ in SKOLOR]
 KORTNAMN = dict(SKOLOR)
 MEDTAGNA = set(SKOLORDNING)
@@ -86,41 +86,10 @@ SUMMARADER = {
     "Yrkesprogram": "yrkesprogram",
 }
 
-# Program som bytt namn. Nyckeln är det gamla namnet, värdet det namn
-# programmet går under i dag. Handels- och administrationsprogrammet
-# ersattes vid gymnasiereformen 2021 av Försäljnings- och
-# serviceprogrammet; innehållet gjordes om, men det är samma utbildning
-# som förts vidare, så åren läggs i samma serie.
-PROGRAM_ALIAS = {
-    "Handels- och administrationsprogrammet": "Försäljnings- och serviceprogrammet",
-}
-
-# Samma indelning som på meritvärdessidan, och samma kontroll: ett program
-# som inte står här är ett tecken på att rapporten ändrat namnsättning.
-# Gamla namn i PROGRAM_ALIAS behöver inte stå här – de byts ut först.
-HOGSKOLEFORBEREDANDE = {
-    "Ekonomiprogrammet",
-    "Estetiska programmet",
-    "Humanistiska programmet",
-    "International Baccalaureate",
-    "Naturvetenskapsprogrammet",
-    "Samhällsvetenskapsprogrammet",
-    "Teknikprogrammet",
-}
-YRKESPROGRAM = {
-    "Barn- och fritidsprogrammet",
-    "Bygg- och anläggningsprogrammet",
-    "El- och energiprogrammet",
-    "Fordons- och transportprogrammet",
-    "Försäljnings- och serviceprogrammet",
-    "Hantverksprogrammet",
-    "Hotell- och turismprogrammet",
-    "Industritekniska programmet",
-    "Naturbruksprogrammet",
-    "Restaurang- och livsmedelsprogrammet",
-    "VVS- och fastighetsprogrammet",
-    "Vård- och omsorgsprogrammet",
-}
+# Programindelningen och namnbytena (Handels- och administrations-
+# programmet -> Försäljnings- och serviceprogrammet) delas med
+# meritvärdessidan via program.py, så att de två sidorna går att läsa
+# mot varandra.
 
 # Talen som vägs ihop från skolenhet till skola. Alla är medelvärden eller
 # andelar per elev, så vikten är antalet avgångselever i varje fall.
@@ -133,18 +102,6 @@ def skolnamn(skolenhet: str, okanda: set) -> str:
     if namn not in SKOLNAMN:
         okanda.add(namn)
     return SKOLNAMN.get(namn, namn)
-
-
-def programnamn(program: str) -> str:
-    return PROGRAM_ALIAS.get(program.strip(), program.strip())
-
-
-def typ_av(program: str) -> str:
-    if program in HOGSKOLEFORBEREDANDE:
-        return "hogskoleforberedande"
-    if program in YRKESPROGRAM:
-        return "yrkesprogram"
-    return "okant"
 
 
 def vag_ihop(rader: list) -> dict:
