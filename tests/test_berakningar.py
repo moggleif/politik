@@ -934,5 +934,88 @@ class TestGenereradeFiler(unittest.TestCase):
         self.assertEqual(ombyggd, self.las("data-amnesbetyg.json"))
 
 
+class TestPresentationsregler(unittest.TestCase):
+    """Regressionsvakter för metodproblem i presentationen.
+
+    Texttesterna är medvetet bokstavliga: de låser inte designen, bara
+    specifika misstag som en granskning hittat och som inte får komma
+    tillbaka – ett blandat felmått på startsidan, individpåståenden om
+    aggregerade kullar och för kategoriska påståenden om betygsstatistik.
+    """
+
+    def las_text(self, vag):
+        return (ROT / vag).read_text(encoding="utf-8")
+
+    def las_json(self, namn):
+        return json.loads((ROT / "docs" / namn).read_text(encoding="utf-8"))
+
+    def test_startsidan_laser_inte_det_horisontblandade_felmattet(self):
+        """skevhet.medelAbsPct blandar prognoshorisonter och låter gamla
+        årgångar väga tyngre; startsidan ska visa felet per horisont ur
+        perAvstand i stället."""
+        js = self.las_text("docs/index.js")
+        self.assertNotIn("data.skevhet.medelAbsPct", js)
+        self.assertIn("perAvstand", js)
+
+    def test_startsidan_vaktar_sista_arrayelementet(self):
+        """Sammanfattningsrader ska bygga på senaste post MED data, inte
+        blint på sista arrayelementet."""
+        self.assertIn("sistaMed", self.las_text("docs/index.js"))
+
+    def test_anvandartext_pastarr_inte_individuppfoljning(self):
+        """Kulljämförelsen parar aggregerade grupper (antagning år X mot
+        avgångselever år X+3); användartexten får inte antyda att samma
+        individer följs."""
+        for vag in ("docs/index.html", "README.md",
+                    "docs/antagning-till-examen.html", "docs/index.js"):
+            text = self.las_text(vag).lower()
+            for forbjudet in ("följ samma kull", "samma kull, in och ut",
+                              "följ en årskull", "kan följas hela vägen",
+                              "följas från antagning till examen"):
+                self.assertNotIn(forbjudet, text, f"{vag}: {forbjudet!r}")
+
+    def test_gymnasiebetygen_pastas_inte_bara_publiceras_samlat(self):
+        """Att gymnasiet 'bara' publicerar ett samlat betygssnitt är för
+        kategoriskt – det som är sant är att statistiken som används HÄR
+        redovisar en samlad betygspoäng per program."""
+        for vag in ("docs/index.html", "README.md", "docs/amnesbetyg.html"):
+            self.assertNotIn("bara ett samlat betygssnitt",
+                             self.las_text(vag), vag)
+
+    def test_perAvstand_har_startsidans_horisonter(self):
+        for namn in ("data.json", "data-16-19.json"):
+            avstand = {r["avstand"] for r in self.las_json(namn)["perAvstand"]}
+            for k in (1, 3, 5):
+                self.assertIn(k, avstand, namn)
+
+    def test_procenttal_i_sammanfattningarna_ar_rimliga(self):
+        for namn in ("data.json", "data-16-19.json"):
+            d = self.las_json(namn)
+            for r in d["perAvstand"]:
+                self.assertTrue(0 <= r["medelAbsPct"] <= 100, (namn, r))
+                self.assertTrue(-100 <= r["medelPct"] <= 100, (namn, r))
+            self.assertTrue(0 <= d["skevhet"]["medelAbsPct"] <= 100, namn)
+        for r in self.las_json("data-slutbetyg.json")["sammanfattning"]:
+            if r["andelExamen"] is not None:
+                self.assertTrue(0 <= r["andelExamen"] <= 100, r["ar"])
+        for r in self.las_json("data-amnesbetyg.json")["sammanfattning"]:
+            self.assertTrue(0 <= r["andelAE"] <= 100, r)
+            self.assertTrue(0 <= r["betygspoang"] <= 20, r)
+        for r in self.las_json("data-nian-gymnasiet.json")["pendling"]:
+            for del_ in ("gymnasiet", "grundskolan"):
+                andel = (r.get(del_) or {}).get("andelUt")
+                if andel is not None:
+                    self.assertTrue(0 <= andel <= 100, (r.get("ar"), del_))
+
+    def test_slutbetygens_sammanfattning_ar_kronologisk_med_data(self):
+        """Bygget ska hoppa över år utan data, så att sista posten alltid
+        är den senaste observationen med data."""
+        rader = self.las_json("data-slutbetyg.json")["sammanfattning"]
+        ar = [r["ar"] for r in rader]
+        self.assertEqual(ar, sorted(ar))
+        for r in rader:
+            self.assertIsNotNone(r["antal"], r["ar"])
+
+
 if __name__ == "__main__":
     unittest.main()
