@@ -283,10 +283,15 @@ presentationen: startsidan får inte visa det horisontblandade
 samlingsmåttet som ett generellt prognosfel, och kulljämförelsen får
 inte beskrivas som individuppföljning. Vid varje push och pull request
 körs testerna i GitHub Actions (`.github/workflows/test.yml`),
-tillsammans med en kontroll av webbplatsens interna länkar
-(`scripts/kontrollera_lankar.py`) och ett rök-test som laddar varje
-sida i webbläsare och faller på JavaScript-fel, saknade resurser eller
-sidor som inte ritar sina diagram (`scripts/smoke_webbplats.js`).
+tillsammans med fyra kontroller av den färdiga webbplatsen: interna
+länkar och lokala källfiler (`scripts/kontrollera_lankar.py`),
+HTML-validering (html-validate), ett rök-test som laddar varje sida i
+webbläsare och faller på JavaScript-fel, saknade resurser eller sidor
+som inte ritar sina diagram (`scripts/smoke_webbplats.js`), och en
+tillgänglighetskontroll (`scripts/tillganglighet.js`) som kör axe-core
+mot WCAG 2.1 A och AA, tabbar igenom varje sida för att se att alla
+kontroller nås och har synlig fokusmarkering, och kontrollerar att
+sidan inte rullar i sidled på en 360 pixlar bred skärm.
 
 Hämtningen är helt automatisk &ndash; både CSV-filerna i `docs/rapporter/`
 och JSON-filerna i `data/slutbetyg/` skrivs om. Skolverket publicerar det

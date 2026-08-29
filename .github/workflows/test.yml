@@ -21,6 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
       - name: Installera beroenden
         run: pip install -r requirements.txt
       - name: Kör testsviten
@@ -39,9 +40,13 @@ jobs:
       - name: JavaScript-syntax
         run: |
           for f in docs/*.js; do node --check "$f"; done
-      - name: Installera Playwright
+      - name: Installera kontrollverktyg
         run: |
-          npm install --no-save playwright@1.49
+          npm install --no-save playwright@1.49 html-validate@9 axe-core@4
           npx playwright install --with-deps chromium
+      - name: Validera HTML
+        run: npx html-validate docs/*.html
       - name: Rök-testa alla sidor
         run: node scripts/smoke_webbplats.js
+      - name: Tillgänglighet (axe, tangentbord, smal skärm)
+        run: node scripts/tillganglighet.js

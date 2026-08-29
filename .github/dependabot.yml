@@ -1,0 +1,11 @@
+# Bevakar versionerna på de GitHub-actions arbetsflödena använder. Utan
+# den här filen ligger en major-tagg (t.ex. actions/checkout@v4) still
+# tills någon råkar titta efter; med den kommer en pull request när det
+# finns något nytt att uppdatera till.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
