@@ -42,22 +42,7 @@
       return p.prognosAr === k.senastePrognosAr;
     })[0];
 
-    var dataset = [{
-      label: "Faktiskt utfall (SCB)",
-      data: ar.map(function (a) {
-        var v = data.utfall[String(a)];
-        return v === undefined ? null : v;
-      }),
-      borderColor: FARG.ink,
-      backgroundColor: FARG.ink,
-      borderWidth: 3,
-      pointRadius: 3,
-      pointHoverRadius: 6,
-      pointBorderColor: FARG.surface,
-      pointBorderWidth: 2,
-      spanGaps: false,
-      tension: 0.1
-    }];
+    var dataset = [K.utfallDataset(data, ar)];
     if (senaste) {
       dataset.push({
         label: "Kommunens prognos " + senaste.prognosAr,
@@ -251,22 +236,7 @@
         tension: 0.1
       };
     });
-    dataset.push({
-      label: "Faktiskt utfall (SCB)",
-      data: ar.map(function (y) {
-        var v = data.utfall[String(y)];
-        return v === undefined ? null : v;
-      }),
-      borderColor: FARG.ink,
-      backgroundColor: FARG.ink,
-      borderWidth: 3,
-      pointRadius: 3,
-      pointHoverRadius: 6,
-      pointBorderColor: FARG.surface,
-      pointBorderWidth: 2,
-      spanGaps: false,
-      tension: 0.1
-    });
+    dataset.push(K.utfallDataset(data, ar));
 
     var ctx = el("diagram-kohortalla");
     ctx.parentElement.style.height = "440px";
@@ -503,17 +473,7 @@
       return p.prognosAr === k.senastePrognosAr;
     })[0];
 
-    var dataset = [{
-      label: "Faktiskt utfall (SCB)",
-      data: ar.map(function (a) {
-        var v = data.utfall[String(a)];
-        return v === undefined ? null : v;
-      }),
-      borderColor: FARG.ink, backgroundColor: FARG.ink,
-      borderWidth: 3, pointRadius: 3, pointHoverRadius: 6,
-      pointBorderColor: FARG.surface, pointBorderWidth: 2,
-      spanGaps: false, tension: 0.1
-    }];
+    var dataset = [K.utfallDataset(data, ar)];
     if (senaste) {
       dataset.push({
         label: "Kommunens prognos " + senaste.prognosAr,

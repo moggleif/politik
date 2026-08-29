@@ -98,6 +98,52 @@
     return "";
   }
 
+  /* ---------- Årsskala ----------
+     Alla år mellan första och sista mätår, även de utan mätning. Ett år utan
+     rapport ska synas som en lucka och inte tryckas ihop – linjerna ritas med
+     spanGaps: false och bryts därför där. */
+
+  function arsskala(ar) {
+    var ut = [];
+    for (var a = ar[0]; a <= ar[ar.length - 1]; a++) ut.push(a);
+    return ut;
+  }
+
+  /* Vilka år inom skalan som saknar rapport. Skrivs ut i klartext i stället
+     för att hårdkodas, så att texten följer med när en årgång tillkommer. */
+  function saknadeAr(ar) {
+    return arsskala(ar).filter(function (a) { return ar.indexOf(a) === -1; });
+  }
+
+  function saknadeArText(ar) {
+    var saknas = saknadeAr(ar);
+    if (!saknas.length) return "";
+    if (saknas.length === 1) return " Året " + saknas[0] + " saknar rapport, därav luckan.";
+    return " Åren " + saknas.slice(0, -1).join(", ") + " och " +
+      saknas[saknas.length - 1] + " saknar rapport, därav luckorna.";
+  }
+
+  /* ---------- Programtyper ----------
+     Skolverkets två typer av nationella program, i klartext. */
+
+  var TYPNAMN = {
+    hogskoleforberedande: "Högskoleförberedande program",
+    yrkesprogram: "Yrkesprogram"
+  };
+
+  /* ---------- Väljare ----------
+     Lägg till alternativ i en <select>. `etikett` styr texten när den
+     skiljer sig från värdet. */
+
+  function fyllValjare(valjare, varden, etikett) {
+    varden.forEach(function (v) {
+      var o = document.createElement("option");
+      o.value = v;
+      o.textContent = etikett ? etikett(v) : v;
+      valjare.appendChild(o);
+    });
+  }
+
   function installChartDefaults() {
     /* Respektera systeminställningen om minskad rörelse – Chart.js
        animerar annars varje omritning. */
@@ -144,6 +190,28 @@
       diagramRegister[id].destroy();
       delete diagramRegister[id];
     }
+  }
+
+  /* ---------- Utfallslinjen ----------
+     Den svarta linjen med SCB:s faktiska folkmängd, återanvänd i flera
+     diagram på befolknings- och kohortsidorna. */
+
+  function utfallDataset(data, ar) {
+    return {
+      label: "Faktiskt utfall (SCB)",
+      data: ar.map(function (a) {
+        return data.utfall[String(a)] === undefined ? null : data.utfall[String(a)];
+      }),
+      borderColor: FARG.ink,
+      backgroundColor: FARG.ink,
+      borderWidth: 3,
+      pointRadius: 3,
+      pointHoverRadius: 6,
+      pointBorderColor: FARG.surface,
+      pointBorderWidth: 2,
+      spanGaps: false,
+      tension: 0.1
+    };
   }
 
   /* ---------- Uppstart ----------
@@ -474,9 +542,13 @@
         if (!thead || tabell.tBodies.length === 0) return;
         Array.prototype.forEach.call(tabell.querySelectorAll("thead th"), function (th) {
           if (th.hasAttribute("aria-sort")) return;
+          /* En sorterbar kolumnrubrik ska behålla sin columnheader-roll:
+             role="button" skulle skriva över den, och aria-sort är inte
+             tillåtet på en knapp – skärmläsaren tappar då både
+             tabellsemantiken och sorteringsordningen. Tabb når rubriken
+             via tabindex, och Enter/mellanslag sorterar (se keydown). */
           th.setAttribute("aria-sort", "none");
           th.setAttribute("tabindex", "0");
-          th.setAttribute("role", "button");
           th.title = "Sortera på " + th.textContent.trim();
         });
         var rull = tabell.closest(".tabell-rull");
@@ -530,10 +602,16 @@
     esc: esc,
     sakerUrl: sakerUrl,
     slug: slug,
+    arsskala: arsskala,
+    saknadeAr: saknadeAr,
+    saknadeArText: saknadeArText,
+    TYPNAMN: TYPNAMN,
+    fyllValjare: fyllValjare,
     installChartDefaults: installChartDefaults,
     rita: rita,
     diagramFor: diagramFor,
     taBortDiagram: taBortDiagram,
+    utfallDataset: utfallDataset,
     starta: starta,
     visaStatus: visaStatus,
     urlLas: urlLas,

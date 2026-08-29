@@ -472,21 +472,7 @@
     });
     /* Kohortlinjen ritas bara när 16–19-sidans kohort.js är inläst */
     if (data.kohort && K.kohortDataset) dataset.push(K.kohortDataset(data, ar, 2));
-    dataset.push({
-      label: "Faktiskt utfall (SCB)",
-      data: ar.map(function (a) {
-        return data.utfall[String(a)] !== undefined ? data.utfall[String(a)] : null;
-      }),
-      borderColor: FARG.ink,
-      backgroundColor: FARG.ink,
-      borderWidth: 3,
-      pointRadius: 3,
-      pointHoverRadius: 6,
-      pointBorderColor: FARG.surface,
-      pointBorderWidth: 2,
-      spanGaps: false,
-      tension: 0.1
-    });
+    dataset.push(K.utfallDataset(data, ar));
 
     var ctx = el("diagram-spagetti");
     ctx.parentElement.style.height = "420px";

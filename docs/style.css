@@ -29,6 +29,9 @@ body {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 1.1875rem;          /* 19px – stor bastext */
   line-height: 1.65;
+  /* Långa sammansatta ord (programnamnen) ska brytas hellre än att
+     tvinga hela sidan att rulla i sidled på en smal skärm. */
+  overflow-wrap: break-word;
 }
 
 main, .sidhuvud-inre, .sidfot-inre {
