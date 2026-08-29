@@ -23,28 +23,13 @@
   var DATA = null;
   var rita = K.rita;
 
-  /* Alla år mellan första och sista mätår, även de utan mätning. Ett år utan
-     rapport ska synas som en lucka och inte tryckas ihop – linjerna ritas med
-     spanGaps: false och bryts därför där. */
-  function arsskala() {
-    var ar = [];
-    for (var a = DATA.ar[0]; a <= DATA.ar[DATA.ar.length - 1]; a++) ar.push(a);
-    return ar;
-  }
+  /* Årsskalan och de år som saknar rapport delas med slutbetygssidan via
+     gemensam.js; wrapparna skickar in sidans egen årslista. */
+  function arsskala() { return K.arsskala(DATA.ar); }
 
-  /* Vilka år inom skalan som saknar rapport. Skrivs ut i klartext i stället
-     för att hårdkodas, så att texten följer med när en årgång tillkommer. */
-  function saknadeAr() {
-    return arsskala().filter(function (a) { return DATA.ar.indexOf(a) === -1; });
-  }
+  function saknadeAr() { return K.saknadeAr(DATA.ar); }
 
-  function saknadeArText() {
-    var saknas = saknadeAr();
-    if (!saknas.length) return "";
-    if (saknas.length === 1) return " Året " + saknas[0] + " saknar rapport, därav luckan.";
-    return " Åren " + saknas.slice(0, -1).join(", ") + " och " +
-      saknas[saknas.length - 1] + " saknar rapport, därav luckorna.";
-  }
+  function saknadeArText() { return K.saknadeArText(DATA.ar); }
 
   /* Alla utbildningar på de nationella programmen, båda skolorna. */
   function nationella() {
@@ -683,10 +668,7 @@
 
   /* ---------- Avsnitt 5: yrkesprogram mot högskoleförberedande ---------- */
 
-  var TYPNAMN = {
-    hogskoleforberedande: "Högskoleförberedande program",
-    yrkesprogram: "Yrkesprogram"
-  };
+  var TYPNAMN = K.TYPNAMN;
 
   function ritaTyp() {
     var ar = arsskala();
@@ -825,14 +807,7 @@
 
   /* ---------- Reglage och start ---------- */
 
-  function fyllValjare(valjare, varden, etikett) {
-    varden.forEach(function (v) {
-      var o = document.createElement("option");
-      o.value = v;
-      o.textContent = etikett ? etikett(v) : v;
-      valjare.appendChild(o);
-    });
-  }
+  var fyllValjare = K.fyllValjare;
 
   /* ---------- Kort sagt ---------- */
 
