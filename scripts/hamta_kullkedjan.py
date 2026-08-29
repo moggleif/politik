@@ -71,6 +71,29 @@ def las_tal(rad: list, kol: dict, namn: str, ungefarliga: list, radnamn: str):
     return tal(ratext)
 
 
+def las_programrader(rader: list, rubrik_i: int, kol: dict, falt: list,
+                     ungefarliga: list) -> list:
+    """Programraderna för Kungsbacka i rapport 91 och 89, deduplicerade.
+
+    Exporten upprepar sina rader, så första förekomsten per
+    (huvudman, program) vinner. Talen läses via las_tal, som antecknar
+    eventuella ~100-markörer i `ungefarliga`."""
+    ut, sedda = [], set()
+    for rad in rader[rubrik_i + 1:]:
+        if len(rad) <= max(kol.values()) or rad[0] != KOMMUNNAMN or rad[1] != KOMMUN:
+            continue
+        huvudman = rad[kol["huvudman"]].strip()
+        program = rad[kol["program"]].strip()
+        if (huvudman, program) in sedda:
+            continue
+        sedda.add((huvudman, program))
+        post = {"huvudman": huvudman, "program": program}
+        for f in falt:
+            post[f] = las_tal(rad, kol, f, ungefarliga, f"{huvudman}/{program}")
+        ut.append(post)
+    return ut
+
+
 def skriv(mapp: str, filnamn: str, data: dict) -> Path:
     ut = ROT / "data" / mapp
     ut.mkdir(parents=True, exist_ok=True)
@@ -230,23 +253,11 @@ def las_genomstromning(ar: int) -> dict | None:
     kol = genom_kolumner(rader, rubrik_i)
 
     ungefarliga = []
-    ut, sedda = [], set()
-    for rad in rader[rubrik_i + 1:]:
-        if len(rad) <= max(kol.values()) or rad[0] != KOMMUNNAMN or rad[1] != KOMMUN:
-            continue
-        huvudman = rad[kol["huvudman"]].strip()
-        program = rad[kol["program"]].strip()
-        if (huvudman, program) in sedda:
-            continue                      # exporten upprepar sina rader
-        sedda.add((huvudman, program))
-        post = {"huvudman": huvudman, "program": program,
-                "antal": tal(rad[kol["antal"]])}
-        for falt, _ in GENOM_FALT:
-            for suffix, _ in GENOM_AR:
-                nyckel = falt + suffix
-                post[nyckel] = las_tal(rad, kol, nyckel, ungefarliga,
-                                       f"{huvudman}/{program}")
-        ut.append(post)
+    ut = las_programrader(
+        rader, rubrik_i, kol,
+        ["antal"] + [falt + suffix
+                     for falt, _ in GENOM_FALT for suffix, _ in GENOM_AR],
+        ungefarliga)
 
     if not ut:
         return None
@@ -288,20 +299,7 @@ def las_avgang(ar: int) -> dict | None:
         kol[falt] = namn.index(rubrik)
 
     ungefarliga = []
-    ut, sedda = [], set()
-    for rad in rader[rubrik_i + 1:]:
-        if len(rad) <= max(kol.values()) or rad[0] != KOMMUNNAMN or rad[1] != KOMMUN:
-            continue
-        huvudman = rad[kol["huvudman"]].strip()
-        program = rad[kol["program"]].strip()
-        if (huvudman, program) in sedda:
-            continue                      # exporten upprepar sina rader
-        sedda.add((huvudman, program))
-        post = {"huvudman": huvudman, "program": program}
-        for falt in AVGANG_FALT:
-            post[falt] = las_tal(rad, kol, falt, ungefarliga,
-                                 f"{huvudman}/{program}")
-        ut.append(post)
+    ut = las_programrader(rader, rubrik_i, kol, list(AVGANG_FALT), ungefarliga)
 
     if not ut:
         return None

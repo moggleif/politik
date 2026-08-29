@@ -52,6 +52,15 @@ PROGRAM_BYTT_NAMN = {
 }
 
 
+# Betygsskalorna och programlängden, delade mellan sidorna: meritvärdet
+# i nian är summan av grundskolebetygen (max 340 med 17 ämnen),
+# gymnasiets betygspoäng går 0–20, och de nationella programmen är
+# treåriga – antagning/nian år X möter examen år X + FORSKJUTNING.
+MERIT_MAX = 340
+POANG_MAX = 20
+FORSKJUTNING = 3
+
+
 def programnamn(program: str) -> str:
     """Dagens namn för ett program som kan ha bytt namn."""
     program = program.strip()

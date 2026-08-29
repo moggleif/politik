@@ -36,14 +36,11 @@ import json
 from pathlib import Path
 
 import program
+from program import FORSKJUTNING, MERIT_MAX, POANG_MAX
 
 ROT = Path(__file__).resolve().parent.parent
 
 HUVUDMAN = "Samtliga"
-MERIT_MAX = 340
-POANG_MAX = 20
-# De nationella programmen är treåriga: nian år X möter examen år X + 3.
-FORSKJUTNING = 3
 
 NATIONELLA = "Nationella program"
 TOTALT_PREFIX = "Gymnasieskolan totalt"

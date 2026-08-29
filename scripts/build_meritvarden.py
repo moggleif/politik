@@ -28,7 +28,7 @@ import re
 import unicodedata
 from pathlib import Path
 
-from program import SKOLOR, PROGRAM_BYTT_NAMN, typ_av  # noqa: F401 – delade listor
+from program import MERIT_MAX, SKOLOR, PROGRAM_BYTT_NAMN, typ_av  # noqa: F401 – delade listor
 
 ROT = Path(__file__).resolve().parent.parent
 
@@ -401,6 +401,7 @@ def bygg(argangar: list) -> dict:
         "kommun": "Kungsbacka",
         "serie": "Meritvärden vid antagningen till gymnasiet",
         "ar": ar_lista,
+        "meritMax": MERIT_MAX,
         "skolor": SKOLOR,
         "program": program,
         "utbildningar": utbildningar,

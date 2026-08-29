@@ -29,11 +29,9 @@ Körs:  python3 scripts/build_kull.py
 import json
 from pathlib import Path
 
-ROT = Path(__file__).resolve().parent.parent
+from program import FORSKJUTNING, MERIT_MAX, POANG_MAX
 
-# Antagningen år X möter avgångseleverna år X + FORSKJUTNING: de nationella
-# programmen är treåriga.
-FORSKJUTNING = 3
+ROT = Path(__file__).resolve().parent.parent
 
 
 def lasa_json(p: Path):
@@ -179,8 +177,8 @@ def bygg(merit: dict, slut: dict) -> dict:
     return {
         "kommun": merit["kommun"],
         "forskjutning": FORSKJUTNING,
-        "meritMax": 340,
-        "poangMax": slut.get("maxPoang", 20),
+        "meritMax": MERIT_MAX,
+        "poangMax": slut.get("maxPoang", POANG_MAX),
         "program": program,
         "oparade": {
             "antagningUtanSlutbetyg": sorted(

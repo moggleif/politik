@@ -46,7 +46,8 @@ import re
 from pathlib import Path
 
 import program
-from program import HOGSKOLEFORBEREDANDE, YRKESPROGRAM, programnamn, typ_av  # noqa: F401
+from program import (HOGSKOLEFORBEREDANDE, YRKESPROGRAM, POANG_MAX,  # noqa: F401
+                     programnamn, typ_av)
 
 ROT = Path(__file__).resolve().parent.parent
 
@@ -311,7 +312,7 @@ def bygg(argangar: list):
             "andelExamen": "Andel (%) med gymnasieexamen",
             "andelGrundlBehorighet": "Andel (%) med grundläggande högskolebehörighet",
         },
-        "maxPoang": 20,
+        "maxPoang": POANG_MAX,
         "ar": ar_lista,
         "skolor": skolor,
         "utbildningar": utbildningar,
