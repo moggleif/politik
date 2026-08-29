@@ -278,11 +278,6 @@
      om när användaren byter val, så dekorationen görs via delegerade
      händelser plus en observer som sätter attributen på nya tabeller. */
 
-  function tabellFor(nod) {
-    var rull = nod.closest(".tabell-rull");
-    return rull ? rull.querySelector("table") : null;
-  }
-
   function cellvarde(cell) {
     var text = cell.textContent.replace(/ /g, " ").trim();
     if (text === "" || text === "–" || text === "–" || text === ".." || text === "×") {

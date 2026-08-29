@@ -28,8 +28,9 @@ officiella befolkningsstatistik.
   när ungdomarna flyttar hemifrån. En **kompenserad framskrivning**
   multiplicerar med de kvoterna längs vägen. Den halverar felet på lång
   sikt, men till priset av ett antagande: att flyttmönstret består.
-  Kvoterna skattas därför alltid ur åren före basåret, så att prövningen
-  bakåt blir ärlig. Fem varianter av modellen prövas mot varandra på samma
+  Kvoterna skattas därför alltid ur årsövergångar till och med basåret
+  &ndash; bara data som var känd vid prognostillfället &ndash; så att
+  prövningen bakåt blir ärlig. Fem varianter av modellen prövas mot varandra på samma
   basår och samma målår &ndash; med och utan kort skattningsfönster, med
   och utan de tre första åren okompenserade &ndash; och alla redovisas,
   också de som visar sig sämre.
@@ -89,7 +90,6 @@ Hur allting hämtas, räknas och kan reproduceras beskrivs på
 
 ```
 data/
-  rapporter/ …             (arbetsyta för rapportinsamling, se docs/rapporter/)
   prognoser/prognos_<år>.json   Extraherade prognossiffror ur varje rapport,
                                 med källänk och sidhänvisning
   antagning/antagning_<år>.json Meritvärden per utbildning ur GR:s rapport
@@ -175,7 +175,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   data-befolkning.json          Data till sidan om barn och unga (genereras)
   rapporter/*.pdf               Lokala kopior av käll­rapporterna
   rapporter/slutbetyg-*.csv     Skolverkets exportfiler, en per läsår
-  chart.umd.js                  Chart.js v4 (vendrad, ingen CDN)
+  chart.umd.js                  Chart.js v4.5.1 (vendrad UMD-build från
+                                npm-paketet chart.js, ingen CDN)
 ```
 
 ## Uppdatera datat
@@ -198,7 +199,9 @@ Nya prognosrapporter läggs till genom att spara PDF:en i `docs/rapporter/`,
 skapa en `data/prognoser/prognos_<år>.json` med siffrorna och källänken, och
 köra `build_data.py` igen.
 
-Meritvärdena (kräver `pip install pdfplumber`):
+Meritvärdena (kräver `pip install -r requirements.txt` &ndash; pdfplumber
+för antagnings-PDF:erna; pypdf används av `extrahera_prognos.py` och
+`extrahera_budget.py`):
 
 ```bash
 # spara årets rapport som docs/rapporter/antagning-slutantagning-<år>.pdf

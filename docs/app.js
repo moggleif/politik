@@ -21,12 +21,7 @@
   var JAMFORFIL = KONF.jamforfil || null;               // seriens jämförelsefil
   var JAMFORSERIE = KONF.jamforserie || "";
 
-  function talSv(n, dec) {
-    return n.toLocaleString("sv-SE", {
-      minimumFractionDigits: dec || 0,
-      maximumFractionDigits: dec || 0
-    });
-  }
+  var talSv = K.talSv;
 
   /* ---------- Sektion 1: Vad sa prognoserna om år X? ---------- */
 

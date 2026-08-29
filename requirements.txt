@@ -1,0 +1,4 @@
+# Behövs bara för PDF-extraheringen; hämtnings- och byggskripten
+# klarar sig med standardbiblioteket.
+pdfplumber>=0.11    # extrahera_antagning.py
+pypdf>=3.17.0       # extrahera_prognos.py, extrahera_budget.py
