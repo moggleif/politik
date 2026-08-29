@@ -17,7 +17,7 @@
 
   var DATAFIL = "data-nian-gymnasiet.json";
   var DATA = null;
-  var charts = {};
+  var rita = K.rita;
 
   function pct(v, dec) {
     return v === null || v === undefined ? ".." : talSv(v, dec === undefined ? 1 : dec) + " %";
@@ -68,11 +68,6 @@
     };
   }
 
-  function rita(id, konfig) {
-    if (charts[id]) charts[id].destroy();
-    charts[id] = new Chart(el(id), konfig);
-    return charts[id];
-  }
 
   function hojd(id, px) { el(id).parentElement.style.height = px + "px"; }
 

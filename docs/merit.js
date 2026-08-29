@@ -21,14 +21,7 @@
   /* ---------- Gemensamt ---------- */
 
   var DATA = null;
-  var diagram = {};        // id -> Chart, så att de kan ritas om vid omval
-
-  function rita(id, konf, hojd) {
-    var ctx = el(id);
-    if (diagram[id]) diagram[id].destroy();
-    ctx.parentElement.style.height = hojd + "px";
-    diagram[id] = new Chart(ctx, konf);
-  }
+  var rita = K.rita;
 
   /* Alla år mellan första och sista mätår, även de utan mätning. Ett år utan
      rapport ska synas som en lucka och inte tryckas ihop – linjerna ritas med
@@ -212,7 +205,7 @@
 
     /* Många linjer: peka på en linje eller ett namn i teckenförklaringen
        så tonas de övriga ned. */
-    if (serier.length >= 3) K.aktiveraToning(diagram["diagram-utveckling"]);
+    if (serier.length >= 3) K.aktiveraToning(K.diagramFor("diagram-utveckling"));
 
     el("kalla-utveckling").textContent =
       "Medelmeritvärdet för de antagna eleverna, slutantagningen. Högsta möjliga " +

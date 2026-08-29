@@ -31,14 +31,7 @@
   };
 
   var DATA = null;
-  var diagram = {};
-
-  function rita(id, konf, hojd) {
-    var ctx = el(id);
-    if (diagram[id]) diagram[id].destroy();
-    ctx.parentElement.style.height = hojd + "px";
-    diagram[id] = new Chart(ctx, konf);
-  }
+  var rita = K.rita;
 
   function valtProgram() {
     var etikett = el("program-valjare").value;

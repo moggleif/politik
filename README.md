@@ -159,6 +159,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 metadataraden och tonade linjer vid pekning
   app.js                        Driver de två prognossidorna; varje sida anger
                                 datafil och ordval via data-attribut på <body>
+  kohort.js                     Kohortframskrivningens sektioner; läses bara
+                                av 16–19-sidan
   merit.js                      Driver meritvärdessidan
   slutbetyg.js                  Driver slutbetygssidan
   kull.js                       Driver antagning-till-examen-sidan

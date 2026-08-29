@@ -117,6 +117,29 @@
     s.hidden = false;
   }
 
+  /* ---------- Diagramregister ----------
+     Rita (eller rita om) ett diagram på en canvas. En tidigare instans
+     för samma id förstörs först, så att sidorna kan rita om vid omval
+     utan att läcka. Ges `hojd` sätts omslagets höjd i pixlar. */
+  var diagramRegister = {};
+
+  function rita(id, konf, hojd) {
+    var ctx = el(id);
+    if (diagramRegister[id]) diagramRegister[id].destroy();
+    if (hojd !== undefined) ctx.parentElement.style.height = hojd + "px";
+    diagramRegister[id] = new Chart(ctx, konf);
+    return diagramRegister[id];
+  }
+
+  function diagramFor(id) { return diagramRegister[id]; }
+
+  function taBortDiagram(id) {
+    if (diagramRegister[id]) {
+      diagramRegister[id].destroy();
+      delete diagramRegister[id];
+    }
+  }
+
   /* ---------- Uppstart ----------
      Gemensam start för sidorna: vänta in DOM:en, sätt diagramstandarderna,
      aktivera tabellverktygen (observern fångar tabeller som byggs senare),
@@ -502,6 +525,9 @@
     sakerUrl: sakerUrl,
     slug: slug,
     installChartDefaults: installChartDefaults,
+    rita: rita,
+    diagramFor: diagramFor,
+    taBortDiagram: taBortDiagram,
     starta: starta,
     visaStatus: visaStatus,
     urlLas: urlLas,
