@@ -189,7 +189,7 @@
         var mDiff = sista.antagning.medel - forsta.antagning.medel;
         var bDiff = sista.examen.betygspoang - forsta.examen.betygspoang;
         html += "<p>Mellan den första och den sista av dessa kullar gick " +
-          "medelmeritvärdet vid antagningen från " +
+          "det ovägda inriktningssnittet vid antagningen från " +
           talSv(forsta.antagning.medel, 1) + " till " +
           talSv(sista.antagning.medel, 1) + " (" + (mDiff >= 0 ? "+" : "−") +
           talSv(Math.abs(mDiff), 1) + " meritpoäng), och betygspoängen vid " +
