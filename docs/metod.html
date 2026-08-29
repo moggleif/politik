@@ -64,7 +64,7 @@
         totalt och för åldersgrupperna 0&ndash;15 och 16&ndash;19 år,
         summerade ur SCB:s ettårsklasser &ndash; hämtas från
         SCB:s öppna PxWeb-API med skriptet
-        <a href="https://github.com/moggleif/politik/blob/main/scripts/fetch_scb.py">scripts/fetch_scb.py</a>
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_scb.py">scripts/hamta_scb.py</a>
         och sparas i
         <a href="https://github.com/moggleif/politik/blob/main/data/scb/folkmangd_kungsbacka.json">data/scb/folkmangd_kungsbacka.json</a>.</dd>
       <dt>Göteborgsregionens antagningsstatistik</dt>
@@ -317,7 +317,7 @@ python3 scripts/build_nian_gymnasiet.py  # från nian till gymnasiet
 python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pre></div>
     <p class="forklaring">
       Skripten kräver bara Python 3 (utan paket). Att även hämta om
-      rådatat &ndash; <code>fetch_scb.py</code>,
+      rådatat &ndash; <code>hamta_scb.py</code>,
       <code>hamta_slutbetyg.py</code>, <code>hamta_kullkedjan.py</code>
       och <code>extrahera_antagning.py</code> &ndash; kräver nätverk och för
       PDF-läsningen paketet <code>pdfplumber</code>; se

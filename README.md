@@ -109,7 +109,7 @@ data/
   scb/folkmangd_kungsbacka.json Faktisk folkmängd, hämtad från SCB:s öppna API
   KALLOR.md                     Dokumentation av var varje rapport hittades
 scripts/
-  fetch_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API):
+  hamta_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API):
                                 total folkmängd, åldersgrupper och
                                 folkmängden per enskild ålder 0–19 år
   extrahera_prognos.py          Läser folkmängdstabellen ur en fristående
@@ -186,11 +186,11 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
 Befolkningsprognoserna:
 
 ```bash
-python3 scripts/fetch_scb.py    # hämtar senaste utfallet från SCB
+python3 scripts/hamta_scb.py    # hämtar senaste utfallet från SCB
 python3 scripts/build_data.py   # bygger om docs/data.json
 ```
 
-`fetch_scb.py` hämtar också folkmängden per enskild ålder 0&ndash;19 år, som
+`hamta_scb.py` hämtar också folkmängden per enskild ålder 0&ndash;19 år, som
 kohortframskrivningen bygger på, och varnar om de enskilda åldrarna inte
 summerar till åldersgrupperna &ndash; då har de två frågorna hämtat olika
 saker. `build_data.py` prövar dessutom framskrivningen bakåt mot facit och
@@ -255,7 +255,7 @@ position.
 Barn och unga 0&ndash;15 år (enbart utfall, inga prognoser):
 
 ```bash
-python3 scripts/fetch_scb.py          # hämtar 0–15 och 16–19 samtidigt
+python3 scripts/hamta_scb.py          # hämtar 0–15 och 16–19 samtidigt
 python3 scripts/build_befolkning.py   # bygger om docs/data-befolkning.json
 ```
 

@@ -2,7 +2,7 @@
 """Bygger sidornas datafiler av innehållet i data/.
 
 Läser:
-  data/scb/folkmangd_kungsbacka.json   (faktiskt utfall, från fetch_scb.py)
+  data/scb/folkmangd_kungsbacka.json   (faktiskt utfall, från hamta_scb.py)
   data/prognoser/prognos_*.json        (en fil per prognosrapport)
 
 Skriver en fil per serie:

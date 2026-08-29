@@ -27,7 +27,7 @@ och lägg till den i SENARE_TABELLER nedan.
 Resultatet sparas till data/scb/folkmangd_kungsbacka.json tillsammans med
 metadata om när och hur datat hämtades, så att hämtningen är reproducerbar.
 
-Körs:  python3 scripts/fetch_scb.py
+Körs:  python3 scripts/hamta_scb.py
 """
 
 import json

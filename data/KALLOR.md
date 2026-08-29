@@ -29,7 +29,7 @@ raderad ändå går att återskapa.
 
 ## Faktisk folkmängd (SCB)
 
-Hämtas med `python3 scripts/fetch_scb.py` ur två av SCB:s tabeller:
+Hämtas med `python3 scripts/hamta_scb.py` ur två av SCB:s tabeller:
 
 - 2000–2024: `BefolkningNy` via det äldre doris-API:t
 - 2025: `TAB5557` via PxWeb API 2.0 (SCB lägger de senaste åren i egna tabeller)
