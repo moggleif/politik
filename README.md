@@ -271,6 +271,11 @@ python3 scripts/build_kull.py         # bygger om docs/data-kull.json
 python3 -m unittest discover tests    # kontrollräknar beräkningarna
 ```
 
+Alla medelvärden summeras exakt med `math.fsum`, så att bygget ger
+samma siffror oavsett Python-version &ndash; vanlig flyttalsaddition
+gjorde utdatan versionsberoende på andra decimalen, eftersom Python 3.12
+införde kompenserad summering i `sum()`.
+
 Testerna stämmer bland annat av att samtliga datafiler i `docs/` är
 exakt vad byggskripten ger av innehållet i `data/` &ndash; inga siffror
 i utdatan får vara ändrade för hand &ndash; och vaktar dessutom

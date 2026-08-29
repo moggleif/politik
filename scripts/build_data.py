@@ -87,12 +87,12 @@ def framskriv(bas: dict, k: int, aldrar: tuple):
 
 def medelabs(v: list):
     """Genomsnittligt absolut fel i procent: hur STORT felet är."""
-    return round(sum(abs(x) for x in v) / len(v), 2) if v else None
+    return round(math.fsum(abs(x) for x in v) / len(v), 2) if v else None
 
 
 def medelpct(v: list):
     """Genomsnittligt fel med tecken: åt vilket HÅLL felet lutar."""
-    return round(sum(v) / len(v), 2) if v else None
+    return round(math.fsum(v) / len(v), 2) if v else None
 
 
 def kohortfel(pa: dict, utfall: dict, aldrar: tuple) -> list:
@@ -145,7 +145,7 @@ def kvoter_tom(pa: dict, tom: int, hogsta_alder: int, fonster=None) -> dict:
         if fonster:
             v = v[-fonster:]
         if v:
-            ut[a] = math.exp(sum(math.log(x) for _, x in v) / len(v))
+            ut[a] = math.exp(math.fsum(math.log(x) for _, x in v) / len(v))
     return ut
 
 
@@ -159,7 +159,7 @@ def kvotprofil(pa: dict, hogsta_alder: int) -> list:
              if T + 1 in pa and pa[T].get(a) and pa[T + 1].get(a + 1)]
         if not v:
             continue
-        r = math.exp(sum(math.log(x) for x in v) / len(v))
+        r = math.exp(math.fsum(math.log(x) for x in v) / len(v))
         ut.append({
             "alder": a,
             "kvot": round(r, 5),
@@ -572,7 +572,7 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str,
             ettar = [a["pct"] for a in p["avvikelser"].values() if a["avstand"] == 1]
             per_argang.append({
                 "prognosAr": p["prognosAr"],
-                "medelPct": round(sum(v) / len(v), 2),
+                "medelPct": round(math.fsum(v) / len(v), 2),
                 "antalOver": sum(1 for x in v if x > 0),
                 "antal": len(v),
                 "maxAvstand": max(a["avstand"] for a in p["avvikelser"].values()),

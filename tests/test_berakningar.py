@@ -11,6 +11,7 @@ Två sorters test:
 """
 
 import importlib
+import itertools
 import json
 import sys
 import unittest
@@ -932,6 +933,40 @@ class TestGenereradeFiler(unittest.TestCase):
         ]
         ombyggd = json.loads(json.dumps(build_amnesbetyg.bygg(arsfiler)))
         self.assertEqual(ombyggd, self.las("data-amnesbetyg.json"))
+
+
+class TestExaktSummering(unittest.TestCase):
+    """Medelvärdena ska vara oberoende av summeringsordning – och därmed
+    av Python-version.
+
+    Python 3.12 införde kompenserad summering i sum() för float. Ett snitt
+    räknat med sum() kunde därför landa på 3,81 i 3.11 och 3,80 i 3.12,
+    vilket gjorde de incheckade datafilerna versionsberoende. Byggskripten
+    använder math.fsum, som summerar exakt: samma svar oavsett ordning och
+    tolkversion. Testet permuterar indata, vilket fångar ett återfall till
+    sum() på vilken version som helst.
+    """
+
+    # Verkliga avvikelser ur data.json vid horisonten fyra år; deras snitt
+    # ligger precis på en avrundningsgräns (3,805).
+    VARDEN = [-0.06, 1.67, 3.98, 5.14, 6.5, 5.48]
+
+    def test_medelabs_ar_permutationsinvariant(self):
+        svar = {build_data.medelabs(list(p))
+                for p in itertools.permutations(self.VARDEN)}
+        self.assertEqual(svar, {3.8})
+
+    def test_medelpct_ar_permutationsinvariant(self):
+        svar = {build_data.medelpct(list(p))
+                for p in itertools.permutations(self.VARDEN)}
+        self.assertEqual(len(svar), 1, svar)
+
+    def test_byggskripten_summerar_floats_exakt(self):
+        """Ingen ny round(sum(...)/len(...)) får smyga sig in."""
+        for namn in ("build_data", "build_amnesbetyg", "build_meritvarden",
+                     "build_slutbetyg", "build_nian_gymnasiet"):
+            kod = (ROT / "scripts" / f"{namn}.py").read_text(encoding="utf-8")
+            self.assertNotIn("round(sum(", kod, namn)
 
 
 class TestPresentationsregler(unittest.TestCase):

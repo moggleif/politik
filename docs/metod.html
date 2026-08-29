@@ -302,8 +302,12 @@
     <h2>Räkna om allting själv</h2>
     <p class="forklaring">
       Datafilerna som diagrammen läser är byggda ur rådatat i repot, och
-      bygget är deterministiskt: samma indata ger samma utdata. Så här
-      återskapas allt från grunden:
+      bygget är deterministiskt: samma indata ger samma utdata, oavsett
+      dator och Python-version. Alla medelvärden summeras exakt
+      (<code>math.fsum</code>) i stället för med vanlig
+      flyttalsaddition, vars avrundningsfel annars kan slå igenom på
+      andra decimalen &ndash; och gör det olika i olika Python-versioner.
+      Så här återskapas allt från grunden:
     </p>
     <div class="kort"><pre class="kodblock"><code>git clone https://github.com/moggleif/politik
 cd politik
