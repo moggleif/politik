@@ -19,8 +19,10 @@
   /* ---------- Kohortframskrivningen ----------
      Barnen som redan bor i kommunen blir ett år äldre varje år, så
      antalet 16–19-åringar om k år är summan av dagens 16−k … 19−k-åringar.
-     Ingen modell, inga antaganden – men också ingen in- eller utflyttning,
-     vilket är precis vad skillnaden mot utfallet mäter. Sektionerna finns
+     Ingen modell och inga födelsetal – men den är inte antagandefri:
+     att bära kohorten rakt fram förutsätter noll nettoflyttning och
+     ingen dödlighet. Det är just den skillnaden mot utfallet mäter.
+     Sektionerna finns
      bara på åldersgruppssidan, och datat bara i dess datafil, så båda
      kontrolleras innan något ritas. */
 
@@ -124,9 +126,11 @@
       " år framåt. Riktningen skiftar: ett år framåt har den legat " +
       riktning(kort) + ", " + esc(langt.avstand) + " år framåt " + riktning(langt) +
       (langt.medelPct < 0
-        ? " – på den sikten hinner det flytta in fler barnfamiljer än det " +
-          "flyttar ut, och framskrivningen blir snarare en <em>undre gräns</em> " +
-          "än en prognos."
+        ? " – på den sikten har nettoinflyttningen hunnit lägga till fler " +
+          "än framskrivningen räknar med, så den har <em>historiskt " +
+          "tenderat att underskatta</em> utfallet. Det är ingen undre " +
+          "gräns för framtiden: vänder flyttnettot kan utfallet lika " +
+          "gärna hamna under."
         : "."));
 
     /* Slutsats: var kommunens prognos ligger i förhållande till de barn
@@ -551,8 +555,10 @@
       "Håller det inte &ndash; för att bostadsbyggandet ändras, eller för " +
       "att kommunen blir mindre attraktiv för barnfamiljer &ndash; slår " +
       "den fel åt precis det håll som antagandet lutar. Den enkla " +
-      "framskrivningen har kvar sitt värde just därför att den inte " +
-      "antar något alls.");
+      "framskrivningen bygger på ett annat och enklare antagande: att " +
+      "ingen flyttar in eller ut och att ingen faller bort ur kohorten. " +
+      "Antagandefri är den alltså inte – men det är lätt att se vad den " +
+      "utelämnar, och därför fungerar den som jämförelsepunkt.");
 
     var sista = k.sistaAr;
     var lyft = komp[String(sista)] - k.framskrivning[String(sista)];

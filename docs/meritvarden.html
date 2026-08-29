@@ -150,15 +150,22 @@
   </section>
 
   <section id="sektion-konkurrens" hidden>
-    <h2>Hur hård var konkurrensen om platserna?</h2>
+    <h2>Hur många utbildningar var översökta?</h2>
     <p class="forklaring">
-      Ett meritvärde säger inget om hur svårt det var att komma in &ndash; det
-      gör däremot antagningspoängen. Diagrammet delar upp kommunens
-      utbildningar efter om alla behöriga sökande fick plats, eller om det
-      fanns fler sökande än platser och därmed en gräns att komma över.
+      Diagrammet räknar hur många av kommunens utbildningar som var
+      <em>översökta</em> &ndash; hade fler behöriga sökande än platser, och
+      därmed en antagningsgräns att komma över &ndash; och hur många som hade
+      plats åt alla behöriga sökande.
+    </p>
+    <p class="forklaring">
+      Måttet räknar utbildningar, inte sökande. Varje utbildning väger lika
+      mycket: en med 20 platser och 21 behöriga sökande räknas precis som en
+      med 100 platser och 500 sökande. Hur hård konkurrensen var går alltså
+      inte att läsa ut här &ndash; rapporterna redovisar varken antalet
+      sökande eller antalet platser, bara om platserna räckte.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-konkurrens" aria-label="Diagram: antal utbildningar med och utan antagningsgräns per år" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-konkurrens" aria-label="Diagram: antal översökta utbildningar och utbildningar där alla behöriga fick plats, per år" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-konkurrens"></p>
     </div>
     <div class="slutsats" id="slutsats-konkurrens"></div>
@@ -175,6 +182,14 @@
       genomsnittet av utbildningarnas medelmeritvärden i gruppen det året.
       Varje utbildning räknas lika mycket, oavsett hur många elever som
       antogs &ndash; antalet antagna framgår inte av rapporterna.
+    </p>
+    <p class="forklaring">
+      Eftersom snittet är ovägt påverkas gruppens värde också av vilka
+      utbildningar som fanns just det året. Utbudet av program och
+      inriktningar har ändrats under perioden, så en förändring i kurvan kan
+      komma antingen av att programmen förändrats eller av att
+      sammansättningen gjort det. De två går inte att skilja åt i det här
+      datat.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-typ" aria-label="Diagram: medelmeritvärde för yrkesprogram och högskoleförberedande program" role="img"></canvas></div>
@@ -200,11 +215,16 @@
   <section id="sektion-om">
     <h2>Om den här sidan</h2>
     <p class="forklaring">
-      <strong>Varför just slutantagningen?</strong> Antagningen görs om flera
-      gånger per år: preliminärt i april, slutligt i juni och efter
-      reservantagningen i september. Siffrorna skiljer sig åt mellan
-      omgångarna, så sidan använder slutantagningen genomgående &ndash; den
-      omgång som ligger närmast hur klasserna faktiskt såg ut vid start.
+      <strong>Varför just slutantagningen?</strong> Antagningen görs om
+      flera gånger: preliminärt i april, slutligt i slutet av juni, och
+      därefter i reservomgångar under augusti och fram till början av
+      september. Siffrorna skiljer sig åt mellan omgångarna.
+      Septemberläget ligger närmast hur klasserna faktiskt såg ut vid
+      skolstart &ndash; sidan använder ändå juniomgången genomgående, av
+      tre skäl: den finns publicerad som rapport för alla år i serien,
+      den är därmed jämförbar bakåt, och den är den omgång kommunen och
+      GR själva redovisar. Det innebär att elever kan ha bytt plats
+      efter det läge sidan visar.
     </p>
     <p class="forklaring">
       <strong>Året 2018 saknas.</strong> GR listar bara de tre senaste årens

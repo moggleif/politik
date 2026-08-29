@@ -310,13 +310,16 @@
       "<tbody>" + rader + "</tbody>";
   }
 
-  /* ---------- 3. Årskullens två mått, över tid ----------
+  /* ---------- 3. Ämnessnittets två mått, över tid ----------
      Betygspoäng (0–20) och andel med godkänt (0–100 %) mäter olika saker
      på olika skalor. De får därför var sitt diagram — att lägga dem i
      samma bild skulle kräva två y-axlar och göra kurvorna jämförbara på
-     ett sätt de inte är. Båda räknas över samma fasta ämnesurval. */
+     ett sätt de inte är. Båda är ovägda medelvärden av ämnenas egna
+     värden, över samma fasta ämnesurval: ett ämnessnitt, inte ett
+     elevviktat snitt för årskullen. Se metodsidan för varför urvalet är
+     fast och varför elevantalet inte går att vikta med. */
 
-  function ritaOverTid(id, etikett, varden, ytitel, dec, suffix) {
+  function ritaOverTid(id, etikett, varden, ytitel, dec, suffix, mattText) {
     var ctx = el("diagram-" + id);
     ctx.parentElement.style.height = "360px";
 
@@ -342,29 +345,37 @@
     });
 
     el("kalla-" + id).textContent =
-      "Källa: Skolverket. Medelvärde över de " + DATA.karnamnen.length +
-      " ämnen som redovisas samtliga läsår.";
+      "Källa: Skolverket. Ovägt medel av " + mattText + ", över de " +
+      DATA.karnamnen.length + " ämnen som redovisas samtliga läsår.";
   }
 
   function ritaPoang() {
     var f = DATA.sammanfattning[0], s = DATA.sammanfattning[DATA.sammanfattning.length - 1];
 
-    ritaOverTid("poang", "Betygspoäng",
+    ritaOverTid("poang", "Ämnessnitt, betygspoäng",
       DATA.sammanfattning.map(function (r) { return r.betygspoang; }),
-      "Genomsnittlig betygspoäng (max " + DATA.maxPoang + ")", 2, "");
+      "Ovägt ämnessnitt, betygspoäng (max " + DATA.maxPoang + ")", 2, "",
+      "ämnenas genomsnittliga betygspoäng");
 
     var diff = s.betygspoang - f.betygspoang;
     var riktning = diff > 0 ? "stigit" : (diff < 0 ? "sjunkit" : "legat stilla");
     el("slutsats-poang").innerHTML =
-      "<p>Betygspoängen har <strong>" + riktning + "</strong> från " +
+      "<p>Snittet över ämnena har <strong>" + riktning + "</strong> från " +
       talSv(f.betygspoang, 2) + " (" + esc(lasar(f.ar)) + ") till <strong>" +
       talSv(s.betygspoang, 2) + "</strong> (" + esc(lasar(s.ar)) + ") av " +
       esc(DATA.maxPoang) + " &ndash; en förändring på " + (diff > 0 ? "+" : "") +
-      talSv(diff, 2) + " poäng. Ett snitt på 15 motsvarar ungefär betyget C.</p>";
+      talSv(diff, 2) + " poäng. Ett snitt på 15 motsvarar ungefär betyget C. " +
+      "Talet är ett ovägt medel av de " + DATA.karnamnen.length +
+      " ämnenas genomsnittliga betygspoäng, inte årskullens elevviktade snitt.</p>";
 
     el("tabell-poang").innerHTML =
+      "<caption>Ovägt medel av ämnenas genomsnittliga betygspoäng, över de " +
+      DATA.karnamnen.length + " ämnen som redovisas samtliga läsår. " +
+      "Elevkolumnen visar det största redovisade elevantalet i något enskilt " +
+      "ämne det läsåret &ndash; en storleksordning för årskullen, inte antalet " +
+      "observationer bakom snittet.</caption>" +
       "<thead><tr><th scope=\"col\">Läsår</th><th scope=\"col\">Betygspoäng</th>" +
-      "<th scope=\"col\">Elever</th></tr></thead><tbody>" +
+      "<th scope=\"col\">Elever i det största ämnet</th></tr></thead><tbody>" +
       DATA.sammanfattning.map(function (r) {
         return "<tr><th scope=\"row\">" + esc(lasar(r.ar)) + "</th><td>" +
           talSv(r.betygspoang, 2) + "</td><td>" +
@@ -375,18 +386,22 @@
   function ritaGodkant() {
     var f = DATA.sammanfattning[0], s = DATA.sammanfattning[DATA.sammanfattning.length - 1];
 
-    ritaOverTid("godkant", "Andel med A–E",
+    ritaOverTid("godkant", "Ämnessnitt, andel med A–E",
       DATA.sammanfattning.map(function (r) { return r.andelAE; }),
-      "Andel med betyget A–E (%)", 1, " %");
+      "Ovägt ämnessnitt, andel med A–E (%)", 1, " %",
+      "ämnenas andel med betyget A–E");
 
     el("slutsats-godkant").innerHTML =
       "<p>Andelen godkända betyg har gått från <strong>" + talSv(f.andelAE, 1) +
       "&nbsp;%</strong> (" + esc(lasar(f.ar)) + ") till <strong>" + talSv(s.andelAE, 1) +
-      "&nbsp;%</strong> (" + esc(lasar(s.ar)) + "). Måttet räknas över samma fasta " +
+      "&nbsp;%</strong> (" + esc(lasar(s.ar)) + "). Talet är ett ovägt medel av de " +
+      DATA.karnamnen.length + " ämnenas andelar godkända &ndash; samma fasta " +
       "ämnesurval varje år, så förändringen beror på betygen och inte på " +
       "vilka ämnen som råkat redovisas.</p>";
 
     el("tabell-godkant").innerHTML =
+      "<caption>Ovägt medel av ämnenas andel med betyget A&ndash;E, över de " +
+      DATA.karnamnen.length + " ämnen som redovisas samtliga läsår.</caption>" +
       "<thead><tr><th scope=\"col\">Läsår</th>" +
       "<th scope=\"col\">Andel med A&ndash;E</th></tr></thead><tbody>" +
       DATA.sammanfattning.map(function (r) {
@@ -470,12 +485,14 @@
     var upp = med.filter(function (a) { return a.forandring > 0; }).length;
 
     K.visaKortSagt([
-      "Läsåret " + esc(lasar(s.ar)) + " var den genomsnittliga betygspoängen i " +
-        "årskurs 9 <strong>" + talSv(s.betygspoang, 2) + "</strong> av " +
-        esc(DATA.maxPoang) + ", över " + DATA.karnamnen.length + " ämnen.",
-      "Andelen godkända betyg (A&ndash;E) var <strong>" + talSv(s.andelAE, 1) +
-        "&nbsp;%</strong>, mot " + talSv(f.andelAE, 1) + "&nbsp;% läsåret " +
-        esc(lasar(f.ar)) + ".",
+      "Läsåret " + esc(lasar(s.ar)) + " låg ämnenas genomsnittliga betygspoäng i " +
+        "årskurs 9 på <strong>" + talSv(s.betygspoang, 2) + "</strong> av " +
+        esc(DATA.maxPoang) + " i ovägt medel, över de " + DATA.karnamnen.length +
+        " ämnen som redovisas samtliga läsår. Varje ämne väger lika tungt: " +
+        "det är inte årskullens elevviktade betygssnitt.",
+      "Ämnenas andel godkända betyg (A&ndash;E) var i medeltal <strong>" +
+        talSv(s.andelAE, 1) + "&nbsp;%</strong>, mot " + talSv(f.andelAE, 1) +
+        "&nbsp;% läsåret " + esc(lasar(f.ar)) + ".",
       "Av " + med.length + " ämnen med hela tidsserien har betygspoängen stigit i <strong>" +
         upp + "</strong> sedan " + esc(lasar(f.ar)) + ".",
       "Siffrorna avser <strong>alla skolor i Kungsbacka kommun</strong>, " +

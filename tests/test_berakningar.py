@@ -997,6 +997,68 @@ class TestAvskrifter(unittest.TestCase):
                                      f"vara ett avhugget {annan['utbildning']!r}")
 
 
+class TestTolkningsregler(unittest.TestCase):
+    """Vaktar att presentationen inte går längre än beräkningen bär.
+
+    Fynden kommer ur en granskning som letade efter överdrivna utsagor
+    snarare än efter räknefel: koden räknade rätt, men de svenska
+    meningarna påstod mer än talen visar.
+    """
+
+    def las(self, vag):
+        return (ROT / vag).read_text(encoding="utf-8")
+
+    def test_forbattring_jamfors_inte_mot_rekordfelet(self):
+        """Att ställa senaste årgången mot den sämsta någonsin är inget
+        test av förbättring över tid – nästan vilket värde som helst slår
+        ett rekordfel."""
+        js = self.las("docs/app.js")
+        self.assertNotIn("Felet har alltså minskat", js)
+        self.assertNotIn("Felet har alltså inte minskat", js)
+
+    def test_ingen_mekanismforklaring_av_teckenbyte(self):
+        """Ett teckenbyte mellan årgångar visar inte att modellen missar
+        vändpunkter."""
+        self.assertNotIn("missar vändpunkter", self.las("docs/app.js"))
+
+    def test_skevheten_utges_inte_for_statistiskt_faststalld(self):
+        js = self.las("docs/app.js")
+        self.assertNotIn("kallas systematiskt", js)
+        self.assertNotIn("det går att räkna bort", js)
+
+    def test_kohortframskrivningen_pastas_inte_antagandefri(self):
+        """Att bära kohorten rakt fram förutsätter noll nettoflyttning
+        och ingen dödlighet – det är ett antagande, inte frånvaron av ett."""
+        for vag in ("docs/kohort.js", "docs/gymnasiealdern.html", "README.md"):
+            text = self.las(vag).lower()
+            for forbjudet in ("inga antaganden", "antar ingenting alls",
+                              "inte antar något alls", "fri från antaganden"):
+                if forbjudet == "fri från antaganden" and "inte" in text:
+                    continue        # "är inte längre fri från antaganden" är korrekt
+                self.assertNotIn(forbjudet, text, f"{vag}: {forbjudet!r}")
+
+    def test_framskrivningen_kallas_inte_undre_grans(self):
+        """Historisk underskattning skapar ingen undre gräns för framtiden."""
+        self.assertNotIn("undre gräns</em>", self.las("docs/kohort.js"))
+
+    def test_slutbetygen_utges_inte_for_hela_kullen(self):
+        """Sammanfattningen bygger på summeringsraden Nationella program."""
+        for vag in ("docs/slutbetyg.html", "docs/slutbetyg.js"):
+            self.assertNotIn("hela avgångskullen", self.las(vag).lower(), vag)
+
+    def test_inga_styrkeord_pa_korrelationerna(self):
+        """r på 8-12 årsaggregat bär inget omdöme om effektstorlek."""
+        js = self.las("docs/nian.js")
+        for forbjudet in ("ett svagt samband", "ett måttligt samband",
+                          "ett starkt samband"):
+            self.assertNotIn(forbjudet, js, forbjudet)
+
+    def test_gapet_pastas_inte_ha_vidgats(self):
+        """Gruppsnitten är sammansättningskänsliga: utbudet ändras."""
+        for vag in ("docs/merit.js", "docs/slutbetyg.js"):
+            self.assertNotIn("Gapet har alltså", self.las(vag), vag)
+
+
 class TestPresentationsregler(unittest.TestCase):
     """Regressionsvakter för metodproblem i presentationen.
 

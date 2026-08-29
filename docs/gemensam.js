@@ -126,8 +126,11 @@
   /* ---------- Programtyper ----------
      Skolverkets två typer av nationella program, i klartext. */
 
+  /* International Baccalaureate räknas till den högskoleförberedande
+     gruppen i statistiken, men är formellt inte ett nationellt program
+     och ingår inte i skolformen gymnasieskola – därför "inkl. IB". */
   var TYPNAMN = {
-    hogskoleforberedande: "Högskoleförberedande program",
+    hogskoleforberedande: "Högskoleförberedande program (inkl. IB)",
     yrkesprogram: "Yrkesprogram"
   };
 

@@ -126,8 +126,11 @@
       <dt>Prognoserna jämförs med utfallet</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_data.py">build_data.py</a>
         räknar för varje prognosvärde och år med känt utfall: skillnaden i
-        personer, felet i procent av utfallet, och hur många år i förväg
-        prognosen gjordes. Ur detta byggs genomsnittligt absolut fel
+        personer, felet i procent av utfallet, och hur många kalenderår
+        som skiljer prognosårgången från målåret. Det avståndet är inte
+        samma sak som faktisk framförhållning: rapporterna publiceras vid
+        olika tider på året, så &rdquo;samma år&rdquo; betyder en prognos
+        gjord någon gång under målåret. Ur detta byggs genomsnittligt absolut fel
         (hur <em>stort</em> felet är) och genomsnittligt fel med tecken
         (åt vilket <em>håll</em> det lutar), per prognoshorisont och per
         årgång. Skriver <a href="data.json">data.json</a> och
@@ -138,7 +141,13 @@
         skriver namnen olika, och bygger en serie per program.
         Programmets medelmeritvärde är ett <strong>ovägt</strong> snitt av
         dess inriktningar &ndash; rapporterna redovisar inte antal antagna,
-        så någon riktig vägning går inte att göra. Skriver
+        så någon riktig vägning går inte att göra. Samma sak gäller
+        grupperna yrkesprogram och högskoleförberedande: gruppens värde är
+        ett ovägt medel av utbildningarnas medelvärden, så det ändras också
+        när utbudet av utbildningar ändras. Måttet över konkurrensen räknar
+        <em>antal utbildningar</em> som var översökta &ndash; inte hur många
+        sökande som blev utan plats, och inte hur hårt söktrycket var; från
+        2025 byter dessutom rapporten sätt att markera dem. Skriver
         <a href="data-meritvarden.json">data-meritvarden.json</a>.</dd>
       <dt>Skolenheterna vägs ihop till skolor</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_slutbetyg.py">build_slutbetyg.py</a>
@@ -151,7 +160,12 @@
         innehåller varje skolenhet i Kungsbacka; sidan visar
         Aranäsgymnasiet och Elof Lindälvs gymnasium, så övriga skolors
         rader sorteras bort &ndash; summeringsraderna med, så att
-        sammanfattningarna räknar på samma elever som programmen. Skriver
+        sammanfattningarna räknar på samma elever som programmen. De
+        sammanräknade avsnitten bygger på rapportens egna summeringsrader
+        &ndash; <em>Nationella program</em>, <em>Högskoleförberedande
+        program</em> och <em>Yrkesprogram</em>. Introduktionsprogrammen
+        ingår inte i rapporten och räknas alltså inte med någonstans på
+        slutbetygssidan. Skriver
         <a href="data-slutbetyg.json">data-slutbetyg.json</a>.</dd>
       <dt>Antagning och examen paras till kullar</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_kull.py">build_kull.py</a>
@@ -172,7 +186,13 @@
         lyfta snittet, eftersom matematik är ett av de lägsta. Med ett
         fast urval beror förändringen på betygen och inte på vilka ämnen
         som råkade redovisas. Skriver
-        <a href="data-amnesbetyg.json">data-amnesbetyg.json</a>.</dd>
+        <a href="data-amnesbetyg.json">data-amnesbetyg.json</a>.
+        Två saker följer av det: årssnittet är ett konstruerat
+        <em>ämnessnitt</em> och inte årskullens elevviktade betygssnitt,
+        och elevantalet i sammanfattningen är det största redovisade
+        elevantalet i något enskilt ämne det läsåret &ndash; en
+        storleksordning för årskullen, inte antalet observationer bakom
+        det sammanvägda måttet.</dd>
       <dt>Barnen skrivs fram ett år i taget</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_data.py">build_data.py</a>
         bygger också kohortframskrivningen på

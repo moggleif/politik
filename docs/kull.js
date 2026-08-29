@@ -182,7 +182,7 @@
     if (kompletta.length) {
       var forsta = kompletta[0], sista = kompletta[kompletta.length - 1];
       html += "<p>För <strong>" + esc(p.etikett) + "</strong> kan " +
-        kompletta.length + " kullar följas hela vägen, från antagningen " +
+        kompletta.length + " kullar jämföras i båda ändar, från antagningen " +
         esc(forsta.antagningsar) + " till examen " + esc(sista.examensar) + ".</p>";
       if (kompletta.length > 1) {
         var mDiff = sista.antagning.medel - forsta.antagning.medel;
@@ -315,7 +315,7 @@
     });
     var punkter = [];
     punkter.push("<strong>" + totKullar + " kullar</strong> på " + kan.length +
-      " program kan följas hela vägen från antagning till examen, från " +
+      " program har både antagning och examen redovisade, från " +
       "antagningen " + esc(forstaAntagning) + " till examen " + esc(sistaExamen) + ".");
     punkter.push("Måtten har olika skalor: meritvärdet från grundskolan " +
       "(max 340) och betygspoängen från gymnasiet (0–20) går " +
