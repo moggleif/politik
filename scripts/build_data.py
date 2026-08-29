@@ -85,6 +85,16 @@ def framskriv(bas: dict, k: int, aldrar: tuple):
     return sum(bas[a] for a in behovs)
 
 
+def medelabs(v: list):
+    """Genomsnittligt absolut fel i procent: hur STORT felet är."""
+    return round(sum(abs(x) for x in v) / len(v), 2) if v else None
+
+
+def medelpct(v: list):
+    """Genomsnittligt fel med tecken: åt vilket HÅLL felet lutar."""
+    return round(sum(v) / len(v), 2) if v else None
+
+
 def kohortfel(pa: dict, utfall: dict, aldrar: tuple) -> list:
     """Hur mycket framskrivningen historiskt missat, per horisont.
 
@@ -105,8 +115,8 @@ def kohortfel(pa: dict, utfall: dict, aldrar: tuple) -> list:
         {
             "avstand": k,
             "antal": len(v),
-            "medelAbsPct": round(sum(abs(x) for x in v) / len(v), 2),
-            "medelPct": round(sum(v) / len(v), 2),
+            "medelAbsPct": medelabs(v),
+            "medelPct": medelpct(v),
         }
         for k, v in sorted(per_avstand.items())
     ]
@@ -166,24 +176,11 @@ def kompenserad_for(bas: dict, basar: int, aldrar: tuple, kvoter: dict) -> dict:
 
     En kohort som i dag är a0 år och ska bli m år multipliceras med
     r(a0)·r(a0+1)·…·r(m−1). Saknas någon kvot på vägen skrivs året inte
-    fram alls, av samma skäl som den enkla framskrivningen inte gör det."""
-    lag, hog = aldrar
-    ut = {}
-    k = 1
-    while True:
-        summa = 0.0
-        for m in range(lag, hog + 1):
-            a0 = m - k
-            if a0 < 0 or a0 not in bas:
-                return ut
-            varde = float(bas[a0])
-            for j in range(a0, m):
-                if j not in kvoter:
-                    return ut
-                varde *= kvoter[j]
-            summa += varde
-        ut[basar + k] = round(summa)
-        k += 1
+    fram alls, av samma skäl som den enkla framskrivningen inte gör det.
+
+    Detta är variantmodellen utan fördröjning – samma loop, ett namn som
+    säger vad sidans kompenserade serie faktiskt är."""
+    return variant_for(bas, basar, aldrar, kvoter, fordrojning=0)
 
 
 # Modellvarianter som prövas mot varandra. Poängen med att lista dem här
@@ -257,7 +254,8 @@ def bygg_varianter(pa: dict, utfall: dict, aldrar: tuple) -> dict | None:
 
     Alla varianter får exakt samma basår och samma målår, så att
     skillnaden dem emellan är modellen och ingenting annat. Kvoterna
-    skattas ur åren före basåret, precis som i den övriga prövningen."""
+    skattas ur årsövergångarna t.o.m. basåret, precis som i den övriga
+    prövningen."""
     if not pa:
         return None
     forsta_basar = min(pa) + MINSTA_KVOTAR
@@ -293,13 +291,13 @@ def bygg_varianter(pa: dict, utfall: dict, aldrar: tuple) -> dict | None:
                     v["fordrojning"]).items())},
             "perAvstand": [
                 {"avstand": k, "antal": len(d[k]),
-                 "medelAbsPct": round(sum(abs(x) for x in d[k]) / len(d[k]), 2),
-                 "medelPct": round(sum(d[k]) / len(d[k]), 2)}
+                 "medelAbsPct": medelabs(d[k]),
+                 "medelPct": medelpct(d[k])}
                 for k in sorted(d)
             ],
             "antal": len(alla),
-            "medelAbsPct": round(sum(abs(x) for x in alla) / len(alla), 2),
-            "medelPct": round(sum(alla) / len(alla), 2),
+            "medelAbsPct": medelabs(alla),
+            "medelPct": medelpct(alla),
         })
 
     return {
@@ -346,11 +344,10 @@ def kohortjamforelse(pa: dict, prognoser: list, utfall: dict, aldrar: tuple) -> 
         {
             "avstand": avst,
             "antal": len(v["p"]),
-            "kommunAbsPct": round(sum(v["p"]) / len(v["p"]), 2),
-            "kohortAbsPct": round(sum(v["k"]) / len(v["k"]), 2),
+            "kommunAbsPct": medelpct(v["p"]),        # talen är redan absoluta
+            "kohortAbsPct": medelpct(v["k"]),
             "kompenseradAntal": len(v["c"]),
-            "kompenseradAbsPct": (round(sum(v["c"]) / len(v["c"]), 2)
-                                  if v["c"] else None),
+            "kompenseradAbsPct": medelpct(v["c"]),
         }
         for avst, v in sorted(per_avstand.items())
     ]
@@ -383,8 +380,9 @@ def kohortargangar(pa: dict, utfall: dict, aldrar: tuple, forsta_basar: int) -> 
         framskrivning = framskrivning_for(pa[basar], basar, aldrar)
         if not framskrivning:
             continue
-        # Kvoterna skattas ur åren FÖRE basåret. Annars vet årgången något
-        # om framtiden, och prövningen bakåt mäter ingenting.
+        # Kvoterna skattas ur årsövergångarna T.O.M. basåret – bara data
+        # som var känd då. Annars vet årgången något om framtiden, och
+        # prövningen bakåt mäter ingenting.
         kompenserad = kompenserad_for(pa[basar], basar, aldrar,
                                       kvoter_tom(pa, basar, aldrar[1]))
 
@@ -415,10 +413,10 @@ def kohortargangar(pa: dict, utfall: dict, aldrar: tuple, forsta_basar: int) -> 
             "kompenserad": {str(a): x for a, x in sorted(kompenserad.items())},
             "avvikelser": {str(a): x for a, x in sorted(avvikelser.items())},
             "antal": len(v),
-            "medelAbsPct": round(sum(abs(x) for x in v) / len(v), 2) if v else None,
-            "medelPct": round(sum(v) / len(v), 2) if v else None,
-            "kompenseradAbsPct": round(sum(abs(x) for x in c) / len(c), 2) if c else None,
-            "kompenseradPct": round(sum(c) / len(c), 2) if c else None,
+            "medelAbsPct": medelabs(v),
+            "medelPct": medelpct(v),
+            "kompenseradAbsPct": medelabs(c),
+            "kompenseradPct": medelpct(c),
             "maxAvstand": max((a["avstand"] for a in avvikelser.values()),
                               default=None),
             "ettArPct": round(ettar[0], 2) if ettar else None,
@@ -538,9 +536,9 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str,
     avstand_lista = [
         {
             "avstand": avst,
-            "medelAbsPct": round(sum(abs(x) for x in v) / len(v), 2),
+            "medelAbsPct": medelabs(v),
             "maxAbsPct": round(max(abs(x) for x in v), 2),
-            "medelPct": round(sum(v) / len(v), 2),
+            "medelPct": medelpct(v),
             "antalOver": sum(1 for x in v if x > 0),
             "antal": len(v),
         }
@@ -554,8 +552,8 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str,
         skevhet = {
             "antal": len(alla),
             "antalOver": sum(1 for x in alla if x > 0),
-            "medelPct": round(sum(alla) / len(alla), 2),
-            "medelAbsPct": round(sum(abs(x) for x in alla) / len(alla), 2),
+            "medelPct": medelpct(alla),
+            "medelAbsPct": medelabs(alla),
         }
 
     # Skevhet per årgång. En modell kan ha bytt riktning över tid – t.ex.
