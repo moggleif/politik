@@ -15,8 +15,6 @@
   var serieStil = K.serieStil;
   var el = K.el;
   var talSv = K.talSv;
-  var visaStatus = K.visaStatus;
-  var installChartDefaults = K.installChartDefaults;
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
@@ -910,12 +908,10 @@
     fyllValjare(programVal, [""], function () { return "Alla program"; });
     fyllValjare(programVal, DATA.program.map(function (p) { return p.etikett; }));
     K.kopplaValjare(programVal, "program", ritaUtveckling);
-    programVal.addEventListener("change", ritaUtveckling);
 
     var arVal = el("ar-valjare");
     fyllValjare(arVal, data.ar.slice().reverse());
     K.kopplaValjare(arVal, "year", ritaRangordning);
-    arVal.addEventListener("change", ritaRangordning);
 
     el("sektion-utveckling").hidden = false;
 
@@ -927,24 +923,11 @@
     ritaKonkurrens();
     ritaTyp();
     initKallor();
-    K.aktiveraTabellverktyg();
   }
 
-  fetch("data-meritvarden.json")
-    .then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
-    .then(function (data) {
-      installChartDefaults();
-      if (!data.program || !data.program.length) {
-        visaStatus("<strong>Datat är inte på plats ännu.</strong> " +
-          "Antagningsstatistiken håller på att läsas in. Titta gärna tillbaka snart.");
-        return;
-      }
-      init(data);
-    })
-    .catch(function (fel) {
-      visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " + fel.message);
-    });
+  K.starta("data-meritvarden.json", {
+    tomt: function (data) { return !data.program || !data.program.length; },
+    tomtText: "Antagningsstatistiken håller på att läsas in.",
+    init: init
+  });
 })();

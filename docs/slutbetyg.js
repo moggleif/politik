@@ -72,8 +72,6 @@
 
   var el = K.el;
   var talSv = K.talSv;
-  var visaStatus = K.visaStatus;
-  var installChartDefaults = K.installChartDefaults;
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
@@ -1031,7 +1029,6 @@
       }
     });
     K.kopplaValjare(gruppVal, "grupp", ritaAllt);
-    gruppVal.addEventListener("change", ritaAllt);
 
     var mattVal = el("matt-valjare");
     MATT.forEach(function (m) {
@@ -1041,9 +1038,7 @@
       mattVal.appendChild(o);
     });
     K.kopplaValjare(mattVal, "matt", ritaUtveckling);
-    mattVal.addEventListener("change", ritaUtveckling);
 
-    el("ar-valjare").addEventListener("change", ritaRangordning);
 
     el("valjarrad").hidden = false;
 
@@ -1060,24 +1055,11 @@
     ritaTyp();
     initSkollista();
     initKallor();
-    K.aktiveraTabellverktyg();
   }
 
-  fetch("data-slutbetyg.json")
-    .then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
-    .then(function (data) {
-      installChartDefaults();
-      if (!data.utbildningar || !data.utbildningar.length) {
-        visaStatus("<strong>Datat är inte på plats ännu.</strong> " +
-          "Betygsstatistiken håller på att läsas in. Titta gärna tillbaka snart.");
-        return;
-      }
-      init(data);
-    })
-    .catch(function (fel) {
-      visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " + fel.message);
-    });
+  K.starta("data-slutbetyg.json", {
+    tomt: function (data) { return !data.utbildningar || !data.utbildningar.length; },
+    tomtText: "Betygsstatistiken håller på att läsas in.",
+    init: init
+  });
 })();

@@ -737,14 +737,12 @@
 
     fyllSambandValjare();
     K.kopplaValjare(el("samband-valjare"), "samband", ritaSamband);
-    el("samband-valjare").addEventListener("change", ritaSamband);
     ritaSamband();
 
     ritaPendling();
 
     fyllProgramValjare();
     K.kopplaValjare(el("program-valjare"), "program", ritaProgram);
-    el("program-valjare").addEventListener("change", ritaProgram);
     ritaProgram();
 
     visaKallor();
@@ -759,19 +757,5 @@
     if (upp) upp.textContent = "Datat på den här sidan hämtades " + hamtad + ".";
   }
 
-  function main() {
-    K.installChartDefaults();
-    K.aktiveraTabellverktyg();
-    fetch(DATAFIL).then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    }).then(start).catch(function (fel) {
-      K.visaStatus("Kunde inte läsa <code>" + DATAFIL + "</code>: " + fel.message +
-        ". Kör <code>python3 scripts/build_nian_gymnasiet.py</code> och ladda om sidan.");
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", main);
-  } else { main(); }
+  K.starta(DATAFIL, { init: start });
 })();

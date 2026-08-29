@@ -117,6 +117,54 @@
     s.hidden = false;
   }
 
+  /* ---------- Uppstart ----------
+     Gemensam start för sidorna: vänta in DOM:en, sätt diagramstandarderna,
+     aktivera tabellverktygen (observern fångar tabeller som byggs senare),
+     hämta sidans datafil och kör igång.
+
+       K.starta("data-x.json", {
+         init: function (data, jamfor) { ... },   // körs med inläst data
+         tomt: function (data) { ... },   // valfri: räknas datat som ofärdigt?
+         tomtText: "…",                   // mening i så fall, före "Titta gärna…"
+         vidTomt: function (data) { ... },// valfri: rita det som ändå går
+         jamforfil: "data-y.json"         // valfri: andrafil, null om den saknas
+       }); */
+  function starta(datafil, alternativ) {
+    function hamtaJson(fil) {
+      return fetch(fil).then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      });
+    }
+    function kor() {
+      installChartDefaults();
+      aktiveraTabellverktyg();
+      Promise.all([
+        hamtaJson(datafil),
+        alternativ.jamforfil
+          ? hamtaJson(alternativ.jamforfil).catch(function () { return null; })
+          : Promise.resolve(null)
+      ])
+        .then(function (svar) {
+          var data = svar[0];
+          if (alternativ.tomt && alternativ.tomt(data)) {
+            visaStatus("<strong>Datat är inte på plats ännu.</strong> " +
+              alternativ.tomtText + " Titta gärna tillbaka snart.");
+            if (alternativ.vidTomt) alternativ.vidTomt(data);
+            return;
+          }
+          alternativ.init(data, svar[1]);
+        })
+        .catch(function (fel) {
+          visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " +
+            esc(fel.message) + " (" + esc(datafil) + ")");
+        });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", kor);
+    } else { kor(); }
+  }
+
   /* Webbadressvänlig form av en etikett: "Vård- och omsorgsprogrammet
      (Aranäs)" -> "vard-och-omsorgsprogrammet-aranas". Används åt båda
      hållen — värdet i adressraden matchas mot samma slug. */
@@ -160,8 +208,8 @@
 
   /* Koppla ett <select> till en nyckel i adressraden. Vid start väljs
      värdet ur adressraden om det finns bland alternativen (matchat som
-     slug); vid ändring uppdateras adressraden; vid bakåt/framåt ställs
-     reglaget om och omritningen körs. */
+     slug); vid ändring uppdateras adressraden och omritningen körs;
+     vid bakåt/framåt ställs reglaget om och omritningen körs. */
   function kopplaValjare(valjare, nyckel, ritaOm) {
     function valdOption(sokt) {
       if (sokt === null) return null;
@@ -178,6 +226,7 @@
       var o = {};
       o[nyckel] = valjare.value ? slug(valjare.value) : null;
       urlSatt(o);
+      ritaOm();
     });
     urlLyssna(function (p) {
       var v = valdOption(p.get(nyckel));
@@ -453,6 +502,7 @@
     sakerUrl: sakerUrl,
     slug: slug,
     installChartDefaults: installChartDefaults,
+    starta: starta,
     visaStatus: visaStatus,
     urlLas: urlLas,
     urlSatt: urlSatt,

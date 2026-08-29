@@ -10,7 +10,6 @@
   var PALETT = K.PALETT;
   var el = K.el;
   var talSv = K.talSv;
-  var visaStatus = K.visaStatus;
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
@@ -354,19 +353,5 @@
     if (upp) upp.textContent = "Datat på den här sidan hämtades " + data.hamtad + ".";
   }
 
-  function main() {
-    K.installChartDefaults();
-    K.aktiveraTabellverktyg();
-    fetch(DATAFIL).then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    }).then(start).catch(function (fel) {
-      visaStatus("Kunde inte läsa <code>" + DATAFIL + "</code>: " + fel.message +
-        ". Kör <code>python3 scripts/build_befolkning.py</code> och ladda om sidan.");
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", main);
-  } else { main(); }
+  K.starta(DATAFIL, { init: start });
 })();

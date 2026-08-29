@@ -356,7 +356,6 @@
     valjare.value = DATA.program[0].etikett;
 
     K.kopplaValjare(valjare, "program", ritaKullar);
-    valjare.addEventListener("change", ritaKullar);
 
     el("sektion-kullar").hidden = false;
 
@@ -371,24 +370,11 @@
     kortSagt();
     ritaKullar();
     ritaParning();
-    K.aktiveraTabellverktyg();
   }
 
-  fetch("data-kull.json")
-    .then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
-    .then(function (data) {
-      K.installChartDefaults();
-      if (!data.program || !data.program.length) {
-        K.visaStatus("<strong>Datat är inte på plats ännu.</strong> " +
-          "Kullarna håller på att paras ihop. Titta gärna tillbaka snart.");
-        return;
-      }
-      init(data);
-    })
-    .catch(function (fel) {
-      K.visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " + fel.message);
-    });
+  K.starta("data-kull.json", {
+    tomt: function (data) { return !data.program || !data.program.length; },
+    tomtText: "Kullarna håller på att paras ihop.",
+    init: init
+  });
 })();

@@ -12,7 +12,6 @@
   var rampFarg = K.rampFarg;
   var el = K.el;
   var visaStatus = K.visaStatus;
-  var installChartDefaults = K.installChartDefaults;
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
@@ -149,7 +148,6 @@
     K.kopplaValjare(valjare, "year", function () {
       ritaMalar(data, Number(valjare.value));
     });
-    valjare.addEventListener("change", function () { ritaMalar(data, Number(valjare.value)); });
     ritaMalar(data, Number(valjare.value) || lista[0]);
     el("sektion-malar").hidden = false;
     return true;
@@ -1855,27 +1853,12 @@
 
   /* ---------- Start ---------- */
 
-  function hamtaJson(fil) {
-    return fetch(fil).then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    });
-  }
-
-  Promise.all([
-    hamtaJson(DATAFIL),
-    JAMFORFIL ? hamtaJson(JAMFORFIL).catch(function () { return null; })
-              : Promise.resolve(null)
-  ])
-    .then(function (svar) {
-      var data = svar[0], jamfor = svar[1];
-      installChartDefaults();
-      if (!data.prognoser || !data.prognoser.length) {
-        visaStatus("<strong>Datat är inte på plats ännu.</strong> " +
-          "Prognossiffrorna håller på att samlas in. Titta gärna tillbaka snart.");
-        if (data.utfallMeta) initKallor(data);
-        return;
-      }
+  K.starta(DATAFIL, {
+    jamforfil: JAMFORFIL,
+    tomt: function (data) { return !data.prognoser || !data.prognoser.length; },
+    tomtText: "Prognossiffrorna håller på att samlas in.",
+    vidTomt: function (data) { if (data.utfallMeta) initKallor(data); },
+    init: function (data, jamfor) {
       var antalJamforelser = data.prognoser.reduce(function (n, p) {
         return n + Object.keys(p.avvikelser || {}).length;
       }, 0);
@@ -1900,9 +1883,6 @@
       initSpagetti(data);
       initUtfall(data);
       initKallor(data);
-      K.aktiveraTabellverktyg();
-    })
-    .catch(function (fel) {
-      visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " + fel.message);
-    });
+    }
+  });
 })();

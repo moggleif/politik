@@ -9,7 +9,6 @@
   var FARG = K.FARG;
   var el = K.el;
   var talSv = K.talSv;
-  var visaStatus = K.visaStatus;
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
@@ -511,7 +510,6 @@
     ritaRangordning();
     fyllValjare();
     K.kopplaValjare(el("amne-valjare"), "amne", ritaAmne);
-    el("amne-valjare").addEventListener("change", ritaAmne);
     ritaAmne();
     ritaAlla();
     el("knapp-visa-alla").addEventListener("click", function () {
@@ -546,19 +544,5 @@
       (DATA.kallor[DATA.kallor.length - 1] || {}).hamtad + ".";
   }
 
-  function main() {
-    K.installChartDefaults();
-    K.aktiveraTabellverktyg();
-    fetch(DATAFIL).then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    }).then(start).catch(function (fel) {
-      visaStatus("Kunde inte läsa <code>" + DATAFIL + "</code>: " + fel.message +
-        ". Kör <code>python3 scripts/build_amnesbetyg.py</code> och ladda om sidan.");
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", main);
-  } else { main(); }
+  K.starta(DATAFIL, { init: start });
 })();
