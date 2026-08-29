@@ -1057,6 +1057,157 @@
     };
   }
 
+  /* Alla kohortårgångar i en egen bild. Kommunens prognoser ligger i sitt
+     eget spagettidiagram: två linjeknippen med var sin ramp i samma
+     diagram går inte att skilja åt, hur bra färgerna än är valda. */
+  function initKohortAlla(data) {
+    if (!data.kohort || !el("diagram-kohortalla")) return;
+    var argangar = data.kohort.argangar || [];
+    if (argangar.length < 2) return;
+
+    var utfallAr = Object.keys(data.utfall).map(Number);
+    var forsta = Math.min.apply(null, argangar.map(function (a) { return a.basAr; }));
+    var sista = Math.max.apply(null, argangar.map(function (a) { return a.sistaAr; }));
+    var ar = [];
+    for (var a = forsta; a <= sista; a++) ar.push(a);
+
+    var dataset = argangar.map(function (arg, i) {
+      return {
+        label: "Framskrivning från " + arg.basAr,
+        data: ar.map(function (y) {
+          var v = arg.framskrivning[String(y)];
+          return v === undefined ? null : v;
+        }),
+        borderColor: K.rampFargOrange(i, argangar.length),
+        backgroundColor: K.rampFargOrange(i, argangar.length),
+        borderWidth: 2,
+        pointRadius: 0,
+        pointHoverRadius: 5,
+        spanGaps: false,
+        tension: 0.1
+      };
+    });
+    dataset.push({
+      label: "Faktiskt utfall (SCB)",
+      data: ar.map(function (y) {
+        var v = data.utfall[String(y)];
+        return v === undefined ? null : v;
+      }),
+      borderColor: FARG.ink,
+      backgroundColor: FARG.ink,
+      borderWidth: 3,
+      pointRadius: 3,
+      pointHoverRadius: 6,
+      pointBorderColor: FARG.surface,
+      pointBorderWidth: 2,
+      spanGaps: false,
+      tension: 0.1
+    });
+
+    var ctx = el("diagram-kohortalla");
+    ctx.parentElement.style.height = "440px";
+    var chart = new Chart(ctx, {
+      type: "line",
+      data: { labels: ar.map(String), datasets: dataset },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        locale: "sv-SE",
+        interaction: { mode: "nearest", intersect: false },
+        plugins: {
+          legend: {
+            display: true,
+            labels: {
+              /* Sammanfatta rampen till sina ändpunkter, som i
+                 prognosdiagrammet – tolv poster ryms inte. */
+              generateLabels: function () {
+                var n = argangar.length;
+                return [
+                  { text: "Faktiskt utfall (SCB)", strokeStyle: FARG.ink,
+                    fillStyle: FARG.ink, lineWidth: 3 },
+                  { text: "Äldsta framskrivningen (" + argangar[0].basAr + ")",
+                    strokeStyle: K.rampFargOrange(0, n),
+                    fillStyle: K.rampFargOrange(0, n), lineWidth: 2 },
+                  { text: "Senaste framskrivningen (" + argangar[n - 1].basAr + ")",
+                    strokeStyle: K.rampFargOrange(n - 1, n),
+                    fillStyle: K.rampFargOrange(n - 1, n), lineWidth: 2 }
+                ];
+              }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              title: function (it) { return "År " + it[0].label; },
+              label: function (it) {
+                return it.dataset.label + ": " + talSv(it.parsed.y) + " " + ENHET;
+              }
+            }
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, border: { color: FARG.baseline },
+               ticks: { maxRotation: 0, autoSkipPadding: 12 } },
+          y: { title: { display: true, text: ENHET_LANG, color: FARG.muted },
+               grid: { color: FARG.grid }, border: { color: FARG.baseline },
+               ticks: { callback: function (v) { return talSv(v); } } }
+        }
+      }
+    });
+    K.aktiveraToning(chart, false);
+
+    el("kalla-kohortalla").textContent =
+      "Varje orange linje är dagens åldersklasser ett visst år, framskrivna " +
+      "ett år i taget. Årgångarna börjar " + argangar[0].basAr + " – det är " +
+      "folkmängden kommunens första prognos hade att utgå från. Peka på en " +
+      "linje så tonas de övriga ned.";
+
+    /* Vad bilden faktiskt visar: årgångarna ligger på rad under varandra,
+       eftersom var och en saknar den inflyttning som hann ske efteråt. */
+    var med = argangar.filter(function (a) { return a.medelAbsPct !== null; });
+    var txt = "";
+    if (med.length) {
+      var bast = med.reduce(function (x, y) {
+        return y.medelAbsPct < x.medelAbsPct ? y : x;
+      });
+      var langst = med.reduce(function (x, y) {
+        return (y.maxAvstand || 0) > (x.maxAvstand || 0) ? y : x;
+      });
+      txt += "<p><strong>" + argangar.length + "</strong> årgångar, en per " +
+        "årsskifte från " + argangar[0].basAr + " till " +
+        argangar[argangar.length - 1].basAr + ". Den äldsta (" +
+        langst.basAr + ") går att pröva " + langst.maxAvstand + " år framåt " +
+        "och har då missat med i snitt " + talSv(langst.medelAbsPct, 1) +
+        " %; " + bast.basAr + " års årgång är den träffsäkraste så här långt (" +
+        talSv(bast.medelAbsPct, 1) + " %).</p>";
+    }
+    txt += "<p>Linjerna ligger på rad under varandra, och det är hela " +
+      "poängen: varje årgång saknar den inflyttning som hann ske efter dess " +
+      "basår. Avståndet mellan två årgångar är alltså inte modellfel utan " +
+      "just den flyttning som modellen medvetet utelämnar. Ju längre höger " +
+      "i diagrammet, desto mer hinner samlas.</p>";
+    el("slutsats-kohortalla").innerHTML = txt;
+
+    var tab = "<caption>Faktiskt utfall och samtliga kohortframskrivningar, " +
+      "antal " + ENHET + ".</caption><thead><tr><th scope=\"col\">År</th>" +
+      "<th scope=\"col\">Utfall (SCB)</th>";
+    argangar.forEach(function (arg) {
+      tab += "<th scope=\"col\">Från " + arg.basAr + "</th>";
+    });
+    tab += "</tr></thead><tbody>";
+    ar.forEach(function (y) {
+      var u = data.utfall[String(y)];
+      tab += "<tr><th scope=\"row\">" + y + "</th><td>" +
+        (u === undefined ? "–" : talSv(u)) + "</td>";
+      argangar.forEach(function (arg) {
+        var v = arg.framskrivning[String(y)];
+        tab += "<td>" + (v === undefined ? "–" : talSv(v)) + "</td>";
+      });
+      tab += "</tr>";
+    });
+    el("tabell-kohortalla").innerHTML = tab + "</tbody>";
+    el("sektion-kohortalla").hidden = false;
+  }
+
   function initKohortfel(data) {
     if (!data.kohort || !el("diagram-kohortfel")) return;
     var rader = data.kohort.jamforelse;
@@ -1201,6 +1352,7 @@
       initAvstand(data);
       initSkevhet(data);
       initKohort(data);
+      initKohortAlla(data);
       initKohortfel(data);
       initSpagetti(data);
       initUtfall(data);

@@ -383,6 +383,40 @@ class TestKohortframskrivning(unittest.TestCase):
         framskrivning – bara 16–19-serien."""
         self.assertIsNone(build_data.bygg_kohort(self.scb, [], {}, None))
 
+    def test_argangarna_borjar_dar_prognoserna_borjar(self):
+        """En prognos gjord år P hade folkmängden t.o.m. P−1 att utgå
+        från, så första jämförbara årgången är basåret P−1. Annars
+        jämförs modellerna på olika underlag."""
+        pa = {"2024": {str(a): 100 + a for a in range(0, 20)},
+              "2025": {str(a): 100 + a for a in range(0, 20)}}
+        scb = dict(self.scb, perAlder=pa)
+        prognoser = [{"prognosAr": 2025, "prognos": {}}]
+        ut = build_data.bygg_kohort(scb, prognoser, {}, (16, 19))
+        self.assertEqual(ut["forstaBasAr"], 2024)
+        self.assertEqual([a["basAr"] for a in ut["argangar"]], [2024, 2025])
+
+    def test_en_argang_per_basar_med_egna_avvikelser(self):
+        rader = build_data.kohortargangar(
+            self.pa, {2026: 500, 2027: 480}, (16, 19), 2025)
+        self.assertEqual(len(rader), 1)
+        arg = rader[0]
+        self.assertEqual(arg["basAr"], 2025)
+        self.assertEqual(arg["sistaAr"], 2041)
+        self.assertEqual(arg["framskrivning"]["2026"], 466)   # 115+116+117+118
+        self.assertEqual(arg["avvikelser"]["2026"]["diff"], -34)
+        self.assertEqual(arg["avvikelser"]["2026"]["avstand"], 1)
+        self.assertEqual(arg["antal"], 2)
+        self.assertEqual(arg["ettArPct"], -6.8)
+
+    def test_argang_utan_facit_far_inga_matt(self):
+        """Den senaste årgången har inget att jämföras mot ännu – den ska
+        finnas i diagrammet men inte räknas in i något medelvärde."""
+        arg = build_data.kohortargangar(self.pa, {}, (16, 19), 2025)[0]
+        self.assertEqual(arg["antal"], 0)
+        self.assertIsNone(arg["medelAbsPct"])
+        self.assertIsNone(arg["ettArPct"])
+        self.assertIsNone(arg["maxAvstand"])
+
     def test_traffsakerheten_mater_avvikelsen_mot_utfallet(self):
         # Framskrivet 2026 = 466. Sätt utfallet till 500 -> -6,8 %.
         rader = build_data.kohortfel(self.pa, {2026: 500}, (16, 19))

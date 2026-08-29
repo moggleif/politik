@@ -131,6 +131,63 @@ def kohortjamforelse(pa: dict, prognoser: list, utfall: dict, aldrar: tuple) -> 
     ]
 
 
+def framskrivning_for(bas: dict, basar: int, aldrar: tuple) -> dict:
+    """Hela framskrivningen från ett basår, så långt åldrarna räcker."""
+    ut = {}
+    k = 1
+    while True:
+        varde = framskriv(bas, k, aldrar)
+        if varde is None:
+            return ut
+        ut[basar + k] = varde
+        k += 1
+
+
+def kohortargangar(pa: dict, utfall: dict, aldrar: tuple, forsta_basar: int) -> list:
+    """En framskrivning per basår – kohortmodellens motsvarighet till
+    kommunens prognosårgångar.
+
+    Poängen är att kunna jämföra modellerna på lika villkor: kommunen gör
+    en ny prognos varje år, och kohortmodellen kan göra detsamma ur samma
+    års åldersklasser. Varje årgång får sina avvikelser mot facit, precis
+    som prognosårgångarna."""
+    argangar = []
+    for basar in sorted(pa):
+        if basar < forsta_basar:
+            continue
+        framskrivning = framskrivning_for(pa[basar], basar, aldrar)
+        if not framskrivning:
+            continue
+
+        avvikelser = {}
+        for ar, varde in framskrivning.items():
+            if ar in utfall:
+                diff = varde - utfall[ar]
+                avvikelser[ar] = {
+                    "framskrivning": varde,
+                    "utfall": utfall[ar],
+                    "diff": diff,
+                    "pct": round(100.0 * diff / utfall[ar], 2),
+                    "avstand": ar - basar,
+                }
+
+        v = [a["pct"] for a in avvikelser.values()]
+        ettar = [a["pct"] for a in avvikelser.values() if a["avstand"] == 1]
+        argangar.append({
+            "basAr": basar,
+            "sistaAr": max(framskrivning),
+            "framskrivning": {str(a): x for a, x in sorted(framskrivning.items())},
+            "avvikelser": {str(a): x for a, x in sorted(avvikelser.items())},
+            "antal": len(v),
+            "medelAbsPct": round(sum(abs(x) for x in v) / len(v), 2) if v else None,
+            "medelPct": round(sum(v) / len(v), 2) if v else None,
+            "maxAvstand": max((a["avstand"] for a in avvikelser.values()),
+                              default=None),
+            "ettArPct": round(ettar[0], 2) if ettar else None,
+        })
+    return argangar
+
+
 def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None:
     """Kohortframskrivningen: vad som redan är fött och redan bor här."""
     if aldrar is None:
@@ -141,18 +198,22 @@ def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None
 
     basar = max(pa)
     bas = pa[basar]
-    framskrivning, ursprung = {}, {}
-    k = 1
-    while True:
-        varde = framskriv(bas, k, aldrar)
-        if varde is None:
-            break
-        framskrivning[basar + k] = varde
-        ursprung[basar + k] = [{"alder": a - k, "antal": bas[a - k]}
-                               for a in range(aldrar[0], aldrar[1] + 1)]
-        k += 1
+    framskrivning = framskrivning_for(bas, basar, aldrar)
     if not framskrivning:
         return None
+    ursprung = {
+        ar: [{"alder": a - (ar - basar), "antal": bas[a - (ar - basar)]}
+             for a in range(aldrar[0], aldrar[1] + 1)]
+        for ar in framskrivning
+    }
+
+    # Årgångarna börjar där kommunens prognoser börjar, så att de två
+    # modellerna går att ställa mot varandra år för år. En prognos gjord
+    # år P hade folkmängden t.o.m. årsskiftet P−1 att utgå från, så den
+    # första jämförbara årgången är basåret P−1.
+    forsta_basar = (min(p["prognosAr"] for p in prognoser) - 1
+                    if prognoser else min(pa))
+    argangar = kohortargangar(pa, utfall, aldrar, forsta_basar)
 
     # Kommunens senaste prognos vid sidan av framskrivningen, år för år.
     senaste = prognoser[-1] if prognoser else None
@@ -176,6 +237,8 @@ def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None
         "ursprung": {str(a): v for a, v in sorted(ursprung.items())},
         "traffsakerhet": kohortfel(pa, utfall, aldrar),
         "jamforelse": kohortjamforelse(pa, prognoser, utfall, aldrar),
+        "forstaBasAr": forsta_basar,
+        "argangar": argangar,
         "senastePrognosAr": senaste["prognosAr"] if senaste else None,
         "motSenaste": mot_senaste,
     }
@@ -318,7 +381,8 @@ def main() -> None:
         if ut["kohort"]:
             k = ut["kohort"]
             print(f"  kohortframskrivning: basår {k['basAr']}, "
-                  f"{len(k['framskrivning'])} år fram till {k['sistaAr']}")
+                  f"{len(k['framskrivning'])} år fram till {k['sistaAr']}; "
+                  f"{len(k['argangar'])} årgångar från {k['forstaBasAr']}")
 
 
 if __name__ == "__main__":
