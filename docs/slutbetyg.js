@@ -74,6 +74,8 @@
   var talSv = K.talSv;
   var visaStatus = K.visaStatus;
   var installChartDefaults = K.installChartDefaults;
+  var esc = K.esc;
+  var sakerUrl = K.sakerUrl;
 
   function visaTal(v, matt) {
     return v === null || v === undefined
@@ -361,11 +363,11 @@
 
     if (senast.length) {
       var hogst = senast[0], lagst = senast[senast.length - 1];
-      html += "<p><strong>" + sista + "</strong> hade " + hogst.etikett +
+      html += "<p><strong>" + esc(sista) + "</strong> hade " + esc(hogst.etikett) +
         " högst " + matt.namn.toLowerCase() + " i Kungsbacka (" +
         visaTal(hogst.v, matt) + ")";
       if (senast.length > 1) {
-        html += " och " + lagst.etikett + " lägst (" + visaTal(lagst.v, matt) + ").";
+        html += " och " + esc(lagst.etikett) + " lägst (" + visaTal(lagst.v, matt) + ").";
       } else {
         html += ".";
       }
@@ -377,15 +379,15 @@
       var upp = helaPerioden[0], ner = helaPerioden[helaPerioden.length - 1];
       var stigande = helaPerioden.filter(function (r) { return r.diff > 0; }).length;
       html += "<p>Av de " + helaPerioden.length + " utbildningar som redovisas både " +
-        forsta + " och " + sista + " har <strong>" + stigande +
+        esc(forsta) + " och " + esc(sista) + " har <strong>" + stigande +
         "</strong> högre värde i dag än då.";
       if (upp.diff > 0) {
-        html += " Mest har " + upp.etikett + " stigit: " +
+        html += " Mest har " + esc(upp.etikett) + " stigit: " +
           visaTal(upp.forsta, matt) + " till " + visaTal(upp.sista, matt) + " (+" +
           talSv(upp.diff, matt.dec) + ").";
       }
       if (ner.diff < 0) {
-        html += " Mest har " + ner.etikett + " sjunkit: " +
+        html += " Mest har " + esc(ner.etikett) + " sjunkit: " +
           visaTal(ner.forsta, matt) + " till " + visaTal(ner.sista, matt) + " (−" +
           talSv(Math.abs(ner.diff), matt.dec) + ").";
       }
@@ -406,10 +408,10 @@
     var t = "<caption>" + matt.namn + " per utbildning och år, Kungsbacka. " +
       "Teckenförklaring under tabellen.</caption>";
     t += "<thead><tr><th scope=\"col\">Utbildning</th><th scope=\"col\">Skola</th>";
-    ar.forEach(function (a) { t += "<th scope=\"col\">" + a + "</th>"; });
+    ar.forEach(function (a) { t += "<th scope=\"col\">" + esc(a) + "</th>"; });
     t += "</tr></thead><tbody>";
     lista.forEach(function (u) {
-      t += "<tr><td>" + u.namn + "</td><td>" + skolText(u) + "</td>";
+      t += "<tr><td>" + esc(u.namn) + "</td><td>" + esc(skolText(u)) + "</td>";
       ar.forEach(function (a) {
         t += "<td>" + visaTalMedOrsak(u, a, matt) + "</td>";
       });
@@ -498,8 +500,8 @@
 
     var hogst = rader[0], lagst = rader[rader.length - 1];
     var html = "<p>Högst betygspoäng " + valtAr + " hade <strong>" +
-      hogst.u.namn + "</strong> (" + visaTal(hogst.v.betygspoang, HUVUDMATT) +
-      "), lägst <strong>" + lagst.u.namn + "</strong> (" +
+      esc(hogst.u.namn) + "</strong> (" + visaTal(hogst.v.betygspoang, HUVUDMATT) +
+      "), lägst <strong>" + esc(lagst.u.namn) + "</strong> (" +
       visaTal(lagst.v.betygspoang, HUVUDMATT) + "). Skillnaden är " +
       talSv(hogst.v.betygspoang - lagst.v.betygspoang, 1) + " betygspoäng.</p>";
     var sammanfattning = DATA.sammanfattning.filter(function (s) {
@@ -507,13 +509,13 @@
     })[0];
     if (sammanfattning && !valdGrupp()) {
       html += "<p>Hela avgångskullen på de två skolorna var " +
-        sammanfattning.antal + " elever med " +
+        esc(sammanfattning.antal) + " elever med " +
         visaTal(sammanfattning.betygspoang, HUVUDMATT) +
         " i snitt. Här räknas varje elev lika mycket, så de stora " +
         "utbildningarna väger tyngre än de små.";
       if (sammanfattning.antalProgram > sammanfattning.programMedPoang) {
         html += " " + (sammanfattning.antalProgram - sammanfattning.programMedPoang) +
-          " av de " + sammanfattning.antalProgram + " utbildningarna hade " +
+          " av de " + esc(sammanfattning.antalProgram) + " utbildningarna hade " +
           "för få avgångselever för att redovisas var för sig, men ingår i " +
           "snittet.";
       }
@@ -531,9 +533,9 @@
       "<th scope=\"col\">Med examen</th>" +
       "<th scope=\"col\">Med högskolebehörighet</th></tr></thead><tbody>";
     rader.forEach(function (r) {
-      t += "<tr><td>" + r.u.namn + "</td>" +
-        "<td>" + r.v.skola + "</td>" +
-        "<td>" + (r.v.antal === null ? "–" : r.v.antal) + "</td>" +
+      t += "<tr><td>" + esc(r.u.namn) + "</td>" +
+        "<td>" + esc(r.v.skola) + "</td>" +
+        "<td>" + (r.v.antal === null ? "–" : esc(r.v.antal)) + "</td>" +
         "<td>" + visaTal(r.v.betygspoang, MATT[0]) + "</td>" +
         "<td>" + visaTal(r.v.betygspoangExamen, MATT[1]) + "</td>" +
         "<td>" + visaTal(r.v.andelExamen, MATT[2]) + "</td>" +
@@ -640,11 +642,11 @@
       "<th scope=\"col\">Sista mätåret</th><th scope=\"col\">Förändring</th>" +
       "<th scope=\"col\">Antal mätår</th></tr></thead><tbody>";
     rader.forEach(function (u) {
-      t += "<tr><td>" + u.namn + "</td><td>" + skolText(u) + "</td><td>" +
-        u.forstaAr + ": " + talSv(u.forsta, 1) +
-        "</td><td>" + u.sistaAr + ": " + talSv(u.sista, 1) + "</td><td>" +
+      t += "<tr><td>" + esc(u.namn) + "</td><td>" + esc(skolText(u)) + "</td><td>" +
+        esc(u.forstaAr) + ": " + talSv(u.forsta, 1) +
+        "</td><td>" + esc(u.sistaAr) + ": " + talSv(u.sista, 1) + "</td><td>" +
         (u.forandring >= 0 ? "+" : "−") + talSv(Math.abs(u.forandring), 1) +
-        "</td><td>" + u.antalArMedPoang + "</td></tr>";
+        "</td><td>" + esc(u.antalArMedPoang) + "</td></tr>";
     });
     t += "</tbody>";
     el("tabell-forandring").innerHTML = t;
@@ -725,14 +727,14 @@
       "två skolorna, även de för små för att redovisas var för sig.";
 
     var forsta = rader[0], sista = rader[rader.length - 1];
-    var html = "<p>" + sista.ar + " gick <strong>" + sista.medExamen + " av " +
-      sista.antal + "</strong> avgångselever ut Aranäs och Elof Lindälv " +
+    var html = "<p>" + esc(sista.ar) + " gick <strong>" + esc(sista.medExamen) + " av " +
+      esc(sista.antal) + "</strong> avgångselever ut Aranäs och Elof Lindälv " +
       "med en gymnasieexamen (" + talSv(sista.andelExamen, 1) + " procent). " +
-      forsta.ar + " var det " + forsta.medExamen + " av " + forsta.antal +
+      esc(forsta.ar) + " var det " + esc(forsta.medExamen) + " av " + esc(forsta.antal) +
       " (" + talSv(forsta.andelExamen, 1) + " procent).</p>";
     if (sista.andelGrundlBehorighet !== null) {
       html += "<p>" + talSv(sista.andelGrundlBehorighet, 1) + " procent av " +
-        sista.ar + " års avgångselever hade grundläggande " +
+        esc(sista.ar) + " års avgångselever hade grundläggande " +
         "högskolebehörighet. Det är ett annat krav än examen: en elev kan " +
         "ha examen från ett yrkesprogram utan att ha läst till behörigheten.</p>";
     }
@@ -747,8 +749,8 @@
       "<th scope=\"col\">Andel med högskolebehörighet</th>" +
       "<th scope=\"col\">Betygspoäng</th></tr></thead><tbody>";
     rader.forEach(function (r) {
-      t += "<tr><td>" + r.ar + "</td><td>" + r.antal + "</td><td>" +
-        r.medExamen + "</td><td>" + visaTal(r.andelExamen, MATT[2]) +
+      t += "<tr><td>" + esc(r.ar) + "</td><td>" + esc(r.antal) + "</td><td>" +
+        esc(r.medExamen) + "</td><td>" + visaTal(r.andelExamen, MATT[2]) +
         "</td><td>" + visaTal(r.andelGrundlBehorighet, MATT[3]) +
         "</td><td>" + visaTal(r.betygspoang, HUVUDMATT) + "</td></tr>";
     });
@@ -843,16 +845,16 @@
       /* Under ett halvt tiondels poäng skulle skrivas ut som "0,0" – då är
          det ärligare att säga att grupperna ligger lika. */
       html += Math.abs(a - b) < 0.05
-        ? "<p>" + sista + " låg grupperna <strong>i princip lika</strong>: " +
+        ? "<p>" + esc(sista) + " låg grupperna <strong>i princip lika</strong>: " +
           grupperna + ".</p>"
-        : "<p>" + sista + " skilde det <strong>" + talSv(Math.abs(a - b), 1) +
+        : "<p>" + esc(sista) + " skilde det <strong>" + talSv(Math.abs(a - b), 1) +
           " betygspoäng</strong> mellan grupperna: " + grupperna + ".</p>";
       var forsta = DATA.ar[0];
       if (hf.varden[String(forsta)] && yp.varden[String(forsta)]) {
         var gammal = Math.abs(hf.varden[String(forsta)].betygspoang -
           yp.varden[String(forsta)].betygspoang);
         var nu = Math.abs(a - b);
-        html += "<p>" + forsta + " var skillnaden " + talSv(gammal, 1) +
+        html += "<p>" + esc(forsta) + " var skillnaden " + talSv(gammal, 1) +
           ". Gapet har alltså " +
           (Math.abs(nu - gammal) < 0.05 ? "hållit sig"
             : nu > gammal ? "vidgats" : "krympt") + ".</p>";
@@ -864,14 +866,14 @@
       "Kungsbacka. Antal avgångselever bakom varje siffra inom parentes.</caption>";
     t += "<thead><tr><th scope=\"col\">År</th>";
     rader.forEach(function (r) {
-      t += "<th scope=\"col\">" + (TYPNAMN[r.typ] || r.typ) + "</th>";
+      t += "<th scope=\"col\">" + esc(TYPNAMN[r.typ] || r.typ) + "</th>";
     });
     t += "</tr></thead><tbody>";
     DATA.ar.forEach(function (a) {
-      t += "<tr><td>" + a + "</td>";
+      t += "<tr><td>" + esc(a) + "</td>";
       rader.forEach(function (r) {
         var v = r.varden[String(a)];
-        t += "<td>" + (v ? talSv(v.betygspoang, 1) + " (" + v.antal + ")" : "–") + "</td>";
+        t += "<td>" + (v ? talSv(v.betygspoang, 1) + " (" + esc(v.antal) + ")" : "–") + "</td>";
       });
       t += "</tr>";
     });
@@ -884,12 +886,15 @@
   function initKallor() {
     var html = "";
     DATA.kallor.slice().reverse().forEach(function (k) {
-      html += "<li><span class=\"titel\">" + k.rapportTitel + "</span>";
-      html += "<br><span class=\"undertext\">" + k.kalla + "</span>";
+      var lokalFil = sakerUrl(k.lokalFil);
+      var kallaUrl = sakerUrl(k.kallaUrl);
+      var statistikUrl = sakerUrl(k.statistikUrl);
+      html += "<li><span class=\"titel\">" + esc(k.rapportTitel) + "</span>";
+      html += "<br><span class=\"undertext\">" + esc(k.kalla) + "</span>";
       html += "<div class=\"lankar\">";
-      if (k.lokalFil) html += "<a href=\"" + k.lokalFil + "\">Läs filen (CSV)</a>";
-      if (k.kallaUrl) html += "<a href=\"" + k.kallaUrl + "\">Hämta från Skolverket</a>";
-      if (k.statistikUrl) html += "<a href=\"" + k.statistikUrl + "\">Skolverkets statistik</a>";
+      if (lokalFil) html += "<a href=\"" + lokalFil + "\">Läs filen (CSV)</a>";
+      if (kallaUrl) html += "<a href=\"" + kallaUrl + "\">Hämta från Skolverket</a>";
+      if (statistikUrl) html += "<a href=\"" + statistikUrl + "\">Skolverkets statistik</a>";
       html += "</div></li>";
     });
     el("lista-kallor").innerHTML = html;
@@ -946,20 +951,20 @@
 
     punkter.push("Sidan följer <strong>" + DATA.utbildningar.length +
       " utbildningar</strong> på " +
-      DATA.skolor.map(function (s) { return s.namn; }).join(" och ") +
-      " genom " + DATA.ar.length + " läsår, " + DATA.ar[0] +
-      "–" + DATA.ar[DATA.ar.length - 1] + ".");
+      esc(DATA.skolor.map(function (s) { return s.namn; }).join(" och ")) +
+      " genom " + DATA.ar.length + " läsår, " + esc(DATA.ar[0]) +
+      "–" + esc(DATA.ar[DATA.ar.length - 1]) + ".");
 
     var diff = sista.betygspoang - forsta.betygspoang;
     punkter.push("Hela avgångskullens genomsnittliga betygspoäng var " +
-      talSv(sista.betygspoang, 1) + " år " + sista.ar + ", mot " +
-      talSv(forsta.betygspoang, 1) + " år " + forsta.ar + " (" +
+      talSv(sista.betygspoang, 1) + " år " + esc(sista.ar) + ", mot " +
+      talSv(forsta.betygspoang, 1) + " år " + esc(forsta.ar) + " (" +
       (diff >= 0 ? "+" : "−") + talSv(Math.abs(diff), 1) + " på skalan 0–20).");
 
     if (sista.andelExamen !== null && forsta.andelExamen !== null) {
       punkter.push("Andelen avgångselever med gymnasieexamen var <strong>" +
-        talSv(sista.andelExamen, 1) + " %</strong> år " + sista.ar +
-        ", mot " + talSv(forsta.andelExamen, 1) + " % år " + forsta.ar + ".");
+        talSv(sista.andelExamen, 1) + " %</strong> år " + esc(sista.ar) +
+        ", mot " + talSv(forsta.andelExamen, 1) + " % år " + esc(forsta.ar) + ".");
     }
 
     var sistaAr = DATA.ar[DATA.ar.length - 1];
@@ -970,11 +975,11 @@
       var b = yp.varden[String(sistaAr)].betygspoang;
       punkter.push(Math.abs(a - b) < 0.05
         ? "Högskoleförberedande program och yrkesprogram låg i princip lika " +
-          "i betygspoäng " + sistaAr + " (" + talSv(a, 1) + " mot " +
+          "i betygspoäng " + esc(sistaAr) + " (" + talSv(a, 1) + " mot " +
           talSv(b, 1) + ", vägt per elev)."
         : "Skillnaden mellan högskoleförberedande program och yrkesprogram " +
           "var <strong>" + talSv(Math.abs(a - b), 1) + " betygspoäng</strong> " +
-          sistaAr + " (" + talSv(a, 1) + " mot " + talSv(b, 1) +
+          esc(sistaAr) + " (" + talSv(a, 1) + " mot " + talSv(b, 1) +
           ", vägt per elev).");
     }
 
@@ -988,13 +993,13 @@
       var ner = langa.slice().sort(function (x, y) { return x.forandring - y.forandring; })[0];
       var text = "";
       if (upp.forandring > 0) {
-        text += "Mellan sitt första och sista mätår har <strong>" + upp.namn +
+        text += "Mellan sitt första och sista mätår har <strong>" + esc(upp.namn) +
           "</strong> stigit mest i betygspoäng (+" + talSv(upp.forandring, 1) +
           ")";
       }
       if (ner.forandring < 0) {
         text += (text ? " och " : "Mellan sitt första och sista mätår har ") +
-          "<strong>" + ner.namn + "</strong> sjunkit mest (−" +
+          "<strong>" + esc(ner.namn) + "</strong> sjunkit mest (−" +
           talSv(Math.abs(ner.forandring), 1) + ")";
       }
       if (text) {

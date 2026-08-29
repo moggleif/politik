@@ -9,6 +9,7 @@
   var K = window.KIS;
   var el = K.el;
   var talSv = K.talSv;
+  var esc = K.esc;
 
   function hamta(fil) {
     return fetch(fil).then(function (r) {
@@ -67,9 +68,9 @@
     /* Kohortframskrivningen: vad som redan är fött, utan någon modell. */
     var k = unga && unga.kohort;
     if (k && k.framskrivning[String(k.sistaAr)] !== undefined) {
-      rader.push(rad("16–19-åringar " + k.sistaAr + " av dem som redan bor här",
+      rader.push(rad("16–19-åringar " + esc(k.sistaAr) + " av dem som redan bor här",
         talSv(k.framskrivning[String(k.sistaAr)]) + " (mot " +
-        talSv(k.framskrivning[String(k.basAr + 1)]) + " år " + (k.basAr + 1) + ")"));
+        talSv(k.framskrivning[String(k.basAr + 1)]) + " år " + esc(k.basAr + 1) + ")"));
     }
     fyll("fakta-befolkning", rader);
 
@@ -104,10 +105,10 @@
       var namn = {};
       merit.program.forEach(function (p) { namn[p.namn] = true; });
       rader.push(rad("Program vid antagningen",
-        Object.keys(namn).length + " (" + mForsta + "–" + mSista + ")"));
+        Object.keys(namn).length + " (" + esc(mForsta) + "–" + esc(mSista) + ")"));
       var sm = merit.sammanfattning.filter(function (s) { return s.ar === mSista; })[0];
       if (sm) {
-        rader.push(rad("Medelmeritvärde " + mSista + ", snitt över utbildningarna",
+        rader.push(rad("Medelmeritvärde " + esc(mSista) + ", snitt över utbildningarna",
           talSv(sm.medel, 1) + " av 340"));
       }
     }
@@ -116,13 +117,13 @@
       var sSista = slut.sammanfattning[slut.sammanfattning.length - 1];
       var sForstaAr = slut.ar[0], sSistaAr = slut.ar[slut.ar.length - 1];
       rader.push(rad("Slutbetyg", slut.ar.length + " läsår (" +
-        sForstaAr + "–" + sSistaAr + ")"));
+        esc(sForstaAr) + "–" + esc(sSistaAr) + ")"));
       if (sSista.andelExamen !== null) {
-        rader.push(rad("Andel med examen " + sSista.ar,
+        rader.push(rad("Andel med examen " + esc(sSista.ar),
           talSv(sSista.andelExamen, 1) + " % av " + talSv(sSista.antal) + " elever"));
       }
       if (sSista.betygspoang !== null) {
-        rader.push(rad("Betygspoäng " + sSista.ar + ", hela kullen",
+        rader.push(rad("Betygspoäng " + esc(sSista.ar) + ", hela kullen",
           talSv(sSista.betygspoang, 1) + " av 20"));
       }
     }
@@ -132,7 +133,7 @@
       var totKullar = kan.reduce(function (n, p) { return n + p.antalKompletta; }, 0);
       if (totKullar) {
         rader.push(rad("Kullar som kan följas från antagning till examen",
-          totKullar + " på " + kan.length + " program"));
+          esc(totKullar) + " på " + kan.length + " program"));
         el("undertext-kull").textContent =
           "Antagningen år X mot examen år X + 3, " + totKullar +
           " jämförbara kullar.";
@@ -164,10 +165,10 @@
 
     fyll("fakta-amnesbetyg", [
       rad("Ämnen som redovisas", redovisade.length + " (" +
-        forsta.lasar + "–" + sista.lasar + ")"),
-      rad("Betygspoäng " + sista.lasar + ", snitt över ämnena",
-        talSv(sista.betygspoang, 1) + " av " + data.maxPoang),
-      rad("Andel med godkänt " + sista.lasar,
+        esc(forsta.lasar) + "–" + esc(sista.lasar) + ")"),
+      rad("Betygspoäng " + esc(sista.lasar) + ", snitt över ämnena",
+        talSv(sista.betygspoang, 1) + " av " + esc(data.maxPoang)),
+      rad("Andel med godkänt " + esc(sista.lasar),
         talSv(sista.andelAE, 1) + " %")
     ]);
 
@@ -188,16 +189,16 @@
       ? data.pendling[data.pendling.length - 1].gymnasiet : null;
 
     var rader = [
-      rad("Behöriga till yrkesprogram i nian " + n.lasar,
+      rad("Behöriga till yrkesprogram i nian " + esc(n.lasar),
         talSv(n.andelBehorigYrkes, 1) + " %")
     ];
     if (s) {
-      rader.push(rad("Examen inom 3 år, började " + s.ar,
+      rader.push(rad("Examen inom 3 år, började " + esc(s.ar),
         talSv(s.examen3, 1) + " %"));
     }
     if (e && e.betygspoang !== null) {
-      rader.push(rad("Betygspoäng vid examen " + e.ar,
-        talSv(e.betygspoang, 1) + " av " + data.poangMax));
+      rader.push(rad("Betygspoäng vid examen " + esc(e.ar),
+        talSv(e.betygspoang, 1) + " av " + esc(data.poangMax)));
     }
     if (p) {
       rader.push(rad("Läser gymnasiet i en annan kommun",

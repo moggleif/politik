@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Metod – Kungsbacka i siffror</title>
 <meta name="description" content="Hur siffrorna på Kungsbacka i siffror hämtas, granskas och räknas fram – källor, transformationer, viktning, sekretessgränser och hur allt kan reproduceras.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
@@ -304,7 +305,7 @@
       bygget är deterministiskt: samma indata ger samma utdata. Så här
       återskapas allt från grunden:
     </p>
-    <div class="kort"><pre style="margin:0;overflow-x:auto"><code>git clone https://github.com/moggleif/politik
+    <div class="kort"><pre class="kodblock"><code>git clone https://github.com/moggleif/politik
 cd politik
 python3 scripts/build_data.py         # prognossidorna
 python3 scripts/build_meritvarden.py  # meritvärdessidan

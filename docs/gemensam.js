@@ -73,6 +73,31 @@
     });
   }
 
+  /* All HTML på sidorna byggs som strängar. Värden som kommer ur
+     datafilerna (namn, källtexter, årtal …) ska alltid gå genom esc()
+     innan de hamnar i markupen — datat härstammar från externa källor
+     (SCB, Skolverket, GR), och en förgiftad datafil får inte kunna bli
+     körbar kod hos besökaren. Fasta strängar i koden behöver inte escapas. */
+  function esc(v) {
+    return String(v)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  /* Adresser ur datafilerna släpps bara igenom som https eller relativ
+     sökväg — aldrig javascript:, data: eller protokollrelativt — och
+     attributescapas. Tom sträng betyder att länken inte ska ritas. */
+  function sakerUrl(url) {
+    url = String(url == null ? "" : url).trim();
+    if (!url) return "";
+    if (/^https:\/\//i.test(url)) return esc(url);
+    if (url.indexOf(":") === -1 && url.slice(0, 2) !== "//") return esc(url);
+    return "";
+  }
+
   function installChartDefaults() {
     Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
     Chart.defaults.font.size = 15;
@@ -184,10 +209,10 @@
     var m = el("meta-rad");
     if (!m) return;
     var delar = [];
-    if (f.kalla) delar.push("<span>Källa: " + f.kalla + "</span>");
-    if (f.period) delar.push("<span>Period: " + f.period + "</span>");
-    if (f.senaste) delar.push("<span>Senaste data: " + f.senaste + "</span>");
-    if (f.hamtad) delar.push("<span>Data hämtad: " + f.hamtad + "</span>");
+    if (f.kalla) delar.push("<span>Källa: " + esc(f.kalla) + "</span>");
+    if (f.period) delar.push("<span>Period: " + esc(f.period) + "</span>");
+    if (f.senaste) delar.push("<span>Senaste data: " + esc(f.senaste) + "</span>");
+    if (f.hamtad) delar.push("<span>Data hämtad: " + esc(f.hamtad) + "</span>");
     delar.push('<span>Data och källkod: <a href="https://github.com/moggleif/politik">GitHub</a></span>');
     m.innerHTML = delar.join('<span class="meta-skilje" aria-hidden="true">·</span>');
     m.hidden = false;
@@ -320,6 +345,10 @@
     Array.prototype.forEach.call(tabell.rows, function (rad) {
       var celler = Array.prototype.map.call(rad.cells, function (c) {
         var t = c.textContent.replace(/ /g, " ").replace(/\s+/g, " ").trim();
+        /* En cell som inleds med =, + eller @ skulle kunna tolkas som
+           formel när filen öppnas i ett kalkylprogram. Talen på sidorna
+           börjar aldrig så; neutralisera med en inledande apostrof. */
+        if (/^[=+@]/.test(t)) t = "'" + t;
         if (skilje === ";" && /[";\n]/.test(t)) t = '"' + t.replace(/"/g, '""') + '"';
         return t;
       });
@@ -420,6 +449,8 @@
     rampFargOrange: rampFargOrange,
     el: el,
     talSv: talSv,
+    esc: esc,
+    sakerUrl: sakerUrl,
     slug: slug,
     installChartDefaults: installChartDefaults,
     visaStatus: visaStatus,

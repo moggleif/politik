@@ -11,6 +11,7 @@
   var FARG = K.FARG;
   var el = K.el;
   var talSv = K.talSv;
+  var esc = K.esc;
 
   /* Olika mått får olika kulör ur den validerade paletten, så att
      panelerna inte ser ut att visa samma sak: lila = grundskolebetyg,
@@ -161,13 +162,13 @@
     var punkter = [];
     rader.forEach(function (r) {
       if (r.antagning.status === "rapport_saknas") {
-        punkter.push("Kullen " + kullEtikett(r) + ": " +
-          r.antagningsar + " års antagningsrapport har inte gått att få tag på, " +
+        punkter.push("Kullen " + esc(kullEtikett(r)) + ": " +
+          esc(r.antagningsar) + " års antagningsrapport har inte gått att få tag på, " +
           "så meritvärdet saknas.");
       }
       if (r.examen.status === "sekretess") {
-        punkter.push("Kullen " + kullEtikett(r) + ": färre än tio avgångselever " +
-          r.examensar + " – Skolverket redovisar inte värdet.");
+        punkter.push("Kullen " + esc(kullEtikett(r)) + ": färre än tio avgångselever " +
+          esc(r.examensar) + " – Skolverket redovisar inte värdet.");
       }
     });
     if (!harExamen) {
@@ -187,9 +188,9 @@
     var html = "";
     if (kompletta.length) {
       var forsta = kompletta[0], sista = kompletta[kompletta.length - 1];
-      html += "<p>För <strong>" + p.etikett + "</strong> kan " +
+      html += "<p>För <strong>" + esc(p.etikett) + "</strong> kan " +
         kompletta.length + " kullar följas hela vägen, från antagningen " +
-        forsta.antagningsar + " till examen " + sista.examensar + ".</p>";
+        esc(forsta.antagningsar) + " till examen " + esc(sista.examensar) + ".</p>";
       if (kompletta.length > 1) {
         var mDiff = sista.antagning.medel - forsta.antagning.medel;
         var bDiff = sista.examen.betygspoang - forsta.examen.betygspoang;
@@ -214,7 +215,7 @@
         "utveckling, inte vad som orsakade den. Små kullar kan svänga " +
         "kraftigt av rena tillfälligheter.</p>";
     } else {
-      html += "<p>För <strong>" + p.etikett + "</strong> finns ingen kull " +
+      html += "<p>För <strong>" + esc(p.etikett) + "</strong> finns ingen kull " +
         "där både antagningen och examen är redovisad, så någon jämförelse " +
         "går inte att göra. Tabellen visar de uppgifter som finns.</p>";
     }
@@ -228,7 +229,7 @@
   }
 
   function ritaTabell(p, rader) {
-    var t = "<caption>Kullarna för " + p.etikett + ": antagningen ställd mot " +
+    var t = "<caption>Kullarna för " + esc(p.etikett) + ": antagningen ställd mot " +
       "examen tre år senare. Meritvärdet (max 340) och betygspoängen (0–20) " +
       "har olika skalor och kan inte jämföras med varandra.</caption>";
     t += "<thead><tr><th scope=\"col\">Kull</th>" +
@@ -238,13 +239,13 @@
       "<th scope=\"col\">Andel med examen</th>" +
       "<th scope=\"col\">Andel med högskolebehörighet</th></tr></thead><tbody>";
     rader.forEach(function (r) {
-      t += "<tr><td>" + kullEtikett(r) + "</td>";
+      t += "<tr><td>" + esc(kullEtikett(r)) + "</td>";
       t += "<td>" + (r.antagning.status === "ok"
         ? talSv(r.antagning.medel, 1)
-        : cellSaknas("Kullen " + kullEtikett(r) + ": " +
+        : cellSaknas("Kullen " + esc(kullEtikett(r)) + ": " +
             ANTAGNING_STATUS[r.antagning.status], "–")) + "</td>";
       if (r.examen.status === "ok") {
-        t += "<td>" + (r.examen.antal === null ? "–" : r.examen.antal) + "</td>" +
+        t += "<td>" + (r.examen.antal === null ? "–" : esc(r.examen.antal)) + "</td>" +
           "<td>" + talSv(r.examen.betygspoang, 1) + "</td>" +
           "<td>" + (r.examen.andelExamen === null ? "–"
             : talSv(r.examen.andelExamen, 1) + " %") + "</td>" +
@@ -255,7 +256,7 @@
           'Skolverket redovisar inte värdet">..</abbr>';
         t += "<td>" + s + "</td><td>" + s + "</td><td>" + s + "</td><td>" + s + "</td>";
       } else {
-        var o = cellSaknas("Kullen " + kullEtikett(r) + ": " +
+        var o = cellSaknas("Kullen " + esc(kullEtikett(r)) + ": " +
           EXAMEN_STATUS[r.examen.status], "–");
         t += "<td>" + o + "</td><td>" + o + "</td><td>" + o + "</td><td>" + o + "</td>";
       }
@@ -280,18 +281,18 @@
 
     var skal = [];
     inte.forEach(function (p) {
-      skal.push("<strong>" + p.etikett + "</strong> har en serie i båda " +
+      skal.push("<strong>" + esc(p.etikett) + "</strong> har en serie i båda " +
         "källorna, men ingen kull där båda sidorna är redovisade.");
     });
     DATA.oparade.antagningUtanSlutbetyg.forEach(function (namn) {
-      skal.push("<strong>" + namn + "</strong> har antagningssiffror, men " +
+      skal.push("<strong>" + esc(namn) + "</strong> har antagningssiffror, men " +
         "ingen slutbetygsserie på samma skola – oftast för att programmet " +
         "aldrig nått tio avgångselever där.");
     });
     DATA.oparade.slutbetygUtanAntagning.forEach(function (namn) {
-      skal.push("<strong>" + namn + "</strong> har slutbetyg, men ingen " +
+      skal.push("<strong>" + esc(namn) + "</strong> har slutbetyg, men ingen " +
         "antagningsserie – antagningsstatistiken omfattar bara kommunens " +
-        "egna skolor och åren från " + DATA.meritKallor.forsta + ".");
+        "egna skolor och åren från " + esc(DATA.meritKallor.forsta) + ".");
     });
     if (skal.length) {
       html += "<ul class=\"forklaring\"><li>" + skal.join("</li><li>") + "</li></ul>";
@@ -322,7 +323,7 @@
     var punkter = [];
     punkter.push("<strong>" + totKullar + " kullar</strong> på " + kan.length +
       " program kan följas hela vägen från antagning till examen, från " +
-      "antagningen " + forstaAntagning + " till examen " + sistaExamen + ".");
+      "antagningen " + esc(forstaAntagning) + " till examen " + esc(sistaExamen) + ".");
     punkter.push("Måtten har olika skalor: meritvärdet från grundskolan " +
       "(max 340) och betygspoängen från gymnasiet (0–20) går " +
       "<strong>inte</strong> att jämföra med varandra som tal – bara " +

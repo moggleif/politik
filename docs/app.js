@@ -13,6 +13,8 @@
   var el = K.el;
   var visaStatus = K.visaStatus;
   var installChartDefaults = K.installChartDefaults;
+  var esc = K.esc;
+  var sakerUrl = K.sakerUrl;
 
   var KONF = document.body.dataset;
   var DATAFIL = KONF.datafil || "data.json";
@@ -99,15 +101,15 @@
     /* Klarspråkssammanfattning */
     var forsta = punkter[0], sista = punkter[punkter.length - 1];
     var html = "";
-    html += "<p><strong>Tidigaste prognosen</strong> (gjord " + forsta.prognosAr + ", " +
-      forsta.avv.avstand + " år i förväg) trodde på " + talSv(forsta.avv.prognos) +
+    html += "<p><strong>Tidigaste prognosen</strong> (gjord " + esc(forsta.prognosAr) + ", " +
+      esc(forsta.avv.avstand) + " år i förväg) trodde på " + talSv(forsta.avv.prognos) +
       " " + ENHET + " år " + malAr + ". Det blev " + talSv(forsta.avv.utfall) +
       " – prognosen låg " + talSv(Math.abs(forsta.avv.diff)) + " personer " +
       (forsta.avv.diff >= 0 ? "för högt" : "för lågt") +
       " (" + talSv(Math.abs(forsta.avv.pct), 1) + " %).</p>";
     if (sista !== forsta) {
-      html += "<p><strong>Senaste prognosen</strong> (gjord " + sista.prognosAr + ", " +
-        (sista.avv.avstand === 0 ? "samma år" : sista.avv.avstand + " år i förväg") +
+      html += "<p><strong>Senaste prognosen</strong> (gjord " + esc(sista.prognosAr) + ", " +
+        (sista.avv.avstand === 0 ? "samma år" : esc(sista.avv.avstand) + " år i förväg") +
         ") trodde på " + talSv(sista.avv.prognos) + ". Den låg " +
         talSv(Math.abs(sista.avv.diff)) + " personer " +
         (sista.avv.diff >= 0 ? "för högt" : "för lågt") +
@@ -121,7 +123,7 @@
     t += "<thead><tr><th scope=\"col\">Prognos gjord år</th><th scope=\"col\">Prognosen sa</th>" +
       "<th scope=\"col\">Skillnad (personer)</th><th scope=\"col\">Fel i procent</th></tr></thead><tbody>";
     punkter.forEach(function (p) {
-      t += "<tr><td>" + p.prognosAr + "</td><td>" + talSv(p.avv.prognos) + "</td><td>" +
+      t += "<tr><td>" + esc(p.prognosAr) + "</td><td>" + talSv(p.avv.prognos) + "</td><td>" +
         (p.avv.diff >= 0 ? "+" : "−") + talSv(Math.abs(p.avv.diff)) + "</td><td>" +
         talSv(p.avv.pct, 1) + " %</td></tr>";
     });
@@ -215,9 +217,9 @@
 
     var kort = rader[0], langt = rader[rader.length - 1];
     var html = "<p>I genomsnitt har prognoserna som gjorts <strong>" +
-      (langt.avstand === 0 ? "samma år" : langt.avstand + " år i förväg") +
+      (langt.avstand === 0 ? "samma år" : esc(langt.avstand) + " år i förväg") +
       "</strong> missat med " + talSv(langt.medelAbsPct, 1) + " %, medan de som gjorts " +
-      (kort.avstand === 0 ? "<strong>samma år</strong>" : "<strong>" + kort.avstand + " år i förväg</strong>") +
+      (kort.avstand === 0 ? "<strong>samma år</strong>" : "<strong>" + esc(kort.avstand) + " år i förväg</strong>") +
       " missat med " + talSv(kort.medelAbsPct, 1) + " %.</p>";
     var battre = langt.medelAbsPct > kort.medelAbsPct;
     html += "<p>" + (battre
@@ -232,7 +234,7 @@
         (tunna.length === rader.length
           ? "samtliga staplar bygger på färre än tre prognosvärden"
           : "staplarna för " + tunna.map(function (r) {
-              return r.avstand === 0 ? "samma år" : r.avstand + " år före";
+              return r.avstand === 0 ? "samma år" : esc(r.avstand) + " år före";
             }).join(", ") + " bygger på färre än tre prognosvärden") +
         ". Så få mätpunkter kan slå åt vilket håll som helst, så skillnaderna " +
         "mellan staplarna ska inte övertolkas. Antalet syns när du pekar på en " +
@@ -244,9 +246,9 @@
     t += "<thead><tr><th scope=\"col\">Hur långt i förväg</th><th scope=\"col\">Genomsnittligt fel</th>" +
       "<th scope=\"col\">Största fel</th><th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
     rader.forEach(function (r) {
-      t += "<tr><td>" + (r.avstand === 0 ? "Samma år" : r.avstand + " år före") + "</td><td>" +
+      t += "<tr><td>" + (r.avstand === 0 ? "Samma år" : esc(r.avstand) + " år före") + "</td><td>" +
         talSv(r.medelAbsPct, 1) + " %</td><td>" + talSv(r.maxAbsPct, 1) + " %</td><td>" +
-        r.antal + "</td></tr>";
+        esc(r.antal) + "</td></tr>";
     });
     t += "</tbody>";
     el("tabell-avstand").innerHTML = t;
@@ -322,7 +324,7 @@
     var hall = over >= under ? "för högt" : "för lågt";
     var systematiskt = dominans >= Math.ceil(n * 0.75);
 
-    var html = "<p><strong>" + dominans + " av " + n + "</strong> jämförelser " +
+    var html = "<p><strong>" + dominans + " av " + esc(n) + "</strong> jämförelser " +
       "ligger " + hall + ". Vore felen slumpmässiga skulle ungefär hälften " +
       "hamna på var sida.</p>";
     html += "<p>Genomsnittet över alla prognoser är <strong>" +
@@ -352,9 +354,9 @@
       var lag = arg.filter(function (r) { return r.medelPct < 0; });
       var hog = arg.filter(function (r) { return r.medelPct > 0; });
       html += "<p><strong>Riktningen har skiftat.</strong> Prognoserna från " +
-        lag.map(function (r) { return r.prognosAr; }).join(", ") +
+        esc(lag.map(function (r) { return r.prognosAr; }).join(", ")) +
         " låg för lågt, medan de från " +
-        hog.map(function (r) { return r.prognosAr; }).join(", ") +
+        esc(hog.map(function (r) { return r.prognosAr; }).join(", ")) +
         " låg för högt. Det talar för att modellen skriver fram den utveckling " +
         "som varit och därför missar vändpunkter &ndash; åt båda hållen. Ett " +
         "sådant fel försvinner inte genom att lägga på en fast korrigering; " +
@@ -375,8 +377,8 @@
         "man jämföra prognoser på samma sikt &ndash; en gammal prognos har " +
         "hunnit prövas många år framåt, en ny bara på kort sikt. Ser man bara " +
         "på hur fel prognoserna slagit <em>ett år framåt</em>, var " +
-        varst.prognosAr + " års prognos sämst (" + tecken(varst.ettArPct) +
-        ") och " + senast.prognosAr + " års senast mätbar (" +
+        esc(varst.prognosAr) + " års prognos sämst (" + tecken(varst.ettArPct) +
+        ") och " + esc(senast.prognosAr) + " års senast mätbar (" +
         tecken(senast.ettArPct) + "). " +
         (Math.abs(senast.ettArPct) < Math.abs(varst.ettArPct)
           ? "Felet har alltså minskat" +
@@ -388,7 +390,7 @@
 
     if (n < 10) {
       html += "<p><strong>Läs med försiktighet:</strong> slutsatsen bygger på " +
-        n + " jämförelser. Riktningen är tydlig, men underlaget är litet.</p>";
+        esc(n) + " jämförelser. Riktningen är tydlig, men underlaget är litet.</p>";
     }
     el("slutsats-skevhet").innerHTML = html;
 
@@ -399,9 +401,9 @@
       "<th scope=\"col\">Antal för höga</th>" +
       "<th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
     rader.forEach(function (r) {
-      t += "<tr><td>" + (r.avstand === 0 ? "Samma år" : r.avstand + " år före") +
+      t += "<tr><td>" + (r.avstand === 0 ? "Samma år" : esc(r.avstand) + " år före") +
         "</td><td>" + (r.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) +
-        " %</td><td>" + r.antalOver + "</td><td>" + r.antal + "</td></tr>";
+        " %</td><td>" + esc(r.antalOver) + "</td><td>" + esc(r.antal) + "</td></tr>";
     });
     t += "</tbody>";
     if (arg.length) {
@@ -413,9 +415,9 @@
         var e = (r.ettArPct === null || r.ettArPct === undefined)
           ? "–"
           : (r.ettArPct >= 0 ? "+" : "−") + talSv(Math.abs(r.ettArPct), 1) + " %";
-        t += "<tr><td>" + r.prognosAr + "</td><td>" + e + "</td><td>" +
+        t += "<tr><td>" + esc(r.prognosAr) + "</td><td>" + e + "</td><td>" +
           (r.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) +
-          " %</td><td>" + (r.maxAvstand === 0 ? "samma år" : r.maxAvstand + " år framåt") +
+          " %</td><td>" + (r.maxAvstand === 0 ? "samma år" : esc(r.maxAvstand) + " år framåt") +
           "</td></tr>";
       });
       t += "</tbody>";
@@ -571,7 +573,7 @@
     t += "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Utfall (SCB)</th>";
     if (data.kohort) t += "<th scope=\"col\">Kohortframskrivning</th>";
     data.prognoser.forEach(function (p) {
-      t += "<th scope=\"col\">Prognos " + p.prognosAr + "</th>";
+      t += "<th scope=\"col\">Prognos " + esc(p.prognosAr) + "</th>";
     });
     t += "</tr></thead><tbody>";
     ar.forEach(function (a) {
@@ -697,8 +699,8 @@
       "Peka på en linje så tonas de övriga ned.";
 
     /* Tabell: utfallet med förändring, som facit att läsa mot */
-    var t = "<caption>" + (data.serie ? data.serie + ". " : "") +
-      data.utfallMeta.matt + " enligt SCB. Hämtad " + data.utfallMeta.hamtad +
+    var t = "<caption>" + (data.serie ? esc(data.serie) + ". " : "") +
+      esc(data.utfallMeta.matt) + " enligt SCB. Hämtad " + esc(data.utfallMeta.hamtad) +
       ".</caption>";
     t += "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Utfall</th>" +
       "<th scope=\"col\">Förändring</th></tr></thead><tbody>";
@@ -720,22 +722,26 @@
     var ul = el("lista-kallor");
     var html = "";
     data.prognoser.forEach(function (p) {
-      html += "<li><span class=\"titel\">" + p.rapportTitel + "</span>";
+      html += "<li><span class=\"titel\">" + esc(p.rapportTitel) + "</span>";
       if (p.sidhanvisning) {
-        html += "<br><span style=\"color:#898781;font-size:0.95rem\">Siffrorna hämtade ur: " +
-          p.sidhanvisning + "</span>";
+        html += "<br><span class=\"detalj\">Siffrorna hämtade ur: " +
+          esc(p.sidhanvisning) + "</span>";
       }
       html += "<div class=\"lankar\">";
-      if (p.lokalPdf) html += "<a href=\"" + p.lokalPdf + "\">Läs rapporten (PDF)</a>";
-      if (p.kallaUrl) html += "<a href=\"" + p.kallaUrl + "\">Original hos källan</a>";
-      if (p.arkivUrl) html += "<a href=\"" + p.arkivUrl + "\">Arkiverad kopia</a>";
+      /* sakerUrl ger tom sträng för otillåtna adresser — då ritas länken inte. */
+      var pdfUrl = sakerUrl(p.lokalPdf), origUrl = sakerUrl(p.kallaUrl),
+          arkivUrl = sakerUrl(p.arkivUrl);
+      if (p.lokalPdf && pdfUrl) html += "<a href=\"" + pdfUrl + "\">Läs rapporten (PDF)</a>";
+      if (p.kallaUrl && origUrl) html += "<a href=\"" + origUrl + "\">Original hos källan</a>";
+      if (p.arkivUrl && arkivUrl) html += "<a href=\"" + arkivUrl + "\">Arkiverad kopia</a>";
       html += "</div></li>";
     });
-    html += "<li><span class=\"titel\">Faktisk folkmängd: " + data.utfallMeta.kalla + "</span>" +
-      "<br><span style=\"color:#898781;font-size:0.95rem\">" + data.utfallMeta.matt +
-      ". Hämtad " + data.utfallMeta.hamtad + ".</span>" +
-      "<div class=\"lankar\"><a href=\"" + data.utfallMeta.kallaUrl +
-      "\">Öppna tabellen hos SCB</a></div></li>";
+    var scbUrl = sakerUrl(data.utfallMeta.kallaUrl);
+    html += "<li><span class=\"titel\">Faktisk folkmängd: " + esc(data.utfallMeta.kalla) + "</span>" +
+      "<br><span class=\"detalj\">" + esc(data.utfallMeta.matt) +
+      ". Hämtad " + esc(data.utfallMeta.hamtad) + ".</span>" +
+      (scbUrl ? "<div class=\"lankar\"><a href=\"" + scbUrl +
+        "\">Öppna tabellen hos SCB</a></div>" : "") + "</li>";
     ul.innerHTML = html;
     el("sektion-kallor").hidden = false;
     el("om-uppdaterad").textContent =
@@ -752,31 +758,31 @@
     var punkter = [];
     var tecken = function (v) { return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), 1) + " %"; };
 
-    punkter.push("I de <strong>" + sk.antal + " jämförelser</strong> som kan " +
+    punkter.push("I de <strong>" + esc(sk.antal) + " jämförelser</strong> som kan " +
       "göras har prognoserna i genomsnitt avvikit <strong>" +
       talSv(sk.medelAbsPct, 1) + " %</strong> från utfallet.");
 
     var over = sk.antalOver, under = sk.antal - over;
     if (over >= Math.ceil(sk.antal * 0.75)) {
-      punkter.push("Felen lutar åt ett håll: <strong>" + over + " av " + sk.antal +
+      punkter.push("Felen lutar åt ett håll: <strong>" + esc(over) + " av " + esc(sk.antal) +
         "</strong> prognosvärden låg över utfallet.");
     } else if (under >= Math.ceil(sk.antal * 0.75)) {
-      punkter.push("Felen lutar åt ett håll: <strong>" + under + " av " + sk.antal +
+      punkter.push("Felen lutar åt ett håll: <strong>" + under + " av " + esc(sk.antal) +
         "</strong> prognosvärden låg under utfallet.");
     } else {
-      punkter.push("Felen går åt båda hållen: " + over + " av " + sk.antal +
+      punkter.push("Felen går åt båda hållen: " + esc(over) + " av " + esc(sk.antal) +
         " prognosvärden låg över utfallet, " + under + " under.");
     }
 
     var rader = data.perAvstand || [];
     if (rader.length > 1) {
       var kort = rader[0], langt = rader[rader.length - 1];
-      var kortText = kort.avstand === 0 ? "samma år" : kort.avstand + " år i förväg";
+      var kortText = kort.avstand === 0 ? "samma år" : esc(kort.avstand) + " år i förväg";
       punkter.push("Felet " + (langt.medelAbsPct > kort.medelAbsPct
         ? "växer med prognoshorisonten" : "har inte vuxit entydigt med horisonten") +
         ": i snitt " + talSv(kort.medelAbsPct, 1) + " % för prognoser gjorda " +
         kortText + ", mot " + talSv(langt.medelAbsPct, 1) + " % för dem gjorda " +
-        langt.avstand + " år i förväg.");
+        esc(langt.avstand) + " år i förväg.");
     }
 
     /* Träffsäkraste årgången – jämför bara vid samma horisont (ett år
@@ -789,7 +795,7 @@
         return Math.abs(b.ettArPct) < Math.abs(a.ettArPct) ? b : a;
       });
       punkter.push("Mätt på samma sikt – ett år framåt – har prognosen från " +
-        "<strong>" + bast.prognosAr + "</strong> hittills varit träffsäkrast (" +
+        "<strong>" + esc(bast.prognosAr) + "</strong> hittills varit träffsäkrast (" +
         tecken(bast.ettArPct) + ").");
     }
 
@@ -806,9 +812,9 @@
       var forsta = kf.motSenaste[0];
       punkter.push("De barn som redan bor i kommunen räcker till <strong>" +
         talSv(kf.framskrivning[String(forsta.ar)]) + "</strong> " + ENHET +
-        " i åldern " + kf.aldrar[0] + "–" + kf.aldrar[1] + " år " + forsta.ar +
+        " i åldern " + esc(kf.aldrar[0]) + "–" + esc(kf.aldrar[1]) + " år " + esc(forsta.ar) +
         " och <strong>" + talSv(kf.framskrivning[String(kf.sistaAr)]) +
-        "</strong> år " + kf.sistaAr + ", om ingen flyttade – en ren " +
+        "</strong> år " + esc(kf.sistaAr) + ", om ingen flyttade – en ren " +
         "framskrivning av dagens åldersklasser.");
     }
 
@@ -828,7 +834,7 @@
       .filter(function (a) { return !egna[a]; });
     if (!saknade.length) return;
     K.sattDataNot("not-argangar",
-      "<p>Prognosrapporten från <strong>" + saknade.join(", ") + "</strong> " +
+      "<p>Prognosrapporten från <strong>" + esc(saknade.join(", ")) + "</strong> " +
       "ingår inte på den här sidan: den redovisar åldersgrupperna på ett " +
       "annat sätt (16–18 år i stället för 16–19) och går därför inte att " +
       "jämföra rakt av. Den finns med på " +
@@ -964,11 +970,11 @@
     K.sattDataNot("not-kohort",
       "Framskrivningen räknar <strong>varken in- eller utflyttning</strong> " +
       "och ingen dödlighet. Den säger hur många som skulle bli " +
-      k.aldrar[0] + "–" + k.aldrar[1] + " år om ingen flyttade. Historiskt " +
+      esc(k.aldrar[0]) + "–" + esc(k.aldrar[1]) + " år om ingen flyttade. Historiskt " +
       "har den missat med i snitt " + talSv(kort.medelAbsPct, 1) + " % ett år " +
-      "framåt och " + talSv(langt.medelAbsPct, 1) + " % " + langt.avstand +
+      "framåt och " + talSv(langt.medelAbsPct, 1) + " % " + esc(langt.avstand) +
       " år framåt. Riktningen skiftar: ett år framåt har den legat " +
-      riktning(kort) + ", " + langt.avstand + " år framåt " + riktning(langt) +
+      riktning(kort) + ", " + esc(langt.avstand) + " år framåt " + riktning(langt) +
       (langt.medelPct < 0
         ? " – på den sikten hinner det flytta in fler barnfamiljer än det " +
           "flyttar ut, och framskrivningen blir snarare en <em>undre gräns</em> " +
@@ -983,9 +989,9 @@
       var forsta = mot[0];
       var txt = "<p>Om ingen flyttade skulle Kungsbacka ha <strong>" +
         talSv(k.framskrivning[String(forsta.ar)]) + "</strong> " + ENHET +
-        " i åldern " + k.aldrar[0] + "–" + k.aldrar[1] + " år " + forsta.ar +
+        " i åldern " + esc(k.aldrar[0]) + "–" + esc(k.aldrar[1]) + " år " + esc(forsta.ar) +
         " – de finns redan i kommunen, de är bara yngre än så. År " +
-        k.sistaAr + " är samma tal <strong>" +
+        esc(k.sistaAr) + " är samma tal <strong>" +
         talSv(k.framskrivning[String(k.sistaAr)]) + "</strong>, en minskning " +
         "med " + talSv(Math.round(100 * (1 -
           k.framskrivning[String(k.sistaAr)] /
@@ -995,12 +1001,12 @@
           return Math.abs(b.diff) > Math.abs(a.diff) ? b : a;
         });
         var storstPct = 100 * Math.abs(storst.diff) / storst.kohort;
-        txt += "<p>Kommunens prognos från " + senaste.prognosAr + " ligger " +
+        txt += "<p>Kommunens prognos från " + esc(senaste.prognosAr) + " ligger " +
           "<strong>under</strong> framskrivningen för " +
-          (under.length === 1 ? "år " + under[0].ar
-            : under[0].ar + "–" + under[under.length - 1].ar) +
+          (under.length === 1 ? "år " + esc(under[0].ar)
+            : esc(under[0].ar) + "–" + esc(under[under.length - 1].ar)) +
           " – som mest " + talSv(Math.abs(storst.diff)) + " " + ENHET +
-          " (" + talSv(storstPct, 1) + " %) år " + storst.ar + ". För att " +
+          " (" + talSv(storstPct, 1) + " %) år " + esc(storst.ar) + ". För att " +
           "den ska slå in krävs alltså en nettoutflyttning i de åldrarna. " +
           "Det sker – framskrivningen har legat " + talSv(kort.medelPct, 1) +
           " % för högt ett år framåt – men i en helt annan storleksordning " +
@@ -1013,7 +1019,7 @@
       "senaste prognos, antal " + ENHET + ".</caption>" +
       "<thead><tr><th scope=\"col\">År</th>" +
       "<th scope=\"col\">Kohortframskrivning</th>" +
-      "<th scope=\"col\">Åldrar " + k.basAr + "</th>" +
+      "<th scope=\"col\">Åldrar " + esc(k.basAr) + "</th>" +
       "<th scope=\"col\">Kommunens prognos</th>" +
       "<th scope=\"col\">Skillnad</th></tr></thead><tbody>";
     Object.keys(k.framskrivning).map(Number).sort(function (a, b) { return a - b; })
@@ -1022,7 +1028,7 @@
         var kallor = k.ursprung[String(a)];
         tabell += "<tr><th scope=\"row\">" + a + "</th><td>" +
           talSv(k.framskrivning[String(a)]) + "</td><td>" +
-          kallor[0].alder + "–" + kallor[kallor.length - 1].alder + " år</td><td>" +
+          esc(kallor[0].alder) + "–" + esc(kallor[kallor.length - 1].alder) + " år</td><td>" +
           (rad ? talSv(rad.kommun) : "–") + "</td><td>" +
           (rad ? (rad.diff > 0 ? "+" : "−") + talSv(Math.abs(rad.diff)) : "–") +
           "</td></tr>";
@@ -1168,11 +1174,11 @@
         return (y.maxAvstand || 0) > (x.maxAvstand || 0) ? y : x;
       });
       txt += "<p><strong>" + argangar.length + "</strong> årgångar, en per " +
-        "årsskifte från " + argangar[0].basAr + " till " +
-        argangar[argangar.length - 1].basAr + ". Den äldsta (" +
-        langst.basAr + ") går att pröva " + langst.maxAvstand + " år framåt " +
+        "årsskifte från " + esc(argangar[0].basAr) + " till " +
+        esc(argangar[argangar.length - 1].basAr) + ". Den äldsta (" +
+        esc(langst.basAr) + ") går att pröva " + esc(langst.maxAvstand) + " år framåt " +
         "och har då missat med i snitt " + talSv(langst.medelAbsPct, 1) +
-        " %; " + bast.basAr + " års årgång är den träffsäkraste så här långt (" +
+        " %; " + esc(bast.basAr) + " års årgång är den träffsäkraste så här långt (" +
         talSv(bast.medelAbsPct, 1) + " %).</p>";
     }
     txt += "<p>Linjerna ligger på rad under varandra, och det är hela " +
@@ -1186,7 +1192,7 @@
       "antal " + ENHET + ".</caption><thead><tr><th scope=\"col\">År</th>" +
       "<th scope=\"col\">Utfall (SCB)</th>";
     argangar.forEach(function (arg) {
-      tab += "<th scope=\"col\">Från " + arg.basAr + "</th>";
+      tab += "<th scope=\"col\">Från " + esc(arg.basAr) + "</th>";
     });
     tab += "</tr></thead><tbody>";
     ar.forEach(function (y) {
@@ -1292,11 +1298,11 @@
     el("slutsats-kvoter").innerHTML =
       "<p>Svaret på frågan är alltså: <strong>ja, det är ett procenttal " +
       "&ndash; men ett per ålder.</strong> Störst är det för de allra " +
-      "yngsta: en årskull " + storst.alder + "-åringar är " +
+      "yngsta: en årskull " + esc(storst.alder) + "-åringar är " +
       tecknat(storst.nettoPct) + " större när den fyller " +
-      (storst.alder + 1) + ". Sedan faller det snabbt och planar ut kring " +
+      esc(storst.alder + 1) + ". Sedan faller det snabbt och planar ut kring " +
       "noll i tonåren, för att bli tydligt negativt i steget " +
-      minst.alder + "→" + (minst.alder + 1) + " år (" + tecknat(minst.nettoPct) +
+      esc(minst.alder) + "→" + esc(minst.alder + 1) + " år (" + tecknat(minst.nettoPct) +
       ") &ndash; då flyttar ungdomarna hemifrån.</p>" +
       "<p>Det här är barnfamiljer som flyttar in, inte fler födda: kurvan " +
       "gäller barn som redan är födda och bara byter kommun. Spannen visar " +
@@ -1309,10 +1315,10 @@
       "<th scope=\"col\">Svagaste året</th><th scope=\"col\">Starkaste året</th>" +
       "<th scope=\"col\">Antal år</th></tr></thead><tbody>" +
       q.map(function (r) {
-        return "<tr><th scope=\"row\">" + r.alder + " → " + (r.alder + 1) +
+        return "<tr><th scope=\"row\">" + esc(r.alder) + " → " + esc(r.alder + 1) +
           " år</th><td>" + tecknat(r.nettoPct) + "</td><td>" +
           tecknat(r.minPct) + "</td><td>" + tecknat(r.maxPct) + "</td><td>" +
-          r.antal + "</td></tr>";
+          esc(r.antal) + "</td></tr>";
       }).join("") + "</tbody>";
     el("sektion-kvoter").hidden = false;
   }
@@ -1435,9 +1441,9 @@
        som flyttar hemifrån. Formuleringen måste klara båda tecknen. */
     var forstaDiff = komp[String(forsta)] - k.framskrivning[String(forsta)];
     var txt = "<p>Kompensationen lyfter framskrivningen med <strong>" +
-      talSv(lyft) + "</strong> " + ENHET + " år " + sista + " (" +
+      talSv(lyft) + "</strong> " + ENHET + " år " + esc(sista) + " (" +
       talSv(100 * lyft / k.framskrivning[String(sista)], 1) + " %). År " +
-      forsta + " gör den tvärtom: " +
+      esc(forsta) + " gör den tvärtom: " +
       (forstaDiff < 0
         ? "där <strong>drar</strong> den ned framskrivningen med " +
           talSv(Math.abs(forstaDiff)) + " " + ENHET + ", eftersom det som " +
@@ -1451,7 +1457,7 @@
       var langst = jam[jam.length - 1];
       txt += "<p>Prövad bakåt, med kvoter skattade enbart ur åren före varje " +
         "basår, halverar kompensationen felet på lång sikt: " +
-        langst.avstand + " år framåt " + talSv(langst.kompenseradAbsPct, 1) +
+        esc(langst.avstand) + " år framåt " + talSv(langst.kompenseradAbsPct, 1) +
         " % mot den enkla framskrivningens " + talSv(langst.kohortAbsPct, 1) +
         " %. På kort sikt gör den ingen nytta &ndash; där är korrigeringen " +
         "mindre än bruset.</p>";
@@ -1602,11 +1608,11 @@
       (delad.length > 1
         ? "<strong>" + delad.length + " varianter likvärdiga</strong> på " +
           talSv(bast.medelAbsPct, 1) + " % i genomsnittligt fel &ndash; " +
-          delad.map(function (m) { return m.namn.toLowerCase(); }).join(" och ")
-        : "<strong>" + bast.namn.toLowerCase() + "</strong> bäst med " +
+          esc(delad.map(function (m) { return m.namn.toLowerCase(); }).join(" och "))
+        : "<strong>" + esc(bast.namn.toLowerCase()) + "</strong> bäst med " +
           talSv(bast.medelAbsPct, 1) + " % i genomsnittligt fel") +
       ", mot " + talSv(samst.medelAbsPct, 1) + " % för " +
-      samst.namn.toLowerCase() + ". Det gemensamma för dem som ligger " +
+      esc(samst.namn.toLowerCase()) + ". Det gemensamma för dem som ligger " +
       "främst är det korta fönstret.</p>";
 
     if (hela && fonster && vandpunkt !== null) {
@@ -1614,7 +1620,7 @@
       txt += "<p><strong>Kortare fönster hjälper &ndash; men först på " +
         "längre sikt.</strong> Ett år framåt är hela historiken bättre (" +
         talSv(kortH.medelAbsPct, 1) + " % mot " + talSv(kortF.medelAbsPct, 1) +
-        " %); från <strong>" + vandpunkt + " år</strong> och framåt vänder " +
+        " %); från <strong>" + esc(vandpunkt) + " år</strong> och framåt vänder " +
         "det, och då växer försprånget. Det är där en trend hinner göra " +
         "skillnad: flyttmönstret ändrar sig långsamt, men på den sikten " +
         "hinner avståndet mellan de senaste årens takt och " +
@@ -1646,7 +1652,7 @@
       if (hv !== undefined && fv !== undefined && hv !== fv) {
         txt += "<p><strong>Just nu drar trenden " +
           (fv < hv ? "nedåt" : "uppåt") + ".</strong> Med hela historiken " +
-          "skrivs " + sista + " fram till " + talSv(hv) + " " + ENHET +
+          "skrivs " + esc(sista) + " fram till " + talSv(hv) + " " + ENHET +
           ", med de tre senaste årens kvoter till " + talSv(fv) + " &ndash; " +
           talSv(Math.abs(fv - hv)) + " " +
           (fv < hv ? "färre" : "fler") + ". Inflyttningen av små barn har " +
@@ -1659,7 +1665,7 @@
     }
 
     txt += "<p>Jämförelserna överlappar varandra: samma målår räknas från " +
-      "flera basår, så de " + mod[0].antal + " punkterna är färre än de ser " +
+      "flera basår, så de " + esc(mod[0].antal) + " punkterna är färre än de ser " +
       "ut att vara. Skillnader under någon tiondels procentenhet ska inte " +
       "tolkas. Sidans <a href=\"#sektion-kompenserad\">kompenserade " +
       "framskrivning</a> använder hela historiken &ndash; den enklaste " +
@@ -1679,15 +1685,15 @@
     var korta = horisonter.filter(function (k) { return k <= 3; });
 
     var tab = "<caption>Varianterna prövade mot facit. Sista kolumnen är " +
-      "vad varje variant skriver fram till " + sistaAr + ".</caption>" +
+      "vad varje variant skriver fram till " + esc(sistaAr) + ".</caption>" +
       "<thead><tr><th scope=\"col\">Variant</th><th scope=\"col\">Så räknar den</th>" +
       "<th scope=\"col\">Fel totalt</th><th scope=\"col\">1–3 år</th>" +
       "<th scope=\"col\">8 år och mer</th>" +
-      "<th scope=\"col\">Framskrivning " + sistaAr + "</th></tr></thead><tbody>";
+      "<th scope=\"col\">Framskrivning " + esc(sistaAr) + "</th></tr></thead><tbody>";
     mod.forEach(function (m) {
       var l = snitt(m, langa), kt = snitt(m, korta);
       var f = m.framskrivning[String(sistaAr)];
-      tab += "<tr><th scope=\"row\">" + m.namn + "</th><td>" + m.kort +
+      tab += "<tr><th scope=\"row\">" + esc(m.namn) + "</th><td>" + esc(m.kort) +
         "</td><td>" + talSv(m.medelAbsPct, 1) + " %</td><td>" +
         (kt === null ? "–" : talSv(kt, 1) + " %") + "</td><td>" +
         (l === null ? "–" : talSv(l, 1) + " %") + "</td><td>" +
@@ -1788,7 +1794,7 @@
     });
     function horisonter(lista) {
       return lista.map(function (r) {
-        return r.avstand === 0 ? "samma år" : r.avstand + " år";
+        return r.avstand === 0 ? "samma år" : esc(r.avstand) + " år";
       }).join(", ");
     }
 
@@ -1821,7 +1827,7 @@
       (kompBattreAnEnkel.length
         ? "<p>Kompensationen gör sin nytta just där: den slår den enkla " +
           "framskrivningen vid " + horisonter(kompBattreAnEnkel) + " framåt, " +
-          "och " + langsta.avstand + " år framåt skiljer det " +
+          "och " + esc(langsta.avstand) + " år framåt skiljer det " +
           talSv(langsta.kohortAbsPct, 1) + " % mot " +
           talSv(langsta.kompenseradAbsPct, 1) + " % &ndash; nära kommunens " +
           talSv(langsta.kommunAbsPct, 1) + " %. Priset är antagandet att " +
@@ -1837,7 +1843,7 @@
       "<th scope=\"col\">Enkel framskrivning</th>" +
       "<th scope=\"col\">Kompenserad framskrivning</th></tr></thead><tbody>";
     rader.forEach(function (r) {
-      t += "<tr><th scope=\"row\">" + r.avstand + "</th><td>" + r.antal +
+      t += "<tr><th scope=\"row\">" + esc(r.avstand) + "</th><td>" + esc(r.antal) +
         "</td><td>" + talSv(r.kommunAbsPct, 1) + " %</td><td>" +
         talSv(r.kohortAbsPct, 1) + " %</td><td>" +
         (r.kompenseradAbsPct === null || r.kompenseradAbsPct === undefined

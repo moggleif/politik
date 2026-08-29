@@ -122,6 +122,11 @@ h2 {
   margin-top: 1.25rem;
 }
 
+.kodblock {
+  margin: 0;
+  overflow-x: auto;
+}
+
 .diagram-wrap {
   position: relative;
   width: 100%;
@@ -249,6 +254,11 @@ ul.kallista li {
 }
 
 ul.kallista .titel { font-weight: 600; }
+
+ul.kallista .detalj {
+  color: #898781;
+  font-size: 0.95rem;
+}
 
 ul.kallista .lankar {
   display: flex;
