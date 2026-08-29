@@ -16,9 +16,17 @@ SKOLOR = [
     {"id": "elof", "namn": "Elof Lindälvs gymnasium", "kort": "Elof Lindälv"},
 ]
 
-# Gymnasieskolans nationella program, med den indelning som styr hur
-# utbildningarna grupperas på sidorna. Namnen är de som gäller i dag;
-# gamla namn i PROGRAM_BYTT_NAMN byts ut innan listorna används.
+# Indelningen som styr hur utbildningarna grupperas på sidorna. Namnen är
+# de som gäller i dag; gamla namn i PROGRAM_BYTT_NAMN byts ut innan
+# listorna används.
+#
+# OBS: gymnasieskolan har sex nationella högskoleförberedande program.
+# International Baccalaureate ligger i samma grupp här därför att den är
+# högskoleförberedande i praktisk mening och redovisas tillsammans med
+# de övriga i statistiken – men IB är formellt inte ett nationellt
+# program och ingår inte i skolformen gymnasieskola. Där gruppen skrivs
+# ut för läsaren ska den därför heta "högskoleförberedande program
+# (inkl. IB)", inte "nationella högskoleförberedande program".
 HOGSKOLEFORBEREDANDE = {
     "Ekonomiprogrammet",
     "Estetiska programmet",

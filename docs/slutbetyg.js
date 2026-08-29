@@ -7,7 +7,13 @@
    program som flyttat mellan de två skolorna är fortfarande ett program
    och tar sina gamla år med sig. Låg samma program på två skolor
    samtidigt är det däremot två utbildningar, och då står skolan i
-   namnet. Uppdelningen görs i scripts/build_slutbetyg.py. */
+   namnet. Uppdelningen görs i scripts/build_slutbetyg.py.
+
+   Rapporten gäller avgångselever på nationella program, och de
+   sammanräknade avsnitten (examen, programgrupper) bygger på rapportens
+   egna summeringsrader – "Nationella program", "Högskoleförberedande
+   program" och "Yrkesprogram" – för de två skolornas enheter.
+   Introduktionsprogrammen finns alltså inte med någonstans på sidan. */
 (function () {
   "use strict";
 
@@ -127,7 +133,7 @@
 
   function gruppText() {
     var grupp = valdGrupp();
-    return grupp ? TYPNAMN[grupp].toLowerCase() : "program";
+    return grupp ? TYPNAMN[grupp].toLowerCase() : "nationella program";
   }
 
   function varde(u, ar, matt) {
@@ -478,7 +484,8 @@
       return s.ar === valtAr;
     })[0];
     if (sammanfattning && !valdGrupp()) {
-      html += "<p>Hela avgångskullen på de två skolorna var " +
+      html += "<p>Avgångseleverna på de nationella programmen vid de två " +
+        "skolorna var " +
         esc(sammanfattning.antal) + " elever med " +
         visaTal(sammanfattning.betygspoang, HUVUDMATT) +
         " i snitt. Här räknas varje elev lika mycket, så de stora " +
@@ -624,8 +631,9 @@
 
   /* ---------- Avsnitt 4: examen eller studiebevis ----------
      Båda skolorna, oberoende av programfiltret: siffrorna kommer ur
-     rapportens egen summering för deras skolenheter, som också räknar med
-     de utbildningar som är för små för att redovisas var för sig. */
+     rapportens egen summeringsrad "Nationella program" för deras
+     skolenheter, som också räknar med de utbildningar som är för små för
+     att redovisas var för sig. Introduktionsprogrammen ingår inte. */
 
   function ritaExamen() {
     var rader = DATA.sammanfattning.filter(function (r) {
@@ -698,20 +706,23 @@
 
     var forsta = rader[0], sista = rader[rader.length - 1];
     var html = "<p>" + esc(sista.ar) + " gick <strong>" + esc(sista.medExamen) + " av " +
-      esc(sista.antal) + "</strong> avgångselever ut Aranäs och Elof Lindälv " +
+      esc(sista.antal) + "</strong> avgångselever på de nationella programmen " +
+      "ut Aranäs och Elof Lindälv " +
       "med en gymnasieexamen (" + talSv(sista.andelExamen, 1) + " procent). " +
       esc(forsta.ar) + " var det " + esc(forsta.medExamen) + " av " + esc(forsta.antal) +
       " (" + talSv(forsta.andelExamen, 1) + " procent).</p>";
     if (sista.andelGrundlBehorighet !== null) {
       html += "<p>" + talSv(sista.andelGrundlBehorighet, 1) + " procent av " +
-        esc(sista.ar) + " års avgångselever hade grundläggande " +
+        esc(sista.ar) + " års avgångselever på de nationella programmen " +
+        "hade grundläggande " +
         "högskolebehörighet. Det är ett annat krav än examen: en elev kan " +
         "ha examen från ett yrkesprogram utan att ha läst till behörigheten.</p>";
     }
     el("slutsats-examen").innerHTML = html;
 
-    var t = "<caption>Avgångselever med och utan gymnasieexamen per år, " +
-      "samtliga gymnasieskolor i Kungsbacka.</caption>";
+    var t = "<caption>Avgångselever på de nationella programmen med och utan " +
+      "gymnasieexamen per år, Aranäsgymnasiet och Elof Lindälvs " +
+      "gymnasium.</caption>";
     t += "<thead><tr><th scope=\"col\">År</th>" +
       "<th scope=\"col\">Avgångselever</th>" +
       "<th scope=\"col\">Med examen</th>" +
@@ -800,8 +811,9 @@
     }, 380);
 
     el("kalla-typ").textContent =
-      "Genomsnittlig betygspoäng för alla avgångselever i respektive grupp, " +
-      "på Aranäs och Elof Lindälv. Varje elev räknas lika mycket.";
+      "Genomsnittlig betygspoäng för avgångseleverna i respektive grupp av " +
+      "nationella program, på Aranäs och Elof Lindälv. Varje elev räknas " +
+      "lika mycket.";
 
     var sista = DATA.ar[DATA.ar.length - 1];
     var html = "";
@@ -825,9 +837,16 @@
           yp.varden[String(forsta)].betygspoang);
         var nu = Math.abs(a - b);
         html += "<p>" + esc(forsta) + " var skillnaden " + talSv(gammal, 1) +
-          ". Gapet har alltså " +
-          (Math.abs(nu - gammal) < 0.05 ? "hållit sig"
-            : nu > gammal ? "vidgats" : "krympt") + ".</p>";
+          " betygspoäng &ndash; " +
+          (Math.abs(nu - gammal) < 0.05
+            ? "ungefär lika stor som nu"
+            : "alltså " + talSv(Math.abs(nu - gammal), 1) + " poäng " +
+              (nu > gammal ? "mindre" : "större") + " än " + esc(sista)) +
+          ". Det är en jämförelse mellan två enskilda år. Gruppernas " +
+          "siffror är elevviktade, men vilka program som ingår i varje " +
+          "grupp skiljer sig mellan åren, så skillnaden kan lika gärna " +
+          "komma av att programutbudet ändrats som av att programmen " +
+          "förändrats.</p>";
       }
     }
     el("slutsats-typ").innerHTML = html;
@@ -919,13 +938,15 @@
       "–" + esc(DATA.ar[DATA.ar.length - 1]) + ".");
 
     var diff = sista.betygspoang - forsta.betygspoang;
-    punkter.push("Hela avgångskullens genomsnittliga betygspoäng var " +
+    punkter.push("Genomsnittlig betygspoäng för avgångseleverna på de " +
+      "nationella programmen var " +
       talSv(sista.betygspoang, 1) + " år " + esc(sista.ar) + ", mot " +
       talSv(forsta.betygspoang, 1) + " år " + esc(forsta.ar) + " (" +
       (diff >= 0 ? "+" : "−") + talSv(Math.abs(diff), 1) + " på skalan 0–20).");
 
     if (sista.andelExamen !== null && forsta.andelExamen !== null) {
-      punkter.push("Andelen avgångselever med gymnasieexamen var <strong>" +
+      punkter.push("Andelen avgångselever på de nationella programmen med " +
+        "gymnasieexamen var <strong>" +
         talSv(sista.andelExamen, 1) + " %</strong> år " + esc(sista.ar) +
         ", mot " + talSv(forsta.andelExamen, 1) + " % år " + esc(forsta.ar) + ".");
     }
@@ -987,7 +1008,7 @@
     data.skolor.forEach(function (s) { KORT[s.namn] = s.kort; });
 
     var gruppVal = el("grupp-valjare");
-    fyllValjare(gruppVal, [""], function () { return "Alla program"; });
+    fyllValjare(gruppVal, [""], function () { return "Alla nationella program"; });
     ["hogskoleforberedande", "yrkesprogram"].forEach(function (typ) {
       if (data.utbildningar.some(function (u) { return u.typ === typ; })) {
         fyllValjare(gruppVal, [typ], function (t) { return TYPNAMN[t]; });

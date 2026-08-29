@@ -358,16 +358,6 @@
     }).join("");
   }
 
-  /* Hur stark en korrelation är, i ord. Gränserna är godtyckliga och
-     står därför utskrivna i texten intill. */
-  function styrka(r) {
-    var a = Math.abs(r);
-    if (a < 0.3) return "inget tydligt samband";
-    if (a < 0.5) return "ett svagt samband";
-    if (a < 0.7) return "ett måttligt samband";
-    return "ett starkt samband";
-  }
-
   function ritaSamband() {
     var s = sambandFor(el("samband-valjare").value);
     var stil = K.serieStil(0);
@@ -431,12 +421,15 @@
     el("slutsats-samband").innerHTML = s.r === null
       ? "<p>Underlaget räcker inte för att räkna fram ett samband.</p>"
       : "<p>Över de " + esc(s.n) + " kullar som har båda måtten är korrelationen " +
-        "<strong>r = " + talSv(s.r, 2) + "</strong>, vilket är " + styrka(s.r) +
-        (s.r < 0 ? " &ndash; och det som finns pekar åt <em>motsatt</em> håll " +
-          "mot vad man skulle vänta sig" : "") + ". Gränserna för vad som " +
-        "kallas svagt, måttligt och starkt är godtyckliga; med ett dussin " +
-        "punkter är osäkerheten under alla omständigheter större än " +
-        "skillnaden mellan dem.</p>";
+        "<strong>r = " + talSv(s.r, 2) + "</strong> (n = " + esc(s.n) + " årskullar)" +
+        (s.r < 0 ? ", och tecknet är negativt: det som finns pekar åt " +
+          "<em>motsatt</em> håll mot vad man skulle vänta sig" : "") +
+        ". Siffran står här utan omdöme om styrka, och det av tre skäl. " +
+        "Med " + esc(s.n) + " punkter kan en enda årskull flytta r kraftigt, " +
+        "och något osäkerhetsintervall är inte räknat. Punkterna är " +
+        "årsgenomsnitt för hela kullar, inte enskilda elever. Och båda " +
+        "serierna löper över tid: en gemensam tidstrend kan ge ett högt r " +
+        "utan att kullarnas två mått har med varandra att göra.</p>";
 
     el("tabell-samband").innerHTML =
       "<thead><tr><th scope=\"col\">Ut ur nian</th><th scope=\"col\">" +
@@ -680,10 +673,10 @@
         "mätpunkterna ovan följer alltså inte samma individer."
     ];
     if (starkast) {
-      punkter.push("Det starkaste sambandet mellan nian och gymnasiet i " +
-        "materialet är <strong>r = " + talSv(starkast.r, 2) + "</strong> över " +
-        esc(starkast.n) + " årskullar &ndash; " + styrka(starkast.r) +
-        ", och alldeles för få punkter för att slå fast något.");
+      punkter.push("Av sidans korrelationer mellan nian och gymnasiet ligger " +
+        "den som hamnar längst från noll på <strong>r = " + talSv(starkast.r, 2) +
+        "</strong> över " + esc(starkast.n) + " årskullar &ndash; årsgenomsnitt, " +
+        "inte elever, och för få punkter för att slå fast något.");
     }
     K.visaKortSagt(punkter);
   }

@@ -2,8 +2,9 @@
 
 **Hemsidan:** <https://moggleif.github.io/politik/>
 
-Fristående, helt statiska sammanställningar av kommunens egna siffror,
-med alla källor länkade.
+Fristående, helt statiska sammanställningar av offentliga siffror om
+Kungsbacka &ndash; från kommunen, SCB, Skolverket och Göteborgsregionen
+&ndash; med alla källor länkade.
 
 **Befolkningsprognoser** &ndash; hur träffsäkra kommunens prognoser har varit,
 inklusive långtidsprognoserna. Prognossiffrorna kommer ur kommunens egna
@@ -15,8 +16,10 @@ officiella befolkningsstatistik.
   &ndash; innehåller också en **kohortframskrivning**: de barn som redan bor i
   kommunen blir ett år äldre varje år, så antalet 16&ndash;19-åringar om
   k år är summan av dagens 16&nbsp;&minus;&nbsp;k … 19&nbsp;&minus;&nbsp;k-åringar.
-  Ingen modell, inga antaganden om flyttning &ndash; och därför en ren
-  jämförelsepunkt mot kommunens prognos. Den ritas orange, och görs i en
+  Ingen modell och inga födelsetal, men inte antagandefri: att bära varje
+  kohort rakt fram förutsätter noll nettoflyttning och ingen dödlighet.
+  Just därför fungerar den som jämförelsepunkt mot kommunens prognos
+  &ndash; det syns tydligt vad den utelämnar. Den ritas orange, och görs i en
   årgång per årsskifte &ndash; precis som kommunen gör en ny prognos varje
   år &ndash; så att de två modellerna går att ställa mot varandra vid samma
   horisont. Årgångarna har ett eget diagram; att lägga två linjeknippen med

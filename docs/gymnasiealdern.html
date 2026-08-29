@@ -161,8 +161,11 @@
       16&ndash;19-åringar om k år är därför helt enkelt summan av dagens
       16&nbsp;&minus;&nbsp;k till 19&nbsp;&minus;&nbsp;k-åringar &ndash; en
       ren <strong>kohortframskrivning</strong> ur SCB:s faktiska siffror per
-      enskild ålder. Den innehåller ingen modell, inga födelsetal och inga
-      antaganden om flyttning. Den <em>orange</em> linjen är den
+      enskild ålder. Den innehåller ingen modell och inga födelsetal, men
+      den är inte antagandefri: att bära varje kohort rakt fram
+      förutsätter att nettoflyttningen är noll och att ingen faller bort.
+      Det är ett enkelt och genomskådligt antagande &ndash; inte
+      frånvaron av ett. Den <em>orange</em> linjen är den
       framskrivningen; den blå är kommunens senaste prognos.
     </p>
     <div class="kort">
@@ -204,8 +207,10 @@
       Avståndet mellan årgångarna går att mäta rakt av. Jämför en
       åldersklass med sig själv ett år senare, ett år äldre:
       <code>r(a) = N(a&nbsp;+&nbsp;1, år&nbsp;T&nbsp;+&nbsp;1) / N(a, år&nbsp;T)</code>.
-      Är kvoten över 1 har det flyttat in fler i den åldern än det flyttat
-      ut. Diagrammet visar den kvoten som procent, ålder för ålder, som
+      Är kvoten över 1 har kohorten vuxit mellan åren. Den förändringen
+      speglar huvudsakligen nettoflyttning &ndash; men rymmer också
+      dödlighet och ändringar i folkbokföringen, och de går inte att
+      skilja åt härifrån. Diagrammet visar kvoten som procent, ålder för ålder, som
       geometriskt medel över alla år &ndash; med hela spannet mellan det
       svagaste och det starkaste året bakom.
     </p>
@@ -226,10 +231,11 @@
       Med kvoterna går det att kompensera framskrivningen: i stället för
       att bära varje kohort rakt fram multipliceras den med r(a) för varje
       år den åldras. Det är samma räkning som förut, med en faktor tillagd
-      i varje steg. <strong>Priset är ett antagande</strong> &ndash; att
-      flyttmönstret består. Den enkla framskrivningen antar ingenting alls;
-      den kompenserade antar att det som hänt de senaste
-      tjugofem åren fortsätter hända.
+      i varje steg. <strong>Priset är ett tyngre antagande</strong>
+      &ndash; att flyttmönstret består. Båda modellerna antar något: den
+      enkla att nettoflyttningen är noll, den kompenserade att det som
+      hänt de senaste tjugofem åren fortsätter hända. Skillnaden är
+      vilket antagande som är lättast att genomskåda.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-kompenserad" aria-label="Diagram: utfall, enkel framskrivning, kompenserad framskrivning och kommunens senaste prognos" role="img"></canvas></div>

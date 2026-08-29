@@ -558,7 +558,7 @@
     el("tabell-forandring").innerHTML = t;
   }
 
-  /* ---------- Avsnitt 4: konkurrensen om platserna ---------- */
+  /* ---------- Avsnitt 4: översökta utbildningar ---------- */
 
   function ritaKonkurrens() {
     var rader = DATA.sammanfattning;
@@ -574,7 +574,7 @@
         labels: rader.map(function (r) { return String(r.ar); }),
         datasets: [
           {
-            label: "Fler behöriga sökande än platser",
+            label: "Översökta: fler behöriga sökande än platser",
             data: rader.map(function (r) { return r.medGrans; }),
             backgroundColor: FARG.blaMork,
             maxBarThickness: 44
@@ -623,17 +623,21 @@
     }, 380);
 
     el("kalla-konkurrens").textContent =
-      "Båda gymnasieskolornas utbildningar tillsammans. Grå del: utbildningar " +
+      "Båda gymnasieskolornas utbildningar tillsammans. Staplarna räknar " +
+      "utbildningar, inte sökande eller platser. Grå del: utbildningar " +
       "som antog på färdighetsprov, saknade behöriga sökande eller placerades " +
       "manuellt.";
 
     var forsta = rader[0], sista = rader[rader.length - 1];
     function andel(r) { return Math.round(100 * r.medGrans / r.antalUtbildningar); }
-    var html = "<p>" + esc(sista.ar) + " hade <strong>" + esc(sista.medGrans) + " av " +
-      esc(sista.antalUtbildningar) + "</strong> utbildningar fler behöriga sökande " +
-      "än platser (" + andel(sista) + " procent). " + esc(forsta.ar) + " var det " +
-      esc(forsta.medGrans) + " av " + esc(forsta.antalUtbildningar) + " (" +
-      andel(forsta) + " procent).</p>";
+    var html = "<p>" + esc(sista.ar) + " var <strong>" + esc(sista.medGrans) + " av " +
+      esc(sista.antalUtbildningar) + "</strong> utbildningar översökta, alltså " +
+      "hade fler behöriga sökande än platser (" + andel(sista) + " procent). " +
+      esc(forsta.ar) + " var det " + esc(forsta.medGrans) + " av " +
+      esc(forsta.antalUtbildningar) + " (" + andel(forsta) + " procent). " +
+      "Andelen säger hur många av utbildningarna som var översökta, inte hur " +
+      "många sökande som blev utan plats &ndash; en utbildning med några få " +
+      "sökande över platserna räknas lika mycket som en med många.</p>";
 
     /* Två rapportformer bakom samma stapel – det måste läsaren veta om. */
     var bytesAr = rader.filter(function (r) { return r.markor === "fetstil"; });
@@ -650,10 +654,11 @@
     }
     el("slutsats-konkurrens").innerHTML = html;
 
-    var t = "<caption>Utbildningarnas antagningsläge per år, båda " +
-      "gymnasieskolorna.</caption>";
+    var t = "<caption>Antal utbildningar per antagningsläge och år, båda " +
+      "gymnasieskolorna. Varje utbildning räknas som en, oavsett hur många " +
+      "platser och sökande den hade.</caption>";
     t += "<thead><tr><th scope=\"col\">År</th>" +
-      "<th scope=\"col\">Fler sökande än platser</th>" +
+      "<th scope=\"col\">Översökta (fler sökande än platser)</th>" +
       "<th scope=\"col\">Alla behöriga fick plats</th>" +
       "<th scope=\"col\">Ingen antagning på betyg</th>" +
       "<th scope=\"col\">Totalt</th></tr></thead><tbody>";
@@ -740,8 +745,9 @@
     }, 380);
 
     el("kalla-typ").textContent =
-      "Genomsnitt av utbildningarnas medelmeritvärden i respektive grupp, " +
-      "båda gymnasieskolorna. Varje utbildning räknas lika mycket.";
+      "Ovägt genomsnitt av utbildningarnas medelmeritvärden i respektive " +
+      "grupp, båda gymnasieskolorna. Varje utbildning räknas lika mycket, så " +
+      "gruppens värde ändras också när utbudet av utbildningar ändras.";
 
     var sista = DATA.ar[DATA.ar.length - 1], forsta = DATA.ar[0];
     var hf = rader.filter(function (r) { return r.typ === "hogskoleforberedande"; })[0];
@@ -752,19 +758,32 @@
       html += "<p>" + esc(sista) + " skilde det <strong>" + talSv(Math.abs(a - b), 1) +
         " meritpoäng</strong> mellan grupperna: " + talSv(a, 1) +
         " för de högskoleförberedande programmen och " + talSv(b, 1) +
-        " för yrkesprogrammen.</p>";
+        " för yrkesprogrammen &ndash; båda ovägda snitt av utbildningarnas " +
+        "medelmeritvärden.</p>";
       if (hf.varden[String(forsta)] && yp.varden[String(forsta)]) {
-        var gammal = hf.varden[String(forsta)].medel - yp.varden[String(forsta)].medel;
-        html += "<p>" + esc(forsta) + " var skillnaden " + talSv(Math.abs(gammal), 1) +
-          ". Gapet har alltså " +
-          (Math.abs(a - b) > Math.abs(gammal) ? "vidgats" : "krympt") + ".</p>";
+        var nu = Math.abs(a - b);
+        var da = Math.abs(hf.varden[String(forsta)].medel -
+          yp.varden[String(forsta)].medel);
+        html += "<p>" + esc(forsta) + " var skillnaden " + talSv(da, 1) +
+          " meritpoäng. Avståndet mellan de två ovägda gruppsnitten är alltså " +
+          (Math.abs(nu - da) < 0.05
+            ? "ungefär detsamma båda åren"
+            : talSv(Math.abs(nu - da), 1) + " meritpoäng " +
+              (nu > da ? "större" : "mindre") + " " + esc(sista) + " än " +
+              esc(forsta)) +
+          ". Det är en jämförelse av två årsvärden, inte ett mått på att " +
+          "gapet mellan programmen ändrats: utbudet av program och " +
+          "inriktningar skiljer sig mellan åren, och eftersom varje " +
+          "utbildning väger lika mycket kan skillnaden lika gärna komma av " +
+          "att sammansättningen ändrats som av att programmen förändrats. De " +
+          "två går inte att skilja åt i det här datat.</p>";
       }
     }
     el("slutsats-typ").innerHTML = html;
 
-    var t = "<caption>Medelmeritvärde per programgrupp och år, båda " +
+    var t = "<caption>Ovägt medelmeritvärde per programgrupp och år, båda " +
       "gymnasieskolorna. Antal utbildningar bakom varje siffra inom " +
-      "parentes.</caption>";
+      "parentes &ndash; de skiljer sig mellan åren.</caption>";
     t += "<thead><tr><th scope=\"col\">År</th>";
     rader.forEach(function (r) {
       t += "<th scope=\"col\">" + esc(TYPNAMN[r.typ] || r.typ) + "</th>";

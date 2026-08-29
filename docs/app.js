@@ -195,7 +195,7 @@
         },
         scales: {
           x: {
-            title: { display: true, text: "Hur långt i förväg prognosen gjordes", color: FARG.muted },
+            title: { display: true, text: "Kalenderår mellan prognosårgång och målår", color: FARG.muted },
             grid: { display: false },
             border: { color: FARG.baseline }
           },
@@ -211,7 +211,11 @@
     });
 
     el("kalla-avstand").textContent =
-      "Genomsnitt av felet (utan hänsyn till riktning) för alla prognoser och år där utfall finns.";
+      "Genomsnitt av felet (utan hänsyn till riktning) för alla prognoser och " +
+      "år där utfall finns. Avståndet är antalet kalenderår mellan " +
+      "prognosårgången och målåret. Rapporterna publiceras vid olika tider " +
+      "på året, så \u201dsamma år\u201d betyder en prognos gjord någon gång " +
+      "under målåret \u2013 inte vid dess slut.";
 
     var kort = rader[0], langt = rader[rader.length - 1];
     var html = "<p>I genomsnitt har prognoserna som gjorts <strong>" +
@@ -241,7 +245,7 @@
     el("slutsats-avstand").innerHTML = html;
 
     var t = "<caption>Genomsnittligt absolut prognosfel per antal år i förväg.</caption>";
-    t += "<thead><tr><th scope=\"col\">Hur långt i förväg</th><th scope=\"col\">Genomsnittligt absolut fel</th>" +
+    t += "<thead><tr><th scope=\"col\">Kalenderår före målåret</th><th scope=\"col\">Genomsnittligt absolut fel</th>" +
       "<th scope=\"col\">Största fel</th><th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
     rader.forEach(function (r) {
       t += "<tr><td>" + (r.avstand === 0 ? "Samma år" : esc(r.avstand) + " år före") + "</td><td>" +
@@ -297,7 +301,7 @@
         },
         scales: {
           x: {
-            title: { display: true, text: "Hur långt i förväg prognosen gjordes", color: FARG.muted },
+            title: { display: true, text: "Kalenderår mellan prognosårgång och målår", color: FARG.muted },
             grid: { display: false },
             border: { color: FARG.baseline }
           },
@@ -320,30 +324,30 @@
     var over = sk.antalOver, n = sk.antal, under = n - over;
     var dominans = Math.max(over, under);
     var hall = over >= under ? "för högt" : "för lågt";
-    var systematiskt = dominans >= Math.ceil(n * 0.75);
+    /* Tröskeln är en läshjälp för att avgöra om obalansen är värd att
+       kommentera – inte ett statistiskt test. Se brasklappen nedan. */
+    var tydligObalans = dominans >= Math.ceil(n * 0.75);
 
     var html = "<p><strong>" + dominans + " av " + esc(n) + "</strong> jämförelser " +
-      "ligger " + hall + ". Vore felen slumpmässiga skulle ungefär hälften " +
-      "hamna på var sida.</p>";
-    html += "<p>Genomsnittet över alla prognoser är <strong>" +
+      "ligger " + hall + ".</p>";
+    html += "<p>Genomsnittet över alla jämförelser är <strong>" +
       (sk.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(sk.medelPct), 1) +
-      " %</strong>. En modell utan systematisk skevhet skulle landa nära noll.</p>";
+      " %</strong>.</p>";
     var arg = data.perArgang || [];
     var skiftar = sk.bytterRiktning && arg.length > 1;
 
-    if (systematiskt) {
-      html += "<p>Felet drar alltså konsekvent åt samma håll. Ett sådant fel " +
-        "kallas systematiskt, och skiljer sig från slumpmässigt fel på en " +
-        "avgörande punkt: det går att räkna bort. Den som tar fram prognosen " +
-        "kan mäta skevheten mot tidigare utfall och justera modellens " +
-        "antaganden.</p>";
-    } else if (skiftar) {
-      html += "<p>Felen går inte alla åt samma håll, men de är inte heller " +
-        "slumpmässiga: de följer ett mönster över tid. Se nästa stycke.</p>";
+    if (tydligObalans) {
+      html += "<p>Övervikten åt ett håll är alltså tydlig i materialet. " +
+        "Hur mycket den säger går däremot inte att avgöra härifrån: " +
+        "jämförelserna är inte oberoende av varandra. Samma utfallsår ingår " +
+        "i flera prognosårgångar, och alla prognoshorisonter är " +
+        "sammanräknade. Läs siffran som en beskrivning av det här " +
+        "materialet, inte som ett fastställt systematiskt fel.</p>";
     } else {
-      html += "<p>Felen fördelar sig åt båda håll utan tydligt mönster, " +
-        "vilket tyder på slumpmässig spridning snarare än en systematisk " +
-        "skevhet i modellen.</p>";
+      html += "<p>Felen fördelar sig åt båda håll utan någon tydlig övervikt. " +
+        "Notera att jämförelserna inte är oberoende: samma utfallsår ingår " +
+        "i flera prognosårgångar, och alla prognoshorisonter är " +
+        "sammanräknade.</p>";
     }
 
     /* Har skevheten bytt riktning över tid? Det är ett annat fel än en
@@ -351,14 +355,15 @@
     if (skiftar) {
       var lag = arg.filter(function (r) { return r.medelPct < 0; });
       var hog = arg.filter(function (r) { return r.medelPct > 0; });
-      html += "<p><strong>Riktningen har skiftat.</strong> Prognoserna från " +
+      html += "<p><strong>Riktningen skiljer sig mellan årgångar.</strong> " +
+        "Prognoserna från " +
         esc(lag.map(function (r) { return r.prognosAr; }).join(", ")) +
-        " låg för lågt, medan de från " +
+        " låg i genomsnitt för lågt, medan de från " +
         esc(hog.map(function (r) { return r.prognosAr; }).join(", ")) +
-        " låg för högt. Det talar för att modellen skriver fram den utveckling " +
-        "som varit och därför missar vändpunkter &ndash; åt båda hållen. Ett " +
-        "sådant fel försvinner inte genom att lägga på en fast korrigering; " +
-        "det är känsligheten för trendbrott som behöver ses över.</p>";
+        " låg för högt. Vad skillnaden beror på går inte att avgöra ur de " +
+        "här siffrorna. Den kan spegla något i modellen, men lika gärna att " +
+        "åren i sig varit olika svåra att förutsäga &ndash; och med så få " +
+        "årgångar kan enstaka teckenbyten vara slumpmässiga.</p>";
     }
 
     /* Har modellen blivit bättre? Bara jämförbart vid samma horisont –
@@ -366,24 +371,26 @@
        kort sikt, så medelvärdena i sig går inte att ställa mot varandra. */
     var ett = arg.filter(function (r) { return r.ettArPct !== null && r.ettArPct !== undefined; });
     if (ett.length >= 4) {
-      var varst = ett.reduce(function (a, b) {
-        return Math.abs(b.ettArPct) > Math.abs(a.ettArPct) ? b : a;
-      });
+      /* Bara samma horisont går att jämföra mellan årgångar – en gammal
+         årgång har prövats många år framåt, en ny bara på kort sikt.
+         Serien redovisas som den är: att ställa den senaste årgången mot
+         den sämsta någonsin vore inget mått på utveckling över tid, för
+         nästan vilket värde som helst slår ett rekordfel. */
+      var absfel = ett.map(function (r) { return Math.abs(r.ettArPct); });
+      var minsta = Math.min.apply(null, absfel);
+      var storsta = Math.max.apply(null, absfel);
       var senast = ett[ett.length - 1];
       var tecken = function (v) { return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), 1) + " %"; };
-      html += "<p><strong>Har det blivit bättre?</strong> För att svara måste " +
-        "man jämföra prognoser på samma sikt &ndash; en gammal prognos har " +
-        "hunnit prövas många år framåt, en ny bara på kort sikt. Ser man bara " +
-        "på hur fel prognoserna slagit <em>ett år framåt</em>, var " +
-        esc(varst.prognosAr) + " års prognos sämst (" + tecken(varst.ettArPct) +
-        ") och " + esc(senast.prognosAr) + " års senast mätbar (" +
-        tecken(senast.ettArPct) + "). " +
-        (Math.abs(senast.ettArPct) < Math.abs(varst.ettArPct)
-          ? "Felet har alltså minskat" +
-            (senast.ettArPct * varst.ettArPct > 0
-              ? ", men lutar fortfarande åt samma håll."
-              : " och bytt riktning.")
-          : "Felet har alltså inte minskat.") + "</p>";
+      html += "<p><strong>Har det blivit bättre?</strong> Frågan kräver att " +
+        "årgångarna jämförs på samma sikt &ndash; en gammal prognos har " +
+        "hunnit prövas många år framåt, en ny bara på kort sikt. Mätt " +
+        "<em>ett år framåt</em> har felet i de " + esc(ett.length) +
+        " årgångar som går att mäta legat mellan " + talSv(minsta, 1) +
+        " och " + talSv(storsta, 1) + " procent, och den senaste mätbara (" +
+        esc(senast.prognosAr) + ") hamnade på " + tecken(senast.ettArPct) +
+        ". Värdena hoppar upp och ned mellan årgångarna. Så få mätpunkter " +
+        "räcker inte för att avgöra om prognoserna blivit bättre eller " +
+        "sämre över tid &ndash; hela serien står i tabellen nedan.</p>";
     }
 
     if (n < 10) {
@@ -394,7 +401,7 @@
 
     var t = "<caption>Genomsnittligt fel med riktning, per antal år i förväg. " +
       "Plus betyder att prognosen låg för högt.</caption>";
-    t += "<thead><tr><th scope=\"col\">Hur långt i förväg</th>" +
+    t += "<thead><tr><th scope=\"col\">Kalenderår före målåret</th>" +
       "<th scope=\"col\">Genomsnittligt fel med riktning</th>" +
       "<th scope=\"col\">Antal för höga</th>" +
       "<th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";

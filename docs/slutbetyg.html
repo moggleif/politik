@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Slutbetyg från gymnasiet i Kungsbacka</title>
-<meta name="description" content="Vilka slutbetyg avgångseleverna i Kungsbacka fick, program för program, enligt Skolverkets statistik över avgångselever.">
+<meta name="description" content="Vilka slutbetyg avgångseleverna på de nationella programmen i Kungsbacka fick, program för program, enligt Skolverkets statistik över avgångselever.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -37,9 +37,10 @@
     <p class="ingress">
       Vilka betyg hade eleverna med sig när de gick ut gymnasiet &ndash; och
       hur många tog examen? Siffrorna kommer ur Skolverkets statistik över
-      avgångseleverna, program för program på Aranäsgymnasiet och Elof
-      Lindälvs gymnasium. Sidan följer programmen och inte skolorna: ett
-      program som flyttat mellan de två tar sina gamla år med sig.
+      avgångseleverna på de nationella programmen, program för program på
+      Aranäsgymnasiet och Elof Lindälvs gymnasium. Sidan följer programmen
+      och inte skolorna: ett program som flyttat mellan de två tar sina
+      gamla år med sig.
     </p>
     <p class="meta-rad" id="meta-rad" hidden></p>
   </div>
@@ -80,8 +81,8 @@
   <section id="sektion-matten">
     <h2>Fyra tal per program</h2>
     <p class="forklaring">
-      Skolverket redovisar varje höst hur det gick för dem som gick ut
-      gymnasiet i juni. Fyra av talen används på den här sidan:
+      Skolverket redovisar varje höst hur det gick för dem som gick ut ett
+      nationellt program i juni. Fyra av talen används på den här sidan:
     </p>
     <ul class="forklaring">
       <li><strong>Genomsnittlig betygspoäng</strong> &ndash; snittet av
@@ -108,12 +109,12 @@
   <section id="sektion-utveckling" hidden>
     <h2>Hur har slutbetygen utvecklats?</h2>
     <p class="forklaring">
-      Varje linje är en utbildning på någon av de två skolorna. Välj vilket
-      av talen du vill följa &ndash; och välj yrkesprogram eller
+      Varje linje är ett nationellt program på någon av de två skolorna.
+      Välj vilket av talen du vill följa &ndash; och välj yrkesprogram eller
       högskoleförberedande program högst upp på sidan om alla linjer på en
-      gång blir för många. En
-      utbildning syns bara de år den hade minst tio avgångselever &ndash;
-      färre än så redovisar Skolverket inte, och linjen bryts där.
+      gång blir för många. En utbildning syns bara de år den hade minst tio
+      avgångselever &ndash; färre än så redovisar Skolverket inte, och
+      linjen bryts där.
     </p>
     <div class="valj-ar">
       <label for="matt-valjare">Visa mått:</label>
@@ -135,8 +136,8 @@
   <section id="sektion-rangordning" hidden>
     <h2>Vilka program hade högst betygspoäng?</h2>
     <p class="forklaring">
-      Samtliga utbildningar på de två skolorna ett enskilt år, sorterade efter
-      avgångselevernas genomsnittliga betygspoäng.
+      De nationella program på de två skolorna som redovisas ett enskilt år,
+      sorterade efter avgångselevernas genomsnittliga betygspoäng.
     </p>
     <div class="valj-ar">
       <label for="ar-valjare">Visa året:</label>
@@ -178,12 +179,15 @@
     <h2>Hur många gick ut med examen?</h2>
     <p class="forklaring">
       En hög betygspoäng säger inget om hur många som tog sig igenom. Varje
-      stapel är hela avgångskullen på de två skolorna det året, delad i dem
-      som fick en gymnasieexamen och dem som fick ett studiebevis i stället.
-      Avsnittet omfattar alltid samtliga program, oavsett vad du valt ovan.
+      stapel är avgångseleverna på de nationella programmen vid de två
+      skolorna det året, delad i dem som fick en gymnasieexamen och dem som
+      fick ett studiebevis i stället. Avsnittet omfattar alltid samtliga
+      nationella program, oavsett vad du valt ovan &ndash;
+      introduktionsprogrammen ingår inte i Skolverkets rapport och räknas
+      därför inte med.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-examen" aria-label="Diagram: antal avgångselever med och utan examen per år" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-examen" aria-label="Diagram: antal avgångselever på de nationella programmen med och utan examen per år" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-examen"></p>
     </div>
     <div class="slutsats" id="slutsats-examen"></div>
@@ -196,10 +200,10 @@
   <section id="sektion-typ" hidden>
     <h2>Yrkesprogram och högskoleförberedande program</h2>
     <p class="forklaring">
-      Samma siffror, men sammanslagna till två grupper för de två skolorna
-      tillsammans. Här räknas varje elev lika mycket &ndash; Skolverket
-      redovisar antalet avgångselever, så grupperna kan vägas ihop på
-      riktigt. Programmen som är för små för att redovisas var för sig finns
+      Samma siffror, men de nationella programmen sammanslagna till två
+      grupper för de två skolorna tillsammans. Här räknas varje elev lika
+      mycket &ndash; Skolverket redovisar antalet avgångselever, så
+      grupperna kan vägas ihop på riktigt. Programmen som är för små för att redovisas var för sig finns
       med i gruppens siffra.
     </p>
     <div class="kort">
@@ -291,7 +295,9 @@
     <p class="forklaring">
       <strong>Bara nationella program.</strong> Rapporten omfattar
       avgångselever från de nationella programmen. Introduktionsprogrammen
-      leder inte till examen och ingår inte. International Baccalaureate
+      leder inte till examen och ingår inte &ndash; det gäller också
+      avsnitten om examen och om programgrupperna, som bygger på rapportens
+      egen summeringsrad för nationella program. International Baccalaureate
       finns med i statistiken, men Kungsbackas IB-elever är så få att
       uppgifterna alltid dubbelprickas.
     </p>
