@@ -48,12 +48,19 @@
     };
   }
 
-  /* Blå ramp för ordnade serier (prognosårgångar): ljus = äldst. */
+  /* Ramper för ordnade serier (årgångar): ljus = äldst. Den blå används
+     för kommunens prognosårgångar, den orange för kohortframskrivningens
+     – samma färgspråk som de enskilda linjerna på sidan, så att en
+     orange linje alltid betyder framskrivning och en blå prognos. */
   var RAMP = ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"];
-  function rampFarg(i, n) {
-    if (n <= 1) return RAMP[RAMP.length - 1];
-    return RAMP[Math.round(i * (RAMP.length - 1) / (n - 1))];
+  var RAMP_ORANGE = ["#f2d08a", "#eab54a", "#e69f00", "#b57c00", "#845a00"];
+
+  function urRamp(ramp, i, n) {
+    if (n <= 1) return ramp[ramp.length - 1];
+    return ramp[Math.round(i * (ramp.length - 1) / (n - 1))];
   }
+  function rampFarg(i, n) { return urRamp(RAMP, i, n); }
+  function rampFargOrange(i, n) { return urRamp(RAMP_ORANGE, i, n); }
 
   /* ---------- Tal och små hjälpare ---------- */
 
@@ -415,6 +422,7 @@
     STRECK: STRECK,
     serieStil: serieStil,
     rampFarg: rampFarg,
+    rampFargOrange: rampFargOrange,
     el: el,
     talSv: talSv,
     slug: slug,

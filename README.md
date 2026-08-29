@@ -16,7 +16,11 @@ officiella befolkningsstatistik.
   kommunen blir ett år äldre varje år, så antalet 16&ndash;19-åringar om
   k år är summan av dagens 16&nbsp;&minus;&nbsp;k … 19&nbsp;&minus;&nbsp;k-åringar.
   Ingen modell, inga antaganden om flyttning &ndash; och därför en ren
-  jämförelsepunkt mot kommunens prognos. Den ritas orange.
+  jämförelsepunkt mot kommunens prognos. Den ritas orange, och görs i en
+  årgång per årsskifte &ndash; precis som kommunen gör en ny prognos varje
+  år &ndash; så att de två modellerna går att ställa mot varandra vid samma
+  horisont. Årgångarna har ett eget diagram; att lägga två linjeknippen med
+  var sin färgramp i samma bild går inte att läsa.
 
 **Betygen på gymnasiet** &ndash; vad eleverna hade med sig in, och vad de gick
 ut med, program för program. Enheten är programmet och inte skolan på båda
@@ -175,7 +179,8 @@ python3 scripts/build_data.py   # bygger om docs/data.json
 kohortframskrivningen bygger på, och varnar om de enskilda åldrarna inte
 summerar till åldersgrupperna &ndash; då har de två frågorna hämtat olika
 saker. `build_data.py` prövar dessutom framskrivningen bakåt mot facit och
-ställer den mot kommunens egen modell vid samma horisont.
+ställer den mot kommunens egen modell vid samma horisont, årgång för
+årgång.
 
 Nya prognosrapporter läggs till genom att spara PDF:en i `docs/rapporter/`,
 skapa en `data/prognoser/prognos_<år>.json` med siffrorna och källänken, och
