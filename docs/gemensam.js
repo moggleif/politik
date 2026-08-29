@@ -99,6 +99,12 @@
   }
 
   function installChartDefaults() {
+    /* Respektera systeminställningen om minskad rörelse – Chart.js
+       animerar annars varje omritning. */
+    if (window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      Chart.defaults.animation = false;
+    }
     Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
     Chart.defaults.font.size = 15;
     Chart.defaults.color = FARG.ink2;
