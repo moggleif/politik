@@ -24,6 +24,7 @@ Körs:  python3 scripts/build_meritvarden.py
 """
 
 import json
+import math
 import re
 import unicodedata
 from pathlib import Path
@@ -143,7 +144,7 @@ def inriktningsnyckel(inriktning: str) -> str:
 
 
 def medel(varden):
-    return round(sum(varden) / len(varden), 2) if varden else None
+    return round(math.fsum(varden) / len(varden), 2) if varden else None
 
 
 def satt_statistik(serie: dict) -> dict:

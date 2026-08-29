@@ -185,7 +185,7 @@
               label: function (it) {
                 var r = rader[it.dataIndex];
                 return [
-                  "Genomsnittligt fel: " + talSv(r.medelAbsPct, 1) + " %",
+                  "Genomsnittligt absolut fel: " + talSv(r.medelAbsPct, 1) + " %",
                   "Största fel: " + talSv(r.maxAbsPct, 1) + " %",
                   "Bygger på " + r.antal + " prognosvärden"
                 ];
@@ -200,7 +200,7 @@
             border: { color: FARG.baseline }
           },
           y: {
-            title: { display: true, text: "Genomsnittligt fel i procent", color: FARG.muted },
+            title: { display: true, text: "Genomsnittligt absolut fel i procent", color: FARG.muted },
             grid: { color: FARG.grid },
             border: { color: FARG.baseline },
             beginAtZero: true,
@@ -240,8 +240,8 @@
     }
     el("slutsats-avstand").innerHTML = html;
 
-    var t = "<caption>Genomsnittligt prognosfel per antal år i förväg.</caption>";
-    t += "<thead><tr><th scope=\"col\">Hur långt i förväg</th><th scope=\"col\">Genomsnittligt fel</th>" +
+    var t = "<caption>Genomsnittligt absolut prognosfel per antal år i förväg.</caption>";
+    t += "<thead><tr><th scope=\"col\">Hur långt i förväg</th><th scope=\"col\">Genomsnittligt absolut fel</th>" +
       "<th scope=\"col\">Största fel</th><th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
     rader.forEach(function (r) {
       t += "<tr><td>" + (r.avstand === 0 ? "Samma år" : esc(r.avstand) + " år före") + "</td><td>" +
@@ -287,7 +287,7 @@
               label: function (it) {
                 var r = rader[it.dataIndex];
                 return [
-                  "Genomsnittligt fel: " + (r.medelPct >= 0 ? "+" : "−") +
+                  "Genomsnittligt fel med riktning: " + (r.medelPct >= 0 ? "+" : "−") +
                     talSv(Math.abs(r.medelPct), 1) + " %",
                   r.antalOver + " av " + r.antal + " prognoser låg för högt"
                 ];
@@ -395,7 +395,7 @@
     var t = "<caption>Genomsnittligt fel med riktning, per antal år i förväg. " +
       "Plus betyder att prognosen låg för högt.</caption>";
     t += "<thead><tr><th scope=\"col\">Hur långt i förväg</th>" +
-      "<th scope=\"col\">Genomsnittligt fel</th>" +
+      "<th scope=\"col\">Genomsnittligt fel med riktning</th>" +
       "<th scope=\"col\">Antal för höga</th>" +
       "<th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
     rader.forEach(function (r) {
@@ -759,7 +759,9 @@
 
     punkter.push("I de <strong>" + esc(sk.antal) + " jämförelser</strong> som kan " +
       "göras har prognoserna i genomsnitt avvikit <strong>" +
-      talSv(sk.medelAbsPct, 1) + " %</strong> från utfallet.");
+      talSv(sk.medelAbsPct, 1) + " %</strong> från utfallet &ndash; alla " +
+      "prognoshorisonter sammanräknade. Felet per horisont, som är det " +
+      "jämförbara måttet, visas i diagrammet nedan.");
 
     var over = sk.antalOver, under = sk.antal - over;
     if (over >= Math.ceil(sk.antal * 0.75)) {
@@ -798,12 +800,23 @@
         tecken(bast.ettArPct) + ").");
     }
 
-    if (jamfor && jamfor.skevhet && jamfor.skevhet.antal) {
-      var eget = sk.medelAbsPct, andra = jamfor.skevhet.medelAbsPct;
-      punkter.push("Osäkerheten är <strong>" +
-        (eget > andra ? "större" : "mindre") + "</strong> för den här " +
-        "åldersgruppen än för " + JAMFORSERIE + ": i snitt " +
-        talSv(eget, 1) + " % fel mot " + talSv(andra, 1) + " %.");
+    /* Jämför serierna vid samma prognoshorisont – de samlade snitten
+       blandar olika horisonter med olika vikt och går inte att ställa
+       mot varandra. */
+    function felVidTreAr(d) {
+      var r = (d.perAvstand || []).filter(function (x) { return x.avstand === 3; })[0];
+      return r && r.medelAbsPct !== null && r.medelAbsPct !== undefined
+        ? r.medelAbsPct : null;
+    }
+    if (jamfor) {
+      var eget = felVidTreAr(data), andra = felVidTreAr(jamfor);
+      if (eget !== null && andra !== null && eget !== andra) {
+        punkter.push("Mätt vid samma horisont &ndash; tre år framåt &ndash; har " +
+          "det absoluta felet varit <strong>" +
+          (eget > andra ? "större" : "mindre") + "</strong> för den här " +
+          "åldersgruppen än för " + JAMFORSERIE + ": " +
+          talSv(eget, 1) + " % mot " + talSv(andra, 1) + " %.");
+      }
     }
 
     if (data.kohort && data.kohort.motSenaste.length) {

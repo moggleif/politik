@@ -1,0 +1,47 @@
+# Kör beräkningstesterna och kontrollerna av den färdiga webbplatsen.
+# Python-jobbet är snabbt och fångar räknefel och osynkade datafiler;
+# webbplatsjobbet fångar trasiga länkar, JavaScript-fel och sidor som
+# inte längre ritar sina diagram.
+name: Tester
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  berakningar:
+    name: Beräkningar och datafiler
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Installera beroenden
+        run: pip install -r requirements.txt
+      - name: Kör testsviten
+        run: python3 -m unittest discover tests
+      - name: Kontrollera interna länkar och lokala källfiler
+        run: python3 scripts/kontrollera_lankar.py
+
+  webbplats:
+    name: Webbplatsens sidor
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JavaScript-syntax
+        run: |
+          for f in docs/*.js; do node --check "$f"; done
+      - name: Installera Playwright
+        run: |
+          npm install --no-save playwright@1.49
+          npx playwright install --with-deps chromium
+      - name: Rök-testa alla sidor
+        run: node scripts/smoke_webbplats.js

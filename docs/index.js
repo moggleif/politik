@@ -44,10 +44,30 @@
       sista: Math.max.apply(null, ar),
       jamforFrom: Math.min.apply(null, jamfordaAr),
       jamforTom: Math.max.apply(null, jamfordaAr),
-      medelAbsPct: data.skevhet ? data.skevhet.medelAbsPct : null,
       antalOver: data.skevhet ? data.skevhet.antalOver : null,
       antal: data.skevhet ? data.skevhet.antal : null
     };
+  }
+
+  /* Genomsnittligt absolut prognosfel vid en fast horisont, ur perAvstand.
+     Ett enda snitt över alla horisonter (skevhet.medelAbsPct) blandar
+     prognoser på allt från noll till femton års sikt och låter gamla
+     årgångar väga tyngre, eftersom de hunnit få facit för fler år.
+     Bara felet vid samma horisont går att tolka som ett kvalitetsmått. */
+  function felVidHorisont(data, avstand) {
+    var traff = (data.perAvstand || []).filter(function (r) {
+      return r.avstand === avstand;
+    })[0];
+    return traff && traff.medelAbsPct !== null &&
+      traff.medelAbsPct !== undefined ? traff.medelAbsPct : null;
+  }
+
+  function felPerHorisont(data) {
+    var delar = [1, 3, 5].map(function (k) {
+      var v = felVidHorisont(data, k);
+      return v === null ? null : k + " år framåt " + talSv(v, 1) + " %";
+    }).filter(function (d) { return d !== null; });
+    return delar.length ? delar.join(" · ") : null;
   }
 
   function visaBefolkning(total, unga) {
@@ -56,14 +76,13 @@
       rad("Prognosårgångar", t.argangar + " (" + t.forsta + "–" + t.sista + ")"),
       rad("Jämförs mot utfallet", t.jamforFrom + "–" + t.jamforTom)
     ];
-    if (t.medelAbsPct !== null) {
-      rader.push(rad("Genomsnittligt prognosfel, hela befolkningen",
-        talSv(t.medelAbsPct, 1) + " %"));
+    var tFel = felPerHorisont(total);
+    if (tFel !== null) {
+      rader.push(rad("Absolut prognosfel i snitt, hela befolkningen", tFel));
     }
-    var u = unga ? prognosFakta(unga) : null;
-    if (u && u.medelAbsPct !== null) {
-      rader.push(rad("Genomsnittligt prognosfel, 16–19 år",
-        talSv(u.medelAbsPct, 1) + " %"));
+    var uFel = unga ? felPerHorisont(unga) : null;
+    if (uFel !== null) {
+      rader.push(rad("Absolut prognosfel i snitt, 16–19 år", uFel));
     }
     /* Kohortframskrivningen: vad som redan är fött, utan någon modell. */
     var k = unga && unga.kohort;
@@ -86,16 +105,24 @@
       el("undertext-gymnasiealdern").textContent =
         "Kommunens prognoser mot utfallet – och en ren framskrivning av de " +
         "barn som redan bor i kommunen, fram till " + k.sistaAr + ".";
-    } else if (u && u.medelAbsPct !== null && t.medelAbsPct !== null) {
+    } else if (unga) {
       el("undertext-gymnasiealdern").textContent =
-        "Prognosfelet för åldersgruppen har i snitt varit " +
-        (u.medelAbsPct > t.medelAbsPct ? "större" : "mindre") +
-        " än för hela befolkningen (" + talSv(u.medelAbsPct, 1) + " % mot " +
-        talSv(t.medelAbsPct, 1) + " %).";
+        "Kommunens prognoser för åldersgruppen jämförda med utfallet.";
     }
   }
 
   /* ---------- Gymnasiet ---------- */
+
+  /* Senaste post i en lista som faktiskt har ett värde i fältet – inte
+     bara sista arrayelementet, som kan sakna data. */
+  function sistaMed(lista, falt) {
+    for (var i = lista.length - 1; i >= 0; i--) {
+      if (lista[i][falt] !== null && lista[i][falt] !== undefined) {
+        return lista[i];
+      }
+    }
+    return null;
+  }
 
   function visaGymnasium(merit, slut, kull) {
     var rader = [];
@@ -106,25 +133,28 @@
       merit.program.forEach(function (p) { namn[p.namn] = true; });
       rader.push(rad("Program vid antagningen",
         Object.keys(namn).length + " (" + esc(mForsta) + "–" + esc(mSista) + ")"));
-      var sm = merit.sammanfattning.filter(function (s) { return s.ar === mSista; })[0];
+      var sm = sistaMed(merit.sammanfattning, "medel");
       if (sm) {
-        rader.push(rad("Medelmeritvärde " + esc(mSista) + ", snitt över utbildningarna",
+        rader.push(rad("Medelmeritvärde " + esc(sm.ar) + ", ovägt snitt över utbildningarna",
           talSv(sm.medel, 1) + " av 340"));
       }
     }
 
     if (slut && slut.sammanfattning && slut.sammanfattning.length) {
-      var sSista = slut.sammanfattning[slut.sammanfattning.length - 1];
       var sForstaAr = slut.ar[0], sSistaAr = slut.ar[slut.ar.length - 1];
       rader.push(rad("Slutbetyg", slut.ar.length + " läsår (" +
         esc(sForstaAr) + "–" + esc(sSistaAr) + ")"));
-      if (sSista.andelExamen !== null) {
-        rader.push(rad("Andel med examen " + esc(sSista.ar),
-          talSv(sSista.andelExamen, 1) + " % av " + talSv(sSista.antal) + " elever"));
+      /* Sammanfattningen räknar på nationella program vid Aranäs och
+         Elof Lindälv – inte kommunens alla gymnasieelever. */
+      var sExamen = sistaMed(slut.sammanfattning, "andelExamen");
+      if (sExamen) {
+        rader.push(rad("Andel med examen " + esc(sExamen.ar) + ", de två skolorna",
+          talSv(sExamen.andelExamen, 1) + " % av " + talSv(sExamen.antal) + " elever"));
       }
-      if (sSista.betygspoang !== null) {
-        rader.push(rad("Betygspoäng " + esc(sSista.ar) + ", hela kullen",
-          talSv(sSista.betygspoang, 1) + " av 20"));
+      var sPoang = sistaMed(slut.sammanfattning, "betygspoang");
+      if (sPoang) {
+        rader.push(rad("Betygspoäng " + esc(sPoang.ar) + ", nationella program på de två skolorna",
+          talSv(sPoang.betygspoang, 1) + " av 20"));
       }
     }
 
@@ -132,11 +162,11 @@
       var kan = kull.program.filter(function (p) { return p.antalKompletta > 0; });
       var totKullar = kan.reduce(function (n, p) { return n + p.antalKompletta; }, 0);
       if (totKullar) {
-        rader.push(rad("Kullar som kan följas från antagning till examen",
+        rader.push(rad("Kullar med både antagning och examen",
           esc(totKullar) + " på " + kan.length + " program"));
         el("undertext-kull").textContent =
           "Antagningen år X mot examen år X + 3, " + totKullar +
-          " jämförbara kullar.";
+          " jämförbara kullar (grupper, inte samma individer).";
       }
     }
 
@@ -162,13 +192,17 @@
     var sista = data.sammanfattning[data.sammanfattning.length - 1];
     var forsta = data.sammanfattning[0];
     var redovisade = data.amnen.filter(function (a) { return a.redovisas; });
+    /* Sammanfattningens snitt räknas över de ämnen som redovisas alla
+       läsår (karnamnen), inte över samtliga ämnen. */
+    var antalKarnamnen = data.karnamnen ? data.karnamnen.length : null;
 
     fyll("fakta-amnesbetyg", [
       rad("Ämnen som redovisas", redovisade.length + " (" +
         esc(forsta.lasar) + "–" + esc(sista.lasar) + ")"),
-      rad("Betygspoäng " + esc(sista.lasar) + ", snitt över ämnena",
+      rad("Betygspoäng " + esc(sista.lasar) + ", ovägt snitt över de " +
+        esc(antalKarnamnen) + " ämnen som följs alla läsår",
         talSv(sista.betygspoang, 1) + " av " + esc(data.maxPoang)),
-      rad("Andel med godkänt " + esc(sista.lasar),
+      rad("Andel med godkänt " + esc(sista.lasar) + ", snitt över samma ämnen",
         talSv(sista.andelAE, 1) + " %")
     ]);
 
@@ -202,7 +236,7 @@
     }
     if (p) {
       rader.push(rad("Läser gymnasiet i en annan kommun",
-        talSv(p.andelUt, 1) + " % av kommunens elever"));
+        talSv(p.andelUt, 1) + " % av de folkbokförda gymnasieeleverna"));
     }
     fyll("fakta-nian", rader);
 
@@ -210,7 +244,7 @@
       return k.start.status === "ok" && k.examen.status === "ok";
     });
     el("undertext-nian").textContent = hela.length
-      ? hela.length + " årskullar kan följas hela vägen: de som gick ut " +
+      ? hela.length + " årskullar har alla tre mätpunkterna: de som gick ut " +
         "nian " + hela[0].ar + "–" + hela[hela.length - 1].ar + "."
       : "Slutbetyget i nian, genomströmningen och avgångsbetygen.";
   }
@@ -249,8 +283,9 @@
   ]).then(function (svar) {
     if (svar[0] || svar[1] || svar[2]) visaGymnasium(svar[0], svar[1], svar[2]);
     if (svar[1] && svar[1].kallor && svar[1].kallor.length) {
-      el("om-uppdaterad").textContent = "Senaste datahämtning: " +
-        svar[1].kallor[svar[1].kallor.length - 1].hamtad + ".";
+      el("om-uppdaterad").textContent = "Slutbetygen hämtades senast från " +
+        "Skolverket " + svar[1].kallor[svar[1].kallor.length - 1].hamtad +
+        "; övriga källors hämtningsdatum står på respektive sida.";
     }
   });
 })();

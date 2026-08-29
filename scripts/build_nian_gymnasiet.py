@@ -33,6 +33,7 @@ Körs:  python3 scripts/build_nian_gymnasiet.py
 """
 
 import json
+import math
 from pathlib import Path
 
 import program
@@ -141,13 +142,13 @@ def pearson(par: list):
     n = len(par)
     if n < 3:
         return None
-    mx = sum(x for x, _ in par) / n
-    my = sum(y for _, y in par) / n
-    sx = sum((x - mx) ** 2 for x, _ in par) ** 0.5
-    sy = sum((y - my) ** 2 for _, y in par) ** 0.5
+    mx = math.fsum(x for x, _ in par) / n
+    my = math.fsum(y for _, y in par) / n
+    sx = math.fsum((x - mx) ** 2 for x, _ in par) ** 0.5
+    sy = math.fsum((y - my) ** 2 for _, y in par) ** 0.5
     if sx == 0 or sy == 0:
         return None
-    tackning = sum((x - mx) * (y - my) for x, y in par) / (sx * sy)
+    tackning = math.fsum((x - mx) * (y - my) for x, y in par) / (sx * sy)
     return {"r": round(tackning, 3), "n": n}
 
 

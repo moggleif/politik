@@ -26,6 +26,7 @@ Körs:  python3 scripts/build_amnesbetyg.py
 """
 
 import json
+import math
 from pathlib import Path
 
 from program import POANG_MAX
@@ -100,7 +101,7 @@ def bygg(arsfiler: list) -> dict:
 
     def medel(varden):
         v = [x for x in varden if x is not None]
-        return round(sum(v) / len(v), 2) if v else None
+        return round(math.fsum(v) / len(v), 2) if v else None
 
     sammanfattning = []
     for d in arsfiler:

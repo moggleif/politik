@@ -50,8 +50,10 @@ i stället för av att utbildningen ändrats.
   2014–2025
 - [Från antagning till examen](https://moggleif.github.io/politik/antagning-till-examen.html)
   &ndash; antagningen år X ställd mot avgångseleverna år X&nbsp;+&nbsp;3 för
-  samma program: samma kull, in och ut ur systemet. Måtten har olika skalor
-  och visas därför i skilda paneler &ndash; aldrig i samma diagram.
+  samma program. Grupperna jämförs som helheter &ndash; inga individer
+  följs, och elever kan ha bytt program, gjort uppehåll eller tillkommit
+  på vägen. Måtten har olika skalor och visas därför i skilda paneler
+  &ndash; aldrig i samma diagram.
 
 **Från nian till gymnasiet** &ndash; samma årtal genom tre mätpunkter:
 slutbetyget i årskurs 9 år X, genomströmningen för dem som *började*
@@ -70,8 +72,9 @@ kommunens gymnasieskolor kommer utifrån. I grundskolan är motsvarande
 rörlighet drygt en procent.
 
 **Betygen i grundskolan** &ndash; vad niondeklassarna i Kungsbacka fick,
-ämne för ämne. Gymnasiestatistiken redovisar bara ett samlat betygssnitt;
-grundskolan redovisas per ämne.
+ämne för ämne. Den gymnasiestatistik på skol- och programnivå som används
+här redovisar resultaten som samlad betygspoäng; grundskolestatistiken
+finns per ämne.
 
 - [Slutbetyg per ämne i årskurs 9](https://moggleif.github.io/politik/amnesbetyg.html)
   &ndash; betygspoäng och andel godkända per ämne, hela kommunen,
@@ -268,9 +271,22 @@ python3 scripts/build_kull.py         # bygger om docs/data-kull.json
 python3 -m unittest discover tests    # kontrollräknar beräkningarna
 ```
 
+Alla medelvärden summeras exakt med `math.fsum`, så att bygget ger
+samma siffror oavsett Python-version &ndash; vanlig flyttalsaddition
+gjorde utdatan versionsberoende på andra decimalen, eftersom Python 3.12
+införde kompenserad summering i `sum()`.
+
 Testerna stämmer bland annat av att samtliga datafiler i `docs/` är
 exakt vad byggskripten ger av innehållet i `data/` &ndash; inga siffror
-i utdatan får vara ändrade för hand.
+i utdatan får vara ändrade för hand &ndash; och vaktar dessutom
+presentationen: startsidan får inte visa det horisontblandade
+samlingsmåttet som ett generellt prognosfel, och kulljämförelsen får
+inte beskrivas som individuppföljning. Vid varje push och pull request
+körs testerna i GitHub Actions (`.github/workflows/test.yml`),
+tillsammans med en kontroll av webbplatsens interna länkar
+(`scripts/kontrollera_lankar.py`) och ett rök-test som laddar varje
+sida i webbläsare och faller på JavaScript-fel, saknade resurser eller
+sidor som inte ritar sina diagram (`scripts/smoke_webbplats.js`).
 
 Hämtningen är helt automatisk &ndash; både CSV-filerna i `docs/rapporter/`
 och JSON-filerna i `data/slutbetyg/` skrivs om. Skolverket publicerar det

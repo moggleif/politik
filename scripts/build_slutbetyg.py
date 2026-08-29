@@ -42,6 +42,7 @@ Körs:  python3 scripts/build_slutbetyg.py
 """
 
 import json
+import math
 import re
 from pathlib import Path
 
@@ -117,7 +118,7 @@ def vag_ihop(rader: list) -> dict:
         med = [r for r in rader
                if r.get(matt) is not None and r["antal"] not in (None, 0)]
         vikt = sum(r["antal"] for r in med)
-        ut[matt] = round(sum(r[matt] * r["antal"] for r in med) / vikt, 2) if vikt else None
+        ut[matt] = round(math.fsum(r[matt] * r["antal"] for r in med) / vikt, 2) if vikt else None
         # Hur stor del av eleverna måttet faktiskt bygger på. Är den mindre
         # än hela årskullen saknas en eller flera enheter i snittet.
         ut[matt + "Vikt"] = vikt or None
