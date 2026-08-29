@@ -21,6 +21,15 @@ officiella befolkningsstatistik.
   år &ndash; så att de två modellerna går att ställa mot varandra vid samma
   horisont. Årgångarna har ett eget diagram; att lägga två linjeknippen med
   var sin färgramp i samma bild går inte att läsa.
+  Skillnaden mellan två årgångar är den flyttning modellen utelämnar, och
+  den är mätbar: kvoten `r(a) = N(a+1, år T+1) / N(a, år T)` är stabil över
+  åren men starkt åldersberoende &ndash; omkring +8,5 % per år i steget
+  0&rarr;1 år, nära noll i tonåren och &minus;3,3 % i steget 18&rarr;19 år,
+  när ungdomarna flyttar hemifrån. En **kompenserad framskrivning**
+  multiplicerar med de kvoterna längs vägen. Den halverar felet på lång
+  sikt, men till priset av ett antagande: att flyttmönstret består.
+  Kvoterna skattas därför alltid ur åren före basåret, så att prövningen
+  bakåt blir ärlig.
 
 **Betygen på gymnasiet** &ndash; vad eleverna hade med sig in, och vad de gick
 ut med, program för program. Enheten är programmet och inte skolan på båda

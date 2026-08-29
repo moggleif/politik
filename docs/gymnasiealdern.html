@@ -197,15 +197,62 @@
     </details>
   </section>
 
-  <section id="sektion-kohortfel" hidden>
-    <h2>Hur bra är den enkla framskrivningen?</h2>
+  <section id="sektion-kvoter" hidden>
+    <h2>Deltat är en procentsats &ndash; en per ålder</h2>
     <p class="forklaring">
-      Framskrivningen går att pröva bakåt: utgå från ett år vi har facit
-      för, skriv fram, och jämför. Diagrammet ställer den mot kommunens
-      egen modell vid <em>samma</em> horisont, så att de mäts på samma sak.
-      Framskrivningen får då samma utgångspunkt som kommunen hade när
+      Avståndet mellan årgångarna går att mäta rakt av. Jämför en
+      åldersklass med sig själv ett år senare, ett år äldre:
+      <code>r(a) = N(a&nbsp;+&nbsp;1, år&nbsp;T&nbsp;+&nbsp;1) / N(a, år&nbsp;T)</code>.
+      Är kvoten över 1 har det flyttat in fler i den åldern än det flyttat
+      ut. Diagrammet visar den kvoten som procent, ålder för ålder, som
+      geometriskt medel över alla år &ndash; med hela spannet mellan det
+      svagaste och det starkaste året bakom.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kvoter" aria-label="Diagram: årlig nettotillväxt per åldersklass, med spannet mellan svagaste och starkaste året" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kvoter"></p>
+    </div>
+    <div class="slutsats" id="slutsats-kvoter"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kvoter"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kompenserad" hidden>
+    <h2>Framskrivning med kompensation</h2>
+    <p class="forklaring">
+      Med kvoterna går det att kompensera framskrivningen: i stället för
+      att bära varje kohort rakt fram multipliceras den med r(a) för varje
+      år den åldras. Det är samma räkning som förut, med en faktor tillagd
+      i varje steg. <strong>Priset är ett antagande</strong> &ndash; att
+      flyttmönstret består. Den enkla framskrivningen antar ingenting alls;
+      den kompenserade antar att det som hänt de senaste
+      tjugofem åren fortsätter hända.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kompenserad" aria-label="Diagram: utfall, enkel framskrivning, kompenserad framskrivning och kommunens senaste prognos" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kompenserad"></p>
+    </div>
+    <div id="not-kompenserad" hidden></div>
+    <div class="slutsats" id="slutsats-kompenserad"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kompenserad"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kohortfel" hidden>
+    <h2>Vilken modell träffar bäst?</h2>
+    <p class="forklaring">
+      Alla tre går att pröva bakåt: utgå från ett år vi har facit för,
+      räkna fram, och jämför. Diagrammet ställer dem mot varandra vid
+      <em>samma</em> horisont, så att de mäts på samma sak. Båda
+      framskrivningarna får samma utgångspunkt som kommunen hade när
       prognosen gjordes &ndash; folkmängden vid det senast passerade
-      årsskiftet.
+      årsskiftet &ndash; och den kompenserade får bara kvoter som gick att
+      räkna ut då. Annars vet den något om framtiden, och prövningen mäter
+      ingenting.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-kohortfel" aria-label="Diagram: genomsnittligt fel för kommunens prognos och för kohortframskrivningen, per antal år i förväg" role="img"></canvas></div>

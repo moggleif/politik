@@ -1208,6 +1208,281 @@
     el("sektion-kohortalla").hidden = false;
   }
 
+  /* ---------- Kvoterna: vad deltat mellan årgångarna består av ----------
+     r(a) = N(a+1, T+1) / N(a, T) — hur mycket en åldersklass växer på ett
+     år. Det är hela skillnaden mellan två framskrivningsårgångar, och den
+     är ett procenttal per ålder, inte ett enda tal. */
+
+  function initKvoter(data) {
+    if (!data.kohort || !data.kohort.kvoter || !el("diagram-kvoter")) return;
+    var q = data.kohort.kvoter;
+    if (!q.length) return;
+
+    var etiketter = q.map(function (r) { return r.alder + "→" + (r.alder + 1); });
+    var ctx = el("diagram-kvoter");
+    ctx.parentElement.style.height = "400px";
+    new Chart(ctx, {
+      data: {
+        labels: etiketter,
+        datasets: [
+          {
+            /* Spannet ritas som flytande staplar bakom medelvärdet, så
+               att stabiliteten syns: ett smalt spann betyder att kvoten
+               varit ungefär densamma varje år. */
+            type: "bar",
+            label: "Svagaste till starkaste året",
+            data: q.map(function (r) { return [r.minPct, r.maxPct]; }),
+            backgroundColor: "rgba(230,159,0,0.25)",
+            borderWidth: 0,
+            borderRadius: 3,
+            order: 2
+          },
+          {
+            type: "line",
+            label: "Genomsnitt",
+            data: q.map(function (r) { return r.nettoPct; }),
+            borderColor: FARG.orangeMork,
+            backgroundColor: FARG.orangeMork,
+            borderWidth: 3,
+            pointRadius: 3,
+            pointHoverRadius: 6,
+            tension: 0.1,
+            order: 1
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        locale: "sv-SE",
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: true, position: "bottom", labels: { boxWidth: 22 } },
+          tooltip: {
+            callbacks: {
+              title: function (it) {
+                var r = q[it[0].dataIndex];
+                return r.alder + " år → " + (r.alder + 1) + " år";
+              },
+              label: function (it) {
+                var r = q[it.dataIndex];
+                if (it.dataset.type === "bar") {
+                  return "Spann: " + tecknat(r.minPct) + " till " + tecknat(r.maxPct);
+                }
+                return "Genomsnitt: " + tecknat(r.nettoPct) + " per år (" +
+                  r.antal + " år)";
+              }
+            }
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, border: { color: FARG.baseline },
+               title: { display: true, text: "Åldersklassens steg", color: FARG.muted },
+               ticks: { autoSkip: false, maxRotation: 90, minRotation: 45 } },
+          y: { title: { display: true, text: "Förändring på ett år (%)", color: FARG.muted },
+               grid: { color: FARG.grid }, border: { display: false },
+               ticks: { callback: function (v) { return tecknat(v); } } }
+        }
+      }
+    });
+
+    var storst = q.reduce(function (a, b) { return b.nettoPct > a.nettoPct ? b : a; });
+    var minst = q.reduce(function (a, b) { return b.nettoPct < a.nettoPct ? b : a; });
+    var ar = data.kohort.kvotAr || [];
+    el("kalla-kvoter").textContent =
+      "Källa: SCB:s folkmängd per enskild ålder" +
+      (ar.length === 2 ? ", årsskiftena " + ar[0] + "–" + ar[1] : "") +
+      ". Geometriskt medel, eftersom kvoterna multipliceras ihop.";
+
+    el("slutsats-kvoter").innerHTML =
+      "<p>Svaret på frågan är alltså: <strong>ja, det är ett procenttal " +
+      "&ndash; men ett per ålder.</strong> Störst är det för de allra " +
+      "yngsta: en årskull " + storst.alder + "-åringar är " +
+      tecknat(storst.nettoPct) + " större när den fyller " +
+      (storst.alder + 1) + ". Sedan faller det snabbt och planar ut kring " +
+      "noll i tonåren, för att bli tydligt negativt i steget " +
+      minst.alder + "→" + (minst.alder + 1) + " år (" + tecknat(minst.nettoPct) +
+      ") &ndash; då flyttar ungdomarna hemifrån.</p>" +
+      "<p>Det här är barnfamiljer som flyttar in, inte fler födda: kurvan " +
+      "gäller barn som redan är födda och bara byter kommun. Spannen visar " +
+      "att mönstret är stabilt &ndash; det är samma bild år efter år, " +
+      "inte enskilda utfall.</p>";
+
+    el("tabell-kvoter").innerHTML =
+      "<caption>Årlig förändring per åldersklass, i procent.</caption>" +
+      "<thead><tr><th scope=\"col\">Steg</th><th scope=\"col\">Genomsnitt</th>" +
+      "<th scope=\"col\">Svagaste året</th><th scope=\"col\">Starkaste året</th>" +
+      "<th scope=\"col\">Antal år</th></tr></thead><tbody>" +
+      q.map(function (r) {
+        return "<tr><th scope=\"row\">" + r.alder + " → " + (r.alder + 1) +
+          " år</th><td>" + tecknat(r.nettoPct) + "</td><td>" +
+          tecknat(r.minPct) + "</td><td>" + tecknat(r.maxPct) + "</td><td>" +
+          r.antal + "</td></tr>";
+      }).join("") + "</tbody>";
+    el("sektion-kvoter").hidden = false;
+  }
+
+  function tecknat(v) {
+    return (v > 0 ? "+" : v < 0 ? "−" : "") + talSv(Math.abs(v), 1) + " %";
+  }
+
+  /* ---------- Den kompenserade framskrivningen ---------- */
+
+  function initKompenserad(data) {
+    if (!data.kohort || !data.kohort.kompenserad || !el("diagram-kompenserad")) return;
+    var k = data.kohort;
+    var komp = k.kompenserad;
+    if (!Object.keys(komp).length) return;
+
+    var ar = kohortAr(data);
+    var senaste = data.prognoser.filter(function (p) {
+      return p.prognosAr === k.senastePrognosAr;
+    })[0];
+
+    var dataset = [{
+      label: "Faktiskt utfall (SCB)",
+      data: ar.map(function (a) {
+        var v = data.utfall[String(a)];
+        return v === undefined ? null : v;
+      }),
+      borderColor: FARG.ink, backgroundColor: FARG.ink,
+      borderWidth: 3, pointRadius: 3, pointHoverRadius: 6,
+      pointBorderColor: FARG.surface, pointBorderWidth: 2,
+      spanGaps: false, tension: 0.1
+    }];
+    if (senaste) {
+      dataset.push({
+        label: "Kommunens prognos " + senaste.prognosAr,
+        data: ar.map(function (a) {
+          var v = senaste.prognos[String(a)];
+          return v === undefined ? null : v;
+        }),
+        borderColor: FARG.bla, backgroundColor: FARG.bla,
+        borderWidth: 2, borderDash: [7, 4], pointStyle: "rect",
+        pointRadius: 3, pointHoverRadius: 6, spanGaps: false, tension: 0.1
+      });
+    }
+    dataset.push({
+      label: "Enkel framskrivning",
+      data: ar.map(function (a) {
+        var v = k.framskrivning[String(a)];
+        return v === undefined ? null : v;
+      }),
+      borderColor: FARG.orange, backgroundColor: FARG.orange,
+      borderWidth: 2, borderDash: [2, 3], pointStyle: "triangle",
+      pointRadius: 0, pointHoverRadius: 6, spanGaps: false, tension: 0.1
+    });
+    dataset.push({
+      label: "Kompenserad framskrivning",
+      data: ar.map(function (a) {
+        var v = komp[String(a)];
+        return v === undefined ? null : v;
+      }),
+      borderColor: FARG.orangeMork, backgroundColor: FARG.orangeMork,
+      borderWidth: 3, pointStyle: "triangle",
+      pointRadius: 3, pointHoverRadius: 6, spanGaps: false, tension: 0.1
+    });
+
+    var ctx = el("diagram-kompenserad");
+    ctx.parentElement.style.height = "440px";
+    new Chart(ctx, {
+      type: "line",
+      data: { labels: ar.map(String), datasets: dataset },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        locale: "sv-SE",
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: true, position: "bottom",
+                    labels: { boxWidth: 22, usePointStyle: true } },
+          tooltip: {
+            callbacks: {
+              title: function (it) { return "År " + it[0].label; },
+              label: function (it) {
+                return it.dataset.label + ": " +
+                  (it.parsed.y === null ? "–" : talSv(it.parsed.y) + " " + ENHET);
+              }
+            }
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, border: { color: FARG.baseline },
+               ticks: { maxRotation: 0, autoSkipPadding: 12 } },
+          y: { title: { display: true, text: ENHET_LANG, color: FARG.muted },
+               grid: { color: FARG.grid }, border: { color: FARG.baseline },
+               ticks: { callback: function (v) { return talSv(v); } } }
+        }
+      }
+    });
+
+    el("kalla-kompenserad").textContent =
+      "Båda framskrivningarna utgår från åldersklasserna " + k.basAr +
+      ". Den kompenserade multiplicerar varje kohort med kvoten för varje " +
+      "år den åldras.";
+
+    K.sattDataNot("not-kompenserad",
+      "Den kompenserade framskrivningen är <strong>inte</strong> längre " +
+      "fri från antaganden. Den förutsätter att flyttmönstret består. " +
+      "Håller det inte &ndash; för att bostadsbyggandet ändras, eller för " +
+      "att kommunen blir mindre attraktiv för barnfamiljer &ndash; slår " +
+      "den fel åt precis det håll som antagandet lutar. Den enkla " +
+      "framskrivningen har kvar sitt värde just därför att den inte " +
+      "antar något alls.");
+
+    var sista = k.sistaAr;
+    var lyft = komp[String(sista)] - k.framskrivning[String(sista)];
+    var forsta = k.basAr + 1;
+    var jam = (k.jamforelse || []).filter(function (r) {
+      return r.kompenseradAbsPct !== undefined && r.kompenseradAbsPct !== null;
+    });
+    /* Första året är korrigeringen negativ: där dominerar 18-åringarna
+       som flyttar hemifrån. Formuleringen måste klara båda tecknen. */
+    var forstaDiff = komp[String(forsta)] - k.framskrivning[String(forsta)];
+    var txt = "<p>Kompensationen lyfter framskrivningen med <strong>" +
+      talSv(lyft) + "</strong> " + ENHET + " år " + sista + " (" +
+      talSv(100 * lyft / k.framskrivning[String(sista)], 1) + " %). År " +
+      forsta + " gör den tvärtom: " +
+      (forstaDiff < 0
+        ? "där <strong>drar</strong> den ned framskrivningen med " +
+          talSv(Math.abs(forstaDiff)) + " " + ENHET + ", eftersom det som " +
+          "hinner hända på ett år framför allt är att 18-åringar flyttar " +
+          "hemifrån"
+        : "där lyfter den bara " + talSv(forstaDiff) + " " + ENHET) +
+      ". Ju längre fram, desto fler år med små barn hinner räknas in, och " +
+      "då tar inflyttningen över &ndash; kvoterna multipliceras ihop ett " +
+      "år i taget.</p>";
+    if (jam.length) {
+      var langst = jam[jam.length - 1];
+      txt += "<p>Prövad bakåt, med kvoter skattade enbart ur åren före varje " +
+        "basår, halverar kompensationen felet på lång sikt: " +
+        langst.avstand + " år framåt " + talSv(langst.kompenseradAbsPct, 1) +
+        " % mot den enkla framskrivningens " + talSv(langst.kohortAbsPct, 1) +
+        " %. På kort sikt gör den ingen nytta &ndash; där är korrigeringen " +
+        "mindre än bruset.</p>";
+    }
+    el("slutsats-kompenserad").innerHTML = txt;
+
+    var rader = Object.keys(komp).map(Number)
+      .sort(function (a, b) { return a - b; });
+    var tab = "<caption>Enkel och kompenserad framskrivning, med kommunens " +
+      "senaste prognos, antal " + ENHET + ".</caption><thead><tr>" +
+      "<th scope=\"col\">År</th><th scope=\"col\">Enkel</th>" +
+      "<th scope=\"col\">Kompenserad</th><th scope=\"col\">Skillnad</th>" +
+      "<th scope=\"col\">Kommunens prognos</th></tr></thead><tbody>";
+    rader.forEach(function (a) {
+      var e = k.framskrivning[String(a)];
+      var c = komp[String(a)];
+      var pv = senaste ? senaste.prognos[String(a)] : undefined;
+      tab += "<tr><th scope=\"row\">" + a + "</th><td>" +
+        (e === undefined ? "–" : talSv(e)) + "</td><td>" + talSv(c) +
+        "</td><td>" + (e === undefined ? "–" : "+" + talSv(c - e)) +
+        "</td><td>" + (pv === undefined ? "–" : talSv(pv)) + "</td></tr>";
+    });
+    el("tabell-kompenserad").innerHTML = tab + "</tbody>";
+    el("sektion-kompenserad").hidden = false;
+  }
+
   function initKohortfel(data) {
     if (!data.kohort || !el("diagram-kohortfel")) return;
     var rader = data.kohort.jamforelse;
@@ -1229,9 +1504,15 @@
             borderWidth: 0, borderRadius: 4
           },
           {
-            label: "Kohortframskrivning",
+            label: "Enkel framskrivning",
             data: rader.map(function (r) { return r.kohortAbsPct; }),
             backgroundColor: FARG.orange,
+            borderWidth: 0, borderRadius: 4
+          },
+          {
+            label: "Kompenserad framskrivning",
+            data: rader.map(function (r) { return r.kompenseradAbsPct; }),
+            backgroundColor: FARG.orangeMork,
             borderWidth: 0, borderRadius: 4
           }
         ]
@@ -1268,46 +1549,85 @@
       }
     });
 
-    var kohortBast = rader.filter(function (r) {
-      /* Bara horisonter där skillnaden syns även efter avrundningen till
-         en decimal – annars läses "1,9 % mot 1,9 %" som ett skrivfel. */
-      return r.kohortAbsPct < r.kommunAbsPct &&
-        Math.round(r.kommunAbsPct * 10) !== Math.round(r.kohortAbsPct * 10);
+    /* Vinnare per horisont, med avrundningen inräknad: två staplar som
+       båda skrivs "1,9 %" ska inte utropas till olika. */
+    function vinnare(r) {
+      var namn = ["Kommunens prognos", "Enkel framskrivning",
+                  "Kompenserad framskrivning"];
+      var v = [r.kommunAbsPct, r.kohortAbsPct, r.kompenseradAbsPct];
+      var avrundat = v.map(function (x) {
+        return x === null || x === undefined ? Infinity : Math.round(x * 10);
+      });
+      var minsta = Math.min.apply(null, avrundat);
+      var traff = [];
+      avrundat.forEach(function (x, i) { if (x === minsta) traff.push(namn[i]); });
+      return traff.length === 1 ? traff[0] : null;
+    }
+    var enkelBast = rader.filter(function (r) {
+      return vinnare(r) === "Enkel framskrivning";
     });
-    var vand = rader.filter(function (r) {
-      return r.kohortAbsPct >= r.kommunAbsPct;
+    var kompBast = rader.filter(function (r) {
+      return vinnare(r) === "Kompenserad framskrivning";
     });
+    var kommunBast = rader.filter(function (r) {
+      return vinnare(r) === "Kommunens prognos";
+    });
+    function horisonter(lista) {
+      return lista.map(function (r) {
+        return r.avstand === 0 ? "samma år" : r.avstand + " år";
+      }).join(", ");
+    }
+
     el("kalla-kohortfel").textContent =
       "Genomsnittligt fel utan tecken, i procent av det faktiska antalet. " +
-      "Bara målår där båda har ett värde och facit finns.";
+      "Bara målår där alla tre har ett värde och facit finns.";
+
+    var delar = [];
+    if (enkelBast.length) {
+      delar.push("den <strong>enkla framskrivningen</strong> vid " +
+        horisonter(enkelBast));
+    }
+    if (kompBast.length) {
+      delar.push("den <strong>kompenserade</strong> vid " + horisonter(kompBast));
+    }
+    if (kommunBast.length) {
+      delar.push("<strong>kommunens modell</strong> vid " + horisonter(kommunBast));
+    }
+    /* Kompensationens egen insats syns tydligast mot den enkla
+       framskrivningen, inte i vem som vinner totalt. */
+    var kompBattreAnEnkel = rader.filter(function (r) {
+      return r.kompenseradAbsPct !== null && r.kompenseradAbsPct !== undefined &&
+        Math.round(r.kompenseradAbsPct * 10) < Math.round(r.kohortAbsPct * 10);
+    });
+    var langsta = rader[rader.length - 1];
     el("slutsats-kohortfel").innerHTML =
-      "<p>På kort sikt är den enkla framskrivningen " +
-      (kohortBast.length
-        ? "<strong>träffsäkrare</strong> än kommunens modell: " +
-          kohortBast.map(function (r) {
-            return (r.avstand === 0 ? "samma år" : r.avstand + " år framåt") +
-              " " + talSv(r.kohortAbsPct, 1) + " % mot " +
-              talSv(r.kommunAbsPct, 1) + " %";
-          }).join(", ") + "."
-        : "inte träffsäkrare än kommunens modell vid någon horisont.") +
-      (vand.length
-        ? " Från " + vand[0].avstand + " år och framåt vänder det: då " +
-          "börjar inflyttningen betyda mer än vilka barn som redan bor här, " +
-          "och kommunens modell &ndash; som räknar med flyttning &ndash; " +
-          "tar över."
+      "<p>Ingen modell vinner överallt: " + delar.join(", ") + "." +
+      " Mönstret är att det som redan bor i kommunen räcker långt på " +
+      "kort sikt, medan flyttningen tar över på lång.</p>" +
+      (kompBattreAnEnkel.length
+        ? "<p>Kompensationen gör sin nytta just där: den slår den enkla " +
+          "framskrivningen vid " + horisonter(kompBattreAnEnkel) + " framåt, " +
+          "och " + langsta.avstand + " år framåt skiljer det " +
+          talSv(langsta.kohortAbsPct, 1) + " % mot " +
+          talSv(langsta.kompenseradAbsPct, 1) + " % &ndash; nära kommunens " +
+          talSv(langsta.kommunAbsPct, 1) + " %. Priset är antagandet att " +
+          "flyttmönstret består.</p>"
         : "") +
-      " Staplarna bygger på få jämförelser vid de längsta horisonterna; " +
+      "<p>Staplarna bygger på få jämförelser vid de längsta horisonterna; " +
       "antalet står i tooltipen.</p>";
 
     var t = "<caption>Genomsnittligt fel utan tecken, per antal år i " +
       "förväg.</caption><thead><tr><th scope=\"col\">År i förväg</th>" +
       "<th scope=\"col\">Jämförelser</th>" +
       "<th scope=\"col\">Kommunens prognos</th>" +
-      "<th scope=\"col\">Kohortframskrivning</th></tr></thead><tbody>";
+      "<th scope=\"col\">Enkel framskrivning</th>" +
+      "<th scope=\"col\">Kompenserad framskrivning</th></tr></thead><tbody>";
     rader.forEach(function (r) {
       t += "<tr><th scope=\"row\">" + r.avstand + "</th><td>" + r.antal +
         "</td><td>" + talSv(r.kommunAbsPct, 1) + " %</td><td>" +
-        talSv(r.kohortAbsPct, 1) + " %</td></tr>";
+        talSv(r.kohortAbsPct, 1) + " %</td><td>" +
+        (r.kompenseradAbsPct === null || r.kompenseradAbsPct === undefined
+          ? "–" : talSv(r.kompenseradAbsPct, 1) + " %") + "</td></tr>";
     });
     el("tabell-kohortfel").innerHTML = t + "</tbody>";
     el("sektion-kohortfel").hidden = false;
@@ -1353,6 +1673,8 @@
       initSkevhet(data);
       initKohort(data);
       initKohortAlla(data);
+      initKvoter(data);
+      initKompenserad(data);
       initKohortfel(data);
       initSpagetti(data);
       initUtfall(data);
