@@ -6,6 +6,12 @@ Fristående, helt statiska sammanställningar av offentliga siffror om
 Kungsbacka &ndash; från kommunen, SCB, Skolverket och Göteborgsregionen
 &ndash; med alla källor länkade.
 
+Sidorna visar vad siffrorna är, var de kommer ifrån och hur de är
+framräknade. De drar inga slutsatser, väger inte samman till omdömen och
+säger ingenting om framtiden. Den enda beräkning som inte kommer ur en
+källa är kohortframskrivningen på 16&ndash;19-sidan, och den är utmärkt
+som sådan.
+
 **Befolkningsprognoser** &ndash; hur träffsäkra kommunens prognoser har varit,
 inklusive långtidsprognoserna. Prognossiffrorna kommer ur kommunens egna
 prognosrapporter och jämförs med den faktiska folkmängden enligt SCB:s
@@ -24,19 +30,6 @@ officiella befolkningsstatistik.
   år &ndash; så att de två modellerna går att ställa mot varandra vid samma
   horisont. Årgångarna har ett eget diagram; att lägga två linjeknippen med
   var sin färgramp i samma bild går inte att läsa.
-  Skillnaden mellan två årgångar är den flyttning modellen utelämnar, och
-  den är mätbar: kvoten `r(a) = N(a+1, år T+1) / N(a, år T)` är stabil över
-  åren men starkt åldersberoende &ndash; omkring +8,5 % per år i steget
-  0&rarr;1 år, nära noll i tonåren och &minus;3,3 % i steget 18&rarr;19 år,
-  när ungdomarna flyttar hemifrån. En **kompenserad framskrivning**
-  multiplicerar med de kvoterna längs vägen. Den halverar felet på lång
-  sikt, men till priset av ett antagande: att flyttmönstret består.
-  Kvoterna skattas därför alltid ur årsövergångar till och med basåret
-  &ndash; bara data som var känd vid prognostillfället &ndash; så att
-  prövningen bakåt blir ärlig. Fem varianter av modellen prövas mot varandra på samma
-  basår och samma målår &ndash; med och utan kort skattningsfönster, med
-  och utan de tre första åren okompenserade &ndash; och alla redovisas,
-  också de som visar sig sämre.
 
 **Betygen på gymnasiet** &ndash; vad eleverna hade med sig in, och vad de gick
 ut med, program för program. Enheten är programmet och inte skolan på båda
@@ -65,7 +58,7 @@ hela kommunen, också de fristående gymnasieskolorna.
 
 - [Från nian till gymnasiet](https://moggleif.github.io/politik/nian-till-gymnasiet.html)
   &ndash; meritvärde och behörighet i nian, examen inom 3/4/5 år,
-  avgångsbetyg, samband och pendling mellan hem- och skolkommun,
+  avgångsbetyg och pendling mellan hem- och skolkommun,
   läsåren 2008/09&ndash;2025/26
 
 Sidan innehåller också svaret på varför de tre mätpunkterna inte kan

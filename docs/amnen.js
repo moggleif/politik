@@ -172,8 +172,9 @@
     var riktning = a.forandring === null ? "" :
       (a.forandring > 0 ? "stigit" : (a.forandring < 0 ? "sjunkit" : "legat stilla"));
     el("slutsats-amne").innerHTML = a.forandring === null
-      ? "<p>" + esc(namn) + " redovisas bara " + esc(a.arMedPoang) + " av " + ar.length +
-        " läsår, så någon utveckling går inte att läsa av.</p>"
+      ? "<p>" + esc(namn) + " har betygspoäng redovisad " + esc(a.arMedPoang) +
+        " av " + ar.length + " läsår. Förändringen mellan första och sista " +
+        "läsåret räknas därför inte ut.</p>"
       : "<p>I " + esc(namn.toLowerCase()) + " har betygspoängen <strong>" + riktning +
         "</strong> från " + talSv(f, 1) + " (" + esc(lasar(a.forstaAr)) + ") till " +
         talSv(s, 1) + " (" + esc(lasar(a.sistaAr)) + ") &ndash; en förändring på <strong>" +
@@ -372,8 +373,7 @@
       "<caption>Ovägt medel av ämnenas genomsnittliga betygspoäng, över de " +
       DATA.karnamnen.length + " ämnen som redovisas samtliga läsår. " +
       "Elevkolumnen visar det största redovisade elevantalet i något enskilt " +
-      "ämne det läsåret &ndash; en storleksordning för årskullen, inte antalet " +
-      "observationer bakom snittet.</caption>" +
+      "ämne det läsåret, inte antalet observationer bakom snittet.</caption>" +
       "<thead><tr><th scope=\"col\">Läsår</th><th scope=\"col\">Betygspoäng</th>" +
       "<th scope=\"col\">Elever i det största ämnet</th></tr></thead><tbody>" +
       DATA.sammanfattning.map(function (r) {
@@ -395,9 +395,8 @@
       "<p>Andelen godkända betyg har gått från <strong>" + talSv(f.andelAE, 1) +
       "&nbsp;%</strong> (" + esc(lasar(f.ar)) + ") till <strong>" + talSv(s.andelAE, 1) +
       "&nbsp;%</strong> (" + esc(lasar(s.ar)) + "). Talet är ett ovägt medel av de " +
-      DATA.karnamnen.length + " ämnenas andelar godkända &ndash; samma fasta " +
-      "ämnesurval varje år, så förändringen beror på betygen och inte på " +
-      "vilka ämnen som råkat redovisas.</p>";
+      DATA.karnamnen.length + " ämnenas andelar godkända, räknat över samma " +
+      "fasta ämnesurval varje läsår.</p>";
 
     el("tabell-godkant").innerHTML =
       "<caption>Ovägt medel av ämnenas andel med betyget A&ndash;E, över de " +
