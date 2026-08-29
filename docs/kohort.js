@@ -726,7 +726,7 @@
           x: { grid: { display: false }, border: { color: FARG.baseline },
                title: { display: true, text: "Antal år i förväg", color: FARG.muted } },
           y: { beginAtZero: true,
-               title: { display: true, text: "Genomsnittligt fel (%)", color: FARG.muted },
+               title: { display: true, text: "Genomsnittligt absolut fel (%)", color: FARG.muted },
                grid: { color: FARG.grid }, border: { display: false },
                ticks: { callback: function (x) { return talSv(x, 0) + " %"; } } }
         }
@@ -925,7 +925,7 @@
           x: { grid: { display: false }, border: { color: FARG.baseline },
                title: { display: true, text: "Antal år i förväg", color: FARG.muted } },
           y: { beginAtZero: true,
-               title: { display: true, text: "Genomsnittligt fel (%)", color: FARG.muted },
+               title: { display: true, text: "Genomsnittligt absolut fel (%)", color: FARG.muted },
                grid: { color: FARG.grid }, border: { display: false },
                ticks: { callback: function (v) { return talSv(v, 1) + " %"; } } }
         }
