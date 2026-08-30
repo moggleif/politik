@@ -22,10 +22,6 @@ och ungefär var femte elev i kommunens gymnasieskolor är folkbokförd i
 en annan kommun. Därför byggs pendlingen in i samma datafil
 (rapport 60 och 61): den mäter hur stort glappet är, år för år.
 
-Av samma skäl räknas sambanden mellan mätpunkterna fram här, men bara
-som korrelationer med sitt n utskrivet – underlaget är tolv kullar, och
-sidan säger uttryckligen att det inte räcker för att slå fast något.
-
 Programindelningen (yrkesprogram/högskoleförberedande) och namnbyten
 kommer ur program.py, så att de bara underhålls på ett ställe.
 
@@ -33,7 +29,6 @@ Körs:  python3 scripts/build_nian_gymnasiet.py
 """
 
 import json
-import math
 from pathlib import Path
 
 import program
@@ -129,94 +124,6 @@ def pendeltal(d: dict, del_: str) -> dict | None:
         "stammer": (hemma is not None and ut is not None
                     and abs(hemma + ut - folkbokforda) <= 20),
     }
-
-
-# ---------------------------------------------------------------- samband
-
-def pearson(par: list):
-    """Korrelationen mellan två mått över de kullar där båda finns.
-
-    Returnerar None när färre än tre punkter återstår: ett r på två
-    punkter är alltid ±1 och säger ingenting."""
-    par = [(x, y) for x, y in par if x is not None and y is not None]
-    n = len(par)
-    if n < 3:
-        return None
-    mx = math.fsum(x for x, _ in par) / n
-    my = math.fsum(y for _, y in par) / n
-    sx = math.fsum((x - mx) ** 2 for x, _ in par) ** 0.5
-    sy = math.fsum((y - my) ** 2 for _, y in par) ** 0.5
-    if sx == 0 or sy == 0:
-        return None
-    tackning = math.fsum((x - mx) * (y - my) for x, y in par) / (sx * sy)
-    return {"r": round(tackning, 3), "n": n}
-
-
-SAMBAND = [
-    {
-        "nyckel": "behorighet-examen3",
-        "etikett": "Andel behöriga till yrkesprogram i nian → andel med "
-                   "examen inom 3 år",
-        "xFalt": "andelBehorigYrkes", "xDel": "nian",
-        "yFalt": "examen3", "yDel": "start",
-        "xNamn": "Behöriga till yrkesprogram i nian (%)",
-        "yNamn": "Examen inom 3 år (%)",
-        "baraMerit17": False,
-    },
-    {
-        "nyckel": "behorighet-betygspoang",
-        "etikett": "Andel behöriga till yrkesprogram i nian → betygspoäng "
-                   "vid gymnasieexamen",
-        "xFalt": "andelBehorigYrkes", "xDel": "nian",
-        "yFalt": "betygspoang", "yDel": "examen",
-        "xNamn": "Behöriga till yrkesprogram i nian (%)",
-        "yNamn": "Betygspoäng vid examen (max 20)",
-        "baraMerit17": False,
-    },
-    {
-        "nyckel": "meritvarde-examen3",
-        "etikett": "Meritvärde i nian → andel med examen inom 3 år",
-        "xFalt": "meritvarde", "xDel": "nian",
-        "yFalt": "examen3", "yDel": "start",
-        "xNamn": "Genomsnittligt meritvärde i nian (max 340)",
-        "yNamn": "Examen inom 3 år (%)",
-        "baraMerit17": True,
-    },
-    {
-        "nyckel": "meritvarde-betygspoang",
-        "etikett": "Meritvärde i nian → betygspoäng vid gymnasieexamen",
-        "xFalt": "meritvarde", "xDel": "nian",
-        "yFalt": "betygspoang", "yDel": "examen",
-        "xNamn": "Genomsnittligt meritvärde i nian (max 340)",
-        "yNamn": "Betygspoäng vid examen (max 20)",
-        "baraMerit17": True,
-    },
-]
-
-
-def samband_for(kullar: list, spec: dict) -> dict:
-    """Punkterna och korrelationen för ett av sambanden.
-
-    Meritvärdet räknas över 16 ämnen t.o.m. 2014 och 17 ämnen därefter –
-    de två går inte att lägga i samma serie, så sambanden som utgår från
-    meritvärdet använder bara 17-ämnesåren."""
-    punkter = []
-    for k in kullar:
-        if spec["baraMerit17"] and k["nian"].get("meritamnen") != 17:
-            continue
-        x = k[spec["xDel"]].get(spec["xFalt"])
-        y = k[spec["yDel"]].get(spec["yFalt"])
-        if x is None or y is None:
-            continue
-        punkter.append({"ar": k["ar"], "x": x, "y": y})
-
-    matt = pearson([(p["x"], p["y"]) for p in punkter])
-    ut = dict(spec)
-    ut.pop("baraMerit17")
-    ut["punkter"] = punkter
-    ut["r"] = matt["r"] if matt else None
-    ut["n"] = matt["n"] if matt else len(punkter)
-    return ut
 
 
 # ------------------------------------------------------------------ bygget
@@ -320,7 +227,6 @@ def bygg(nian_filer: list, start_filer: list, examen_filer: list,
         "antalKompletta": len(kompletta),
         "program": program,
         "pendling": pendling,
-        "samband": [samband_for(kompletta, s) for s in SAMBAND],
         "kallor": kallor(nian_filer, start_filer, examen_filer, pendel_filer),
     }
 
@@ -441,8 +347,6 @@ def main() -> None:
     print(f"Skrev {utfil.name}: {len(ut['kullar'])} årskullar "
           f"({ut['antalKompletta']} med alla tre mätpunkterna), "
           f"{len(ut['program'])} program, {len(ut['pendling'])} pendlingsår")
-    for s in ut["samband"]:
-        print(f"  {s['nyckel']}: r = {s['r']} (n = {s['n']})")
 
 
 if __name__ == "__main__":

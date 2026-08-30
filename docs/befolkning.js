@@ -173,10 +173,12 @@
 
     var f = cell(a15, data.ar[0], "andel"), sist = cell(a15, a15.sistaAr, "andel");
     el("slutsats-andel").innerHTML =
-      "<p>Andelen 0&ndash;15-åringar har fallit från <strong>" + talSv(f, 1) +
+      "<p>Andelen 0&ndash;15-åringar har gått från <strong>" + talSv(f, 1) +
       "&nbsp;%</strong> år " + esc(data.ar[0]) + " till <strong>" + talSv(sist, 1) +
-      "&nbsp;%</strong> år " + esc(a15.sistaAr) + ". Gruppen har alltså vuxit långsammare " +
-      "än kommunen i övrigt &ndash; en del år har den krympt medan folkmängden ökat.</p>";
+      "&nbsp;%</strong> år " + esc(a15.sistaAr) + ". För 16&ndash;19-åringarna " +
+      "gick andelen från " + talSv(cell(a19, data.ar[0], "andel"), 1) +
+      "&nbsp;% till " + talSv(cell(a19, a19.sistaAr, "andel"), 1) +
+      "&nbsp;% under samma år.</p>";
 
     tabellAndel(data, a15, a19);
   }
@@ -235,9 +237,9 @@
 
     var minskande = varden.filter(function (v) { return v < 0; }).length;
     el("slutsats-forandring").innerHTML =
-      "<p>Av " + varden.length + " år har gruppen minskat under <strong>" +
-      minskande + "</strong> av dem. Minskningen är alltså inte en enstaka " +
-      "svacka utan ett återkommande mönster under senare år.</p>";
+      "<p>Av " + varden.length + " år med ett föregående år att jämföra med var " +
+      "antalet 0&ndash;15-åringar lägre än året innan under <strong>" +
+      minskande + "</strong> av dem.</p>";
 
     var rader = ar.map(function (a, i) {
       var v = varden[i];
@@ -281,10 +283,11 @@
 
     var a15 = hittaSerie(data, HUVUD), tot = hittaSerie(data, "total");
     el("slutsats-index").innerHTML =
-      "<p>Sedan " + esc(ar[0]) + " har hela folkmängden vuxit till index <strong>" +
-      talSv(cell(tot, tot.sistaAr, "index"), 1) + "</strong>, medan 0&ndash;15-åringarna " +
-      "bara nått <strong>" + talSv(cell(a15, a15.sistaAr, "index"), 1) +
-      "</strong>. Kommunen växer alltså, men inte i barnkullarna.</p>";
+      "<p>Med år " + esc(ar[0]) + " satt till 100 låg hela folkmängden på index <strong>" +
+      talSv(cell(tot, tot.sistaAr, "index"), 1) + "</strong> (" + esc(tot.sistaAr) +
+      ") och 0&ndash;15-åringarna på index <strong>" +
+      talSv(cell(a15, a15.sistaAr, "index"), 1) + "</strong> (" +
+      esc(a15.sistaAr) + ").</p>";
 
     var rader = ar.map(function (a) {
       return "<tr><th scope=\"row\">" + esc(a) + "</th>" + data.serier.map(function (s) {
@@ -310,7 +313,7 @@
         "</strong> barn och unga 0&ndash;15 år i Kungsbacka.",
       "Gruppen var som störst <strong>" + esc(a15.hogstaAr) + "</strong> och har sedan dess " +
         "minskat med " + talSv(sedanTopp) + " personer.",
-      "Andelen av befolkningen har fallit från " + talSv(forstaAndel, 1) +
+      "Andelen av befolkningen har gått från " + talSv(forstaAndel, 1) +
         "&nbsp;% till <strong>" + talSv(sistaAndel, 1) + "&nbsp;%</strong> sedan " +
         esc(data.ar[0]) + ".",
       "Under samma tid växte hela folkmängden från " + talSv(tot.forsta) + " till " +

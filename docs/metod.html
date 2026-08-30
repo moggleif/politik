@@ -126,11 +126,21 @@
       <dt>Prognoserna jämförs med utfallet</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_data.py">build_data.py</a>
         räknar för varje prognosvärde och år med känt utfall: skillnaden i
-        personer, felet i procent av utfallet, och hur många år i förväg
-        prognosen gjordes. Ur detta byggs genomsnittligt absolut fel
+        personer, felet i procent av utfallet, och hur många kalenderår
+        som skiljer prognosårgången från målåret. Det avståndet är inte
+        samma sak som faktisk framförhållning: rapporterna publiceras vid
+        olika tider på året, så &rdquo;samma år&rdquo; betyder en prognos
+        gjord någon gång under målåret. Ur detta byggs genomsnittligt absolut fel
         (hur <em>stort</em> felet är) och genomsnittligt fel med tecken
         (åt vilket <em>håll</em> det lutar), per prognoshorisont och per
-        årgång. Skriver <a href="data.json">data.json</a> och
+        årgång. Vilka prognosårgångar som ligger bakom varje horisont
+        följer med i datat, eftersom de skiljer sig åt: ett långt avstånd
+        kan bara mätas för de äldsta prognoserna, prognoslängden har
+        ändrats över tid, och för 16&ndash;19-åringarna saknas 2021 års
+        rapport eftersom den använde en annan åldersindelning. Sammanställ&shy;ningen
+        per horisont beskriver därför materialet &ndash; den identifierar
+        inte vad en längre prognoshorisont orsakar. Skriver
+        <a href="data.json">data.json</a> och
         <a href="data-16-19.json">data-16-19.json</a>.</dd>
       <dt>Antagningsrapporterna blir tidsserier</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_meritvarden.py">build_meritvarden.py</a>
@@ -138,7 +148,13 @@
         skriver namnen olika, och bygger en serie per program.
         Programmets medelmeritvärde är ett <strong>ovägt</strong> snitt av
         dess inriktningar &ndash; rapporterna redovisar inte antal antagna,
-        så någon riktig vägning går inte att göra. Skriver
+        så någon riktig vägning går inte att göra. Samma sak gäller
+        grupperna yrkesprogram och högskoleförberedande: gruppens värde är
+        ett ovägt medel av utbildningarnas medelvärden, så det ändras också
+        när utbudet av utbildningar ändras. Måttet över konkurrensen räknar
+        <em>antal utbildningar</em> som var översökta &ndash; inte hur många
+        sökande som blev utan plats, och inte hur hårt söktrycket var; från
+        2025 byter dessutom rapporten sätt att markera dem. Skriver
         <a href="data-meritvarden.json">data-meritvarden.json</a>.</dd>
       <dt>Skolenheterna vägs ihop till skolor</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_slutbetyg.py">build_slutbetyg.py</a>
@@ -151,7 +167,12 @@
         innehåller varje skolenhet i Kungsbacka; sidan visar
         Aranäsgymnasiet och Elof Lindälvs gymnasium, så övriga skolors
         rader sorteras bort &ndash; summeringsraderna med, så att
-        sammanfattningarna räknar på samma elever som programmen. Skriver
+        sammanfattningarna räknar på samma elever som programmen. De
+        sammanräknade avsnitten bygger på rapportens egna summeringsrader
+        &ndash; <em>Nationella program</em>, <em>Högskoleförberedande
+        program</em> och <em>Yrkesprogram</em>. Introduktionsprogrammen
+        ingår inte i rapporten och räknas alltså inte med någonstans på
+        slutbetygssidan. Skriver
         <a href="data-slutbetyg.json">data-slutbetyg.json</a>.</dd>
       <dt>Antagning och examen paras till kullar</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_kull.py">build_kull.py</a>
@@ -172,7 +193,26 @@
         lyfta snittet, eftersom matematik är ett av de lägsta. Med ett
         fast urval beror förändringen på betygen och inte på vilka ämnen
         som råkade redovisas. Skriver
-        <a href="data-amnesbetyg.json">data-amnesbetyg.json</a>.</dd>
+        <a href="data-amnesbetyg.json">data-amnesbetyg.json</a>.
+        Två saker följer av det: årssnittet är ett konstruerat
+        <em>ämnessnitt</em> och inte årskullens elevviktade betygssnitt,
+        och elevantalet i sammanfattningen är det största redovisade
+        elevantalet i något enskilt ämne det läsåret &ndash; en
+        storleksordning för årskullen, inte antalet observationer bakom
+        det sammanvägda måttet.</dd>
+      <dt>Ämnessnittet är prövat mot tre alternativa mått</dt>
+      <dd>Ett ovägt snitt ger varje ämne samma vikt, vilket är ett val och
+        inte en självklarhet: modersmål väger då lika mycket som
+        matematik. Måttet har därför ställts mot tre alternativ över hela
+        perioden 2012/13&ndash;2024/25 &ndash; bara de obligatoriska
+        ämnena, medianen av ämnenas betygspoäng, och ett elevviktat snitt
+        där elevantalet finns. Alla fyra ger samma utveckling:
+        förändringen över perioden landar mellan +0,4 och +0,5
+        betygspoäng, och alla fyra stiger fram till 2020/21 och sjunker
+        något därefter. Valet av mått styr alltså inte bilden. Prövningen
+        körs som ett test i
+        <a href="https://github.com/moggleif/politik/blob/main/tests/test_berakningar.py">test_berakningar.py</a>
+        och faller om varianterna börjar skilja sig åt.</dd>
       <dt>Barnen skrivs fram ett år i taget</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_data.py">build_data.py</a>
         bygger också kohortframskrivningen på
@@ -192,34 +232,7 @@
         gör en ny prognos varje år; årgångarna börjar året före kommunens
         första prognos, så att varje prognos har en jämförbar
         framskrivning.</dd>
-      <dt>Flyttningen mäts som en kvot per ålder</dt>
-      <dd>Skillnaden mellan två framskrivningsårgångar är den flyttning som
-        den enkla modellen utelämnar, och den går att mäta:
-        <code>r(a) = N(a&nbsp;+&nbsp;1, år&nbsp;T&nbsp;+&nbsp;1) / N(a, år&nbsp;T)</code>
-        är hur mycket en åldersklass växer på ett år. Kvoterna vägs samman
-        som <strong>geometriskt</strong> medel, eftersom de multipliceras
-        ihop längs kohortens väg &ndash; då är det den multiplikativa
-        mittpunkten som gäller, inte den aritmetiska. Den
-        <em>kompenserade</em> framskrivningen multiplicerar varje kohort
-        med r(a) för varje år den åldras. I prövningen bakåt skattas
-        kvoterna alltid ur årsövergångar <em>till och med</em> basåret
-        &ndash; bara befolkningsdata som var känd vid prognostillfället;
-        annars vet framskrivningen något om framtiden och prövningen
-        mäter ingenting. Ett år där någon kvot saknas på vägen räknas inte
-        fram.</dd>
-      <dt>Modellvarianterna prövas mot varandra</dt>
-      <dd>Två saker går att skruva på: hur långt tillbaka kvoterna hämtas
-        (ett kort fönster följer en trend snabbare men skakar mer), och
-        hur många av de första åren som lämnas okompenserade. Fem
-        varianter räknas fram med samma regler, på exakt samma basår och
-        samma målår, och <strong>alla redovisas</strong> &ndash; också de
-        som visar sig sämre. Annars vore det bara att välja variant i
-        efterhand. Jämförelserna överlappar varandra, eftersom samma målår
-        räknas från flera basår; skillnader under någon tiondels
-        procentenhet betyder därför ingenting. Sidans kompenserade
-        framskrivning använder hela historiken, alltså den enklaste
-        regeln, och inte den variant som råkar vinna på materialet.</dd>
-      <dt>Nian, gymnasiestarten och examen ställs på samma årtal</dt>
+<dt>Nian, gymnasiestarten och examen ställs på samma årtal</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_nian_gymnasiet.py">build_nian_gymnasiet.py</a>
         sätter slutbetyget i årskurs 9 år X bredvid genomströmningen för
         dem som började gymnasiet hösten år X och avgångsbetygen år
@@ -246,24 +259,60 @@
   <section id="sektion-regler">
     <h2>Återkommande regler</h2>
     <dl class="metod-lista">
-      <dt>Program som bytt namn är samma program</dt>
+      <dt>Namnbyte: raderna förs ihop till en normaliserad programserie</dt>
       <dd>Handels- och administrationsprogrammet ersattes 2021 av
-        Försäljnings- och serviceprogrammet &ndash; nytt namn och delvis
-        nytt innehåll, men samma utbildning i kommunens utbud, så serien
-        hålls obruten under dagens namn. Samma regel gäller inriktningar
-        som döptes om i reformerna 2021 och 2025. Vilket namn som gällde
-        ett visst år följer med i datat och visas i diagrammens tooltip.
+        Försäljnings- och serviceprogrammet, och reformen gjorde om
+        innehållet. Raderna förs ihop till en <strong>normaliserad
+        programserie</strong> under dagens namn, så att serien går att följa
+        över tid. Det är en räkneregel för sidorna, inte ett påstående om
+        att utbildningen var densamma före och efter. Detsamma gäller
+        inriktningar som bara döptes om i reformerna 2021 och 2025:
+        Plåtslageri blev Byggnadsplåtslageri, och Karosseri och lackering
+        blev Fordonsskadeteknik och lackering. Vilket namn som gällde ett
+        visst år följer med i datat och visas i diagrammens tooltip.
         Namnbytena är förtecknade i byggskripten
-        (<code>PROGRAM_ALIAS</code> och <code>NAMNBYTEN</code>), så att
-        varje sammanslagning är dokumenterad i kod.</dd>
+        (<code>PROGRAM_ALIAS</code> och <code>NAMNBYTEN</code>).</dd>
+      <dt>Analyskonvention: tre par av inriktningar räknas som en serie</dt>
+      <dd>I tre program slås två inriktningar som tidigare hade var sin
+        antagning och var sin antagningspoäng ihop till en enda serie från
+        och med reformen 2021. Det är ingen normalisering av stavning utan en
+        <strong>analyskonvention</strong>: den gör serien följbar över tid,
+        men de sammanslagna åren beskriver inte samma utbildning som åren
+        efter.
+        <ul>
+          <li>Försäljnings- och serviceprogrammet: <em>Handel och service,
+            lärling</em> och <em>Administrativ service, lärling</em> räknas
+            därefter som programmets enda lärlingsspår.</li>
+          <li>Barn- och fritidsprogrammet: <em>Pedagogiskt arbete,
+            lärling</em> och <em>Socialt arbete, lärling</em> räknas därefter
+            som Pedagogiskt och socialt arbete.</li>
+          <li>Hotell- och turismprogrammet: <em>Hotell och konferens,
+            lärling</em> och <em>Turism och resor, lärling</em> räknas
+            därefter som programmets enda lärlingsspår.</li>
+        </ul>
+        I listan över enskilda utbildningar står varje rad kvar som
+        rapporten skrev den, med sin egen antagningspoäng. Konventionen
+        gäller bara när inriktningarna vägs ihop till en serie.</dd>
+      <dt>Anställd lärling hålls isär från lärling</dt>
+      <dd>Gymnasial lärlingsutbildning med anställning är en egen
+        utbildningsform, och GR skiljer på formerna: Vård- och
+        omsorgsprogrammet står som <em>Anställd lärling</em> också i 2025
+        och 2026 års rapporter. De industritekniska lärlingsutbildningarna
+        på Elof Lindälv gick från <em>anställd lärling</em> till och med
+        2024 till <em>Lärling</em> från 2025. Serierna förs därför inte
+        ihop &ndash; de bryts där formen byts.</dd>
       <dt>Program som flyttat mellan skolor följs som ett program</dt>
       <dd>Kommunen flyttar program mellan Aranäsgymnasiet och Elof
-        Lindälvs gymnasium. Enheten på sidorna är därför programmet: ett
-        program som bytt hus tar sin historik med sig, och vilken skola
-        som gällde varje enskilt år står i tabellerna. Undantaget är år
-        då samma program gick på två skolor samtidigt &ndash; då är det
-        två utbildningar som konkurrerar om samma sökande, och de
-        redovisas var för sig med skolan i namnet.</dd>
+        Lindälvs gymnasium. Enheten på sidorna är därför programmet: har ett
+        program funnits på båda skolorna utan att något år finnas på båda
+        samtidigt, förs åren ihop till en normaliserad programserie, och
+        vilken skola som gällde varje enskilt år står i tabellerna. Att
+        raderna aldrig sammanfaller i tid är ett mönster i datat, inte ett
+        belägg för att programmet flyttat &ndash; en nedlagd utbildning som
+        senare startas på den andra skolan ser likadan ut. I dagens data är
+        ingen serie hopförd på det sättet: samtliga program som funnits på
+        båda skolorna har funnits där samtidigt något år, och de redovisas
+        var för sig med skolan i namnet.</dd>
       <dt>Sekretessgränsen: färre än tio elever</dt>
       <dd>Skolverket dubbelprickar (skriver &rdquo;..&rdquo; i stället för
         ett tal) alla uppgifter som bygger på färre än tio elever, så att
@@ -283,17 +332,16 @@
         på gymnasienivå rör det sig om ungefär tre av tio av kommunens
         elever, på grundskolenivå om drygt en procent.</dd>
       <dt>Framskrivning är inte prognos</dt>
-      <dd>Kohortframskrivningen räknar varken in- eller utflyttning. Den är
-        därför ingen prognos utan ett facit på vad som redan finns, och den
-        redovisas alltid med hur mycket den historiskt missat vid varje
-        horisont. Riktningen på felet skiftar: på ett par års sikt har den
-        legat något för högt, eftersom en del 18&ndash;19-åringar flyttar
-        ut, och på längre sikt kraftigt för lågt, eftersom det hinner
-        flytta in fler barnfamiljer än det flyttar ut. Den kompenserade
-        framskrivningen rättar det, men bygger då på antagandet att
-        flyttmönstret består &ndash; den är alltså en modell, inte ett
-        facit, och redovisas som en egen serie och aldrig i den enkla
-        framskrivningens ställe.</dd>
+      <dd>Kohortframskrivningen är den enda beräkning på webbplatsen som
+        inte kommer ur en källa, utan räknas fram här: dagens
+        åldersklasser flyttade ett år i taget. Den räknar varken in- eller
+        utflyttning och är därmed ingen prognos &ndash; men inte heller
+        antagandefri, eftersom att bära kohorten rakt fram förutsätter
+        noll nettoflyttning och ingen dödlighet. Den redovisas alltid
+        tillsammans med hur mycket den historiskt avvikit från utfallet
+        vid varje horisont, så att avvikelsen går att läsa av i stället
+        för att uppskattas. Vad avvikelsen beror på framgår inte av det
+        här datat.</dd>
       <dt>Varför vissa år saknas</dt>
       <dd>Antagningsåret 2018 saknas därför att GR:s rapport från det året
         inte gått att få tag på &ndash; den försvann när GR bytte

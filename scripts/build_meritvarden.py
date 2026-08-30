@@ -128,9 +128,14 @@ def dela_utbildning(text: str):
     return program, inriktning, (aretsnamn if aretsnamn != program else None)
 
 
-# Delar av ett inriktningsnamn som betyder samma sak. "anställd lärling"
-# och "lärling" är samma upplägg – rapporterna skrev om det 2025.
-DELALIAS = {"anstalld larling": "larling"}
+# "Anställd lärling" och "lärling" hölls tidigare ihop av ett alias här,
+# med motiveringen att rapporterna bara skrivit om samma sak. Det stämmer
+# inte: Vård- och omsorgsprogrammet står som "Anställd lärling" också i
+# 2025 och 2026 års rapporter, samtidigt som de industritekniska
+# lärlingsutbildningarna på Elof bytte från "anställd lärling" (2019–2024)
+# till "Lärling" (2025–). GR skiljer alltså på formerna, och gymnasial
+# lärlingsanställning är en egen utbildningsform med anställningsavtal.
+# Serierna hålls därför isär och bryts där formen byts.
 
 
 def inriktningsnyckel(inriktning: str) -> str:
@@ -139,8 +144,7 @@ def inriktningsnyckel(inriktning: str) -> str:
     "Särskild variant inom det estetiska området, bild" och "Bild, Särskild
     variant inom det estetiska området" är samma utbildning.
     """
-    delar = [nyckla(d) for d in inriktning.split(",") if d.strip()]
-    return " | ".join(sorted(DELALIAS.get(d, d) for d in delar))
+    return " | ".join(sorted(nyckla(d) for d in inriktning.split(",") if d.strip()))
 
 
 def medel(varden):

@@ -139,10 +139,10 @@
     }, FARG_BETYG, "%", 0, [0, 100]), 260);
 
     el("kalla-kullar").textContent =
-      "Skalorna i de två första panelerna är inklippta kring kurvorna för " +
-      "att utvecklingen ska synas – de börjar inte på noll. Panelen för " +
-      "examensandel visar hela skalan 0–100 procent. Ett avbrott i linjen " +
-      "är en kull som saknar uppgift; peka på punkterna för detaljer.";
+      "De två första panelerna har skalor som är inklippta kring kurvorna och " +
+      "börjar inte på noll. Panelen för examensandel visar hela skalan " +
+      "0–100 procent. Ett avbrott i linjen är en kull som saknar uppgift; " +
+      "peka på punkterna för detaljer.";
 
     ritaNot(rader, harExamen);
     ritaSlutsats(p, rader);
@@ -172,7 +172,7 @@
       ? "<p>" + punkter.join("</p><p>") + "</p>" : "");
   }
 
-  /* ---------- Försiktig sammanfattning ---------- */
+  /* ---------- Sammanfattning av det valda programmet ---------- */
 
   function ritaSlutsats(p, rader) {
     var kompletta = rader.filter(function (r) {
@@ -181,14 +181,16 @@
     var html = "";
     if (kompletta.length) {
       var forsta = kompletta[0], sista = kompletta[kompletta.length - 1];
-      html += "<p>För <strong>" + esc(p.etikett) + "</strong> kan " +
-        kompletta.length + " kullar följas hela vägen, från antagningen " +
+      html += "<p>För <strong>" + esc(p.etikett) + "</strong> har " +
+        kompletta.length + " kullar både meritvärde vid antagningen och " +
+        "betygspoäng vid examen redovisade, från antagningen " +
         esc(forsta.antagningsar) + " till examen " + esc(sista.examensar) + ".</p>";
       if (kompletta.length > 1) {
         var mDiff = sista.antagning.medel - forsta.antagning.medel;
         var bDiff = sista.examen.betygspoang - forsta.examen.betygspoang;
-        html += "<p>I de kullar som kan jämföras gick medelmeritvärdet vid " +
-          "antagningen från " + talSv(forsta.antagning.medel, 1) + " till " +
+        html += "<p>Mellan den första och den sista av dessa kullar gick " +
+          "det ovägda inriktningssnittet vid antagningen från " +
+          talSv(forsta.antagning.medel, 1) + " till " +
           talSv(sista.antagning.medel, 1) + " (" + (mDiff >= 0 ? "+" : "−") +
           talSv(Math.abs(mDiff), 1) + " meritpoäng), och betygspoängen vid " +
           "examen från " + talSv(forsta.examen.betygspoang, 1) + " till " +
@@ -198,19 +200,20 @@
           return r.examen.andelExamen !== null && r.examen.andelExamen !== undefined;
         }).map(function (r) { return r.examen.andelExamen; });
         if (andelar.length > 1) {
-          html += "<p>Andelen med examen har legat mellan " +
+          html += "<p>I dessa kullar har andelen med examen legat mellan " +
             talSv(Math.min.apply(null, andelar), 1) + " och " +
             talSv(Math.max.apply(null, andelar), 1) + " procent.</p>";
         }
       }
-      html += "<p><strong>Läs med försiktighet:</strong> måtten har olika " +
-        "skalor och rör delvis olika elever – siffrorna beskriver programmets " +
-        "utveckling, inte vad som orsakade den. Små kullar kan svänga " +
-        "kraftigt av rena tillfälligheter.</p>";
+      html += "<p>Meritvärdet (max 340) och betygspoängen (0–20) mäts på " +
+        "olika skalor och kan inte jämföras med varandra. Kullarna är inte " +
+        "exakt samma individer: antagningssiffran gäller dem som antogs " +
+        "antagningsåret och examenssiffran alla som fullföljde programmet " +
+        "examensåret. Datat innehåller inga uppgifter om orsaker.</p>";
     } else {
       html += "<p>För <strong>" + esc(p.etikett) + "</strong> finns ingen kull " +
-        "där både antagningen och examen är redovisad, så någon jämförelse " +
-        "går inte att göra. Tabellen visar de uppgifter som finns.</p>";
+        "där både antagningen och examen är redovisad. Tabellen visar de " +
+        "uppgifter som finns.</p>";
     }
     el("slutsats-kullar").innerHTML = html;
   }
@@ -279,8 +282,7 @@
     });
     DATA.oparade.antagningUtanSlutbetyg.forEach(function (namn) {
       skal.push("<strong>" + esc(namn) + "</strong> har antagningssiffror, men " +
-        "ingen slutbetygsserie på samma skola – oftast för att programmet " +
-        "aldrig nått tio avgångselever där.");
+        "ingen slutbetygsserie på samma skola.");
     });
     DATA.oparade.slutbetygUtanAntagning.forEach(function (namn) {
       skal.push("<strong>" + esc(namn) + "</strong> har slutbetyg, men ingen " +
@@ -315,18 +317,17 @@
     });
     var punkter = [];
     punkter.push("<strong>" + totKullar + " kullar</strong> på " + kan.length +
-      " program kan följas hela vägen från antagning till examen, från " +
+      " program har både antagning och examen redovisade, från " +
       "antagningen " + esc(forstaAntagning) + " till examen " + esc(sistaExamen) + ".");
     punkter.push("Måtten har olika skalor: meritvärdet från grundskolan " +
-      "(max 340) och betygspoängen från gymnasiet (0–20) går " +
-      "<strong>inte</strong> att jämföra med varandra som tal – bara " +
-      "utvecklingen inom varje mått går att följa.");
+      "(max 340) och betygspoängen från gymnasiet (0–20) mäter olika saker " +
+      "och är <strong>inte</strong> jämförbara med varandra som tal.");
     var utan = DATA.program.length - kan.length +
       DATA.oparade.antagningUtanSlutbetyg.length;
     if (utan > 0) {
-      punkter.push(utan + " program kan inte följas, oftast därför att " +
-        "Skolverket inte redovisar program med färre än tio avgångselever. " +
-        "Vilka det är står längre ned på sidan.");
+      punkter.push(utan + " program saknar kullar där både antagning och " +
+        "examen är redovisade. Skolverket redovisar inte program med färre " +
+        "än tio avgångselever. Vilka programmen är står längre ned på sidan.");
     }
     K.visaKortSagt(punkter);
   }
