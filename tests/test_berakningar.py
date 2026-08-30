@@ -1195,13 +1195,20 @@ class TestAnalyskonventioner(unittest.TestCase):
         Datat delar inte upp den, så varken texten eller kommentarerna får
         peka ut migration som orsaken.
         """
+        # Både kohort.js och app.js skriver text om framskrivningen –
+        # den senare i sidornas "Kort sagt".
+        for vag in ("docs/kohort.js", "docs/app.js"):
+            text = " ".join(self.las(vag).split())
+            for forbjudet in ("nettoinflyttningen hunnit",
+                              "flyttar det in fler barnfamiljer",
+                              "vänder flyttnettot",
+                              "om ingen flyttade",
+                              "saknar den inflyttning"):
+                self.assertIsNone(
+                    re.search(r"\b" + re.escape(forbjudet) + r"\b", text),
+                    f"{Path(vag).name}: {forbjudet!r}")
+
         text = self.las("docs/kohort.js")
-        for forbjudet in ("nettoinflyttningen hunnit",
-                          "flyttar det in fler barnfamiljer",
-                          "vänder flyttnettot",
-                          "om ingen flyttade",
-                          "saknar den inflyttning"):
-            self.assertNotIn(forbjudet, text, f"kohort.js: {forbjudet!r}")
         self.assertIn("nettoförändringen i kohorterna", text)
         # Där de tre räknas upp ska alla tre stå med
         for del_ in ("flyttning", "dödlighet", "folkbokföring"):

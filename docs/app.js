@@ -830,8 +830,8 @@
         talSv(kf.framskrivning[String(forsta.ar)]) + "</strong> " + ENHET +
         " i åldern " + esc(kf.aldrar[0]) + "–" + esc(kf.aldrar[1]) + " år " + esc(forsta.ar) +
         " och <strong>" + talSv(kf.framskrivning[String(kf.sistaAr)]) +
-        "</strong> år " + esc(kf.sistaAr) + ", om ingen flyttade – en ren " +
-        "framskrivning av dagens åldersklasser.");
+        "</strong> år " + esc(kf.sistaAr) + ", om kohorterna vore " +
+        "oförändrade – en ren framskrivning av dagens åldersklasser.");
     }
 
     K.visaKortSagt(punkter);
