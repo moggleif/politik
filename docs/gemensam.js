@@ -206,14 +206,26 @@
         if (!x || !yAxel) return;
         var ritYta = chart.chartArea;
         var rit = chart.ctx;
+        /* Positionerna sparas så att de går att kontrollera i test –
+           en canvas-ritning går annars inte att komma åt utifrån. */
+        chart.$regimmarkeringar = [];
         markeringar.forEach(function (m) {
           var i = x.getLabels().indexOf(String(m.vid));
           if (i < 0) return;
-          /* Mitt emellan året före och året själv: markeringen gäller
-             övergången, inte punkten. */
+          /* getPixelForValue, inte getPixelForTick: tickarna gallras av
+             autoskip vid smal skärm medan etiketterna står kvar, så ett
+             etikettindex som skickas till getPixelForTick pekar då på fel
+             tick – eller utanför listan, vilket ger pixel 0 och en
+             markering klistrad mot vänsterkanten.
+
+             Pixeln läggs mitt emellan året före och året själv:
+             markeringen gäller övergången, inte punkten. */
           var px = i > 0
-            ? (x.getPixelForTick(i - 1) + x.getPixelForTick(i)) / 2
-            : x.getPixelForTick(i);
+            ? (x.getPixelForValue(i - 1) + x.getPixelForValue(i)) / 2
+            : x.getPixelForValue(i);
+          /* Hellre ingen markering än en på fel plats */
+          if (!isFinite(px)) return;
+          chart.$regimmarkeringar.push({ vid: m.vid, px: px });
           rit.save();
           rit.beginPath();
           rit.setLineDash([4, 4]);
