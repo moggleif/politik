@@ -13,6 +13,7 @@ Två sorters test:
 import importlib
 import itertools
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -1154,16 +1155,31 @@ class TestAnalyskonventioner(unittest.TestCase):
         import glob
 
         def flytande(vag):
-            """Radbrytningar borträknade – kommentarer bryts mitt i en fras."""
+            """Radbrytningar borträknade – texten bryts mitt i en fras."""
             return " ".join(Path(vag).read_text(encoding="utf-8").split())
 
-        for vag in sorted(glob.glob(str(ROT / "scripts" / "*.py"))):
+        # Hela repot, inte bara byggkoden: formuleringen satt kvar i
+        # källförteckningen sedan den städats ur skripten.
+        filer = (glob.glob(str(ROT / "scripts" / "*.py"))
+                 + glob.glob(str(ROT / "docs" / "*.js"))
+                 + glob.glob(str(ROT / "docs" / "*.html"))
+                 + glob.glob(str(ROT / "data" / "*.md"))
+                 + glob.glob(str(ROT / "*.md")))
+        for vag in sorted(filer):
+            if Path(vag).name == "chart.umd.js":
+                continue
             text = flytande(vag)
             for forbjudet in ("är fortfarande samma utbildning",
                               "är samma utbildning",
                               "är samma program",
                               "samma utbildning som bytt hus"):
-                self.assertNotIn(forbjudet, text, f"{Path(vag).name}: {forbjudet!r}")
+                # Ordgränser: "när samma program" innehåller "är samma
+                # program" som ren delsträng, och är inget identitetspåstående.
+                self.assertIsNone(
+                    re.search(r"\b" + re.escape(forbjudet) + r"\b", text),
+                    f"{Path(vag).name}: {forbjudet!r}")
+
+        self.assertIn("analyskonvention", flytande(ROT / "data" / "KALLOR.md"))
 
         bygg = flytande(ROT / "scripts" / "build_meritvarden.py")
         self.assertIn("normaliseras till samma serie", bygg)

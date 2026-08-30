@@ -339,18 +339,22 @@ organisationsförändring i stället för av att utbildningen ändrats.
 `build_meritvarden.py` grupperar därför så här:
 
 - Har ett program legat på flera skolor **utan** att något år finnas på
-  båda, är det samma utbildning som bytt hus. Åren slås ihop till en serie,
-  hemmahörande på den skola som har programmet i dag – det gamla datat
-  följer med.
+  båda, förs åren ihop till en normaliserad serie, hemmahörande på den skola
+  som har programmet i dag – det gamla datat följer med.
 - Fanns programmet på **båda** skolorna samma år är det två utbildningar med
   var sin antagning. Då hålls skolorna isär, en serie var, och skolans namn
   skrivs ut i etiketten.
 
+Den första punkten är en **analyskonvention**, inte ett belägg. Att raderna
+aldrig sammanfaller i tid är ett mönster i datat: en utbildning som lagts ned
+på den ena skolan och senare startats på den andra ser precis likadan ut som
+en som bytt hus, och antagningsstatistiken skiljer inte på fallen.
+
 I dagens data överlappar samtliga program som funnits på båda skolorna
 (barn- och fritids-, bygg- och anläggnings-, natur-, teknik- och vård- och
-omsorgsprogrammet), så hopslagningen av ett flyttat program är ännu inte
-prövad mot verkligt utfall – bara mot ett konstruerat fall. Den dagen ett
-program faktiskt byter hus sköter regeln sig själv.
+omsorgsprogrammet), så regeln slår inte ihop någonting. Ett test i
+`tests/test_berakningar.py` faller den dag den börjar göra det, så att en
+sammanslagning inte smyger in osedd.
 
 
 ## Slutbetyg från gymnasiet (Skolverkets utbildningsstatistik)
@@ -446,9 +450,10 @@ räkna på fler elever än programmen. Kungsbackaelever som går i skola i en
 annan kommun ingår inte i något av fallen.
 
 **Programnamn** hanteras som på meritvärdessidan: Handels- och
-administrationsprogrammet och Försäljnings- och serviceprogrammet är samma
-utbildning, som bytte namn vid gymnasiereformen 2021, och ligger i samma
-serie under det nya namnet. I slutbetygen sker bytet 2025 och i
+administrationsprogrammet ersattes av Försäljnings- och serviceprogrammet
+vid gymnasiereformen 2021, och raderna förs ihop till en normaliserad serie
+under det nya namnet. Det är en räkneregel som gör serien följbar, inte ett
+påstående om att utbildningen är densamma före och efter reformen. I slutbetygen sker bytet 2025 och i
 antagningen 2022 – tre års skillnad, eftersom slutbetygen avser den kull
 som antogs tre år tidigare.
 
