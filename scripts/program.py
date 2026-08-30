@@ -51,10 +51,12 @@ YRKESPROGRAM = {
     "Vård- och omsorgsprogrammet",
 }
 
-# Program som bytt namn men är samma utbildning. Handels- och
+# Program som normaliseras till samma serie. Handels- och
 # administrationsprogrammet ersattes vid gymnasiereformen 2021 av
-# Försäljnings- och serviceprogrammet; innehållet gjordes om, men det är
-# samma utbildning som förts vidare, så åren läggs i samma serie.
+# Försäljnings- och serviceprogrammet, och reformen gjorde om innehållet.
+# Åren läggs i samma serie under dagens namn så att den går att följa över
+# tid – en räkneregel för sidorna, inte ett påstående om att utbildningen
+# är densamma före och efter. Sidorna markerar reformåret i diagrammen.
 PROGRAM_BYTT_NAMN = {
     "Handels- och administrationsprogrammet": "Försäljnings- och serviceprogrammet",
 }

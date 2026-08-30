@@ -1143,6 +1143,54 @@ class TestAnalyskonventioner(unittest.TestCase):
             self.assertTrue(ar and max(ar) <= 2024,
                             f"{u['namn']}: anställd lärling spänner över 2025")
 
+    def test_byggkoden_beskriver_normalisering_inte_identitet(self):
+        """Kodkommentarerna lyder under samma regel som sidtexten.
+
+        Byggskripten är den ärligaste beskrivningen av vad som händer med
+        datat, och den som en granskare läser efter presentationen. Går
+        identitetsspråket att hitta där spelar det ingen roll att det är
+        borta ur HTML:en.
+        """
+        import glob
+
+        def flytande(vag):
+            """Radbrytningar borträknade – kommentarer bryts mitt i en fras."""
+            return " ".join(Path(vag).read_text(encoding="utf-8").split())
+
+        for vag in sorted(glob.glob(str(ROT / "scripts" / "*.py"))):
+            text = flytande(vag)
+            for forbjudet in ("är fortfarande samma utbildning",
+                              "är samma utbildning",
+                              "är samma program",
+                              "samma utbildning som bytt hus"):
+                self.assertNotIn(forbjudet, text, f"{Path(vag).name}: {forbjudet!r}")
+
+        bygg = flytande(ROT / "scripts" / "build_meritvarden.py")
+        self.assertIn("normaliseras till samma serie", bygg)
+        self.assertIn("ANALYSKONVENTION", bygg)
+        self.assertIn("analyskonvention", flytande(ROT / "scripts" / "program.py").lower()
+                      + bygg)
+
+    def test_kohortfelets_tecken_tillskrivs_inte_flyttningen_ensam(self):
+        """Framskrivningen utelämnar tre saker, inte en.
+
+        Skillnaden mot utfallet är nettoförändringen i kohorterna –
+        flyttning, dödlighet och ändringar i folkbokföringen tillsammans.
+        Datat delar inte upp den, så varken texten eller kommentarerna får
+        peka ut migration som orsaken.
+        """
+        text = self.las("docs/kohort.js")
+        for forbjudet in ("nettoinflyttningen hunnit",
+                          "flyttar det in fler barnfamiljer",
+                          "vänder flyttnettot",
+                          "om ingen flyttade",
+                          "saknar den inflyttning"):
+            self.assertNotIn(forbjudet, text, f"kohort.js: {forbjudet!r}")
+        self.assertIn("nettoförändringen i kohorterna", text)
+        # Där de tre räknas upp ska alla tre stå med
+        for del_ in ("flyttning", "dödlighet", "folkbokföring"):
+            self.assertIn(del_, text, del_)
+
     def test_flyttheuristiken_slar_inte_ihop_nagon_serie_i_dagens_data(self):
         """"Aldrig samtidigt" är ett mönster i datat, inte ett belägg.
 

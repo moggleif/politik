@@ -20,8 +20,10 @@
      Barnen som redan bor i kommunen blir ett år äldre varje år, så
      antalet 16–19-åringar om k år är summan av dagens 16−k … 19−k-åringar.
      Ingen modell och inga födelsetal – men den är inte antagandefri:
-     att bära kohorten rakt fram förutsätter noll nettoflyttning och
-     ingen dödlighet. Det är just den skillnaden mot utfallet mäter.
+     att bära kohorten rakt fram förutsätter att kohorterna är oförändrade,
+     alltså noll nettoflyttning, ingen dödlighet och inga ändringar i
+     folkbokföringen. Skillnaden mot utfallet mäter de tre tillsammans, i
+     proportioner datat inte visar.
      Sektionerna finns
      bara på åldersgruppssidan, och datat bara i dess datafil, så båda
      kontrolleras innan något ritas. */
@@ -109,10 +111,11 @@
        det historiskt har betytt. */
     var kort = k.traffsakerhet[0];
     var langt = k.traffsakerhet[k.traffsakerhet.length - 1];
-    /* Riktningen på felet skiftar med horisonten, så den får inte
-       sammanfattas till ett håll: på ett par års sikt flyttar en del
-       18–19-åringar ut, på lång sikt flyttar det in fler barnfamiljer
-       än det flyttar ut. Båda tecknen läses ur datat. */
+    /* Riktningen på felet skiftar med horisonten och får därför inte
+       sammanfattas till ett håll. Båda tecknen läses ur datat. Varför de
+       skiftar går inte att läsa ur samma tal: felet är nettoförändringen
+       i kohorterna, och datat delar inte upp den i flyttning, dödlighet
+       och folkbokföringsändringar. */
     function riktning(r) {
       return (r.medelPct > 0 ? "för högt" : "för lågt") + " (" +
         (r.medelPct > 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) + " %)";
@@ -120,17 +123,18 @@
     K.sattDataNot("not-kohort",
       "Framskrivningen räknar <strong>varken in- eller utflyttning</strong> " +
       "och ingen dödlighet. Den säger hur många som skulle bli " +
-      esc(k.aldrar[0]) + "–" + esc(k.aldrar[1]) + " år om ingen flyttade. Historiskt " +
+      esc(k.aldrar[0]) + "–" + esc(k.aldrar[1]) + " år om kohorterna vore " +
+      "oförändrade. Historiskt " +
       "har den missat med i snitt " + talSv(kort.medelAbsPct, 1) + " % ett år " +
       "framåt och " + talSv(langt.medelAbsPct, 1) + " % " + esc(langt.avstand) +
       " år framåt. Riktningen skiftar: ett år framåt har den legat " +
       riktning(kort) + ", " + esc(langt.avstand) + " år framåt " + riktning(langt) +
       (langt.medelPct < 0
-        ? " – på den sikten har nettoinflyttningen hunnit lägga till fler " +
-          "än framskrivningen räknar med, så den har <em>historiskt " +
-          "tenderat att underskatta</em> utfallet. Det är ingen undre " +
-          "gräns för framtiden: vänder flyttnettot kan utfallet lika " +
-          "gärna hamna under."
+        ? " – på den sikten har nettoförändringen i kohorterna varit " +
+          "positiv, alltså lagt till fler än framskrivningen räknar med, " +
+          "så den har <em>historiskt tenderat att underskatta</em> " +
+          "utfallet. Det är ingen undre gräns för framtiden: blir " +
+          "nettoförändringen negativ kan utfallet lika gärna hamna under."
         : "."));
 
     /* Slutsats: var kommunens prognos ligger i förhållande till de barn
@@ -139,7 +143,7 @@
     if (mot.length && senaste) {
       var under = mot.filter(function (r) { return r.diff < 0; });
       var forsta = mot[0];
-      var txt = "<p>Om ingen flyttade skulle Kungsbacka ha <strong>" +
+      var txt = "<p>Om kohorterna vore oförändrade skulle Kungsbacka ha <strong>" +
         talSv(k.framskrivning[String(forsta.ar)]) + "</strong> " + ENHET +
         " i åldern " + esc(k.aldrar[0]) + "–" + esc(k.aldrar[1]) + " år " + esc(forsta.ar) +
         " – de finns redan i kommunen, de är bara yngre än så. År " +
@@ -301,7 +305,8 @@
       "linje så tonas de övriga ned.";
 
     /* Vad bilden faktiskt visar: årgångarna ligger på rad under varandra,
-       eftersom var och en saknar den inflyttning som hann ske efteråt. */
+       eftersom var och en saknar den nettoförändring i kohorterna som hann
+       ske efter dess basår. */
     var med = argangar.filter(function (a) { return a.medelAbsPct !== null; });
     var txt = "";
     if (med.length) {
