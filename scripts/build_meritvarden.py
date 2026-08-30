@@ -13,12 +13,16 @@ namnen olika. Tre saker skiljer sig åt:
   stavningen     "lärling" mot "Lärling", "anställd lärling" mot "Anställd
                  lärling", och inriktningar som upprepar programnamnet
 
-Ett program eller en inriktning som bytt namn är fortfarande samma
-utbildning. Handels- och administrationsprogrammet ersattes 2021 av
+Ett program eller en inriktning som bytt namn normaliseras till samma
+serie. Handels- och administrationsprogrammet ersattes 2021 av
 Försäljnings- och serviceprogrammet, och reformerna 2021 och 2025 döpte om
-flera inriktningar. De förs ihop till en serie under det namn som gäller i
-dag – vilket namn som gällde vilket år följer med i utdatan, så att sidan
-kan skriva ut det.
+flera inriktningar. Raderna förs ihop under det namn som gäller i dag så
+att serien går att följa över tid – det är en räkneregel, inte ett
+påstående om att utbildningen är densamma före och efter. Vilket namn som
+gällde vilket år följer med i utdatan, så att sidan kan skriva ut det.
+
+Där två skilda inriktningar förs ihop till en serie är det inte ens en
+normalisering utan en analyskonvention; se INRIKTNING_BYTT_NAMN nedan.
 
 Körs:  python3 scripts/build_meritvarden.py
 """
@@ -59,12 +63,19 @@ INRIKTNING_ALIAS = {
 }
 
 
-# Inriktningar som bytt namn men är samma utbildning. Nyckeln är programmet
-# och inriktningens namn som det stod förr (normaliserat); värdet är namnet
-# som gäller i dag. Två rader kan peka på samma nya namn: 2021 års reform
-# slog ihop pedagogiskt och socialt arbete till en inriktning, och på samma
-# sätt hotell- och turismprogrammets och försäljnings- och service-
-# programmets lärlingsspår.
+# Inriktningar som förs till samma serie. Nyckeln är programmet och
+# inriktningens namn som det stod förr (normaliserat); värdet är namnet som
+# gäller i dag.
+#
+# Två rader kan peka på samma nya namn, och då är det inte längre en
+# normalisering utan en ANALYSKONVENTION: 2021 års reform slog ihop
+# pedagogiskt och socialt arbete till en inriktning, och på samma sätt
+# hotell- och turismprogrammets och försäljnings- och serviceprogrammets
+# lärlingsspår. Före reformen var det två utbildningar med var sin
+# antagning och var sin antagningspoäng. Att räkna dem som en serie gör
+# serien följbar över tid – det säger inte att utbildningarna var
+# desamma. Konventionen står utskriven på metodsidan, och ett test kräver
+# att varje sådan sammanslagning finns dokumenterad där.
 #
 # Till skillnad från programnamnen förs de gamla raderna INTE ihop till en
 # rad i utbildningslistan. Där ska varje rad stå kvar som rapporten skrev
@@ -142,7 +153,8 @@ def inriktningsnyckel(inriktning: str) -> str:
     """Samma inriktning oavsett i vilken ordning delarna skrivits.
 
     "Särskild variant inom det estetiska området, bild" och "Bild, Särskild
-    variant inom det estetiska området" är samma utbildning.
+    variant inom det estetiska området" är samma rad hos GR, skriven i
+    olika ordning olika år. Ren normalisering av stavning.
     """
     return " | ".join(sorted(nyckla(d) for d in inriktning.split(",") if d.strip()))
 
@@ -216,13 +228,21 @@ def bygg(argangar: list) -> dict:
     # Programserier. Kungsbacka flyttar program mellan sina två
     # gymnasieskolor, och en serie per skola skulle då brytas mitt i av en
     # organisationsförändring i stället för av att utbildningen ändrats.
-    # Serien följer därför programmet, inte skolan:
+    # Serien följer därför programmet, inte skolan. Regeln är:
     #
-    #   flyttat program   Har programmet legat på flera skolor utan att
-    #                     något år finnas på båda, är det samma utbildning
-    #                     som bytt hus. Åren slås ihop till en serie, med
-    #                     den skola som har programmet i dag som hemvist –
-    #                     det gamla datat följer med.
+    #   utan samtidighet  Har programmet legat på flera skolor utan att
+    #                     något år finnas på båda, förs åren ihop till en
+    #                     normaliserad serie, med den skola som har
+    #                     programmet i dag som hemvist.
+    #
+    #                     Att raderna aldrig sammanfaller i tid är ett
+    #                     mönster i datat, inte ett belägg för att
+    #                     programmet bytt hus: en nedlagd utbildning som
+    #                     senare startas på den andra skolan ser likadan
+    #                     ut. Regeln är alltså en analyskonvention. I
+    #                     dagens data slår den inte ihop någonting, och ett
+    #                     test i tests/test_berakningar.py faller den dag
+    #                     den börjar göra det.
     #   dubblett          Fanns programmet på båda skolorna samma år är det
     #                     två utbildningar som konkurrerar om samma sökande.
     #                     Då hålls skolorna isär, en serie var, och skolans
