@@ -18,6 +18,17 @@
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
+  /* Reformer i det som mäts, markerade men inte borträknade. Serien delas
+     inte: vilka utbildningar som ändrats "på riktigt" är en bedömning av
+     innehåll som antagningsstatistiken inte innehåller. Datat kan inte
+     skilja reformens verkan från elevernas, och sidan påstår därför
+     ingenting om den. Åren är de första antagningsomgångarna under
+     respektive reform i GR:s rapporter. */
+  var GYMNASIEREFORMER = [
+    { vid: 2022, text: "Gy21" },
+    { vid: 2025, text: "Gy25" }
+  ];
+
   /* ---------- Gemensamt ---------- */
 
   var DATA = null;
@@ -124,6 +135,7 @@
 
     rita("diagram-utveckling", {
       type: "line",
+      plugins: [K.regimmarkering(GYMNASIEREFORMER)],
       data: {
         labels: ar.map(String),
         datasets: serier.map(function (s, i) {
@@ -494,7 +506,9 @@
     rita("diagram-forandring", {
       type: "bar",
       data: {
-        labels: rader.map(function (p) { return p.etikett; }),
+        labels: rader.map(function (p) {
+          return [p.etikett, p.forstaAr + "–" + p.sistaAr];
+        }),
         datasets: [{
           data: rader.map(function (p) { return p.forandring; }),
           backgroundColor: rader.map(function (p) {
@@ -544,17 +558,27 @@
     el("kalla-forandring").textContent =
       "Blå stapel = högre värde vid sista mätåret än vid det första, " +
       "röd = lägre. Programmets värde är ett ovägt genomsnitt av dess " +
-      "inriktningars medelmeritvärden.";
+      "inriktningars medelmeritvärden. Mätperioden står under varje namn " +
+      "och skiljer sig mellan programmen: staplarna är lika långa vid lika " +
+      "stor förändring, oavsett om den skett över två år eller nio.";
 
     var upp = rader.filter(function (p) { return p.forandring > 0; }).length;
     var ner = rader.filter(function (p) { return p.forandring < 0; }).length;
     var html = "<p><strong>" + upp + " av " + rader.length +
       "</strong> program har ett högre ovägt inriktningssnitt vid sitt sista " +
       "mätår än vid sitt första, " + ner + " har lägre.</p>";
+    var spann = rader.map(function (p) { return p.sistaAr - p.forstaAr; });
+    var minSpann = Math.min.apply(null, spann), maxSpann = Math.max.apply(null, spann);
+    if (minSpann !== maxSpann) {
+      html += "<p>Mätperioderna är olika långa: från " + minSpann +
+        " till " + maxSpann + " år mellan första och sista mätåret. " +
+        "Staplarna är därför inte jämförbara som förändringstakt &ndash; " +
+        "varje stapel är skillnaden mellan två enskilda årskullar, oavsett " +
+        "hur många år som ligger emellan.</p>";
+    }
     var kortaste = rader.filter(function (p) { return p.antalArMedMedel === 2; }).length;
     if (kortaste) {
-      html += "<p>" + kortaste + " av programmen har två mätår. För dem är " +
-        "förändringen skillnaden mellan två enskilda årskullar.</p>";
+      html += "<p>" + kortaste + " av programmen har bara två mätår.</p>";
     }
     el("slutsats-forandring").innerHTML = html;
 
@@ -562,12 +586,14 @@
       "inriktningarnas medelmeritvärden.</caption>";
     t += "<thead><tr><th scope=\"col\">Program</th><th scope=\"col\">Första mätåret</th>" +
       "<th scope=\"col\">Sista mätåret</th><th scope=\"col\">Förändring</th>" +
+      "<th scope=\"col\">År mellan mätåren</th>" +
       "<th scope=\"col\">Antal mätår</th></tr></thead><tbody>";
     rader.forEach(function (p) {
       t += "<tr><td>" + esc(p.etikett) + "</td><td>" + esc(p.forstaAr) + ": " +
         talSv(p.forsta, 1) + "</td><td>" + esc(p.sistaAr) + ": " + talSv(p.sista, 1) +
         "</td><td>" + (p.forandring >= 0 ? "+" : "−") +
-        talSv(Math.abs(p.forandring), 1) + "</td><td>" + esc(p.antalArMedMedel) +
+        talSv(Math.abs(p.forandring), 1) + "</td><td>" +
+        esc(p.sistaAr - p.forstaAr) + "</td><td>" + esc(p.antalArMedMedel) +
         "</td></tr>";
     });
     t += "</tbody>";

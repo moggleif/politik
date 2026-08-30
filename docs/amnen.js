@@ -12,6 +12,14 @@
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
+  /* Läsåret 2022/23 är det första med Lgr22: nya kursplaner, betygs-
+     kriterier i stället för kunskapskrav och nya regler för hur betygen
+     D–A sätts. Markeras, men serien delas inte – till skillnad från
+     meritvärdets 16 respektive 17 ämnen, som är ett byte i sidans eget
+     mått. Här är det det som mäts som ändrats, och datat kan inte skilja
+     reformens verkan från elevernas resultat. */
+  var LGR22 = [{ vid: 2023, text: "Lgr22" }];
+
   var DATAFIL = "data-amnesbetyg.json";
   var DATA = null;
 
@@ -153,6 +161,7 @@
     if (amneChart) amneChart.destroy();
     amneChart = new Chart(ctx, {
       type: "line",
+      plugins: [K.regimmarkering(LGR22)],
       data: {
         labels: ar.map(String),
         datasets: [
@@ -252,6 +261,7 @@
     if (allaChart) allaChart.destroy();
     allaChart = new Chart(ctx, {
       type: "line",
+      plugins: [K.regimmarkering(LGR22)],
       data: {
         labels: ar.map(String),
         datasets: serier.map(function (s) {

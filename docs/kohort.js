@@ -159,10 +159,11 @@
             : esc(under[0].ar) + "–" + esc(under[under.length - 1].ar)) +
           " – som mest " + talSv(Math.abs(storst.diff)) + " " + ENHET +
           " (" + talSv(storstPct, 1) + " %) år " + esc(storst.ar) + ". För att " +
-          "den ska slå in krävs alltså en nettoutflyttning i de åldrarna. " +
-          "Det sker – framskrivningen har legat " + talSv(kort.medelPct, 1) +
-          " % för högt ett år framåt – men i en helt annan storleksordning " +
-          "än den skillnaden.</p>";
+          "den ska slå in krävs en negativ nettoförändring i de kohorterna, " +
+          "vilket i den här åldersgruppen huvudsakligen skulle kunna komma " +
+          "från nettoutflyttning. Framskrivningen har legat " +
+          talSv(kort.medelPct, 1) + " % för högt ett år framåt, men i en helt " +
+          "annan storleksordning än den skillnaden.</p>";
       }
       el("slutsats-kohort").innerHTML = txt;
     }
@@ -318,11 +319,12 @@
         " %; " + esc(bast.basAr) + " års årgång är den träffsäkraste så här långt (" +
         talSv(bast.medelAbsPct, 1) + " %).</p>";
     }
-    txt += "<p>Linjerna ligger på rad under varandra, och det är hela " +
-      "poängen: varje årgång saknar den inflyttning som hann ske efter dess " +
-      "basår. Avståndet mellan två årgångar är alltså inte modellfel utan " +
-      "just den flyttning som modellen medvetet utelämnar. Ju längre höger " +
-      "i diagrammet, desto mer hinner samlas.</p>";
+    txt += "<p>Linjerna ligger på rad under varandra: varje årgång saknar " +
+      "det som hann hända med kohorterna efter dess basår. Avståndet mellan " +
+      "två årgångar är därför inte modellfel utan den nettoförändring " +
+      "framskrivningen utelämnar – flyttning, dödlighet och ändringar i " +
+      "folkbokföringen tillsammans, i de proportioner datat inte visar. Ju " +
+      "längre höger i diagrammet, desto mer hinner samlas.</p>";
     el("slutsats-kohortalla").innerHTML = txt;
 
     var tab = "<caption>Faktiskt utfall och samtliga kohortframskrivningar, " +

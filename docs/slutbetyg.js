@@ -235,6 +235,9 @@
 
     rita("diagram-utveckling", {
       type: "line",
+      plugins: [K.regimmarkering([
+        { vid: 2025, text: "Gy21: första kullen ut" }
+      ])],
       data: {
         labels: ar.map(String),
         datasets: serier.map(function (s, i) {
