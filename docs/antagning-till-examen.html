@@ -35,11 +35,10 @@
     </nav>
     <h1>Från antagning till examen</h1>
     <p class="ingress">
-      Den som antogs till ett treårigt gymnasieprogram ett visst år gick
-      i normalfallet ut tre år senare. Här ställs antagningen mot
-      examen för samma program: vilka betyg hade de antagna med sig från
-      grundskolan &ndash; och hur gick det för avgångskullen tre år
-      senare? Välj ett program och följ kull för kull.
+      Här ställs antagningen till ett gymnasieprogram år X mot
+      avgångseleverna på samma program år X&nbsp;+&nbsp;3: meritvärdena från
+      grundskolan vid antagningen, och betygspoängen och andelen med
+      examen vid examen. Välj ett program och se kull för kull.
     </p>
     <p class="meta-rad" id="meta-rad" hidden></p>
   </div>
@@ -57,29 +56,28 @@
   </section>
 
   <section id="sektion-skalor">
-    <h2>Två mått som inte får jämföras med varandra</h2>
+    <h2>Två mått med olika skalor</h2>
     <p class="forklaring">
-      Sidan lägger två helt olika mått bredvid varandra, och de har
+      Sidan visar två olika mått bredvid varandra, och de har
       <strong>olika skalor som inte går att räkna om till varandra</strong>:
     </p>
     <ul class="forklaring">
       <li><strong>Meritvärdet vid antagningen</strong> är summan av
-        betygen från grundskolan, som mest 340 poäng. Det säger vad de
-        antagna hade med sig in.</li>
+        betygen från grundskolan, som mest 340 poäng. Programmets tal är ett
+        <strong>ovägt</strong> genomsnitt av dess inriktningars
+        medelmeritvärden &ndash; GR redovisar inte hur många som antogs, så
+        inriktningarna kan inte vägas efter storlek.</li>
       <li><strong>Betygspoängen vid examen</strong> är genomsnittet av
-        gymnasiebetygen, på en skala från 0 till 20. Det säger vad
-        avgångseleverna gick ut med.</li>
+        gymnasiebetygen, på en skala från 0 till 20. Det är räknat på
+        avgångseleverna.</li>
     </ul>
     <p class="forklaring">
-      Att ett tal är 213 och ett annat 13,4 betyder alltså ingenting i sig
-      &ndash; talen mäter olika saker på olika skalor. Det diagrammen kan
-      visa är hur vart och ett av måtten utvecklats <em>över kullarna</em>
-      för samma program. Kullarna är inte heller exakt samma elever:
+      Talen mäter olika saker på olika skalor och kan inte jämföras med
+      varandra. Diagrammen visar vart och ett av måtten <em>kull för
+      kull</em> inom samma program. Kullarna är inte exakt samma elever:
       några byter program eller skola, några gör uppehåll och några
-      tillkommer. Att ett programs siffror ändras kan bero på skolan,
-      på vilka elever som sökte, på betygssättningen i riket eller på
-      rena tillfälligheter i en liten grupp &ndash; det går inte att
-      avgöra härifrån.
+      tillkommer. Datat innehåller inga uppgifter om varför ett programs
+      siffror ändras mellan kullarna.
     </p>
   </section>
 
@@ -87,8 +85,9 @@
     <h2>Följ ett program, kull för kull</h2>
     <p class="forklaring">
       Varje punkt är en kull: antagningsåret står först och examensåret
-      efter pilen. Panelerna har var sin skala &ndash; jämför utvecklingen
-      inom en panel, aldrig nivåerna mellan panelerna.
+      efter pilen. Panelerna visar tre olika mått på var sin skala:
+      meritvärde 0&ndash;340, betygspoäng 0&ndash;20 och andel med examen
+      0&ndash;100 procent.
     </p>
     <div class="valj-ar">
       <label for="program-valjare">Visa program:</label>
@@ -98,8 +97,8 @@
     <div class="panelpar">
       <div class="kort">
         <h3>Vid antagningen</h3>
-        <p class="panel-enhet">Medelmeritvärde från grundskolan (skala 0&ndash;340)</p>
-        <div class="diagram-wrap"><canvas id="diagram-antagning" aria-label="Diagram: medelmeritvärde vid antagningen per kull" role="img"></canvas></div>
+        <p class="panel-enhet">Ovägt genomsnitt av inriktningarnas medelmeritvärden (skala 0&ndash;340)</p>
+        <div class="diagram-wrap"><canvas id="diagram-antagning" aria-label="Diagram: ovägt genomsnitt av inriktningarnas medelmeritvärden vid antagningen, per kull" role="img"></canvas></div>
       </div>
       <div class="kort">
         <h3>Vid examen, tre år senare</h3>
@@ -153,10 +152,10 @@
   <section id="sektion-om">
     <h2>Om den här sidan</h2>
     <p class="forklaring">
-      <strong>Tre år är en förenkling.</strong> Jämförelsen antar att den
-      som antogs år X gick ut år X&nbsp;+&nbsp;3. De flesta gör det, men
-      inte alla: en del går om ett år, byter program eller gör uppehåll.
-      Antagningssiffran gäller dem som antogs vid slutantagningen i juni;
+      <strong>Tre år är en förenkling.</strong> Parningen ställer
+      antagningen år X mot avgångseleverna år X&nbsp;+&nbsp;3. Det är inte
+      samma individer: en del går om ett år, byter program eller gör
+      uppehåll. Antagningssiffran gäller dem som antogs vid slutantagningen i juni;
       examenssiffran gäller alla som fullföljde programmet det året,
       oavsett när och var de började.
     </p>

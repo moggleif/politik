@@ -421,104 +421,6 @@ class TestKohortframskrivning(unittest.TestCase):
         self.assertIsNone(arg["ettArPct"])
         self.assertIsNone(arg["maxAvstand"])
 
-    def test_kvoterna_mater_hur_en_aldersklass_vaxer_pa_ett_ar(self):
-        """Med 100 + a personer i varje ålder båda åren blir kvoten för
-        steget a → a+1 exakt (101 + a) / (100 + a)."""
-        pa = {2024: {a: 100 + a for a in range(0, 20)},
-              2025: {a: 100 + a for a in range(0, 20)}}
-        r = build_data.kvoter_tom(pa, 2025, 19)
-        self.assertAlmostEqual(r[0], 101 / 100)
-        self.assertAlmostEqual(r[15], 116 / 115)
-        self.assertNotIn(19, r)          # skulle kräva ålder 20
-
-    def test_kvoterna_far_inte_se_efter_basaret(self):
-        """En framskrivning gjord år B får bara använda kvoter som gick
-        att räkna ut då – annars vet prövningen bakåt om framtiden."""
-        pa = {2023: {a: 100 + a for a in range(0, 20)},
-              2024: {a: 200 + a for a in range(0, 20)},
-              2025: {a: 1000 + a for a in range(0, 20)}}
-        tidig = build_data.kvoter_tom(pa, 2024, 19)
-        sen = build_data.kvoter_tom(pa, 2025, 19)
-        self.assertAlmostEqual(tidig[0], 201 / 100)      # bara 2023→2024
-        self.assertLess(tidig[0], sen[0])                # 2025 drar upp den
-        self.assertEqual(build_data.kvoter_tom(pa, 2023, 19), {})
-
-    def test_kompenserad_multiplicerar_langs_kohortens_vag(self):
-        """Kvoten (101 + a) / (100 + a) tar varje kohort exakt till nästa
-        åldersklass, så 16–19-åringarna om ett år blir 116+117+118+119."""
-        pa = {2024: {a: 100 + a for a in range(0, 20)},
-              2025: {a: 100 + a for a in range(0, 20)}}
-        r = build_data.kvoter_tom(pa, 2025, 19)
-        ut = build_data.kompenserad_for(pa[2025], 2025, (16, 19), r)
-        self.assertEqual(ut[2026], 116 + 117 + 118 + 119)
-        self.assertEqual(build_data.framskriv(pa[2025], 1, (16, 19)),
-                         115 + 116 + 117 + 118)
-
-    def test_kompenserad_stannar_nar_en_kvot_saknas(self):
-        """Utan kvot för hela vägen fram går året inte att räkna, av
-        samma skäl som den enkla framskrivningen stannar."""
-        pa = {2024: {a: 100 + a for a in range(0, 20)},
-              2025: {a: 100 + a for a in range(0, 20)}}
-        r = build_data.kvoter_tom(pa, 2025, 19)
-        del r[10]
-        # 16-åringen om k år är i dag 16 − k år och passerar åldrarna
-        # 16 − k … 15. Ålder 10 kommer med först vid k = 6.
-        ut = build_data.kompenserad_for(pa[2025], 2025, (16, 19), r)
-        self.assertEqual(max(ut), 2030)
-        self.assertNotIn(2031, ut)
-
-    def test_kvotprofilen_redovisar_spannet(self):
-        pa = {2023: {a: 100 for a in range(0, 20)},
-              2024: {a: 110 for a in range(0, 20)},
-              2025: {a: 110 for a in range(0, 20)}}
-        profil = {q["alder"]: q for q in build_data.kvotprofil(pa, 19)}
-        self.assertEqual(profil[0]["antal"], 2)          # två årsövergångar
-        self.assertAlmostEqual(profil[0]["minPct"], 0.0)   # 110 -> 110
-        self.assertAlmostEqual(profil[0]["maxPct"], 10.0)  # 100 -> 110
-
-    def test_fonstret_begransar_kvoterna_till_de_senaste_aren(self):
-        """Ett kort fönster ska följa den senaste utvecklingen, inte hela
-        historiken – annars kan det inte reagera på en trend."""
-        pa = {2023: {a: 100 for a in range(0, 20)},
-              2024: {a: 100 for a in range(0, 20)},
-              2025: {a: 200 for a in range(0, 20)}}
-        hela = build_data.kvoter_tom(pa, 2025, 19)
-        senaste = build_data.kvoter_tom(pa, 2025, 19, fonster=1)
-        self.assertAlmostEqual(senaste[0], 2.0)          # bara 2024→2025
-        self.assertAlmostEqual(hela[0], 2.0 ** 0.5)      # 1,0 och 2,0
-
-    def test_fordrojningen_lamnar_de_forsta_aren_okompenserade(self):
-        """Tre år utan kompensation ska ge exakt den enkla
-        framskrivningen så länge, och den kompenserade därefter."""
-        pa = {2024: {a: 100 + a for a in range(0, 20)},
-              2025: {a: 100 + a for a in range(0, 20)}}
-        r = build_data.kvoter_tom(pa, 2025, 19)
-        enkel = build_data.variant_for(pa[2025], 2025, (16, 19), None, 0)
-        komp = build_data.variant_for(pa[2025], 2025, (16, 19), r, 0)
-        hybrid = build_data.variant_for(pa[2025], 2025, (16, 19), r, 3)
-        for k in (1, 2, 3):
-            self.assertEqual(hybrid[2025 + k], enkel[2025 + k])
-        for k in (4, 5, 6):
-            self.assertEqual(hybrid[2025 + k], komp[2025 + k])
-
-    def test_varianterna_provas_pa_samma_underlag(self):
-        """Skillnaden mellan varianterna ska vara modellen och ingenting
-        annat – alltså samma basår och samma antal jämförelser."""
-        pa = {str(y): {str(a): 100 + a + y - 2000 for a in range(0, 20)}
-              for y in range(2000, 2016)}
-        scb = dict(self.scb, perAlder=pa)
-        utfall = {y: 4 * 116 for y in range(2004, 2016)}
-        ut = build_data.bygg_varianter(
-            {int(y): {int(a): v for a, v in r.items()} for y, r in pa.items()},
-            utfall, (16, 19))
-        self.assertEqual(ut["basAr"][0], 2003)           # 2000 + MINSTA_KVOTAR
-        nycklar = [m["nyckel"] for m in ut["modeller"]]
-        self.assertIn("enkel", nycklar)
-        self.assertIn("hybrid-fonster3", nycklar)
-        antal = {m["antal"] for m in ut["modeller"]}
-        self.assertEqual(len(antal), 1, "varianterna har olika många jämförelser")
-        self.assertIsNone(build_data.bygg_varianter({}, utfall, (16, 19)))
-
     def test_traffsakerheten_mater_avvikelsen_mot_utfallet(self):
         # Framskrivet 2026 = 466. Sätt utfallet till 500 -> -6,8 %.
         rader = build_data.kohortfel(self.pa, {2026: 500}, (16, 19))
@@ -647,21 +549,6 @@ class TestNianTillGymnasiet(unittest.TestCase):
     def test_brottsaret_for_meritvardet_hittas(self):
         self.assertEqual(self.ut["meritamnenBrott"], 2015)
 
-    def test_meritsamband_hoppar_over_16_amnesaren(self):
-        """16 och 17 ämnen mäter olika saker och får inte ligga i samma
-        punktmoln. Kvar blir en enda punkt – för få för ett r."""
-        s = {x["nyckel"]: x for x in self.ut["samband"]}
-        merit = s["meritvarde-examen3"]
-        self.assertEqual([p["ar"] for p in merit["punkter"]], [2015])
-        self.assertIsNone(merit["r"])
-        # Behörigheten är jämförbar alla år och behåller båda kullarna
-        self.assertEqual(len(s["behorighet-examen3"]["punkter"]), 2)
-
-    def test_korrelation_kraver_minst_tre_punkter(self):
-        self.assertIsNone(build_nian_gymnasiet.pearson([(1, 2), (2, 4)]))
-        self.assertEqual(
-            build_nian_gymnasiet.pearson([(1, 2), (2, 4), (3, 6)])["r"], 1.0)
-
     def test_pendlingen_summeras_och_stams_av(self):
         g = self.ut["pendling"][0]["gymnasiet"]
         self.assertEqual(g["utpendling"], 300)
@@ -750,9 +637,15 @@ class TestMeritvarden(unittest.TestCase):
             "Bild, Särskild variant inom det estetiska området")
         self.assertEqual(a, b)
 
-    def test_inriktningsnyckel_anstalld_larling_ar_larling(self):
-        self.assertEqual(build_meritvarden.inriktningsnyckel("Anställd lärling"),
-                         build_meritvarden.inriktningsnyckel("Lärling"))
+    def test_inriktningsnyckel_skiljer_anstalld_larling_fran_larling(self):
+        """Två utbildningsformer, inte två stavningar.
+
+        GR:s rapporter använder båda orden samtidigt: Vård- och omsorg står
+        som "Anställd lärling" 2025 och 2026, medan de industritekniska
+        lärlingsutbildningarna bytte till "Lärling" samma år.
+        """
+        self.assertNotEqual(build_meritvarden.inriktningsnyckel("Anställd lärling"),
+                            build_meritvarden.inriktningsnyckel("Lärling"))
 
     def test_typ_av(self):
         self.assertEqual(build_meritvarden.typ_av("Naturvetenskapsprogrammet"),
@@ -995,6 +888,372 @@ class TestAvskrifter(unittest.TestCase):
                     self.assertNotIn(rest[:1], (" ", ","),
                                      f"{fil.name}: {u['utbildning']!r} ser ut att "
                                      f"vara ett avhugget {annan['utbildning']!r}")
+
+
+class TestTolkningsregler(unittest.TestCase):
+    """Vaktar att presentationen inte går längre än beräkningen bär.
+
+    Fynden kommer ur en granskning som letade efter överdrivna utsagor
+    snarare än efter räknefel: koden räknade rätt, men de svenska
+    meningarna påstod mer än talen visar.
+    """
+
+    def las(self, vag):
+        return (ROT / vag).read_text(encoding="utf-8")
+
+    def test_forbattring_jamfors_inte_mot_rekordfelet(self):
+        """Att ställa senaste årgången mot den sämsta någonsin är inget
+        test av förbättring över tid – nästan vilket värde som helst slår
+        ett rekordfel."""
+        js = self.las("docs/app.js")
+        self.assertNotIn("Felet har alltså minskat", js)
+        self.assertNotIn("Felet har alltså inte minskat", js)
+
+    def test_ingen_mekanismforklaring_av_teckenbyte(self):
+        """Ett teckenbyte mellan årgångar visar inte att modellen missar
+        vändpunkter."""
+        self.assertNotIn("missar vändpunkter", self.las("docs/app.js"))
+
+    def test_skevheten_utges_inte_for_statistiskt_faststalld(self):
+        js = self.las("docs/app.js")
+        self.assertNotIn("kallas systematiskt", js)
+        self.assertNotIn("det går att räkna bort", js)
+
+    def test_kohortframskrivningen_pastas_inte_antagandefri(self):
+        """Att bära kohorten rakt fram förutsätter noll nettoflyttning
+        och ingen dödlighet – det är ett antagande, inte frånvaron av ett."""
+        for vag in ("docs/kohort.js", "docs/gymnasiealdern.html", "README.md"):
+            text = self.las(vag).lower()
+            for forbjudet in ("inga antaganden", "antar ingenting alls",
+                              "inte antar något alls", "fri från antaganden"):
+                if forbjudet == "fri från antaganden" and "inte" in text:
+                    continue        # "är inte längre fri från antaganden" är korrekt
+                self.assertNotIn(forbjudet, text, f"{vag}: {forbjudet!r}")
+
+    def test_framskrivningen_kallas_inte_undre_grans(self):
+        """Historisk underskattning skapar ingen undre gräns för framtiden."""
+        self.assertNotIn("undre gräns</em>", self.las("docs/kohort.js"))
+
+    def test_slutbetygen_utges_inte_for_hela_kullen(self):
+        """Sammanfattningen bygger på summeringsraden Nationella program."""
+        for vag in ("docs/slutbetyg.html", "docs/slutbetyg.js"):
+            self.assertNotIn("hela avgångskullen", self.las(vag).lower(), vag)
+
+    def test_inga_lasanvisningar_eller_omdomen(self):
+        """Sidorna beskriver datat; de talar inte om hur det ska läsas."""
+        import glob
+        for vag in sorted(glob.glob(str(ROT / "docs" / "*.js")) +
+                          glob.glob(str(ROT / "docs" / "*.html"))):
+            if vag.endswith("chart.umd.js"):
+                continue
+            text = open(vag, encoding="utf-8").read()
+            for forbjudet in ("Läs med försiktighet", "ska inte övertolkas",
+                              "tyder på", "talar för att"):
+                self.assertNotIn(forbjudet, text,
+                                 f"{Path(vag).name}: {forbjudet!r}")
+
+    def test_inga_egna_analysmodeller_kvar(self):
+        """Sidan visar källdata; den enda beräkning som inte kommer ur en
+        källa är kohortframskrivningen. Korrelationer, kompenserad
+        framskrivning och modellvarianter är borttagna."""
+        for namn in ("data-nian-gymnasiet.json",):
+            d = json.loads((ROT / "docs" / namn).read_text(encoding="utf-8"))
+            self.assertNotIn("samband", d, namn)
+        kohort = json.loads(
+            (ROT / "docs" / "data-16-19.json").read_text(encoding="utf-8"))["kohort"]
+        for falt in ("kompenserad", "kvoter", "varianter"):
+            self.assertNotIn(falt, kohort, falt)
+        self.assertIn("framskrivning", kohort)
+
+    def test_gapet_pastas_inte_ha_vidgats(self):
+        """Gruppsnitten är sammansättningskänsliga: utbudet ändras."""
+        for vag in ("docs/merit.js", "docs/slutbetyg.js"):
+            self.assertNotIn("Gapet har alltså", self.las(vag), vag)
+
+    def test_programsiffran_kallas_inte_elevernas_medelmeritvarde(self):
+        """Programmets tal är ett ovägt snitt av inriktningarnas medelvärden.
+
+        GR redovisar inte antal antagna, så talet kan inte vägas efter hur
+        många eleverna var. Barn- och fritidsprogrammet på Elof Lindälv
+        2026 visar varför etiketten spelar roll: (141,25 + 206,25) / 2 =
+        173,75, ett tal som ingen elevgrupp behöver ha haft.
+        """
+        d = json.loads((ROT / "docs" / "data-meritvarden.json")
+                       .read_text(encoding="utf-8"))
+        traff = [p for p in d["program"]
+                 if p["namn"].startswith("Barn- och fritid")
+                 and "2026" in p["varden"]
+                 and p["varden"]["2026"]["skola"].startswith("Elof")]
+        self.assertEqual(len(traff), 1)
+        v = traff[0]["varden"]["2026"]
+        delar = [u["varden"]["2026"]["medel"] for u in d["utbildningar"]
+                 if u["program"] == traff[0]["namn"]
+                 and u["skola"].startswith("Elof")
+                 and u["varden"].get("2026")
+                 and u["varden"]["2026"]["medel"] is not None]
+        self.assertEqual(sorted(delar), [141.25, 206.25])
+        self.assertEqual(v["antal"], len(delar))
+        self.assertAlmostEqual(v["medel"], sum(delar) / len(delar), places=2)
+
+        # Ingen sida får kalla programnivåns tal elevernas genomsnitt.
+        for vag in ("docs/merit.js", "docs/meritvarden.html", "docs/kull.js",
+                    "docs/antagning-till-examen.html"):
+            text = self.las(vag)
+            for forbjudet in ("medelmeritvärdet för de antagna eleverna",
+                              "Medelmeritvärdet för de antagna eleverna"):
+                self.assertNotIn(forbjudet, text, vag)
+
+    def test_programnivan_beskrivs_som_ovagd(self):
+        """Där programsiffran visas ska ovägningen stå i klartext."""
+        for vag in ("docs/meritvarden.html", "docs/antagning-till-examen.html",
+                    "docs/metod.html"):
+            self.assertIn("ovägt", self.las(vag).lower(), vag)
+        self.assertIn("Ovägt genomsnitt av inriktningarnas medelmeritvärden",
+                      self.las("docs/merit.js"))
+
+    def test_antagningspoangen_kallas_inte_alltid_en_intagningsgrans(self):
+        """Från 2025 skrivs poängen ut även när alla behöriga kom in.
+
+        Då är den sist antagnas meritvärde ingen gräns som krävdes: någon
+        med lägre värde kunde ha kommit in om personen sökt.
+        """
+        text = self.las("docs/meritvarden.html")
+        self.assertNotIn("alltså den gräns som gällde för att komma in", text)
+        self.assertIn("faktisk konkurrensgräns när det fanns fler", text)
+
+        d = json.loads((ROT / "docs" / "data-meritvarden.json")
+                       .read_text(encoding="utf-8"))
+        # Efter definitionsbytet finns poäng även för utbildningar med
+        # lediga platser kvar – annars vore texten ovan onödig.
+        utan_konkurrens = [v for u in d["utbildningar"]
+                           for a, v in u["varden"].items()
+                           if int(a) >= 2025 and v.get("utanPlatser") is False
+                           and v.get("poang") is not None]
+        self.assertTrue(utan_konkurrens)
+
+    def test_prognoserna_avgor_ingenting(self):
+        """Sidan visar prognoser och utfall, inte vad de styr.
+
+        Elever pendlar över kommungränsen i båda riktningarna, vilket
+        sidan om nian till gymnasiet mäter – antalet 16–19-åringar avgör
+        alltså inte antalet gymnasieplatser.
+        """
+        for vag in ("docs/index.html", "docs/index.js", "docs/gymnasiealdern.html"):
+            text = self.las(vag)
+            for forbjudet in ("avgör behovet", "avgör hur många gymnasieplatser",
+                              "Prognoserna styr"):
+                self.assertNotIn(forbjudet, text, vag)
+
+    def test_systematiska_fel_pastas_inte_kunna_raknas_bort(self):
+        """Ett riktat historiskt fel går inte utan vidare att räkna bort."""
+        for vag in ("docs/befolkningsprognos.html", "docs/gymnasiealdern.html",
+                    "docs/app.js"):
+            text = self.las(vag)
+            self.assertNotIn("räknas bort i modellen", text, vag)
+            self.assertNotIn("kan mätas och räknas bort", text, vag)
+
+
+class TestAnalyskonventioner(unittest.TestCase):
+    """Skiljer på transformation, normalisering och analyskonvention.
+
+    En namnnormalisering byter stavning. En analyskonvention räknar två
+    utbildningar som en serie. Det senare är ett beslut om hur datat
+    bearbetas, inte ett påstående om att utbildningarna var desamma, och
+    det ska stå utskrivet på metodsidan.
+    """
+
+    def las(self, vag):
+        return (ROT / vag).read_text(encoding="utf-8")
+
+    def metodtext(self):
+        return build_meritvarden.nyckla(self.las("docs/metod.html"))
+
+    def sammanslagningar(self):
+        """Varje fall där två eller fler gamla namn pekar på samma nya."""
+        per_nytt = {}
+        for (program, gammal), ny in build_meritvarden.INRIKTNING_BYTT_NAMN.items():
+            per_nytt.setdefault((program, ny), []).append(gammal)
+        return {k: v for k, v in per_nytt.items() if len(v) > 1}
+
+    def test_varje_sammanslagning_ar_dokumenterad_pa_metodsidan(self):
+        """Läggs en fjärde sammanslagning till i koden ska testet falla.
+
+        Nyckeln i INRIKTNING_BYTT_NAMN är inriktningens gamla namn i
+        normaliserad form, ibland med utbildningsformen sist ("handel och
+        service larling"). Formen räknas bort; själva inriktningsnamnet
+        ska gå att hitta i metodsidans text.
+        """
+        text = self.metodtext()
+        slagna = self.sammanslagningar()
+        self.assertTrue(slagna, "inga sammanslagningar hittades i byggkoden")
+        for (program, ny), gamla in sorted(slagna.items()):
+            self.assertIn(build_meritvarden.nyckla(program), text,
+                          f"{program} saknas på metodsidan")
+            for gammal in gamla:
+                namn = gammal.removesuffix(" larling").strip()
+                self.assertIn(namn, text,
+                              f"sammanslagningen {gammal!r} → {ny!r} i "
+                              f"{program} står inte på metodsidan")
+
+    def test_sammanslagningarna_kallas_konvention_inte_identitet(self):
+        """Konventionen får inte återuppstå som historiskt påstående."""
+        text = self.las("docs/metod.html")
+        self.assertIn("analyskonvention", text.lower())
+        self.assertIn("normaliserad programserie", text)
+        for vag in ("docs/metod.html", "docs/meritvarden.html",
+                    "docs/slutbetyg.html"):
+            for forbjudet in ("samma utbildning i kommunens utbud",
+                              "är samma program",
+                              "men det är samma utbildning som förts vidare"):
+                self.assertNotIn(forbjudet, self.las(vag), vag)
+
+    def test_anstalld_larling_hålls_isar_fran_larling(self):
+        """Aliaset motsades av repots eget data och är borttaget.
+
+        Vård- och omsorgsprogrammet står som "Anställd lärling" också i
+        2025 och 2026 års rapporter, samtidigt som de industritekniska
+        lärlingsutbildningarna bytte till "Lärling" 2025. GR skiljer
+        alltså på formerna.
+        """
+        for ar in (2025, 2026):
+            rapport = json.loads(
+                (ROT / "data" / "antagning" / f"antagning_{ar}.json")
+                .read_text(encoding="utf-8"))
+            namn = [r["utbildning"] for r in rapport["utbildningar"]]
+            self.assertTrue(
+                any("Vård- och omsorg" in n and "Anställd lärling" in n
+                    for n in namn),
+                f"{ar}: Vård- och omsorg står inte som anställd lärling")
+
+        self.assertFalse(hasattr(build_meritvarden, "DELALIAS"))
+        # Nycklarna ska skilja formerna åt
+        self.assertNotEqual(
+            build_meritvarden.inriktningsnyckel("Svetsteknik, anställd lärling"),
+            build_meritvarden.inriktningsnyckel("Svetsteknik, Lärling"))
+
+        # …och serierna ska därför brytas vid formbytet, inte spänna över det
+        d = json.loads((ROT / "docs" / "data-meritvarden.json")
+                       .read_text(encoding="utf-8"))
+        for u in d["utbildningar"]:
+            if "anställd lärling" not in (u["inriktning"] or "").lower():
+                continue
+            if not u["namn"].startswith("Industritekniska"):
+                continue
+            ar = [int(a) for a, v in u["varden"].items() if v["medel"] is not None]
+            self.assertTrue(ar and max(ar) <= 2024,
+                            f"{u['namn']}: anställd lärling spänner över 2025")
+
+    def test_flyttheuristiken_slar_inte_ihop_nagon_serie_i_dagens_data(self):
+        """"Aldrig samtidigt" är ett mönster i datat, inte ett belägg.
+
+        Regeln kan inte skilja ett program som bytt hus från ett som lagts
+        ned och senare startats på den andra skolan. I dagens data slår den
+        inte ihop någonting – testet faller den dag den börjar göra det, så
+        att sammanslagningen inte smyger in osedd.
+        """
+        d = json.loads((ROT / "docs" / "data-meritvarden.json")
+                       .read_text(encoding="utf-8"))
+        per_program = {}
+        for u in d["utbildningar"]:
+            for a, v in u["varden"].items():
+                if v["medel"] is not None:
+                    per_program.setdefault(u["program"], {}).setdefault(
+                        a, set()).add(u["skola"])
+        for program, per_ar in sorted(per_program.items()):
+            skolor = {s for ss in per_ar.values() for s in ss}
+            if len(skolor) < 2:
+                continue
+            samtidigt = [a for a, s in per_ar.items() if len(s) > 1]
+            self.assertTrue(
+                samtidigt,
+                f"{program} förs ihop av flyttheuristiken utan belägg – "
+                "kontrollera att sammanslagningen är dokumenterad")
+
+    def test_horisontdiagrammet_utger_sig_inte_for_att_identifiera_orsak(self):
+        """Staplarna beskriver materialet, de mäter ingen effekt.
+
+        Grupperna innehåller olika prognosårgångar med olika prognoslängd
+        och olika målår, så skillnaden mellan en ett- och en femårsstapel
+        kan inte tillskrivas horisonten.
+        """
+        for vag in ("docs/befolkningsprognos.html", "docs/gymnasiealdern.html"):
+            text = self.las(vag)
+            self.assertNotIn("Blir prognoserna bättre ju närmare året", text, vag)
+            self.assertIn(
+                "Det identifierar inte hur mycket större fel\n      som orsakas "
+                "av en längre prognoshorisont.", text, vag)
+        self.assertIn("de mäter inte vad en längre", self.las("docs/app.js"))
+
+        # Årgångarna bakom varje stapel ska finnas i datat att skriva ut
+        for namn in ("data.json", "data-16-19.json"):
+            d = json.loads((ROT / "docs" / namn).read_text(encoding="utf-8"))
+            for rad in d["perAvstand"]:
+                self.assertEqual(len(rad["argangar"]), rad["antal"], namn)
+            # Olika horisonter vilar på olika årgångar – det är hela poängen
+            argangar = [tuple(r["argangar"]) for r in d["perAvstand"]]
+            self.assertGreater(len(set(argangar)), 1, namn)
+
+    def test_amnessnittet_ar_robust_mot_valet_av_matt(self):
+        """Stresstest av det ovägda ämnessnittet.
+
+        Ovägt över ett fast urval ger varje ämne vikten 1/n, och det är
+        ett val. Prövas mot tre alternativ: bara obligatoriska ämnen,
+        medianen av ämnena, och ett elevviktat snitt. Ger de samma
+        utveckling är slutsatsen inte beroende av måttet. Skiljer de sig
+        ska testet falla, för då är huvudmåttet modellberoende och det
+        måste sidan i så fall berätta.
+        """
+        import math
+        d = json.loads((ROT / "docs" / "data-amnesbetyg.json")
+                       .read_text(encoding="utf-8"))
+        ar = [str(a) for a in d["ar"]]
+        karn = [a for a in d["amnen"] if a["arMedPoang"] == len(ar)]
+        obligatoriska = [a for a in karn
+                         if a["namn"] not in ("Modersmål", "Moderna språk, språkval")]
+
+        def serie(rakna, urval):
+            ut = {}
+            for y in ar:
+                rader = [a["varden"][y] for a in urval
+                         if a["varden"].get(y)
+                         and a["varden"][y]["betygspoang"] is not None]
+                if rader:
+                    ut[y] = rakna(rader)
+            return ut
+
+        def ovagt(r):
+            return math.fsum(x["betygspoang"] for x in r) / len(r)
+
+        def elevviktat(r):
+            r = [x for x in r if x.get("antal")]
+            n = math.fsum(x["antal"] for x in r)
+            return math.fsum(x["betygspoang"] * x["antal"] for x in r) / n
+
+        def median(r):
+            v = sorted(x["betygspoang"] for x in r)
+            m = len(v) // 2
+            return v[m] if len(v) % 2 else (v[m - 1] + v[m]) / 2
+
+        varianter = {
+            "ovagt": serie(ovagt, karn),
+            "obligatoriska": serie(ovagt, obligatoriska),
+            "median": serie(median, karn),
+            "elevviktat": serie(elevviktat, karn),
+        }
+        forandring = {namn: s[ar[-1]] - s[ar[0]] for namn, s in varianter.items()}
+
+        # Samma riktning över hela perioden…
+        self.assertTrue(all(v > 0 for v in forandring.values()) or
+                        all(v < 0 for v in forandring.values()),
+                        f"varianterna pekar åt olika håll: {forandring}")
+        # …och inom en tiondels betygspoäng av varandra
+        self.assertLess(max(forandring.values()) - min(forandring.values()), 0.15,
+                        f"måttet är känsligt för viktningen: {forandring}")
+        # Samma form år för år: ingen variant får avvika mer än 0,3 poäng
+        for y in ar:
+            varden = [s[y] for s in varianter.values() if y in s]
+            self.assertLess(max(varden) - min(varden), 0.35,
+                            f"{y}: varianterna skiljer sig åt ({varden})")
 
 
 class TestPresentationsregler(unittest.TestCase):

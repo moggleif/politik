@@ -15,23 +15,11 @@ träffsäkerheten som funktion av hur många år i förväg prognosen gjordes.
 För åldersgruppen 16–19 år byggs dessutom en **kohortframskrivning**: de
 barn som redan bor i kommunen blir ett år äldre varje år, så antalet
 16–19-åringar om k år är summan av dagens åldersklasser 16−k … 19−k.
-Den räknar inte med någon in- eller utflyttning alls och är därför inte
-en prognos utan en undre gräns på vad som redan finns. Hur mycket den
-historiskt missat, och hur den står sig mot kommunens egen modell vid
-samma horisont, räknas fram här och redovisas på sidan.
-
-Skillnaden mellan två framskrivningsårgångar är just den flyttning som
-den enkla modellen utelämnar, och den går att mäta: kvoten
-
-    r(a) = N(a+1, år T+1) / N(a, år T)
-
-är hur mycket en åldersklass växer på ett år. Den är påfallande stabil
-över åren men starkt åldersberoende – störst för de yngsta, negativ när
-18-åringarna flyttar hemifrån. En **kompenserad framskrivning** multiplicerar
-därför varje kohort med r(a) längs vägen i stället för att bära den rakt
-fram. Den bygger, till skillnad från den enkla, på antagandet att
-flyttmönstret består; kvoterna skattas därför alltid ur åren *före*
-basåret, så att prövningen bakåt blir ärlig.
+Det är ren aritmetik på SCB:s åldersklasser, men inte antagandefri: att
+bära varje kohort rakt fram förutsätter noll nettoflyttning och ingen
+dödlighet. Hur mycket den historiskt avvikit från utfallet, och hur den
+står sig mot kommunens egen modell vid samma horisont, räknas fram här
+och redovisas på sidan.
 
 Körs:  python3 scripts/build_data.py
 """
@@ -122,207 +110,19 @@ def kohortfel(pa: dict, utfall: dict, aldrar: tuple) -> list:
     ]
 
 
-def kvoter_tom(pa: dict, tom: int, hogsta_alder: int, fonster=None) -> dict:
-    """Åldersklassernas årliga tillväxt, skattad ur åren t.o.m. `tom`.
-
-    r(a) = N(a+1, T+1) / N(a, T), sammanvägt som **geometriskt** medel:
-    kvoterna multipliceras ihop längs kohortens väg, och då är det den
-    multiplikativa mittpunkten som ska användas, inte den aritmetiska.
-
-    `tom` finns för att prövningen bakåt ska bli ärlig: en framskrivning
-    gjord år B får bara använda kvoter som gick att räkna ut då.
-
-    `fonster` begränsar skattningen till de N senaste årsövergångarna.
-    Ett kort fönster följer en trend snabbare men skakar mer; vilket som
-    lönar sig prövas i variantjämförelsen och avgörs inte på förhand."""
-    ar = sorted(pa)
-    ut = {}
-    for a in range(0, hogsta_alder):
-        v = [(T, pa[T + 1][a + 1] / pa[T][a])
-             for T in ar
-             if T + 1 in pa and T + 1 <= tom
-             and pa[T].get(a) and pa[T + 1].get(a + 1)]
-        if fonster:
-            v = v[-fonster:]
-        if v:
-            ut[a] = math.exp(math.fsum(math.log(x) for _, x in v) / len(v))
-    return ut
-
-
-def kvotprofil(pa: dict, hogsta_alder: int) -> list:
-    """Kvoterna per ålder för redovisning, med spridning över åren."""
-    ar = sorted(pa)
-    ut = []
-    for a in range(0, hogsta_alder):
-        v = [pa[T + 1][a + 1] / pa[T][a]
-             for T in ar
-             if T + 1 in pa and pa[T].get(a) and pa[T + 1].get(a + 1)]
-        if not v:
-            continue
-        r = math.exp(math.fsum(math.log(x) for x in v) / len(v))
-        ut.append({
-            "alder": a,
-            "kvot": round(r, 5),
-            "nettoPct": round(100 * (r - 1), 2),
-            "antal": len(v),
-            "minPct": round(100 * (min(v) - 1), 2),
-            "maxPct": round(100 * (max(v) - 1), 2),
-        })
-    return ut
-
-
-def kompenserad_for(bas: dict, basar: int, aldrar: tuple, kvoter: dict) -> dict:
-    """Framskrivningen med varje åldersklass uppräknad med sin kvot.
-
-    En kohort som i dag är a0 år och ska bli m år multipliceras med
-    r(a0)·r(a0+1)·…·r(m−1). Saknas någon kvot på vägen skrivs året inte
-    fram alls, av samma skäl som den enkla framskrivningen inte gör det.
-
-    Detta är variantmodellen utan fördröjning – samma loop, ett namn som
-    säger vad sidans kompenserade serie faktiskt är."""
-    return variant_for(bas, basar, aldrar, kvoter, fordrojning=0)
-
-
-# Modellvarianter som prövas mot varandra. Poängen med att lista dem här
-# är att ingen av dem ska kunna väljas i efterhand: alla räknas fram med
-# samma regler och redovisas med sitt utfall, också de som visar sig sämre.
-#
-#   fonster       antal senaste årsövergångar som kvoterna skattas ur
-#                 (None = alla år fram till basåret)
-#   fordrojning   horisont t.o.m. vilken ingen kompensation alls görs.
-#                 Tanken bakom den är att de närmaste årens ungdomar redan
-#                 bor i kommunen, och att flyttningen hinner betyda något
-#                 först längre fram.
-VARIANTER = [
-    {"nyckel": "enkel", "namn": "Enkel framskrivning",
-     "kort": "Ingen kompensation alls",
-     "kompensera": False, "fonster": None, "fordrojning": 0},
-    {"nyckel": "hela", "namn": "Kompenserad, hela historiken",
-     "kort": "Kvoter ur alla år fram till basåret",
-     "kompensera": True, "fonster": None, "fordrojning": 0},
-    {"nyckel": "fonster3", "namn": "Kompenserad, 3-årsfönster",
-     "kort": "Kvoter ur de tre senaste årsövergångarna",
-     "kompensera": True, "fonster": 3, "fordrojning": 0},
-    {"nyckel": "hybrid-hela", "namn": "Tre år utan, sedan hela historiken",
-     "kort": "Ingen kompensation de tre första åren",
-     "kompensera": True, "fonster": None, "fordrojning": 3},
-    {"nyckel": "hybrid-fonster3", "namn": "Tre år utan, sedan 3-årsfönster",
-     "kort": "Ingen kompensation de tre första åren, sedan kvoter ur de "
-             "tre senaste årsövergångarna",
-     "kompensera": True, "fonster": 3, "fordrojning": 3},
-]
-
-# Ett kort fönster kräver att det finns några årsövergångar att räkna på.
-# Prövningen börjar därför först när det gör det.
-MINSTA_KVOTAR = 3
-
-
-def variant_for(bas: dict, basar: int, aldrar: tuple, kvoter, fordrojning: int) -> dict:
-    """Framskrivningen för en modellvariant.
-
-    Är `kvoter` None bärs kohorterna rakt fram (den enkla modellen). I
-    övrigt multipliceras de med r(a) längs vägen, utom för horisonter
-    t.o.m. `fordrojning`, som lämnas okompenserade."""
-    lag, hog = aldrar
-    ut = {}
-    k = 1
-    while True:
-        summa = 0.0
-        for m in range(lag, hog + 1):
-            a0 = m - k
-            if a0 < 0 or a0 not in bas:
-                return ut
-            varde = float(bas[a0])
-            if kvoter is not None and k > fordrojning:
-                for j in range(a0, m):
-                    if j not in kvoter:
-                        return ut
-                    varde *= kvoter[j]
-            summa += varde
-        ut[basar + k] = round(summa)
-        k += 1
-
-
-def variantkvoter(pa: dict, basar: int, aldrar: tuple, v: dict):
-    if not v["kompensera"]:
-        return None
-    return kvoter_tom(pa, basar, aldrar[1], v["fonster"])
-
-
-def bygg_varianter(pa: dict, utfall: dict, aldrar: tuple) -> dict | None:
-    """Varje variant prövad bakåt från varje basår, horisont för horisont.
-
-    Alla varianter får exakt samma basår och samma målår, så att
-    skillnaden dem emellan är modellen och ingenting annat. Kvoterna
-    skattas ur årsövergångarna t.o.m. basåret, precis som i den övriga
-    prövningen."""
-    if not pa:
-        return None
-    forsta_basar = min(pa) + MINSTA_KVOTAR
-    basar_lista = [b for b in sorted(pa) if b >= forsta_basar]
-    if not basar_lista:
-        return None
-
-    fel = {v["nyckel"]: {} for v in VARIANTER}
-    for basar in basar_lista:
-        for v in VARIANTER:
-            fr = variant_for(pa[basar], basar, aldrar,
-                             variantkvoter(pa, basar, aldrar, v),
-                             v["fordrojning"])
-            for ar, varde in fr.items():
-                if ar in utfall:
-                    fel[v["nyckel"]].setdefault(ar - basar, []).append(
-                        100.0 * (varde - utfall[ar]) / utfall[ar])
-
-    sista = max(pa)
-    modeller = []
-    for v in VARIANTER:
-        d = fel[v["nyckel"]]
-        alla = [x for k in d for x in d[k]]
-        if not alla:
-            continue
-        modeller.append({
-            "nyckel": v["nyckel"], "namn": v["namn"], "kort": v["kort"],
-            "fonster": v["fonster"], "fordrojning": v["fordrojning"],
-            "framskrivning": {
-                str(a): x for a, x in sorted(variant_for(
-                    pa[sista], sista, aldrar,
-                    variantkvoter(pa, sista, aldrar, v),
-                    v["fordrojning"]).items())},
-            "perAvstand": [
-                {"avstand": k, "antal": len(d[k]),
-                 "medelAbsPct": medelabs(d[k]),
-                 "medelPct": medelpct(d[k])}
-                for k in sorted(d)
-            ],
-            "antal": len(alla),
-            "medelAbsPct": medelabs(alla),
-            "medelPct": medelpct(alla),
-        })
-
-    return {
-        "basAr": [basar_lista[0], basar_lista[-1]],
-        "antalBasAr": len(basar_lista),
-        "modeller": modeller,
-    }
-
-
 def kohortjamforelse(pa: dict, prognoser: list, utfall: dict, aldrar: tuple) -> list:
     """Kommunens modell mot framskrivningen, vid samma horisont.
 
     En prognos gjord år P har kommunens folkmängd t.o.m. årsskiftet P−1 att
-    utgå från, så framskrivningen får samma utgångspunkt: basåret P−1, och
-    den kompenserade dessutom bara kvoter skattade t.o.m. samma år. Bara
-    målår där alla tre har ett värde och det finns ett facit räknas, annars
-    jämförs de på olika underlag."""
+    utgå från, så framskrivningen får samma utgångspunkt: basåret P−1.
+    Bara målår där båda har ett värde och det finns ett facit räknas,
+    annars jämförs de på olika underlag."""
     per_avstand = {}
     for p in prognoser:
         basar = p["prognosAr"] - 1
         bas = pa.get(basar)
         if bas is None:
             continue
-        komp = kompenserad_for(bas, basar, aldrar,
-                               kvoter_tom(pa, basar, aldrar[1]))
         for ar, varde in p["prognos"].items():
             malar = int(ar)
             if malar not in utfall:
@@ -331,23 +131,15 @@ def kohortjamforelse(pa: dict, prognoser: list, utfall: dict, aldrar: tuple) -> 
             if kohort is None:
                 continue
             rad = per_avstand.setdefault(malar - p["prognosAr"],
-                                         {"k": [], "p": [], "c": []})
+                                         {"k": [], "p": []})
             rad["p"].append(abs(100.0 * (varde - utfall[malar]) / utfall[malar]))
             rad["k"].append(abs(100.0 * (kohort - utfall[malar]) / utfall[malar]))
-            # Den kompenserade kräver kvoter hela vägen fram. Saknas de
-            # ska raden ändå finnas: jämförelsen mellan kommunen och den
-            # enkla framskrivningen står på egna ben.
-            if malar in komp:
-                rad["c"].append(
-                    abs(100.0 * (komp[malar] - utfall[malar]) / utfall[malar]))
     return [
         {
             "avstand": avst,
             "antal": len(v["p"]),
             "kommunAbsPct": medelpct(v["p"]),        # talen är redan absoluta
             "kohortAbsPct": medelpct(v["k"]),
-            "kompenseradAntal": len(v["c"]),
-            "kompenseradAbsPct": medelpct(v["c"]),
         }
         for avst, v in sorted(per_avstand.items())
     ]
@@ -380,12 +172,6 @@ def kohortargangar(pa: dict, utfall: dict, aldrar: tuple, forsta_basar: int) -> 
         framskrivning = framskrivning_for(pa[basar], basar, aldrar)
         if not framskrivning:
             continue
-        # Kvoterna skattas ur årsövergångarna T.O.M. basåret – bara data
-        # som var känd då. Annars vet årgången något om framtiden, och
-        # prövningen bakåt mäter ingenting.
-        kompenserad = kompenserad_for(pa[basar], basar, aldrar,
-                                      kvoter_tom(pa, basar, aldrar[1]))
-
         avvikelser = {}
         for ar, varde in framskrivning.items():
             if ar in utfall:
@@ -397,26 +183,17 @@ def kohortargangar(pa: dict, utfall: dict, aldrar: tuple, forsta_basar: int) -> 
                     "pct": round(100.0 * diff / utfall[ar], 2),
                     "avstand": ar - basar,
                 }
-                if ar in kompenserad:
-                    avvikelser[ar]["kompenserad"] = kompenserad[ar]
-                    avvikelser[ar]["kompenseradPct"] = round(
-                        100.0 * (kompenserad[ar] - utfall[ar]) / utfall[ar], 2)
 
         v = [a["pct"] for a in avvikelser.values()]
-        c = [a["kompenseradPct"] for a in avvikelser.values()
-             if "kompenseradPct" in a]
         ettar = [a["pct"] for a in avvikelser.values() if a["avstand"] == 1]
         argangar.append({
             "basAr": basar,
             "sistaAr": max(framskrivning),
             "framskrivning": {str(a): x for a, x in sorted(framskrivning.items())},
-            "kompenserad": {str(a): x for a, x in sorted(kompenserad.items())},
             "avvikelser": {str(a): x for a, x in sorted(avvikelser.items())},
             "antal": len(v),
             "medelAbsPct": medelabs(v),
             "medelPct": medelpct(v),
-            "kompenseradAbsPct": medelabs(c),
-            "kompenseradPct": medelpct(c),
             "maxAvstand": max((a["avstand"] for a in avvikelser.values()),
                               default=None),
             "ettArPct": round(ettar[0], 2) if ettar else None,
@@ -451,9 +228,6 @@ def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None
                     if prognoser else min(pa))
     argangar = kohortargangar(pa, utfall, aldrar, forsta_basar)
 
-    kvoter = kvoter_tom(pa, basar, aldrar[1])
-    kompenserad = kompenserad_for(bas, basar, aldrar, kvoter)
-
     # Kommunens senaste prognos vid sidan av framskrivningen, år för år.
     senaste = prognoser[-1] if prognoser else None
     mot_senaste = []
@@ -466,7 +240,6 @@ def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None
                     "kommun": varde,
                     "kohort": framskrivning[malar],
                     "diff": varde - framskrivning[malar],
-                    "kompenserad": kompenserad.get(malar),
                 })
 
     return {
@@ -474,15 +247,11 @@ def bygg_kohort(scb: dict, prognoser: list, utfall: dict, aldrar) -> dict | None
         "aldrar": list(aldrar),
         "sistaAr": max(framskrivning),
         "framskrivning": {str(a): v for a, v in sorted(framskrivning.items())},
-        "kompenserad": {str(a): v for a, v in sorted(kompenserad.items())},
-        "kvoter": kvotprofil(pa, aldrar[1]),
-        "kvotAr": [min(pa) + 1, basar],
         "ursprung": {str(a): v for a, v in sorted(ursprung.items())},
         "traffsakerhet": kohortfel(pa, utfall, aldrar),
         "jamforelse": kohortjamforelse(pa, prognoser, utfall, aldrar),
         "forstaBasAr": forsta_basar,
         "argangar": argangar,
-        "varianter": bygg_varianter(pa, utfall, aldrar),
         "senastePrognosAr": senaste["prognosAr"] if senaste else None,
         "motSenaste": mot_senaste,
     }
@@ -526,21 +295,29 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str,
     # Två olika mått, och skillnaden är själva poängen:
     #   medelAbsPct  hur STORT felet är (riktningen borträknad)
     #   medelPct     åt vilket HÅLL felet lutar, med tecken
-    # Slumpmässiga fel tar ut varandra och ger medelPct nära noll. Ligger
-    # medelPct tydligt skilt från noll är felet systematiskt, alltså något
-    # en modell kan korrigera för.
+    # Slumpmässiga fel tar ut varandra och ger medelPct nära noll, medan ett
+    # medelPct tydligt skilt från noll betyder att felen dragit åt samma håll
+    # i materialet.
+    #
+    # Grupperna innehåller olika prognosårgångar: ett långt avstånd kan bara
+    # mätas för de äldsta årgångarna, och prognoslängden har dessutom ändrats
+    # över tid. Vilka årgångar som ligger bakom varje avstånd följer därför
+    # med ut, så att sidan kan skriva ut det i stället för att låta läsaren
+    # tro att staplarna isolerar horisontens effekt.
     per_avstand = {}
     for p in prognoser:
         for a in p["avvikelser"].values():
-            per_avstand.setdefault(a["avstand"], []).append(a["pct"])
+            per_avstand.setdefault(a["avstand"], []).append(
+                (a["pct"], p["prognosAr"]))
     avstand_lista = [
         {
             "avstand": avst,
-            "medelAbsPct": medelabs(v),
-            "maxAbsPct": round(max(abs(x) for x in v), 2),
-            "medelPct": medelpct(v),
-            "antalOver": sum(1 for x in v if x > 0),
+            "medelAbsPct": medelabs([x for x, _ in v]),
+            "maxAbsPct": round(max(abs(x) for x, _ in v), 2),
+            "medelPct": medelpct([x for x, _ in v]),
+            "antalOver": sum(1 for x, _ in v if x > 0),
             "antal": len(v),
+            "argangar": sorted({ar for _, ar in v}),
         }
         for avst, v in sorted(per_avstand.items())
         if avst >= 0
@@ -627,12 +404,6 @@ def main() -> None:
             print(f"  kohortframskrivning: basår {k['basAr']}, "
                   f"{len(k['framskrivning'])} år fram till {k['sistaAr']}; "
                   f"{len(k['argangar'])} årgångar från {k['forstaBasAr']}")
-            if k.get("varianter"):
-                v = k["varianter"]
-                print(f"  modellvarianter, basåren {v['basAr'][0]}–{v['basAr'][1]}:")
-                for m in sorted(v["modeller"], key=lambda x: x["medelAbsPct"]):
-                    print(f"    {m['medelAbsPct']:5.2f}%  {m['namn']} "
-                          f"(n = {m['antal']})")
 
 
 if __name__ == "__main__":

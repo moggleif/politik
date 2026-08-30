@@ -82,11 +82,20 @@
   </section>
 
   <section id="sektion-avstand" hidden>
-    <h2>Blir prognoserna bättre ju närmare året man kommer?</h2>
+    <h2>Hur stora har felen varit vid olika avstånd i tiden?</h2>
     <p class="forklaring">
       Här har vi räknat ihop alla prognoser. Diagrammet visar hur stort felet
-      i genomsnitt har varit, beroende på hur många år i förväg prognosen
-      gjordes. Felet mäts i procent av den faktiska folkmängden.
+      i genomsnitt har varit, grupperat efter hur många kalenderår i förväg
+      prognosen gjordes. Felet mäts i procent av den faktiska folkmängden.
+    </p>
+    <p class="forklaring">
+      Diagrammet beskriver hur felen sett ut vid olika kalenderårsavstånd i
+      det historiska materialet. Det identifierar inte hur mycket större fel
+      som orsakas av en längre prognoshorisont. Grupperna innehåller olika
+      prognosårgångar &ndash; ett långt avstånd kan bara mätas för de äldsta
+      prognoserna &ndash; och årgångarna skiljer sig också åt i prognoslängd
+      och i vilka målår de träffar. Vilka årgångar som ligger bakom varje
+      stapel står i tabellen.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-avstand" aria-label="Diagram: genomsnittligt absolut prognosfel per antal år i förväg" role="img"></canvas></div>
@@ -103,9 +112,11 @@
     <h2>Är felen slumpmässiga &ndash; eller systematiska?</h2>
     <p class="forklaring">
       Föregående diagram visar hur <em>stora</em> felen varit. Det här visar åt
-      vilket <em>håll</em> de lutar. Skillnaden är avgörande: fel som slumpar
-      sig åt båda hållen går inte att förutse, men ett fel som gång på gång
-      drar åt samma håll kan mätas och räknas bort i modellen.
+      vilket <em>håll</em> de lutar: fel som växlar tecken mellan årgångarna
+      tar ut varandra i genomsnittet, medan fel som gång på gång drar åt
+      samma håll ligger kvar som ett riktat genomsnitt. Vad ett riktat fel
+      beror på &ndash; och om modellen går att justera för det &ndash;
+      framgår inte av de här siffrorna.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-skevhet" aria-label="Diagram: genomsnittligt fel med riktning, per antal år i förväg" role="img"></canvas></div>

@@ -35,8 +35,9 @@
     </nav>
     <h1>Hur träffsäkra är prognoserna för 16&ndash;19-åringarna?</h1>
     <p class="ingress">
-      Antalet 16&ndash;19-åringar avgör hur många gymnasieplatser kommunen
-      behöver. Den här sidan visar vad Kungsbacka kommuns prognoser sa om
+      Antalet 16&ndash;19-åringar är ett viktigt underlag för hur många
+      gymnasieplatser kommunen behöver &ndash; men inte hela svaret: elever
+      pendlar över kommungränsen i båda riktningarna. Den här sidan visar vad Kungsbacka kommuns prognoser sa om
       just den åldersgruppen &ndash; och hur det faktiskt blev, enligt
       Statistiska centralbyrån (SCB).
     </p>
@@ -81,11 +82,22 @@
   </section>
 
   <section id="sektion-avstand" hidden>
-    <h2>Blir prognoserna bättre ju närmare året man kommer?</h2>
+    <h2>Hur stora har felen varit vid olika avstånd i tiden?</h2>
     <p class="forklaring">
       Här har vi räknat ihop alla prognoser. Diagrammet visar hur stort felet
-      i genomsnitt har varit, beroende på hur många år i förväg prognosen
-      gjordes. Felet mäts i procent av det faktiska antalet 16&ndash;19-åringar.
+      i genomsnitt har varit, grupperat efter hur många kalenderår i förväg
+      prognosen gjordes. Felet mäts i procent av det faktiska antalet
+      16&ndash;19-åringar.
+    </p>
+    <p class="forklaring">
+      Diagrammet beskriver hur felen sett ut vid olika kalenderårsavstånd i
+      det historiska materialet. Det identifierar inte hur mycket större fel
+      som orsakas av en längre prognoshorisont. Grupperna innehåller olika
+      prognosårgångar &ndash; ett långt avstånd kan bara mätas för de äldsta
+      prognoserna &ndash; och årgångarna skiljer sig också åt i prognoslängd
+      och i vilka målår de träffar. För den här åldersgruppen saknas dessutom
+      2021 års prognos helt, eftersom den använde en annan åldersindelning.
+      Vilka årgångar som ligger bakom varje stapel står i tabellen.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-avstand" aria-label="Diagram: genomsnittligt absolut prognosfel per antal år i förväg" role="img"></canvas></div>
@@ -102,9 +114,11 @@
     <h2>Är felen slumpmässiga &ndash; eller systematiska?</h2>
     <p class="forklaring">
       Föregående diagram visar hur <em>stora</em> felen varit. Det här visar åt
-      vilket <em>håll</em> de lutar. Skillnaden är avgörande: fel som slumpar
-      sig åt båda hållen går inte att förutse, men ett fel som gång på gång
-      drar åt samma håll kan mätas och räknas bort i modellen.
+      vilket <em>håll</em> de lutar: fel som växlar tecken mellan årgångarna
+      tar ut varandra i genomsnittet, medan fel som gång på gång drar åt
+      samma håll ligger kvar som ett riktat genomsnitt. Vad ett riktat fel
+      beror på &ndash; och om modellen går att justera för det &ndash;
+      framgår inte av de här siffrorna.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-skevhet" aria-label="Diagram: genomsnittligt fel med riktning, per antal år i förväg" role="img"></canvas></div>
@@ -161,8 +175,11 @@
       16&ndash;19-åringar om k år är därför helt enkelt summan av dagens
       16&nbsp;&minus;&nbsp;k till 19&nbsp;&minus;&nbsp;k-åringar &ndash; en
       ren <strong>kohortframskrivning</strong> ur SCB:s faktiska siffror per
-      enskild ålder. Den innehåller ingen modell, inga födelsetal och inga
-      antaganden om flyttning. Den <em>orange</em> linjen är den
+      enskild ålder. Den innehåller ingen modell och inga födelsetal, men
+      den är inte antagandefri: att bära varje kohort rakt fram
+      förutsätter att nettoflyttningen är noll och att ingen faller bort.
+      Det är ett enkelt och genomskådligt antagande &ndash; inte
+      frånvaron av ett. Den <em>orange</em> linjen är den
       framskrivningen; den blå är kommunens senaste prognos.
     </p>
     <div class="kort">
@@ -198,88 +215,18 @@
     </details>
   </section>
 
-  <section id="sektion-kvoter" hidden>
-    <h2>Deltat är en procentsats &ndash; en per ålder</h2>
-    <p class="forklaring">
-      Avståndet mellan årgångarna går att mäta rakt av. Jämför en
-      åldersklass med sig själv ett år senare, ett år äldre:
-      <code>r(a) = N(a&nbsp;+&nbsp;1, år&nbsp;T&nbsp;+&nbsp;1) / N(a, år&nbsp;T)</code>.
-      Är kvoten över 1 har det flyttat in fler i den åldern än det flyttat
-      ut. Diagrammet visar den kvoten som procent, ålder för ålder, som
-      geometriskt medel över alla år &ndash; med hela spannet mellan det
-      svagaste och det starkaste året bakom.
-    </p>
-    <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-kvoter" aria-label="Diagram: årlig nettotillväxt per åldersklass, med spannet mellan svagaste och starkaste året" role="img"></canvas></div>
-      <p class="kalla-rad" id="kalla-kvoter"></p>
-    </div>
-    <div class="slutsats" id="slutsats-kvoter"></div>
-    <details>
-      <summary>Visa siffrorna som tabell</summary>
-      <div class="tabell-rull"><table id="tabell-kvoter"></table></div>
-    </details>
-  </section>
 
-  <section id="sektion-kompenserad" hidden>
-    <h2>Framskrivning med kompensation</h2>
-    <p class="forklaring">
-      Med kvoterna går det att kompensera framskrivningen: i stället för
-      att bära varje kohort rakt fram multipliceras den med r(a) för varje
-      år den åldras. Det är samma räkning som förut, med en faktor tillagd
-      i varje steg. <strong>Priset är ett antagande</strong> &ndash; att
-      flyttmönstret består. Den enkla framskrivningen antar ingenting alls;
-      den kompenserade antar att det som hänt de senaste
-      tjugofem åren fortsätter hända.
-    </p>
-    <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-kompenserad" aria-label="Diagram: utfall, enkel framskrivning, kompenserad framskrivning och kommunens senaste prognos" role="img"></canvas></div>
-      <p class="kalla-rad" id="kalla-kompenserad"></p>
-    </div>
-    <div id="not-kompenserad" hidden></div>
-    <div class="slutsats" id="slutsats-kompenserad"></div>
-    <details>
-      <summary>Visa siffrorna som tabell</summary>
-      <div class="tabell-rull"><table id="tabell-kompenserad"></table></div>
-    </details>
-  </section>
 
-  <section id="sektion-varianter" hidden>
-    <h2>Går kompensationen att göra bättre?</h2>
-    <p class="forklaring">
-      Två saker går att skruva på. Det ena är <strong>hur långt tillbaka
-      kvoterna hämtas</strong>: ett kort fönster följer en trend snabbare,
-      men skakar mer. Det andra är <strong>när kompensationen ska börja
-      verka</strong>: de närmaste årens ungdomar bor redan i kommunen, så
-      kanske ska de första åren lämnas okompenserade.
-    </p>
-    <p class="forklaring">
-      Varianterna nedan prövas mot varandra på exakt samma basår och
-      samma målår, med kvoterna skattade ur åren före varje basår. Alla
-      redovisas, också de som visar sig sämre &ndash; annars vore det
-      bara att välja i efterhand.
-    </p>
-    <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-varianter" aria-label="Diagram: genomsnittligt fel per antal år i förväg, för fem varianter av framskrivningen" role="img"></canvas></div>
-      <p class="kalla-rad" id="kalla-varianter"></p>
-    </div>
-    <div class="slutsats" id="slutsats-varianter"></div>
-    <details>
-      <summary>Visa siffrorna som tabell</summary>
-      <div class="tabell-rull"><table id="tabell-varianter"></table></div>
-    </details>
-  </section>
 
   <section id="sektion-kohortfel" hidden>
-    <h2>Vilken modell träffar bäst?</h2>
+    <h2>Kommunens prognos och framskrivningen vid samma horisont</h2>
     <p class="forklaring">
-      Alla tre går att pröva bakåt: utgå från ett år vi har facit för,
+      Båda går att pröva mot facit: utgå från ett år där utfallet är känt,
       räkna fram, och jämför. Diagrammet ställer dem mot varandra vid
-      <em>samma</em> horisont, så att de mäts på samma sak. Båda
-      framskrivningarna får samma utgångspunkt som kommunen hade när
+      <em>samma</em> horisont, så att de mäts på samma sak.
+      Framskrivningen får samma utgångspunkt som kommunen hade när
       prognosen gjordes &ndash; folkmängden vid det senast passerade
-      årsskiftet &ndash; och den kompenserade får bara kvoter som gick att
-      räkna ut då. Annars vet den något om framtiden, och prövningen mäter
-      ingenting.
+      årsskiftet.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-kohortfel" aria-label="Diagram: genomsnittligt fel för kommunens prognos och för kohortframskrivningen, per antal år i förväg" role="img"></canvas></div>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Slutbetyg från gymnasiet i Kungsbacka</title>
-<meta name="description" content="Vilka slutbetyg avgångseleverna i Kungsbacka fick, program för program, enligt Skolverkets statistik över avgångselever.">
+<meta name="description" content="Vilka slutbetyg avgångseleverna på de nationella programmen i Kungsbacka fick, program för program, enligt Skolverkets statistik över avgångselever.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -37,9 +37,10 @@
     <p class="ingress">
       Vilka betyg hade eleverna med sig när de gick ut gymnasiet &ndash; och
       hur många tog examen? Siffrorna kommer ur Skolverkets statistik över
-      avgångseleverna, program för program på Aranäsgymnasiet och Elof
-      Lindälvs gymnasium. Sidan följer programmen och inte skolorna: ett
-      program som flyttat mellan de två tar sina gamla år med sig.
+      avgångseleverna på de nationella programmen, program för program på
+      Aranäsgymnasiet och Elof Lindälvs gymnasium. Sidan följer programmen
+      och inte skolorna: ett program som flyttat mellan de två tar sina
+      gamla år med sig.
     </p>
     <p class="meta-rad" id="meta-rad" hidden></p>
   </div>
@@ -80,8 +81,8 @@
   <section id="sektion-matten">
     <h2>Fyra tal per program</h2>
     <p class="forklaring">
-      Skolverket redovisar varje höst hur det gick för dem som gick ut
-      gymnasiet i juni. Fyra av talen används på den här sidan:
+      Skolverket redovisar varje höst hur det gick för dem som gick ut ett
+      nationellt program i juni. Fyra av talen används på den här sidan:
     </p>
     <ul class="forklaring">
       <li><strong>Genomsnittlig betygspoäng</strong> &ndash; snittet av
@@ -89,9 +90,8 @@
         poäng, C ger 15 och A ger 20. Det är måttet som används i
         diagrammen nedan.</li>
       <li><strong>Betygspoäng för elever med examen</strong> &ndash; samma
-        sak, men bara för dem som faktiskt fick en examen. Talet är alltid
-        något högre, och skillnaden mot ovanstående visar hur mycket de som
-        inte nådde examen drar ned snittet.</li>
+        mått, men beräknat bara på de avgångselever som fick en
+        gymnasieexamen.</li>
       <li><strong>Andel med gymnasieexamen</strong> &ndash; hur många av
         avgångseleverna som klarade examenskraven. Övriga fick ett
         studiebevis.</li>
@@ -108,12 +108,12 @@
   <section id="sektion-utveckling" hidden>
     <h2>Hur har slutbetygen utvecklats?</h2>
     <p class="forklaring">
-      Varje linje är en utbildning på någon av de två skolorna. Välj vilket
-      av talen du vill följa &ndash; och välj yrkesprogram eller
-      högskoleförberedande program högst upp på sidan om alla linjer på en
-      gång blir för många. En
-      utbildning syns bara de år den hade minst tio avgångselever &ndash;
-      färre än så redovisar Skolverket inte, och linjen bryts där.
+      Varje linje är ett nationellt program på någon av de två skolorna.
+      Väljaren nedan styr vilket av de fyra talen som visas, och väljaren
+      högst upp på sidan begränsar linjerna till yrkesprogram eller
+      högskoleförberedande program. En utbildning syns bara de år den hade
+      minst tio avgångselever &ndash; färre än så redovisar Skolverket inte,
+      och linjen bryts där.
     </p>
     <div class="valj-ar">
       <label for="matt-valjare">Visa mått:</label>
@@ -135,8 +135,8 @@
   <section id="sektion-rangordning" hidden>
     <h2>Vilka program hade högst betygspoäng?</h2>
     <p class="forklaring">
-      Samtliga utbildningar på de två skolorna ett enskilt år, sorterade efter
-      avgångselevernas genomsnittliga betygspoäng.
+      De nationella program på de två skolorna som redovisas ett enskilt år,
+      sorterade efter avgångselevernas genomsnittliga betygspoäng.
     </p>
     <div class="valj-ar">
       <label for="ar-valjare">Visa året:</label>
@@ -157,7 +157,8 @@
     <h2>Vilka program har gått upp &ndash; och vilka ned?</h2>
     <p class="forklaring">
       Skillnaden mellan utbildningens första och senaste mätår. En stapel åt
-      höger betyder att avgångseleverna hade högre betyg än förr.
+      höger betyder högre betygspoäng vid det sista mätåret än vid det
+      första.
       Utbildningarna har olika lång mätperiod, eftersom alla inte funnits
       &ndash; eller varit tillräckligt stora för att redovisas &ndash; alla
       år; peka på en stapel för att se vilka år som jämförs, och på vilken
@@ -177,13 +178,15 @@
   <section id="sektion-examen" hidden>
     <h2>Hur många gick ut med examen?</h2>
     <p class="forklaring">
-      En hög betygspoäng säger inget om hur många som tog sig igenom. Varje
-      stapel är hela avgångskullen på de två skolorna det året, delad i dem
-      som fick en gymnasieexamen och dem som fick ett studiebevis i stället.
-      Avsnittet omfattar alltid samtliga program, oavsett vad du valt ovan.
+      Varje stapel är avgångseleverna på de nationella programmen vid de två
+      skolorna det året, delad i dem som fick en gymnasieexamen och dem som
+      fick ett studiebevis i stället. Avsnittet omfattar alltid samtliga
+      nationella program, oavsett vad du valt ovan &ndash;
+      introduktionsprogrammen ingår inte i Skolverkets rapport och räknas
+      därför inte med.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-examen" aria-label="Diagram: antal avgångselever med och utan examen per år" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-examen" aria-label="Diagram: antal avgångselever på de nationella programmen med och utan examen per år" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-examen"></p>
     </div>
     <div class="slutsats" id="slutsats-examen"></div>
@@ -196,11 +199,12 @@
   <section id="sektion-typ" hidden>
     <h2>Yrkesprogram och högskoleförberedande program</h2>
     <p class="forklaring">
-      Samma siffror, men sammanslagna till två grupper för de två skolorna
-      tillsammans. Här räknas varje elev lika mycket &ndash; Skolverket
-      redovisar antalet avgångselever, så grupperna kan vägas ihop på
-      riktigt. Programmen som är för små för att redovisas var för sig finns
-      med i gruppens siffra.
+      Samma siffror, men de nationella programmen sammanslagna till två
+      grupper för de två skolorna tillsammans. Varje elev räknas lika mycket:
+      Skolverket redovisar antalet avgångselever, så grupperna vägs ihop med
+      elevantalet. Programmen som är för små för att redovisas var för sig
+      finns med i gruppens siffra. Vilka program som ingår i varje grupp
+      skiljer sig mellan åren.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-typ" aria-label="Diagram: genomsnittlig betygspoäng för yrkesprogram och högskoleförberedande program" role="img"></canvas></div>
@@ -265,8 +269,7 @@
       <strong>Betygspoäng är inte meritvärde.</strong> Meritvärdet från
       grundskolan går till 340 och bygger på de sexton bästa ämnena.
       Betygspoängen från gymnasiet går till 20 och är ett genomsnitt vägt
-      med kursernas poäng. Talen går alltså inte att jämföra rakt av
-      &ndash; men utvecklingen över tid går att lägga bredvid varandra.
+      med kursernas poäng. Talen är alltså mätta på olika skalor.
     </p>
     <p class="forklaring">
       <strong>Bara Aranäs och Elof Lindälv.</strong> Sidan visar Kungsbackas
@@ -280,26 +283,36 @@
       räknas inte in någonstans på sidan.
     </p>
     <p class="forklaring">
+      <strong>Reformen är markerad, inte borträknad.</strong> Den streckade
+      linjen vid 2025 markerar den första avgångskullen som gått hela
+      utbildningen under Gy21, vars examensmål och programstrukturer skiljer
+      sig från de tidigare. Linjerna fortsätter över markeringen: datat kan
+      inte skilja reformens verkan från elevernas resultat.
+    </p>
+    <p class="forklaring">
       <strong>Program som bytt namn följer med till det nya namnet.</strong>
       Handels- och administrationsprogrammet heter sedan 2021 Försäljnings-
-      och serviceprogrammet. Gymnasiereformen gjorde om innehållet, men det
-      är samma utbildning som förts vidare, så åren ligger i samma linje
-      under det namn programmet har i dag &ndash; här syns bytet 2025, när
-      den första kullen från det nya programmet gick ut. Samma regel som på
+      och serviceprogrammet, och gymnasiereformen gjorde om innehållet. Åren
+      förs ihop till en normaliserad programserie under dagens namn &ndash;
+      en räkneregel för att serien ska gå att följa, inte ett påstående om
+      att utbildningen var densamma. Bytet syns 2025, när den första kullen
+      från det nya programmet gick ut. Samma regel som på
       meritvärdessidan.
     </p>
     <p class="forklaring">
       <strong>Bara nationella program.</strong> Rapporten omfattar
       avgångselever från de nationella programmen. Introduktionsprogrammen
-      leder inte till examen och ingår inte. International Baccalaureate
+      leder inte till examen och ingår inte &ndash; det gäller också
+      avsnitten om examen och om programgrupperna, som bygger på rapportens
+      egen summeringsrad för nationella program. International Baccalaureate
       finns med i statistiken, men Kungsbackas IB-elever är så få att
       uppgifterna alltid dubbelprickas.
     </p>
     <p class="forklaring">
       <strong>Siffrorna avser juni det angivna året.</strong> En elev som
-      går ut våren 2025 började hösten 2022 &ndash; det är alltså inte samma
-      årskull som antogs samma år på meritvärdessidan. Vill du följa en
-      årskull hela vägen är det antagningen tre år tidigare som gäller.
+      går ut våren 2025 började hösten 2022. Det är alltså inte samma
+      årskull som antogs samma år på meritvärdessidan; antagningsåret för en
+      avgångskull ligger tre år tidigare.
     </p>
     <p class="forklaring">
       Sidan är fristående och drivs varken av Kungsbacka kommun eller av

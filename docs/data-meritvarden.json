@@ -2144,6 +2144,16 @@
      "antal": 1,
      "skola": "Elof Lindälv"
     },
+    "2025": {
+     "medel": 206.88,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
+    "2026": {
+     "medel": 210.0,
+     "antal": 2,
+     "skola": "Elof Lindälv"
+    },
     "2020": {
      "medel": 171.0,
      "antal": 2,
@@ -2161,16 +2171,6 @@
     },
     "2024": {
      "medel": 196.47,
-     "antal": 2,
-     "skola": "Elof Lindälv"
-    },
-    "2025": {
-     "medel": 206.88,
-     "antal": 2,
-     "skola": "Elof Lindälv"
-    },
-    "2026": {
-     "medel": 210.0,
      "antal": 2,
      "skola": "Elof Lindälv"
     },
@@ -2209,6 +2209,29 @@
      "inriktning": "Produkt och maskinteknik, Lärling",
      "tidigareNamn": [],
      "varden": {
+      "2025": {
+       "medel": 216.25,
+       "antal": 1,
+       "skola": "Elof Lindälv"
+      },
+      "2026": {
+       "medel": 207.5,
+       "antal": 1,
+       "skola": "Elof Lindälv"
+      }
+     },
+     "antalArMedMedel": 2,
+     "forstaAr": 2025,
+     "sistaAr": 2026,
+     "forsta": 216.25,
+     "sista": 207.5,
+     "forandring": -8.75
+    },
+    {
+     "namn": "Produkt och maskinteknik, anställd lärling",
+     "inriktning": "Produkt och maskinteknik, anställd lärling",
+     "tidigareNamn": [],
+     "varden": {
       "2020": {
        "medel": 190.0,
        "antal": 1,
@@ -2228,28 +2251,41 @@
        "medel": 184.5,
        "antal": 1,
        "skola": "Elof Lindälv"
-      },
-      "2025": {
-       "medel": 216.25,
-       "antal": 1,
-       "skola": "Elof Lindälv"
-      },
-      "2026": {
-       "medel": 207.5,
-       "antal": 1,
-       "skola": "Elof Lindälv"
       }
      },
-     "antalArMedMedel": 6,
+     "antalArMedMedel": 4,
      "forstaAr": 2020,
-     "sistaAr": 2026,
+     "sistaAr": 2024,
      "forsta": 190.0,
-     "sista": 207.5,
-     "forandring": 17.5
+     "sista": 184.5,
+     "forandring": -5.5
     },
     {
      "namn": "Svetsteknik, Lärling",
      "inriktning": "Svetsteknik, Lärling",
+     "tidigareNamn": [],
+     "varden": {
+      "2025": {
+       "medel": 197.5,
+       "antal": 1,
+       "skola": "Elof Lindälv"
+      },
+      "2026": {
+       "medel": 212.5,
+       "antal": 1,
+       "skola": "Elof Lindälv"
+      }
+     },
+     "antalArMedMedel": 2,
+     "forstaAr": 2025,
+     "sistaAr": 2026,
+     "forsta": 197.5,
+     "sista": 212.5,
+     "forandring": 15.0
+    },
+    {
+     "namn": "Svetsteknik, anställd lärling",
+     "inriktning": "Svetsteknik, anställd lärling",
      "tidigareNamn": [],
      "varden": {
       "2019": {
@@ -2281,24 +2317,14 @@
        "medel": 208.43,
        "antal": 1,
        "skola": "Elof Lindälv"
-      },
-      "2025": {
-       "medel": 197.5,
-       "antal": 1,
-       "skola": "Elof Lindälv"
-      },
-      "2026": {
-       "medel": 212.5,
-       "antal": 1,
-       "skola": "Elof Lindälv"
       }
      },
-     "antalArMedMedel": 8,
+     "antalArMedMedel": 6,
      "forstaAr": 2019,
-     "sistaAr": 2026,
+     "sistaAr": 2024,
      "forsta": 182.5,
-     "sista": 212.5,
-     "forandring": 30.0
+     "sista": 208.43,
+     "forandring": 25.93
     }
    ],
    "antalArMedMedel": 9,
@@ -3474,11 +3500,6 @@
    ],
    "typ": "yrkesprogram",
    "varden": {
-    "2017": {
-     "medel": 196.25,
-     "antal": 1,
-     "skola": "Elof Lindälv"
-    },
     "2019": {
      "medel": 203.5,
      "antal": 1,
@@ -3518,6 +3539,11 @@
      "medel": 152.0,
      "antal": 1,
      "skola": "Elof Lindälv"
+    },
+    "2017": {
+     "medel": 196.25,
+     "antal": 1,
+     "skola": "Elof Lindälv"
     }
    },
    "inriktningar": [
@@ -3526,11 +3552,6 @@
      "inriktning": "Anställd lärling",
      "tidigareNamn": [],
      "varden": {
-      "2017": {
-       "medel": 196.25,
-       "antal": 1,
-       "skola": "Elof Lindälv"
-      },
       "2019": {
        "medel": 203.5,
        "antal": 1,
@@ -3572,12 +3593,30 @@
        "skola": "Elof Lindälv"
       }
      },
-     "antalArMedMedel": 9,
-     "forstaAr": 2017,
+     "antalArMedMedel": 8,
+     "forstaAr": 2019,
      "sistaAr": 2026,
-     "forsta": 196.25,
+     "forsta": 203.5,
      "sista": 152.0,
-     "forandring": -44.25
+     "forandring": -51.5
+    },
+    {
+     "namn": "Lärling",
+     "inriktning": "Lärling",
+     "tidigareNamn": [],
+     "varden": {
+      "2017": {
+       "medel": 196.25,
+       "antal": 1,
+       "skola": "Elof Lindälv"
+      }
+     },
+     "antalArMedMedel": 1,
+     "forstaAr": 2017,
+     "sistaAr": 2017,
+     "forsta": 196.25,
+     "sista": 196.25,
+     "forandring": null
     }
    ],
    "antalArMedMedel": 9,
@@ -6800,6 +6839,37 @@
    "inriktning": "Produkt och maskinteknik, Lärling",
    "typ": "yrkesprogram",
    "varden": {
+    "2025": {
+     "namn": null,
+     "medel": 216.25,
+     "poang": 190.0,
+     "kod": null,
+     "utanPlatser": true
+    },
+    "2026": {
+     "namn": null,
+     "medel": 207.5,
+     "poang": 192.5,
+     "kod": null,
+     "utanPlatser": true
+    }
+   },
+   "inriktningNu": "Produkt och maskinteknik, Lärling",
+   "namn": "Industritekniska programmet – Produkt och maskinteknik, Lärling",
+   "skolaKort": "Elof Lindälv",
+   "antalArMedMedel": 2,
+   "forstaAr": 2025,
+   "sistaAr": 2026,
+   "forsta": 216.25,
+   "sista": 207.5,
+   "forandring": -8.75
+  },
+  {
+   "skola": "Elof Lindälvs gymnasium",
+   "program": "Industritekniska programmet",
+   "inriktning": "Produkt och maskinteknik, anställd lärling",
+   "typ": "yrkesprogram",
+   "varden": {
     "2019": {
      "namn": null,
      "medel": null,
@@ -6841,36 +6911,53 @@
      "poang": null,
      "kod": "1",
      "utanPlatser": null
-    },
-    "2025": {
-     "namn": null,
-     "medel": 216.25,
-     "poang": 190.0,
-     "kod": null,
-     "utanPlatser": true
-    },
-    "2026": {
-     "namn": null,
-     "medel": 207.5,
-     "poang": 192.5,
-     "kod": null,
-     "utanPlatser": true
     }
    },
-   "inriktningNu": "Produkt och maskinteknik, Lärling",
-   "namn": "Industritekniska programmet – Produkt och maskinteknik, Lärling",
+   "inriktningNu": "Produkt och maskinteknik, anställd lärling",
+   "namn": "Industritekniska programmet – Produkt och maskinteknik, anställd lärling",
    "skolaKort": "Elof Lindälv",
-   "antalArMedMedel": 6,
+   "antalArMedMedel": 4,
    "forstaAr": 2020,
-   "sistaAr": 2026,
+   "sistaAr": 2024,
    "forsta": 190.0,
-   "sista": 207.5,
-   "forandring": 17.5
+   "sista": 184.5,
+   "forandring": -5.5
   },
   {
    "skola": "Elof Lindälvs gymnasium",
    "program": "Industritekniska programmet",
    "inriktning": "Svetsteknik, Lärling",
+   "typ": "yrkesprogram",
+   "varden": {
+    "2025": {
+     "namn": null,
+     "medel": 197.5,
+     "poang": 175.0,
+     "kod": null,
+     "utanPlatser": true
+    },
+    "2026": {
+     "namn": null,
+     "medel": 212.5,
+     "poang": 195.0,
+     "kod": null,
+     "utanPlatser": true
+    }
+   },
+   "inriktningNu": "Svetsteknik, Lärling",
+   "namn": "Industritekniska programmet – Svetsteknik, Lärling",
+   "skolaKort": "Elof Lindälv",
+   "antalArMedMedel": 2,
+   "forstaAr": 2025,
+   "sistaAr": 2026,
+   "forsta": 197.5,
+   "sista": 212.5,
+   "forandring": 15.0
+  },
+  {
+   "skola": "Elof Lindälvs gymnasium",
+   "program": "Industritekniska programmet",
+   "inriktning": "Svetsteknik, anställd lärling",
    "typ": "yrkesprogram",
    "varden": {
     "2019": {
@@ -6914,31 +7001,17 @@
      "poang": 195.0,
      "kod": null,
      "utanPlatser": null
-    },
-    "2025": {
-     "namn": null,
-     "medel": 197.5,
-     "poang": 175.0,
-     "kod": null,
-     "utanPlatser": true
-    },
-    "2026": {
-     "namn": null,
-     "medel": 212.5,
-     "poang": 195.0,
-     "kod": null,
-     "utanPlatser": true
     }
    },
-   "inriktningNu": "Svetsteknik, Lärling",
-   "namn": "Industritekniska programmet – Svetsteknik, Lärling",
+   "inriktningNu": "Svetsteknik, anställd lärling",
+   "namn": "Industritekniska programmet – Svetsteknik, anställd lärling",
    "skolaKort": "Elof Lindälv",
-   "antalArMedMedel": 8,
+   "antalArMedMedel": 6,
    "forstaAr": 2019,
-   "sistaAr": 2026,
+   "sistaAr": 2024,
    "forsta": 182.5,
-   "sista": 212.5,
-   "forandring": 30.0
+   "sista": 208.43,
+   "forandring": 25.93
   },
   {
    "skola": "Elof Lindälvs gymnasium",
@@ -8125,13 +8198,6 @@
    "inriktning": "Anställd lärling",
    "typ": "yrkesprogram",
    "varden": {
-    "2017": {
-     "namn": null,
-     "medel": 196.25,
-     "poang": 175.0,
-     "kod": null,
-     "utanPlatser": null
-    },
     "2019": {
      "namn": null,
      "medel": 203.5,
@@ -8192,12 +8258,36 @@
    "inriktningNu": "Anställd lärling",
    "namn": "Vård- och omsorgsprogrammet – Anställd lärling",
    "skolaKort": "Elof Lindälv",
-   "antalArMedMedel": 9,
-   "forstaAr": 2017,
+   "antalArMedMedel": 8,
+   "forstaAr": 2019,
    "sistaAr": 2026,
-   "forsta": 196.25,
+   "forsta": 203.5,
    "sista": 152.0,
-   "forandring": -44.25
+   "forandring": -51.5
+  },
+  {
+   "skola": "Elof Lindälvs gymnasium",
+   "program": "Vård- och omsorgsprogrammet",
+   "inriktning": "Lärling",
+   "typ": "yrkesprogram",
+   "varden": {
+    "2017": {
+     "namn": null,
+     "medel": 196.25,
+     "poang": 175.0,
+     "kod": null,
+     "utanPlatser": null
+    }
+   },
+   "inriktningNu": "Lärling",
+   "namn": "Vård- och omsorgsprogrammet – Lärling",
+   "skolaKort": "Elof Lindälv",
+   "antalArMedMedel": 1,
+   "forstaAr": 2017,
+   "sistaAr": 2017,
+   "forsta": 196.25,
+   "sista": 196.25,
+   "forandring": null
   }
  ],
  "sammanfattning": [
