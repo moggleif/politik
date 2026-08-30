@@ -133,7 +133,14 @@
         gjord någon gång under målåret. Ur detta byggs genomsnittligt absolut fel
         (hur <em>stort</em> felet är) och genomsnittligt fel med tecken
         (åt vilket <em>håll</em> det lutar), per prognoshorisont och per
-        årgång. Skriver <a href="data.json">data.json</a> och
+        årgång. Vilka prognosårgångar som ligger bakom varje horisont
+        följer med i datat, eftersom de skiljer sig åt: ett långt avstånd
+        kan bara mätas för de äldsta prognoserna, prognoslängden har
+        ändrats över tid, och för 16&ndash;19-åringarna saknas 2021 års
+        rapport eftersom den använde en annan åldersindelning. Sammanställ&shy;ningen
+        per horisont beskriver därför materialet &ndash; den identifierar
+        inte vad en längre prognoshorisont orsakar. Skriver
+        <a href="data.json">data.json</a> och
         <a href="data-16-19.json">data-16-19.json</a>.</dd>
       <dt>Antagningsrapporterna blir tidsserier</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_meritvarden.py">build_meritvarden.py</a>
@@ -193,6 +200,19 @@
         elevantalet i något enskilt ämne det läsåret &ndash; en
         storleksordning för årskullen, inte antalet observationer bakom
         det sammanvägda måttet.</dd>
+      <dt>Ämnessnittet är prövat mot tre alternativa mått</dt>
+      <dd>Ett ovägt snitt ger varje ämne samma vikt, vilket är ett val och
+        inte en självklarhet: modersmål väger då lika mycket som
+        matematik. Måttet har därför ställts mot tre alternativ över hela
+        perioden 2012/13&ndash;2024/25 &ndash; bara de obligatoriska
+        ämnena, medianen av ämnenas betygspoäng, och ett elevviktat snitt
+        där elevantalet finns. Alla fyra ger samma utveckling:
+        förändringen över perioden landar mellan +0,4 och +0,5
+        betygspoäng, och alla fyra stiger fram till 2020/21 och sjunker
+        något därefter. Valet av mått styr alltså inte bilden. Prövningen
+        körs som ett test i
+        <a href="https://github.com/moggleif/politik/blob/main/tests/test_berakningar.py">test_berakningar.py</a>
+        och faller om varianterna börjar skilja sig åt.</dd>
       <dt>Barnen skrivs fram ett år i taget</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_data.py">build_data.py</a>
         bygger också kohortframskrivningen på
@@ -239,24 +259,60 @@
   <section id="sektion-regler">
     <h2>Återkommande regler</h2>
     <dl class="metod-lista">
-      <dt>Program som bytt namn är samma program</dt>
+      <dt>Namnbyte: raderna förs ihop till en normaliserad programserie</dt>
       <dd>Handels- och administrationsprogrammet ersattes 2021 av
-        Försäljnings- och serviceprogrammet &ndash; nytt namn och delvis
-        nytt innehåll, men samma utbildning i kommunens utbud, så serien
-        hålls obruten under dagens namn. Samma regel gäller inriktningar
-        som döptes om i reformerna 2021 och 2025. Vilket namn som gällde
-        ett visst år följer med i datat och visas i diagrammens tooltip.
+        Försäljnings- och serviceprogrammet, och reformen gjorde om
+        innehållet. Raderna förs ihop till en <strong>normaliserad
+        programserie</strong> under dagens namn, så att serien går att följa
+        över tid. Det är en räkneregel för sidorna, inte ett påstående om
+        att utbildningen var densamma före och efter. Detsamma gäller
+        inriktningar som bara döptes om i reformerna 2021 och 2025:
+        Plåtslageri blev Byggnadsplåtslageri, och Karosseri och lackering
+        blev Fordonsskadeteknik och lackering. Vilket namn som gällde ett
+        visst år följer med i datat och visas i diagrammens tooltip.
         Namnbytena är förtecknade i byggskripten
-        (<code>PROGRAM_ALIAS</code> och <code>NAMNBYTEN</code>), så att
-        varje sammanslagning är dokumenterad i kod.</dd>
+        (<code>PROGRAM_ALIAS</code> och <code>NAMNBYTEN</code>).</dd>
+      <dt>Analyskonvention: tre par av inriktningar räknas som en serie</dt>
+      <dd>I tre program slås två inriktningar som tidigare hade var sin
+        antagning och var sin antagningspoäng ihop till en enda serie från
+        och med reformen 2021. Det är ingen normalisering av stavning utan en
+        <strong>analyskonvention</strong>: den gör serien följbar över tid,
+        men de sammanslagna åren beskriver inte samma utbildning som åren
+        efter.
+        <ul>
+          <li>Försäljnings- och serviceprogrammet: <em>Handel och service,
+            lärling</em> och <em>Administrativ service, lärling</em> räknas
+            därefter som programmets enda lärlingsspår.</li>
+          <li>Barn- och fritidsprogrammet: <em>Pedagogiskt arbete,
+            lärling</em> och <em>Socialt arbete, lärling</em> räknas därefter
+            som Pedagogiskt och socialt arbete.</li>
+          <li>Hotell- och turismprogrammet: <em>Hotell och konferens,
+            lärling</em> och <em>Turism och resor, lärling</em> räknas
+            därefter som programmets enda lärlingsspår.</li>
+        </ul>
+        I listan över enskilda utbildningar står varje rad kvar som
+        rapporten skrev den, med sin egen antagningspoäng. Konventionen
+        gäller bara när inriktningarna vägs ihop till en serie.</dd>
+      <dt>Anställd lärling hålls isär från lärling</dt>
+      <dd>Gymnasial lärlingsutbildning med anställning är en egen
+        utbildningsform, och GR skiljer på formerna: Vård- och
+        omsorgsprogrammet står som <em>Anställd lärling</em> också i 2025
+        och 2026 års rapporter. De industritekniska lärlingsutbildningarna
+        på Elof Lindälv gick från <em>anställd lärling</em> till och med
+        2024 till <em>Lärling</em> från 2025. Serierna förs därför inte
+        ihop &ndash; de bryts där formen byts.</dd>
       <dt>Program som flyttat mellan skolor följs som ett program</dt>
       <dd>Kommunen flyttar program mellan Aranäsgymnasiet och Elof
-        Lindälvs gymnasium. Enheten på sidorna är därför programmet: ett
-        program som bytt hus tar sin historik med sig, och vilken skola
-        som gällde varje enskilt år står i tabellerna. Undantaget är år
-        då samma program gick på två skolor samtidigt &ndash; då är det
-        två utbildningar som konkurrerar om samma sökande, och de
-        redovisas var för sig med skolan i namnet.</dd>
+        Lindälvs gymnasium. Enheten på sidorna är därför programmet: har ett
+        program funnits på båda skolorna utan att något år finnas på båda
+        samtidigt, förs åren ihop till en normaliserad programserie, och
+        vilken skola som gällde varje enskilt år står i tabellerna. Att
+        raderna aldrig sammanfaller i tid är ett mönster i datat, inte ett
+        belägg för att programmet flyttat &ndash; en nedlagd utbildning som
+        senare startas på den andra skolan ser likadan ut. I dagens data är
+        ingen serie hopförd på det sättet: samtliga program som funnits på
+        båda skolorna har funnits där samtidigt något år, och de redovisas
+        var för sig med skolan i namnet.</dd>
       <dt>Sekretessgränsen: färre än tio elever</dt>
       <dd>Skolverket dubbelprickar (skriver &rdquo;..&rdquo; i stället för
         ett tal) alla uppgifter som bygger på färre än tio elever, så att

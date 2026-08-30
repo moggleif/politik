@@ -295,21 +295,29 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str,
     # Två olika mått, och skillnaden är själva poängen:
     #   medelAbsPct  hur STORT felet är (riktningen borträknad)
     #   medelPct     åt vilket HÅLL felet lutar, med tecken
-    # Slumpmässiga fel tar ut varandra och ger medelPct nära noll. Ligger
-    # medelPct tydligt skilt från noll är felet systematiskt, alltså något
-    # en modell kan korrigera för.
+    # Slumpmässiga fel tar ut varandra och ger medelPct nära noll, medan ett
+    # medelPct tydligt skilt från noll betyder att felen dragit åt samma håll
+    # i materialet.
+    #
+    # Grupperna innehåller olika prognosårgångar: ett långt avstånd kan bara
+    # mätas för de äldsta årgångarna, och prognoslängden har dessutom ändrats
+    # över tid. Vilka årgångar som ligger bakom varje avstånd följer därför
+    # med ut, så att sidan kan skriva ut det i stället för att låta läsaren
+    # tro att staplarna isolerar horisontens effekt.
     per_avstand = {}
     for p in prognoser:
         for a in p["avvikelser"].values():
-            per_avstand.setdefault(a["avstand"], []).append(a["pct"])
+            per_avstand.setdefault(a["avstand"], []).append(
+                (a["pct"], p["prognosAr"]))
     avstand_lista = [
         {
             "avstand": avst,
-            "medelAbsPct": medelabs(v),
-            "maxAbsPct": round(max(abs(x) for x in v), 2),
-            "medelPct": medelpct(v),
-            "antalOver": sum(1 for x in v if x > 0),
+            "medelAbsPct": medelabs([x for x, _ in v]),
+            "maxAbsPct": round(max(abs(x) for x, _ in v), 2),
+            "medelPct": medelpct([x for x, _ in v]),
+            "antalOver": sum(1 for x, _ in v if x > 0),
             "antal": len(v),
+            "argangar": sorted({ar for _, ar in v}),
         }
         for avst, v in sorted(per_avstand.items())
         if avst >= 0

@@ -188,6 +188,56 @@
 
   function diagramFor(id) { return diagramRegister[id]; }
 
+  /* ---------- Regimmarkering ----------
+     En lodrät streckad linje vid det år då det som mäts ändrades av en
+     reform – inte där sidans eget mått byter definition. Skillnaden är
+     avsiktlig: byter måttet definition delas serien i två (så gör
+     meritvärdet vid 16 respektive 17 ämnen), medan en reform i det som
+     mäts bara markeras. Sidan kan inte skilja reformens effekt från det
+     den mäter, och ska därför inte låtsas räkna bort den.
+
+     Chart.js-plugin utan externt beroende: ritas under datat, så att
+     linjer och staplar ligger ovanpå. */
+  function regimmarkering(markeringar) {
+    return {
+      id: "regimmarkering",
+      beforeDatasetsDraw: function (chart) {
+        var x = chart.scales.x, yAxel = chart.scales.y;
+        if (!x || !yAxel) return;
+        var ritYta = chart.chartArea;
+        var rit = chart.ctx;
+        markeringar.forEach(function (m) {
+          var i = x.getLabels().indexOf(String(m.vid));
+          if (i < 0) return;
+          /* Mitt emellan året före och året själv: markeringen gäller
+             övergången, inte punkten. */
+          var px = i > 0
+            ? (x.getPixelForTick(i - 1) + x.getPixelForTick(i)) / 2
+            : x.getPixelForTick(i);
+          rit.save();
+          rit.beginPath();
+          rit.setLineDash([4, 4]);
+          rit.lineWidth = 1;
+          rit.strokeStyle = FARG.muted;
+          rit.moveTo(px, ritYta.top);
+          rit.lineTo(px, ritYta.bottom);
+          rit.stroke();
+          if (m.text) {
+            rit.setLineDash([]);
+            rit.font = "12px system-ui, sans-serif";
+            rit.fillStyle = FARG.muted;
+            rit.textBaseline = "top";
+            var bredd = rit.measureText(m.text).width;
+            /* Håll etiketten innanför ritytan även vid smal skärm */
+            var vanster = Math.min(px + 4, ritYta.right - bredd - 2);
+            rit.fillText(m.text, Math.max(ritYta.left + 2, vanster), ritYta.top + 2);
+          }
+          rit.restore();
+        });
+      }
+    };
+  }
+
   function taBortDiagram(id) {
     if (diagramRegister[id]) {
       diagramRegister[id].destroy();
@@ -613,6 +663,7 @@
     installChartDefaults: installChartDefaults,
     rita: rita,
     diagramFor: diagramFor,
+    regimmarkering: regimmarkering,
     taBortDiagram: taBortDiagram,
     utfallDataset: utfallDataset,
     starta: starta,

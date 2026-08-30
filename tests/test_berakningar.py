@@ -637,9 +637,15 @@ class TestMeritvarden(unittest.TestCase):
             "Bild, Särskild variant inom det estetiska området")
         self.assertEqual(a, b)
 
-    def test_inriktningsnyckel_anstalld_larling_ar_larling(self):
-        self.assertEqual(build_meritvarden.inriktningsnyckel("Anställd lärling"),
-                         build_meritvarden.inriktningsnyckel("Lärling"))
+    def test_inriktningsnyckel_skiljer_anstalld_larling_fran_larling(self):
+        """Två utbildningsformer, inte två stavningar.
+
+        GR:s rapporter använder båda orden samtidigt: Vård- och omsorg står
+        som "Anställd lärling" 2025 och 2026, medan de industritekniska
+        lärlingsutbildningarna bytte till "Lärling" samma år.
+        """
+        self.assertNotEqual(build_meritvarden.inriktningsnyckel("Anställd lärling"),
+                            build_meritvarden.inriktningsnyckel("Lärling"))
 
     def test_typ_av(self):
         self.assertEqual(build_meritvarden.typ_av("Naturvetenskapsprogrammet"),
@@ -1045,6 +1051,209 @@ class TestTolkningsregler(unittest.TestCase):
             text = self.las(vag)
             self.assertNotIn("räknas bort i modellen", text, vag)
             self.assertNotIn("kan mätas och räknas bort", text, vag)
+
+
+class TestAnalyskonventioner(unittest.TestCase):
+    """Skiljer på transformation, normalisering och analyskonvention.
+
+    En namnnormalisering byter stavning. En analyskonvention räknar två
+    utbildningar som en serie. Det senare är ett beslut om hur datat
+    bearbetas, inte ett påstående om att utbildningarna var desamma, och
+    det ska stå utskrivet på metodsidan.
+    """
+
+    def las(self, vag):
+        return (ROT / vag).read_text(encoding="utf-8")
+
+    def metodtext(self):
+        return build_meritvarden.nyckla(self.las("docs/metod.html"))
+
+    def sammanslagningar(self):
+        """Varje fall där två eller fler gamla namn pekar på samma nya."""
+        per_nytt = {}
+        for (program, gammal), ny in build_meritvarden.INRIKTNING_BYTT_NAMN.items():
+            per_nytt.setdefault((program, ny), []).append(gammal)
+        return {k: v for k, v in per_nytt.items() if len(v) > 1}
+
+    def test_varje_sammanslagning_ar_dokumenterad_pa_metodsidan(self):
+        """Läggs en fjärde sammanslagning till i koden ska testet falla.
+
+        Nyckeln i INRIKTNING_BYTT_NAMN är inriktningens gamla namn i
+        normaliserad form, ibland med utbildningsformen sist ("handel och
+        service larling"). Formen räknas bort; själva inriktningsnamnet
+        ska gå att hitta i metodsidans text.
+        """
+        text = self.metodtext()
+        slagna = self.sammanslagningar()
+        self.assertTrue(slagna, "inga sammanslagningar hittades i byggkoden")
+        for (program, ny), gamla in sorted(slagna.items()):
+            self.assertIn(build_meritvarden.nyckla(program), text,
+                          f"{program} saknas på metodsidan")
+            for gammal in gamla:
+                namn = gammal.removesuffix(" larling").strip()
+                self.assertIn(namn, text,
+                              f"sammanslagningen {gammal!r} → {ny!r} i "
+                              f"{program} står inte på metodsidan")
+
+    def test_sammanslagningarna_kallas_konvention_inte_identitet(self):
+        """Konventionen får inte återuppstå som historiskt påstående."""
+        text = self.las("docs/metod.html")
+        self.assertIn("analyskonvention", text.lower())
+        self.assertIn("normaliserad programserie", text)
+        for vag in ("docs/metod.html", "docs/meritvarden.html",
+                    "docs/slutbetyg.html"):
+            for forbjudet in ("samma utbildning i kommunens utbud",
+                              "är samma program",
+                              "men det är samma utbildning som förts vidare"):
+                self.assertNotIn(forbjudet, self.las(vag), vag)
+
+    def test_anstalld_larling_hålls_isar_fran_larling(self):
+        """Aliaset motsades av repots eget data och är borttaget.
+
+        Vård- och omsorgsprogrammet står som "Anställd lärling" också i
+        2025 och 2026 års rapporter, samtidigt som de industritekniska
+        lärlingsutbildningarna bytte till "Lärling" 2025. GR skiljer
+        alltså på formerna.
+        """
+        for ar in (2025, 2026):
+            rapport = json.loads(
+                (ROT / "data" / "antagning" / f"antagning_{ar}.json")
+                .read_text(encoding="utf-8"))
+            namn = [r["utbildning"] for r in rapport["utbildningar"]]
+            self.assertTrue(
+                any("Vård- och omsorg" in n and "Anställd lärling" in n
+                    for n in namn),
+                f"{ar}: Vård- och omsorg står inte som anställd lärling")
+
+        self.assertFalse(hasattr(build_meritvarden, "DELALIAS"))
+        # Nycklarna ska skilja formerna åt
+        self.assertNotEqual(
+            build_meritvarden.inriktningsnyckel("Svetsteknik, anställd lärling"),
+            build_meritvarden.inriktningsnyckel("Svetsteknik, Lärling"))
+
+        # …och serierna ska därför brytas vid formbytet, inte spänna över det
+        d = json.loads((ROT / "docs" / "data-meritvarden.json")
+                       .read_text(encoding="utf-8"))
+        for u in d["utbildningar"]:
+            if "anställd lärling" not in (u["inriktning"] or "").lower():
+                continue
+            if not u["namn"].startswith("Industritekniska"):
+                continue
+            ar = [int(a) for a, v in u["varden"].items() if v["medel"] is not None]
+            self.assertTrue(ar and max(ar) <= 2024,
+                            f"{u['namn']}: anställd lärling spänner över 2025")
+
+    def test_flyttheuristiken_slar_inte_ihop_nagon_serie_i_dagens_data(self):
+        """"Aldrig samtidigt" är ett mönster i datat, inte ett belägg.
+
+        Regeln kan inte skilja ett program som bytt hus från ett som lagts
+        ned och senare startats på den andra skolan. I dagens data slår den
+        inte ihop någonting – testet faller den dag den börjar göra det, så
+        att sammanslagningen inte smyger in osedd.
+        """
+        d = json.loads((ROT / "docs" / "data-meritvarden.json")
+                       .read_text(encoding="utf-8"))
+        per_program = {}
+        for u in d["utbildningar"]:
+            for a, v in u["varden"].items():
+                if v["medel"] is not None:
+                    per_program.setdefault(u["program"], {}).setdefault(
+                        a, set()).add(u["skola"])
+        for program, per_ar in sorted(per_program.items()):
+            skolor = {s for ss in per_ar.values() for s in ss}
+            if len(skolor) < 2:
+                continue
+            samtidigt = [a for a, s in per_ar.items() if len(s) > 1]
+            self.assertTrue(
+                samtidigt,
+                f"{program} förs ihop av flyttheuristiken utan belägg – "
+                "kontrollera att sammanslagningen är dokumenterad")
+
+    def test_horisontdiagrammet_utger_sig_inte_for_att_identifiera_orsak(self):
+        """Staplarna beskriver materialet, de mäter ingen effekt.
+
+        Grupperna innehåller olika prognosårgångar med olika prognoslängd
+        och olika målår, så skillnaden mellan en ett- och en femårsstapel
+        kan inte tillskrivas horisonten.
+        """
+        for vag in ("docs/befolkningsprognos.html", "docs/gymnasiealdern.html"):
+            text = self.las(vag)
+            self.assertNotIn("Blir prognoserna bättre ju närmare året", text, vag)
+            self.assertIn(
+                "Det identifierar inte hur mycket större fel\n      som orsakas "
+                "av en längre prognoshorisont.", text, vag)
+        self.assertIn("de mäter inte vad en längre", self.las("docs/app.js"))
+
+        # Årgångarna bakom varje stapel ska finnas i datat att skriva ut
+        for namn in ("data.json", "data-16-19.json"):
+            d = json.loads((ROT / "docs" / namn).read_text(encoding="utf-8"))
+            for rad in d["perAvstand"]:
+                self.assertEqual(len(rad["argangar"]), rad["antal"], namn)
+            # Olika horisonter vilar på olika årgångar – det är hela poängen
+            argangar = [tuple(r["argangar"]) for r in d["perAvstand"]]
+            self.assertGreater(len(set(argangar)), 1, namn)
+
+    def test_amnessnittet_ar_robust_mot_valet_av_matt(self):
+        """Stresstest av det ovägda ämnessnittet.
+
+        Ovägt över ett fast urval ger varje ämne vikten 1/n, och det är
+        ett val. Prövas mot tre alternativ: bara obligatoriska ämnen,
+        medianen av ämnena, och ett elevviktat snitt. Ger de samma
+        utveckling är slutsatsen inte beroende av måttet. Skiljer de sig
+        ska testet falla, för då är huvudmåttet modellberoende och det
+        måste sidan i så fall berätta.
+        """
+        import math
+        d = json.loads((ROT / "docs" / "data-amnesbetyg.json")
+                       .read_text(encoding="utf-8"))
+        ar = [str(a) for a in d["ar"]]
+        karn = [a for a in d["amnen"] if a["arMedPoang"] == len(ar)]
+        obligatoriska = [a for a in karn
+                         if a["namn"] not in ("Modersmål", "Moderna språk, språkval")]
+
+        def serie(rakna, urval):
+            ut = {}
+            for y in ar:
+                rader = [a["varden"][y] for a in urval
+                         if a["varden"].get(y)
+                         and a["varden"][y]["betygspoang"] is not None]
+                if rader:
+                    ut[y] = rakna(rader)
+            return ut
+
+        def ovagt(r):
+            return math.fsum(x["betygspoang"] for x in r) / len(r)
+
+        def elevviktat(r):
+            r = [x for x in r if x.get("antal")]
+            n = math.fsum(x["antal"] for x in r)
+            return math.fsum(x["betygspoang"] * x["antal"] for x in r) / n
+
+        def median(r):
+            v = sorted(x["betygspoang"] for x in r)
+            m = len(v) // 2
+            return v[m] if len(v) % 2 else (v[m - 1] + v[m]) / 2
+
+        varianter = {
+            "ovagt": serie(ovagt, karn),
+            "obligatoriska": serie(ovagt, obligatoriska),
+            "median": serie(median, karn),
+            "elevviktat": serie(elevviktat, karn),
+        }
+        forandring = {namn: s[ar[-1]] - s[ar[0]] for namn, s in varianter.items()}
+
+        # Samma riktning över hela perioden…
+        self.assertTrue(all(v > 0 for v in forandring.values()) or
+                        all(v < 0 for v in forandring.values()),
+                        f"varianterna pekar åt olika håll: {forandring}")
+        # …och inom en tiondels betygspoäng av varandra
+        self.assertLess(max(forandring.values()) - min(forandring.values()), 0.15,
+                        f"måttet är känsligt för viktningen: {forandring}")
+        # Samma form år för år: ingen variant får avvika mer än 0,3 poäng
+        for y in ar:
+            varden = [s[y] for s in varianter.values() if y in s]
+            self.assertLess(max(varden) - min(varden), 0.35,
+                            f"{y}: varianterna skiljer sig åt ({varden})")
 
 
 class TestPresentationsregler(unittest.TestCase):

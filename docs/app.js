@@ -184,11 +184,15 @@
             callbacks: {
               label: function (it) {
                 var r = rader[it.dataIndex];
-                return [
+                var rad = [
                   "Genomsnittligt absolut fel: " + talSv(r.medelAbsPct, 1) + " %",
                   "Största fel: " + talSv(r.maxAbsPct, 1) + " %",
                   "Bygger på " + r.antal + " prognosvärden"
                 ];
+                if (r.argangar && r.argangar.length) {
+                  rad.push("Prognosårgångar: " + r.argangar.join(", "));
+                }
+                return rad;
               }
             }
           }
@@ -215,14 +219,28 @@
       "år där utfall finns. Avståndet är antalet kalenderår mellan " +
       "prognosårgången och målåret. Rapporterna publiceras vid olika tider " +
       "på året, så \u201dsamma år\u201d betyder en prognos gjord någon gång " +
-      "under målåret \u2013 inte vid dess slut.";
+      "under målåret \u2013 inte vid dess slut. Staplarna bygger på olika " +
+      "prognosårgångar och beskriver materialet; de mäter inte vad en längre " +
+      "prognoshorisont orsakar.";
 
     var kort = rader[0], langt = rader[rader.length - 1];
+    /* Vilka årgångar varje stapel vilar på är en uppgift om datat, och
+       den avgör vad jämförelsen mellan två staplar kan betyda. */
+    function argangstext(r) {
+      var a = r.argangar || [];
+      if (!a.length) return "";
+      return a.length === 1
+        ? " (årgången " + esc(a[0]) + ")"
+        : " (" + esc(a.length) + " årgångar, " + esc(a[0]) + "\u2013" +
+          esc(a[a.length - 1]) + ")";
+    }
     var html = "<p>I genomsnitt har prognoserna som gjorts <strong>" +
       (langt.avstand === 0 ? "samma år" : esc(langt.avstand) + " år i förväg") +
-      "</strong> missat med " + talSv(langt.medelAbsPct, 1) + " %, medan de som gjorts " +
+      "</strong> missat med " + talSv(langt.medelAbsPct, 1) + " %" +
+      argangstext(langt) + ", medan de som gjorts " +
       (kort.avstand === 0 ? "<strong>samma år</strong>" : "<strong>" + esc(kort.avstand) + " år i förväg</strong>") +
-      " missat med " + talSv(kort.medelAbsPct, 1) + " %.</p>";
+      " missat med " + talSv(kort.medelAbsPct, 1) + " %" + argangstext(kort) +
+      ". Det är olika prognosårgångar bakom de två talen.</p>";
     /* Hur många prognosvärden varje stapel vilar på är en uppgift om
        datat, och står därför utskriven. */
     var tunna = rader.filter(function (r) { return r.antal < 3; });
@@ -238,13 +256,15 @@
     }
     el("slutsats-avstand").innerHTML = html;
 
-    var t = "<caption>Genomsnittligt absolut prognosfel per antal år i förväg.</caption>";
+    var t = "<caption>Genomsnittligt absolut prognosfel per antal år i " +
+      "förväg, med de prognosårgångar varje rad bygger på.</caption>";
     t += "<thead><tr><th scope=\"col\">Kalenderår före målåret</th><th scope=\"col\">Genomsnittligt absolut fel</th>" +
-      "<th scope=\"col\">Största fel</th><th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
+      "<th scope=\"col\">Största fel</th><th scope=\"col\">Antal prognosvärden</th>" +
+      "<th scope=\"col\">Prognosårgångar</th></tr></thead><tbody>";
     rader.forEach(function (r) {
       t += "<tr><td>" + (r.avstand === 0 ? "Samma år" : esc(r.avstand) + " år före") + "</td><td>" +
         talSv(r.medelAbsPct, 1) + " %</td><td>" + talSv(r.maxAbsPct, 1) + " %</td><td>" +
-        esc(r.antal) + "</td></tr>";
+        esc(r.antal) + "</td><td>" + esc((r.argangar || []).join(", ")) + "</td></tr>";
     });
     t += "</tbody>";
     el("tabell-avstand").innerHTML = t;
@@ -763,11 +783,11 @@
     if (rader.length > 1) {
       var kort = rader[0], langt = rader[rader.length - 1];
       var kortText = kort.avstand === 0 ? "samma år" : esc(kort.avstand) + " år i förväg";
-      punkter.push("Felet " + (langt.medelAbsPct > kort.medelAbsPct
-        ? "växer med prognoshorisonten" : "har inte vuxit entydigt med horisonten") +
-        ": i snitt " + talSv(kort.medelAbsPct, 1) + " % för prognoser gjorda " +
-        kortText + ", mot " + talSv(langt.medelAbsPct, 1) + " % för dem gjorda " +
-        esc(langt.avstand) + " år i förväg.");
+      punkter.push("Felet är i snitt " + talSv(kort.medelAbsPct, 1) +
+        " % för prognoser gjorda " + kortText + " och " +
+        talSv(langt.medelAbsPct, 1) + " % för dem gjorda " +
+        esc(langt.avstand) + " år i förväg. Talen bygger på olika " +
+        "prognosårgångar och säger inte vad horisonten orsakar.");
     }
 
     /* Träffsäkraste årgången – jämför bara vid samma horisont (ett år
