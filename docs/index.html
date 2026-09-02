@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Kungsbacka i siffror</title>
-<meta name="description" content="Öppna sammanställningar av Kungsbacka kommuns befolkningsprognoser och av betygen på kommunens gymnasieskolor – både vid antagningen och vid examen.">
+<meta name="description" content="Öppna sammanställningar av Kungsbacka kommuns befolkningsprognoser, av betygen i kommunens skolor och av förtidsröstningen inför valet 2026.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -99,6 +99,22 @@
       </ul>
     </div>
 
+    <div class="meny-kort">
+      <h3><a href="fortidsrostning.html">Valet 2026</a></h3>
+      <p class="forklaring">
+        Hur många har förtidsröstat i Kungsbacka inför valet den 13
+        september 2026? Dag för dag och per röstningslokal, jämfört med
+        riksdagsvalet 2022 vid samma antal dagar kvar till valdagen.
+        Siffrorna visar hur många som röstat &ndash; inte vad de röstat
+        på.
+      </p>
+      <ul class="kort-fakta" id="fakta-val" hidden></ul>
+      <ul class="undersidor">
+        <li><a href="fortidsrostning.html">Förtidsröstningen dag för dag</a>
+          <span class="undertext" id="undertext-val">Valmyndighetens mottagna förtidsröster, uppdateras två gånger om dagen</span></li>
+      </ul>
+    </div>
+
   </section>
 
   <section id="sektion-om">
@@ -121,7 +137,8 @@
 <footer>
   <div class="sidfot-inre">
     <p>Data: Kungsbacka kommuns befolkningsprognoser, SCB:s befolkningsstatistik,
-    Göteborgsregionens antagningsstatistik och Skolverkets utbildningsstatistik.
+    Göteborgsregionens antagningsstatistik, Skolverkets utbildningsstatistik
+    och Valmyndighetens statistik över förtidsröster.
     Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
   </div>
 </footer>

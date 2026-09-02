@@ -25,7 +25,7 @@ const SIDOR = [
   "index.html", "befolkningsprognos.html", "gymnasiealdern.html",
   "barn-och-unga.html", "amnesbetyg.html", "nian-till-gymnasiet.html",
   "meritvarden.html", "slutbetyg.html", "antagning-till-examen.html",
-  "metod.html",
+  "fortidsrostning.html", "metod.html",
 ];
 
 const MIME = {

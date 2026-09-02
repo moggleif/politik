@@ -14,6 +14,9 @@ och vad som återstår.
 | Meritvärden 2017 och 2019–2026 (GR) | Klara, 2018 saknas |
 | Slutbetyg 2014–2025 (Skolverket) | Klara, samtliga läsår |
 | Ämnesbetyg åk 9, 2013–2025 (Skolverket) | Klara, samtliga läsår |
+| Förtidsröster 2022 (Valmyndigheten) | Klar, historisk |
+| Förtidsröster 2026 (Valmyndigheten) | Hämtas automatiskt två gånger om dagen t.o.m. 16 september 2026 |
+| Röstberättigade 2022 och 2026 (Valmyndigheten) | Klara |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
 jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på nio
@@ -49,6 +52,50 @@ på förskole-, låg-, mellan- och högstadieålder.
 Sidan `barn-och-unga.html` bygger enbart på det här utfallet. Den innehåller
 inga prognossiffror alls, och ett test i `tests/` stämmer av att ordet
 "prognos" inte förekommer någonstans i dess datafil.
+
+## Förtidsröster (Valmyndigheten)
+
+Hämtas med `python3 scripts/hamta_fortidsroster.py` (2026) och
+`--ar 2022` (den historiska) till `data/fortidsroster/`.
+
+| Val | Fil | Format |
+|---|---|---|
+| 2026 | <https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv> | UTF-8 med BOM, LF, rubriker `2026-08-26` … `2026-09-13`, `TOTAL` |
+| 2022 | <https://data.val.se/filer/val2022/rostmottagning/fortidsroster.csv> | Latin-1, enbart CR som radbrytning, rubriker `2022-08-24 00:00:00` … |
+
+Båda har kolumnerna `LÄNSKOD;LÄN;KOMMUNKOD;KOMMUN;LOKALID;LOKAL` följt
+av en kolumn per dag och sist `TOTAL`. Kungsbacka är länskod 13 och
+kommunkod 84 båda åren; lokal-id:na är däremot olika serier (`1384xxx`
+2026, `1000086xx` 2022) och lokalerna matchas därför aldrig mellan åren.
+2026 års fil listar 26 lokaler, 2022 års 24. Filen för 2026 uppdateras
+kl. 06 och 14 varje dag under förtidsröstningen, och Valmyndigheten
+anger att siffrorna är preliminära och kan justeras fram till den 16
+september 2026. Filerna hittades via val.se:s sidor
+[Rådata val 2026](https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026)
+och [Rådata från val 2002–2022](https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-fran-val-2002-2022).
+
+Dagar som ännu inte inträffat står som 0 i 2026 års fil. Dagens egen
+siffra är ofullständig fram till nästa morgons uppdatering. Båda filerna
+har en kolumn för valdagen: förtidsröster får lämnas även då.
+
+**Röstberättigade** hämtas med `python3 scripts/hamta_rostberattigade.py`
+till `data/fortidsroster/rostberattigade.json`, ur två Excel-filer på
+val.se som läses med standardbiblioteket:
+
+- 2026: *Antal röstberättigade per valdistrikt och valtyp, 14 augusti
+  2026* (kvalifikationsdagen). Kungsbacka: 66 505 röstberättigade i
+  riksdagsvalet, 67 149 i kommun- och regionvalen, 68 696 i minst ett
+  val, 46 valdistrikt.
+- 2022: *Röster per distrikt, slutligt antal röster inklusive totalt
+  valdeltagande, riksdagsvalet 2022*. Antalet röstberättigade upprepas på
+  varje partirad och summeras därför per distrikt. Kungsbacka: 64 298.
+  Röstlängden fastställs på kvalifikationsdagen (12 augusti 2022), så
+  talet är detsamma som under förtidsröstningen.
+
+Andelen på sidan räknas mot röstberättigade i riksdagsvalet, som finns
+för båda åren. Förtidsröster får lämnas i vilken kommun som helst, så
+andelen är ungefärlig: den räknar röster mottagna i Kungsbackas lokaler,
+inte Kungsbackabors röster.
 
 ## Prognosrapporterna
 
