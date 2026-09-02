@@ -261,6 +261,34 @@
       s.hogstaAr + " (" + talSv(s.hogsta) + ").";
   }
 
+  /* ---------- Valet 2026: förtidsröstningen ---------- */
+
+  function visaVal(data) {
+    if (!data || !data.val) return;
+    var nu = data.val[String(data.aktuellt)];
+    if (!nu || !nu.dagar || !nu.dagar.length) return;
+    var j = data.jamforelse;
+    var rader = [];
+    if (nu.sistaAvslutadDag) {
+      rader.push(rad("Förtidsröster t.o.m. " + esc(nu.sistaAvslutadDag),
+        talSv(nu.totalAvslutad)));
+    }
+    if (j) {
+      rader.push(rad(esc(data.forra) + " vid samma punkt (" + j.kvar + " dagar kvar)",
+        talSv(j.antalDa) + " (" + (j.diff > 0 ? "+" : j.diff < 0 ? "−" : "") +
+        talSv(Math.abs(j.diff)) + ")"));
+    }
+    if (nu.andelAvRostberattigade !== null) {
+      rader.push(rad("Andel av de röstberättigade i riksdagsvalet",
+        talSv(nu.andelAvRostberattigade, 1) + " %"));
+    }
+    fyll("fakta-val", rader);
+    el("undertext-val").textContent = nu.klart
+      ? "Hela perioden " + nu.forstaDag + "–" + nu.valdag + ", jämförd med " + data.forra + "."
+      : "Uppdaterades senast " + String(data.senastUppdaterad).replace("T", " kl. ").slice(0, 20) +
+        "; preliminära siffror från Valmyndigheten.";
+  }
+
   /* ---------- Start ----------
      Varje kort fylls oberoende: går en fil inte att läsa står kortets
      beskrivande text kvar. */
@@ -268,6 +296,7 @@
   hamta("data-amnesbetyg.json").then(visaAmnesbetyg).catch(function () {});
   hamta("data-befolkning.json").then(visaBarn).catch(function () {});
   hamta("data-nian-gymnasiet.json").then(visaNian).catch(function () {});
+  hamta("data-fortidsroster.json").then(visaVal).catch(function () {});
 
   Promise.all([
     hamta("data.json").catch(function () { return null; }),

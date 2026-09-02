@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Hur många har förtidsröstat i Kungsbacka?</title>
+<meta name="description" content="Förtidsröstningen i Kungsbacka kommun inför valet 2026, dag för dag och per röstningslokal, jämförd med riksdagsvalet 2022 vid samma antal dagar kvar till valdagen. Källa: Valmyndigheten.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+  <div class="sidhuvud-inre">
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="barn-och-unga.html">0–15 år</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
+        <a href="amnesbetyg.html">Betyg per ämne</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html">Antagning</a>
+        <a href="slutbetyg.html">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+        <a href="nian-till-gymnasiet.html">Nian till gymnasiet</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Val:</span>
+        <a href="fortidsrostning.html" aria-current="page">Förtidsröstning</a>
+      </span>
+      <a href="metod.html">Metod</a>
+    </nav>
+    <h1>Hur många har förtidsröstat i Kungsbacka?</h1>
+    <p class="ingress">
+      Den här sidan visar hur många förtidsröster som tagits emot i
+      Kungsbacka kommuns röstningslokaler inför valet den 13 september
+      2026, dag för dag, jämfört med riksdagsvalet 2022 vid samma antal
+      dagar kvar till valdagen. Siffrorna kommer från Valmyndigheten och
+      uppdateras två gånger om dagen under förtidsröstningen.
+      <strong>Sidan redovisar hur många som röstat, inte vad de röstat
+      på</strong> &ndash; förtidsröster säger ingenting om vilket parti
+      eller block som får dem.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+  <div id="varning" class="status-ruta" role="status" hidden></div>
+
+  <section id="sektion-nyckeltal" hidden>
+    <h2 class="dold">Läget just nu</h2>
+    <div class="nyckeltal" id="nyckeltal"></div>
+    <p class="kalla-rad" id="kalla-nyckeltal"></p>
+  </section>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <section id="sektion-ack" hidden>
+    <h2>Hur många har förtidsröstat hittills, jämfört med 2022?</h2>
+    <p class="forklaring">
+      Det sammanlagda antalet förtidsröster som tagits emot i kommunens
+      lokaler, dag för dag. Valen ligger inte på samma kalenderdatum
+      &ndash; förtidsröstningen började den 26 augusti 2026 och den 24
+      augusti 2022 &ndash; så x-axeln visar <em>dagar kvar till valdagen</em>,
+      med valdagen som 0. Då hamnar samma veckodag på samma plats båda
+      åren.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-ack" aria-label="Diagram: ackumulerat antal förtidsröster per dag, 2026 och 2022, efter dagar kvar till valdagen" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-ack"></p>
+    </div>
+    <div class="slutsats" id="slutsats-ack"></div>
+  </section>
+
+  <section id="sektion-dag" hidden>
+    <h2>Hur många röstade varje dag?</h2>
+    <p class="forklaring">
+      Samma tal, fast per dag i stället för sammanlagt. Den ljusare stapeln
+      bakom är 2022 vid samma antal dagar kvar. Antalet dippar tydligt de
+      dagar lokalerna har kortare öppettider, och stiger mot slutet av
+      perioden.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-dag" aria-label="Diagram: antal förtidsröster per dag 2026, med 2022 som jämförelse" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-dag"></p>
+    </div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-dagar"></table></div>
+      <p class="tabell-teckenforklaring">Ackumulerat = sammanlagt antal
+        till och med dagen. 2022-kolumnerna avser dagen med samma antal
+        dagar kvar till valdagen 2022.</p>
+    </details>
+  </section>
+
+  <section id="sektion-lokaler" hidden>
+    <h2>Var har flest röstat?</h2>
+    <p class="forklaring">
+      Röstningslokalerna i kommunen efter antal mottagna förtidsröster
+      hittills. Vissa lokaler är öppna hela perioden, andra bara någon
+      enstaka dag &ndash; vård- och omsorgsboendena har oftast en enda
+      röstmottagningsdag, och &rdquo;ambulerande röstmottagning&rdquo;
+      är röstmottagare som kommer hem till väljare som inte själva kan ta
+      sig till en lokal.
+    </p>
+    <div class="kort">
+      <div class="tabell-rull"><table id="tabell-lokaler"></table></div>
+      <p class="kalla-rad" id="kalla-lokaler"></p>
+    </div>
+    <details>
+      <summary>Visa alla lokaler, även de utan röster ännu</summary>
+      <div class="tabell-rull"><table id="tabell-lokaler-alla"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Alla siffror på den här sidan kommer från Valmyndighetens öppna
+      data. Siffrorna över mottagna förtidsröster är preliminära och kan
+      justeras fram till den 16 september 2026.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Sidan visar valdeltagande, inte opinion.</strong> Antalet
+      förtidsröster säger hur många som röstat, inte vad de röstat på.
+      Höga eller låga förtidsröstningssiffror går inte att läsa som stöd
+      för något parti eller block, och sidan gör ingen sådan tolkning.
+    </p>
+    <p class="forklaring">
+      Talen är <em>förtidsröster som tagits emot i Kungsbacka kommuns
+      röstningslokaler</em>. Vem som helst får förtidsrösta i vilken
+      lokal som helst i landet, så här ingår röster från personer som är
+      folkbokförda i andra kommuner, medan Kungsbackabor som förtidsröstat
+      på annan ort inte ingår. Andelen av de röstberättigade är därför
+      ett ungefärligt mått. Röster som tagits emot på valdagen i en
+      förtidsröstningslokal räknas som förtidsröster och finns med i
+      serien, som därför slutar på valdagen (0 dagar kvar).
+    </p>
+    <p class="forklaring">
+      Valmyndighetens fil uppdateras klockan 06 och 14 varje dag under
+      förtidsröstningen. Siffrorna är preliminära och kan justeras fram
+      till den 16 september 2026. Den här sidan hämtar filen strax
+      efter varje uppdatering; dagar som ännu inte inträffat visas inte,
+      och dagens egen siffra är ofullständig fram till nästa morgon.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Kungsbacka kommun eller
+      Valmyndigheten. Alla beräkningar är öppna: källkoden och alla data
+      finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sidfot-inre">
+    <p>Data: Valmyndigheten, mottagna förtidsröster och röstberättigade.
+    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="fortidsrostning.js"></script>
+</body>
+</html>

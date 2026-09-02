@@ -1,0 +1,65 @@
+# Hämtar Valmyndighetens mottagna förtidsröster två gånger om dagen under
+# förtidsröstningen 2026, filtrerar fram Kungsbacka och bygger om sidans
+# datafil. Valmyndigheten uppdaterar filen kl. 06 och 14 svensk tid
+# (CEST = UTC+2 i september), så jobbet går kl. 04.40 och 12.40 UTC.
+# Committar bara när innehållet faktiskt ändrats: hämtskriptet skriver
+# inte om filen om datat är oförändrat, och tidsstämpeln "hamtad" anger
+# därför när datat senast ändrades.
+name: Förtidsröster
+
+on:
+  schedule:
+    - cron: "40 4,12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fortidsroster
+  cancel-in-progress: false
+
+jobs:
+  hamta:
+    name: Hämta och bygg om
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      # Siffrorna kan justeras fram till den 16 september 2026; därefter
+      # finns inget nytt att hämta, och jobbet avslutas utan att göra något
+      # tills schemat tas bort. Manuell körning går alltid.
+      - name: Är förtidsröstningen fortfarande aktuell?
+        id: aktuell
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%Y-%m-%d)" \< "2026-09-18" ]; then
+            echo "kor=ja" >> "$GITHUB_OUTPUT"
+          else
+            echo "Förtidsröstningen 2026 är avslutad och siffrorna slutliga; inget att hämta."
+            echo "kor=nej" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Hämta Valmyndighetens fil
+        if: steps.aktuell.outputs.kor == 'ja'
+        run: python3 scripts/hamta_fortidsroster.py
+      - name: Bygg om sidans datafil
+        if: steps.aktuell.outputs.kor == 'ja'
+        run: python3 scripts/build_fortidsroster.py
+      - name: Kontrollräkna
+        if: steps.aktuell.outputs.kor == 'ja'
+        run: python3 -m unittest tests.test_berakningar -k Fortidsroster
+      - name: Committa om något ändrats
+        if: steps.aktuell.outputs.kor == 'ja'
+        run: |
+          if git diff --quiet -- data/fortidsroster docs/data-fortidsroster.json; then
+            echo "Inga ändringar."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/fortidsroster docs/data-fortidsroster.json
+          git commit -m "Förtidsröster: $(python3 -c "import json;d=json.load(open('docs/data-fortidsroster.json'));v=d['val'][str(d['aktuellt'])];print(f\"{v['total']} röster t.o.m. {v['dagar'][-1]['datum']}\")")"
+          git push origin HEAD:main

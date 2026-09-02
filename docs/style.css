@@ -609,3 +609,48 @@ ul.kort-fakta .siffra {
   color: var(--ink-2);
   max-width: 46rem;
 }
+
+/* ---------- Nyckeltal (förtidsröstningen) ----------
+   Fyra tal överst, mobilen först: en kolumn på smal skärm, upp till
+   fyra i bredd när det får plats. Talen står i textfärg – ingen
+   färg för "mer" eller "mindre", eftersom sidan inte värderar utfallet. */
+
+.nyckeltal {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  margin-top: 1.5rem;
+}
+
+.nyckeltal-ruta {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.nyckeltal-etikett {
+  display: block;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.nyckeltal-tal {
+  display: block;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0.25rem 0 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.nyckeltal-not {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.3;
+  margin-top: 0.35rem;
+}
+
+.kort .tabell-rull table { margin-top: 0; }

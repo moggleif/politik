@@ -82,6 +82,16 @@ haft. Till skillnad från prognossidorna innehåller den inga prognoser alls.
 - [0–15 år, förskole- och grundskoleåldern](https://moggleif.github.io/politik/barn-och-unga.html)
   &ndash; enbart faktiskt utfall enligt SCB, 2000&ndash;2025
 
+**Valet 2026** &ndash; hur många som förtidsröstat i Kungsbacka, dag för
+dag, jämfört med riksdagsvalet 2022 vid samma antal dagar kvar till
+valdagen. Siffrorna kommer från Valmyndighetens öppna data och hämtas
+automatiskt två gånger om dagen under förtidsröstningen. Sidan visar hur
+många som röstat &ndash; inte vad de röstat på.
+
+- [Förtidsröstningen dag för dag](https://moggleif.github.io/politik/fortidsrostning.html)
+  &ndash; ackumulerat och per dag, andel av de röstberättigade, och en
+  topplista över röstningslokalerna, 26 augusti&ndash;13 september 2026
+
 Hur allting hämtas, räknas och kan reproduceras beskrivs på
 [metodsidan](https://moggleif.github.io/politik/metod.html).
 
@@ -106,6 +116,9 @@ data/
   pendling/pendling_<år>.json   Pendling mellan hem- och skolkommun,
                                 gymnasiet och grundskolan
   scb/folkmangd_kungsbacka.json Faktisk folkmängd, hämtad från SCB:s öppna API
+  fortidsroster/fortidsroster_<år>.json  Mottagna förtidsröster per lokal och
+                                dag i Kungsbacka, ur Valmyndighetens fil
+  fortidsroster/rostberattigade.json     Röstberättigade på kvalifikationsdagen
   KALLOR.md                     Dokumentation av var varje rapport hittades
 scripts/
   hamta_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API):
@@ -122,6 +135,10 @@ scripts/
                                 samma exporttjänst, ett läsår per fil
   hamta_kullkedjan.py           Hämtar de fyra rapporter som sidan om nian
                                 och gymnasiet bygger på (109, 91, 89, 61/60)
+  hamta_fortidsroster.py        Hämtar Valmyndighetens mottagna förtidsröster
+                                och filtrerar fram Kungsbacka (2026 eller 2022)
+  hamta_rostberattigade.py      Hämtar antalet röstberättigade i Kungsbacka ur
+                                Valmyndighetens Excel-filer, 2026 och 2022
   build_data.py                 Bygger docs/data.json och docs/data-16-19.json,
                                 inklusive kohortframskrivningen för 16–19 år
   build_meritvarden.py          Bygger docs/data-meritvarden.json, med en
@@ -135,6 +152,9 @@ scripts/
                                 efter ålder, enbart faktiskt utfall
   build_nian_gymnasiet.py       Bygger docs/data-nian-gymnasiet.json: nian
                                 år X mot gymnasiet år X…X+3, plus pendlingen
+  build_fortidsroster.py        Bygger docs/data-fortidsroster.json: förtids-
+                                röstningen på dagar kvar till valdagen, 2026
+                                mot 2022
 tests/
   test_berakningar.py           Kontrollräknar beräkningarna och stämmer av
                                 att docs/data*.json går att reproducera ur
@@ -150,6 +170,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   meritvarden.html              Meritvärden vid antagningen till gymnasiet
   slutbetyg.html                Slutbetyg från gymnasiet, program för program
   antagning-till-examen.html    Antagningen mot examen tre år senare
+  fortidsrostning.html          Förtidsröstningen inför valet 2026, mot 2022
   metod.html                    Metodsidan: källor, transformationer, viktning
   style.css                     Delas av alla sidor
   gemensam.js                   Delade byggstenar: färger, delbara URL:er
@@ -166,6 +187,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   amnen.js                      Driver ämnesbetygssidan
   nian.js                       Driver sidan om nian och gymnasiet
   befolkning.js                 Driver sidan om barn och unga 0–15 år
+  fortidsrostning.js            Driver förtidsröstningssidan
   index.js                      Driver startsidans sammanfattningar
   data.json, data-16-19.json    Data till prognossidorna (genereras)
   data-meritvarden.json         Data till meritvärdessidan (genereras)
@@ -174,6 +196,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   data-amnesbetyg.json          Data till ämnesbetygssidan (genereras)
   data-nian-gymnasiet.json      Data till sidan om nian och gymnasiet (genereras)
   data-befolkning.json          Data till sidan om barn och unga (genereras)
+  data-fortidsroster.json       Data till förtidsröstningssidan (genereras,
+                                två gånger om dagen under förtidsröstningen)
   rapporter/*.pdf               Lokala kopior av käll­rapporterna
   rapporter/slutbetyg-*.csv     Skolverkets exportfiler, en per läsår
   chart.umd.js                  Chart.js v4.5.1 (vendrad UMD-build från
@@ -258,6 +282,31 @@ python3 scripts/hamta_scb.py          # hämtar 0–15 och 16–19 samtidigt
 python3 scripts/build_befolkning.py   # bygger om docs/data-befolkning.json
 ```
 
+Förtidsröstningen (inget extra beroende; Excel-filerna läses med
+standardbiblioteket):
+
+```bash
+python3 scripts/hamta_fortidsroster.py            # 2026, Valmyndighetens fil
+python3 scripts/hamta_fortidsroster.py --ar 2022  # den historiska, en gång
+python3 scripts/hamta_rostberattigade.py          # röstberättigade, en gång
+python3 scripts/build_fortidsroster.py            # bygger om docs/data-fortidsroster.json
+```
+
+Under förtidsröstningen 2026 gör GitHub Actions det här automatiskt två
+gånger om dagen, strax efter att Valmyndigheten uppdaterat sin fil kl. 06
+och 14 (`.github/workflows/fortidsroster.yml`, går även att starta för
+hand). Hämtskriptet skriver bara om datafilen när innehållet ändrats, så
+tidsstämpeln `hamtad` anger när datat senast ändrades och jobbet
+committar inte tomma uppdateringar. Vilket område som följs styrs av
+konstanterna `LANSKOD` och `KOMMUNKOD` överst i `hamta_fortidsroster.py`
+&ndash; sätt `KOMMUNKOD = None` för hela Halland. 2022 års fil har ett
+annat format än 2026 års (Latin-1, enbart vagnretur som radbrytning,
+tidsstämplade kolumnrubriker); tolkningen klarar båda och avbryter om
+kolumnerna ändrats. Siffrorna över förtidsröster är preliminära och kan
+justeras fram till den 16 september 2026. Sidan jämför åren på *dagar
+kvar till valdagen*, inte på kalenderdatum, så att samma veckodag hamnar
+på samma plats.
+
 Kullarna (kör efter att meritvärdena och slutbetygen byggts om &ndash;
 skriptet läser de färdiga docs-filerna så att namnbyten och skolflyttar
 bara hanteras på ett ställe):
@@ -322,6 +371,11 @@ branch `main`, mapp `/docs`.
   GY11* (91), *Gymnasieskola &ndash; Avgångselever, nationella program*
   på kommunnivå (89) samt *Pendling mellan hem- och skolkommun* för
   gymnasiet (61) och grundskolan (60), ur samma exporttjänst
+- Valmyndigheten, *Mottagna förtidsröster* per röstningslokal och dag
+  ([rådata val 2026](https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026),
+  [rådata val 2002–2022](https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-fran-val-2002-2022))
+  samt *Antal röstberättigade per valdistrikt och valtyp* på
+  kvalifikationsdagen
 
 ## Gemensamma byggstenar på sidorna
 

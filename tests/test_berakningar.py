@@ -38,6 +38,8 @@ build_amnesbetyg = ladda("build_amnesbetyg")
 build_nian_gymnasiet = ladda("build_nian_gymnasiet")
 build_meritvarden = ladda("build_meritvarden")
 build_slutbetyg = ladda("build_slutbetyg")
+build_fortidsroster = ladda("build_fortidsroster")
+hamta_fortidsroster = ladda("hamta_fortidsroster")
 skolverket = ladda("skolverket")
 
 
@@ -739,6 +741,152 @@ class TestSlutbetyg(unittest.TestCase):
         self.assertEqual(serie["varden"]["2014"]["betygspoang"], 13.0)
 
 
+def fortid_stub(ar, valdag, datum, hamtad, lokaler):
+    """En datafil som hamta_fortidsroster.py skriver den, med påhittade tal.
+    `lokaler` är {namn: [antal per datum]}."""
+    return {
+        "ar": ar, "valdag": valdag, "lanskod": "13", "kommunkod": "84",
+        "lan": "Halland", "omrade": "Testköping",
+        "kalla": "T", "kallaUrl": "https://example.org/t.csv",
+        "sidaUrl": "https://example.org", "preliminarTom": None,
+        "hamtad": hamtad, "datum": datum,
+        "lokaler": [{"lokalId": str(i), "namn": namn,
+                     "perDag": dict(zip(datum, varden)), "total": sum(varden)}
+                    for i, (namn, varden) in enumerate(lokaler.items())],
+    }
+
+
+class TestFortidsroster(unittest.TestCase):
+    """build_fortidsroster: dagar kvar, avslutade och pågående dagar, och
+    jämförelsen mellan valen på samma antal dagar kvar."""
+
+    # 2022: fyra dagar, valdag söndag 2022-09-11, allt klart
+    DA = fortid_stub(2022, "2022-09-11",
+                     ["2022-09-08", "2022-09-09", "2022-09-10", "2022-09-11"],
+                     "2022-09-12T06:30+02:00",
+                     {"Torget": [100, 200, 150, 50], "Boendet": [0, 10, 0, 0]})
+    # 2026: samma fyra veckodagar, valdag söndag 2026-09-13; hämtat mitt
+    # på fredagen -> torsdag avslutad, fredag pågår, lördag och söndag
+    # står som 0 och ska inte finnas med.
+    NU = fortid_stub(2026, "2026-09-13",
+                     ["2026-09-10", "2026-09-11", "2026-09-12", "2026-09-13"],
+                     "2026-09-11T14:40+02:00",
+                     {"Torget": [120, 80, 0, 0], "Boendet": [0, 0, 0, 0]})
+    RB = {"val": {"2026": {"kvalifikationsdag": "2026-08-14", "riksdag": 1000,
+                           "kommun": 1050, "region": 1050, "minstEtt": 1100,
+                           "valdistrikt": 2, "kalla": "T", "kallaUrl": "u",
+                           "sidaUrl": "s", "hamtad": "2026-09-01"},
+                  "2022": {"kvalifikationsdag": "2022-08-12", "riksdag": 800,
+                           "valdistrikt": 2, "kalla": "T", "kallaUrl": "u",
+                           "sidaUrl": "s", "hamtad": "2026-09-01"}}}
+
+    def setUp(self):
+        self.ut = build_fortidsroster.bygg([self.DA, self.NU], self.RB)
+        self.nu = self.ut["val"]["2026"]
+        self.da = self.ut["val"]["2022"]
+
+    def test_dagar_kvar_raknas_fran_valdagen(self):
+        self.assertEqual([d["kvar"] for d in self.da["dagar"]], [3, 2, 1, 0])
+        self.assertEqual([d["veckodag"] for d in self.da["dagar"]],
+                         ["tor", "fre", "lör", "sön"])
+        # Samma veckodagar 2026 – det är poängen med skalan
+        self.assertEqual([d["veckodag"] for d in self.nu["dagar"]], ["tor", "fre"])
+
+    def test_dagar_som_inte_intraffat_utelamnas(self):
+        """Nollorna för lördag och söndag ska inte bli nollvärden."""
+        self.assertEqual([d["datum"] for d in self.nu["dagar"]],
+                         ["2026-09-10", "2026-09-11"])
+        self.assertFalse(self.nu["klart"])
+        self.assertTrue(self.da["klart"])
+
+    def test_hamtningsdagen_pagar(self):
+        self.assertEqual(self.nu["pagaende"]["datum"], "2026-09-11")
+        self.assertTrue(self.nu["dagar"][-1]["pagar"])
+        self.assertFalse(self.nu["dagar"][0]["pagar"])
+        self.assertEqual(self.nu["total"], 200)           # inkl. den pågående
+        self.assertEqual(self.nu["totalAvslutad"], 120)   # bara torsdagen
+        self.assertEqual(self.nu["sistaAvslutadKvar"], 3)
+
+    def test_hamtningsdag_utan_roster_tas_inte_med(self):
+        """Morgonkörningen kl. 06: dagens kolumn är 0 och ska inte synas."""
+        post = dict(self.NU, hamtad="2026-09-12T06:40+02:00")
+        ut = build_fortidsroster.bygg([self.DA, post], None)
+        self.assertEqual([d["datum"] for d in ut["val"]["2026"]["dagar"]],
+                         ["2026-09-10", "2026-09-11"])
+        self.assertIsNone(ut["val"]["2026"]["pagaende"])
+        self.assertEqual(ut["val"]["2026"]["totalAvslutad"], 200)
+
+    def test_ackumulerat(self):
+        self.assertEqual([d["ack"] for d in self.da["dagar"]], [100, 310, 460, 510])
+        self.assertEqual(self.da["total"], 510)
+
+    def test_jamforelsen_gors_vid_senaste_avslutade_dag(self):
+        j = self.ut["jamforelse"]
+        self.assertEqual(j["kvar"], 3)
+        self.assertEqual(j["datumNu"], "2026-09-10")
+        self.assertEqual(j["datumDa"], "2022-09-08")
+        self.assertEqual(j["antalNu"], 120)
+        self.assertEqual(j["antalDa"], 100)
+        self.assertEqual(j["diff"], 20)
+        self.assertEqual(j["diffPct"], 20.0)
+        self.assertEqual(j["slutDa"], 510)
+
+    def test_andel_av_rostberattigade_i_riksdagsvalet(self):
+        self.assertEqual(self.nu["andelAvRostberattigade"], 12.0)   # 120/1000
+        self.assertEqual(self.ut["jamforelse"]["andelDa"], 12.5)    # 100/800
+        self.assertEqual(self.ut["jamforelse"]["andelSlutDa"], 63.8)  # 510/800
+
+    def test_utan_rostberattigade_utelamnas_andelen(self):
+        """Hellre inget nyckeltal än en gissad nämnare."""
+        ut = build_fortidsroster.bygg([self.DA, self.NU], None)
+        self.assertIsNone(ut["val"]["2026"]["andelAvRostberattigade"])
+        self.assertIsNone(ut["val"]["2026"]["rostberattigade"])
+        self.assertIsNone(ut["jamforelse"]["andelNu"])
+
+    def test_topplistan_raknar_bara_intraffade_dagar(self):
+        lok = {l["namn"]: l for l in self.nu["lokaler"]}
+        self.assertEqual(lok["Torget"]["total"], 200)
+        self.assertEqual(lok["Torget"]["dagarMedRoster"], 2)
+        self.assertEqual(lok["Torget"]["andel"], 100.0)
+        self.assertEqual(lok["Boendet"]["total"], 0)
+        self.assertEqual([l["namn"] for l in self.nu["lokaler"]], ["Torget", "Boendet"])
+
+    def test_ett_enda_val_ger_ingen_jamforelse(self):
+        ut = build_fortidsroster.bygg([self.NU], None)
+        self.assertIsNone(ut["jamforelse"])
+        self.assertIsNone(ut["forra"])
+
+
+class TestFortidsrosterCsv(unittest.TestCase):
+    """hamta_fortidsroster: de två filformaten ska tolkas lika."""
+
+    RUBRIK = "LÄNSKOD;LÄN;KOMMUNKOD;KOMMUN;LOKALID;LOKAL;{d1};{d2};TOTAL"
+    RAD = "13;Halland;84;Kungsbacka;1384001;Lokalen;5;7;12"
+
+    def test_utf8_med_bom_och_lf(self):
+        text = self.RUBRIK.format(d1="2026-08-26", d2="2026-08-27") + "\n" + self.RAD + "\n"
+        datum, rader = hamta_fortidsroster.tolka_csv(b"\xef\xbb\xbf" + text.encode("utf-8"))
+        self.assertEqual(datum, ["2026-08-26", "2026-08-27"])
+        self.assertEqual(rader[0]["perDag"], {"2026-08-26": 5, "2026-08-27": 7})
+        self.assertEqual(rader[0]["TOTAL"], 12)
+        self.assertEqual(rader[0]["LÄNSKOD"], "13")
+
+    def test_latin1_med_cr_och_tidsstamplade_rubriker(self):
+        """2022 års fil: Latin-1, enbart vagnretur som radbrytning och
+        "2022-08-24 00:00:00" som kolumnrubrik."""
+        text = (self.RUBRIK.format(d1="2022-08-24 00:00:00", d2="2022-08-25 00:00:00")
+                + "\r" + self.RAD.replace("Lokalen", "Åsa Gårdsskola") + "\r")
+        datum, rader = hamta_fortidsroster.tolka_csv(text.encode("latin-1"))
+        self.assertEqual(datum, ["2022-08-24", "2022-08-25"])
+        self.assertEqual(rader[0]["LOKAL"], "Åsa Gårdsskola")
+        self.assertEqual(rader[0]["perDag"]["2022-08-25"], 7)
+
+    def test_andrad_layout_stoppar(self):
+        text = "LÄNSKOD;LÄN;NÅGOT ANNAT;2026-08-26;TOTAL\n13;Halland;x;1;1\n"
+        with self.assertRaises(SystemExit):
+            hamta_fortidsroster.tolka_csv(text.encode("utf-8"))
+
+
 class TestGenereradeFiler(unittest.TestCase):
     """Datafilerna i docs/ ska vara exakt vad byggskripten ger av data/.
 
@@ -827,6 +975,14 @@ class TestGenereradeFiler(unittest.TestCase):
         ]
         ombyggd = json.loads(json.dumps(build_amnesbetyg.bygg(arsfiler)))
         self.assertEqual(ombyggd, self.las("data-amnesbetyg.json"))
+
+    def test_data_fortidsroster_ar_reproducerbar(self):
+        mapp = ROT / "data" / "fortidsroster"
+        valfiler = [json.loads(f.read_text(encoding="utf-8"))
+                    for f in sorted(mapp.glob("fortidsroster_*.json"))]
+        rb = json.loads((mapp / "rostberattigade.json").read_text(encoding="utf-8"))
+        ombyggd = json.loads(json.dumps(build_fortidsroster.bygg(valfiler, rb)))
+        self.assertEqual(ombyggd, self.las("data-fortidsroster.json"))
 
 
 class TestExaktSummering(unittest.TestCase):
