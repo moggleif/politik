@@ -414,14 +414,13 @@ Alla analyssidor delar samma komponenter (docs/gemensam.js):
   pekar på en linje eller på ett namn i teckenförklaringen. Serierna
   skiljs åt med färg *och* punktform/streckning, så att ingen
   information bärs av färgen ensam.
-- **Besöksräknare** i sidfoten (docs/besok.js): sidvisningarna räknas
-  med [GoatCounter](https://www.goatcounter.com/) &ndash; öppen källkod,
-  inga kakor, inga sparade IP-adresser &ndash; och webbplatsens summa
-  hämtas från samma tjänst. Raden är dold tills talet finns, så sidan
-  fungerar oberoende av räknaren. Sidornas Content Security Policy
-  släpper därför igenom `gc.zgo.at` (skriptet) och
-  `moderat.goatcounter.com` (räkning och summa); allt annat externt är
-  fortfarande blockerat. Testerna besvarar båda adresserna lokalt.
+- **Besöksstatistik**: sidvisningarna räknas med
+  [GoatCounter](https://www.goatcounter.com/) &ndash; öppen källkod,
+  inga kakor, inga sparade IP-adresser &ndash; via count.js-taggen sist
+  på varje sida. Inget visas på sidorna. Sidornas Content Security
+  Policy släpper därför igenom `gc.zgo.at` (skriptet) och
+  `moderat.goatcounter.com` (räkningen); allt annat externt är
+  fortfarande blockerat. Testerna besvarar skriptet lokalt.
 
 ## Licens
 

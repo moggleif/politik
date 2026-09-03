@@ -71,19 +71,12 @@ function startaServer() {
   });
 }
 
-/* Besöksräknaren pratar med GoatCounter. Testet ska gå utan nät och
-   oberoende av kontots inställningar, så båda adresserna besvaras här:
-   count.js med en tom fil och räknar-API:t med ett fast tal. */
+/* Sidorna läser in GoatCounters count.js. Testet ska gå utan nät, så
+   skriptet besvaras här med en tom fil (och räknas gör ändå inget från
+   127.0.0.1 – count.js hoppar över lokala adresser). */
 async function stubbaGoatcounter(page) {
   await page.route("https://gc.zgo.at/**", function (r) {
     r.fulfill({ status: 200, contentType: "text/javascript", body: "" });
-  });
-  await page.route("https://moderat.goatcounter.com/**", function (r) {
-    r.fulfill({
-      status: 200, contentType: "application/json",
-      headers: { "Access-Control-Allow-Origin": "*" },
-      body: JSON.stringify({ count: "1,234" }),
-    });
   });
 }
 
@@ -112,19 +105,11 @@ async function granska(browser, bas, sida, medDiagram) {
         const s = document.getElementById("status");
         return s && !s.hidden ? s.textContent.trim().slice(0, 120) : null;
       })(),
-      besok: (function () {
-        const b = document.getElementById("besok");
-        return b && !b.hidden ? b.textContent.replace(/\s+/g, " ").trim() : null;
-      })(),
     };
   });
   if (inneh.h1 !== 1) fel.push("förväntade exakt en h1, fann " + inneh.h1);
   if (!inneh.main) fel.push("huvudinnehåll (#huvudinnehall) saknas");
   if (inneh.status) fel.push("felruta visas: " + inneh.status);
-  /* Stubben svarar 1234; svensk tusenavgränsare är ett fast mellanslag. */
-  if (!inneh.besok || !/1[\s\u00a0]234/.test(inneh.besok)) {
-    fel.push("besöksräknaren i sidfoten visades inte: " + JSON.stringify(inneh.besok));
-  }
   if (medDiagram) {
     if (inneh.canvas === 0) fel.push("inga diagram ritade");
     if (inneh.tabellrader === 0) fel.push("inga tabellrader ritade");

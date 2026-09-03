@@ -49,18 +49,11 @@ function startaServer() {
   });
 }
 
-/* Besöksräknaren pratar med GoatCounter; besvaras lokalt så att
+/* Sidorna läser in GoatCounters count.js; besvaras lokalt så att
    kontrollen går utan nät (samma stubb som i smoke_webbplats.js). */
 async function stubbaGoatcounter(page) {
   await page.route("https://gc.zgo.at/**", function (r) {
     r.fulfill({ status: 200, contentType: "text/javascript", body: "" });
-  });
-  await page.route("https://moderat.goatcounter.com/**", function (r) {
-    r.fulfill({
-      status: 200, contentType: "application/json",
-      headers: { "Access-Control-Allow-Origin": "*" },
-      body: JSON.stringify({ count: "1,234" }),
-    });
   });
 }
 
