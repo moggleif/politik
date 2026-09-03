@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Hämtar Valmyndighetens statistik över mottagna förtidsröster, dag för
-dag och per röstningslokal, och sparar det som rör det område sidan följer.
+dag och per röstningslokal i hela landet, och sparar filen orörd.
 
-Valmyndigheten publicerar en CSV-fil per val med en rad per röstningslokal
-i hela landet och en kolumn per dag under förtidsröstningsperioden:
+Valmyndigheten publicerar en fil per val med en rad per röstningslokal i
+hela landet, en kolumn per dag under förtidsröstningsperioden och en
+SUMMA-rad för riket:
 
   2026  https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv
         uppdateras kl. 06 och 14 varje dag under perioden; siffrorna är
@@ -22,18 +23,19 @@ rubrikerna med små bokstäver ("lan;län;kom;kommun;lokalid;lokal;…;Totalt").
 Tolkningen här klarar alla: teckenkodningen provas som UTF-8 först och
 faller tillbaka på Latin-1, alla slags radbrytningar normaliseras,
 rubrikerna översätts till 2026 års namn, och datumet läses ur början av
-rubriken.
+rubriken. Hämtningen tolkar filen bara för att kontrollera att layouten
+inte ändrats; det som sparas är originalet, byte för byte, i
+data/fortidsroster/mottagna_<år>.csv. Filtreringen till kommun, län
+eller rike görs i build_fortidsroster.py.
 
-Vilket område som sparas styrs av konstanterna LANSKOD och KOMMUNKOD
-nedan: sätt KOMMUNKOD till None för att följa hela länet.
-
-Filen skrivs bara om när innehållet faktiskt ändrats. Tidsstämpeln
-`hamtad` anger därför när datat senast ändrades, inte när skriptet senast
-kördes – det är den uppgift sidan visar som "senast uppdaterad", och det
-gör att det schemalagda jobbet inte committar tomma ändringar.
+Filen skrivs bara om när innehållet faktiskt ändrats, och tidsstämpeln i
+data/fortidsroster/hamtad.json anger därför när datat senast ändrades –
+inte när skriptet senast kördes. Det är den uppgift sidan visar som
+"senast uppdaterad", och det gör att det schemalagda jobbet inte
+committar tomma ändringar.
 
 Körs:  python3 scripts/hamta_fortidsroster.py            # 2026
-       python3 scripts/hamta_fortidsroster.py --ar 2022  # den historiska
+       python3 scripts/hamta_fortidsroster.py --ar 2022  # en historisk
 """
 
 import argparse
@@ -49,12 +51,7 @@ from zoneinfo import ZoneInfo
 
 ROT = Path(__file__).resolve().parent.parent
 UT_MAPP = ROT / "data" / "fortidsroster"
-
-# ---------- Område ----------
-# Länskod och kommunkod enligt Valmyndighetens filer. Kungsbacka är
-# 13 (Halland) + 84. Sätt KOMMUNKOD = None för att följa hela länet.
-LANSKOD = "13"
-KOMMUNKOD = "84"
+HAMTAD_FIL = UT_MAPP / "hamtad.json"
 
 # ---------- Valen ----------
 HISTORIK = "https://historik.val.se/val/val{ar}/rostmottagning/fortidsrostning/mottagna_fortidsroster.skv"
@@ -96,6 +93,10 @@ RUBRIKALIAS = {"lan": "LÄNSKOD", "län": "LÄN", "kom": "KOMMUNKOD", "kommun": 
                "lokalid": "LOKALID", "lokal": "LOKAL", "totalt": "TOTAL"}
 
 
+def csv_sokvag(ar: int) -> Path:
+    return UT_MAPP / f"mottagna_{ar}.csv"
+
+
 def hamta(url: str) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": "kungsbacka-i-siffror"})
     with urllib.request.urlopen(req, timeout=120,
@@ -113,7 +114,8 @@ def avkoda(raa: bytes) -> str:
 
 def tolka_csv(raa: bytes):
     """Läser filen till (datumkolumner, rader). Varje rad är en dict med
-    de fasta kolumnerna plus ett värde per datum (som int).
+    de fasta kolumnerna plus ett värde per datum (som int). SUMMA-raden
+    följer med (den saknar LOKALID); bygget sorterar bort den.
 
     Radbrytningarna normaliseras innan csv-modulen får texten: 2022 års
     fil är bruten med enbart CR, som csv.reader annars inte ser."""
@@ -165,77 +167,39 @@ def kontrollera_datum(datum: list, valdag: str) -> None:
         print(f"Varning: sista datumkolumnen är {datum[-1]}, inte valdagen {valdag}")
 
 
-def filtrera(rader: list) -> list:
-    ut = [r for r in rader if r["LÄNSKOD"] == LANSKOD
-          and (KOMMUNKOD is None or r["KOMMUNKOD"] == KOMMUNKOD)]
-    if not ut:
-        sys.exit(f"Inga rader för län {LANSKOD}, kommun {KOMMUNKOD}")
-    return ut
-
-
-def bygg_post(ar: int, datum: list, rader: list, hamtad: str) -> dict:
-    lokaler = []
-    for r in sorted(rader, key=lambda r: (r["LOKAL"], r["LOKALID"])):
-        summa = sum(r["perDag"].values())
-        if summa != r["TOTAL"]:
-            print(f"Varning: {r['LOKAL']}: dagarna summerar till {summa}, "
-                  f"TOTAL-kolumnen säger {r['TOTAL']}")
-        lokaler.append({
-            "lokalId": r["LOKALID"],
-            "namn": r["LOKAL"],
-            "perDag": r["perDag"],
-            "total": r["TOTAL"],
-        })
-    omrade = rader[0]["KOMMUN"] if KOMMUNKOD is not None else rader[0]["LÄN"]
-    v = VAL[ar]
-    return {
-        "ar": ar,
-        "valdag": v["valdag"],
-        "lanskod": LANSKOD,
-        "kommunkod": KOMMUNKOD,
-        "lan": rader[0]["LÄN"],
-        "omrade": omrade,
-        "kalla": v["kalla"],
-        "kallaUrl": v["url"],
-        "sidaUrl": v["sidaUrl"],
-        "preliminarTom": v["preliminarTom"],
-        "hamtad": hamtad,
-        "datum": datum,
-        "lokaler": lokaler,
-    }
-
-
-def utan_tidsstampel(post: dict) -> dict:
-    return {k: v for k, v in post.items() if k != "hamtad"}
+def las_hamtad() -> dict:
+    if HAMTAD_FIL.exists():
+        return json.loads(HAMTAD_FIL.read_text(encoding="utf-8"))
+    return {}
 
 
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--ar", type=int, default=2026, choices=sorted(VAL))
-    p.add_argument("--fil", help="läs en lokal CSV i stället för att hämta")
+    p.add_argument("--fil", help="läs en lokal fil i stället för att hämta")
     args = p.parse_args()
 
     v = VAL[args.ar]
     raa = Path(args.fil).read_bytes() if args.fil else hamta(v["url"])
     datum, rader = tolka_csv(raa)
     kontrollera_datum(datum, v["valdag"])
-    rader = filtrera(rader)
-
-    nu = datetime.now(TIDSZON).isoformat(timespec="minutes")
-    post = bygg_post(args.ar, datum, rader, nu)
+    lokaler = [r for r in rader if r["LOKALID"]]
+    if not lokaler:
+        sys.exit("Filen har inga lokalrader")
 
     UT_MAPP.mkdir(parents=True, exist_ok=True)
-    ut = UT_MAPP / f"fortidsroster_{args.ar}.json"
-    if ut.exists():
-        gammal = json.loads(ut.read_text(encoding="utf-8"))
-        if utan_tidsstampel(gammal) == utan_tidsstampel(post):
-            print(f"{ut.relative_to(ROT)}: oförändrad sedan {gammal['hamtad']}")
-            return
-    ut.write_text(json.dumps(post, ensure_ascii=False, indent=2) + "\n",
-                  encoding="utf-8")
-    total = sum(l["total"] for l in post["lokaler"])
-    print(f"Skrev {ut.relative_to(ROT)}: {len(post['lokaler'])} lokaler i "
-          f"{post['omrade']}, {total} förtidsröster t.o.m. senaste dag med data")
+    ut = csv_sokvag(args.ar)
+    hamtad = las_hamtad()
+    if ut.exists() and ut.read_bytes() == raa:
+        print(f"{ut.relative_to(ROT)}: oförändrad sedan {hamtad.get(str(args.ar), '?')}")
+        return
+    ut.write_bytes(raa)
+    hamtad[str(args.ar)] = datetime.now(TIDSZON).isoformat(timespec="minutes")
+    HAMTAD_FIL.write_text(json.dumps(dict(sorted(hamtad.items())), ensure_ascii=False, indent=2) + "\n",
+                          encoding="utf-8")
+    kommuner = {(r["LÄNSKOD"], r["KOMMUNKOD"]) for r in lokaler}
+    print(f"Skrev {ut.relative_to(ROT)}: {len(lokaler)} lokaler i {len(kommuner)} kommuner, "
+          f"{sum(r['TOTAL'] for r in lokaler)} förtidsröster t.o.m. senaste dag med data")
 
 
 if __name__ == "__main__":

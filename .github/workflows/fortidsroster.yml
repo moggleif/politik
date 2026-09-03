@@ -1,6 +1,6 @@
 # Hämtar Valmyndighetens mottagna förtidsröster två gånger om dagen under
-# förtidsröstningen 2026, filtrerar fram Kungsbacka och bygger om sidans
-# datafil. Valmyndigheten uppdaterar filen kl. 06 och 14 svensk tid
+# förtidsröstningen 2026 och bygger om sidans datafiler (en per kommun,
+# län och riket). Valmyndigheten uppdaterar filen kl. 06 och 14 svensk tid
 # (CEST = UTC+2 i september), så jobbet går kl. 04.40 och 12.40 UTC.
 # Committar bara när innehållet faktiskt ändrats: hämtskriptet skriver
 # inte om filen om datat är oförändrat, och tidsstämpeln "hamtad" anger
@@ -54,12 +54,12 @@ jobs:
       - name: Committa om något ändrats
         if: steps.aktuell.outputs.kor == 'ja'
         run: |
-          if git diff --quiet -- data/fortidsroster docs/data-fortidsroster.json; then
+          git add -A data/fortidsroster docs/data-fortidsroster
+          if git diff --cached --quiet; then
             echo "Inga ändringar."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/fortidsroster docs/data-fortidsroster.json
-          git commit -m "Förtidsröster: $(python3 -c "import json;d=json.load(open('docs/data-fortidsroster.json'));v=d['val'][str(d['aktuellt'])];print(f\"{v['total']} röster t.o.m. {v['dagar'][-1]['datum']}\")")"
+          git commit -m "Förtidsröster: $(python3 -c "import json;d=json.load(open('docs/data-fortidsroster/00.json'));v=d['val'][str(d['aktuellt'])];print(f\"{v['total']} röster i riket t.o.m. {v['dagar'][-1]['datum']}\")")"
           git push origin HEAD:main

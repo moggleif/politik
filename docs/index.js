@@ -301,7 +301,8 @@
   hamta("data-amnesbetyg.json").then(visaAmnesbetyg).catch(function () {});
   hamta("data-befolkning.json").then(visaBarn).catch(function () {});
   hamta("data-nian-gymnasiet.json").then(visaNian).catch(function () {});
-  hamta("data-fortidsroster.json").then(visaVal).catch(function () {});
+  hamta("data-fortidsroster/" + (el("fakta-val").getAttribute("data-omrade") || "1384") + ".json")
+    .then(visaVal).catch(function () {});
 
   Promise.all([
     hamta("data.json").catch(function () { return null; }),
