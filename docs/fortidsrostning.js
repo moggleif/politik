@@ -1,11 +1,13 @@
-/* Förtidsröstningen i Kungsbacka — dag för dag inför valet 2026, jämförd
-   med riksdagsvalet 2022 vid samma antal dagar kvar till valdagen.
-   Läser docs/data-fortidsroster.json, byggd av scripts/build_fortidsroster.py
-   ur Valmyndighetens öppna data.
+/* Förtidsröstningen — dag för dag inför valet 2026, jämförd med
+   riksdagsvalet 2022 vid samma antal dagar kvar till valdagen, för
+   valfri kommun, valfritt län eller hela riket.
+   Läser docs/data-fortidsroster/index.json (områdeslistan) och därefter
+   docs/data-fortidsroster/<kod>.json för det valda området, båda byggda
+   av scripts/build_fortidsroster.py ur Valmyndighetens öppna data.
 
-   Datafilen innehåller bara fakta. Vilken dag som pågår (och därför har
-   en ofullständig siffra) avgörs här, mot dagens datum i svensk tid när
-   sidan laddas – inte mot hämtningstiden, som kan vara från i går.
+   Datafilerna innehåller bara fakta. Vilken dag som pågår (och därför
+   har en ofullständig siffra) avgörs här, mot dagens datum i svensk tid
+   när sidan laddas – inte mot hämtningstiden, som kan vara från i går.
    Jämförelsen med 2022 görs vid senaste avslutade dag.
 
    Sidan redovisar valdeltagande, inte opinion. */
@@ -19,15 +21,16 @@
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
-  var DATAFIL = "data-fortidsroster.json";
+  var MAPP = "data-fortidsroster/";
+  var INDEXFIL = MAPP + "index.json";
 
   /* Det aktuella valet i webbplatsens mörkblå, det förra i neutral grå
-     som referens. Pågående dag: ljusblå med mörkblå kant. */
+     som referens. Pågående dag: ljusblå med mörkblå kant. Äldre val
+     ritas bara i huvudgrafen: tunna, ljusare grå linjer som skiljs åt
+     med streckning, inte med färg. */
   var FARG_NU = FARG.blaMork;
   var FARG_DA = "#8f8d85";
   var FARG_PAGAR = FARG.blaLjus;
-  /* Äldre val ritas bara i huvudgrafen: tunna, ljusare grå linjer som
-     skiljs åt med streckning, inte med färg. */
   var FARG_ALDRE = "#adaba2";
   var STRECK_ALDRE = [[2, 3], [9, 3, 2, 3], [1, 3]];
 
@@ -60,6 +63,12 @@
     if (k === 0) return "valdagen";
     if (k === 1) return "1 dag kvar";
     return k + " dagar kvar";
+  }
+
+  /* "i Kungsbacka", "i Hallands län", "i hela riket" */
+  function iOmradet(data) {
+    if (data.typ === "riket") return "i hela riket";
+    return "i " + data.omrade;
   }
 
   function dagVid(dagar, kvar) {
@@ -247,7 +256,13 @@
   }
 
   function ritaAndel(L, nu, da) {
-    if (!L.rbNu) { el("sektion-andel").remove(); return; }
+    var sektion = el("sektion-andel");
+    if (!L.rbNu) {
+      K.taBortDiagram("diagram-andel");
+      sektion.hidden = true;
+      return;
+    }
+    sektion.hidden = false;
     ritaKurva("diagram-andel", L, nu, da,
       function (val) {
         var rb = val.rostberattigade ? val.rostberattigade.riksdag : null;
@@ -318,35 +333,46 @@
 
   /* ---------- Topplista över lokaler ---------- */
 
-  function lokalRad(l, i) {
-    return "<tr><td>" + (i + 1) + "</td><th scope=\"row\">" + esc(l.namn) + "</th><td>" +
-      talSv(l.total) + "</td><td>" + (l.andel === null ? "&ndash;" : talSv(l.andel, 1) + "&nbsp;%") +
-      "</td><td>" + esc(l.dagarMedRoster) + "</td><td>" + talSv(l.storstaDag) + "</td></tr>";
+  function lokalRad(medKommun) {
+    return function (l, i) {
+      return "<tr><td>" + (i + 1) + "</td><th scope=\"row\">" + esc(l.namn) + "</th>" +
+        (medKommun ? "<td>" + esc(l.kommun) + "</td>" : "") + "<td>" +
+        talSv(l.total) + "</td><td>" + (l.andel === null ? "&ndash;" : talSv(l.andel, 1) + "&nbsp;%") +
+        "</td><td>" + esc(l.dagarMedRoster) + "</td><td>" + talSv(l.storstaDag) + "</td></tr>";
+    };
   }
 
-  function lokalHuvud() {
+  function lokalHuvud(medKommun) {
     return "<thead><tr><th scope=\"col\">#</th><th scope=\"col\">Röstningslokal</th>" +
+      (medKommun ? "<th scope=\"col\">Kommun</th>" : "") +
       "<th scope=\"col\">Röster</th><th scope=\"col\">Andel</th>" +
       "<th scope=\"col\">Dagar med röster</th><th scope=\"col\">Största dag</th></tr></thead>";
   }
 
   function topplista(L, nu) {
+    var medKommun = nu.typ !== "kommun";
     var med = nu.lokaler.filter(function (l) { return l.total > 0; });
-    el("tabell-lokaler").innerHTML = lokalHuvud() + "<tbody>" + med.map(lokalRad).join("") + "</tbody>";
-    el("tabell-lokaler-alla").innerHTML = lokalHuvud() + "<tbody>" + nu.lokaler.map(lokalRad).join("") + "</tbody>";
+    el("tabell-lokaler").innerHTML = lokalHuvud(medKommun) + "<tbody>" +
+      med.map(lokalRad(medKommun)).join("") + "</tbody>";
+    var alla = el("detalj-lokaler-alla");
+    alla.hidden = nu.lokalerKapad;
+    el("tabell-lokaler-alla").innerHTML = nu.lokalerKapad ? "" :
+      lokalHuvud(medKommun) + "<tbody>" + nu.lokaler.map(lokalRad(medKommun)).join("") + "</tbody>";
     var sistaDag = L.dagar.length ? L.dagar[L.dagar.length - 1] : null;
-    el("kalla-lokaler").textContent = "Källa: Valmyndigheten. " + med.length + " av " +
-      nu.lokaler.length + " lokaler har tagit emot röster" +
+    el("kalla-lokaler").textContent = "Källa: Valmyndigheten. " +
+      (nu.lokalerKapad
+        ? "De " + med.length + " största av " + talSv(nu.antalLokaler) + " lokaler"
+        : med.length + " av " + nu.antalLokaler + " lokaler har tagit emot röster") +
       (sistaDag ? " t.o.m. " + datumSv(sistaDag.datum) : "") + ".";
   }
 
   /* ---------- Kort sagt ---------- */
 
-  function kortSagt(L, nu, da) {
+  function kortSagt(data, L, nu, da) {
     var p = [];
     if (L.sista) {
-      p.push("<strong>" + talSv(L.sista.ack) + "</strong> förtidsröster t.o.m. " +
-        esc(datumSv(L.sista.datum)) + ", " + kvarText(L.sista.kvar) +
+      p.push("<strong>" + talSv(L.sista.ack) + "</strong> förtidsröster " + esc(iOmradet(data)) +
+        " t.o.m. " + esc(datumSv(L.sista.datum)) + ", " + kvarText(L.sista.kvar) +
         (L.andelNu !== null ? " &ndash; " + talSv(L.andelNu, 1) + "&nbsp;% av de röstberättigade" : "") + ".");
     }
     if (L.daVid) {
@@ -356,13 +382,14 @@
         (L.diffPct === null ? "" : " (" + teckenPct(L.diffPct) + ")") + ".");
     }
     if (nu.lokaler.length && nu.lokaler[0].total > 0) {
-      p.push("Flest på <strong>" + esc(nu.lokaler[0].namn) + "</strong>: " +
+      p.push("Flest på <strong>" + esc(nu.lokaler[0].namn) + "</strong>" +
+        (nu.typ !== "kommun" ? " i " + esc(nu.lokaler[0].kommun) : "") + ": " +
         talSv(nu.lokaler[0].andel, 1) + "&nbsp;% av rösterna.");
     }
     K.visaKortSagt(p);
   }
 
-  /* ---------- Källor, varning, start ---------- */
+  /* ---------- Källor, ångerröster, varning ---------- */
 
   function kallor(nu, da, aldre) {
     var rader = [];
@@ -377,7 +404,7 @@
         var rb = v.rostberattigade, rurl = sakerUrl(rb.kallaUrl);
         rader.push("<li><span class=\"titel\">" + esc(rb.kalla) + "</span><br>" +
           "<span class=\"detalj\">" + talSv(rb.riksdag) + " röstberättigade i riksdagsvalet, " +
-          esc(rb.valdistrikt) + " valdistrikt. Hämtad " + datumTidSv(rb.hamtad) + ".</span>" +
+          talSv(rb.valdistrikt) + " valdistrikt. Hämtad " + datumTidSv(rb.hamtad) + ".</span>" +
           "<span class=\"lankar\">" + (rurl ? '<a href="' + rurl + '">Excel-filen</a>' : "") + "</span></li>");
       }
     });
@@ -401,11 +428,11 @@
       (andel !== null ? ", " + talSv(andel, 2) + "&nbsp;% av förtidsrösterna" : "") +
       (senast.andelAvRostande ? " (" + talSv(senast.andelAvRostande, 2) + "&nbsp;% av alla röstande)" : "") +
       (ar.length > 1 ? "; " + esc(ar[1]) + ": " + talSv(a.val[String(ar[1])].angerroster) : "") + ".";
-    if (andel !== null && da && da.ar === ar[0] && da.total) {
-      text += " Siffran finns inte per kommun. Samma andel på " + esc(da.omrade) + "s " +
-        talSv(da.total) + " förtidsröster " + esc(da.ar) + " motsvarar ungefär " +
+    if (andel !== null && da && da.ar === ar[0] && da.total && data.typ !== "riket") {
+      text += " Siffran finns inte per kommun. Samma andel på de " + talSv(da.total) +
+        " förtidsrösterna " + esc(iOmradet(data)) + " " + esc(da.ar) + " motsvarar ungefär " +
         talSv(Math.round(andel * da.total / 100 / 10) * 10) + ".";
-    } else {
+    } else if (data.typ !== "riket") {
       text += " Siffran finns inte per kommun.";
     }
     var url = sakerUrl(a.kallaUrl);
@@ -415,7 +442,9 @@
 
   function varning(data, nu) {
     var v = el("varning");
-    if (!v || nu.klart) return;
+    if (!v) return;
+    v.hidden = true;
+    if (nu.klart) return;
     var senast = Date.parse(data.senastUppdaterad);
     var slut = data.preliminarTom ? Date.parse(data.preliminarTom + "T23:59:59+02:00") : NaN;
     if (isNaN(senast) || (!isNaN(slut) && Date.now() > slut)) return;
@@ -429,7 +458,9 @@
     }
   }
 
-  function start(data) {
+  /* ---------- Ett område ---------- */
+
+  function visa(data) {
     var nu = data.val[String(data.aktuellt)];
     var da = data.forra ? data.val[String(data.forra)] : null;
     /* Äldre val än det förra: bara i huvudgrafen, nyast först */
@@ -437,6 +468,9 @@
       return a !== data.aktuellt && a !== data.forra;
     }).sort(function (a, b) { return b - a; }).map(function (a) { return data.val[String(a)]; });
     var L = lage(nu, da, K.idagSv());
+
+    el("omrade-namn").textContent = iOmradet(data);
+    document.title = "Hur många har förtidsröstat " + iOmradet(data) + "?";
 
     K.visaMeta({
       kalla: "Valmyndigheten",
@@ -448,14 +482,14 @@
     varning(data, nu);
     nyckeltal(data, L, nu, da);
     angerNot(data, da);
-    kortSagt(L, nu, da);
+    kortSagt(data, L, nu, da);
     ritaAck(L, nu, da, aldre);
     ritaAndel(L, nu, da);
     ritaDag(L, nu, da);
     topplista(L, nu);
     kallor(nu, da, aldre);
 
-    ["nyckeltal", "ack", "andel", "dag", "lokaler", "kallor", "om"].forEach(function (id) {
+    ["nyckeltal", "ack", "dag", "lokaler", "kallor", "om"].forEach(function (id) {
       var s = el("sektion-" + id);
       if (s) s.hidden = false;
     });
@@ -463,13 +497,63 @@
       (nu.klart ? ". Perioden är avslutad." : ".");
   }
 
-  K.starta(DATAFIL, {
-    init: start,
-    tomt: function (data) {
-      var nu = data.val && data.val[String(data.aktuellt)];
-      return !nu || !nu.dagar || nu.dagar.length === 0;
-    },
-    tomtText: "Valmyndigheten har ännu inte publicerat några mottagna förtidsröster. " +
-      "Förtidsröstningen börjar den 26 augusti 2026."
-  });
+  function tomt(data) {
+    var nu = data.val && data.val[String(data.aktuellt)];
+    return !nu || !nu.dagar || nu.dagar.length === 0;
+  }
+
+  function laddaOmrade(kod) {
+    var status = el("status");
+    fetch(MAPP + encodeURIComponent(kod) + ".json").then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    }).then(function (data) {
+      if (tomt(data)) {
+        K.visaStatus("<strong>Datat är inte på plats ännu.</strong> Valmyndigheten har ännu " +
+          "inte publicerat några mottagna förtidsröster. Förtidsröstningen börjar den 26 augusti 2026.");
+        return;
+      }
+      status.hidden = true;
+      visa(data);
+    }).catch(function (fel) {
+      K.visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " +
+        esc(fel.message) + " (" + esc(kod) + ")");
+    });
+  }
+
+  /* ---------- Väljaren ----------
+     Områdeslistan fyller ett <select> i tre grupper. Valet speglas i
+     adressraden som ?omrade=<slug> via K.kopplaValjare, som också
+     hanterar bakåt/framåt. */
+
+  function startIndex(index) {
+    var valjare = el("valj-omrade");
+    var perSlug = {};
+    var grupper = [["riket", "Riket"], ["lan", "Län"], ["kommun", "Kommuner"]];
+    grupper.forEach(function (g) {
+      var og = document.createElement("optgroup");
+      og.label = g[1];
+      index.omraden.filter(function (o) { return o.typ === g[0]; }).forEach(function (o) {
+        var opt = document.createElement("option");
+        opt.value = o.slug;
+        opt.textContent = o.namn;
+        og.appendChild(opt);
+        perSlug[o.slug] = o.kod;
+      });
+      if (og.children.length) valjare.appendChild(og);
+    });
+
+    var standard = document.body.getAttribute("data-omrade") || index.standard;
+    index.omraden.forEach(function (o) { if (o.kod === standard) valjare.value = o.slug; });
+
+    function ritaOm() {
+      var kod = perSlug[valjare.value];
+      if (kod) laddaOmrade(kod);
+    }
+    K.kopplaValjare(valjare, "omrade", ritaOm);
+    el("valjarrad").hidden = false;
+    ritaOm();
+  }
+
+  K.starta(INDEXFIL, { init: startIndex });
 })();

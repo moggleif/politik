@@ -57,7 +57,12 @@ inga prognossiffror alls, och ett test i `tests/` stämmer av att ordet
 ## Förtidsröster (Valmyndigheten)
 
 Hämtas med `python3 scripts/hamta_fortidsroster.py` (2026) och
-`--ar 2022` (den historiska) till `data/fortidsroster/`.
+`--ar <år>` (de historiska) till `data/fortidsroster/mottagna_<år>.csv`,
+orörda. Filerna täcker hela landet: en rad per röstningslokal (2 621–3 346
+beroende på år) i alla 290 kommuner, plus en SUMMA-rad för riket utan
+lokal-id, som bygget sorterar bort. Länskoderna är de vanliga 01–25
+(21 län); inga utlandsrader förekommer. Bygget ger en fil per kommun,
+län och rike.
 
 | Val | Fil | Format |
 |---|---|---|
@@ -65,9 +70,13 @@ Hämtas med `python3 scripts/hamta_fortidsroster.py` (2026) och
 | 2022 | <https://data.val.se/filer/val2022/rostmottagning/fortidsroster.csv> | Latin-1, enbart CR som radbrytning, rubriker `2022-08-24 00:00:00` … |
 | 2018, 2014, 2010 | `https://historik.val.se/val/val<år>/rostmottagning/fortidsrostning/mottagna_fortidsroster.skv` | Latin-1, LF, rubriker `lan;län;kom;kommun;lokalid;lokal;<datum>…;Totalt` |
 
-Båda har kolumnerna `LÄNSKOD;LÄN;KOMMUNKOD;KOMMUN;LOKALID;LOKAL` följt
-av en kolumn per dag och sist `TOTAL`. Kungsbacka är länskod 13 och
-kommunkod 84 båda åren; lokal-id:na är däremot olika serier (`1384xxx`
+Alla har kolumnerna `LÄNSKOD;LÄN;KOMMUNKOD;KOMMUN;LOKALID;LOKAL` följt
+av en kolumn per dag och sist `TOTAL`. Länsnamnen skrivs "Halland" i
+2026 års fil och "Hallands län" i de äldre; bygget använder den
+fullständiga formen, eftersom den korta krockar med kommunerna
+Stockholm, Uppsala, Gotland, Kalmar, Jönköping och Örebro i adressen
+`?omrade=`. Håbo och Habo får länet efter sig av samma skäl. Kungsbacka
+är länskod 13 och kommunkod 84 alla åren; lokal-id:na är däremot olika serier (`1384xxx`
 2026, `1000086xx` 2022) och lokalerna matchas därför aldrig mellan åren.
 2026 års fil listar 26 lokaler, 2022 års 24. Filen för 2026 uppdateras
 kl. 06 och 14 varje dag under förtidsröstningen, och Valmyndigheten
@@ -85,14 +94,17 @@ till `data/fortidsroster/rostberattigade.json`, ur två Excel-filer på
 val.se som läses med standardbiblioteket:
 
 - 2026: *Antal röstberättigade per valdistrikt och valtyp, 14 augusti
-  2026* (kvalifikationsdagen). Kungsbacka: 66 505 röstberättigade i
-  riksdagsvalet, 67 149 i kommun- och regionvalen, 68 696 i minst ett
-  val, 46 valdistrikt.
+  2026* (kvalifikationsdagen), 6 312 valdistrikt. Summeras per kommun,
+  län och rike. Kungsbacka: 66 505 röstberättigade i riksdagsvalet,
+  67 149 i kommun- och regionvalen, 68 696 i minst ett val, 46
+  valdistrikt. Riket: 8 046 725 i riksdagsvalet. Gotland saknar
+  regionval (kommunen är också region) och har tom cell i den kolumnen.
 - 2022: *Röster per distrikt, slutligt antal röster inklusive totalt
   valdeltagande, riksdagsvalet 2022*. Antalet röstberättigade upprepas på
-  varje partirad och summeras därför per distrikt. Kungsbacka: 64 298.
-  Röstlängden fastställs på kvalifikationsdagen (12 augusti 2022), så
-  talet är detsamma som under förtidsröstningen.
+  varje partirad och summeras därför per distrikt; uppsamlingsdistrikten
+  (0 röstberättigade) räknas inte som valdistrikt. Kungsbacka: 64 298,
+  riket 7 775 390. Röstlängden fastställs på kvalifikationsdagen (12
+  augusti 2022), så talet är detsamma som under förtidsröstningen.
 
 Alla fem valen har 19 dagar från onsdagen 18 dagar före valdagen till
 och med valdagen, så "dagar kvar"-skalan är densamma. Länken till de

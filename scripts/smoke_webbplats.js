@@ -28,6 +28,9 @@ const DIAGRAMSIDOR = [
   "befolkningsprognos.html", "gymnasiealdern.html", "barn-och-unga.html",
   "amnesbetyg.html", "nian-till-gymnasiet.html", "meritvarden.html",
   "slutbetyg.html", "antagning-till-examen.html", "fortidsrostning.html",
+  /* Samma sida för ett län och för riket – servern bortser från
+     frågesträngen, sidan läser den. */
+  "fortidsrostning.html?omrade=hallands-lan", "fortidsrostning.html?omrade=hela-riket",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
 

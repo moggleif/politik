@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Hur många har förtidsröstat i Kungsbacka?</title>
-<meta name="description" content="Förtidsröstningen i Kungsbacka kommun inför valet 2026, dag för dag och per röstningslokal, jämförd med riksdagsvalet 2022 vid samma antal dagar kvar till valdagen. Källa: Valmyndigheten.">
+<meta name="description" content="Förtidsröstningen inför valet 2026 i valfri kommun, län eller hela riket, dag för dag och per röstningslokal, jämförd med riksdagsvalet 2022 vid samma antal dagar kvar till valdagen. Källa: Valmyndigheten.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-omrade="1384">
 
 <a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
 
@@ -36,11 +36,12 @@
       </span>
       <a href="metod.html">Metod</a>
     </nav>
-    <h1>Hur många har förtidsröstat i Kungsbacka?</h1>
+    <h1>Hur många har förtidsröstat <span id="omrade-namn">i Kungsbacka</span>?</h1>
     <p class="ingress">
-      Förtidsröster mottagna i Kungsbacka kommuns röstningslokaler inför
-      valet den 13 september 2026, dag för dag, jämfört med riksdagsvalet
-      2022 vid samma antal dagar kvar till valdagen. Källa: Valmyndigheten.
+      Förtidsröster mottagna i områdets röstningslokaler inför valet den
+      13 september 2026, dag för dag, jämfört med riksdagsvalet 2022 vid
+      samma antal dagar kvar till valdagen. Välj kommun, län eller hela
+      riket. Källa: Valmyndigheten.
       <strong>Sidan visar hur många som röstat &ndash; inte vad de röstat
       på.</strong>
     </p>
@@ -49,6 +50,13 @@
 </header>
 
 <main id="huvudinnehall">
+
+  <div class="valjarrad" id="valjarrad" hidden>
+    <div class="valj-ar">
+      <label for="valj-omrade">Område</label>
+      <select id="valj-omrade"></select>
+    </div>
+  </div>
 
   <div id="status" class="status-ruta" hidden></div>
   <div id="varning" class="status-ruta" role="status" hidden></div>
@@ -116,7 +124,7 @@
       <div class="tabell-rull"><table id="tabell-lokaler"></table></div>
       <p class="kalla-rad" id="kalla-lokaler"></p>
     </div>
-    <details>
+    <details id="detalj-lokaler-alla">
       <summary>Visa alla lokaler</summary>
       <div class="tabell-rull"><table id="tabell-lokaler-alla"></table></div>
     </details>
@@ -132,7 +140,7 @@
     <p class="forklaring">
       <strong>Valdeltagande, inte opinion:</strong> antalet förtidsröster
       säger ingenting om vilket parti eller block som får dem. Talen är
-      röster mottagna i Kungsbackas lokaler, oavsett var väljaren är
+      röster mottagna i områdets lokaler, oavsett var väljaren är
       folkbokförd, så andelen av de röstberättigade är ungefärlig. Röster
       på valdagen i förtidsröstningslokaler ingår (0 dagar kvar).
     </p>

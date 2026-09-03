@@ -4,7 +4,7 @@
 Tre kontroller, alla utan nätverk:
 
   1. Varje relativ href/src i docs/*.html ska peka på en fil i docs/.
-  2. Varje docs/data*.json ska gå att läsa som JSON.
+  2. Varje docs/data*.json och docs/data-*/*.json ska gå att läsa som JSON.
   3. Varje lokalPdf/lokalFil i data/**/*.json ska peka på en fil i docs/.
 
 Körs:  python3 scripts/kontrollera_lankar.py
@@ -38,7 +38,7 @@ for html in sorted(DOCS.glob("*.html")):
         if not mal.is_file():
             fel.append(f"{html.name}: {url}")
 
-for datafil in sorted(DOCS.glob("data*.json")):
+for datafil in sorted(list(DOCS.glob("data*.json")) + list(DOCS.glob("data-*/*.json"))):
     try:
         json.loads(datafil.read_text(encoding="utf-8"))
     except ValueError as e:

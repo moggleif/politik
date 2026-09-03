@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hämtar antalet röstberättigade i det område sidan följer, ur
+"""Hämtar antalet röstberättigade per kommun, län och rike ur
 Valmyndighetens statistik – nämnaren för "andel av de röstberättigade"
 på förtidsröstningssidan.
 
@@ -21,7 +21,9 @@ Jämförelsen mellan åren görs därför på röstberättigade i *riksdagsvalet
 som finns för båda. Personer som bara får rösta i kommun- och regionvalen
 (utan svenskt medborgarskap) ingår inte i den nämnaren.
 
-Området styrs av samma konstanter som hamta_fortidsroster.py.
+Valdistriktskoden börjar med länskod (två siffror) och kommunkod (två
+siffror). Summorna sparas per kommun (fyra siffror), per län (två
+siffror) och för riket ("00") i data/fortidsroster/rostberattigade.json.
 
 Körs:  python3 scripts/hamta_rostberattigade.py
 """
@@ -32,14 +34,15 @@ import sys
 import urllib.request
 import xml.etree.ElementTree as ET
 import zipfile
+from collections import defaultdict
 from datetime import date
 from io import BytesIO
 from pathlib import Path
 
-from hamta_fortidsroster import KOMMUNKOD, LANSKOD
-
 ROT = Path(__file__).resolve().parent.parent
 UT = ROT / "data" / "fortidsroster" / "rostberattigade.json"
+
+RIKET = "00"
 
 KALLOR = {
     2026: {
@@ -113,38 +116,52 @@ def kolumn(rubriker, namn):
     return rensade.index(namn)
 
 
-def i_omradet(distriktskod: str) -> bool:
-    """Valdistriktskoden börjar med län (2 siffror) + kommun (2 siffror)."""
-    kod = (distriktskod or "").strip()
-    return kod.startswith(LANSKOD) and (KOMMUNKOD is None or kod.startswith(LANSKOD + KOMMUNKOD))
+def distriktskod(cell) -> str:
+    """Valdistriktskoden som sträng, eller "" för rader som inte är
+    distrikt (summeringsrader, tomma rader). Riktiga koder är sex siffror
+    (uppsamlingsdistrikt) eller åtta (valdistrikt)."""
+    kod = (cell or "").strip()
+    return kod if kod.isdigit() and len(kod) in (6, 8) else ""
+
+
+def omraden_for(kod: str):
+    """Kommun, län och rike som distriktet räknas till."""
+    return kod[:4], kod[:2], RIKET
+
+
+def summera(per_distrikt: dict) -> dict:
+    """{distriktskod: {fält: tal}} -> {områdeskod: {fält: summa, valdistrikt: n}}.
+    Uppsamlingsdistrikt (0 röstberättigade) räknas inte som valdistrikt."""
+    ut = defaultdict(lambda: defaultdict(int))
+    for kod, falt in per_distrikt.items():
+        for omrade in omraden_for(kod):
+            for k, v in falt.items():
+                ut[omrade][k] += v
+            if falt.get("riksdag", 0) > 0:
+                ut[omrade]["valdistrikt"] += 1
+    return {k: dict(v) for k, v in sorted(ut.items())}
 
 
 def rostberattigade_2026(rader) -> dict:
     rub = rader[0]
     k_kod = kolumn(rub, "Valdistriktskod")
-    k_kommun = kolumn(rub, "Kommun")
-    k_lan = kolumn(rub, "Län")
     falt = {
         "riksdag": kolumn(rub, "Röstberättigade val till riksdagen"),
         "kommun": kolumn(rub, "Röstberättigade val till kommunfullmäktige"),
         "region": kolumn(rub, "Röstberättigade val till regionfullmäktige"),
         "minstEtt": kolumn(rub, "Röstberättigade minst ett val"),
     }
-    summa = {k: 0 for k in falt}
-    distrikt = 0
-    namn = None
+    per_distrikt = {}
     for rad in rader[1:]:
-        if len(rad) <= k_kod or not i_omradet(rad[k_kod]):
+        kod = distriktskod(rad[k_kod]) if len(rad) > k_kod else ""
+        if not kod:
             continue
-        distrikt += 1
-        namn = rad[k_kommun] if KOMMUNKOD is not None else rad[k_lan]
-        for k, i in falt.items():
-            summa[k] += int(float(rad[i]))
-    if not distrikt:
-        sys.exit("Inga valdistrikt i området (2026)")
-    summa["valdistrikt"] = distrikt
-    summa["omrade"] = namn
-    return summa
+        if kod in per_distrikt:
+            sys.exit(f"Distrikt {kod} förekommer två gånger")
+        # Gotland har inget regionval (kommunen är också region): tom cell = 0
+        per_distrikt[kod] = {k: int(float(rad[i])) if rad[i] not in (None, "") else 0
+                             for k, i in falt.items()}
+    return summera(per_distrikt)
 
 
 def rostberattigade_2022(rader) -> dict:
@@ -154,42 +171,31 @@ def rostberattigade_2022(rader) -> dict:
     rub = rader[0]
     k_kod = kolumn(rub, "Valdistriktskod")
     k_rb = kolumn(rub, "Röstberättigade")
-    k_kommun = kolumn(rub, "Kommun")
-    k_lan = kolumn(rub, "Län")
     per_distrikt = {}
-    namn = None
     for rad in rader[1:]:
-        if len(rad) <= k_kod or not i_omradet(rad[k_kod]):
+        kod = distriktskod(rad[k_kod]) if len(rad) > k_kod else ""
+        if not kod:
             continue
-        kod = rad[k_kod].strip()
         varde = int(float(rad[k_rb]))
-        if kod in per_distrikt and per_distrikt[kod] != varde:
+        if kod in per_distrikt and per_distrikt[kod]["riksdag"] != varde:
             sys.exit(f"Distrikt {kod} har olika antal röstberättigade på olika rader")
-        per_distrikt[kod] = varde
-        namn = rad[k_kommun] if KOMMUNKOD is not None else rad[k_lan]
-    if not per_distrikt:
-        sys.exit("Inga valdistrikt i området (2022)")
-    return {
-        "riksdag": sum(per_distrikt.values()),
-        # Uppsamlingsdistriktet har inga röstberättigade och räknas inte
-        "valdistrikt": sum(1 for v in per_distrikt.values() if v > 0),
-        "omrade": namn,
-    }
+        per_distrikt[kod] = {"riksdag": varde}
+    return summera(per_distrikt)
 
 
 def main() -> None:
-    ut = {"lanskod": LANSKOD, "kommunkod": KOMMUNKOD, "val": {}}
+    ut = {"riket": RIKET, "val": {}}
     for ar, k in KALLOR.items():
         print(f"Hämtar {ar} …")
         rader = las_blad(hamta(k["url"]), k["blad"])
-        summa = rostberattigade_2026(rader) if ar == 2026 else rostberattigade_2022(rader)
-        ut["omrade"] = summa.pop("omrade")
-        post = {"kvalifikationsdag": k["kvalifikationsdag"]}
-        post.update(summa)
-        post.update({"kalla": k["kalla"], "kallaUrl": k["url"],
-                     "sidaUrl": k["sidaUrl"], "hamtad": date.today().isoformat()})
-        ut["val"][str(ar)] = post
-        print(f"  {ut['omrade']} {ar}: {summa}")
+        omraden = rostberattigade_2026(rader) if ar == 2026 else rostberattigade_2022(rader)
+        ut["val"][str(ar)] = {
+            "kvalifikationsdag": k["kvalifikationsdag"],
+            "kalla": k["kalla"], "kallaUrl": k["url"], "sidaUrl": k["sidaUrl"],
+            "hamtad": date.today().isoformat(),
+            "omraden": omraden,
+        }
+        print(f"  {len(omraden)} områden; riket: {omraden[RIKET]}")
     UT.parent.mkdir(parents=True, exist_ok=True)
     UT.write_text(json.dumps(ut, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Skrev {UT.relative_to(ROT)}")
