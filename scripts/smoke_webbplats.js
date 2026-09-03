@@ -93,6 +93,16 @@ async function granska(browser, bas, sida, medDiagram) {
 
   const svar = await page.goto(bas + "/" + sida, { waitUntil: "networkidle" });
   if (!svar || svar.status() !== 200) fel.push("sidan svarade " + (svar ? svar.status() : "inget"));
+  /* "networkidle" kan infalla innan sidan börjat hämta sina datafiler:
+     på en kall maskin tar det ibland över en halv sekund att köra
+     skripten efter att de laddats. Vänta därför in att sidan ritat sina
+     tabeller (eller visat sin felruta) i stället för en fast tid. */
+  if (medDiagram) {
+    await page.waitForFunction(function () {
+      const s = document.getElementById("status");
+      return document.querySelector("table tbody tr") || (s && !s.hidden);
+    }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+  }
   await page.waitForTimeout(400);
 
   const inneh = await page.evaluate(function () {
