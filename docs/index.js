@@ -266,21 +266,26 @@
   function visaVal(data) {
     if (!data || !data.val) return;
     var nu = data.val[String(data.aktuellt)];
+    var da = data.forra ? data.val[String(data.forra)] : null;
     if (!nu || !nu.dagar || !nu.dagar.length) return;
-    var j = data.jamforelse;
-    var rader = [];
-    if (nu.sistaAvslutadDag) {
-      rader.push(rad("Förtidsröster t.o.m. " + esc(nu.sistaAvslutadDag),
-        talSv(nu.totalAvslutad)));
+    /* Dagen som pågår räknas inte – dess siffra är ofullständig */
+    var idag = K.idagSv();
+    var klara = nu.dagar.filter(function (d) { return d.datum < idag; });
+    var sista = klara[klara.length - 1];
+    if (!sista) return;
+    var rb = nu.rostberattigade && nu.rostberattigade.riksdag;
+    var rader = [rad("Förtidsröster t.o.m. " + esc(sista.datum),
+      talSv(sista.ack) + (rb ? " av " + talSv(rb) + " röstberättigade" : ""))];
+    var daVid = null;
+    if (da) da.dagar.forEach(function (d) { if (d.kvar === sista.kvar) daVid = d; });
+    if (daVid) {
+      var diff = sista.ack - daVid.ack;
+      rader.push(rad(esc(data.forra) + " vid samma punkt (" + sista.kvar + " dagar kvar)",
+        talSv(daVid.ack) + " (" + (diff > 0 ? "+" : diff < 0 ? "−" : "") + talSv(Math.abs(diff)) + ")"));
     }
-    if (j) {
-      rader.push(rad(esc(data.forra) + " vid samma punkt (" + j.kvar + " dagar kvar)",
-        talSv(j.antalDa) + " (" + (j.diff > 0 ? "+" : j.diff < 0 ? "−" : "") +
-        talSv(Math.abs(j.diff)) + ")"));
-    }
-    if (nu.andelAvRostberattigade !== null) {
+    if (rb) {
       rader.push(rad("Andel av de röstberättigade i riksdagsvalet",
-        talSv(nu.andelAvRostberattigade, 1) + " %"));
+        talSv(100 * sista.ack / rb, 1) + " %"));
     }
     fyll("fakta-val", rader);
     el("undertext-val").textContent = nu.klart

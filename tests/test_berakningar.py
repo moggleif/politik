@@ -799,13 +799,11 @@ class TestFortidsroster(unittest.TestCase):
         self.assertFalse(self.nu["klart"])
         self.assertTrue(self.da["klart"])
 
-    def test_hamtningsdagen_pagar(self):
-        self.assertEqual(self.nu["pagaende"]["datum"], "2026-09-11")
-        self.assertTrue(self.nu["dagar"][-1]["pagar"])
-        self.assertFalse(self.nu["dagar"][0]["pagar"])
-        self.assertEqual(self.nu["total"], 200)           # inkl. den pågående
-        self.assertEqual(self.nu["totalAvslutad"], 120)   # bara torsdagen
-        self.assertEqual(self.nu["sistaAvslutadKvar"], 3)
+    def test_hamtningsdagen_tas_med_om_den_har_roster(self):
+        """Vilken dag som pågår avgörs i webbläsaren; bygget tar bara med
+        dagen om den har röster."""
+        self.assertEqual(self.nu["total"], 200)
+        self.assertEqual(self.nu["dagar"][-1]["ack"], 200)
 
     def test_hamtningsdag_utan_roster_tas_inte_med(self):
         """Morgonkörningen kl. 06: dagens kolumn är 0 och ska inte synas."""
@@ -813,35 +811,21 @@ class TestFortidsroster(unittest.TestCase):
         ut = build_fortidsroster.bygg([self.DA, post], None)
         self.assertEqual([d["datum"] for d in ut["val"]["2026"]["dagar"]],
                          ["2026-09-10", "2026-09-11"])
-        self.assertIsNone(ut["val"]["2026"]["pagaende"])
-        self.assertEqual(ut["val"]["2026"]["totalAvslutad"], 200)
+        self.assertEqual(ut["val"]["2026"]["total"], 200)
 
     def test_ackumulerat(self):
         self.assertEqual([d["ack"] for d in self.da["dagar"]], [100, 310, 460, 510])
         self.assertEqual(self.da["total"], 510)
 
-    def test_jamforelsen_gors_vid_senaste_avslutade_dag(self):
-        j = self.ut["jamforelse"]
-        self.assertEqual(j["kvar"], 3)
-        self.assertEqual(j["datumNu"], "2026-09-10")
-        self.assertEqual(j["datumDa"], "2022-09-08")
-        self.assertEqual(j["antalNu"], 120)
-        self.assertEqual(j["antalDa"], 100)
-        self.assertEqual(j["diff"], 20)
-        self.assertEqual(j["diffPct"], 20.0)
-        self.assertEqual(j["slutDa"], 510)
+    def test_rostberattigade_foljer_med_per_val(self):
+        self.assertEqual(self.nu["rostberattigade"]["riksdag"], 1000)
+        self.assertEqual(self.da["rostberattigade"]["riksdag"], 800)
+        self.assertIsNone(self.da["rostberattigade"]["minstEtt"])
 
-    def test_andel_av_rostberattigade_i_riksdagsvalet(self):
-        self.assertEqual(self.nu["andelAvRostberattigade"], 12.0)   # 120/1000
-        self.assertEqual(self.ut["jamforelse"]["andelDa"], 12.5)    # 100/800
-        self.assertEqual(self.ut["jamforelse"]["andelSlutDa"], 63.8)  # 510/800
-
-    def test_utan_rostberattigade_utelamnas_andelen(self):
+    def test_utan_rostberattigade_utelamnas_namnaren(self):
         """Hellre inget nyckeltal än en gissad nämnare."""
         ut = build_fortidsroster.bygg([self.DA, self.NU], None)
-        self.assertIsNone(ut["val"]["2026"]["andelAvRostberattigade"])
         self.assertIsNone(ut["val"]["2026"]["rostberattigade"])
-        self.assertIsNone(ut["jamforelse"]["andelNu"])
 
     def test_topplistan_raknar_bara_intraffade_dagar(self):
         lok = {l["namn"]: l for l in self.nu["lokaler"]}
@@ -853,7 +837,6 @@ class TestFortidsroster(unittest.TestCase):
 
     def test_ett_enda_val_ger_ingen_jamforelse(self):
         ut = build_fortidsroster.bygg([self.NU], None)
-        self.assertIsNone(ut["jamforelse"])
         self.assertIsNone(ut["forra"])
 
 

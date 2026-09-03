@@ -66,6 +66,19 @@
 
   function el(id) { return document.getElementById(id); }
 
+  /* Dagens datum i svensk tid som "ÅÅÅÅ-MM-DD". Sidor med dagsfärska
+     data avgör själva vid laddning vilken dag som pågår – inte ur
+     datafilens hämtningstid, som kan vara från i går. */
+  function idagSv() {
+    try {
+      return new Intl.DateTimeFormat("sv-SE", {
+        timeZone: "Europe/Stockholm", year: "numeric", month: "2-digit", day: "2-digit"
+      }).format(new Date());
+    } catch (e) {
+      return new Date().toISOString().slice(0, 10);
+    }
+  }
+
   function talSv(n, dec) {
     return n.toLocaleString("sv-SE", {
       minimumFractionDigits: dec || 0,
@@ -663,6 +676,7 @@
     rampFarg: rampFarg,
     rampFargOrange: rampFargOrange,
     el: el,
+    idagSv: idagSv,
     talSv: talSv,
     esc: esc,
     sakerUrl: sakerUrl,
