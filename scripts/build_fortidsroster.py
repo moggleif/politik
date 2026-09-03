@@ -17,13 +17,12 @@ röstmottagningen dippar tydligt de dagar lokalerna har kortare öppettider.
 
 Dagar som ännu inte inträffat står som 0 i Valmyndighetens fil och
 utelämnas här i stället för att ritas som nollor. Regeln följer
-tidsstämpeln `hamtad` i datafilen: dagar före hämtningsdagen räknas som
-avslutade, hämtningsdagen själv tas med bara om den har röster och
-markeras då som pågående (filen uppdateras kl. 06 och 14, så mitt på
-dagen är dagens siffra ofullständig), senare dagar utelämnas.
+tidsstämpeln `hamtad` i datafilen: dagar före hämtningsdagen tas med,
+hämtningsdagen själv bara om den har röster, senare dagar utelämnas.
 
-Nyckeltalen jämför vid senaste *avslutade* dag, så att en halv dag inte
-ställs mot en hel.
+Vilken dag som *pågår* (och därför har en ofullständig siffra – filen
+uppdateras kl. 06 och 14) avgörs inte här utan i webbläsaren, som vet
+vilken dag det är när sidan laddas. Byggskriptet lämnar bara fakta.
 
 Körs:  python3 scripts/build_fortidsroster.py
 """
@@ -70,7 +69,6 @@ def dagserie(post: dict) -> list:
             "kvar": (valdag - datum).days,
             "antal": antal,
             "ack": ack,
-            "pagar": pagar,
         })
     return ut
 
@@ -99,25 +97,14 @@ def lokallista(post: dict, dagar: list) -> list:
     return ut
 
 
-def andel(antal, namnare):
-    if antal is None or not namnare:
-        return None
-    return round(100.0 * antal / namnare, 1)
-
-
 def bygg_val(post: dict, rb) -> dict:
     dagar = dagserie(post)
-    avslutade = [d for d in dagar if not d["pagar"]]
-    pagaende = dagar[-1] if dagar and dagar[-1]["pagar"] else None
-    total = dagar[-1]["ack"] if dagar else 0
-    total_avslutad = avslutade[-1]["ack"] if avslutade else 0
     rostberattigade = None
     if rb:
         rostberattigade = {k: rb.get(k) for k in
                            ("kvalifikationsdag", "riksdag", "kommun", "region",
                             "minstEtt", "valdistrikt", "kalla", "kallaUrl",
                             "sidaUrl", "hamtad")}
-    storsta = max(avslutade, key=lambda d: d["antal"]) if avslutade else None
     return {
         "ar": post["ar"],
         "valdag": post["valdag"],
@@ -130,47 +117,11 @@ def bygg_val(post: dict, rb) -> dict:
         "sidaUrl": post["sidaUrl"],
         "preliminarTom": post.get("preliminarTom"),
         "hamtad": post["hamtad"],
-        "klart": len(avslutade) == len(post["datum"]),
+        "klart": len(dagar) == len(post["datum"]),
         "dagar": dagar,
-        "total": total,
-        "totalAvslutad": total_avslutad,
-        "sistaAvslutadDag": avslutade[-1]["datum"] if avslutade else None,
-        "sistaAvslutadKvar": avslutade[-1]["kvar"] if avslutade else None,
-        "pagaende": pagaende,
-        "storstaDag": storsta,
+        "total": dagar[-1]["ack"] if dagar else 0,
         "rostberattigade": rostberattigade,
-        "andelAvRostberattigade": andel(
-            total_avslutad, rostberattigade and rostberattigade["riksdag"]),
         "lokaler": lokallista(post, dagar),
-    }
-
-
-def jamfor(aktuellt: dict, forra: dict):
-    """Läget vid senaste avslutade dag, ställt mot förra valet vid samma
-    antal dagar kvar."""
-    if aktuellt["sistaAvslutadKvar"] is None:
-        return None
-    kvar = aktuellt["sistaAvslutadKvar"]
-    da = next((d for d in forra["dagar"] if d["kvar"] == kvar), None)
-    if da is None:
-        return None
-    nu = aktuellt["totalAvslutad"]
-    diff = nu - da["ack"]
-    rb_nu = aktuellt["rostberattigade"] and aktuellt["rostberattigade"]["riksdag"]
-    rb_da = forra["rostberattigade"] and forra["rostberattigade"]["riksdag"]
-    return {
-        "kvar": kvar,
-        "datumNu": aktuellt["sistaAvslutadDag"],
-        "datumDa": da["datum"],
-        "veckodag": da["veckodag"],
-        "antalNu": nu,
-        "antalDa": da["ack"],
-        "diff": diff,
-        "diffPct": round(100.0 * diff / da["ack"], 1) if da["ack"] else None,
-        "andelNu": andel(nu, rb_nu),
-        "andelDa": andel(da["ack"], rb_da),
-        "slutDa": forra["total"],
-        "andelSlutDa": andel(forra["total"], rb_da),
     }
 
 
@@ -194,7 +145,6 @@ def bygg(valfiler: list, rostberattigade) -> dict:
         "senastUppdaterad": aktuellt["hamtad"],
         "preliminarTom": aktuellt["preliminarTom"],
         "val": val,
-        "jamforelse": jamfor(aktuellt, forra) if forra else None,
     }
 
 
@@ -208,9 +158,7 @@ def main() -> None:
     UT.write_text(json.dumps(ut, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     a = ut["val"][str(ut["aktuellt"])]
     print(f"Skrev {UT.relative_to(ROT)}: {a['omrade']} {a['ar']}, "
-          f"{len(a['dagar'])} dagar, {a['total']} förtidsröster"
-          + (f" (jämfört med {ut['jamforelse']['antalDa']} vid samma punkt {ut['forra']})"
-             if ut["jamforelse"] else ""))
+          f"{len(a['dagar'])} dagar, {a['total']} förtidsröster")
 
 
 if __name__ == "__main__":
