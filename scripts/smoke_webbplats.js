@@ -71,6 +71,22 @@ function startaServer() {
   });
 }
 
+/* Besöksräknaren pratar med GoatCounter. Testet ska gå utan nät och
+   oberoende av kontots inställningar, så båda adresserna besvaras här:
+   count.js med en tom fil och räknar-API:t med ett fast tal. */
+async function stubbaGoatcounter(page) {
+  await page.route("https://gc.zgo.at/**", function (r) {
+    r.fulfill({ status: 200, contentType: "text/javascript", body: "" });
+  });
+  await page.route("https://moderat.goatcounter.com/**", function (r) {
+    r.fulfill({
+      status: 200, contentType: "application/json",
+      headers: { "Access-Control-Allow-Origin": "*" },
+      body: JSON.stringify({ count: "1,234" }),
+    });
+  });
+}
+
 async function granska(browser, bas, sida, medDiagram) {
   const page = await browser.newPage();
   const fel = [];
@@ -80,6 +96,7 @@ async function granska(browser, bas, sida, medDiagram) {
   page.on("response", function (r) {
     if (r.status() >= 400) fel.push("HTTP " + r.status() + ": " + r.url());
   });
+  await stubbaGoatcounter(page);
 
   const svar = await page.goto(bas + "/" + sida, { waitUntil: "networkidle" });
   if (!svar || svar.status() !== 200) fel.push("sidan svarade " + (svar ? svar.status() : "inget"));
@@ -95,11 +112,19 @@ async function granska(browser, bas, sida, medDiagram) {
         const s = document.getElementById("status");
         return s && !s.hidden ? s.textContent.trim().slice(0, 120) : null;
       })(),
+      besok: (function () {
+        const b = document.getElementById("besok");
+        return b && !b.hidden ? b.textContent.replace(/\s+/g, " ").trim() : null;
+      })(),
     };
   });
   if (inneh.h1 !== 1) fel.push("förväntade exakt en h1, fann " + inneh.h1);
   if (!inneh.main) fel.push("huvudinnehåll (#huvudinnehall) saknas");
   if (inneh.status) fel.push("felruta visas: " + inneh.status);
+  /* Stubben svarar 1234; svensk tusenavgränsare är ett fast mellanslag. */
+  if (!inneh.besok || !/1[\s\u00a0]234/.test(inneh.besok)) {
+    fel.push("besöksräknaren i sidfoten visades inte: " + JSON.stringify(inneh.besok));
+  }
   if (medDiagram) {
     if (inneh.canvas === 0) fel.push("inga diagram ritade");
     if (inneh.tabellrader === 0) fel.push("inga tabellrader ritade");
@@ -115,6 +140,7 @@ async function granskaRegimmarkering(browser, bas, sida, diagramId, aren) {
   const page = await browser.newPage({ viewport: SMAL_VY });
   const fel = [];
   page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
+  await stubbaGoatcounter(page);
   await page.goto(bas + "/" + sida, { waitUntil: "networkidle" });
   await page.waitForTimeout(600);
 

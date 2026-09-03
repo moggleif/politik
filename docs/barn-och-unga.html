@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Hur många barn och unga 0–15 år finns det i Kungsbacka?</title>
 <meta name="description" content="Antalet barn och unga 0–15 år i Kungsbacka 2000–2025 enligt SCB:s befolkningsstatistik. Enbart faktiskt utfall, inga prognoser.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
@@ -169,11 +169,17 @@
   <div class="sidfot-inre">
     <p>Data: SCB:s befolkningsstatistik.
     Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+    <p class="besok" id="besok" hidden>Visningar sedan den 3 september 2026:
+    <span id="besok-antal"></span>.
+    <a href="metod.html#sektion-om">Så räknas de.</a></p>
   </div>
 </footer>
 
 <script src="chart.umd.js"></script>
 <script src="gemensam.js"></script>
 <script src="befolkning.js"></script>
+<script src="besok.js"></script>
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
