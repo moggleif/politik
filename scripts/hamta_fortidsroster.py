@@ -10,13 +10,19 @@ i hela landet och en kolumn per dag under förtidsröstningsperioden:
         preliminära och kan justeras fram till den 16 september 2026
   2022  https://data.val.se/filer/val2022/rostmottagning/fortidsroster.csv
         historisk, ändras inte
+  2018, 2014, 2010
+        historik.val.se/val/val<år>/rostmottagning/fortidsrostning/mottagna_fortidsroster.skv
+        Valmyndighetens äldre valpresentationer; historiska
 
-De två filerna är *inte* identiska i format. 2026 års fil är UTF-8 med
-BOM, radbruten med LF och har rena datum som kolumnrubriker. 2022 års fil
-är Latin-1, radbruten med enbart CR (vagnretur) och har kolumnrubriker
-som "2022-08-24 00:00:00". Tolkningen här klarar båda: teckenkodningen
-provas som UTF-8 först och faller tillbaka på Latin-1, alla slags
-radbrytningar normaliseras, och datumet läses ur början av rubriken.
+Filerna är *inte* identiska i format. 2026 års fil är UTF-8 med BOM,
+radbruten med LF och har rena datum som kolumnrubriker. 2022 års fil är
+Latin-1, radbruten med enbart CR (vagnretur) och har kolumnrubriker som
+"2022-08-24 00:00:00". De äldre filerna är Latin-1 med LF och har
+rubrikerna med små bokstäver ("lan;län;kom;kommun;lokalid;lokal;…;Totalt").
+Tolkningen här klarar alla: teckenkodningen provas som UTF-8 först och
+faller tillbaka på Latin-1, alla slags radbrytningar normaliseras,
+rubrikerna översätts till 2026 års namn, och datumet läses ur början av
+rubriken.
 
 Vilket område som sparas styrs av konstanterna LANSKOD och KOMMUNKOD
 nedan: sätt KOMMUNKOD till None för att följa hela länet.
@@ -51,6 +57,9 @@ LANSKOD = "13"
 KOMMUNKOD = "84"
 
 # ---------- Valen ----------
+HISTORIK = "https://historik.val.se/val/val{ar}/rostmottagning/fortidsrostning/mottagna_fortidsroster.skv"
+HISTORIK_SIDA = "https://historik.val.se/val/val{ar}/statistik/index.html"
+
 VAL = {
     2026: {
         "valdag": "2026-09-13",
@@ -68,11 +77,23 @@ VAL = {
         "preliminarTom": None,
     },
 }
+for _ar, _valdag in ((2018, "2018-09-09"), (2014, "2014-09-14"), (2010, "2010-09-19")):
+    VAL[_ar] = {
+        "valdag": _valdag,
+        "url": HISTORIK.format(ar=_ar),
+        "sidaUrl": HISTORIK_SIDA.format(ar=_ar),
+        "kalla": f"Valmyndigheten, Mottagna förtidsröster, val {_ar} (valpresentationen)",
+        "preliminarTom": None,
+    }
 
 TIDSZON = ZoneInfo("Europe/Stockholm")
 
 # Kolumner som måste finnas, oavsett år
 FASTA_KOLUMNER = ["LÄNSKOD", "LÄN", "KOMMUNKOD", "KOMMUN", "LOKALID", "LOKAL", "TOTAL"]
+
+# De äldre filernas rubriker, översatta till 2026 års namn
+RUBRIKALIAS = {"lan": "LÄNSKOD", "län": "LÄN", "kom": "KOMMUNKOD", "kommun": "KOMMUN",
+               "lokalid": "LOKALID", "lokal": "LOKAL", "totalt": "TOTAL"}
 
 
 def hamta(url: str) -> bytes:
@@ -101,7 +122,7 @@ def tolka_csv(raa: bytes):
     rader = [r for r in rader if any(c.strip() for c in r)]
     if not rader:
         sys.exit("Tom fil")
-    rubriker = [r.strip() for r in rader[0]]
+    rubriker = [RUBRIKALIAS.get(r.strip().lower(), r.strip()) for r in rader[0]]
 
     saknas = [k for k in FASTA_KOLUMNER if k not in rubriker]
     if saknas:

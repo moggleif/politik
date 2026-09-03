@@ -57,6 +57,7 @@
     <h2 class="dold">Läget just nu</h2>
     <div class="nyckeltal" id="nyckeltal"></div>
     <p class="kalla-rad" id="kalla-nyckeltal"></p>
+    <div id="not-anger" hidden></div>
   </section>
 
   <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
@@ -69,7 +70,8 @@
     <h2>Hur många har förtidsröstat hittills?</h2>
     <p class="forklaring">
       Sammanlagt antal, dag för dag. X-axeln är dagar kvar till valdagen,
-      så att samma veckodag hamnar på samma plats båda åren.
+      så att samma veckodag hamnar på samma plats alla åren. De tunna
+      grå linjerna är tidigare val, bara som bakgrund.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-ack" aria-label="Diagram: ackumulerat antal förtidsröster, 2026 och 2022, efter dagar kvar till valdagen" role="img"></canvas></div>

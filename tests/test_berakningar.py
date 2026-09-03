@@ -864,6 +864,18 @@ class TestFortidsrosterCsv(unittest.TestCase):
         self.assertEqual(rader[0]["LOKAL"], "Åsa Gårdsskola")
         self.assertEqual(rader[0]["perDag"]["2022-08-25"], 7)
 
+    def test_aldre_valpresentationer_med_sma_rubriker(self):
+        """2010–2018: Latin-1, LF och rubrikerna "lan;län;kom;kommun;
+        lokalid;lokal;…;Totalt" – ska översättas till 2026 års namn."""
+        text = ("lan;län;kom;kommun;lokalid;lokal;2018-08-22;2018-08-23;Totalt\n"
+                "13;Hallands län;84;Kungsbacka;10757;Kungsmässan;411;508;919\n")
+        datum, rader = hamta_fortidsroster.tolka_csv(text.encode("latin-1"))
+        self.assertEqual(datum, ["2018-08-22", "2018-08-23"])
+        self.assertEqual(rader[0]["LÄNSKOD"], "13")
+        self.assertEqual(rader[0]["KOMMUNKOD"], "84")
+        self.assertEqual(rader[0]["LOKAL"], "Kungsmässan")
+        self.assertEqual(rader[0]["TOTAL"], 919)
+
     def test_andrad_layout_stoppar(self):
         text = "LÄNSKOD;LÄN;NÅGOT ANNAT;2026-08-26;TOTAL\n13;Halland;x;1;1\n"
         with self.assertRaises(SystemExit):
@@ -964,7 +976,8 @@ class TestGenereradeFiler(unittest.TestCase):
         valfiler = [json.loads(f.read_text(encoding="utf-8"))
                     for f in sorted(mapp.glob("fortidsroster_*.json"))]
         rb = json.loads((mapp / "rostberattigade.json").read_text(encoding="utf-8"))
-        ombyggd = json.loads(json.dumps(build_fortidsroster.bygg(valfiler, rb)))
+        anger = json.loads((mapp / "angerroster.json").read_text(encoding="utf-8"))
+        ombyggd = json.loads(json.dumps(build_fortidsroster.bygg(valfiler, rb, anger)))
         self.assertEqual(ombyggd, self.las("data-fortidsroster.json"))
 
 

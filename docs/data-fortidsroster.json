@@ -8,6 +8,985 @@
   "senastUppdaterad": "2026-09-02T22:48+02:00",
   "preliminarTom": "2026-09-16",
   "val": {
+    "2010": {
+      "ar": 2010,
+      "valdag": "2010-09-19",
+      "forstaDag": "2010-09-01",
+      "antalDagar": 19,
+      "omrade": "Kungsbacka",
+      "lan": "Hallands län",
+      "kalla": "Valmyndigheten, Mottagna förtidsröster, val 2010 (valpresentationen)",
+      "kallaUrl": "https://historik.val.se/val/val2010/rostmottagning/fortidsrostning/mottagna_fortidsroster.skv",
+      "sidaUrl": "https://historik.val.se/val/val2010/statistik/index.html",
+      "preliminarTom": null,
+      "hamtad": "2026-09-03T05:51+02:00",
+      "klart": true,
+      "dagar": [
+        {
+          "datum": "2010-09-01",
+          "veckodag": "ons",
+          "kvar": 18,
+          "antal": 687,
+          "ack": 687
+        },
+        {
+          "datum": "2010-09-02",
+          "veckodag": "tor",
+          "kvar": 17,
+          "antal": 680,
+          "ack": 1367
+        },
+        {
+          "datum": "2010-09-03",
+          "veckodag": "fre",
+          "kvar": 16,
+          "antal": 705,
+          "ack": 2072
+        },
+        {
+          "datum": "2010-09-04",
+          "veckodag": "lör",
+          "kvar": 15,
+          "antal": 378,
+          "ack": 2450
+        },
+        {
+          "datum": "2010-09-05",
+          "veckodag": "sön",
+          "kvar": 14,
+          "antal": 383,
+          "ack": 2833
+        },
+        {
+          "datum": "2010-09-06",
+          "veckodag": "mån",
+          "kvar": 13,
+          "antal": 843,
+          "ack": 3676
+        },
+        {
+          "datum": "2010-09-07",
+          "veckodag": "tis",
+          "kvar": 12,
+          "antal": 770,
+          "ack": 4446
+        },
+        {
+          "datum": "2010-09-08",
+          "veckodag": "ons",
+          "kvar": 11,
+          "antal": 829,
+          "ack": 5275
+        },
+        {
+          "datum": "2010-09-09",
+          "veckodag": "tor",
+          "kvar": 10,
+          "antal": 879,
+          "ack": 6154
+        },
+        {
+          "datum": "2010-09-10",
+          "veckodag": "fre",
+          "kvar": 9,
+          "antal": 951,
+          "ack": 7105
+        },
+        {
+          "datum": "2010-09-11",
+          "veckodag": "lör",
+          "kvar": 8,
+          "antal": 883,
+          "ack": 7988
+        },
+        {
+          "datum": "2010-09-12",
+          "veckodag": "sön",
+          "kvar": 7,
+          "antal": 1237,
+          "ack": 9225
+        },
+        {
+          "datum": "2010-09-13",
+          "veckodag": "mån",
+          "kvar": 6,
+          "antal": 1461,
+          "ack": 10686
+        },
+        {
+          "datum": "2010-09-14",
+          "veckodag": "tis",
+          "kvar": 5,
+          "antal": 1202,
+          "ack": 11888
+        },
+        {
+          "datum": "2010-09-15",
+          "veckodag": "ons",
+          "kvar": 4,
+          "antal": 1672,
+          "ack": 13560
+        },
+        {
+          "datum": "2010-09-16",
+          "veckodag": "tor",
+          "kvar": 3,
+          "antal": 1766,
+          "ack": 15326
+        },
+        {
+          "datum": "2010-09-17",
+          "veckodag": "fre",
+          "kvar": 2,
+          "antal": 2281,
+          "ack": 17607
+        },
+        {
+          "datum": "2010-09-18",
+          "veckodag": "lör",
+          "kvar": 1,
+          "antal": 1867,
+          "ack": 19474
+        },
+        {
+          "datum": "2010-09-19",
+          "veckodag": "sön",
+          "kvar": 0,
+          "antal": 794,
+          "ack": 20268
+        }
+      ],
+      "total": 20268,
+      "rostberattigade": null,
+      "lokaler": [
+        {
+          "namn": "Kungsmässan",
+          "lokalId": "10757",
+          "total": 10705,
+          "dagarMedRoster": 19,
+          "storstaDag": 1152,
+          "andel": 52.8
+        },
+        {
+          "namn": "Kungsbacka, Stadshuset",
+          "lokalId": "9271",
+          "total": 2293,
+          "dagarMedRoster": 17,
+          "storstaDag": 251,
+          "andel": 11.3
+        },
+        {
+          "namn": "ICA Maxi",
+          "lokalId": "13949",
+          "total": 1824,
+          "dagarMedRoster": 8,
+          "storstaDag": 483,
+          "andel": 9.0
+        },
+        {
+          "namn": "Båt och Sjöfartsmuseet",
+          "lokalId": "10756",
+          "total": 1419,
+          "dagarMedRoster": 13,
+          "storstaDag": 224,
+          "andel": 7.0
+        },
+        {
+          "namn": "Kullaviksskolan",
+          "lokalId": "9274",
+          "total": 1187,
+          "dagarMedRoster": 8,
+          "storstaDag": 237,
+          "andel": 5.9
+        },
+        {
+          "namn": "Åsaskolan, \"Teatern\"",
+          "lokalId": "9269",
+          "total": 871,
+          "dagarMedRoster": 13,
+          "storstaDag": 110,
+          "andel": 4.3
+        },
+        {
+          "namn": "Toråsskolan, biblioteket",
+          "lokalId": "9272",
+          "total": 551,
+          "dagarMedRoster": 13,
+          "storstaDag": 98,
+          "andel": 2.7
+        },
+        {
+          "namn": "Frillesåsskolan elevcafé/bibliotek",
+          "lokalId": "9265",
+          "total": 490,
+          "dagarMedRoster": 13,
+          "storstaDag": 76,
+          "andel": 2.4
+        },
+        {
+          "namn": "Fjärås fritidsgård",
+          "lokalId": "9270",
+          "total": 355,
+          "dagarMedRoster": 13,
+          "storstaDag": 75,
+          "andel": 1.8
+        },
+        {
+          "namn": "Älvsåkersskolan",
+          "lokalId": "10758",
+          "total": 176,
+          "dagarMedRoster": 13,
+          "storstaDag": 29,
+          "andel": 0.9
+        },
+        {
+          "namn": "Signeshus",
+          "lokalId": "6773",
+          "total": 75,
+          "dagarMedRoster": 1,
+          "storstaDag": 75,
+          "andel": 0.4
+        },
+        {
+          "namn": "Aranäsgymnasiet",
+          "lokalId": "13961",
+          "total": 46,
+          "dagarMedRoster": 2,
+          "storstaDag": 26,
+          "andel": 0.2
+        },
+        {
+          "namn": "Ekhaga äldreboende",
+          "lokalId": "6768",
+          "total": 46,
+          "dagarMedRoster": 1,
+          "storstaDag": 46,
+          "andel": 0.2
+        },
+        {
+          "namn": "Bukärrsgården",
+          "lokalId": "6774",
+          "total": 39,
+          "dagarMedRoster": 1,
+          "storstaDag": 39,
+          "andel": 0.2
+        },
+        {
+          "namn": "Måhaga äldreboende",
+          "lokalId": "6765",
+          "total": 35,
+          "dagarMedRoster": 1,
+          "storstaDag": 35,
+          "andel": 0.2
+        },
+        {
+          "namn": "Kolla äldreboende",
+          "lokalId": "6767",
+          "total": 32,
+          "dagarMedRoster": 1,
+          "storstaDag": 32,
+          "andel": 0.2
+        },
+        {
+          "namn": "Vickan äldreboende",
+          "lokalId": "10755",
+          "total": 22,
+          "dagarMedRoster": 1,
+          "storstaDag": 22,
+          "andel": 0.1
+        },
+        {
+          "namn": "Tölö Smedja äldreboende",
+          "lokalId": "10575",
+          "total": 19,
+          "dagarMedRoster": 1,
+          "storstaDag": 19,
+          "andel": 0.1
+        },
+        {
+          "namn": "Åsa äldreboende",
+          "lokalId": "6771",
+          "total": 19,
+          "dagarMedRoster": 1,
+          "storstaDag": 19,
+          "andel": 0.1
+        },
+        {
+          "namn": "Kyviks äldreboende",
+          "lokalId": "6775",
+          "total": 17,
+          "dagarMedRoster": 1,
+          "storstaDag": 17,
+          "andel": 0.1
+        },
+        {
+          "namn": "Tölö äldreboende",
+          "lokalId": "6772",
+          "total": 13,
+          "dagarMedRoster": 1,
+          "storstaDag": 13,
+          "andel": 0.1
+        },
+        {
+          "namn": "Elof Lindälvs gymnasium",
+          "lokalId": "13960",
+          "total": 12,
+          "dagarMedRoster": 2,
+          "storstaDag": 6,
+          "andel": 0.1
+        },
+        {
+          "namn": "Löftagårdens äldreboende",
+          "lokalId": "6769",
+          "total": 11,
+          "dagarMedRoster": 1,
+          "storstaDag": 11,
+          "andel": 0.1
+        },
+        {
+          "namn": "Pölagårdens äldreboende",
+          "lokalId": "6770",
+          "total": 11,
+          "dagarMedRoster": 1,
+          "storstaDag": 11,
+          "andel": 0.1
+        }
+      ]
+    },
+    "2014": {
+      "ar": 2014,
+      "valdag": "2014-09-14",
+      "forstaDag": "2014-08-27",
+      "antalDagar": 19,
+      "omrade": "Kungsbacka",
+      "lan": "Hallands län",
+      "kalla": "Valmyndigheten, Mottagna förtidsröster, val 2014 (valpresentationen)",
+      "kallaUrl": "https://historik.val.se/val/val2014/rostmottagning/fortidsrostning/mottagna_fortidsroster.skv",
+      "sidaUrl": "https://historik.val.se/val/val2014/statistik/index.html",
+      "preliminarTom": null,
+      "hamtad": "2026-09-03T05:51+02:00",
+      "klart": true,
+      "dagar": [
+        {
+          "datum": "2014-08-27",
+          "veckodag": "ons",
+          "kvar": 18,
+          "antal": 675,
+          "ack": 675
+        },
+        {
+          "datum": "2014-08-28",
+          "veckodag": "tor",
+          "kvar": 17,
+          "antal": 731,
+          "ack": 1406
+        },
+        {
+          "datum": "2014-08-29",
+          "veckodag": "fre",
+          "kvar": 16,
+          "antal": 634,
+          "ack": 2040
+        },
+        {
+          "datum": "2014-08-30",
+          "veckodag": "lör",
+          "kvar": 15,
+          "antal": 386,
+          "ack": 2426
+        },
+        {
+          "datum": "2014-08-31",
+          "veckodag": "sön",
+          "kvar": 14,
+          "antal": 405,
+          "ack": 2831
+        },
+        {
+          "datum": "2014-09-01",
+          "veckodag": "mån",
+          "kvar": 13,
+          "antal": 921,
+          "ack": 3752
+        },
+        {
+          "datum": "2014-09-02",
+          "veckodag": "tis",
+          "kvar": 12,
+          "antal": 770,
+          "ack": 4522
+        },
+        {
+          "datum": "2014-09-03",
+          "veckodag": "ons",
+          "kvar": 11,
+          "antal": 810,
+          "ack": 5332
+        },
+        {
+          "datum": "2014-09-04",
+          "veckodag": "tor",
+          "kvar": 10,
+          "antal": 955,
+          "ack": 6287
+        },
+        {
+          "datum": "2014-09-05",
+          "veckodag": "fre",
+          "kvar": 9,
+          "antal": 902,
+          "ack": 7189
+        },
+        {
+          "datum": "2014-09-06",
+          "veckodag": "lör",
+          "kvar": 8,
+          "antal": 619,
+          "ack": 7808
+        },
+        {
+          "datum": "2014-09-07",
+          "veckodag": "sön",
+          "kvar": 7,
+          "antal": 991,
+          "ack": 8799
+        },
+        {
+          "datum": "2014-09-08",
+          "veckodag": "mån",
+          "kvar": 6,
+          "antal": 1644,
+          "ack": 10443
+        },
+        {
+          "datum": "2014-09-09",
+          "veckodag": "tis",
+          "kvar": 5,
+          "antal": 1725,
+          "ack": 12168
+        },
+        {
+          "datum": "2014-09-10",
+          "veckodag": "ons",
+          "kvar": 4,
+          "antal": 2252,
+          "ack": 14420
+        },
+        {
+          "datum": "2014-09-11",
+          "veckodag": "tor",
+          "kvar": 3,
+          "antal": 2239,
+          "ack": 16659
+        },
+        {
+          "datum": "2014-09-12",
+          "veckodag": "fre",
+          "kvar": 2,
+          "antal": 2404,
+          "ack": 19063
+        },
+        {
+          "datum": "2014-09-13",
+          "veckodag": "lör",
+          "kvar": 1,
+          "antal": 1780,
+          "ack": 20843
+        },
+        {
+          "datum": "2014-09-14",
+          "veckodag": "sön",
+          "kvar": 0,
+          "antal": 887,
+          "ack": 21730
+        }
+      ],
+      "total": 21730,
+      "rostberattigade": null,
+      "lokaler": [
+        {
+          "namn": "Kungsmässan",
+          "lokalId": "10757",
+          "total": 13057,
+          "dagarMedRoster": 19,
+          "storstaDag": 1468,
+          "andel": 60.1
+        },
+        {
+          "namn": "Kungsbacka, Stadshuset",
+          "lokalId": "9271",
+          "total": 2328,
+          "dagarMedRoster": 17,
+          "storstaDag": 312,
+          "andel": 10.7
+        },
+        {
+          "namn": "Onsala båt och Sjöfartsmuseet",
+          "lokalId": "10756",
+          "total": 1576,
+          "dagarMedRoster": 13,
+          "storstaDag": 226,
+          "andel": 7.3
+        },
+        {
+          "namn": "Kullaviksskolan",
+          "lokalId": "9274",
+          "total": 1251,
+          "dagarMedRoster": 8,
+          "storstaDag": 313,
+          "andel": 5.8
+        },
+        {
+          "namn": "Åsaskolan, \"Teatern\"",
+          "lokalId": "9269",
+          "total": 931,
+          "dagarMedRoster": 13,
+          "storstaDag": 164,
+          "andel": 4.3
+        },
+        {
+          "namn": "Toråsskolan, biblioteket",
+          "lokalId": "9272",
+          "total": 703,
+          "dagarMedRoster": 13,
+          "storstaDag": 109,
+          "andel": 3.2
+        },
+        {
+          "namn": "Fjärås fritidsgård",
+          "lokalId": "9270",
+          "total": 628,
+          "dagarMedRoster": 13,
+          "storstaDag": 118,
+          "andel": 2.9
+        },
+        {
+          "namn": "Frillesåsskolan elevcafé",
+          "lokalId": "9265",
+          "total": 552,
+          "dagarMedRoster": 13,
+          "storstaDag": 109,
+          "andel": 2.5
+        },
+        {
+          "namn": "Älvsåkersskolan",
+          "lokalId": "10758",
+          "total": 193,
+          "dagarMedRoster": 13,
+          "storstaDag": 40,
+          "andel": 0.9
+        },
+        {
+          "namn": "Bokbussen",
+          "lokalId": "14431",
+          "total": 115,
+          "dagarMedRoster": 11,
+          "storstaDag": 16,
+          "andel": 0.5
+        },
+        {
+          "namn": "Aranäsgymnasiet",
+          "lokalId": "13961",
+          "total": 68,
+          "dagarMedRoster": 2,
+          "storstaDag": 47,
+          "andel": 0.3
+        },
+        {
+          "namn": "Löftadalens Folkhögskola",
+          "lokalId": "14433",
+          "total": 65,
+          "dagarMedRoster": 1,
+          "storstaDag": 65,
+          "andel": 0.3
+        },
+        {
+          "namn": "Elof Lindälvs gymnasium",
+          "lokalId": "13960",
+          "total": 46,
+          "dagarMedRoster": 2,
+          "storstaDag": 34,
+          "andel": 0.2
+        },
+        {
+          "namn": "Ekhaga äldreboende",
+          "lokalId": "6768",
+          "total": 39,
+          "dagarMedRoster": 1,
+          "storstaDag": 39,
+          "andel": 0.2
+        },
+        {
+          "namn": "Signeshus",
+          "lokalId": "6773",
+          "total": 31,
+          "dagarMedRoster": 1,
+          "storstaDag": 31,
+          "andel": 0.1
+        },
+        {
+          "namn": "Kolla äldreboende",
+          "lokalId": "6767",
+          "total": 30,
+          "dagarMedRoster": 1,
+          "storstaDag": 30,
+          "andel": 0.1
+        },
+        {
+          "namn": "Blåvingevägen 33",
+          "lokalId": "14432",
+          "total": 29,
+          "dagarMedRoster": 1,
+          "storstaDag": 29,
+          "andel": 0.1
+        },
+        {
+          "namn": "Bukärrsgården",
+          "lokalId": "6774",
+          "total": 25,
+          "dagarMedRoster": 1,
+          "storstaDag": 25,
+          "andel": 0.1
+        },
+        {
+          "namn": "Vickan äldreboende",
+          "lokalId": "10755",
+          "total": 24,
+          "dagarMedRoster": 1,
+          "storstaDag": 24,
+          "andel": 0.1
+        },
+        {
+          "namn": "Måhaga äldreboende",
+          "lokalId": "6765",
+          "total": 16,
+          "dagarMedRoster": 1,
+          "storstaDag": 16,
+          "andel": 0.1
+        },
+        {
+          "namn": "Tölö Smedja äldreboende",
+          "lokalId": "10575",
+          "total": 13,
+          "dagarMedRoster": 1,
+          "storstaDag": 13,
+          "andel": 0.1
+        },
+        {
+          "namn": "Löftagårdens äldreboende",
+          "lokalId": "6769",
+          "total": 10,
+          "dagarMedRoster": 1,
+          "storstaDag": 10,
+          "andel": 0.0
+        }
+      ]
+    },
+    "2018": {
+      "ar": 2018,
+      "valdag": "2018-09-09",
+      "forstaDag": "2018-08-22",
+      "antalDagar": 19,
+      "omrade": "Kungsbacka",
+      "lan": "Hallands län",
+      "kalla": "Valmyndigheten, Mottagna förtidsröster, val 2018 (valpresentationen)",
+      "kallaUrl": "https://historik.val.se/val/val2018/rostmottagning/fortidsrostning/mottagna_fortidsroster.skv",
+      "sidaUrl": "https://historik.val.se/val/val2018/statistik/index.html",
+      "preliminarTom": null,
+      "hamtad": "2026-09-03T05:51+02:00",
+      "klart": true,
+      "dagar": [
+        {
+          "datum": "2018-08-22",
+          "veckodag": "ons",
+          "kvar": 18,
+          "antal": 742,
+          "ack": 742
+        },
+        {
+          "datum": "2018-08-23",
+          "veckodag": "tor",
+          "kvar": 17,
+          "antal": 987,
+          "ack": 1729
+        },
+        {
+          "datum": "2018-08-24",
+          "veckodag": "fre",
+          "kvar": 16,
+          "antal": 800,
+          "ack": 2529
+        },
+        {
+          "datum": "2018-08-25",
+          "veckodag": "lör",
+          "kvar": 15,
+          "antal": 498,
+          "ack": 3027
+        },
+        {
+          "datum": "2018-08-26",
+          "veckodag": "sön",
+          "kvar": 14,
+          "antal": 513,
+          "ack": 3540
+        },
+        {
+          "datum": "2018-08-27",
+          "veckodag": "mån",
+          "kvar": 13,
+          "antal": 942,
+          "ack": 4482
+        },
+        {
+          "datum": "2018-08-28",
+          "veckodag": "tis",
+          "kvar": 12,
+          "antal": 1073,
+          "ack": 5555
+        },
+        {
+          "datum": "2018-08-29",
+          "veckodag": "ons",
+          "kvar": 11,
+          "antal": 1157,
+          "ack": 6712
+        },
+        {
+          "datum": "2018-08-30",
+          "veckodag": "tor",
+          "kvar": 10,
+          "antal": 1287,
+          "ack": 7999
+        },
+        {
+          "datum": "2018-08-31",
+          "veckodag": "fre",
+          "kvar": 9,
+          "antal": 1006,
+          "ack": 9005
+        },
+        {
+          "datum": "2018-09-01",
+          "veckodag": "lör",
+          "kvar": 8,
+          "antal": 813,
+          "ack": 9818
+        },
+        {
+          "datum": "2018-09-02",
+          "veckodag": "sön",
+          "kvar": 7,
+          "antal": 961,
+          "ack": 10779
+        },
+        {
+          "datum": "2018-09-03",
+          "veckodag": "mån",
+          "kvar": 6,
+          "antal": 1689,
+          "ack": 12468
+        },
+        {
+          "datum": "2018-09-04",
+          "veckodag": "tis",
+          "kvar": 5,
+          "antal": 1756,
+          "ack": 14224
+        },
+        {
+          "datum": "2018-09-05",
+          "veckodag": "ons",
+          "kvar": 4,
+          "antal": 2466,
+          "ack": 16690
+        },
+        {
+          "datum": "2018-09-06",
+          "veckodag": "tor",
+          "kvar": 3,
+          "antal": 2759,
+          "ack": 19449
+        },
+        {
+          "datum": "2018-09-07",
+          "veckodag": "fre",
+          "kvar": 2,
+          "antal": 2612,
+          "ack": 22061
+        },
+        {
+          "datum": "2018-09-08",
+          "veckodag": "lör",
+          "kvar": 1,
+          "antal": 2051,
+          "ack": 24112
+        },
+        {
+          "datum": "2018-09-09",
+          "veckodag": "sön",
+          "kvar": 0,
+          "antal": 658,
+          "ack": 24770
+        }
+      ],
+      "total": 24770,
+      "rostberattigade": null,
+      "lokaler": [
+        {
+          "namn": "Kungsmässan",
+          "lokalId": "10757",
+          "total": 15475,
+          "dagarMedRoster": 19,
+          "storstaDag": 1674,
+          "andel": 62.5
+        },
+        {
+          "namn": "Kungsbacka, Stadshuset",
+          "lokalId": "9271",
+          "total": 2410,
+          "dagarMedRoster": 17,
+          "storstaDag": 377,
+          "andel": 9.7
+        },
+        {
+          "namn": "Onsala båt och Sjöfartsmuseum",
+          "lokalId": "10756",
+          "total": 1874,
+          "dagarMedRoster": 13,
+          "storstaDag": 263,
+          "andel": 7.6
+        },
+        {
+          "namn": "Kullaviksskolan",
+          "lokalId": "9274",
+          "total": 1533,
+          "dagarMedRoster": 8,
+          "storstaDag": 364,
+          "andel": 6.2
+        },
+        {
+          "namn": "Åsa Gårdsskola, biblioteket",
+          "lokalId": "9269",
+          "total": 1121,
+          "dagarMedRoster": 13,
+          "storstaDag": 174,
+          "andel": 4.5
+        },
+        {
+          "namn": "Frillesåsskolan elevcafé",
+          "lokalId": "9265",
+          "total": 670,
+          "dagarMedRoster": 13,
+          "storstaDag": 123,
+          "andel": 2.7
+        },
+        {
+          "namn": "Toråsskolan, biblioteket",
+          "lokalId": "9272",
+          "total": 639,
+          "dagarMedRoster": 13,
+          "storstaDag": 107,
+          "andel": 2.6
+        },
+        {
+          "namn": "Smedingeskolan",
+          "lokalId": "9270",
+          "total": 474,
+          "dagarMedRoster": 13,
+          "storstaDag": 93,
+          "andel": 1.9
+        },
+        {
+          "namn": "Älvsåkersskolan",
+          "lokalId": "10758",
+          "total": 240,
+          "dagarMedRoster": 13,
+          "storstaDag": 50,
+          "andel": 1.0
+        },
+        {
+          "namn": "Biblioteksbussen",
+          "lokalId": "14431",
+          "total": 69,
+          "dagarMedRoster": 12,
+          "storstaDag": 12,
+          "andel": 0.3
+        },
+        {
+          "namn": "Löftadalens Folkhögskola",
+          "lokalId": "14433",
+          "total": 59,
+          "dagarMedRoster": 1,
+          "storstaDag": 59,
+          "andel": 0.2
+        },
+        {
+          "namn": "Elof Lindälvs gymnasium",
+          "lokalId": "13960",
+          "total": 39,
+          "dagarMedRoster": 2,
+          "storstaDag": 25,
+          "andel": 0.2
+        },
+        {
+          "namn": "Aranäsgymnasiet",
+          "lokalId": "13961",
+          "total": 37,
+          "dagarMedRoster": 2,
+          "storstaDag": 20,
+          "andel": 0.1
+        },
+        {
+          "namn": "Signeshus, Äldreboende",
+          "lokalId": "6773",
+          "total": 30,
+          "dagarMedRoster": 1,
+          "storstaDag": 30,
+          "andel": 0.1
+        },
+        {
+          "namn": "Vickan äldreboende",
+          "lokalId": "10755",
+          "total": 26,
+          "dagarMedRoster": 1,
+          "storstaDag": 26,
+          "andel": 0.1
+        },
+        {
+          "namn": "Blåvingevägen 33, Äldreboende",
+          "lokalId": "14432",
+          "total": 25,
+          "dagarMedRoster": 1,
+          "storstaDag": 25,
+          "andel": 0.1
+        },
+        {
+          "namn": "Ekhaga äldreboende",
+          "lokalId": "6768",
+          "total": 20,
+          "dagarMedRoster": 1,
+          "storstaDag": 20,
+          "andel": 0.1
+        },
+        {
+          "namn": "Kolla äldreboende",
+          "lokalId": "6767",
+          "total": 17,
+          "dagarMedRoster": 1,
+          "storstaDag": 17,
+          "andel": 0.1
+        },
+        {
+          "namn": "Bukärrsgården, Äldreboende",
+          "lokalId": "6774",
+          "total": 12,
+          "dagarMedRoster": 1,
+          "storstaDag": 12,
+          "andel": 0.0
+        }
+      ]
+    },
     "2022": {
       "ar": 2022,
       "valdag": "2022-09-11",
@@ -658,6 +1637,26 @@
           "andel": 0.0
         }
       ]
+    }
+  },
+  "angerroster": {
+    "niva": "riket",
+    "forklaring": "Den som förtidsröstat kan rösta igen i sin vallokal på valdagen; då räknas bara valdagsrösten (9 kap. 14 § vallagen). Antalet ångerröster publiceras av Valmyndigheten bara för hela landet, inte per kommun.",
+    "kalla": "Valmyndigheten, Erfarenheter från valen 2022 (rapport 2023-02-15, dnr VAL-686), avsnittet Ångerröster intill tabell 15",
+    "kallaUrl": "https://www.val.se/download/18.162047b519a91d0533117824/1687961041029/erfarenhetsrapport-val-2022.pdf",
+    "sidaUrl": "https://val.se/om-oss/vart-uppdrag/erfarenheter-fran-val.html",
+    "hamtad": "2026-09-03",
+    "val": {
+      "2022": {
+        "angerroster": 7626,
+        "andelAvRostande": 0.12,
+        "fortidsrosterRiket": 3135775
+      },
+      "2018": {
+        "angerroster": 10193,
+        "andelAvRostande": 0.16,
+        "fortidsrosterRiket": 2918072
+      }
     }
   }
 }

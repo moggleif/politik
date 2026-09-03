@@ -127,10 +127,14 @@
         Under förtidsröstningen 2026 körs hämtningen automatiskt två gånger
         om dagen, strax efter Valmyndighetens uppdateringar kl. 06 och 14
         (<a href="https://github.com/moggleif/politik/blob/main/.github/workflows/fortidsroster.yml">.github/workflows/fortidsroster.yml</a>),
-        och bara faktiska ändringar checkas in. Motsvarande fil för 2022 är
-        historisk och hämtad en gång; den har ett annat format (Latin-1,
-        andra radbrytningar, tidsstämplade kolumnrubriker), och skriptet
-        klarar båda. Antalet röstberättigade på kvalifikationsdagen
+        och bara faktiska ändringar checkas in. Motsvarande filer för 2022, 2018, 2014
+        och 2010 är historiska och hämtade en gång; de har andra format
+        (Latin-1, andra radbrytningar, tidsstämplade eller gemena
+        kolumnrubriker), och skriptet klarar alla. Antalet ångerröster
+        &ndash; förtidsröstare som röstat igen på valdagen &ndash; är en
+        rikssiffra avskriven ur Valmyndighetens erfarenhetsrapport från
+        valen 2022 till
+        <a href="https://github.com/moggleif/politik/blob/main/data/fortidsroster/angerroster.json">data/fortidsroster/angerroster.json</a>. Antalet röstberättigade på kvalifikationsdagen
         hämtas ur Valmyndighetens Excel-filer med
         <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_rostberattigade.py">scripts/hamta_rostberattigade.py</a>.
         Siffrorna över förtidsröster är preliminära och kan justeras
@@ -278,8 +282,8 @@
       <dt>Förtidsröstningen jämförs på dagar kvar till valdagen</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_fortidsroster.py">build_fortidsroster.py</a>
         summerar lokalerna till ett tal per dag, räknar det ackumulerade
-        antalet och ställer 2026 mot 2022 på <em>dagar kvar till
-        valdagen</em> &ndash; inte på kalenderdatum, eftersom valdagen
+        antalet och ställer 2026 mot 2022 (och, bara i huvudgrafen, 2018, 2014 och
+        2010) på <em>dagar kvar till valdagen</em> &ndash; inte på kalenderdatum, eftersom valdagen
         2026 är den 13 september och 2022 var den 11 september. Med
         valdagen som 0 hamnar samma veckodag på samma plats båda åren,
         vilket spelar roll för öppettidernas dippar. Dagar som ännu inte
