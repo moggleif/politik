@@ -3,8 +3,19 @@
 # län och riket). Valmyndigheten uppdaterar filen kl. 06 och 14 svensk tid
 # (CEST = UTC+2 i september), så jobbet går kl. 04.40 och 12.40 UTC.
 # Committar bara när innehållet faktiskt ändrats: hämtskriptet skriver
-# inte om filen om datat är oförändrat, och tidsstämpeln "hamtad" anger
-# därför när datat senast ändrades.
+# inte om filen om datat är oförändrat, och tidsstämpeln i hamtad.json
+# anger därför när datat senast ändrades.
+#
+# Pushen till main går inte med jobbets inbyggda GITHUB_TOKEN: repots
+# regeluppsättning "Main rules" kräver pull request och CodeQL-resultat,
+# och pull requests som skapas med den inbyggda tokenen startar inga
+# tester eller CodeQL. Jobbet pushar därför med en personlig token från
+# repots ägare (secret FORTIDSROSTER_TOKEN: fine-grained PAT för bara
+# det här repot, Contents: read and write), och ägaren står i
+# regeluppsättningens bypass-lista (Repository admin, Always allow).
+# Eftersom pushen görs med en PAT startar testerna och CodeQL på
+# datacommiten som vanligt. Saknas secreten hämtar och bygger jobbet
+# ändå, men varnar och faller på pushen.
 name: Förtidsröster
 
 on:
@@ -27,6 +38,8 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: main
+          # Tokenen sparas i git-konfigurationen och används vid pushen
+          token: ${{ secrets.FORTIDSROSTER_TOKEN || github.token }}
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
@@ -51,6 +64,14 @@ jobs:
       - name: Kontrollräkna
         if: steps.aktuell.outputs.kor == 'ja'
         run: python3 -m unittest tests.test_berakningar -k Fortidsroster
+      - name: Finns tokenen som får pusha till main?
+        if: steps.aktuell.outputs.kor == 'ja'
+        env:
+          TOKEN_SATT: ${{ secrets.FORTIDSROSTER_TOKEN != '' }}
+        run: |
+          if [ "$TOKEN_SATT" != "true" ]; then
+            echo "::warning::Secreten FORTIDSROSTER_TOKEN saknas. Pushen till main stoppas av regeluppsättningen (pull request krävs); se kommentaren överst i arbetsflödet."
+          fi
       - name: Committa om något ändrats
         if: steps.aktuell.outputs.kor == 'ja'
         run: |

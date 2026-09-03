@@ -310,7 +310,13 @@ gånger om dagen, strax efter att Valmyndigheten uppdaterat sin fil kl. 06
 och 14 (`.github/workflows/fortidsroster.yml`, går även att starta för
 hand). Hämtskriptet sparar Valmyndighetens fil orörd och skriver bara om den
 när innehållet ändrats, så tidsstämpeln i `hamtad.json` anger när datat
-senast ändrades och jobbet committar inte tomma uppdateringar. Bygget
+senast ändrades och jobbet committar inte tomma uppdateringar. Jobbet
+pushar till `main` med secreten `FORTIDSROSTER_TOKEN` (en fine-grained
+personlig token från repots ägare, bara detta repo, *Contents: read and
+write*), och ägaren står i bypass-listan för regeluppsättningen "Main
+rules" &ndash; annars stoppas pushen av kravet på pull request. Utan
+secreten hämtar och bygger jobbet ändå, men stannar vid pushen med en
+varning. Bygget
 ger en fil per kommun, län och rike (312 områden, med en SUMMA-rad för
 riket i Valmyndighetens fil bortsorterad); sidan hämtar bara det område
 som visas, med Kungsbacka som standard (`data-omrade` på `<body>`) och
