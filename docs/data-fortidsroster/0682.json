@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1135,7 +1135,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1184,18 +1184,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 662,
-     "ack": 2927
+     "antal": 663,
+     "ack": 2928
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 279,
-     "ack": 3206
+     "antal": 553,
+     "ack": 3481
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 270,
+     "ack": 3751
     }
    ],
-   "total": 3206,
+   "total": 3751,
    "rostberattigade": {
     "riksdag": 23547,
     "kommun": 24548,
@@ -1213,19 +1220,19 @@
      "namn": "Stadsbiblioteket Nässjö",
      "kommun": "Nässjö",
      "lokalId": "0682005",
-     "total": 2278,
-     "dagarMedRoster": 8,
+     "total": 2697,
+     "dagarMedRoster": 9,
      "storstaDag": 443,
-     "andel": 71.1
+     "andel": 71.9
     },
     {
      "namn": "Biblioteket Forserum",
      "kommun": "Nässjö",
      "lokalId": "0682003",
-     "total": 209,
-     "dagarMedRoster": 2,
+     "total": 271,
+     "dagarMedRoster": 3,
      "storstaDag": 109,
-     "andel": 6.5
+     "andel": 7.2
     },
     {
      "namn": "Biblioteket Bodafors",
@@ -1234,34 +1241,34 @@
      "total": 206,
      "dagarMedRoster": 2,
      "storstaDag": 110,
-     "andel": 6.4
+     "andel": 5.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nässjö",
      "lokalId": "0682007",
-     "total": 173,
-     "dagarMedRoster": 5,
+     "total": 181,
+     "dagarMedRoster": 6,
      "storstaDag": 65,
-     "andel": 5.4
+     "andel": 4.8
     },
     {
      "namn": "Annebergs bibliotek",
      "kommun": "Nässjö",
      "lokalId": "0682001",
-     "total": 143,
+     "total": 170,
      "dagarMedRoster": 3,
-     "storstaDag": 57,
+     "storstaDag": 70,
      "andel": 4.5
     },
     {
      "namn": "Biblioteket Malmbäck",
      "kommun": "Nässjö",
      "lokalId": "0682004",
-     "total": 140,
+     "total": 169,
      "dagarMedRoster": 3,
-     "storstaDag": 63,
-     "andel": 4.4
+     "storstaDag": 70,
+     "andel": 4.5
     },
     {
      "namn": "Brinellgymnasiet",
@@ -1270,7 +1277,7 @@
      "total": 57,
      "dagarMedRoster": 1,
      "storstaDag": 57,
-     "andel": 1.8
+     "andel": 1.5
     }
    ],
    "antalLokaler": 7,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1639,7 +1639,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1695,11 +1695,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 1253,
-     "ack": 18107
+     "antal": 2842,
+     "ack": 19696
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 1215,
+     "ack": 20911
     }
    ],
-   "total": 18107,
+   "total": 20911,
    "rostberattigade": {
     "riksdag": 123912,
     "kommun": 127167,
@@ -1717,26 +1724,26 @@
      "namn": "Marieberg Galleria",
      "kommun": "Örebro",
      "lokalId": "1880012",
-     "total": 3774,
-     "dagarMedRoster": 8,
+     "total": 4386,
+     "dagarMedRoster": 9,
      "storstaDag": 620,
-     "andel": 20.8
+     "andel": 21.0
     },
     {
      "namn": "Vågen Gallerian",
      "kommun": "Örebro",
      "lokalId": "1880028",
-     "total": 3306,
-     "dagarMedRoster": 8,
-     "storstaDag": 489,
-     "andel": 18.3
+     "total": 3778,
+     "dagarMedRoster": 9,
+     "storstaDag": 496,
+     "andel": 18.1
     },
     {
      "namn": "Haga centrum",
      "kommun": "Örebro",
      "lokalId": "1880014",
-     "total": 2425,
-     "dagarMedRoster": 8,
+     "total": 2808,
+     "dagarMedRoster": 9,
      "storstaDag": 400,
      "andel": 13.4
     },
@@ -1744,8 +1751,8 @@
      "namn": "Eurostop, Best Western",
      "kommun": "Örebro",
      "lokalId": "1880026",
-     "total": 2283,
-     "dagarMedRoster": 8,
+     "total": 2643,
+     "dagarMedRoster": 9,
      "storstaDag": 388,
      "andel": 12.6
     },
@@ -1753,28 +1760,28 @@
      "namn": "Kulturkvarteret",
      "kommun": "Örebro",
      "lokalId": "1880008",
-     "total": 2142,
-     "dagarMedRoster": 8,
+     "total": 2452,
+     "dagarMedRoster": 9,
      "storstaDag": 389,
-     "andel": 11.8
+     "andel": 11.7
     },
     {
      "namn": "Universitetssjukhuset (USÖ), M-huset",
      "kommun": "Örebro",
      "lokalId": "1880003",
-     "total": 1778,
-     "dagarMedRoster": 6,
+     "total": 2108,
+     "dagarMedRoster": 7,
      "storstaDag": 406,
-     "andel": 9.8
+     "andel": 10.1
     },
     {
      "namn": "Universitetet, Långhuset",
      "kommun": "Örebro",
      "lokalId": "1880010",
-     "total": 684,
-     "dagarMedRoster": 3,
+     "total": 932,
+     "dagarMedRoster": 4,
      "storstaDag": 328,
-     "andel": 3.8
+     "andel": 4.5
     },
     {
      "namn": "Vivallaskolan, fritidsgården",
@@ -1783,7 +1790,7 @@
      "total": 303,
      "dagarMedRoster": 2,
      "storstaDag": 186,
-     "andel": 1.7
+     "andel": 1.4
     },
     {
      "namn": "Odenskolan",
@@ -1792,7 +1799,7 @@
      "total": 295,
      "dagarMedRoster": 2,
      "storstaDag": 163,
-     "andel": 1.6
+     "andel": 1.4
     },
     {
      "namn": "Tegelbruket, Markbackens centrum",
@@ -1801,7 +1808,7 @@
      "total": 251,
      "dagarMedRoster": 2,
      "storstaDag": 140,
-     "andel": 1.4
+     "andel": 1.2
     },
     {
      "namn": "Lillåns skola",
@@ -1810,7 +1817,7 @@
      "total": 186,
      "dagarMedRoster": 1,
      "storstaDag": 186,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Föreningen Trädet",
@@ -1819,7 +1826,7 @@
      "total": 147,
      "dagarMedRoster": 1,
      "storstaDag": 147,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Glanshammars skola",
@@ -1828,7 +1835,16 @@
      "total": 141,
      "dagarMedRoster": 1,
      "storstaDag": 141,
-     "andel": 0.8
+     "andel": 0.7
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Örebro",
+     "lokalId": "1880038",
+     "total": 100,
+     "dagarMedRoster": 7,
+     "storstaDag": 40,
+     "andel": 0.5
     },
     {
      "namn": "Garphyttans skola",
@@ -1840,22 +1856,13 @@
      "andel": 0.5
     },
     {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Örebro",
-     "lokalId": "1880038",
-     "total": 79,
-     "dagarMedRoster": 5,
-     "storstaDag": 40,
-     "andel": 0.4
-    },
-    {
      "namn": "Vintrosa skola",
      "kommun": "Örebro",
      "lokalId": "1880023",
      "total": 64,
      "dagarMedRoster": 1,
      "storstaDag": 64,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Brevens bruk, Brevensgården",
@@ -1864,6 +1871,24 @@
      "total": 44,
      "dagarMedRoster": 1,
      "storstaDag": 44,
+     "andel": 0.2
+    },
+    {
+     "namn": "BEGRÄNSAT TILLTRÄDE: Kornellen",
+     "kommun": "Örebro",
+     "lokalId": "1880034",
+     "total": 34,
+     "dagarMedRoster": 1,
+     "storstaDag": 34,
+     "andel": 0.2
+    },
+    {
+     "namn": "BEGRÄNSAT TILLTRÄDE: Stadsmissionen",
+     "kommun": "Örebro",
+     "lokalId": "1880037",
+     "total": 33,
+     "dagarMedRoster": 2,
+     "storstaDag": 18,
      "andel": 0.2
     },
     {
@@ -1894,18 +1919,18 @@
      "andel": 0.1
     },
     {
-     "namn": "BEGRÄNSAT TILLTRÄDE: Mikaeligården",
+     "namn": "BEGRÄNSAT TILLTRÄDE: Runnagården",
      "kommun": "Örebro",
-     "lokalId": "1880040",
-     "total": 18,
+     "lokalId": "1880017",
+     "total": 19,
      "dagarMedRoster": 1,
-     "storstaDag": 18,
+     "storstaDag": 19,
      "andel": 0.1
     },
     {
-     "namn": "BEGRÄNSAT TILLTRÄDE: Stadsmissionen",
+     "namn": "BEGRÄNSAT TILLTRÄDE: Mikaeligården",
      "kommun": "Örebro",
-     "lokalId": "1880037",
+     "lokalId": "1880040",
      "total": 18,
      "dagarMedRoster": 1,
      "storstaDag": 18,
@@ -1918,7 +1943,7 @@
      "total": 10,
      "dagarMedRoster": 1,
      "storstaDag": 10,
-     "andel": 0.1
+     "andel": 0.0
     },
     {
      "namn": "BEGRÄNSAT TILLTRÄDE: Häktet",
@@ -1951,24 +1976,6 @@
      "namn": "BEGRÄNSAT TILLTRÄDE: Klosterbacken",
      "kommun": "Örebro",
      "lokalId": "1880036",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "BEGRÄNSAT TILLTRÄDE: Kornellen",
-     "kommun": "Örebro",
-     "lokalId": "1880034",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "BEGRÄNSAT TILLTRÄDE: Runnagården",
-     "kommun": "Örebro",
-     "lokalId": "1880017",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

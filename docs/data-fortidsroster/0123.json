@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -901,7 +901,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -915,53 +915,60 @@
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 1068,
-     "ack": 2168
+     "antal": 1070,
+     "ack": 2170
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 1104,
-     "ack": 3272
+     "ack": 3274
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 686,
-     "ack": 3958
+     "ack": 3960
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 728,
-     "ack": 4686
+     "ack": 4688
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 1266,
-     "ack": 5952
+     "ack": 5954
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 1199,
-     "ack": 7151
+     "ack": 7153
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 484,
-     "ack": 7635
+     "antal": 1250,
+     "ack": 8403
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 498,
+     "ack": 8901
     }
    ],
-   "total": 7635,
+   "total": 8901,
    "rostberattigade": {
     "riksdag": 63452,
     "kommun": 69611,
@@ -979,44 +986,44 @@
      "namn": "Centrumgallerian Jakobsberg",
      "kommun": "Järfälla",
      "lokalId": "0123004",
-     "total": 3065,
-     "dagarMedRoster": 8,
+     "total": 3531,
+     "dagarMedRoster": 9,
      "storstaDag": 469,
-     "andel": 40.1
+     "andel": 39.7
     },
     {
      "namn": "Viksjöträffen",
      "kommun": "Järfälla",
      "lokalId": "0123002",
-     "total": 1542,
-     "dagarMedRoster": 8,
-     "storstaDag": 255,
-     "andel": 20.2
+     "total": 1831,
+     "dagarMedRoster": 9,
+     "storstaDag": 287,
+     "andel": 20.6
     },
     {
      "namn": "Seniorträffen Kallhäll",
      "kommun": "Järfälla",
      "lokalId": "0123006",
-     "total": 1394,
-     "dagarMedRoster": 8,
+     "total": 1575,
+     "dagarMedRoster": 9,
      "storstaDag": 253,
-     "andel": 18.3
+     "andel": 17.7
     },
     {
      "namn": "Biblioteket i BAS Barkarby",
      "kommun": "Järfälla",
      "lokalId": "0123001",
-     "total": 726,
-     "dagarMedRoster": 7,
-     "storstaDag": 139,
-     "andel": 9.5
+     "total": 884,
+     "dagarMedRoster": 8,
+     "storstaDag": 155,
+     "andel": 9.9
     },
     {
      "namn": "Seniorträffen Barkarby",
      "kommun": "Järfälla",
      "lokalId": "0123005",
-     "total": 578,
-     "dagarMedRoster": 8,
+     "total": 680,
+     "dagarMedRoster": 9,
      "storstaDag": 107,
      "andel": 7.6
     },
@@ -1024,8 +1031,8 @@
      "namn": "Huset på höjden",
      "kommun": "Järfälla",
      "lokalId": "0123003",
-     "total": 234,
-     "dagarMedRoster": 6,
+     "total": 280,
+     "dagarMedRoster": 7,
      "storstaDag": 54,
      "andel": 3.1
     },
@@ -1033,8 +1040,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Järfälla",
      "lokalId": "0123007",
-     "total": 96,
-     "dagarMedRoster": 5,
+     "total": 120,
+     "dagarMedRoster": 6,
      "storstaDag": 31,
      "andel": 1.3
     }

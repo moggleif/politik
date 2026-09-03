@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -932,18 +932,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 268,
-     "ack": 1422
+     "antal": 270,
+     "ack": 1424
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 150,
-     "ack": 1572
+     "antal": 333,
+     "ack": 1757
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 100,
+     "ack": 1857
     }
    ],
-   "total": 1572,
+   "total": 1857,
    "rostberattigade": {
     "riksdag": 10103,
     "kommun": 10463,
@@ -961,10 +968,19 @@
      "namn": "Biblioteket",
      "kommun": "Mönsterås",
      "lokalId": "0861003",
-     "total": 1104,
-     "dagarMedRoster": 8,
-     "storstaDag": 204,
-     "andel": 70.2
+     "total": 1323,
+     "dagarMedRoster": 9,
+     "storstaDag": 245,
+     "andel": 71.2
+    },
+    {
+     "namn": "Biblioteket Fliseryd",
+     "kommun": "Mönsterås",
+     "lokalId": "0861002",
+     "total": 152,
+     "dagarMedRoster": 3,
+     "storstaDag": 70,
+     "andel": 8.2
     },
     {
      "namn": "Blomstermåla Bibliotek",
@@ -973,7 +989,7 @@
      "total": 134,
      "dagarMedRoster": 4,
      "storstaDag": 67,
-     "andel": 8.5
+     "andel": 7.2
     },
     {
      "namn": "Biblioteket Timmernabben",
@@ -982,16 +998,7 @@
      "total": 126,
      "dagarMedRoster": 3,
      "storstaDag": 67,
-     "andel": 8.0
-    },
-    {
-     "namn": "Biblioteket Fliseryd",
-     "kommun": "Mönsterås",
-     "lokalId": "0861002",
-     "total": 106,
-     "dagarMedRoster": 3,
-     "storstaDag": 49,
-     "andel": 6.7
+     "andel": 6.8
     },
     {
      "namn": "Biblioteket Ålem",
@@ -1000,16 +1007,16 @@
      "total": 98,
      "dagarMedRoster": 3,
      "storstaDag": 41,
-     "andel": 6.2
+     "andel": 5.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Mönsterås",
      "lokalId": "0861007",
-     "total": 4,
-     "dagarMedRoster": 1,
-     "storstaDag": 4,
-     "andel": 0.3
+     "total": 24,
+     "dagarMedRoster": 3,
+     "storstaDag": 18,
+     "andel": 1.3
     }
    ],
    "antalLokaler": 6,

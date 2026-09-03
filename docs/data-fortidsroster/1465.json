@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1189,7 +1189,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1245,11 +1245,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 50,
-     "ack": 914
+     "antal": 233,
+     "ack": 1097
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 113,
+     "ack": 1210
     }
    ],
-   "total": 914,
+   "total": 1210,
    "rostberattigade": {
     "riksdag": 8057,
     "kommun": 8428,
@@ -1267,10 +1274,19 @@
      "namn": "Svenljunga Bibliotek",
      "kommun": "Svenljunga",
      "lokalId": "1465009",
-     "total": 809,
-     "dagarMedRoster": 8,
+     "total": 1015,
+     "dagarMedRoster": 9,
      "storstaDag": 176,
-     "andel": 88.5
+     "andel": 83.9
+    },
+    {
+     "namn": "Långehall, Överlida",
+     "kommun": "Svenljunga",
+     "lokalId": "1465003",
+     "total": 75,
+     "dagarMedRoster": 1,
+     "storstaDag": 75,
+     "andel": 6.2
     },
     {
      "namn": "Medborgarhuset, Östra Frölunda",
@@ -1279,7 +1295,7 @@
      "total": 55,
      "dagarMedRoster": 1,
      "storstaDag": 55,
-     "andel": 6.0
+     "andel": 4.5
     },
     {
      "namn": "Hillareds skola",
@@ -1288,7 +1304,16 @@
      "total": 45,
      "dagarMedRoster": 1,
      "storstaDag": 45,
-     "andel": 4.9
+     "andel": 3.7
+    },
+    {
+     "namn": "Skaparverkstaden",
+     "kommun": "Svenljunga",
+     "lokalId": "1465014",
+     "total": 15,
+     "dagarMedRoster": 1,
+     "storstaDag": 15,
+     "andel": 1.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1297,7 +1322,7 @@
      "total": 5,
      "dagarMedRoster": 2,
      "storstaDag": 4,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Holsljunga Idrottshall",
@@ -1345,27 +1370,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Långehall, Överlida",
-     "kommun": "Svenljunga",
-     "lokalId": "1465003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Mårdaklevs bygdegård",
      "kommun": "Svenljunga",
      "lokalId": "1465006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Skaparverkstaden",
-     "kommun": "Svenljunga",
-     "lokalId": "1465014",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

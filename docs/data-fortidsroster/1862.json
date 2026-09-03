@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -807,53 +807,60 @@
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 98,
-     "ack": 190
+     "antal": 99,
+     "ack": 191
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 91,
-     "ack": 281
+     "ack": 282
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 76,
-     "ack": 357
+     "ack": 358
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 73,
-     "ack": 430
+     "ack": 431
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 148,
-     "ack": 578
+     "ack": 579
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 119,
-     "ack": 697
+     "ack": 698
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 143,
-     "ack": 840
+     "antal": 168,
+     "ack": 866
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 13,
+     "ack": 879
     }
    ],
-   "total": 840,
+   "total": 879,
    "rostberattigade": {
     "riksdag": 7334,
     "kommun": 7544,
@@ -871,37 +878,37 @@
      "namn": "Folkets Hus",
      "kommun": "Degerfors",
      "lokalId": "1862003",
-     "total": 757,
+     "total": 758,
      "dagarMedRoster": 8,
      "storstaDag": 143,
-     "andel": 90.1
+     "andel": 86.2
     },
     {
      "namn": "Åtorps utvecklingsgrupps lokal",
      "kommun": "Degerfors",
      "lokalId": "1862001",
-     "total": 35,
-     "dagarMedRoster": 2,
+     "total": 52,
+     "dagarMedRoster": 3,
      "storstaDag": 23,
-     "andel": 4.2
+     "andel": 5.9
     },
     {
      "namn": "Folkets Hus Svartå",
      "kommun": "Degerfors",
      "lokalId": "1862002",
-     "total": 32,
-     "dagarMedRoster": 2,
+     "total": 40,
+     "dagarMedRoster": 3,
      "storstaDag": 17,
-     "andel": 3.8
+     "andel": 4.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Degerfors",
      "lokalId": "1862004",
-     "total": 16,
-     "dagarMedRoster": 2,
+     "total": 29,
+     "dagarMedRoster": 3,
      "storstaDag": 15,
-     "andel": 1.9
+     "andel": 3.3
     }
    ],
    "antalLokaler": 4,

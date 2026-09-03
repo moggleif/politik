@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -874,7 +874,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -930,11 +930,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 277,
-     "ack": 4598
+     "antal": 593,
+     "ack": 4914
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 459,
+     "ack": 5373
     }
    ],
-   "total": 4598,
+   "total": 5373,
    "rostberattigade": {
     "riksdag": 35385,
     "kommun": 36119,
@@ -952,26 +959,26 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Ängelholm",
      "lokalId": "1292003",
-     "total": 2245,
-     "dagarMedRoster": 7,
+     "total": 2569,
+     "dagarMedRoster": 8,
      "storstaDag": 431,
-     "andel": 48.8
+     "andel": 47.8
     },
     {
      "namn": "Stadshuset",
      "kommun": "Ängelholm",
      "lokalId": "1292001",
-     "total": 933,
-     "dagarMedRoster": 7,
+     "total": 1082,
+     "dagarMedRoster": 8,
      "storstaDag": 179,
-     "andel": 20.3
+     "andel": 20.1
     },
     {
      "namn": "Avenboken samlingslokal",
      "kommun": "Ängelholm",
      "lokalId": "1292002",
-     "total": 460,
-     "dagarMedRoster": 5,
+     "total": 539,
+     "dagarMedRoster": 6,
      "storstaDag": 147,
      "andel": 10.0
     },
@@ -979,28 +986,37 @@
      "namn": "Vejbystrands bibliotek",
      "kommun": "Ängelholm",
      "lokalId": "1292005",
-     "total": 422,
-     "dagarMedRoster": 4,
+     "total": 447,
+     "dagarMedRoster": 5,
      "storstaDag": 126,
-     "andel": 9.2
+     "andel": 8.3
     },
     {
      "namn": "Hjärnarps bibliotek",
      "kommun": "Ängelholm",
      "lokalId": "1292004",
-     "total": 268,
+     "total": 328,
      "dagarMedRoster": 4,
-     "storstaDag": 94,
-     "andel": 5.8
+     "storstaDag": 100,
+     "andel": 6.1
     },
     {
      "namn": "Strövelstorps bibliotek",
      "kommun": "Ängelholm",
      "lokalId": "1292006",
-     "total": 102,
-     "dagarMedRoster": 2,
+     "total": 127,
+     "dagarMedRoster": 3,
      "storstaDag": 69,
-     "andel": 2.2
+     "andel": 2.4
+    },
+    {
+     "namn": "Rönnegymnasiet",
+     "kommun": "Ängelholm",
+     "lokalId": "1292007",
+     "total": 83,
+     "dagarMedRoster": 1,
+     "storstaDag": 83,
+     "andel": 1.5
     },
     {
      "namn": "Willan SÄBO",
@@ -1009,7 +1025,16 @@
      "total": 44,
      "dagarMedRoster": 1,
      "storstaDag": 44,
-     "andel": 1.0
+     "andel": 0.8
+    },
+    {
+     "namn": "Fridhemslund SÄBO",
+     "kommun": "Ängelholm",
+     "lokalId": "1292018",
+     "total": 34,
+     "dagarMedRoster": 1,
+     "storstaDag": 34,
+     "andel": 0.6
     },
     {
      "namn": "Sommarsol SÄBO",
@@ -1018,7 +1043,7 @@
      "total": 30,
      "dagarMedRoster": 1,
      "storstaDag": 30,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Errarps ängar SÄBO",
@@ -1027,16 +1052,16 @@
      "total": 26,
      "dagarMedRoster": 1,
      "storstaDag": 26,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
-     "namn": "Fridhemslund SÄBO",
+     "namn": "Ambulerande röstmottagning",
      "kommun": "Ängelholm",
-     "lokalId": "1292018",
-     "total": 15,
-     "dagarMedRoster": 1,
-     "storstaDag": 15,
-     "andel": 0.3
+     "lokalId": "1292009",
+     "total": 13,
+     "dagarMedRoster": 6,
+     "storstaDag": 4,
+     "andel": 0.2
     },
     {
      "namn": "Solhaga SÄBO",
@@ -1045,15 +1070,6 @@
      "total": 12,
      "dagarMedRoster": 1,
      "storstaDag": 12,
-     "andel": 0.3
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Ängelholm",
-     "lokalId": "1292009",
-     "total": 10,
-     "dagarMedRoster": 5,
-     "storstaDag": 4,
      "andel": 0.2
     },
     {
@@ -1066,13 +1082,22 @@
      "andel": 0.2
     },
     {
+     "namn": "Kvarnliden SÄBO",
+     "kommun": "Ängelholm",
+     "lokalId": "1292019",
+     "total": 8,
+     "dagarMedRoster": 1,
+     "storstaDag": 8,
+     "andel": 0.1
+    },
+    {
      "namn": "Åshaga SÄBO",
      "kommun": "Ängelholm",
      "lokalId": "1292016",
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Funktionsstöd Metallgatan",
@@ -1081,7 +1106,7 @@
      "total": 7,
      "dagarMedRoster": 1,
      "storstaDag": 7,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Viktoriagården SÄBO",
@@ -1090,7 +1115,7 @@
      "total": 7,
      "dagarMedRoster": 1,
      "storstaDag": 7,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Bokhöjden SÄBO",
@@ -1111,27 +1136,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Kvarnliden SÄBO",
-     "kommun": "Ängelholm",
-     "lokalId": "1292019",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Munka-Ljungbygården SÄBO",
      "kommun": "Ängelholm",
      "lokalId": "1292022",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Rönnegymnasiet",
-     "kommun": "Ängelholm",
-     "lokalId": "1292007",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

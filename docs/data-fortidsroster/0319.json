@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -787,46 +787,53 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 165,
-     "ack": 558
+     "antal": 167,
+     "ack": 560
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 94,
-     "ack": 652
+     "ack": 654
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 50,
-     "ack": 702
+     "ack": 704
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 200,
-     "ack": 902
+     "antal": 203,
+     "ack": 907
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 217,
-     "ack": 1119
+     "antal": 227,
+     "ack": 1134
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 133,
-     "ack": 1252
+     "antal": 228,
+     "ack": 1362
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 111,
+     "ack": 1473
     }
    ],
-   "total": 1252,
+   "total": 1473,
    "rostberattigade": {
     "riksdag": 7435,
     "kommun": 7600,
@@ -844,19 +851,19 @@
      "namn": "Biblioteket Skutskär",
      "kommun": "Älvkarleby",
      "lokalId": "0319001",
-     "total": 1252,
-     "dagarMedRoster": 8,
-     "storstaDag": 217,
-     "andel": 100.0
+     "total": 1466,
+     "dagarMedRoster": 9,
+     "storstaDag": 228,
+     "andel": 99.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Älvkarleby",
      "lokalId": "0319003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 7,
+     "dagarMedRoster": 1,
+     "storstaDag": 7,
+     "andel": 0.5
     },
     {
      "namn": "Ljusgården, Kommunhuset",

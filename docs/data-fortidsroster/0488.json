@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -886,46 +886,53 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 280,
-     "ack": 893
+     "antal": 282,
+     "ack": 895
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 131,
-     "ack": 1024
+     "ack": 1026
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 127,
-     "ack": 1151
+     "ack": 1153
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 328,
-     "ack": 1479
+     "ack": 1481
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 255,
-     "ack": 1734
+     "ack": 1736
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 160,
-     "ack": 1894
+     "antal": 411,
+     "ack": 2147
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 140,
+     "ack": 2287
     }
    ],
-   "total": 1894,
+   "total": 2287,
    "rostberattigade": {
     "riksdag": 11404,
     "kommun": 11804,
@@ -943,28 +950,37 @@
      "namn": "Skärborgarnas hus",
      "kommun": "Trosa",
      "lokalId": "0488004",
-     "total": 1316,
-     "dagarMedRoster": 7,
+     "total": 1550,
+     "dagarMedRoster": 8,
      "storstaDag": 255,
-     "andel": 69.5
+     "andel": 67.8
     },
     {
      "namn": "Ungdomens hus",
      "kommun": "Trosa",
      "lokalId": "0488007",
-     "total": 578,
+     "total": 714,
      "dagarMedRoster": 5,
-     "storstaDag": 160,
-     "andel": 30.5
+     "storstaDag": 185,
+     "andel": 31.2
+    },
+    {
+     "namn": "Trosagården",
+     "kommun": "Trosa",
+     "lokalId": "0488002",
+     "total": 17,
+     "dagarMedRoster": 1,
+     "storstaDag": 17,
+     "andel": 0.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Trosa",
      "lokalId": "0488008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 6,
+     "dagarMedRoster": 1,
+     "storstaDag": 6,
+     "andel": 0.3
     },
     {
      "namn": "Häradsgården",
@@ -979,15 +995,6 @@
      "namn": "Sockenstugan, Västerljung",
      "kommun": "Trosa",
      "lokalId": "0488001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Trosagården",
-     "kommun": "Trosa",
-     "lokalId": "0488002",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

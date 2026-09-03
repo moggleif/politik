@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -847,7 +847,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -903,11 +903,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 228,
-     "ack": 2327
+     "antal": 376,
+     "ack": 2475
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 163,
+     "ack": 2638
     }
    ],
-   "total": 2327,
+   "total": 2638,
    "rostberattigade": {
     "riksdag": 19897,
     "kommun": 20418,
@@ -925,19 +932,19 @@
      "namn": "Medborgarhuset Staffanstorp",
      "kommun": "Staffanstorp",
      "lokalId": "1230002",
-     "total": 1845,
-     "dagarMedRoster": 8,
+     "total": 2095,
+     "dagarMedRoster": 9,
      "storstaDag": 334,
-     "andel": 79.3
+     "andel": 79.4
     },
     {
      "namn": "Hjärups bibliotek",
      "kommun": "Staffanstorp",
      "lokalId": "1230001",
-     "total": 430,
-     "dagarMedRoster": 7,
+     "total": 473,
+     "dagarMedRoster": 8,
      "storstaDag": 103,
-     "andel": 18.5
+     "andel": 17.9
     },
     {
      "namn": "Villa Vikhem",
@@ -946,16 +953,25 @@
      "total": 31,
      "dagarMedRoster": 1,
      "storstaDag": 31,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Humana Sockerstan",
      "kommun": "Staffanstorp",
      "lokalId": "1230003",
-     "total": 16,
+     "total": 23,
      "dagarMedRoster": 1,
-     "storstaDag": 16,
-     "andel": 0.7
+     "storstaDag": 23,
+     "andel": 0.9
+    },
+    {
+     "namn": "Magnoliagården",
+     "kommun": "Staffanstorp",
+     "lokalId": "1230004",
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -965,15 +981,6 @@
      "dagarMedRoster": 2,
      "storstaDag": 4,
      "andel": 0.2
-    },
-    {
-     "namn": "Magnoliagården",
-     "kommun": "Staffanstorp",
-     "lokalId": "1230004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Villa Roos Park",

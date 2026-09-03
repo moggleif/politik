@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1380,11 +1380,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 59,
-     "ack": 714
+     "antal": 118,
+     "ack": 773
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 66,
+     "ack": 839
     }
    ],
-   "total": 714,
+   "total": 839,
    "rostberattigade": {
     "riksdag": 4441,
     "kommun": 4660,
@@ -1402,19 +1409,19 @@
      "namn": "Pajala G:a Sporthallen",
      "kommun": "Pajala",
      "lokalId": "2521011",
-     "total": 441,
-     "dagarMedRoster": 6,
+     "total": 510,
+     "dagarMedRoster": 7,
      "storstaDag": 88,
-     "andel": 61.8
+     "andel": 60.8
     },
     {
      "namn": "Tärendö Sporthall",
      "kommun": "Pajala",
      "lokalId": "2521007",
-     "total": 140,
-     "dagarMedRoster": 1,
+     "total": 196,
+     "dagarMedRoster": 2,
      "storstaDag": 140,
-     "andel": 19.6
+     "andel": 23.4
     },
     {
      "namn": "Korpilombolo, Gårdsbyskolan matsal",
@@ -1423,7 +1430,7 @@
      "total": 71,
      "dagarMedRoster": 1,
      "storstaDag": 71,
-     "andel": 9.9
+     "andel": 8.5
     },
     {
      "namn": "Junosuando, fd centralskolan",
@@ -1432,7 +1439,7 @@
      "total": 62,
      "dagarMedRoster": 1,
      "storstaDag": 62,
-     "andel": 8.7
+     "andel": 7.4
     },
     {
      "namn": "Ambulerande röstmottagning",

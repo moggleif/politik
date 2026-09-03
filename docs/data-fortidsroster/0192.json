@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -932,18 +932,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 540,
-     "ack": 2972
+     "antal": 542,
+     "ack": 2974
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 90,
-     "ack": 3062
+     "antal": 497,
+     "ack": 3471
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 133,
+     "ack": 3604
     }
    ],
-   "total": 3062,
+   "total": 3604,
    "rostberattigade": {
     "riksdag": 22412,
     "kommun": 24116,
@@ -961,55 +968,55 @@
      "namn": "Nynäshamns kulturhus",
      "kommun": "Nynäshamn",
      "lokalId": "0192002",
-     "total": 1493,
-     "dagarMedRoster": 8,
-     "storstaDag": 257,
-     "andel": 48.8
+     "total": 1753,
+     "dagarMedRoster": 9,
+     "storstaDag": 259,
+     "andel": 48.6
     },
     {
      "namn": "Seglargränd gästhamnen",
      "kommun": "Nynäshamn",
      "lokalId": "0192003",
-     "total": 731,
-     "dagarMedRoster": 8,
-     "storstaDag": 126,
-     "andel": 23.9
+     "total": 831,
+     "dagarMedRoster": 9,
+     "storstaDag": 136,
+     "andel": 23.1
     },
     {
      "namn": "Centrumhuset Ösmo",
      "kommun": "Nynäshamn",
      "lokalId": "0192001",
-     "total": 453,
-     "dagarMedRoster": 5,
+     "total": 547,
+     "dagarMedRoster": 6,
      "storstaDag": 111,
-     "andel": 14.8
+     "andel": 15.2
     },
     {
      "namn": "Sorunda bygdegård",
      "kommun": "Nynäshamn",
      "lokalId": "0192004",
-     "total": 277,
-     "dagarMedRoster": 5,
+     "total": 341,
+     "dagarMedRoster": 6,
      "storstaDag": 78,
-     "andel": 9.0
+     "andel": 9.5
     },
     {
      "namn": "Nickstadalen",
      "kommun": "Nynäshamn",
      "lokalId": "0192005",
-     "total": 84,
-     "dagarMedRoster": 5,
+     "total": 100,
+     "dagarMedRoster": 6,
      "storstaDag": 24,
-     "andel": 2.7
+     "andel": 2.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nynäshamn",
      "lokalId": "0192006",
-     "total": 24,
-     "dagarMedRoster": 4,
-     "storstaDag": 7,
-     "andel": 0.8
+     "total": 32,
+     "dagarMedRoster": 5,
+     "storstaDag": 8,
+     "andel": 0.9
     }
    ],
    "antalLokaler": 6,

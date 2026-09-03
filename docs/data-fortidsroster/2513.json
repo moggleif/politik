@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -955,7 +955,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1011,11 +1011,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 31,
-     "ack": 396
+     "antal": 54,
+     "ack": 419
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 41,
+     "ack": 460
     }
    ],
-   "total": 396,
+   "total": 460,
    "rostberattigade": {
     "riksdag": 2472,
     "kommun": 2668,
@@ -1033,10 +1040,10 @@
      "namn": "Överkalix kommunförvaltning",
      "kommun": "Överkalix",
      "lokalId": "2513004",
-     "total": 381,
-     "dagarMedRoster": 8,
+     "total": 444,
+     "dagarMedRoster": 9,
      "storstaDag": 75,
-     "andel": 96.2
+     "andel": 96.5
     },
     {
      "namn": "Tallviksgården",
@@ -1045,16 +1052,16 @@
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
-     "andel": 2.8
+     "andel": 2.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Överkalix",
      "lokalId": "2513009",
-     "total": 3,
+     "total": 4,
      "dagarMedRoster": 2,
-     "storstaDag": 2,
-     "andel": 0.8
+     "storstaDag": 3,
+     "andel": 0.9
     },
     {
      "namn": "Brännagården",
@@ -1063,7 +1070,7 @@
      "total": 1,
      "dagarMedRoster": 1,
      "storstaDag": 1,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Allsåns byastuga",

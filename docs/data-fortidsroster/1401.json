@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -937,7 +937,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -993,11 +993,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 278,
-     "ack": 3536
+     "antal": 614,
+     "ack": 3872
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 258,
+     "ack": 4130
     }
    ],
-   "total": 3536,
+   "total": 4130,
    "rostberattigade": {
     "riksdag": 29517,
     "kommun": 30233,
@@ -1015,28 +1022,28 @@
      "namn": "Mölnlycke kulturhus",
      "kommun": "Härryda",
      "lokalId": "1401005",
-     "total": 1897,
-     "dagarMedRoster": 8,
+     "total": 2250,
+     "dagarMedRoster": 9,
      "storstaDag": 332,
-     "andel": 53.6
+     "andel": 54.5
     },
     {
      "namn": "Landvetters kulturhus",
      "kommun": "Härryda",
      "lokalId": "1401004",
-     "total": 1135,
-     "dagarMedRoster": 7,
+     "total": 1366,
+     "dagarMedRoster": 8,
      "storstaDag": 258,
-     "andel": 32.1
+     "andel": 33.1
     },
     {
      "namn": "Hindås stationshus",
      "kommun": "Härryda",
      "lokalId": "1401002",
-     "total": 304,
+     "total": 306,
      "dagarMedRoster": 3,
      "storstaDag": 145,
-     "andel": 8.6
+     "andel": 7.4
     },
     {
      "namn": "Rävlanda föreningsgård",
@@ -1045,14 +1052,14 @@
      "total": 141,
      "dagarMedRoster": 2,
      "storstaDag": 74,
-     "andel": 4.0
+     "andel": 3.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Härryda",
      "lokalId": "1401006",
-     "total": 58,
-     "dagarMedRoster": 3,
+     "total": 66,
+     "dagarMedRoster": 4,
      "storstaDag": 32,
      "andel": 1.6
     },

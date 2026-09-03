@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1153,7 +1153,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1209,11 +1209,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 113,
-     "ack": 810
+     "antal": 180,
+     "ack": 877
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 72,
+     "ack": 949
     }
    ],
-   "total": 810,
+   "total": 949,
    "rostberattigade": {
     "riksdag": 5398,
     "kommun": 5639,
@@ -1231,10 +1238,10 @@
      "namn": "Kommunhuset i Älvdalen",
      "kommun": "Älvdalen",
      "lokalId": "2039005",
-     "total": 512,
-     "dagarMedRoster": 7,
-     "storstaDag": 127,
-     "andel": 63.2
+     "total": 630,
+     "dagarMedRoster": 8,
+     "storstaDag": 131,
+     "andel": 66.4
     },
     {
      "namn": "Kommunalkontoret i Idre",
@@ -1243,16 +1250,16 @@
      "total": 173,
      "dagarMedRoster": 4,
      "storstaDag": 59,
-     "andel": 21.4
+     "andel": 18.2
     },
     {
      "namn": "Särnakontoret",
      "kommun": "Älvdalen",
      "lokalId": "2039001",
-     "total": 119,
-     "dagarMedRoster": 3,
+     "total": 140,
+     "dagarMedRoster": 4,
      "storstaDag": 62,
-     "andel": 14.7
+     "andel": 14.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1261,7 +1268,7 @@
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Drevdagen Restaurang Fjällbjörken",

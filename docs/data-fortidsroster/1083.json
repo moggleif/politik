@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -921,11 +921,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 144,
-     "ack": 1898
+     "antal": 346,
+     "ack": 2100
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 134,
+     "ack": 2234
     }
    ],
-   "total": 1898,
+   "total": 2234,
    "rostberattigade": {
     "riksdag": 14071,
     "kommun": 14321,
@@ -943,10 +950,19 @@
      "namn": "Stadshuset",
      "kommun": "Sölvesborg",
      "lokalId": "1083001",
-     "total": 1582,
-     "dagarMedRoster": 8,
+     "total": 1837,
+     "dagarMedRoster": 9,
      "storstaDag": 315,
-     "andel": 83.4
+     "andel": 82.2
+    },
+    {
+     "namn": "Biblioteket i Norje",
+     "kommun": "Sölvesborg",
+     "lokalId": "1083002",
+     "total": 184,
+     "dagarMedRoster": 2,
+     "storstaDag": 107,
+     "andel": 8.2
     },
     {
      "namn": "Biblioteket i Mjällby",
@@ -955,25 +971,16 @@
      "total": 163,
      "dagarMedRoster": 1,
      "storstaDag": 163,
-     "andel": 8.6
-    },
-    {
-     "namn": "Biblioteket i Norje",
-     "kommun": "Sölvesborg",
-     "lokalId": "1083002",
-     "total": 107,
-     "dagarMedRoster": 1,
-     "storstaDag": 107,
-     "andel": 5.6
+     "andel": 7.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Sölvesborg",
      "lokalId": "1083004",
-     "total": 46,
-     "dagarMedRoster": 2,
+     "total": 50,
+     "dagarMedRoster": 3,
      "storstaDag": 38,
-     "andel": 2.4
+     "andel": 2.2
     }
    ],
    "antalLokaler": 4,

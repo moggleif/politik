@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -777,11 +777,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 93,
-     "ack": 1113
+     "antal": 225,
+     "ack": 1245
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 126,
+     "ack": 1371
     }
    ],
-   "total": 1113,
+   "total": 1371,
    "rostberattigade": {
     "riksdag": 6923,
     "kommun": 7197,
@@ -799,10 +806,10 @@
      "namn": "Grums bibliotek",
      "kommun": "Grums",
      "lokalId": "1764001",
-     "total": 1043,
-     "dagarMedRoster": 8,
+     "total": 1279,
+     "dagarMedRoster": 9,
      "storstaDag": 235,
-     "andel": 93.7
+     "andel": 93.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -811,7 +818,7 @@
      "total": 41,
      "dagarMedRoster": 3,
      "storstaDag": 27,
-     "andel": 3.7
+     "andel": 3.0
     },
     {
      "namn": "Mobil röstningslokal, Värmskog",
@@ -820,16 +827,16 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 2.6
+     "andel": 2.1
     },
     {
      "namn": "Mobil röstningslokal, Långsta",
      "kommun": "Grums",
      "lokalId": "1764004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 22,
+     "dagarMedRoster": 1,
+     "storstaDag": 22,
+     "andel": 1.6
     }
    ],
    "antalLokaler": 4,

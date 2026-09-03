@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1018,7 +1018,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1053,32 +1053,39 @@
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 20,
-     "ack": 692
+     "antal": 81,
+     "ack": 753
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 199,
-     "ack": 891
+     "ack": 952
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 355,
-     "ack": 1246
+     "ack": 1307
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 123,
-     "ack": 1369
+     "antal": 231,
+     "ack": 1538
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 143,
+     "ack": 1681
     }
    ],
-   "total": 1369,
+   "total": 1681,
    "rostberattigade": {
     "riksdag": 9087,
     "kommun": 9249,
@@ -1096,10 +1103,10 @@
      "namn": "Kulturhuset",
      "kommun": "Rättvik",
      "lokalId": "2031002",
-     "total": 1262,
-     "dagarMedRoster": 8,
+     "total": 1573,
+     "dagarMedRoster": 9,
      "storstaDag": 248,
-     "andel": 92.2
+     "andel": 93.6
     },
     {
      "namn": "Ore bibliotek",
@@ -1108,16 +1115,16 @@
      "total": 105,
      "dagarMedRoster": 1,
      "storstaDag": 105,
-     "andel": 7.7
+     "andel": 6.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Rättvik",
      "lokalId": "2031005",
-     "total": 2,
-     "dagarMedRoster": 1,
+     "total": 3,
+     "dagarMedRoster": 2,
      "storstaDag": 2,
-     "andel": 0.1
+     "andel": 0.2
     },
     {
      "namn": "Bingsjö bystuga",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,7 +811,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -867,11 +867,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 0,
-     "ack": 817
+     "antal": 236,
+     "ack": 1053
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 22,
+     "ack": 1075
     }
    ],
-   "total": 817,
+   "total": 1075,
    "rostberattigade": {
     "riksdag": 8432,
     "kommun": 8893,
@@ -889,46 +896,46 @@
      "namn": "Kulturhuset",
      "kommun": "Sävsjö",
      "lokalId": "0684003",
-     "total": 584,
-     "dagarMedRoster": 7,
+     "total": 696,
+     "dagarMedRoster": 8,
      "storstaDag": 116,
-     "andel": 71.5
+     "andel": 64.7
     },
     {
      "namn": "Församlingshemmet Vrigstad",
      "kommun": "Sävsjö",
      "lokalId": "0684004",
-     "total": 93,
-     "dagarMedRoster": 3,
-     "storstaDag": 34,
-     "andel": 11.4
+     "total": 145,
+     "dagarMedRoster": 4,
+     "storstaDag": 52,
+     "andel": 13.5
     },
     {
      "namn": "Södergården, restaurangen",
      "kommun": "Sävsjö",
      "lokalId": "0684001",
-     "total": 71,
-     "dagarMedRoster": 3,
-     "storstaDag": 30,
-     "andel": 8.7
+     "total": 104,
+     "dagarMedRoster": 4,
+     "storstaDag": 33,
+     "andel": 9.7
     },
     {
      "namn": "Rörviks skola, biblioteket",
      "kommun": "Sävsjö",
      "lokalId": "0684002",
-     "total": 57,
-     "dagarMedRoster": 3,
-     "storstaDag": 26,
-     "andel": 7.0
+     "total": 96,
+     "dagarMedRoster": 4,
+     "storstaDag": 39,
+     "andel": 8.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Sävsjö",
      "lokalId": "0684005",
-     "total": 12,
-     "dagarMedRoster": 1,
-     "storstaDag": 12,
-     "andel": 1.5
+     "total": 34,
+     "dagarMedRoster": 2,
+     "storstaDag": 22,
+     "andel": 3.2
     }
    ],
    "antalLokaler": 5,

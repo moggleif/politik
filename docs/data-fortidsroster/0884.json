@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -730,7 +730,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -779,18 +779,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 240,
-     "ack": 1183
+     "antal": 254,
+     "ack": 1197
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 14,
-     "ack": 1197
+     "antal": 234,
+     "ack": 1431
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 9,
+     "ack": 1440
     }
    ],
-   "total": 1197,
+   "total": 1440,
    "rostberattigade": {
     "riksdag": 11951,
     "kommun": 12328,
@@ -808,37 +815,37 @@
      "namn": "Plenisalen, Stadshuset",
      "kommun": "Vimmerby",
      "lokalId": "0884001",
-     "total": 1054,
-     "dagarMedRoster": 7,
+     "total": 1228,
+     "dagarMedRoster": 8,
      "storstaDag": 181,
-     "andel": 88.1
+     "andel": 85.3
     },
     {
      "namn": "Södra vi bibliotek",
      "kommun": "Vimmerby",
      "lokalId": "0884002",
-     "total": 72,
+     "total": 108,
      "dagarMedRoster": 2,
      "storstaDag": 58,
-     "andel": 6.0
+     "andel": 7.5
     },
     {
      "namn": "Storebro bibliotek",
      "kommun": "Vimmerby",
      "lokalId": "0884003",
-     "total": 59,
-     "dagarMedRoster": 1,
+     "total": 68,
+     "dagarMedRoster": 2,
      "storstaDag": 59,
-     "andel": 4.9
+     "andel": 4.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Vimmerby",
      "lokalId": "0884004",
-     "total": 12,
-     "dagarMedRoster": 3,
-     "storstaDag": 9,
-     "andel": 1.0
+     "total": 36,
+     "dagarMedRoster": 4,
+     "storstaDag": 15,
+     "andel": 2.5
     }
    ],
    "antalLokaler": 4,

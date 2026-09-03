@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1047,11 +1047,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 277,
-     "ack": 2722
+     "antal": 537,
+     "ack": 2982
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 263,
+     "ack": 3245
     }
    ],
-   "total": 2722,
+   "total": 3245,
    "rostberattigade": {
     "riksdag": 17397,
     "kommun": 17935,
@@ -1069,37 +1076,37 @@
      "namn": "Avestaparken",
      "kommun": "Avesta",
      "lokalId": "2084002",
-     "total": 2018,
-     "dagarMedRoster": 8,
+     "total": 2363,
+     "dagarMedRoster": 9,
      "storstaDag": 384,
-     "andel": 74.1
+     "andel": 72.8
     },
     {
      "namn": "Krylbo församlingsgård",
      "kommun": "Avesta",
      "lokalId": "2084001",
-     "total": 437,
-     "dagarMedRoster": 6,
-     "storstaDag": 86,
+     "total": 524,
+     "dagarMedRoster": 7,
+     "storstaDag": 92,
      "andel": 16.1
-    },
-    {
-     "namn": "Fors Folkets hus",
-     "kommun": "Avesta",
-     "lokalId": "2084004",
-     "total": 136,
-     "dagarMedRoster": 3,
-     "storstaDag": 52,
-     "andel": 5.0
     },
     {
      "namn": "Horndals församlingshem",
      "kommun": "Avesta",
      "lokalId": "2084003",
-     "total": 131,
-     "dagarMedRoster": 3,
+     "total": 214,
+     "dagarMedRoster": 4,
      "storstaDag": 71,
-     "andel": 4.8
+     "andel": 6.6
+    },
+    {
+     "namn": "Fors Folkets hus",
+     "kommun": "Avesta",
+     "lokalId": "2084004",
+     "total": 144,
+     "dagarMedRoster": 4,
+     "storstaDag": 52,
+     "andel": 4.4
     },
     {
      "namn": "Ambulerande röstmottagning",

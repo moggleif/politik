@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1029,11 +1029,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 9,
-     "ack": 349
+     "antal": 51,
+     "ack": 391
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 36,
+     "ack": 427
     }
    ],
-   "total": 349,
+   "total": 427,
    "rostberattigade": {
     "riksdag": 2052,
     "kommun": 2144,
@@ -1051,10 +1058,10 @@
      "namn": "Kommunbiblioteket",
      "kommun": "Arjeplog",
      "lokalId": "2506006",
-     "total": 290,
-     "dagarMedRoster": 8,
+     "total": 339,
+     "dagarMedRoster": 9,
      "storstaDag": 56,
-     "andel": 83.1
+     "andel": 79.4
     },
     {
      "namn": "Folkets Hus i Slagnäs",
@@ -1063,7 +1070,7 @@
      "total": 38,
      "dagarMedRoster": 1,
      "storstaDag": 38,
-     "andel": 10.9
+     "andel": 8.9
     },
     {
      "namn": "Folkets Hus i Mellanström",
@@ -1072,30 +1079,30 @@
      "total": 17,
      "dagarMedRoster": 1,
      "storstaDag": 17,
-     "andel": 4.9
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Arjeplog",
-     "lokalId": "2506007",
-     "total": 4,
-     "dagarMedRoster": 1,
-     "storstaDag": 4,
-     "andel": 1.1
-    },
-    {
-     "namn": "Jäckviksgården",
-     "kommun": "Arjeplog",
-     "lokalId": "2506002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 4.0
     },
     {
      "namn": "Klubbstugan, Laisvall",
      "kommun": "Arjeplog",
      "lokalId": "2506003",
+     "total": 17,
+     "dagarMedRoster": 1,
+     "storstaDag": 17,
+     "andel": 4.0
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Arjeplog",
+     "lokalId": "2506007",
+     "total": 16,
+     "dagarMedRoster": 2,
+     "storstaDag": 12,
+     "andel": 3.7
+    },
+    {
+     "namn": "Jäckviksgården",
+     "kommun": "Arjeplog",
+     "lokalId": "2506002",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

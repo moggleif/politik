@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1380,11 +1380,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 250,
-     "ack": 4602
+     "antal": 1024,
+     "ack": 5376
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 735,
+     "ack": 6111
     }
    ],
-   "total": 4602,
+   "total": 6111,
    "rostberattigade": {
     "riksdag": 43542,
     "kommun": 44347,
@@ -1402,28 +1409,37 @@
      "namn": "Arkenbiblioteket",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284015",
-     "total": 2425,
-     "dagarMedRoster": 7,
-     "storstaDag": 434,
-     "andel": 52.7
+     "total": 2841,
+     "dagarMedRoster": 8,
+     "storstaDag": 448,
+     "andel": 46.5
     },
     {
      "namn": "Gullänget, Folkets hus Gnistan",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284014",
-     "total": 698,
-     "dagarMedRoster": 3,
-     "storstaDag": 306,
-     "andel": 15.2
+     "total": 1309,
+     "dagarMedRoster": 5,
+     "storstaDag": 316,
+     "andel": 21.4
+    },
+    {
+     "namn": "Bjästa entrébyggnad",
+     "kommun": "Örnsköldsvik",
+     "lokalId": "2284001",
+     "total": 368,
+     "dagarMedRoster": 2,
+     "storstaDag": 205,
+     "andel": 6.0
     },
     {
      "namn": "Själevads församlingshem",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284005",
-     "total": 268,
-     "dagarMedRoster": 2,
+     "total": 341,
+     "dagarMedRoster": 3,
      "storstaDag": 154,
-     "andel": 5.8
+     "andel": 5.6
     },
     {
      "namn": "Sörlidens församlingsgård",
@@ -1432,16 +1448,34 @@
      "total": 226,
      "dagarMedRoster": 3,
      "storstaDag": 104,
-     "andel": 4.9
+     "andel": 3.7
     },
     {
-     "namn": "Bjästa entrébyggnad",
+     "namn": "Anundsjö församlingsgård",
      "kommun": "Örnsköldsvik",
-     "lokalId": "2284001",
-     "total": 205,
-     "dagarMedRoster": 1,
-     "storstaDag": 205,
-     "andel": 4.5
+     "lokalId": "2284002",
+     "total": 180,
+     "dagarMedRoster": 2,
+     "storstaDag": 132,
+     "andel": 2.9
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Örnsköldsvik",
+     "lokalId": "2284019",
+     "total": 172,
+     "dagarMedRoster": 7,
+     "storstaDag": 54,
+     "andel": 2.8
+    },
+    {
+     "namn": "Mellansels Bad & Fritid",
+     "kommun": "Örnsköldsvik",
+     "lokalId": "2284004",
+     "total": 146,
+     "dagarMedRoster": 2,
+     "storstaDag": 98,
+     "andel": 2.4
     },
     {
      "namn": "Domsjö bruksgården",
@@ -1450,7 +1484,7 @@
      "total": 145,
      "dagarMedRoster": 1,
      "storstaDag": 145,
-     "andel": 3.2
+     "andel": 2.4
     },
     {
      "namn": "Husumgården",
@@ -1459,25 +1493,7 @@
      "total": 142,
      "dagarMedRoster": 1,
      "storstaDag": 142,
-     "andel": 3.1
-    },
-    {
-     "namn": "Anundsjö församlingsgård",
-     "kommun": "Örnsköldsvik",
-     "lokalId": "2284002",
-     "total": 132,
-     "dagarMedRoster": 1,
-     "storstaDag": 132,
-     "andel": 2.9
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Örnsköldsvik",
-     "lokalId": "2284019",
-     "total": 113,
-     "dagarMedRoster": 6,
-     "storstaDag": 54,
-     "andel": 2.5
+     "andel": 2.3
     },
     {
      "namn": "Björnahallen",
@@ -1486,16 +1502,16 @@
      "total": 105,
      "dagarMedRoster": 2,
      "storstaDag": 95,
-     "andel": 2.3
+     "andel": 1.7
     },
     {
-     "namn": "Mellansels Bad & Fritid",
+     "namn": "Skorpeds församlingshem",
      "kommun": "Örnsköldsvik",
-     "lokalId": "2284004",
-     "total": 98,
+     "lokalId": "2284007",
+     "total": 91,
      "dagarMedRoster": 1,
-     "storstaDag": 98,
-     "andel": 2.1
+     "storstaDag": 91,
+     "andel": 1.5
     },
     {
      "namn": "Sidensjö församlingshem",
@@ -1504,7 +1520,7 @@
      "total": 45,
      "dagarMedRoster": 1,
      "storstaDag": 45,
-     "andel": 1.0
+     "andel": 0.7
     },
     {
      "namn": "Gideå församlingshem",
@@ -1528,15 +1544,6 @@
      "namn": "Nolaskolan (valdagen)",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Skorpeds församlingshem",
-     "kommun": "Örnsköldsvik",
-     "lokalId": "2284007",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

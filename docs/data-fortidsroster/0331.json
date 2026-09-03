@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -994,46 +994,53 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 94,
-     "ack": 410
+     "antal": 95,
+     "ack": 411
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 52,
-     "ack": 462
+     "ack": 463
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 43,
-     "ack": 505
+     "ack": 506
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 231,
-     "ack": 736
+     "ack": 737
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 177,
-     "ack": 913
+     "ack": 914
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 260,
-     "ack": 1173
+     "antal": 464,
+     "ack": 1378
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 258,
+     "ack": 1636
     }
    ],
-   "total": 1173,
+   "total": 1636,
    "rostberattigade": {
     "riksdag": 11040,
     "kommun": 11452,
@@ -1051,46 +1058,46 @@
      "namn": "Heby Folkets Hus",
      "kommun": "Heby",
      "lokalId": "0331007",
-     "total": 523,
-     "dagarMedRoster": 8,
-     "storstaDag": 94,
-     "andel": 44.6
+     "total": 615,
+     "dagarMedRoster": 9,
+     "storstaDag": 95,
+     "andel": 37.6
     },
     {
      "namn": "Fokus, Östervåla",
      "kommun": "Heby",
      "lokalId": "0331002",
-     "total": 255,
-     "dagarMedRoster": 2,
+     "total": 410,
+     "dagarMedRoster": 3,
      "storstaDag": 161,
-     "andel": 21.7
+     "andel": 25.1
     },
     {
      "namn": "Folkets hus, Tärnsjö",
      "kommun": "Heby",
      "lokalId": "0331001",
-     "total": 192,
-     "dagarMedRoster": 2,
+     "total": 213,
+     "dagarMedRoster": 3,
      "storstaDag": 100,
-     "andel": 16.4
+     "andel": 13.0
     },
     {
      "namn": "Kyrkans allrum, Morgongåva",
      "kommun": "Heby",
      "lokalId": "0331006",
-     "total": 85,
+     "total": 206,
      "dagarMedRoster": 1,
-     "storstaDag": 85,
-     "andel": 7.2
+     "storstaDag": 206,
+     "andel": 12.6
     },
     {
      "namn": "Birgittagården, Harbo",
      "kommun": "Heby",
      "lokalId": "0331003",
-     "total": 74,
+     "total": 148,
      "dagarMedRoster": 1,
-     "storstaDag": 74,
-     "andel": 6.3
+     "storstaDag": 148,
+     "andel": 9.0
     },
     {
      "namn": "Församlingshemmet, Huddunge",
@@ -1099,7 +1106,7 @@
      "total": 44,
      "dagarMedRoster": 1,
      "storstaDag": 44,
-     "andel": 3.8
+     "andel": 2.7
     },
     {
      "namn": "Ambulerande röstmottagning",

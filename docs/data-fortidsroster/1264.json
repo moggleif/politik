@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -739,7 +739,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -795,11 +795,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 53,
-     "ack": 1596
+     "antal": 251,
+     "ack": 1794
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 124,
+     "ack": 1918
     }
    ],
-   "total": 1596,
+   "total": 1918,
    "rostberattigade": {
     "riksdag": 12854,
     "kommun": 13420,
@@ -820,16 +827,16 @@
      "total": 997,
      "dagarMedRoster": 5,
      "storstaDag": 287,
-     "andel": 62.5
+     "andel": 52.0
     },
     {
      "namn": "Restaurang Rutger",
      "kommun": "Skurup",
      "lokalId": "1264003",
-     "total": 579,
-     "dagarMedRoster": 3,
+     "total": 901,
+     "dagarMedRoster": 4,
      "storstaDag": 265,
-     "andel": 36.3
+     "andel": 47.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -838,7 +845,7 @@
      "total": 20,
      "dagarMedRoster": 2,
      "storstaDag": 17,
-     "andel": 1.3
+     "andel": 1.0
     }
    ],
    "antalLokaler": 3,

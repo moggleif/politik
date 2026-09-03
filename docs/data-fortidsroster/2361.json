@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1216,7 +1216,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1272,11 +1272,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 309,
-     "ack": 1373
+     "antal": 535,
+     "ack": 1599
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 95,
+     "ack": 1694
     }
    ],
-   "total": 1373,
+   "total": 1694,
    "rostberattigade": {
     "riksdag": 8032,
     "kommun": 8388,
@@ -1294,10 +1301,19 @@
      "namn": "Biblioteket Sveg",
      "kommun": "Härjedalen",
      "lokalId": "2361020",
-     "total": 744,
-     "dagarMedRoster": 8,
+     "total": 839,
+     "dagarMedRoster": 9,
      "storstaDag": 168,
-     "andel": 54.2
+     "andel": 49.5
+    },
+    {
+     "namn": "Lövåsgården, Vemdalen",
+     "kommun": "Härjedalen",
+     "lokalId": "2361005",
+     "total": 242,
+     "dagarMedRoster": 2,
+     "storstaDag": 154,
+     "andel": 14.3
     },
     {
      "namn": "Biblioteket Hede",
@@ -1306,7 +1322,7 @@
      "total": 178,
      "dagarMedRoster": 2,
      "storstaDag": 89,
-     "andel": 13.0
+     "andel": 10.5
     },
     {
      "namn": "Åkervägen 1, Funäsdalen",
@@ -1315,16 +1331,7 @@
      "total": 176,
      "dagarMedRoster": 2,
      "storstaDag": 100,
-     "andel": 12.8
-    },
-    {
-     "namn": "Lövåsgården, Vemdalen",
-     "kommun": "Härjedalen",
-     "lokalId": "2361005",
-     "total": 106,
-     "dagarMedRoster": 2,
-     "storstaDag": 88,
-     "andel": 7.7
+     "andel": 10.4
     },
     {
      "namn": "Biblioteket Ytterhogdal",
@@ -1333,7 +1340,16 @@
      "total": 93,
      "dagarMedRoster": 1,
      "storstaDag": 93,
-     "andel": 6.8
+     "andel": 5.5
+    },
+    {
+     "namn": "Bygdegården, Lofsdalen",
+     "kommun": "Härjedalen",
+     "lokalId": "2361006",
+     "total": 76,
+     "dagarMedRoster": 2,
+     "storstaDag": 49,
+     "andel": 4.5
     },
     {
      "namn": "Biblioteket Lillhärdal",
@@ -1342,30 +1358,39 @@
      "total": 41,
      "dagarMedRoster": 1,
      "storstaDag": 41,
-     "andel": 3.0
+     "andel": 2.4
     },
     {
-     "namn": "Bygdegården, Lofsdalen",
+     "namn": "Samegården, Mittådalen",
      "kommun": "Härjedalen",
-     "lokalId": "2361006",
-     "total": 35,
-     "dagarMedRoster": 2,
-     "storstaDag": 27,
-     "andel": 2.5
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Härjedalen",
-     "lokalId": "2361026",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "lokalId": "2361021",
+     "total": 21,
+     "dagarMedRoster": 1,
+     "storstaDag": 21,
+     "andel": 1.2
     },
     {
      "namn": "Bygdegården, Linsell",
      "kommun": "Härjedalen",
      "lokalId": "2361022",
+     "total": 18,
+     "dagarMedRoster": 1,
+     "storstaDag": 18,
+     "andel": 1.1
+    },
+    {
+     "namn": "Svedjegården, Ytterhogdal",
+     "kommun": "Härjedalen",
+     "lokalId": "2361011",
+     "total": 10,
+     "dagarMedRoster": 1,
+     "storstaDag": 10,
+     "andel": 0.6
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Härjedalen",
+     "lokalId": "2361026",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
@@ -1420,24 +1445,6 @@
      "namn": "Per-Albinfjöset, Hede",
      "kommun": "Härjedalen",
      "lokalId": "2361024",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Samegården, Mittådalen",
-     "kommun": "Härjedalen",
-     "lokalId": "2361021",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Svedjegården, Ytterhogdal",
-     "kommun": "Härjedalen",
-     "lokalId": "2361011",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

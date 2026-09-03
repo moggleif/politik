@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -813,11 +813,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 173,
-     "ack": 1807
+     "antal": 271,
+     "ack": 1905
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 168,
+     "ack": 2073
     }
    ],
-   "total": 1807,
+   "total": 2073,
    "rostberattigade": {
     "riksdag": 9057,
     "kommun": 9227,
@@ -835,10 +842,10 @@
      "namn": "Huvudbiblioteket i Borgholm",
      "kommun": "Borgholm",
      "lokalId": "0885002",
-     "total": 1254,
-     "dagarMedRoster": 6,
+     "total": 1488,
+     "dagarMedRoster": 7,
      "storstaDag": 283,
-     "andel": 69.4
+     "andel": 71.8
     },
     {
      "namn": "Biblioteket, Åkerboskolan",
@@ -847,25 +854,25 @@
      "total": 303,
      "dagarMedRoster": 2,
      "storstaDag": 188,
-     "andel": 16.8
+     "andel": 14.6
     },
     {
      "namn": "ICA Nära Byxelkrok",
      "kommun": "Borgholm",
      "lokalId": "0885003",
-     "total": 249,
-     "dagarMedRoster": 8,
+     "total": 272,
+     "dagarMedRoster": 9,
      "storstaDag": 49,
-     "andel": 13.8
+     "andel": 13.1
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Borgholm",
      "lokalId": "0885005",
-     "total": 1,
-     "dagarMedRoster": 1,
-     "storstaDag": 1,
-     "andel": 0.1
+     "total": 10,
+     "dagarMedRoster": 2,
+     "storstaDag": 9,
+     "andel": 0.5
     }
    ],
    "antalLokaler": 4,

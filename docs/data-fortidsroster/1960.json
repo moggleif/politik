@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -847,7 +847,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -903,11 +903,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 109,
-     "ack": 952
+     "antal": 153,
+     "ack": 996
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 50,
+     "ack": 1046
     }
    ],
-   "total": 952,
+   "total": 1046,
    "rostberattigade": {
     "riksdag": 6523,
     "kommun": 6706,
@@ -925,10 +932,10 @@
      "namn": "Biblioteket Kungsör",
      "kommun": "Kungsör",
      "lokalId": "1960002",
-     "total": 906,
-     "dagarMedRoster": 8,
+     "total": 1000,
+     "dagarMedRoster": 9,
      "storstaDag": 176,
-     "andel": 95.2
+     "andel": 95.6
     },
     {
      "namn": "Torpa bygdegård",
@@ -937,7 +944,7 @@
      "total": 30,
      "dagarMedRoster": 2,
      "storstaDag": 29,
-     "andel": 3.2
+     "andel": 2.9
     },
     {
      "namn": "Mötesplats Tallåsgården",
@@ -946,7 +953,7 @@
      "total": 16,
      "dagarMedRoster": 1,
      "storstaDag": 16,
-     "andel": 1.7
+     "andel": 1.5
     },
     {
      "namn": "Ambulerande röstmottagning",

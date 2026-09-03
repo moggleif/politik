@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,67 +919,74 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 656,
-     "ack": 656
+     "antal": 688,
+     "ack": 688
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 723,
-     "ack": 1379
+     "antal": 772,
+     "ack": 1460
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 559,
-     "ack": 1938
+     "ack": 2019
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 449,
-     "ack": 2387
+     "ack": 2468
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 492,
-     "ack": 2879
+     "ack": 2960
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 591,
-     "ack": 3470
+     "antal": 648,
+     "ack": 3608
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 612,
-     "ack": 4082
+     "antal": 622,
+     "ack": 4230
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 235,
-     "ack": 4317
+     "antal": 671,
+     "ack": 4901
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 215,
+     "ack": 5116
     }
    ],
-   "total": 4317,
+   "total": 5116,
    "rostberattigade": {
     "riksdag": 29224,
     "kommun": 29220,
@@ -997,37 +1004,64 @@
      "namn": "Blomstertorget Toppengallerian",
      "kommun": "Vellinge",
      "lokalId": "1233006",
-     "total": 2346,
-     "dagarMedRoster": 8,
+     "total": 2686,
+     "dagarMedRoster": 9,
      "storstaDag": 405,
-     "andel": 54.3
+     "andel": 52.5
     },
     {
      "namn": "Skanörs bibliotek",
      "kommun": "Vellinge",
      "lokalId": "1233001",
-     "total": 1140,
-     "dagarMedRoster": 8,
+     "total": 1261,
+     "dagarMedRoster": 9,
      "storstaDag": 221,
-     "andel": 26.4
+     "andel": 24.6
     },
     {
      "namn": "Vellinge kommunhuset",
      "kommun": "Vellinge",
      "lokalId": "1233002",
-     "total": 831,
-     "dagarMedRoster": 7,
-     "storstaDag": 152,
-     "andel": 19.2
+     "total": 995,
+     "dagarMedRoster": 8,
+     "storstaDag": 164,
+     "andel": 19.4
+    },
+    {
+     "namn": "Västra Ingelstads bibliotek",
+     "kommun": "Vellinge",
+     "lokalId": "1233004",
+     "total": 135,
+     "dagarMedRoster": 4,
+     "storstaDag": 49,
+     "andel": 2.6
     },
     {
      "namn": "Almgården i Vellinge Förenade care",
      "kommun": "Vellinge",
      "lokalId": "1233013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 26,
+     "dagarMedRoster": 1,
+     "storstaDag": 26,
+     "andel": 0.5
+    },
+    {
+     "namn": "Månstorps ängar",
+     "kommun": "Vellinge",
+     "lokalId": "1233010",
+     "total": 10,
+     "dagarMedRoster": 1,
+     "storstaDag": 10,
+     "andel": 0.2
+    },
+    {
+     "namn": "Nyvångsvägen och Bäckahästen",
+     "kommun": "Vellinge",
+     "lokalId": "1233018",
+     "total": 3,
+     "dagarMedRoster": 1,
+     "storstaDag": 3,
+     "andel": 0.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1075,24 +1109,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Månstorps ängar",
-     "kommun": "Vellinge",
-     "lokalId": "1233010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Nyvångsvägen och Bäckahästen",
-     "kommun": "Vellinge",
-     "lokalId": "1233018",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Omtankens hus",
      "kommun": "Vellinge",
      "lokalId": "1233012",
@@ -1132,15 +1148,6 @@
      "namn": "Storgatans gruppboende",
      "kommun": "Vellinge",
      "lokalId": "1233017",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Västra Ingelstads bibliotek",
-     "kommun": "Vellinge",
-     "lokalId": "1233004",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

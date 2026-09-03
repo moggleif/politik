@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -849,11 +849,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 104,
-     "ack": 752
+     "antal": 149,
+     "ack": 797
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 12,
+     "ack": 809
     }
    ],
-   "total": 752,
+   "total": 809,
    "rostberattigade": {
     "riksdag": 7385,
     "kommun": 7899,
@@ -871,19 +878,19 @@
      "namn": "Hörsalen",
      "kommun": "Hylte",
      "lokalId": "1315001",
-     "total": 504,
+     "total": 544,
      "dagarMedRoster": 8,
-     "storstaDag": 95,
-     "andel": 67.0
+     "storstaDag": 107,
+     "andel": 67.2
     },
     {
      "namn": "Torups bygdegård",
      "kommun": "Hylte",
      "lokalId": "1315003",
-     "total": 161,
+     "total": 166,
      "dagarMedRoster": 4,
      "storstaDag": 52,
-     "andel": 21.4
+     "andel": 20.5
     },
     {
      "namn": "Unnaryds sporthall",
@@ -892,16 +899,16 @@
      "total": 70,
      "dagarMedRoster": 3,
      "storstaDag": 30,
-     "andel": 9.3
+     "andel": 8.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Hylte",
      "lokalId": "1315005",
-     "total": 17,
-     "dagarMedRoster": 1,
+     "total": 29,
+     "dagarMedRoster": 2,
      "storstaDag": 17,
-     "andel": 2.3
+     "andel": 3.6
     },
     {
      "namn": "Kontaktcenter i kommunhuset",

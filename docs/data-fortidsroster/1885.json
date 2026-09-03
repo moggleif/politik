@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -928,7 +928,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -963,32 +963,39 @@
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 140,
-     "ack": 933
+     "antal": 143,
+     "ack": 936
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 453,
-     "ack": 1386
+     "ack": 1389
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 502,
-     "ack": 1888
+     "ack": 1891
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 297,
-     "ack": 2185
+     "antal": 371,
+     "ack": 2262
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 344,
+     "ack": 2606
     }
    ],
-   "total": 2185,
+   "total": 2606,
    "rostberattigade": {
     "riksdag": 17996,
     "kommun": 18485,
@@ -1006,28 +1013,28 @@
      "namn": "G:a Apoteket",
      "kommun": "Lindesberg",
      "lokalId": "1885004",
-     "total": 1548,
-     "dagarMedRoster": 8,
-     "storstaDag": 238,
-     "andel": 70.8
+     "total": 1775,
+     "dagarMedRoster": 9,
+     "storstaDag": 245,
+     "andel": 68.1
     },
     {
      "namn": "Järnvägsstationen",
      "kommun": "Lindesberg",
      "lokalId": "1885002",
-     "total": 354,
-     "dagarMedRoster": 3,
-     "storstaDag": 133,
-     "andel": 16.2
+     "total": 491,
+     "dagarMedRoster": 4,
+     "storstaDag": 134,
+     "andel": 18.8
     },
     {
      "namn": "Ekbackens skola",
      "kommun": "Lindesberg",
      "lokalId": "1885001",
-     "total": 142,
-     "dagarMedRoster": 3,
+     "total": 181,
+     "dagarMedRoster": 4,
      "storstaDag": 64,
-     "andel": 6.5
+     "andel": 6.9
     },
     {
      "namn": "Grönboda",
@@ -1036,7 +1043,7 @@
      "total": 60,
      "dagarMedRoster": 1,
      "storstaDag": 60,
-     "andel": 2.7
+     "andel": 2.3
     },
     {
      "namn": "Tallåsen",
@@ -1045,7 +1052,7 @@
      "total": 30,
      "dagarMedRoster": 1,
      "storstaDag": 30,
-     "andel": 1.4
+     "andel": 1.2
     },
     {
      "namn": "Ågården",
@@ -1054,7 +1061,7 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 1.3
+     "andel": 1.1
     },
     {
      "namn": "Källgården",
@@ -1063,7 +1070,25 @@
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 0.9
+     "andel": 0.8
+    },
+    {
+     "namn": "Solliden",
+     "kommun": "Lindesberg",
+     "lokalId": "1885010",
+     "total": 14,
+     "dagarMedRoster": 1,
+     "storstaDag": 14,
+     "andel": 0.5
+    },
+    {
+     "namn": "Ekgården",
+     "kommun": "Lindesberg",
+     "lokalId": "1885007",
+     "total": 4,
+     "dagarMedRoster": 1,
+     "storstaDag": 4,
+     "andel": 0.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1084,15 +1109,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Ekgården",
-     "kommun": "Lindesberg",
-     "lokalId": "1885007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Lindeskolan",
      "kommun": "Lindesberg",
      "lokalId": "1885013",
@@ -1105,15 +1121,6 @@
      "namn": "Råsshallen",
      "kommun": "Lindesberg",
      "lokalId": "1885003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Solliden",
-     "kommun": "Lindesberg",
-     "lokalId": "1885010",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

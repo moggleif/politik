@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1029,11 +1029,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 55,
-     "ack": 946
+     "antal": 173,
+     "ack": 1064
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 49,
+     "ack": 1113
     }
    ],
-   "total": 946,
+   "total": 1113,
    "rostberattigade": {
     "riksdag": 7328,
     "kommun": 7867,
@@ -1051,19 +1058,28 @@
      "namn": "Markaryds kulturhus",
      "kommun": "Markaryd",
      "lokalId": "0767002",
-     "total": 705,
-     "dagarMedRoster": 8,
+     "total": 814,
+     "dagarMedRoster": 9,
      "storstaDag": 147,
-     "andel": 74.5
+     "andel": 73.1
     },
     {
      "namn": "Strömsnäsbruk Servicekontoret",
      "kommun": "Markaryd",
      "lokalId": "0767001",
-     "total": 122,
+     "total": 169,
      "dagarMedRoster": 4,
-     "storstaDag": 44,
-     "andel": 12.9
+     "storstaDag": 48,
+     "andel": 15.2
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Markaryd",
+     "lokalId": "0767005",
+     "total": 50,
+     "dagarMedRoster": 3,
+     "storstaDag": 23,
+     "andel": 4.5
     },
     {
      "namn": "Traryd Verdandi",
@@ -1072,16 +1088,7 @@
      "total": 49,
      "dagarMedRoster": 1,
      "storstaDag": 49,
-     "andel": 5.2
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Markaryd",
-     "lokalId": "0767005",
-     "total": 39,
-     "dagarMedRoster": 2,
-     "storstaDag": 23,
-     "andel": 4.1
+     "andel": 4.4
     },
     {
      "namn": "Hinneryds bygdegård",
@@ -1090,7 +1097,7 @@
      "total": 31,
      "dagarMedRoster": 1,
      "storstaDag": 31,
-     "andel": 3.3
+     "andel": 2.8
     }
    ],
    "antalLokaler": 5,

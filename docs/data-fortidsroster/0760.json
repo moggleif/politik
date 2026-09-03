@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,7 +1108,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1164,11 +1164,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 112,
-     "ack": 569
+     "antal": 259,
+     "ack": 716
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 55,
+     "ack": 771
     }
    ],
-   "total": 569,
+   "total": 771,
    "rostberattigade": {
     "riksdag": 6527,
     "kommun": 7091,
@@ -1186,19 +1193,19 @@
      "namn": "Kommunhuset, Åseda",
      "kommun": "Uppvidinge",
      "lokalId": "0760002",
-     "total": 244,
-     "dagarMedRoster": 6,
-     "storstaDag": 54,
-     "andel": 42.9
+     "total": 338,
+     "dagarMedRoster": 7,
+     "storstaDag": 59,
+     "andel": 43.8
     },
     {
      "namn": "Fritidslokalen Borgen",
      "kommun": "Uppvidinge",
      "lokalId": "0760011",
-     "total": 228,
+     "total": 336,
      "dagarMedRoster": 2,
-     "storstaDag": 136,
-     "andel": 40.1
+     "storstaDag": 200,
+     "andel": 43.6
     },
     {
      "namn": "Matsalen Älghultskolan, Älghult",
@@ -1207,7 +1214,7 @@
      "total": 80,
      "dagarMedRoster": 1,
      "storstaDag": 80,
-     "andel": 14.1
+     "andel": 10.4
     },
     {
      "namn": "Lingården",
@@ -1216,7 +1223,7 @@
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
-     "andel": 1.9
+     "andel": 1.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1225,7 +1232,7 @@
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 1.1
+     "andel": 0.8
     },
     {
      "namn": "Alstermo Folkets hus",

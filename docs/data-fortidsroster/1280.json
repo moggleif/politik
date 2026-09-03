@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -3637,7 +3637,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -3658,46 +3658,53 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 6210,
-     "ack": 21145
+     "antal": 6245,
+     "ack": 21180
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 5527,
-     "ack": 26672
+     "ack": 26707
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 4602,
-     "ack": 31274
+     "antal": 4608,
+     "ack": 31315
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 6335,
-     "ack": 37609
+     "antal": 6354,
+     "ack": 37669
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 6410,
-     "ack": 44019
+     "antal": 6442,
+     "ack": 44111
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 2918,
-     "ack": 46937
+     "antal": 6599,
+     "ack": 50710
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 2348,
+     "ack": 53058
     }
    ],
-   "total": 46937,
+   "total": 53058,
    "rostberattigade": {
     "riksdag": 267820,
     "kommun": 288305,
@@ -3715,17 +3722,17 @@
      "namn": "Mobilia",
      "kommun": "Malmö",
      "lokalId": "1280033",
-     "total": 5014,
-     "dagarMedRoster": 8,
+     "total": 5775,
+     "dagarMedRoster": 9,
      "storstaDag": 792,
-     "andel": 10.7
+     "andel": 10.9
     },
     {
      "namn": "Emporia",
      "kommun": "Malmö",
      "lokalId": "1280045",
-     "total": 3955,
-     "dagarMedRoster": 8,
+     "total": 4456,
+     "dagarMedRoster": 9,
      "storstaDag": 633,
      "andel": 8.4
     },
@@ -3733,8 +3740,8 @@
      "namn": "Triangeln",
      "kommun": "Malmö",
      "lokalId": "1280029",
-     "total": 3396,
-     "dagarMedRoster": 8,
+     "total": 3825,
+     "dagarMedRoster": 9,
      "storstaDag": 506,
      "andel": 7.2
     },
@@ -3742,26 +3749,26 @@
      "namn": "Rosengårdsbiblioteket",
      "kommun": "Malmö",
      "lokalId": "1280076",
-     "total": 3388,
-     "dagarMedRoster": 8,
+     "total": 3762,
+     "dagarMedRoster": 9,
      "storstaDag": 500,
-     "andel": 7.2
+     "andel": 7.1
     },
     {
      "namn": "Jägersro Center",
      "kommun": "Malmö",
      "lokalId": "1280032",
-     "total": 2856,
-     "dagarMedRoster": 8,
-     "storstaDag": 416,
+     "total": 3215,
+     "dagarMedRoster": 9,
+     "storstaDag": 418,
      "andel": 6.1
     },
     {
      "namn": "Kronprinsen",
      "kommun": "Malmö",
      "lokalId": "1280074",
-     "total": 2705,
-     "dagarMedRoster": 8,
+     "total": 3067,
+     "dagarMedRoster": 9,
      "storstaDag": 453,
      "andel": 5.8
     },
@@ -3769,17 +3776,17 @@
      "namn": "Entré",
      "kommun": "Malmö",
      "lokalId": "1280044",
-     "total": 1917,
-     "dagarMedRoster": 8,
+     "total": 2142,
+     "dagarMedRoster": 9,
      "storstaDag": 307,
-     "andel": 4.1
+     "andel": 4.0
     },
     {
      "namn": "Limhamnsbiblioteket",
      "kommun": "Malmö",
      "lokalId": "1280046",
-     "total": 1809,
-     "dagarMedRoster": 7,
+     "total": 2078,
+     "dagarMedRoster": 8,
      "storstaDag": 373,
      "andel": 3.9
     },
@@ -3787,71 +3794,71 @@
      "namn": "Mitt Möllan",
      "kommun": "Malmö",
      "lokalId": "1280019",
-     "total": 1803,
-     "dagarMedRoster": 7,
-     "storstaDag": 353,
-     "andel": 3.8
-    },
-    {
-     "namn": "Limhamns torg",
-     "kommun": "Malmö",
-     "lokalId": "1280086",
-     "total": 1753,
+     "total": 2044,
      "dagarMedRoster": 8,
-     "storstaDag": 305,
-     "andel": 3.7
+     "storstaDag": 353,
+     "andel": 3.9
     },
     {
      "namn": "Malmö Centralstation",
      "kommun": "Malmö",
      "lokalId": "1280027",
-     "total": 1726,
-     "dagarMedRoster": 8,
+     "total": 1934,
+     "dagarMedRoster": 9,
      "storstaDag": 335,
-     "andel": 3.7
+     "andel": 3.6
+    },
+    {
+     "namn": "Limhamns torg",
+     "kommun": "Malmö",
+     "lokalId": "1280086",
+     "total": 1924,
+     "dagarMedRoster": 9,
+     "storstaDag": 305,
+     "andel": 3.6
     },
     {
      "namn": "Willys Katrinelund",
      "kommun": "Malmö",
      "lokalId": "1280072",
-     "total": 1667,
-     "dagarMedRoster": 8,
+     "total": 1850,
+     "dagarMedRoster": 9,
      "storstaDag": 277,
-     "andel": 3.6
+     "andel": 3.5
     },
     {
      "namn": "Fridhemstorget",
      "kommun": "Malmö",
      "lokalId": "1280083",
-     "total": 1641,
-     "dagarMedRoster": 8,
+     "total": 1810,
+     "dagarMedRoster": 9,
      "storstaDag": 312,
-     "andel": 3.5
-    },
-    {
-     "namn": "Västra hamnen",
-     "kommun": "Malmö",
-     "lokalId": "1280087",
-     "total": 1511,
-     "dagarMedRoster": 8,
-     "storstaDag": 307,
-     "andel": 3.2
+     "andel": 3.4
     },
     {
      "namn": "Toftanäs",
      "kommun": "Malmö",
      "lokalId": "1280020",
-     "total": 1510,
-     "dagarMedRoster": 8,
-     "storstaDag": 225,
+     "total": 1710,
+     "dagarMedRoster": 9,
+     "storstaDag": 251,
+     "andel": 3.2
+    },
+    {
+     "namn": "Västra hamnen",
+     "kommun": "Malmö",
+     "lokalId": "1280087",
+     "total": 1708,
+     "dagarMedRoster": 9,
+     "storstaDag": 307,
      "andel": 3.2
     },
     {
      "namn": "Hansa Malmö",
      "kommun": "Malmö",
      "lokalId": "1280073",
-     "total": 1504,
-     "dagarMedRoster": 8,
+     "total": 1685,
+     "dagarMedRoster": 9,
      "storstaDag": 248,
      "andel": 3.2
     },
@@ -3859,17 +3866,17 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Malmö",
      "lokalId": "1280007",
-     "total": 1353,
-     "dagarMedRoster": 8,
+     "total": 1504,
+     "dagarMedRoster": 9,
      "storstaDag": 267,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Bunkeflostrand",
      "kommun": "Malmö",
      "lokalId": "1280021",
-     "total": 1231,
-     "dagarMedRoster": 8,
+     "total": 1364,
+     "dagarMedRoster": 9,
      "storstaDag": 208,
      "andel": 2.6
     },
@@ -3877,8 +3884,8 @@
      "namn": "Hyllie",
      "kommun": "Malmö",
      "lokalId": "1280085",
-     "total": 1186,
-     "dagarMedRoster": 8,
+     "total": 1337,
+     "dagarMedRoster": 9,
      "storstaDag": 208,
      "andel": 2.5
     },
@@ -3886,8 +3893,8 @@
      "namn": "Bellevuegårdsbiblioteket",
      "kommun": "Malmö",
      "lokalId": "1280031",
-     "total": 1022,
-     "dagarMedRoster": 7,
+     "total": 1187,
+     "dagarMedRoster": 8,
      "storstaDag": 217,
      "andel": 2.2
     },
@@ -3895,35 +3902,35 @@
      "namn": "Oxiebiblioteket",
      "kommun": "Malmö",
      "lokalId": "1280028",
-     "total": 686,
-     "dagarMedRoster": 7,
+     "total": 797,
+     "dagarMedRoster": 8,
      "storstaDag": 149,
+     "andel": 1.5
+    },
+    {
+     "namn": "Lindängenbiblioteket",
+     "kommun": "Malmö",
+     "lokalId": "1280043",
+     "total": 781,
+     "dagarMedRoster": 8,
+     "storstaDag": 138,
      "andel": 1.5
     },
     {
      "namn": "Stadshuset",
      "kommun": "Malmö",
      "lokalId": "1280049",
-     "total": 679,
-     "dagarMedRoster": 6,
-     "storstaDag": 170,
-     "andel": 1.4
-    },
-    {
-     "namn": "Lindängenbiblioteket",
-     "kommun": "Malmö",
-     "lokalId": "1280043",
-     "total": 672,
+     "total": 765,
      "dagarMedRoster": 7,
-     "storstaDag": 138,
+     "storstaDag": 170,
      "andel": 1.4
     },
     {
      "namn": "Kirsebergsbiblioteket",
      "kommun": "Malmö",
      "lokalId": "1280048",
-     "total": 497,
-     "dagarMedRoster": 7,
+     "total": 603,
+     "dagarMedRoster": 8,
      "storstaDag": 121,
      "andel": 1.1
     },
@@ -3931,17 +3938,17 @@
      "namn": "Husiebiblioteket",
      "kommun": "Malmö",
      "lokalId": "1280075",
-     "total": 333,
-     "dagarMedRoster": 6,
-     "storstaDag": 75,
-     "andel": 0.7
+     "total": 418,
+     "dagarMedRoster": 7,
+     "storstaDag": 80,
+     "andel": 0.8
     },
     {
      "namn": "Fänriksgatan 1",
      "kommun": "Malmö",
      "lokalId": "1280084",
-     "total": 317,
-     "dagarMedRoster": 6,
+     "total": 358,
+     "dagarMedRoster": 7,
      "storstaDag": 75,
      "andel": 0.7
     },
@@ -3949,8 +3956,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Malmö",
      "lokalId": "1280088",
-     "total": 178,
-     "dagarMedRoster": 6,
+     "total": 186,
+     "dagarMedRoster": 7,
      "storstaDag": 89,
      "andel": 0.4
     },
@@ -3958,10 +3965,10 @@
      "namn": "Häktet Malmö",
      "kommun": "Malmö",
      "lokalId": "1280002",
-     "total": 69,
-     "dagarMedRoster": 1,
+     "total": 81,
+     "dagarMedRoster": 2,
      "storstaDag": 69,
-     "andel": 0.1
+     "andel": 0.2
     },
     {
      "namn": "Anstalten Tygelsjö",
@@ -4045,13 +4052,40 @@
      "andel": 0.1
     },
     {
+     "namn": "Vårdboende Jylland",
+     "kommun": "Malmö",
+     "lokalId": "1280058",
+     "total": 29,
+     "dagarMedRoster": 1,
+     "storstaDag": 29,
+     "andel": 0.1
+    },
+    {
+     "namn": "Hyllie Park vårdboende",
+     "kommun": "Malmö",
+     "lokalId": "1280099",
+     "total": 27,
+     "dagarMedRoster": 1,
+     "storstaDag": 27,
+     "andel": 0.1
+    },
+    {
+     "namn": "Mötesplats Träffpunkten",
+     "kommun": "Malmö",
+     "lokalId": "1280068",
+     "total": 25,
+     "dagarMedRoster": 1,
+     "storstaDag": 25,
+     "andel": 0.0
+    },
+    {
      "namn": "Region Skåne-Sjukhuset",
      "kommun": "Malmö",
      "lokalId": "1280095",
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 0.1
+     "andel": 0.0
     },
     {
      "namn": "Vårdboende Sjöstaden",
@@ -4060,7 +4094,7 @@
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 0.1
+     "andel": 0.0
     },
     {
      "namn": "Attendo Bellevuegården",
@@ -4069,6 +4103,15 @@
      "total": 23,
      "dagarMedRoster": 1,
      "storstaDag": 23,
+     "andel": 0.0
+    },
+    {
+     "namn": "Skåne Stadsmission Unga forum",
+     "kommun": "Malmö",
+     "lokalId": "1280042",
+     "total": 20,
+     "dagarMedRoster": 1,
+     "storstaDag": 20,
      "andel": 0.0
     },
     {
@@ -4093,6 +4136,15 @@
      "namn": "Celsiusgatans vård-och omsorgsboende",
      "kommun": "Malmö",
      "lokalId": "1280089",
+     "total": 18,
+     "dagarMedRoster": 1,
+     "storstaDag": 18,
+     "andel": 0.0
+    },
+    {
+     "namn": "Vårdboende Rosenholm",
+     "kommun": "Malmö",
+     "lokalId": "1280026",
      "total": 18,
      "dagarMedRoster": 1,
      "storstaDag": 18,
@@ -4144,6 +4196,15 @@
      "andel": 0.0
     },
     {
+     "namn": "Apelrosens gruppboende",
+     "kommun": "Malmö",
+     "lokalId": "1280108",
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.0
+    },
+    {
      "namn": "Mötesplats vänkretsen",
      "kommun": "Malmö",
      "lokalId": "1280098",
@@ -4153,36 +4214,45 @@
      "andel": 0.0
     },
     {
-     "namn": "Vårdboende Rosenholm",
+     "namn": "Vårdboende Vittlingen",
      "kommun": "Malmö",
-     "lokalId": "1280026",
-     "total": 7,
+     "lokalId": "1280023",
+     "total": 8,
      "dagarMedRoster": 1,
-     "storstaDag": 7,
+     "storstaDag": 8,
      "andel": 0.0
     },
     {
-     "namn": "Mötesplats Träffpunkten",
+     "namn": "Fabriken DV",
      "kommun": "Malmö",
-     "lokalId": "1280068",
+     "lokalId": "1280096",
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
      "andel": 0.0
     },
     {
-     "namn": "Vårdboende Jylland",
+     "namn": "Vårdboende Högsåkerringen",
      "kommun": "Malmö",
-     "lokalId": "1280058",
-     "total": 6,
+     "lokalId": "1280054",
+     "total": 5,
      "dagarMedRoster": 1,
-     "storstaDag": 6,
+     "storstaDag": 5,
      "andel": 0.0
     },
     {
      "namn": "Disponentvillan",
      "kommun": "Malmö",
      "lokalId": "1280097",
+     "total": 3,
+     "dagarMedRoster": 1,
+     "storstaDag": 3,
+     "andel": 0.0
+    },
+    {
+     "namn": "Mötesplats Tuppen",
+     "kommun": "Malmö",
+     "lokalId": "1280067",
      "total": 3,
      "dagarMedRoster": 1,
      "storstaDag": 3,
@@ -4210,15 +4280,6 @@
      "namn": "Anstalten Fosie",
      "kommun": "Malmö",
      "lokalId": "1280005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Apelrosens gruppboende",
-     "kommun": "Malmö",
-     "lokalId": "1280108",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
@@ -4270,15 +4331,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Fabriken DV",
-     "kommun": "Malmö",
-     "lokalId": "1280096",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Forenede Care Segevångsgården",
      "kommun": "Malmö",
      "lokalId": "1280103",
@@ -4291,15 +4343,6 @@
      "namn": "Fosieborg",
      "kommun": "Malmö",
      "lokalId": "1280117",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Hyllie Park vårdboende",
-     "kommun": "Malmö",
-     "lokalId": "1280099",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
@@ -4351,15 +4394,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Mötesplats Tuppen",
-     "kommun": "Malmö",
-     "lokalId": "1280067",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Mötesplats i rörelse",
      "kommun": "Malmö",
      "lokalId": "1280107",
@@ -4381,15 +4415,6 @@
      "namn": "Sigtunaboendet",
      "kommun": "Malmö",
      "lokalId": "1280118",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Skåne Stadsmission Unga forum",
-     "kommun": "Malmö",
-     "lokalId": "1280042",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
@@ -4435,24 +4460,6 @@
      "namn": "Vårdboende Dekoren",
      "kommun": "Malmö",
      "lokalId": "1280022",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vårdboende Högsåkerringen",
-     "kommun": "Malmö",
-     "lokalId": "1280054",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vårdboende Vittlingen",
-     "kommun": "Malmö",
-     "lokalId": "1280023",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

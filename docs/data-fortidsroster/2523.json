@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1198,7 +1198,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1254,11 +1254,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 156,
-     "ack": 2261
+     "antal": 378,
+     "ack": 2483
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 170,
+     "ack": 2653
     }
    ],
-   "total": 2261,
+   "total": 2653,
    "rostberattigade": {
     "riksdag": 13347,
     "kommun": 13885,
@@ -1276,19 +1283,19 @@
      "namn": "Enen - matsal",
      "kommun": "Gällivare",
      "lokalId": "2523008",
-     "total": 1713,
-     "dagarMedRoster": 8,
+     "total": 1951,
+     "dagarMedRoster": 9,
      "storstaDag": 339,
-     "andel": 75.8
+     "andel": 73.5
     },
     {
      "namn": "Sjukhuset",
      "kommun": "Gällivare",
      "lokalId": "2523009",
-     "total": 95,
-     "dagarMedRoster": 2,
-     "storstaDag": 64,
-     "andel": 4.2
+     "total": 214,
+     "dagarMedRoster": 3,
+     "storstaDag": 75,
+     "andel": 8.1
     },
     {
      "namn": "Hakkas skola Aula",
@@ -1297,7 +1304,7 @@
      "total": 89,
      "dagarMedRoster": 2,
      "storstaDag": 45,
-     "andel": 3.9
+     "andel": 3.4
     },
     {
      "namn": "Glada Kocken",
@@ -1306,7 +1313,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 3.3
+     "andel": 2.8
     },
     {
      "namn": "Dokkas skola",
@@ -1315,7 +1322,16 @@
      "total": 57,
      "dagarMedRoster": 1,
      "storstaDag": 57,
-     "andel": 2.5
+     "andel": 2.1
+    },
+    {
+     "namn": "PRO Träffpunkt Nattavaara",
+     "kommun": "Gällivare",
+     "lokalId": "2523005",
+     "total": 56,
+     "dagarMedRoster": 3,
+     "storstaDag": 35,
+     "andel": 2.1
     },
     {
      "namn": "Myranskolan",
@@ -1324,7 +1340,7 @@
      "total": 54,
      "dagarMedRoster": 1,
      "storstaDag": 54,
-     "andel": 2.4
+     "andel": 2.0
     },
     {
      "namn": "Ullatti byastugan",
@@ -1333,7 +1349,7 @@
      "total": 52,
      "dagarMedRoster": 1,
      "storstaDag": 52,
-     "andel": 2.3
+     "andel": 2.0
     },
     {
      "namn": "Niilivaara Träffpunkt",
@@ -1342,7 +1358,7 @@
      "total": 48,
      "dagarMedRoster": 1,
      "storstaDag": 48,
-     "andel": 2.1
+     "andel": 1.8
     },
     {
      "namn": "Puoltikasvaara skola gymnastiksal",
@@ -1351,16 +1367,7 @@
      "total": 38,
      "dagarMedRoster": 1,
      "storstaDag": 38,
-     "andel": 1.7
-    },
-    {
-     "namn": "PRO Träffpunkt Nattavaara",
-     "kommun": "Gällivare",
-     "lokalId": "2523005",
-     "total": 21,
-     "dagarMedRoster": 2,
-     "storstaDag": 19,
-     "andel": 0.9
+     "andel": 1.4
     },
     {
      "namn": "Forsgläntan - Konferensrum",
@@ -1369,7 +1376,7 @@
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Älvgården",
@@ -1378,7 +1385,7 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Ambulerande röstmottagning",

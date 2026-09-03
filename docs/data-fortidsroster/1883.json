@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1040,18 +1040,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 661,
-     "ack": 3051
+     "antal": 777,
+     "ack": 3167
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 312,
-     "ack": 3363
+     "antal": 684,
+     "ack": 3851
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 342,
+     "ack": 4193
     }
    ],
-   "total": 3363,
+   "total": 4193,
    "rostberattigade": {
     "riksdag": 23963,
     "kommun": 24453,
@@ -1069,37 +1076,46 @@
      "namn": "Karlskoga bibliotek",
      "kommun": "Karlskoga",
      "lokalId": "1883003",
-     "total": 1492,
-     "dagarMedRoster": 8,
+     "total": 1745,
+     "dagarMedRoster": 9,
      "storstaDag": 248,
-     "andel": 44.4
+     "andel": 41.6
     },
     {
      "namn": "Karlskoga lasarett",
      "kommun": "Karlskoga",
      "lokalId": "1883006",
-     "total": 1132,
-     "dagarMedRoster": 6,
-     "storstaDag": 232,
-     "andel": 33.7
+     "total": 1387,
+     "dagarMedRoster": 7,
+     "storstaDag": 258,
+     "andel": 33.1
     },
     {
      "namn": "Brickegårdens vårdcentral",
      "kommun": "Karlskoga",
      "lokalId": "1883012",
-     "total": 507,
-     "dagarMedRoster": 6,
-     "storstaDag": 112,
-     "andel": 15.1
+     "total": 641,
+     "dagarMedRoster": 7,
+     "storstaDag": 128,
+     "andel": 15.3
+    },
+    {
+     "namn": "Anstalten Karlskoga",
+     "kommun": "Karlskoga",
+     "lokalId": "1883004",
+     "total": 139,
+     "dagarMedRoster": 1,
+     "storstaDag": 139,
+     "andel": 3.3
     },
     {
      "namn": "Karlskoga konsthall",
      "kommun": "Karlskoga",
      "lokalId": "1883013",
-     "total": 100,
-     "dagarMedRoster": 3,
+     "total": 139,
+     "dagarMedRoster": 4,
      "storstaDag": 56,
-     "andel": 3.0
+     "andel": 3.3
     },
     {
      "namn": "Karlskoga Folkhögskola - mobil",
@@ -1108,7 +1124,16 @@
      "total": 48,
      "dagarMedRoster": 1,
      "storstaDag": 48,
-     "andel": 1.4
+     "andel": 1.1
+    },
+    {
+     "namn": "Nickkällan - mobil",
+     "kommun": "Karlskoga",
+     "lokalId": "1883008",
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
+     "andel": 0.8
     },
     {
      "namn": "Möckelngymnasiet - mobil",
@@ -1117,7 +1142,7 @@
      "total": 25,
      "dagarMedRoster": 1,
      "storstaDag": 25,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1126,16 +1151,7 @@
      "total": 24,
      "dagarMedRoster": 3,
      "storstaDag": 16,
-     "andel": 0.7
-    },
-    {
-     "namn": "Anstalten Karlskoga",
-     "kommun": "Karlskoga",
-     "lokalId": "1883004",
-     "total": 23,
-     "dagarMedRoster": 1,
-     "storstaDag": 23,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Vuxnas Lärande - mobil",
@@ -1144,7 +1160,7 @@
      "total": 12,
      "dagarMedRoster": 1,
      "storstaDag": 12,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Bråten skolan",
@@ -1159,15 +1175,6 @@
      "namn": "Linnebäcks Bygdegård - mobil",
      "kommun": "Karlskoga",
      "lokalId": "1883001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Nickkällan - mobil",
-     "kommun": "Karlskoga",
-     "lokalId": "1883008",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

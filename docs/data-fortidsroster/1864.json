@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -813,11 +813,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 59,
-     "ack": 643
+     "antal": 86,
+     "ack": 670
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 54,
+     "ack": 724
     }
    ],
-   "total": 643,
+   "total": 724,
    "rostberattigade": {
     "riksdag": 3458,
     "kommun": 3663,
@@ -835,10 +842,10 @@
      "namn": "Tingshuset",
      "kommun": "Ljusnarsberg",
      "lokalId": "1864002",
-     "total": 619,
-     "dagarMedRoster": 8,
+     "total": 700,
+     "dagarMedRoster": 9,
      "storstaDag": 91,
-     "andel": 96.3
+     "andel": 96.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -847,7 +854,7 @@
      "total": 24,
      "dagarMedRoster": 2,
      "storstaDag": 15,
-     "andel": 3.7
+     "andel": 3.3
     },
     {
      "namn": "Kommunhuset",

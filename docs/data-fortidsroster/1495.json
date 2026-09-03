@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -874,7 +874,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -930,11 +930,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 141,
-     "ack": 1785
+     "antal": 423,
+     "ack": 2067
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 142,
+     "ack": 2209
     }
    ],
-   "total": 1785,
+   "total": 2209,
    "rostberattigade": {
     "riksdag": 14423,
     "kommun": 14927,
@@ -952,10 +959,10 @@
      "namn": "Skara stadshus aulan",
      "kommun": "Skara",
      "lokalId": "1495006",
-     "total": 1581,
-     "dagarMedRoster": 8,
-     "storstaDag": 304,
-     "andel": 88.6
+     "total": 1901,
+     "dagarMedRoster": 9,
+     "storstaDag": 316,
+     "andel": 86.1
     },
     {
      "namn": "Vallegården",
@@ -964,7 +971,16 @@
      "total": 130,
      "dagarMedRoster": 1,
      "storstaDag": 130,
-     "andel": 7.3
+     "andel": 5.9
+    },
+    {
+     "namn": "Husaren",
+     "kommun": "Skara",
+     "lokalId": "1495003",
+     "total": 104,
+     "dagarMedRoster": 1,
+     "storstaDag": 104,
+     "andel": 4.7
     },
     {
      "namn": "Varnhemsskolan",
@@ -973,7 +989,7 @@
      "total": 51,
      "dagarMedRoster": 1,
      "storstaDag": 51,
-     "andel": 2.9
+     "andel": 2.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -982,21 +998,12 @@
      "total": 23,
      "dagarMedRoster": 3,
      "storstaDag": 12,
-     "andel": 1.3
+     "andel": 1.0
     },
     {
      "namn": "Ardalaskolan",
      "kommun": "Skara",
      "lokalId": "1495001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Husaren",
-     "kommun": "Skara",
-     "lokalId": "1495003",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

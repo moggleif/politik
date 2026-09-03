@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1090,7 +1090,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1146,11 +1146,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 56,
-     "ack": 608
+     "antal": 148,
+     "ack": 700
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 39,
+     "ack": 739
     }
    ],
-   "total": 608,
+   "total": 739,
    "rostberattigade": {
     "riksdag": 3664,
     "kommun": 3871,
@@ -1168,19 +1175,19 @@
      "namn": "Folkets Hus Jokkmokk",
      "kommun": "Jokkmokk",
      "lokalId": "2510013",
-     "total": 482,
-     "dagarMedRoster": 8,
+     "total": 567,
+     "dagarMedRoster": 9,
      "storstaDag": 93,
-     "andel": 79.3
+     "andel": 76.7
     },
     {
      "namn": "Biblioteket Vuollerim",
      "kommun": "Jokkmokk",
      "lokalId": "2510010",
-     "total": 83,
+     "total": 108,
      "dagarMedRoster": 2,
      "storstaDag": 71,
-     "andel": 13.7
+     "andel": 14.6
     },
     {
      "namn": "Laponiaporten Porjus",
@@ -1189,7 +1196,16 @@
      "total": 43,
      "dagarMedRoster": 1,
      "storstaDag": 43,
-     "andel": 7.1
+     "andel": 5.8
+    },
+    {
+     "namn": "Hembygdsgården, Murjek",
+     "kommun": "Jokkmokk",
+     "lokalId": "2510007",
+     "total": 21,
+     "dagarMedRoster": 1,
+     "storstaDag": 21,
+     "andel": 2.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1204,15 +1220,6 @@
      "namn": "Folkets hus Vuollerim",
      "kommun": "Jokkmokk",
      "lokalId": "2510012",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Hembygdsgården, Murjek",
-     "kommun": "Jokkmokk",
-     "lokalId": "2510007",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

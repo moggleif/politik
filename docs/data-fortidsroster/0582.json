@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1056,11 +1056,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 159,
-     "ack": 1607
+     "antal": 338,
+     "ack": 1786
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 180,
+     "ack": 1966
     }
    ],
-   "total": 1607,
+   "total": 1966,
    "rostberattigade": {
     "riksdag": 11467,
     "kommun": 11573,
@@ -1078,33 +1085,33 @@
      "namn": "Stadsbiblioteket Stinsen",
      "kommun": "Söderköping",
      "lokalId": "0582001",
-     "total": 1603,
-     "dagarMedRoster": 8,
-     "storstaDag": 294,
-     "andel": 99.8
+     "total": 1898,
+     "dagarMedRoster": 9,
+     "storstaDag": 311,
+     "andel": 96.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Söderköping",
      "lokalId": "0582005",
-     "total": 4,
-     "dagarMedRoster": 2,
-     "storstaDag": 2,
-     "andel": 0.2
-    },
-    {
-     "namn": "Kommunhuset",
-     "kommun": "Söderköping",
-     "lokalId": "0582004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 41,
+     "dagarMedRoster": 3,
+     "storstaDag": 37,
+     "andel": 2.1
     },
     {
      "namn": "Mogata förskola",
      "kommun": "Söderköping",
      "lokalId": "0582003",
+     "total": 27,
+     "dagarMedRoster": 1,
+     "storstaDag": 27,
+     "andel": 1.4
+    },
+    {
+     "namn": "Kommunhuset",
+     "kommun": "Söderköping",
+     "lokalId": "0582004",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

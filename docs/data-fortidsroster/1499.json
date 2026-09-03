@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1049,18 +1049,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 512,
-     "ack": 2508
+     "antal": 514,
+     "ack": 2510
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 53,
-     "ack": 2561
+     "antal": 562,
+     "ack": 3072
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 68,
+     "ack": 3140
     }
    ],
-   "total": 2561,
+   "total": 3140,
    "rostberattigade": {
     "riksdag": 25288,
     "kommun": 25851,
@@ -1078,46 +1085,46 @@
      "namn": "Hjelmarsrörsgatan 20",
      "kommun": "Falköping",
      "lokalId": "1499015",
-     "total": 2171,
-     "dagarMedRoster": 8,
+     "total": 2542,
+     "dagarMedRoster": 9,
      "storstaDag": 425,
-     "andel": 84.8
+     "andel": 81.0
     },
     {
      "namn": "Kommunalhuset i Floby, nedervåningen",
      "kommun": "Falköping",
      "lokalId": "1499005",
-     "total": 155,
-     "dagarMedRoster": 2,
-     "storstaDag": 84,
-     "andel": 6.1
+     "total": 240,
+     "dagarMedRoster": 3,
+     "storstaDag": 85,
+     "andel": 7.6
     },
     {
      "namn": "Gudhems församlingshem",
      "kommun": "Falköping",
      "lokalId": "1499003",
-     "total": 135,
-     "dagarMedRoster": 2,
+     "total": 186,
+     "dagarMedRoster": 3,
      "storstaDag": 86,
-     "andel": 5.3
+     "andel": 5.9
     },
     {
      "namn": "Elvagården, Vartofta",
      "kommun": "Falköping",
      "lokalId": "1499012",
-     "total": 71,
-     "dagarMedRoster": 2,
-     "storstaDag": 38,
-     "andel": 2.8
+     "total": 113,
+     "dagarMedRoster": 3,
+     "storstaDag": 42,
+     "andel": 3.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Falköping",
      "lokalId": "1499011",
-     "total": 29,
-     "dagarMedRoster": 1,
-     "storstaDag": 29,
-     "andel": 1.1
+     "total": 59,
+     "dagarMedRoster": 2,
+     "storstaDag": 30,
+     "andel": 1.9
     },
     {
      "namn": "Alvershus, Åsarp",

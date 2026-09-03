@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -820,7 +820,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -876,11 +876,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 7,
-     "ack": 1925
+     "antal": 222,
+     "ack": 2140
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 169,
+     "ack": 2309
     }
    ],
-   "total": 1925,
+   "total": 2309,
    "rostberattigade": {
     "riksdag": 16583,
     "kommun": 17166,
@@ -901,16 +908,16 @@
      "total": 1215,
      "dagarMedRoster": 5,
      "storstaDag": 319,
-     "andel": 63.1
+     "andel": 52.6
     },
     {
      "namn": "Kulturhuset, Foajé",
      "kommun": "Finspång",
      "lokalId": "0562004",
-     "total": 710,
-     "dagarMedRoster": 3,
+     "total": 1094,
+     "dagarMedRoster": 4,
      "storstaDag": 376,
-     "andel": 36.9
+     "andel": 47.4
     },
     {
      "namn": "Ambulerande röstmottagning",

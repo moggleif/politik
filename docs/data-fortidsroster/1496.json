@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1432,7 +1432,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1481,18 +1481,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 727,
-     "ack": 4057
+     "antal": 729,
+     "ack": 4059
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 435,
-     "ack": 4492
+     "antal": 843,
+     "ack": 4902
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 375,
+     "ack": 5277
     }
    ],
-   "total": 4492,
+   "total": 5277,
    "rostberattigade": {
     "riksdag": 44917,
     "kommun": 46151,
@@ -1510,19 +1517,28 @@
      "namn": "Arena Skövde",
      "kommun": "Skövde",
      "lokalId": "1496021",
-     "total": 3283,
-     "dagarMedRoster": 8,
+     "total": 3849,
+     "dagarMedRoster": 9,
      "storstaDag": 603,
-     "andel": 73.1
+     "andel": 72.9
     },
     {
      "namn": "Skövde kulturfabrik",
      "kommun": "Skövde",
      "lokalId": "1496017",
-     "total": 975,
-     "dagarMedRoster": 7,
-     "storstaDag": 168,
-     "andel": 21.7
+     "total": 1137,
+     "dagarMedRoster": 8,
+     "storstaDag": 169,
+     "andel": 21.5
+    },
+    {
+     "namn": "Soldathemmet",
+     "kommun": "Skövde",
+     "lokalId": "1496022",
+     "total": 90,
+     "dagarMedRoster": 2,
+     "storstaDag": 48,
+     "andel": 1.7
     },
     {
      "namn": "Skaraborgs Sjukhus",
@@ -1531,7 +1547,7 @@
      "total": 74,
      "dagarMedRoster": 1,
      "storstaDag": 74,
-     "andel": 1.6
+     "andel": 1.4
     },
     {
      "namn": "Äldreboende Ekedal",
@@ -1540,15 +1556,6 @@
      "total": 46,
      "dagarMedRoster": 1,
      "storstaDag": 46,
-     "andel": 1.0
-    },
-    {
-     "namn": "Soldathemmet",
-     "kommun": "Skövde",
-     "lokalId": "1496022",
-     "total": 42,
-     "dagarMedRoster": 1,
-     "storstaDag": 42,
      "andel": 0.9
     },
     {
@@ -1558,7 +1565,7 @@
      "total": 27,
      "dagarMedRoster": 1,
      "storstaDag": 27,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1567,7 +1574,7 @@
      "total": 21,
      "dagarMedRoster": 2,
      "storstaDag": 11,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Äldreboende Billingsdal",
@@ -1576,7 +1583,7 @@
      "total": 12,
      "dagarMedRoster": 1,
      "storstaDag": 12,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Äldreboende Norrmalm",
@@ -1585,7 +1592,16 @@
      "total": 12,
      "dagarMedRoster": 1,
      "storstaDag": 12,
-     "andel": 0.3
+     "andel": 0.2
+    },
+    {
+     "namn": "Äldreboende Hentorp",
+     "kommun": "Skövde",
+     "lokalId": "1496007",
+     "total": 9,
+     "dagarMedRoster": 1,
+     "storstaDag": 9,
+     "andel": 0.2
     },
     {
      "namn": "Biblioteket, Stöpen",
@@ -1672,15 +1688,6 @@
      "namn": "Värings skola",
      "kommun": "Skövde",
      "lokalId": "1496004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Äldreboende Hentorp",
-     "kommun": "Skövde",
-     "lokalId": "1496007",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

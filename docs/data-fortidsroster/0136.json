@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1201,46 +1201,53 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 1123,
-     "ack": 3393
+     "antal": 1124,
+     "ack": 3394
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 839,
-     "ack": 4232
+     "ack": 4233
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 906,
-     "ack": 5138
+     "ack": 5139
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 1452,
-     "ack": 6590
+     "ack": 6591
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 1465,
-     "ack": 8055
+     "antal": 1466,
+     "ack": 8057
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 610,
-     "ack": 8665
+     "antal": 1465,
+     "ack": 9522
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 506,
+     "ack": 10028
     }
    ],
-   "total": 8665,
+   "total": 10028,
    "rostberattigade": {
     "riksdag": 69597,
     "kommun": 77516,
@@ -1258,37 +1265,37 @@
      "namn": "Ica Maxi",
      "kommun": "Haninge",
      "lokalId": "0136010",
-     "total": 2956,
-     "dagarMedRoster": 8,
-     "storstaDag": 508,
-     "andel": 34.1
+     "total": 3486,
+     "dagarMedRoster": 9,
+     "storstaDag": 516,
+     "andel": 34.8
     },
     {
      "namn": "Haninge kulturhus",
      "kommun": "Haninge",
      "lokalId": "0136003",
-     "total": 2031,
-     "dagarMedRoster": 8,
-     "storstaDag": 346,
-     "andel": 23.4
+     "total": 2400,
+     "dagarMedRoster": 9,
+     "storstaDag": 384,
+     "andel": 23.9
     },
     {
      "namn": "Västerhaninge bibliotek",
      "kommun": "Haninge",
      "lokalId": "0136002",
-     "total": 1426,
-     "dagarMedRoster": 7,
-     "storstaDag": 260,
-     "andel": 16.5
+     "total": 1691,
+     "dagarMedRoster": 8,
+     "storstaDag": 271,
+     "andel": 16.9
     },
     {
      "namn": "Jordbro bibliotek",
      "kommun": "Haninge",
      "lokalId": "0136001",
-     "total": 570,
-     "dagarMedRoster": 7,
+     "total": 645,
+     "dagarMedRoster": 8,
      "storstaDag": 146,
-     "andel": 6.6
+     "andel": 6.4
     },
     {
      "namn": "Vega skola & aktivitetshus",
@@ -1297,16 +1304,16 @@
      "total": 534,
      "dagarMedRoster": 5,
      "storstaDag": 150,
-     "andel": 6.2
+     "andel": 5.3
     },
     {
      "namn": "Träffpunkten Brandbergen",
      "kommun": "Haninge",
      "lokalId": "0136007",
-     "total": 444,
-     "dagarMedRoster": 6,
+     "total": 465,
+     "dagarMedRoster": 7,
      "storstaDag": 90,
-     "andel": 5.1
+     "andel": 4.6
     },
     {
      "namn": "Tungelsta folk- och trädgårdsmuseum",
@@ -1315,16 +1322,16 @@
      "total": 289,
      "dagarMedRoster": 2,
      "storstaDag": 193,
-     "andel": 3.3
+     "andel": 2.9
     },
     {
      "namn": "Träffpunkten Dalarö",
      "kommun": "Haninge",
      "lokalId": "0136004",
-     "total": 219,
-     "dagarMedRoster": 4,
+     "total": 278,
+     "dagarMedRoster": 5,
      "storstaDag": 69,
-     "andel": 2.5
+     "andel": 2.8
     },
     {
      "namn": "Hanveden äldreboende",
@@ -1342,13 +1349,13 @@
      "total": 33,
      "dagarMedRoster": 1,
      "storstaDag": 33,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Haninge",
      "lokalId": "0136009",
-     "total": 30,
+     "total": 32,
      "dagarMedRoster": 6,
      "storstaDag": 6,
      "andel": 0.3
@@ -1372,12 +1379,30 @@
      "andel": 0.3
     },
     {
+     "namn": "Villa Gullringen",
+     "kommun": "Haninge",
+     "lokalId": "0136019",
+     "total": 22,
+     "dagarMedRoster": 1,
+     "storstaDag": 22,
+     "andel": 0.2
+    },
+    {
      "namn": "Hagagården",
      "kommun": "Haninge",
      "lokalId": "0136016",
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
+     "andel": 0.2
+    },
+    {
+     "namn": "Malmgården",
+     "kommun": "Haninge",
+     "lokalId": "0136018",
+     "total": 20,
+     "dagarMedRoster": 1,
+     "storstaDag": 20,
      "andel": 0.2
     },
     {
@@ -1402,15 +1427,6 @@
      "namn": "Johanneslund",
      "kommun": "Haninge",
      "lokalId": "0136020",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Malmgården",
-     "kommun": "Haninge",
-     "lokalId": "0136018",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
@@ -1447,15 +1463,6 @@
      "namn": "Vendelsögården",
      "kommun": "Haninge",
      "lokalId": "0136023",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Villa Gullringen",
-     "kommun": "Haninge",
-     "lokalId": "0136019",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
