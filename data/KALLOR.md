@@ -14,7 +14,8 @@ och vad som återstår.
 | Meritvärden 2017 och 2019–2026 (GR) | Klara, 2018 saknas |
 | Slutbetyg 2014–2025 (Skolverket) | Klara, samtliga läsår |
 | Ämnesbetyg åk 9, 2013–2025 (Skolverket) | Klara, samtliga läsår |
-| Förtidsröster 2022 (Valmyndigheten) | Klar, historisk |
+| Förtidsröster 2010, 2014, 2018 och 2022 (Valmyndigheten) | Klara, historiska |
+| Ångerröster 2018 och 2022, riket (Valmyndigheten) | Klara, avskrivna |
 | Förtidsröster 2026 (Valmyndigheten) | Hämtas automatiskt två gånger om dagen t.o.m. 16 september 2026 |
 | Röstberättigade 2022 och 2026 (Valmyndigheten) | Klara |
 
@@ -62,6 +63,7 @@ Hämtas med `python3 scripts/hamta_fortidsroster.py` (2026) och
 |---|---|---|
 | 2026 | <https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv> | UTF-8 med BOM, LF, rubriker `2026-08-26` … `2026-09-13`, `TOTAL` |
 | 2022 | <https://data.val.se/filer/val2022/rostmottagning/fortidsroster.csv> | Latin-1, enbart CR som radbrytning, rubriker `2022-08-24 00:00:00` … |
+| 2018, 2014, 2010 | `https://historik.val.se/val/val<år>/rostmottagning/fortidsrostning/mottagna_fortidsroster.skv` | Latin-1, LF, rubriker `lan;län;kom;kommun;lokalid;lokal;<datum>…;Totalt` |
 
 Båda har kolumnerna `LÄNSKOD;LÄN;KOMMUNKOD;KOMMUN;LOKALID;LOKAL` följt
 av en kolumn per dag och sist `TOTAL`. Kungsbacka är länskod 13 och
@@ -91,6 +93,18 @@ val.se som läses med standardbiblioteket:
   varje partirad och summeras därför per distrikt. Kungsbacka: 64 298.
   Röstlängden fastställs på kvalifikationsdagen (12 augusti 2022), så
   talet är detsamma som under förtidsröstningen.
+
+Alla fem valen har 19 dagar från onsdagen 18 dagar före valdagen till
+och med valdagen, så "dagar kvar"-skalan är densamma. Länken till de
+äldre filerna finns under respektive år på val.se:s rådatasida, som
+hänvisar till valpresentationerna på historik.val.se.
+
+**Ångerröster** (förtidsröstare som röstat igen i sin vallokal på
+valdagen) publicerar Valmyndigheten bara för hela landet. Ur
+erfarenhetsrapporten från valen 2022 (2023-02-15, dnr VAL-686, avsnittet
+intill tabell 15): 7 626 personer 2022, 0,12 % av alla röstande, mot
+10 193 (0,16 %) 2018; mottagna förtidsröster i riket 3 135 775 respektive
+2 918 072. Avskrivet till `data/fortidsroster/angerroster.json`.
 
 Andelen på sidan räknas mot röstberättigade i riksdagsvalet, som finns
 för båda åren. Förtidsröster får lämnas i vilken kommun som helst, så

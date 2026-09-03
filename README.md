@@ -117,7 +117,10 @@ data/
                                 gymnasiet och grundskolan
   scb/folkmangd_kungsbacka.json Faktisk folkmängd, hämtad från SCB:s öppna API
   fortidsroster/fortidsroster_<år>.json  Mottagna förtidsröster per lokal och
-                                dag i Kungsbacka, ur Valmyndighetens fil
+                                dag i Kungsbacka, ur Valmyndighetens filer
+                                (2010, 2014, 2018, 2022 och 2026)
+  fortidsroster/angerroster.json  Ångerröster i riket 2018 och 2022, ur
+                                Valmyndighetens erfarenhetsrapport
   fortidsroster/rostberattigade.json     Röstberättigade på kvalifikationsdagen
   KALLOR.md                     Dokumentation av var varje rapport hittades
 scripts/
@@ -287,7 +290,8 @@ standardbiblioteket):
 
 ```bash
 python3 scripts/hamta_fortidsroster.py            # 2026, Valmyndighetens fil
-python3 scripts/hamta_fortidsroster.py --ar 2022  # den historiska, en gång
+python3 scripts/hamta_fortidsroster.py --ar 2022  # de historiska, en gång
+python3 scripts/hamta_fortidsroster.py --ar 2018  # (även 2014 och 2010)
 python3 scripts/hamta_rostberattigade.py          # röstberättigade, en gång
 python3 scripts/build_fortidsroster.py            # bygger om docs/data-fortidsroster.json
 ```
@@ -299,10 +303,11 @@ hand). Hämtskriptet skriver bara om datafilen när innehållet ändrats, så
 tidsstämpeln `hamtad` anger när datat senast ändrades och jobbet
 committar inte tomma uppdateringar. Vilket område som följs styrs av
 konstanterna `LANSKOD` och `KOMMUNKOD` överst i `hamta_fortidsroster.py`
-&ndash; sätt `KOMMUNKOD = None` för hela Halland. 2022 års fil har ett
-annat format än 2026 års (Latin-1, enbart vagnretur som radbrytning,
-tidsstämplade kolumnrubriker); tolkningen klarar båda och avbryter om
-kolumnerna ändrats. Siffrorna över förtidsröster är preliminära och kan
+&ndash; sätt `KOMMUNKOD = None` för hela Halland. De historiska filerna har
+andra format än 2026 års (Latin-1; 2022 med enbart vagnretur som
+radbrytning och tidsstämplade kolumnrubriker, 2010&ndash;2018 med gemena
+rubriker); tolkningen klarar alla och avbryter om kolumnerna ändrats.
+2018, 2014 och 2010 ritas bara som tunna linjer i huvudgrafen. Siffrorna över förtidsröster är preliminära och kan
 justeras fram till den 16 september 2026. Sidan jämför åren på *dagar
 kvar till valdagen*, inte på kalenderdatum, så att samma veckodag hamnar
 på samma plats.

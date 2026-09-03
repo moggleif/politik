@@ -5,6 +5,8 @@ sidan följer, dag för dag, ställd mot förra riksdagsvalet.
 Läser:
   data/fortidsroster/fortidsroster_<år>.json   (från hamta_fortidsroster.py)
   data/fortidsroster/rostberattigade.json      (från hamta_rostberattigade.py)
+  data/fortidsroster/angerroster.json          (avskrift ur Valmyndighetens
+                                                erfarenhetsrapport; rikssiffror)
 
 Skriver:
   docs/data-fortidsroster.json
@@ -125,9 +127,11 @@ def bygg_val(post: dict, rb) -> dict:
     }
 
 
-def bygg(valfiler: list, rostberattigade) -> dict:
+def bygg(valfiler: list, rostberattigade, angerroster=None) -> dict:
     """Hela utdatan som en ren funktion av indatafilerna, så att den går
-    att kontrollräkna i testerna."""
+    att kontrollräkna i testerna. Ångerrösterna är rikssiffror och släpps
+    igenom orörda – sidan räknar andelen själv och säger att den gäller
+    hela landet."""
     rb_val = (rostberattigade or {}).get("val", {})
     val = {}
     for post in sorted(valfiler, key=lambda p: p["ar"]):
@@ -145,6 +149,7 @@ def bygg(valfiler: list, rostberattigade) -> dict:
         "senastUppdaterad": aktuellt["hamtad"],
         "preliminarTom": aktuellt["preliminarTom"],
         "val": val,
+        "angerroster": angerroster,
     }
 
 
@@ -154,7 +159,9 @@ def main() -> None:
         raise SystemExit("Inga datafiler i data/fortidsroster/")
     rb_fil = IN_MAPP / "rostberattigade.json"
     rb = lasa_json(rb_fil) if rb_fil.exists() else None
-    ut = bygg(valfiler, rb)
+    anger_fil = IN_MAPP / "angerroster.json"
+    anger = lasa_json(anger_fil) if anger_fil.exists() else None
+    ut = bygg(valfiler, rb, anger)
     UT.write_text(json.dumps(ut, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     a = ut["val"][str(ut["aktuellt"])]
     print(f"Skrev {UT.relative_to(ROT)}: {a['omrade']} {a['ar']}, "

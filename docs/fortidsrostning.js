@@ -26,6 +26,10 @@
   var FARG_NU = FARG.blaMork;
   var FARG_DA = "#8f8d85";
   var FARG_PAGAR = FARG.blaLjus;
+  /* Äldre val ritas bara i huvudgrafen: tunna, ljusare grå linjer som
+     skiljs åt med streckning, inte med färg. */
+  var FARG_ALDRE = "#adaba2";
+  var STRECK_ALDRE = [[2, 3], [9, 3, 2, 3], [1, 3]];
 
   /* Så gammalt får datat vara under pågående förtidsröstning innan
      sidan säger till (filen uppdateras kl. 06 och 14). */
@@ -206,7 +210,7 @@
     };
   }
 
-  function ritaKurva(id, L, nu, da, varde, ytitel, etikett, ytick) {
+  function ritaKurva(id, L, nu, da, varde, ytitel, etikett, ytick, aldre) {
     var kvar = skala(nu, da);
     var nuDagar = kvar.map(function (k) { return dagVid(L.dagar, k); });
     var datasets = [linjeSerie(nu, nuDagar, FARG_NU, [], varde(nu), true)];
@@ -214,6 +218,14 @@
       var daDagar = kvar.map(function (k) { return dagVid(da.dagar, k); });
       datasets.push(linjeSerie(da, daDagar, FARG_DA, [6, 4], varde(da), false));
     }
+    (aldre || []).forEach(function (val, i) {
+      var dagar = kvar.map(function (k) { return dagVid(val.dagar, k); });
+      var s = linjeSerie(val, dagar, FARG_ALDRE, STRECK_ALDRE[i % STRECK_ALDRE.length], varde(val), false);
+      s.borderWidth = 1.5;
+      s.pointRadius = 0;
+      s.pointStyle = "line";
+      datasets.push(s);
+    });
     var chart = K.rita(id, {
       type: "line",
       data: { labels: etiketter(kvar, L, da), datasets: datasets },
@@ -223,12 +235,14 @@
     K.aktiveraToning(chart);
   }
 
-  function ritaAck(L, nu, da) {
+  function ritaAck(L, nu, da, aldre) {
     ritaKurva("diagram-ack", L, nu, da,
       function () { return function (d) { return d.ack; }; },
       "Förtidsröster sammanlagt",
-      function (it) { return it.dataset.label + ": " + talSv(it.parsed.y); });
+      function (it) { return it.dataset.label + ": " + talSv(it.parsed.y); },
+      null, aldre);
     el("kalla-ack").textContent = "Källa: Valmyndigheten. Valdagen är 0." +
+      (aldre.length ? " Tunna grå linjer: " + aldre.map(function (v) { return v.ar; }).join(", ") + "." : "") +
       (L.pagaende ? " Ofylld punkt = pågående dag, ofullständig siffra." : "");
   }
 
@@ -350,9 +364,9 @@
 
   /* ---------- Källor, varning, start ---------- */
 
-  function kallor(nu, da) {
+  function kallor(nu, da, aldre) {
     var rader = [];
-    [nu, da].forEach(function (v) {
+    [nu, da].concat(aldre).forEach(function (v) {
       if (!v) return;
       var url = sakerUrl(v.kallaUrl), sida = sakerUrl(v.sidaUrl);
       rader.push("<li><span class=\"titel\">" + esc(v.kalla) + "</span><br>" +
@@ -368,6 +382,35 @@
       }
     });
     el("lista-kallor").innerHTML = rader.join("");
+  }
+
+  /* Ångerröster: den som förtidsröstat kan rösta igen på valdagen.
+     Valmyndigheten publicerar antalet bara för hela landet, så noten
+     säger rikssiffran och vad samma andel skulle motsvara på det förra
+     valets förtidsröster här – ren räkning, ingen prognos. */
+  function angerNot(data, da) {
+    var a = data.angerroster;
+    if (!a || !a.val) { K.sattDataNot("not-anger", ""); return; }
+    var ar = Object.keys(a.val).map(Number).sort(function (x, y) { return y - x; });
+    if (!ar.length) { K.sattDataNot("not-anger", ""); return; }
+    var senast = a.val[String(ar[0])];
+    var andel = senast.fortidsrosterRiket ? 100 * senast.angerroster / senast.fortidsrosterRiket : null;
+    var text = "<p><strong>Kan de ångra sig?</strong> Ja &ndash; den som förtidsröstat kan " +
+      "rösta igen i sin vallokal på valdagen, och då räknas bara valdagsrösten. I hela " +
+      "landet gjorde <strong>" + talSv(senast.angerroster) + "</strong> personer det " + esc(ar[0]) +
+      (andel !== null ? ", " + talSv(andel, 2) + "&nbsp;% av förtidsrösterna" : "") +
+      (senast.andelAvRostande ? " (" + talSv(senast.andelAvRostande, 2) + "&nbsp;% av alla röstande)" : "") +
+      (ar.length > 1 ? "; " + esc(ar[1]) + ": " + talSv(a.val[String(ar[1])].angerroster) : "") + ".";
+    if (andel !== null && da && da.ar === ar[0] && da.total) {
+      text += " Siffran finns inte per kommun. Samma andel på " + esc(da.omrade) + "s " +
+        talSv(da.total) + " förtidsröster " + esc(da.ar) + " motsvarar ungefär " +
+        talSv(Math.round(andel * da.total / 100 / 10) * 10) + ".";
+    } else {
+      text += " Siffran finns inte per kommun.";
+    }
+    var url = sakerUrl(a.kallaUrl);
+    text += " Källa: " + (url ? '<a href="' + url + '">' + esc(a.kalla) + "</a>" : esc(a.kalla)) + ".</p>";
+    K.sattDataNot("not-anger", text);
   }
 
   function varning(data, nu) {
@@ -389,6 +432,10 @@
   function start(data) {
     var nu = data.val[String(data.aktuellt)];
     var da = data.forra ? data.val[String(data.forra)] : null;
+    /* Äldre val än det förra: bara i huvudgrafen, nyast först */
+    var aldre = Object.keys(data.val).map(Number).filter(function (a) {
+      return a !== data.aktuellt && a !== data.forra;
+    }).sort(function (a, b) { return b - a; }).map(function (a) { return data.val[String(a)]; });
     var L = lage(nu, da, K.idagSv());
 
     K.visaMeta({
@@ -400,12 +447,13 @@
 
     varning(data, nu);
     nyckeltal(data, L, nu, da);
+    angerNot(data, da);
     kortSagt(L, nu, da);
-    ritaAck(L, nu, da);
+    ritaAck(L, nu, da, aldre);
     ritaAndel(L, nu, da);
     ritaDag(L, nu, da);
     topplista(L, nu);
-    kallor(nu, da);
+    kallor(nu, da, aldre);
 
     ["nyckeltal", "ack", "andel", "dag", "lokaler", "kallor", "om"].forEach(function (id) {
       var s = el("sektion-" + id);
