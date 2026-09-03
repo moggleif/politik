@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -822,11 +822,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 133,
-     "ack": 1718
+     "antal": 138,
+     "ack": 1723
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 91,
+     "ack": 1814
     }
    ],
-   "total": 1718,
+   "total": 1814,
    "rostberattigade": {
     "riksdag": 13202,
     "kommun": 14118,
@@ -844,19 +851,19 @@
      "namn": "Arenan i Sågenhuset i Klippan",
      "kommun": "Klippan",
      "lokalId": "1276001",
-     "total": 1179,
+     "total": 1181,
      "dagarMedRoster": 8,
      "storstaDag": 187,
-     "andel": 68.6
+     "andel": 65.1
     },
     {
      "namn": "Församlingshemmet i Ljungbyhed",
      "kommun": "Klippan",
      "lokalId": "1276003",
-     "total": 313,
-     "dagarMedRoster": 4,
+     "total": 404,
+     "dagarMedRoster": 5,
      "storstaDag": 116,
-     "andel": 18.2
+     "andel": 22.3
     },
     {
      "namn": "Östra Ljungby Bygdegård",
@@ -865,16 +872,16 @@
      "total": 206,
      "dagarMedRoster": 4,
      "storstaDag": 69,
-     "andel": 12.0
+     "andel": 11.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Klippan",
      "lokalId": "1276005",
-     "total": 20,
+     "total": 23,
      "dagarMedRoster": 6,
      "storstaDag": 7,
-     "andel": 1.2
+     "andel": 1.3
     }
    ],
    "antalLokaler": 4,

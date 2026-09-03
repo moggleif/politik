@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1036,7 +1036,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1085,18 +1085,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 1180,
-     "ack": 6824
+     "antal": 1183,
+     "ack": 6827
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 550,
-     "ack": 7374
+     "antal": 1260,
+     "ack": 8087
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 548,
+     "ack": 8635
     }
    ],
-   "total": 7374,
+   "total": 8635,
    "rostberattigade": {
     "riksdag": 58840,
     "kommun": 61000,
@@ -1111,65 +1118,65 @@
    },
    "lokaler": [
     {
-     "namn": "Huvudbiblioteket",
-     "kommun": "Täby",
-     "lokalId": "0160008",
-     "total": 1952,
-     "dagarMedRoster": 8,
-     "storstaDag": 317,
-     "andel": 26.5
-    },
-    {
      "namn": "Täby kommunhus",
      "kommun": "Täby",
      "lokalId": "0160002",
-     "total": 1935,
-     "dagarMedRoster": 6,
+     "total": 2308,
+     "dagarMedRoster": 7,
      "storstaDag": 393,
+     "andel": 26.7
+    },
+    {
+     "namn": "Huvudbiblioteket",
+     "kommun": "Täby",
+     "lokalId": "0160008",
+     "total": 2265,
+     "dagarMedRoster": 9,
+     "storstaDag": 344,
      "andel": 26.2
     },
     {
      "namn": "Näsbyparks bibliotek",
      "kommun": "Täby",
      "lokalId": "0160004",
-     "total": 1105,
-     "dagarMedRoster": 8,
+     "total": 1266,
+     "dagarMedRoster": 9,
      "storstaDag": 207,
-     "andel": 15.0
+     "andel": 14.7
     },
     {
      "namn": "Täby Racketcenter",
      "kommun": "Täby",
      "lokalId": "0160006",
-     "total": 632,
-     "dagarMedRoster": 7,
+     "total": 703,
+     "dagarMedRoster": 8,
      "storstaDag": 143,
-     "andel": 8.6
-    },
-    {
-     "namn": "Gribbylunds bibliotek",
-     "kommun": "Täby",
-     "lokalId": "0160009",
-     "total": 464,
-     "dagarMedRoster": 6,
-     "storstaDag": 111,
-     "andel": 6.3
+     "andel": 8.1
     },
     {
      "namn": "Täby Gård",
      "kommun": "Täby",
      "lokalId": "0160007",
-     "total": 436,
-     "dagarMedRoster": 7,
+     "total": 536,
+     "dagarMedRoster": 8,
      "storstaDag": 97,
-     "andel": 5.9
+     "andel": 6.2
+    },
+    {
+     "namn": "Gribbylunds bibliotek",
+     "kommun": "Täby",
+     "lokalId": "0160009",
+     "total": 519,
+     "dagarMedRoster": 7,
+     "storstaDag": 114,
+     "andel": 6.0
     },
     {
      "namn": "Skarpängs bibliotek",
      "kommun": "Täby",
      "lokalId": "0160005",
-     "total": 387,
-     "dagarMedRoster": 7,
+     "total": 447,
+     "dagarMedRoster": 8,
      "storstaDag": 120,
      "andel": 5.2
     },
@@ -1177,8 +1184,8 @@
      "namn": "Bostadsrättsföreningen Vingen",
      "kommun": "Täby",
      "lokalId": "0160001",
-     "total": 217,
-     "dagarMedRoster": 6,
+     "total": 254,
+     "dagarMedRoster": 7,
      "storstaDag": 50,
      "andel": 2.9
     },
@@ -1186,8 +1193,8 @@
      "namn": "Hägerneholmshallen",
      "kommun": "Täby",
      "lokalId": "0160003",
-     "total": 211,
-     "dagarMedRoster": 6,
+     "total": 254,
+     "dagarMedRoster": 7,
      "storstaDag": 86,
      "andel": 2.9
     },
@@ -1195,8 +1202,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Täby",
      "lokalId": "0160011",
-     "total": 35,
-     "dagarMedRoster": 6,
+     "total": 44,
+     "dagarMedRoster": 8,
      "storstaDag": 21,
      "andel": 0.5
     },
@@ -1204,10 +1211,10 @@
      "namn": "Anstalten Täby",
      "kommun": "Täby",
      "lokalId": "0160010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 39,
+     "dagarMedRoster": 1,
+     "storstaDag": 39,
+     "andel": 0.5
     }
    ],
    "antalLokaler": 11,

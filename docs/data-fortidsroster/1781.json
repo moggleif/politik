@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,7 +1054,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1110,11 +1110,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 269,
-     "ack": 2843
+     "antal": 535,
+     "ack": 3109
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 250,
+     "ack": 3359
     }
    ],
-   "total": 2843,
+   "total": 3359,
    "rostberattigade": {
     "riksdag": 18869,
     "kommun": 19367,
@@ -1132,28 +1139,46 @@
      "namn": "Hörsalen Nämndhuset (biblioteket)",
      "kommun": "Kristinehamn",
      "lokalId": "1781006",
-     "total": 1664,
-     "dagarMedRoster": 8,
+     "total": 1923,
+     "dagarMedRoster": 9,
      "storstaDag": 330,
-     "andel": 58.5
+     "andel": 57.2
     },
     {
      "namn": "Merkuriushuset",
      "kommun": "Kristinehamn",
      "lokalId": "1781016",
-     "total": 1054,
-     "dagarMedRoster": 7,
-     "storstaDag": 182,
-     "andel": 37.1
+     "total": 1229,
+     "dagarMedRoster": 8,
+     "storstaDag": 188,
+     "andel": 36.6
     },
     {
      "namn": "Bokbussen",
      "kommun": "Kristinehamn",
      "lokalId": "1781011",
-     "total": 85,
+     "total": 127,
      "dagarMedRoster": 5,
-     "storstaDag": 26,
-     "andel": 3.0
+     "storstaDag": 68,
+     "andel": 3.8
+    },
+    {
+     "namn": "Tapiren",
+     "kommun": "Kristinehamn",
+     "lokalId": "1781007",
+     "total": 29,
+     "dagarMedRoster": 1,
+     "storstaDag": 29,
+     "andel": 0.9
+    },
+    {
+     "namn": "Ölmegården",
+     "kommun": "Kristinehamn",
+     "lokalId": "1781001",
+     "total": 14,
+     "dagarMedRoster": 1,
+     "storstaDag": 14,
+     "andel": 0.4
     },
     {
      "namn": "Skogshyddan 1 och 2",
@@ -1162,7 +1187,7 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Sörgården",
@@ -1171,7 +1196,7 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1201,13 +1226,13 @@
      "andel": 0.2
     },
     {
-     "namn": "Tapiren",
+     "namn": "Regnbågen",
      "kommun": "Kristinehamn",
-     "lokalId": "1781007",
-     "total": 4,
+     "lokalId": "1781010",
+     "total": 1,
      "dagarMedRoster": 1,
-     "storstaDag": 4,
-     "andel": 0.1
+     "storstaDag": 1,
+     "andel": 0.0
     },
     {
      "namn": "Biblioteket",
@@ -1228,15 +1253,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Regnbågen",
-     "kommun": "Kristinehamn",
-     "lokalId": "1781010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Rättspsykiatrin Kristinehamn",
      "kommun": "Kristinehamn",
      "lokalId": "1781019",
@@ -1249,15 +1265,6 @@
      "namn": "Sannagården",
      "kommun": "Kristinehamn",
      "lokalId": "1781009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Ölmegården",
-     "kommun": "Kristinehamn",
-     "lokalId": "1781001",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

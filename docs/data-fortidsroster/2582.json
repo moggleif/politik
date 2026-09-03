@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -946,7 +946,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -995,18 +995,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 555,
-     "ack": 3239
+     "antal": 556,
+     "ack": 3240
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 337,
-     "ack": 3576
+     "antal": 676,
+     "ack": 3916
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 231,
+     "ack": 4147
     }
    ],
-   "total": 3576,
+   "total": 4147,
    "rostberattigade": {
     "riksdag": 21758,
     "kommun": 22777,
@@ -1024,10 +1031,10 @@
      "namn": "Stadshuset",
      "kommun": "Boden",
      "lokalId": "2582001",
-     "total": 3172,
-     "dagarMedRoster": 8,
+     "total": 3668,
+     "dagarMedRoster": 9,
      "storstaDag": 573,
-     "andel": 88.7
+     "andel": 88.4
     },
     {
      "namn": "Servicepunkten Unbyn",
@@ -1036,7 +1043,16 @@
      "total": 212,
      "dagarMedRoster": 1,
      "storstaDag": 212,
-     "andel": 5.9
+     "andel": 5.1
+    },
+    {
+     "namn": "Servicepunkten Harads",
+     "kommun": "Boden",
+     "lokalId": "2582003",
+     "total": 120,
+     "dagarMedRoster": 1,
+     "storstaDag": 120,
+     "andel": 2.9
     },
     {
      "namn": "Servicepunkten Gunnarsbyn",
@@ -1045,7 +1061,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 2.1
+     "andel": 1.8
     },
     {
      "namn": "Björknäsgården",
@@ -1054,16 +1070,7 @@
      "total": 59,
      "dagarMedRoster": 2,
      "storstaDag": 39,
-     "andel": 1.6
-    },
-    {
-     "namn": "Servicepunkten Harads",
-     "kommun": "Boden",
-     "lokalId": "2582003",
-     "total": 45,
-     "dagarMedRoster": 1,
-     "storstaDag": 45,
-     "andel": 1.3
+     "andel": 1.4
     },
     {
      "namn": "Åcenter",
@@ -1081,7 +1088,7 @@
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Brönjaskolan Sävast",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1047,11 +1047,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 67,
-     "ack": 1024
+     "antal": 197,
+     "ack": 1154
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 78,
+     "ack": 1232
     }
    ],
-   "total": 1024,
+   "total": 1232,
    "rostberattigade": {
     "riksdag": 6855,
     "kommun": 7394,
@@ -1069,10 +1076,10 @@
      "namn": "Biblioteket Bengtsfors",
      "kommun": "Bengtsfors",
      "lokalId": "1460006",
-     "total": 715,
-     "dagarMedRoster": 8,
+     "total": 861,
+     "dagarMedRoster": 9,
      "storstaDag": 143,
-     "andel": 69.8
+     "andel": 69.9
     },
     {
      "namn": "Nybygget Stenebyskolan",
@@ -1081,7 +1088,16 @@
      "total": 170,
      "dagarMedRoster": 2,
      "storstaDag": 102,
-     "andel": 16.6
+     "andel": 13.8
+    },
+    {
+     "namn": "Bäckegården Bäckefors",
+     "kommun": "Bengtsfors",
+     "lokalId": "1460002",
+     "total": 112,
+     "dagarMedRoster": 2,
+     "storstaDag": 62,
+     "andel": 9.1
     },
     {
      "namn": "Lövåsenskolan Billingsfors",
@@ -1090,16 +1106,7 @@
      "total": 81,
      "dagarMedRoster": 2,
      "storstaDag": 45,
-     "andel": 7.9
-    },
-    {
-     "namn": "Bäckegården Bäckefors",
-     "kommun": "Bengtsfors",
-     "lokalId": "1460002",
-     "total": 50,
-     "dagarMedRoster": 1,
-     "storstaDag": 50,
-     "andel": 4.9
+     "andel": 6.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1108,7 +1115,7 @@
      "total": 8,
      "dagarMedRoster": 2,
      "storstaDag": 6,
-     "andel": 0.8
+     "andel": 0.6
     },
     {
      "namn": "Folkets hus Gustavsfors",

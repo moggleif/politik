@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -928,7 +928,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -984,11 +984,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 265,
-     "ack": 2401
+     "antal": 544,
+     "ack": 2680
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 236,
+     "ack": 2916
     }
    ],
-   "total": 2401,
+   "total": 2916,
    "rostberattigade": {
     "riksdag": 19347,
     "kommun": 19817,
@@ -1006,28 +1013,28 @@
      "namn": "Stadshuset",
      "kommun": "Mariestad",
      "lokalId": "1493001",
-     "total": 2396,
-     "dagarMedRoster": 8,
-     "storstaDag": 449,
-     "andel": 99.8
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Mariestad",
-     "lokalId": "1493004",
-     "total": 5,
-     "dagarMedRoster": 1,
-     "storstaDag": 5,
-     "andel": 0.2
+     "total": 2833,
+     "dagarMedRoster": 9,
+     "storstaDag": 466,
+     "andel": 97.2
     },
     {
      "namn": "Anstalten Johannesberg",
      "kommun": "Mariestad",
      "lokalId": "1493003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 72,
+     "dagarMedRoster": 1,
+     "storstaDag": 72,
+     "andel": 2.5
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Mariestad",
+     "lokalId": "1493004",
+     "total": 11,
+     "dagarMedRoster": 2,
+     "storstaDag": 6,
+     "andel": 0.4
     },
     {
      "namn": "Anstalten Rödjan",

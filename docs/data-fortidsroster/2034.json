@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -777,11 +777,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 67,
-     "ack": 715
+     "antal": 120,
+     "ack": 768
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 70,
+     "ack": 838
     }
    ],
-   "total": 715,
+   "total": 838,
    "rostberattigade": {
     "riksdag": 5613,
     "kommun": 5757,
@@ -799,19 +806,19 @@
      "namn": "Tingshuset - Tingssalen",
      "kommun": "Orsa",
      "lokalId": "2034006",
-     "total": 709,
-     "dagarMedRoster": 8,
+     "total": 830,
+     "dagarMedRoster": 9,
      "storstaDag": 134,
-     "andel": 99.2
+     "andel": 99.0
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Orsa",
      "lokalId": "2034002",
-     "total": 6,
-     "dagarMedRoster": 2,
+     "total": 8,
+     "dagarMedRoster": 3,
      "storstaDag": 5,
-     "andel": 0.8
+     "andel": 1.0
     },
     {
      "namn": "Tingshuset - Kommunsalen",

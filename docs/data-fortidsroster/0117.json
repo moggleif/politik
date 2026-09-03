@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1171,7 +1171,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1206,32 +1206,39 @@
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 450,
-     "ack": 3612
+     "antal": 452,
+     "ack": 3614
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 902,
-     "ack": 4514
+     "ack": 4516
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 883,
-     "ack": 5397
+     "antal": 886,
+     "ack": 5402
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 486,
-     "ack": 5883
+     "antal": 959,
+     "ack": 6361
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 500,
+     "ack": 6861
     }
    ],
-   "total": 5883,
+   "total": 6861,
    "rostberattigade": {
     "riksdag": 36586,
     "kommun": 38482,
@@ -1249,46 +1256,46 @@
      "namn": "Åkersberga bibliotek",
      "kommun": "Österåker",
      "lokalId": "0117002",
-     "total": 2123,
-     "dagarMedRoster": 8,
-     "storstaDag": 322,
-     "andel": 36.1
+     "total": 2438,
+     "dagarMedRoster": 9,
+     "storstaDag": 328,
+     "andel": 35.5
     },
     {
      "namn": "Västra Centrum",
      "kommun": "Österåker",
      "lokalId": "0117021",
-     "total": 1486,
-     "dagarMedRoster": 8,
+     "total": 1713,
+     "dagarMedRoster": 9,
      "storstaDag": 250,
-     "andel": 25.3
+     "andel": 25.0
     },
     {
      "namn": "Kommunhuset/Alceahuset",
      "kommun": "Österåker",
      "lokalId": "0117008",
-     "total": 1021,
-     "dagarMedRoster": 6,
-     "storstaDag": 201,
-     "andel": 17.4
+     "total": 1227,
+     "dagarMedRoster": 7,
+     "storstaDag": 209,
+     "andel": 17.9
     },
     {
      "namn": "Österåkers Multiarena",
      "kommun": "Österåker",
      "lokalId": "0117015",
-     "total": 739,
-     "dagarMedRoster": 8,
+     "total": 849,
+     "dagarMedRoster": 9,
      "storstaDag": 144,
-     "andel": 12.6
+     "andel": 12.4
     },
     {
      "namn": "Tempo Ljusterö",
      "kommun": "Österåker",
      "lokalId": "0117003",
-     "total": 371,
-     "dagarMedRoster": 7,
-     "storstaDag": 66,
-     "andel": 6.3
+     "total": 444,
+     "dagarMedRoster": 8,
+     "storstaDag": 74,
+     "andel": 6.5
     },
     {
      "namn": "Bygdegården Lurkan",
@@ -1297,7 +1304,16 @@
      "total": 33,
      "dagarMedRoster": 1,
      "storstaDag": 33,
-     "andel": 0.6
+     "andel": 0.5
+    },
+    {
+     "namn": "Österåkers gymnasium",
+     "kommun": "Österåker",
+     "lokalId": "0117017",
+     "total": 24,
+     "dagarMedRoster": 1,
+     "storstaDag": 24,
+     "andel": 0.3
     },
     {
      "namn": "Enebackens äldreboende",
@@ -1306,7 +1322,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Träffpunkt Solhälla",
@@ -1315,7 +1331,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Humana Norrgårdshöjden",
@@ -1333,7 +1349,16 @@
      "total": 17,
      "dagarMedRoster": 1,
      "storstaDag": 17,
-     "andel": 0.3
+     "andel": 0.2
+    },
+    {
+     "namn": "Attendo Kantarellvägen",
+     "kommun": "Österåker",
+     "lokalId": "0117010",
+     "total": 16,
+     "dagarMedRoster": 1,
+     "storstaDag": 16,
+     "andel": 0.2
     },
     {
      "namn": "Träffpunkt Solgården",
@@ -1345,13 +1370,22 @@
      "andel": 0.2
     },
     {
+     "namn": "Träffpunkt Ljusterö",
+     "kommun": "Österåker",
+     "lokalId": "0117013",
+     "total": 10,
+     "dagarMedRoster": 1,
+     "storstaDag": 10,
+     "andel": 0.1
+    },
+    {
      "namn": "Attendo Vårdbo",
      "kommun": "Österåker",
      "lokalId": "0117012",
      "total": 9,
      "dagarMedRoster": 1,
      "storstaDag": 9,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1360,16 +1394,7 @@
      "total": 3,
      "dagarMedRoster": 1,
      "storstaDag": 3,
-     "andel": 0.1
-    },
-    {
-     "namn": "Attendo Kantarellvägen",
-     "kommun": "Österåker",
-     "lokalId": "0117010",
-     "total": 3,
-     "dagarMedRoster": 1,
-     "storstaDag": 3,
-     "andel": 0.1
+     "andel": 0.0
     },
     {
      "namn": "Anstalten Österåker",
@@ -1408,27 +1433,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Träffpunkt Ljusterö",
-     "kommun": "Österåker",
-     "lokalId": "0117013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Vardaga Villa Näs",
      "kommun": "Österåker",
      "lokalId": "0117004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Österåkers gymnasium",
-     "kommun": "Österåker",
-     "lokalId": "0117017",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

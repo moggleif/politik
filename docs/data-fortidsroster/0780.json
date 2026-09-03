@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1909,7 +1909,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1965,11 +1965,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 518,
-     "ack": 8153
+     "antal": 1667,
+     "ack": 9302
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 444,
+     "ack": 9746
     }
    ],
-   "total": 8153,
+   "total": 9746,
    "rostberattigade": {
     "riksdag": 74364,
     "kommun": 76996,
@@ -1987,109 +1994,118 @@
      "namn": "Stadsbiblioteket, Växjö",
      "kommun": "Växjö",
      "lokalId": "0780031",
-     "total": 3889,
-     "dagarMedRoster": 7,
+     "total": 4562,
+     "dagarMedRoster": 8,
      "storstaDag": 727,
-     "andel": 47.7
+     "andel": 46.8
     },
     {
      "namn": "Växjö kommunhus",
      "kommun": "Växjö",
      "lokalId": "0780001",
-     "total": 991,
-     "dagarMedRoster": 7,
+     "total": 1152,
+     "dagarMedRoster": 8,
      "storstaDag": 205,
-     "andel": 12.2
+     "andel": 11.8
     },
     {
      "namn": "Konsthallen",
      "kommun": "Växjö",
      "lokalId": "0780040",
-     "total": 726,
-     "dagarMedRoster": 8,
+     "total": 813,
+     "dagarMedRoster": 9,
      "storstaDag": 206,
-     "andel": 8.9
+     "andel": 8.3
     },
     {
      "namn": "Mötesplats Framtidsvägen, Teleborg",
      "kommun": "Växjö",
      "lokalId": "0780029",
-     "total": 459,
-     "dagarMedRoster": 5,
-     "storstaDag": 118,
-     "andel": 5.6
+     "total": 588,
+     "dagarMedRoster": 6,
+     "storstaDag": 129,
+     "andel": 6.0
     },
     {
      "namn": "Gustavslundskolan",
      "kommun": "Växjö",
      "lokalId": "0780041",
-     "total": 318,
-     "dagarMedRoster": 4,
+     "total": 402,
+     "dagarMedRoster": 5,
      "storstaDag": 97,
-     "andel": 3.9
+     "andel": 4.1
     },
     {
      "namn": "Tallgården, Araby",
      "kommun": "Växjö",
      "lokalId": "0780007",
-     "total": 318,
-     "dagarMedRoster": 5,
+     "total": 392,
+     "dagarMedRoster": 6,
      "storstaDag": 75,
-     "andel": 3.9
+     "andel": 4.0
     },
     {
      "namn": "Öjaby församlingshem",
      "kommun": "Växjö",
      "lokalId": "0780025",
-     "total": 255,
-     "dagarMedRoster": 5,
+     "total": 307,
+     "dagarMedRoster": 6,
      "storstaDag": 61,
-     "andel": 3.1
-    },
-    {
-     "namn": "Birkagården, Öster",
-     "kommun": "Växjö",
-     "lokalId": "0780012",
-     "total": 203,
-     "dagarMedRoster": 5,
-     "storstaDag": 48,
-     "andel": 2.5
-    },
-    {
-     "namn": "Näckrosen i Ingelstad",
-     "kommun": "Växjö",
-     "lokalId": "0780009",
-     "total": 199,
-     "dagarMedRoster": 5,
-     "storstaDag": 52,
-     "andel": 2.4
-    },
-    {
-     "namn": "Rottnegården",
-     "kommun": "Växjö",
-     "lokalId": "0780037",
-     "total": 187,
-     "dagarMedRoster": 5,
-     "storstaDag": 55,
-     "andel": 2.3
+     "andel": 3.2
     },
     {
      "namn": "Lammhults bibliotek",
      "kommun": "Växjö",
      "lokalId": "0780011",
-     "total": 184,
-     "dagarMedRoster": 5,
-     "storstaDag": 76,
-     "andel": 2.3
+     "total": 277,
+     "dagarMedRoster": 6,
+     "storstaDag": 98,
+     "andel": 2.8
+    },
+    {
+     "namn": "Näckrosen i Ingelstad",
+     "kommun": "Växjö",
+     "lokalId": "0780009",
+     "total": 265,
+     "dagarMedRoster": 6,
+     "storstaDag": 66,
+     "andel": 2.7
+    },
+    {
+     "namn": "Birkagården, Öster",
+     "kommun": "Växjö",
+     "lokalId": "0780012",
+     "total": 244,
+     "dagarMedRoster": 6,
+     "storstaDag": 48,
+     "andel": 2.5
+    },
+    {
+     "namn": "Rottnegården",
+     "kommun": "Växjö",
+     "lokalId": "0780037",
+     "total": 235,
+     "dagarMedRoster": 6,
+     "storstaDag": 55,
+     "andel": 2.4
     },
     {
      "namn": "Sjöliden, Braås",
      "kommun": "Växjö",
      "lokalId": "0780010",
-     "total": 140,
-     "dagarMedRoster": 5,
+     "total": 170,
+     "dagarMedRoster": 6,
      "storstaDag": 37,
      "andel": 1.7
+    },
+    {
+     "namn": "Åryd skola",
+     "kommun": "Växjö",
+     "lokalId": "0780057",
+     "total": 45,
+     "dagarMedRoster": 1,
+     "storstaDag": 45,
+     "andel": 0.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -2098,7 +2114,7 @@
      "total": 38,
      "dagarMedRoster": 5,
      "storstaDag": 19,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Teknikum",
@@ -2107,7 +2123,7 @@
      "total": 38,
      "dagarMedRoster": 1,
      "storstaDag": 38,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Evelid",
@@ -2116,7 +2132,7 @@
      "total": 32,
      "dagarMedRoster": 1,
      "storstaDag": 32,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Östregården",
@@ -2125,15 +2141,15 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "ProCivitas Gymnasium",
      "kommun": "Växjö",
      "lokalId": "0780046",
-     "total": 26,
+     "total": 27,
      "dagarMedRoster": 1,
-     "storstaDag": 26,
+     "storstaDag": 27,
      "andel": 0.3
     },
     {
@@ -2170,7 +2186,7 @@
      "total": 14,
      "dagarMedRoster": 1,
      "storstaDag": 14,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Vuxenpsykiatrin",
@@ -2197,6 +2213,15 @@
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
+     "andel": 0.1
+    },
+    {
+     "namn": "Sörgården",
+     "kommun": "Växjö",
+     "lokalId": "0780008",
+     "total": 9,
+     "dagarMedRoster": 1,
+     "storstaDag": 9,
      "andel": 0.1
     },
     {
@@ -2389,15 +2414,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Sörgården",
-     "kommun": "Växjö",
-     "lokalId": "0780008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Toftagården, Sandsbro",
      "kommun": "Växjö",
      "lokalId": "0780014",
@@ -2428,15 +2444,6 @@
      "namn": "Växjö Fria Gymnasium",
      "kommun": "Växjö",
      "lokalId": "0780045",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Åryd skola",
-     "kommun": "Växjö",
-     "lokalId": "0780057",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

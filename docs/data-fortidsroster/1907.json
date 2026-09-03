@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -849,11 +849,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 67,
-     "ack": 976
+     "antal": 155,
+     "ack": 1064
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 74,
+     "ack": 1138
     }
    ],
-   "total": 976,
+   "total": 1138,
    "rostberattigade": {
     "riksdag": 7398,
     "kommun": 7709,
@@ -871,10 +878,19 @@
      "namn": "Folkan Surahammar",
      "kommun": "Surahammar",
      "lokalId": "1907003",
-     "total": 762,
-     "dagarMedRoster": 8,
+     "total": 898,
+     "dagarMedRoster": 9,
      "storstaDag": 140,
-     "andel": 78.1
+     "andel": 78.9
+    },
+    {
+     "namn": "Biblioteket Ramnäs",
+     "kommun": "Surahammar",
+     "lokalId": "1907002",
+     "total": 125,
+     "dagarMedRoster": 5,
+     "storstaDag": 42,
+     "andel": 11.0
     },
     {
      "namn": "Biblioteket Virsbo",
@@ -883,15 +899,6 @@
      "total": 115,
      "dagarMedRoster": 3,
      "storstaDag": 48,
-     "andel": 11.8
-    },
-    {
-     "namn": "Biblioteket Ramnäs",
-     "kommun": "Surahammar",
-     "lokalId": "1907002",
-     "total": 99,
-     "dagarMedRoster": 4,
-     "storstaDag": 42,
      "andel": 10.1
     },
     {

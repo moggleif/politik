@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -914,18 +914,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 162,
-     "ack": 973
+     "antal": 163,
+     "ack": 974
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 73,
-     "ack": 1046
+     "antal": 186,
+     "ack": 1160
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 67,
+     "ack": 1227
     }
    ],
-   "total": 1046,
+   "total": 1227,
    "rostberattigade": {
     "riksdag": 7712,
     "kommun": 8253,
@@ -943,19 +950,19 @@
      "namn": "Huvudbiblioteket",
      "kommun": "Örkelljunga",
      "lokalId": "1257004",
-     "total": 1046,
-     "dagarMedRoster": 8,
+     "total": 1226,
+     "dagarMedRoster": 9,
      "storstaDag": 206,
-     "andel": 100.0
+     "andel": 99.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Örkelljunga",
      "lokalId": "1257007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 1,
+     "dagarMedRoster": 1,
+     "storstaDag": 1,
+     "andel": 0.1
     },
     {
      "namn": "Forum Örkelljunga",

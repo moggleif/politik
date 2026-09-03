@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1236,11 +1236,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 25,
-     "ack": 741
+     "antal": 153,
+     "ack": 869
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 46,
+     "ack": 915
     }
    ],
-   "total": 741,
+   "total": 915,
    "rostberattigade": {
     "riksdag": 5539,
     "kommun": 5708,
@@ -1258,19 +1265,19 @@
      "namn": "Biblioteket i Svenstavik",
      "kommun": "Berg",
      "lokalId": "2326002",
-     "total": 291,
-     "dagarMedRoster": 5,
+     "total": 401,
+     "dagarMedRoster": 6,
      "storstaDag": 95,
-     "andel": 39.3
+     "andel": 43.8
     },
     {
      "namn": "Biblioteket i Myrviken",
      "kommun": "Berg",
      "lokalId": "2326003",
-     "total": 109,
-     "dagarMedRoster": 3,
-     "storstaDag": 52,
-     "andel": 14.7
+     "total": 173,
+     "dagarMedRoster": 4,
+     "storstaDag": 64,
+     "andel": 18.9
     },
     {
      "namn": "Föreninga i Klövsjö",
@@ -1279,7 +1286,7 @@
      "total": 93,
      "dagarMedRoster": 1,
      "storstaDag": 93,
-     "andel": 12.6
+     "andel": 10.2
     },
     {
      "namn": "Ljungdalens skola",
@@ -1288,7 +1295,7 @@
      "total": 73,
      "dagarMedRoster": 1,
      "storstaDag": 73,
-     "andel": 9.9
+     "andel": 8.0
     },
     {
      "namn": "Biblioteket i Rätan",
@@ -1297,7 +1304,7 @@
      "total": 71,
      "dagarMedRoster": 2,
      "storstaDag": 45,
-     "andel": 9.6
+     "andel": 7.8
     },
     {
      "namn": "Biblioteket i Hackås",
@@ -1306,7 +1313,7 @@
      "total": 47,
      "dagarMedRoster": 2,
      "storstaDag": 25,
-     "andel": 6.3
+     "andel": 5.1
     },
     {
      "namn": "Kommunkontoret",
@@ -1315,7 +1322,7 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 3.9
+     "andel": 3.2
     },
     {
      "namn": "Vallmogården",
@@ -1324,7 +1331,7 @@
      "total": 9,
      "dagarMedRoster": 1,
      "storstaDag": 9,
-     "andel": 1.2
+     "andel": 1.0
     },
     {
      "namn": "Östgärde",
@@ -1333,7 +1340,7 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 1.1
+     "andel": 0.9
     },
     {
      "namn": "Treklövern",
@@ -1342,7 +1349,7 @@
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1351,7 +1358,7 @@
      "total": 5,
      "dagarMedRoster": 1,
      "storstaDag": 5,
-     "andel": 0.7
+     "andel": 0.5
     },
     {
      "namn": "Dalsätra",

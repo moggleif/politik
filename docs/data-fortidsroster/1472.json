@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -712,67 +712,74 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 0,
-     "ack": 0
+     "antal": 142,
+     "ack": 142
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
      "antal": 0,
-     "ack": 0
+     "ack": 142
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 150,
-     "ack": 150
+     "ack": 292
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 50,
-     "ack": 200
+     "ack": 342
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 78,
-     "ack": 278
+     "ack": 420
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 203,
-     "ack": 481
+     "ack": 623
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 191,
-     "ack": 672
+     "ack": 814
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 97,
-     "ack": 769
+     "antal": 206,
+     "ack": 1020
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 99,
+     "ack": 1119
     }
    ],
-   "total": 769,
+   "total": 1119,
    "rostberattigade": {
     "riksdag": 8766,
     "kommun": 8988,
@@ -790,19 +797,19 @@
      "namn": "Allégården, lokal Galaxen",
      "kommun": "Tibro",
      "lokalId": "1472001",
-     "total": 769,
-     "dagarMedRoster": 6,
+     "total": 1112,
+     "dagarMedRoster": 8,
      "storstaDag": 203,
-     "andel": 100.0
+     "andel": 99.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Tibro",
      "lokalId": "1472003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 7,
+     "dagarMedRoster": 1,
+     "storstaDag": 7,
+     "andel": 0.6
     },
     {
      "namn": "Biblioteket",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1540,7 +1540,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1582,25 +1582,32 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 700,
-     "ack": 2995
+     "antal": 739,
+     "ack": 3034
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 673,
-     "ack": 3668
+     "antal": 681,
+     "ack": 3715
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 325,
-     "ack": 3993
+     "antal": 644,
+     "ack": 4359
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 292,
+     "ack": 4651
     }
    ],
-   "total": 3993,
+   "total": 4651,
    "rostberattigade": {
     "riksdag": 33532,
     "kommun": 34123,
@@ -1618,28 +1625,28 @@
      "namn": "Småstaden",
      "kommun": "Piteå",
      "lokalId": "2581014",
-     "total": 3469,
-     "dagarMedRoster": 8,
+     "total": 3894,
+     "dagarMedRoster": 9,
      "storstaDag": 585,
-     "andel": 86.9
+     "andel": 83.7
     },
     {
      "namn": "Christina Kultur",
      "kommun": "Piteå",
      "lokalId": "2581012",
-     "total": 520,
-     "dagarMedRoster": 3,
+     "total": 699,
+     "dagarMedRoster": 4,
      "storstaDag": 244,
-     "andel": 13.0
+     "andel": 15.0
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Piteå",
      "lokalId": "2581016",
-     "total": 4,
-     "dagarMedRoster": 1,
-     "storstaDag": 4,
-     "andel": 0.1
+     "total": 58,
+     "dagarMedRoster": 4,
+     "storstaDag": 37,
+     "andel": 1.2
     },
     {
      "namn": "Böle skola",

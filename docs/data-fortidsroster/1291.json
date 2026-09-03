@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1072,7 +1072,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1128,11 +1128,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 111,
-     "ack": 2541
+     "antal": 466,
+     "ack": 2896
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 148,
+     "ack": 3044
     }
    ],
-   "total": 2541,
+   "total": 3044,
    "rostberattigade": {
     "riksdag": 15614,
     "kommun": 15876,
@@ -1150,28 +1157,37 @@
      "namn": "Simrishamn, Skeppet",
      "kommun": "Simrishamn",
      "lokalId": "1291001",
-     "total": 1572,
-     "dagarMedRoster": 8,
+     "total": 1825,
+     "dagarMedRoster": 9,
      "storstaDag": 293,
-     "andel": 61.9
+     "andel": 60.0
     },
     {
      "namn": "Kivik, Sporthallen",
      "kommun": "Simrishamn",
      "lokalId": "1291004",
-     "total": 276,
-     "dagarMedRoster": 3,
+     "total": 375,
+     "dagarMedRoster": 4,
      "storstaDag": 108,
-     "andel": 10.9
+     "andel": 12.3
     },
     {
      "namn": "Gärsnäs, Allaktivitetshuset",
      "kommun": "Simrishamn",
      "lokalId": "1291003",
-     "total": 174,
-     "dagarMedRoster": 3,
+     "total": 231,
+     "dagarMedRoster": 4,
      "storstaDag": 60,
-     "andel": 6.8
+     "andel": 7.6
+    },
+    {
+     "namn": "Borrby Scoutgård",
+     "kommun": "Simrishamn",
+     "lokalId": "1291002",
+     "total": 228,
+     "dagarMedRoster": 3,
+     "storstaDag": 94,
+     "andel": 7.5
     },
     {
      "namn": "Sankt Olof, Medborgarhuset",
@@ -1180,16 +1196,7 @@
      "total": 147,
      "dagarMedRoster": 3,
      "storstaDag": 62,
-     "andel": 5.8
-    },
-    {
-     "namn": "Borrby Scoutgård",
-     "kommun": "Simrishamn",
-     "lokalId": "1291002",
-     "total": 134,
-     "dagarMedRoster": 2,
-     "storstaDag": 82,
-     "andel": 5.3
+     "andel": 4.8
     },
     {
      "namn": "Hammenhög, Sporthallen",
@@ -1198,7 +1205,7 @@
      "total": 134,
      "dagarMedRoster": 3,
      "storstaDag": 48,
-     "andel": 5.3
+     "andel": 4.4
     },
     {
      "namn": "Skillinge, Ankaret",
@@ -1207,7 +1214,7 @@
      "total": 104,
      "dagarMedRoster": 2,
      "storstaDag": 53,
-     "andel": 4.1
+     "andel": 3.4
     },
     {
      "namn": "Ambulerande röstmottagning",

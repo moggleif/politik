@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1225,7 +1225,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1239,53 +1239,60 @@
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 319,
-     "ack": 555
+     "antal": 320,
+     "ack": 556
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 245,
-     "ack": 800
+     "ack": 801
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 73,
-     "ack": 873
+     "ack": 874
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 113,
-     "ack": 986
+     "ack": 987
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 264,
-     "ack": 1250
+     "antal": 294,
+     "ack": 1281
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 242,
-     "ack": 1492
+     "ack": 1523
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 174,
-     "ack": 1666
+     "antal": 340,
+     "ack": 1863
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 93,
+     "ack": 1956
     }
    ],
-   "total": 1666,
+   "total": 1956,
    "rostberattigade": {
     "riksdag": 8508,
     "kommun": 8953,
@@ -1303,37 +1310,64 @@
      "namn": "Folkets hus - Strömsund",
      "kommun": "Strömsund",
      "lokalId": "2313019",
-     "total": 1047,
+     "total": 1085,
      "dagarMedRoster": 8,
-     "storstaDag": 179,
-     "andel": 62.8
+     "storstaDag": 182,
+     "andel": 55.5
     },
     {
      "namn": "Gamla lokalkontoret i Hammerdal",
      "kommun": "Strömsund",
      "lokalId": "2313010",
-     "total": 245,
-     "dagarMedRoster": 5,
+     "total": 295,
+     "dagarMedRoster": 7,
      "storstaDag": 65,
-     "andel": 14.7
+     "andel": 15.1
     },
     {
      "namn": "Biblioteket Backe",
      "kommun": "Strömsund",
      "lokalId": "2313009",
-     "total": 100,
-     "dagarMedRoster": 4,
+     "total": 129,
+     "dagarMedRoster": 5,
      "storstaDag": 33,
-     "andel": 6.0
+     "andel": 6.6
+    },
+    {
+     "namn": "Biblioteket Gäddede",
+     "kommun": "Strömsund",
+     "lokalId": "2313012",
+     "total": 111,
+     "dagarMedRoster": 5,
+     "storstaDag": 31,
+     "andel": 5.7
+    },
+    {
+     "namn": "Flottaren - Rossön",
+     "kommun": "Strömsund",
+     "lokalId": "2313020",
+     "total": 98,
+     "dagarMedRoster": 3,
+     "storstaDag": 42,
+     "andel": 5.0
+    },
+    {
+     "namn": "Mittpunkt Norråker",
+     "kommun": "Strömsund",
+     "lokalId": "2313022",
+     "total": 84,
+     "dagarMedRoster": 2,
+     "storstaDag": 44,
+     "andel": 4.3
     },
     {
      "namn": "Föreningshuset Hoting",
      "kommun": "Strömsund",
      "lokalId": "2313006",
-     "total": 63,
+     "total": 71,
      "dagarMedRoster": 2,
-     "storstaDag": 33,
-     "andel": 3.8
+     "storstaDag": 38,
+     "andel": 3.6
     },
     {
      "namn": "Tåsjögården",
@@ -1342,34 +1376,16 @@
      "total": 60,
      "dagarMedRoster": 2,
      "storstaDag": 31,
-     "andel": 3.6
+     "andel": 3.1
     },
     {
-     "namn": "Flottaren - Rossön",
+     "namn": "Församlingshemmet - Kyrktåsjö",
      "kommun": "Strömsund",
-     "lokalId": "2313020",
-     "total": 56,
-     "dagarMedRoster": 2,
-     "storstaDag": 29,
-     "andel": 3.4
-    },
-    {
-     "namn": "Biblioteket Gäddede",
-     "kommun": "Strömsund",
-     "lokalId": "2313012",
-     "total": 49,
-     "dagarMedRoster": 3,
-     "storstaDag": 24,
-     "andel": 2.9
-    },
-    {
-     "namn": "Mittpunkt Norråker",
-     "kommun": "Strömsund",
-     "lokalId": "2313022",
-     "total": 44,
+     "lokalId": "2313021",
+     "total": 21,
      "dagarMedRoster": 1,
-     "storstaDag": 44,
-     "andel": 2.6
+     "storstaDag": 21,
+     "andel": 1.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1402,15 +1418,6 @@
      "namn": "Forsgården/Levinsgården",
      "kommun": "Strömsund",
      "lokalId": "2313008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Församlingshemmet - Kyrktåsjö",
-     "kommun": "Strömsund",
-     "lokalId": "2313021",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

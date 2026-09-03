@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -838,7 +838,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -894,11 +894,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 0,
-     "ack": 649
+     "antal": 97,
+     "ack": 746
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 2,
+     "ack": 748
     }
    ],
-   "total": 649,
+   "total": 748,
    "rostberattigade": {
     "riksdag": 5740,
     "kommun": 5915,
@@ -916,10 +923,10 @@
      "namn": "Gunnarsbohallens cafeteria",
      "kommun": "Mullsjö",
      "lokalId": "0642004",
-     "total": 573,
-     "dagarMedRoster": 7,
+     "total": 670,
+     "dagarMedRoster": 8,
      "storstaDag": 108,
-     "andel": 88.3
+     "andel": 89.6
     },
     {
      "namn": "Träffpunkten",
@@ -928,14 +935,14 @@
      "total": 63,
      "dagarMedRoster": 1,
      "storstaDag": 63,
-     "andel": 9.7
+     "andel": 8.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Mullsjö",
      "lokalId": "0642005",
-     "total": 13,
-     "dagarMedRoster": 3,
+     "total": 15,
+     "dagarMedRoster": 4,
      "storstaDag": 10,
      "andel": 2.0
     },

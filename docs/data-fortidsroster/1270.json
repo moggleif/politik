@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,7 +829,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -885,11 +885,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 88,
-     "ack": 1236
+     "antal": 232,
+     "ack": 1380
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 130,
+     "ack": 1510
     }
    ],
-   "total": 1236,
+   "total": 1510,
    "rostberattigade": {
     "riksdag": 10607,
     "kommun": 11041,
@@ -907,10 +914,10 @@
      "namn": "Kommunhuset Tomelilla",
      "kommun": "Tomelilla",
      "lokalId": "1270002",
-     "total": 1067,
-     "dagarMedRoster": 6,
+     "total": 1260,
+     "dagarMedRoster": 7,
      "storstaDag": 480,
-     "andel": 86.3
+     "andel": 83.4
     },
     {
      "namn": "Brösarps skola, gymnastiksalen",
@@ -919,7 +926,16 @@
      "total": 115,
      "dagarMedRoster": 1,
      "storstaDag": 115,
-     "andel": 9.3
+     "andel": 7.6
+    },
+    {
+     "namn": "Medborgarhuset, Smedstorp",
+     "kommun": "Tomelilla",
+     "lokalId": "1270004",
+     "total": 75,
+     "dagarMedRoster": 1,
+     "storstaDag": 75,
+     "andel": 5.0
     },
     {
      "namn": "Odenslundsskolan, matsalen",
@@ -928,25 +944,16 @@
      "total": 51,
      "dagarMedRoster": 1,
      "storstaDag": 51,
-     "andel": 4.1
+     "andel": 3.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Tomelilla",
      "lokalId": "1270005",
-     "total": 3,
-     "dagarMedRoster": 2,
-     "storstaDag": 2,
-     "andel": 0.2
-    },
-    {
-     "namn": "Medborgarhuset, Smedstorp",
-     "kommun": "Tomelilla",
-     "lokalId": "1270004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 9,
+     "dagarMedRoster": 4,
+     "storstaDag": 3,
+     "andel": 0.6
     }
    ],
    "antalLokaler": 5,

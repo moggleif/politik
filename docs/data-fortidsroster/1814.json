@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -685,7 +685,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -727,25 +727,32 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 120,
-     "ack": 495
+     "antal": 122,
+     "ack": 497
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 84,
-     "ack": 579
+     "ack": 581
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 27,
-     "ack": 606
+     "antal": 80,
+     "ack": 661
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 73,
+     "ack": 734
     }
    ],
-   "total": 606,
+   "total": 734,
    "rostberattigade": {
     "riksdag": 6413,
     "kommun": 6514,
@@ -763,19 +770,19 @@
      "namn": "Biblioteket, Kommunhuset",
      "kommun": "Lekeberg",
      "lokalId": "1814001",
-     "total": 606,
-     "dagarMedRoster": 6,
+     "total": 729,
+     "dagarMedRoster": 7,
      "storstaDag": 265,
-     "andel": 100.0
+     "andel": 99.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Lekeberg",
      "lokalId": "1814002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 5,
+     "dagarMedRoster": 1,
+     "storstaDag": 5,
+     "andel": 0.7
     }
    ],
    "antalLokaler": 2,

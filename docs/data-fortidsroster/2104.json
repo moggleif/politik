@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -820,7 +820,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -876,11 +876,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 70,
-     "ack": 1018
+     "antal": 178,
+     "ack": 1126
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 74,
+     "ack": 1200
     }
    ],
-   "total": 1018,
+   "total": 1200,
    "rostberattigade": {
     "riksdag": 7242,
     "kommun": 7419,
@@ -898,10 +905,10 @@
      "namn": "Folkets Hus",
      "kommun": "Hofors",
      "lokalId": "2104002",
-     "total": 865,
-     "dagarMedRoster": 8,
-     "storstaDag": 141,
-     "andel": 85.0
+     "total": 1030,
+     "dagarMedRoster": 9,
+     "storstaDag": 161,
+     "andel": 85.8
     },
     {
      "namn": "Torsåkers Bygdegård",
@@ -910,16 +917,16 @@
      "total": 137,
      "dagarMedRoster": 2,
      "storstaDag": 70,
-     "andel": 13.5
+     "andel": 11.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Hofors",
      "lokalId": "2104003",
-     "total": 16,
-     "dagarMedRoster": 2,
-     "storstaDag": 13,
-     "andel": 1.6
+     "total": 33,
+     "dagarMedRoster": 3,
+     "storstaDag": 17,
+     "andel": 2.8
     }
    ],
    "antalLokaler": 3,

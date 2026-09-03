@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -838,7 +838,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -894,11 +894,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 42,
-     "ack": 607
+     "antal": 114,
+     "ack": 679
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 49,
+     "ack": 728
     }
    ],
-   "total": 607,
+   "total": 728,
    "rostberattigade": {
     "riksdag": 4832,
     "kommun": 5124,
@@ -916,19 +923,19 @@
      "namn": "Kommunkontoret",
      "kommun": "Hällefors",
      "lokalId": "1863007",
-     "total": 426,
-     "dagarMedRoster": 6,
+     "total": 514,
+     "dagarMedRoster": 7,
      "storstaDag": 95,
-     "andel": 70.2
+     "andel": 70.6
     },
     {
      "namn": "Tempo",
      "kommun": "Hällefors",
      "lokalId": "1863001",
-     "total": 175,
-     "dagarMedRoster": 8,
+     "total": 208,
+     "dagarMedRoster": 9,
      "storstaDag": 28,
-     "andel": 28.8
+     "andel": 28.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -937,7 +944,7 @@
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 1.0
+     "andel": 0.8
     },
     {
      "namn": "Björkhaga (entren)",

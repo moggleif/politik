@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -925,25 +925,32 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 845,
-     "ack": 3988
+     "antal": 846,
+     "ack": 3989
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 756,
-     "ack": 4744
+     "antal": 760,
+     "ack": 4749
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 411,
-     "ack": 5155
+     "antal": 800,
+     "ack": 5549
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 357,
+     "ack": 5906
     }
    ],
-   "total": 5155,
+   "total": 5906,
    "rostberattigade": {
     "riksdag": 36820,
     "kommun": 38355,
@@ -961,46 +968,46 @@
      "namn": "Huvudbiblioteket Tyresö Centrum",
      "kommun": "Tyresö",
      "lokalId": "0138003",
-     "total": 2853,
-     "dagarMedRoster": 8,
+     "total": 3226,
+     "dagarMedRoster": 9,
      "storstaDag": 478,
-     "andel": 55.3
+     "andel": 54.6
     },
     {
      "namn": "Biblioteket Trollbäcken",
      "kommun": "Tyresö",
      "lokalId": "0138001",
-     "total": 1074,
-     "dagarMedRoster": 7,
+     "total": 1221,
+     "dagarMedRoster": 8,
      "storstaDag": 226,
-     "andel": 20.8
+     "andel": 20.7
     },
     {
      "namn": "Biblioteket Tyresö Strand",
      "kommun": "Tyresö",
      "lokalId": "0138002",
-     "total": 567,
-     "dagarMedRoster": 7,
-     "storstaDag": 124,
-     "andel": 11.0
+     "total": 700,
+     "dagarMedRoster": 8,
+     "storstaDag": 136,
+     "andel": 11.9
     },
     {
      "namn": "Servicecenter Tyresö kommun",
      "kommun": "Tyresö",
      "lokalId": "0138004",
-     "total": 411,
-     "dagarMedRoster": 8,
+     "total": 490,
+     "dagarMedRoster": 9,
      "storstaDag": 88,
-     "andel": 8.0
+     "andel": 8.3
     },
     {
      "namn": "G60, Granängsringen",
      "kommun": "Tyresö",
      "lokalId": "0138006",
-     "total": 211,
-     "dagarMedRoster": 6,
+     "total": 230,
+     "dagarMedRoster": 7,
      "storstaDag": 78,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1009,7 +1016,7 @@
      "total": 39,
      "dagarMedRoster": 2,
      "storstaDag": 37,
-     "andel": 0.8
+     "andel": 0.7
     }
    ],
    "antalLokaler": 6,

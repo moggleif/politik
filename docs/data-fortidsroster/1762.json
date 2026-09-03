@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -784,7 +784,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -840,11 +840,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 36,
-     "ack": 397
+     "antal": 82,
+     "ack": 443
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 43,
+     "ack": 486
     }
    ],
-   "total": 397,
+   "total": 486,
    "rostberattigade": {
     "riksdag": 2679,
     "kommun": 2992,
@@ -862,10 +869,10 @@
      "namn": "Munkfors kommunkontor",
      "kommun": "Munkfors",
      "lokalId": "1762002",
-     "total": 363,
-     "dagarMedRoster": 8,
-     "storstaDag": 70,
-     "andel": 91.4
+     "total": 452,
+     "dagarMedRoster": 9,
+     "storstaDag": 82,
+     "andel": 93.0
     },
     {
      "namn": "Församlingshemmet i Ransäter",
@@ -874,7 +881,7 @@
      "total": 32,
      "dagarMedRoster": 1,
      "storstaDag": 32,
-     "andel": 8.1
+     "andel": 6.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -883,7 +890,7 @@
      "total": 2,
      "dagarMedRoster": 2,
      "storstaDag": 1,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Församlingshemmet Munkfors",

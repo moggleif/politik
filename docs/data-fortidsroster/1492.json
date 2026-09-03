@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -924,53 +924,60 @@
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 67,
-     "ack": 294
+     "antal": 237,
+     "ack": 464
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 206,
-     "ack": 500
+     "antal": 209,
+     "ack": 673
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 79,
-     "ack": 579
+     "ack": 752
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 106,
-     "ack": 685
+     "ack": 858
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 301,
-     "ack": 986
+     "antal": 302,
+     "ack": 1160
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 284,
-     "ack": 1270
+     "ack": 1444
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 120,
-     "ack": 1390
+     "antal": 281,
+     "ack": 1725
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 116,
+     "ack": 1841
     }
    ],
-   "total": 1390,
+   "total": 1841,
    "rostberattigade": {
     "riksdag": 9273,
     "kommun": 9461,
@@ -988,10 +995,10 @@
      "namn": "Konsthallen",
      "kommun": "Åmål",
      "lokalId": "1492005",
-     "total": 1232,
-     "dagarMedRoster": 8,
-     "storstaDag": 229,
-     "andel": 88.6
+     "total": 1640,
+     "dagarMedRoster": 9,
+     "storstaDag": 238,
+     "andel": 89.1
     },
     {
      "namn": "Fengersfors Folkets hus",
@@ -1000,7 +1007,7 @@
      "total": 101,
      "dagarMedRoster": 1,
      "storstaDag": 101,
-     "andel": 7.3
+     "andel": 5.5
     },
     {
      "namn": "Edsleskogs prästgård",
@@ -1009,7 +1016,16 @@
      "total": 55,
      "dagarMedRoster": 1,
      "storstaDag": 55,
-     "andel": 4.0
+     "andel": 3.0
+    },
+    {
+     "namn": "Mo-Berga Bygdegård",
+     "kommun": "Åmål",
+     "lokalId": "1492004",
+     "total": 43,
+     "dagarMedRoster": 1,
+     "storstaDag": 43,
+     "andel": 2.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1033,15 +1049,6 @@
      "namn": "Illern Särskilt boende",
      "kommun": "Åmål",
      "lokalId": "1492014",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Mo-Berga Bygdegård",
-     "kommun": "Åmål",
-     "lokalId": "1492004",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

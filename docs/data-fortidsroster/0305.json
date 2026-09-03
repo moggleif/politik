@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -815,18 +815,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 264,
-     "ack": 1679
+     "antal": 267,
+     "ack": 1682
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 10,
-     "ack": 1689
+     "antal": 389,
+     "ack": 2071
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 211,
+     "ack": 2282
     }
    ],
-   "total": 1689,
+   "total": 2282,
    "rostberattigade": {
     "riksdag": 17107,
     "kommun": 17945,
@@ -844,19 +851,19 @@
      "namn": "Bålsta centrum",
      "kommun": "Håbo",
      "lokalId": "0305002",
-     "total": 1561,
-     "dagarMedRoster": 7,
-     "storstaDag": 263,
-     "andel": 92.4
+     "total": 2079,
+     "dagarMedRoster": 9,
+     "storstaDag": 304,
+     "andel": 91.1
     },
     {
      "namn": "Slottsskolans sporthall",
      "kommun": "Håbo",
      "lokalId": "0305001",
-     "total": 113,
-     "dagarMedRoster": 2,
-     "storstaDag": 69,
-     "andel": 6.7
+     "total": 188,
+     "dagarMedRoster": 3,
+     "storstaDag": 75,
+     "andel": 8.2
     },
     {
      "namn": "Pomona äldreboende",
@@ -865,7 +872,7 @@
      "total": 10,
      "dagarMedRoster": 1,
      "storstaDag": 10,
-     "andel": 0.6
+     "andel": 0.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -874,7 +881,7 @@
      "total": 5,
      "dagarMedRoster": 3,
      "storstaDag": 2,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Parkgårdens äldreboende",

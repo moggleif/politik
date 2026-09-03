@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -939,11 +939,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 102,
-     "ack": 1038
+     "antal": 204,
+     "ack": 1140
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 99,
+     "ack": 1239
     }
    ],
-   "total": 1038,
+   "total": 1239,
    "rostberattigade": {
     "riksdag": 6139,
     "kommun": 6243,
@@ -961,10 +968,10 @@
      "namn": "Valdemarsviks Folkets Hus",
      "kommun": "Valdemarsvik",
      "lokalId": "0563003",
-     "total": 808,
-     "dagarMedRoster": 8,
-     "storstaDag": 137,
-     "andel": 77.8
+     "total": 976,
+     "dagarMedRoster": 9,
+     "storstaDag": 138,
+     "andel": 78.8
     },
     {
      "namn": "Gusums Folket Hus",
@@ -973,16 +980,16 @@
      "total": 136,
      "dagarMedRoster": 4,
      "storstaDag": 39,
-     "andel": 13.1
+     "andel": 11.0
     },
     {
      "namn": "Ringarums Stationshus",
      "kommun": "Valdemarsvik",
      "lokalId": "0563002",
-     "total": 91,
-     "dagarMedRoster": 3,
+     "total": 124,
+     "dagarMedRoster": 4,
      "storstaDag": 34,
-     "andel": 8.8
+     "andel": 10.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -991,7 +998,7 @@
      "total": 3,
      "dagarMedRoster": 1,
      "storstaDag": 3,
-     "andel": 0.3
+     "andel": 0.2
     }
    ],
    "antalLokaler": 4,

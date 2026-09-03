@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -787,46 +787,53 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 207,
-     "ack": 770
+     "antal": 208,
+     "ack": 771
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 226,
-     "ack": 996
+     "ack": 997
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 226,
-     "ack": 1222
+     "ack": 1223
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 528,
-     "ack": 1750
+     "antal": 529,
+     "ack": 1752
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 439,
-     "ack": 2189
+     "antal": 443,
+     "ack": 2195
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 166,
-     "ack": 2355
+     "antal": 502,
+     "ack": 2697
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 183,
+     "ack": 2880
     }
    ],
-   "total": 2355,
+   "total": 2880,
    "rostberattigade": {
     "riksdag": 22330,
     "kommun": 25081,
@@ -844,28 +851,28 @@
      "namn": "Kommunhuset",
      "kommun": "Upplands-Bro",
      "lokalId": "0139001",
-     "total": 1384,
-     "dagarMedRoster": 8,
+     "total": 1680,
+     "dagarMedRoster": 9,
      "storstaDag": 301,
-     "andel": 58.8
+     "andel": 58.3
     },
     {
      "namn": "Brohuset",
      "kommun": "Upplands-Bro",
      "lokalId": "0139002",
-     "total": 951,
-     "dagarMedRoster": 8,
+     "total": 1165,
+     "dagarMedRoster": 9,
      "storstaDag": 214,
-     "andel": 40.4
+     "andel": 40.5
     },
     {
      "namn": "Upplands-Bro gymnasie (UBG)",
      "kommun": "Upplands-Bro",
      "lokalId": "0139006",
-     "total": 13,
-     "dagarMedRoster": 1,
-     "storstaDag": 13,
-     "andel": 0.6
+     "total": 28,
+     "dagarMedRoster": 2,
+     "storstaDag": 14,
+     "andel": 1.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -874,7 +881,7 @@
      "total": 7,
      "dagarMedRoster": 2,
      "storstaDag": 5,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Hagtorp äldreboende",

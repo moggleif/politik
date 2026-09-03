@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1486,7 +1486,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1528,25 +1528,32 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 445,
-     "ack": 1908
+     "antal": 446,
+     "ack": 1909
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 420,
-     "ack": 2328
+     "antal": 423,
+     "ack": 2332
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 310,
-     "ack": 2638
+     "antal": 620,
+     "ack": 2952
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 222,
+     "ack": 3174
     }
    ],
-   "total": 2638,
+   "total": 3174,
    "rostberattigade": {
     "riksdag": 16717,
     "kommun": 17963,
@@ -1564,10 +1571,10 @@
      "namn": "Stadshuset Kristallen",
      "kommun": "Kiruna",
      "lokalId": "2584014",
-     "total": 2230,
-     "dagarMedRoster": 8,
-     "storstaDag": 372,
-     "andel": 84.5
+     "total": 2753,
+     "dagarMedRoster": 9,
+     "storstaDag": 545,
+     "andel": 86.7
     },
     {
      "namn": "Karesuando Eurosuandohuset",
@@ -1576,7 +1583,16 @@
      "total": 84,
      "dagarMedRoster": 2,
      "storstaDag": 55,
-     "andel": 3.2
+     "andel": 2.6
+    },
+    {
+     "namn": "Svappavaara Fritidsgård",
+     "kommun": "Kiruna",
+     "lokalId": "2584010",
+     "total": 74,
+     "dagarMedRoster": 1,
+     "storstaDag": 74,
+     "andel": 2.3
     },
     {
      "namn": "Malmfältens Folkhögskola",
@@ -1585,16 +1601,7 @@
      "total": 73,
      "dagarMedRoster": 1,
      "storstaDag": 73,
-     "andel": 2.8
-    },
-    {
-     "namn": "Svappavaara Fritidsgård",
-     "kommun": "Kiruna",
-     "lokalId": "2584010",
-     "total": 73,
-     "dagarMedRoster": 1,
-     "storstaDag": 73,
-     "andel": 2.8
+     "andel": 2.3
     },
     {
      "namn": "Vittangi Folkets Hus",
@@ -1603,7 +1610,16 @@
      "total": 47,
      "dagarMedRoster": 1,
      "storstaDag": 47,
-     "andel": 1.8
+     "andel": 1.5
+    },
+    {
+     "namn": "Hjalmar Lundbohmsskolan",
+     "kommun": "Kiruna",
+     "lokalId": "2584002",
+     "total": 46,
+     "dagarMedRoster": 1,
+     "storstaDag": 46,
+     "andel": 1.4
     },
     {
      "namn": "Kuttainen sporthall",
@@ -1612,16 +1628,7 @@
      "total": 46,
      "dagarMedRoster": 1,
      "storstaDag": 46,
-     "andel": 1.7
-    },
-    {
-     "namn": "Hjalmar Lundbohmsskolan",
-     "kommun": "Kiruna",
-     "lokalId": "2584002",
-     "total": 44,
-     "dagarMedRoster": 1,
-     "storstaDag": 44,
-     "andel": 1.7
+     "andel": 1.4
     },
     {
      "namn": "Bokbuss Abisko",
@@ -1630,7 +1637,7 @@
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Bokbuss Jukkasjärvi",
@@ -1639,21 +1646,21 @@
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 0.8
-    },
-    {
-     "namn": "Abisko skola",
-     "kommun": "Kiruna",
-     "lokalId": "2584013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 0.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kiruna",
      "lokalId": "2584019",
+     "total": 10,
+     "dagarMedRoster": 2,
+     "storstaDag": 7,
+     "andel": 0.3
+    },
+    {
+     "namn": "Abisko skola",
+     "kommun": "Kiruna",
+     "lokalId": "2584013",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

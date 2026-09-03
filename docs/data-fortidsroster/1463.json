@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1459,7 +1459,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1515,11 +1515,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 243,
-     "ack": 2954
+     "antal": 656,
+     "ack": 3367
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 225,
+     "ack": 3592
     }
    ],
-   "total": 2954,
+   "total": 3592,
    "rostberattigade": {
     "riksdag": 26944,
     "kommun": 27764,
@@ -1537,46 +1544,46 @@
      "namn": "Kommunhuset Kinnaborgssalen",
      "kommun": "Mark",
      "lokalId": "1463010",
-     "total": 1395,
-     "dagarMedRoster": 8,
-     "storstaDag": 225,
-     "andel": 47.2
+     "total": 1638,
+     "dagarMedRoster": 9,
+     "storstaDag": 255,
+     "andel": 45.6
     },
     {
      "namn": "Ängshallen, Skene",
      "kommun": "Mark",
      "lokalId": "1463009",
-     "total": 712,
-     "dagarMedRoster": 6,
+     "total": 843,
+     "dagarMedRoster": 7,
      "storstaDag": 155,
-     "andel": 24.1
+     "andel": 23.5
     },
     {
      "namn": "Ekelund linneväveri",
      "kommun": "Mark",
      "lokalId": "1463012",
-     "total": 306,
-     "dagarMedRoster": 7,
+     "total": 350,
+     "dagarMedRoster": 8,
      "storstaDag": 73,
-     "andel": 10.4
+     "andel": 9.7
     },
     {
      "namn": "Lundagård, Sätila",
      "kommun": "Mark",
      "lokalId": "1463005",
-     "total": 175,
-     "dagarMedRoster": 2,
+     "total": 280,
+     "dagarMedRoster": 3,
      "storstaDag": 123,
-     "andel": 5.9
+     "andel": 7.8
     },
     {
      "namn": "Fritsla Folketshus",
      "kommun": "Mark",
      "lokalId": "1463006",
-     "total": 112,
-     "dagarMedRoster": 2,
+     "total": 190,
+     "dagarMedRoster": 3,
      "storstaDag": 91,
-     "andel": 3.8
+     "andel": 5.3
     },
     {
      "namn": "Församlingshemmet i Björketorp",
@@ -1585,7 +1592,16 @@
      "total": 108,
      "dagarMedRoster": 1,
      "storstaDag": 108,
-     "andel": 3.7
+     "andel": 3.0
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Mark",
+     "lokalId": "1463011",
+     "total": 100,
+     "dagarMedRoster": 5,
+     "storstaDag": 37,
+     "andel": 2.8
     },
     {
      "namn": "Hajoms bygdegård",
@@ -1594,16 +1610,7 @@
      "total": 83,
      "dagarMedRoster": 1,
      "storstaDag": 83,
-     "andel": 2.8
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Mark",
-     "lokalId": "1463011",
-     "total": 63,
-     "dagarMedRoster": 4,
-     "storstaDag": 22,
-     "andel": 2.1
+     "andel": 2.3
     },
     {
      "namn": "Rydals Museum",

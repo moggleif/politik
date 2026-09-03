@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -964,7 +964,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1020,11 +1020,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 66,
-     "ack": 613
+     "antal": 197,
+     "ack": 744
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 12,
+     "ack": 756
     }
    ],
-   "total": 613,
+   "total": 756,
    "rostberattigade": {
     "riksdag": 5911,
     "kommun": 6300,
@@ -1042,19 +1049,28 @@
      "namn": "Lessebo Bibliotek",
      "kommun": "Lessebo",
      "lokalId": "0761002",
-     "total": 404,
-     "dagarMedRoster": 8,
-     "storstaDag": 73,
-     "andel": 65.9
+     "total": 461,
+     "dagarMedRoster": 9,
+     "storstaDag": 90,
+     "andel": 61.0
     },
     {
      "namn": "Hovmantorps Folkets Hus",
      "kommun": "Lessebo",
      "lokalId": "0761005",
-     "total": 206,
+     "total": 259,
      "dagarMedRoster": 3,
      "storstaDag": 137,
-     "andel": 33.6
+     "andel": 34.3
+    },
+    {
+     "namn": "Skruvs Bibliotek/Folkets hus",
+     "kommun": "Lessebo",
+     "lokalId": "0761001",
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
+     "andel": 4.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1063,7 +1079,7 @@
      "total": 3,
      "dagarMedRoster": 2,
      "storstaDag": 2,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Kommunhuset Lessebo",
@@ -1078,15 +1094,6 @@
      "namn": "Kosta Bibliotek/Folkets hus",
      "kommun": "Lessebo",
      "lokalId": "0761004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Skruvs Bibliotek/Folkets hus",
-     "kommun": "Lessebo",
-     "lokalId": "0761001",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

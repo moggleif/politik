@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -901,7 +901,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -957,11 +957,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 112,
-     "ack": 1337
+     "antal": 196,
+     "ack": 1421
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 109,
+     "ack": 1530
     }
    ],
-   "total": 1337,
+   "total": 1530,
    "rostberattigade": {
     "riksdag": 8613,
     "kommun": 9336,
@@ -979,37 +986,37 @@
      "namn": "Biblioteket Torsby",
      "kommun": "Torsby",
      "lokalId": "1737003",
-     "total": 736,
-     "dagarMedRoster": 7,
+     "total": 858,
+     "dagarMedRoster": 8,
      "storstaDag": 146,
-     "andel": 55.0
+     "andel": 56.1
     },
     {
      "namn": "Kommunhuset Torsby",
      "kommun": "Torsby",
      "lokalId": "1737001",
-     "total": 299,
-     "dagarMedRoster": 6,
+     "total": 344,
+     "dagarMedRoster": 7,
      "storstaDag": 73,
-     "andel": 22.4
+     "andel": 22.5
     },
     {
      "namn": "Lokalkontorets reception",
      "kommun": "Torsby",
      "lokalId": "1737002",
-     "total": 149,
-     "dagarMedRoster": 6,
+     "total": 169,
+     "dagarMedRoster": 7,
      "storstaDag": 38,
-     "andel": 11.1
+     "andel": 11.0
     },
     {
      "namn": "Bokbussen",
      "kommun": "Torsby",
      "lokalId": "1737005",
-     "total": 141,
+     "total": 147,
      "dagarMedRoster": 6,
      "storstaDag": 45,
-     "andel": 10.5
+     "andel": 9.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1018,7 +1025,7 @@
      "total": 12,
      "dagarMedRoster": 2,
      "storstaDag": 11,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Piltzsalen, Lokalkontoret",

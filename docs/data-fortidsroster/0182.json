@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1261,7 +1261,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1317,11 +1317,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 901,
-     "ack": 11759
+     "antal": 1916,
+     "ack": 12774
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 877,
+     "ack": 13651
     }
    ],
-   "total": 11759,
+   "total": 13651,
    "rostberattigade": {
     "riksdag": 83715,
     "kommun": 87259,
@@ -1339,64 +1346,64 @@
      "namn": "Nacka Forum, plan 0",
      "kommun": "Nacka",
      "lokalId": "0182002",
-     "total": 4457,
-     "dagarMedRoster": 8,
+     "total": 5111,
+     "dagarMedRoster": 9,
      "storstaDag": 668,
-     "andel": 37.9
+     "andel": 37.4
     },
     {
      "namn": "Orminge bibliotek",
      "kommun": "Nacka",
      "lokalId": "0182001",
-     "total": 2312,
-     "dagarMedRoster": 8,
+     "total": 2703,
+     "dagarMedRoster": 9,
      "storstaDag": 418,
-     "andel": 19.7
+     "andel": 19.8
     },
     {
      "namn": "Dieselverkstaden",
      "kommun": "Nacka",
      "lokalId": "0182003",
-     "total": 2071,
-     "dagarMedRoster": 8,
-     "storstaDag": 340,
-     "andel": 17.6
+     "total": 2388,
+     "dagarMedRoster": 9,
+     "storstaDag": 355,
+     "andel": 17.5
     },
     {
      "namn": "Igelboda skola",
      "kommun": "Nacka",
      "lokalId": "0182005",
-     "total": 960,
-     "dagarMedRoster": 8,
+     "total": 1145,
+     "dagarMedRoster": 9,
      "storstaDag": 176,
-     "andel": 8.2
+     "andel": 8.4
     },
     {
      "namn": "Älta bibliotek",
      "kommun": "Nacka",
      "lokalId": "0182004",
-     "total": 894,
-     "dagarMedRoster": 8,
+     "total": 1050,
+     "dagarMedRoster": 9,
      "storstaDag": 154,
-     "andel": 7.6
+     "andel": 7.7
     },
     {
      "namn": "Fisksätra bibliotek",
      "kommun": "Nacka",
      "lokalId": "0182018",
-     "total": 640,
-     "dagarMedRoster": 8,
+     "total": 744,
+     "dagarMedRoster": 9,
      "storstaDag": 123,
-     "andel": 5.4
+     "andel": 5.5
     },
     {
      "namn": "Nacka stadshus",
      "kommun": "Nacka",
      "lokalId": "0182020",
-     "total": 317,
-     "dagarMedRoster": 7,
+     "total": 353,
+     "dagarMedRoster": 8,
      "storstaDag": 76,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Danvikshem",
@@ -1405,7 +1412,16 @@
      "total": 84,
      "dagarMedRoster": 1,
      "storstaDag": 84,
-     "andel": 0.7
+     "andel": 0.6
+    },
+    {
+     "namn": "Villa Tollare",
+     "kommun": "Nacka",
+     "lokalId": "0182008",
+     "total": 27,
+     "dagarMedRoster": 1,
+     "storstaDag": 27,
+     "andel": 0.2
     },
     {
      "namn": "Vardaga Lillängen",
@@ -1417,12 +1433,21 @@
      "andel": 0.2
     },
     {
+     "namn": "Vardaga villa Sarvträsk",
+     "kommun": "Nacka",
+     "lokalId": "0182007",
+     "total": 18,
+     "dagarMedRoster": 1,
+     "storstaDag": 18,
+     "andel": 0.1
+    },
+    {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nacka",
      "lokalId": "0182023",
-     "total": 2,
-     "dagarMedRoster": 1,
-     "storstaDag": 2,
+     "total": 6,
+     "dagarMedRoster": 2,
+     "storstaDag": 4,
      "andel": 0.0
     },
     {
@@ -1492,24 +1517,6 @@
      "namn": "Saltsjöbadens sjukhus",
      "kommun": "Nacka",
      "lokalId": "0182010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vardaga villa Sarvträsk",
-     "kommun": "Nacka",
-     "lokalId": "0182007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Villa Tollare",
-     "kommun": "Nacka",
-     "lokalId": "0182008",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

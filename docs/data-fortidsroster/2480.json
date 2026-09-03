@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1855,7 +1855,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1911,11 +1911,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 1008,
-     "ack": 13813
+     "antal": 2357,
+     "ack": 15162
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 901,
+     "ack": 16063
     }
    ],
-   "total": 13813,
+   "total": 16063,
    "rostberattigade": {
     "riksdag": 103613,
     "kommun": 107446,
@@ -1933,26 +1940,26 @@
      "namn": "Nolia",
      "kommun": "Umeå",
      "lokalId": "2480001",
-     "total": 2615,
-     "dagarMedRoster": 8,
-     "storstaDag": 452,
-     "andel": 18.9
+     "total": 3088,
+     "dagarMedRoster": 9,
+     "storstaDag": 493,
+     "andel": 19.2
     },
     {
      "namn": "Norrlands Universitetssjukhus",
      "kommun": "Umeå",
      "lokalId": "2480013",
-     "total": 2429,
-     "dagarMedRoster": 8,
+     "total": 2859,
+     "dagarMedRoster": 9,
      "storstaDag": 455,
-     "andel": 17.6
+     "andel": 17.8
     },
     {
      "namn": "Hotell Scandic Syd",
      "kommun": "Umeå",
      "lokalId": "2480018",
-     "total": 2178,
-     "dagarMedRoster": 8,
+     "total": 2545,
+     "dagarMedRoster": 9,
      "storstaDag": 443,
      "andel": 15.8
     },
@@ -1960,35 +1967,35 @@
      "namn": "Sjuans mötesplats",
      "kommun": "Umeå",
      "lokalId": "2480023",
-     "total": 1544,
-     "dagarMedRoster": 8,
+     "total": 1783,
+     "dagarMedRoster": 9,
      "storstaDag": 273,
-     "andel": 11.2
+     "andel": 11.1
     },
     {
      "namn": "Ersboda, Sporthushallen",
      "kommun": "Umeå",
      "lokalId": "2480022",
-     "total": 1082,
-     "dagarMedRoster": 8,
+     "total": 1272,
+     "dagarMedRoster": 9,
      "storstaDag": 214,
-     "andel": 7.8
+     "andel": 7.9
     },
     {
      "namn": "Musköten",
      "kommun": "Umeå",
      "lokalId": "2480045",
-     "total": 876,
-     "dagarMedRoster": 8,
-     "storstaDag": 146,
-     "andel": 6.3
+     "total": 1030,
+     "dagarMedRoster": 9,
+     "storstaDag": 163,
+     "andel": 6.4
     },
     {
      "namn": "Storsjöskolan",
      "kommun": "Umeå",
      "lokalId": "2480016",
-     "total": 744,
-     "dagarMedRoster": 8,
+     "total": 874,
+     "dagarMedRoster": 9,
      "storstaDag": 164,
      "andel": 5.4
     },
@@ -1996,17 +2003,17 @@
      "namn": "Hörnefors Centrumhus",
      "kommun": "Umeå",
      "lokalId": "2480014",
-     "total": 452,
-     "dagarMedRoster": 7,
-     "storstaDag": 91,
-     "andel": 3.3
+     "total": 546,
+     "dagarMedRoster": 8,
+     "storstaDag": 94,
+     "andel": 3.4
     },
     {
      "namn": "Sävar skola",
      "kommun": "Umeå",
      "lokalId": "2480017",
-     "total": 411,
-     "dagarMedRoster": 7,
+     "total": 486,
+     "dagarMedRoster": 8,
      "storstaDag": 78,
      "andel": 3.0
     },
@@ -2017,7 +2024,7 @@
      "total": 237,
      "dagarMedRoster": 2,
      "storstaDag": 128,
-     "andel": 1.7
+     "andel": 1.5
     },
     {
      "namn": "Tavelsjö skola",
@@ -2026,7 +2033,7 @@
      "total": 162,
      "dagarMedRoster": 2,
      "storstaDag": 95,
-     "andel": 1.2
+     "andel": 1.0
     },
     {
      "namn": "Täfteå byakyrka",
@@ -2035,7 +2042,7 @@
      "total": 97,
      "dagarMedRoster": 1,
      "storstaDag": 97,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Sörfors skola",
@@ -2044,7 +2051,7 @@
      "total": 90,
      "dagarMedRoster": 2,
      "storstaDag": 46,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Botsmarks skola",
@@ -2053,7 +2060,7 @@
      "total": 85,
      "dagarMedRoster": 2,
      "storstaDag": 60,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Ersmark skola",
@@ -2062,7 +2069,7 @@
      "total": 77,
      "dagarMedRoster": 2,
      "storstaDag": 40,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Kriminalvårdsanstalten Sörbyn",
@@ -2071,7 +2078,7 @@
      "total": 76,
      "dagarMedRoster": 2,
      "storstaDag": 75,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Hissjö skola",
@@ -2080,7 +2087,16 @@
      "total": 69,
      "dagarMedRoster": 2,
      "storstaDag": 40,
-     "andel": 0.5
+     "andel": 0.4
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Umeå",
+     "lokalId": "2480044",
+     "total": 68,
+     "dagarMedRoster": 6,
+     "storstaDag": 20,
+     "andel": 0.4
     },
     {
      "namn": "Bullmark skola",
@@ -2089,15 +2105,6 @@
      "total": 66,
      "dagarMedRoster": 2,
      "storstaDag": 39,
-     "andel": 0.5
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Umeå",
-     "lokalId": "2480044",
-     "total": 56,
-     "dagarMedRoster": 5,
-     "storstaDag": 20,
      "andel": 0.4
     },
     {
@@ -2116,7 +2123,25 @@
      "total": 39,
      "dagarMedRoster": 1,
      "storstaDag": 39,
-     "andel": 0.3
+     "andel": 0.2
+    },
+    {
+     "namn": "Café Vaniljdrömmen",
+     "kommun": "Umeå",
+     "lokalId": "2480005",
+     "total": 37,
+     "dagarMedRoster": 1,
+     "storstaDag": 37,
+     "andel": 0.2
+    },
+    {
+     "namn": "Dragonens vård- och omsorgsboende",
+     "kommun": "Umeå",
+     "lokalId": "2480006",
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
+     "andel": 0.2
     },
     {
      "namn": "Teg vård- och omsorgsboende",
@@ -2179,7 +2204,7 @@
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Nordstjärnan vård- och omsorgsboende",
@@ -2188,7 +2213,7 @@
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Prästsjögården",
@@ -2197,7 +2222,7 @@
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Aktrisen vård och omsorgsboende",
@@ -2206,7 +2231,16 @@
      "total": 23,
      "dagarMedRoster": 1,
      "storstaDag": 23,
-     "andel": 0.2
+     "andel": 0.1
+    },
+    {
+     "namn": "Aros daglig verksamhet",
+     "kommun": "Umeå",
+     "lokalId": "2480003",
+     "total": 22,
+     "dagarMedRoster": 1,
+     "storstaDag": 22,
+     "andel": 0.1
     },
     {
      "namn": "Skräddaren vård- och omsorgsboende",
@@ -2215,7 +2249,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Bruksbackens vård- och omsorgsboende",
@@ -2224,7 +2258,7 @@
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Lundagård vård- och omsorgsboende",
@@ -2233,7 +2267,7 @@
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Sjöbacka vård- och omsorgsboende",
@@ -2242,15 +2276,6 @@
      "total": 15,
      "dagarMedRoster": 1,
      "storstaDag": 15,
-     "andel": 0.1
-    },
-    {
-     "namn": "Café Vaniljdrömmen",
-     "kommun": "Umeå",
-     "lokalId": "2480005",
-     "total": 14,
-     "dagarMedRoster": 1,
-     "storstaDag": 14,
      "andel": 0.1
     },
     {
@@ -2269,51 +2294,42 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.1
-    },
-    {
-     "namn": "Aros daglig verksamhet",
-     "kommun": "Umeå",
-     "lokalId": "2480003",
-     "total": 4,
-     "dagarMedRoster": 1,
-     "storstaDag": 4,
      "andel": 0.0
     },
     {
-     "namn": "Dragonens vård- och omsorgsboende",
+     "namn": "Solgården vård- och omsorgsboende",
      "kommun": "Umeå",
-     "lokalId": "2480006",
-     "total": 4,
+     "lokalId": "2480021",
+     "total": 5,
      "dagarMedRoster": 1,
-     "storstaDag": 4,
+     "storstaDag": 5,
      "andel": 0.0
     },
     {
      "namn": "Axlagården",
      "kommun": "Umeå",
      "lokalId": "2480025",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Eriksdals vård- och omsorgsboende",
-     "kommun": "Umeå",
-     "lokalId": "2480040",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
+     "total": 4,
+     "dagarMedRoster": 1,
+     "storstaDag": 4,
      "andel": 0.0
     },
     {
      "namn": "Holmsunds vård- och omsorgsboende",
      "kommun": "Umeå",
      "lokalId": "2480010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
+     "total": 4,
+     "dagarMedRoster": 1,
+     "storstaDag": 4,
+     "andel": 0.0
+    },
+    {
+     "namn": "Eriksdals vård- och omsorgsboende",
+     "kommun": "Umeå",
+     "lokalId": "2480040",
+     "total": 3,
+     "dagarMedRoster": 1,
+     "storstaDag": 3,
      "andel": 0.0
     },
     {
@@ -2347,15 +2363,6 @@
      "namn": "Obbola skola",
      "kommun": "Umeå",
      "lokalId": "2480035",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Solgården vård- och omsorgsboende",
-     "kommun": "Umeå",
-     "lokalId": "2480021",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

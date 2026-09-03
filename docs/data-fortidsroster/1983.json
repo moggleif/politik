@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T11:02+02:00",
+ "senastUppdaterad": "2026-09-03T19:13+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1018,7 +1018,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T11:02+02:00",
+   "hamtad": "2026-09-03T19:13+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1074,11 +1074,18 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 265,
-     "ack": 2505
+     "antal": 435,
+     "ack": 2675
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 114,
+     "ack": 2789
     }
    ],
-   "total": 2505,
+   "total": 2789,
    "rostberattigade": {
     "riksdag": 19770,
     "kommun": 20467,
@@ -1096,19 +1103,19 @@
      "namn": "Forum - Globen",
      "kommun": "Köping",
      "lokalId": "1983010",
-     "total": 2060,
-     "dagarMedRoster": 8,
+     "total": 2182,
+     "dagarMedRoster": 9,
      "storstaDag": 392,
-     "andel": 82.2
+     "andel": 78.2
     },
     {
      "namn": "Kolsva bibliotek",
      "kommun": "Köping",
      "lokalId": "1983002",
-     "total": 342,
-     "dagarMedRoster": 6,
-     "storstaDag": 103,
-     "andel": 13.7
+     "total": 484,
+     "dagarMedRoster": 7,
+     "storstaDag": 116,
+     "andel": 17.4
     },
     {
      "namn": "Ullvigymnasiet",
@@ -1117,7 +1124,7 @@
      "total": 42,
      "dagarMedRoster": 1,
      "storstaDag": 42,
-     "andel": 1.7
+     "andel": 1.5
     },
     {
      "namn": "Ängslund-Hagaberg",
@@ -1126,7 +1133,7 @@
      "total": 31,
      "dagarMedRoster": 1,
      "storstaDag": 31,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Nygården",
@@ -1135,16 +1142,25 @@
      "total": 23,
      "dagarMedRoster": 1,
      "storstaDag": 23,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Sorbygården",
      "kommun": "Köping",
      "lokalId": "1983006",
-     "total": 4,
+     "total": 13,
      "dagarMedRoster": 1,
-     "storstaDag": 4,
-     "andel": 0.2
+     "storstaDag": 13,
+     "andel": 0.5
+    },
+    {
+     "namn": "Ekliden",
+     "kommun": "Köping",
+     "lokalId": "1983007",
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1154,15 +1170,6 @@
      "dagarMedRoster": 3,
      "storstaDag": 1,
      "andel": 0.1
-    },
-    {
-     "namn": "Ekliden",
-     "kommun": "Köping",
-     "lokalId": "1983007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Forum - Övre foajén",
