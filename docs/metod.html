@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Metod – Kungsbacka i siffror</title>
 <meta name="description" content="Hur siffrorna på Kungsbacka i siffror hämtas, granskas och räknas fram – källor, transformationer, viktning, sekretessgränser och hur allt kan reproduceras.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
@@ -441,6 +441,15 @@ python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pr
       lämna gärna en rättelse på
       <a href="https://github.com/moggleif/politik">GitHub</a>.
     </p>
+    <p class="forklaring">
+      Sidvisningarna räknas sedan den 3 september 2026 med
+      <a href="https://www.goatcounter.com/">GoatCounter</a>, en
+      besöksräknare med öppen källkod. Den sätter inga kakor och sparar
+      inga IP-adresser; det som registreras är vilken sida som visades,
+      när, ungefär varifrån och i vilken webbläsare. Vill du inte
+      räknas kan du öppna en sida med <code>#toggle-goatcounter</code> sist i adressen, så
+      stängs räkningen av i din webbläsare.
+    </p>
   </section>
 
 </main>
@@ -453,5 +462,7 @@ python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pr
   </div>
 </footer>
 
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

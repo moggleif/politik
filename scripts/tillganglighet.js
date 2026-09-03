@@ -49,9 +49,18 @@ function startaServer() {
   });
 }
 
+/* Sidorna läser in GoatCounters count.js; besvaras lokalt så att
+   kontrollen går utan nät (samma stubb som i smoke_webbplats.js). */
+async function stubbaGoatcounter(page) {
+  await page.route("https://gc.zgo.at/**", function (r) {
+    r.fulfill({ status: 200, contentType: "text/javascript", body: "" });
+  });
+}
+
 async function granska(browser, bas, sida) {
   const fel = [];
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await stubbaGoatcounter(page);
   await page.goto(bas + "/" + sida, { waitUntil: "networkidle" });
   await page.waitForTimeout(400);
 

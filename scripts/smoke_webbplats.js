@@ -71,6 +71,15 @@ function startaServer() {
   });
 }
 
+/* Sidorna läser in GoatCounters count.js. Testet ska gå utan nät, så
+   skriptet besvaras här med en tom fil (och räknas gör ändå inget från
+   127.0.0.1 – count.js hoppar över lokala adresser). */
+async function stubbaGoatcounter(page) {
+  await page.route("https://gc.zgo.at/**", function (r) {
+    r.fulfill({ status: 200, contentType: "text/javascript", body: "" });
+  });
+}
+
 async function granska(browser, bas, sida, medDiagram) {
   const page = await browser.newPage();
   const fel = [];
@@ -80,9 +89,20 @@ async function granska(browser, bas, sida, medDiagram) {
   page.on("response", function (r) {
     if (r.status() >= 400) fel.push("HTTP " + r.status() + ": " + r.url());
   });
+  await stubbaGoatcounter(page);
 
   const svar = await page.goto(bas + "/" + sida, { waitUntil: "networkidle" });
   if (!svar || svar.status() !== 200) fel.push("sidan svarade " + (svar ? svar.status() : "inget"));
+  /* "networkidle" kan infalla innan sidan börjat hämta sina datafiler:
+     på en kall maskin tar det ibland över en halv sekund att köra
+     skripten efter att de laddats. Vänta därför in att sidan ritat sina
+     tabeller (eller visat sin felruta) i stället för en fast tid. */
+  if (medDiagram) {
+    await page.waitForFunction(function () {
+      const s = document.getElementById("status");
+      return document.querySelector("table tbody tr") || (s && !s.hidden);
+    }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+  }
   await page.waitForTimeout(400);
 
   const inneh = await page.evaluate(function () {
@@ -115,6 +135,7 @@ async function granskaRegimmarkering(browser, bas, sida, diagramId, aren) {
   const page = await browser.newPage({ viewport: SMAL_VY });
   const fel = [];
   page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
+  await stubbaGoatcounter(page);
   await page.goto(bas + "/" + sida, { waitUntil: "networkidle" });
   await page.waitForTimeout(600);
 
