@@ -34,6 +34,13 @@
   var FARG_ALDRE = "#adaba2";
   var STRECK_ALDRE = [[2, 3], [9, 3, 2, 3], [1, 3]];
 
+  /* Framskrivningen i orange, aldrig i sidans blå: på hela webbplatsen
+     betyder blått uppmätt utfall och orange något som är räknat fram.
+     Prickad linje, inte heldragen, av samma skäl. */
+  var FARG_PROGNOS = FARG.orangeMork;
+  var FARG_PROGNOS_BAND = "rgba(230, 159, 0, 0.18)";
+  var STRECK_PROGNOS = [2, 4];
+
   /* Så gammalt får datat vara under pågående förtidsröstning innan
      sidan säger till (filen uppdateras kl. 06 och 14). */
   var GAMMALT_EFTER_TIMMAR = 30;
@@ -133,7 +140,15 @@
       responsive: true,
       interaction: { mode: "index", intersect: false },
       plugins: {
-        legend: { display: true, labels: { usePointStyle: true, boxWidth: 10 } },
+        legend: {
+          display: true,
+          labels: {
+            usePointStyle: true, boxWidth: 10,
+            /* Bandets båda kanter är en och samma sak – omfånget – och
+               står i tooltipen, inte som två poster i förklaringen. */
+            filter: function (post, d) { return !d.datasets[post.datasetIndex].$utanLegend; }
+          }
+        },
         tooltip: {
           callbacks: {
             title: function (it) { return tooltipTitel(it[0].chart.$kvar[it[0].dataIndex], L, nu, da); },
@@ -157,6 +172,155 @@
         }
       }
     };
+  }
+
+  /* ---------- Framskrivningen ----------
+     Sidans enda tal som inte är uppmätta. Modellen är den enklaste
+     tänkbara: i vart och ett av de tidigare valen var en viss andel av
+     slutsumman inne vid samma antal dagar kvar till valdagen, och den
+     andelen har varit påfallande lika mellan valen. Årets tal delat med
+     den genomsnittliga andelen ger en slutsumma.
+
+     Resten av perioden ritas som förra valets dagsmönster uppräknat med
+     en faktor, så att helgdipparna och slutveckans ryck följer med.
+     Varje scenario är just en sådan faktor:
+
+       faktor 1     resten av perioden ger lika många röster som förra
+                    valet gav efter samma punkt – dagens försprång är
+                    då bara tidigareläggning, inte fler väljare
+       faktor > 1   försprånget håller i sig hela vägen
+
+     Osäkerheten sitter inte i räkningen utan i tolkningen: datat kan
+     inte skilja fler förtidsröstare från samma väljare tidigare. Därför
+     visar sidan ett omfång, inte ett tal, och säger vad ytterlägena
+     betyder. Träffsäkerheten prövas mot de tidigare valen i just det
+     här området – se traffsakerhet() – och redovisas i rutan. */
+
+  /* Under dessa gränser är dag-till-dag-bruset för stort för att en
+     framskrivning ska säga något: för få avslutade dagar, för få röster
+     eller ingen återstående dag att skriva fram. */
+  var MINSTA_DAGAR = 3;
+  var MINSTA_ACK = 200;
+
+  /* Två värdesiffror. Ett framskrivet tal ska inte se uppmätt ut. */
+  function grovt(n) {
+    if (!isFinite(n) || n <= 0) return 0;
+    var storlek = Math.pow(10, Math.floor(Math.log(n) / Math.LN10) - 1);
+    return Math.round(n / storlek) * storlek;
+  }
+
+  /* Andelen av slutsumman som var inne vid `kvar` dagar kvar. */
+  function andelInne(val, kvar) {
+    var d = val.total ? dagVid(val.dagar, kvar) : null;
+    return d && d.ack ? d.ack / val.total : null;
+  }
+
+  function medel(tal) {
+    var summa = 0;
+    tal.forEach(function (t) { summa += t; });
+    return tal.length ? summa / tal.length : null;
+  }
+
+  /* Modellen prövad på de val som redan är avgjorda, och prövad på
+     exakt det sätt den används i dag: varje val förutsagt ur snittet av
+     de val som låg före det, vid samma punkt. Ger medelfel och största
+     fel i procent – ett golv för osäkerheten, inte ett tak, eftersom
+     inget av de valen bytte mönster på vägen. */
+  function traffsakerhet(fardiga, kvar) {
+    var i, j, andel, andelar, dm, fel = [];
+    var ordnade = fardiga.slice().sort(function (a, b) { return a.ar - b.ar; });
+    for (i = 1; i < ordnade.length; i++) {
+      dm = dagVid(ordnade[i].dagar, kvar);
+      if (!dm || !ordnade[i].total) continue;
+      andelar = [];
+      for (j = 0; j < i; j++) {
+        andel = andelInne(ordnade[j], kvar);
+        if (andel) andelar.push(andel);
+      }
+      if (!andelar.length) continue;
+      fel.push(Math.abs((dm.ack / medel(andelar)) / ordnade[i].total - 1) * 100);
+    }
+    if (!fel.length) return null;
+    return { antal: fel.length, medel: medel(fel),
+             storsta: Math.max.apply(null, fel) };
+  }
+
+  function framskrivning(L, nu, da, aldre) {
+    if (nu.klart || !da || !L.sista || L.sista.kvar < 1) return null;
+    if (L.sista.ack < MINSTA_ACK) return null;
+    if (L.dagar.filter(function (d) { return !d.pagar; }).length < MINSTA_DAGAR) return null;
+    var daVid = dagVid(da.dagar, L.sista.kvar);
+    if (!daVid || !daVid.ack || !da.total) return null;
+
+    var fardiga = [da].concat(aldre || []).filter(function (v) {
+      return v.klart && v.total && dagVid(v.dagar, L.sista.kvar);
+    });
+    var punkter = fardiga.map(function (v) {
+      var andel = andelInne(v, L.sista.kvar);
+      return { ar: v.ar, andel: andel, slut: andel ? L.sista.ack / andel : null };
+    }).filter(function (p) { return p.andel && isFinite(p.slut); });
+    if (!punkter.length) return null;
+
+    var snittAndel = medel(punkter.map(function (p) { return p.andel; }));
+    /* Ytterläget åt andra hållet: resten av perioden ger exakt lika
+       många röster som förra valet gav efter samma punkt. */
+    var somForra = L.sista.ack + (da.total - daVid.ack);
+    var alla = punkter.map(function (p) { return p.slut; }).concat([somForra]);
+    return {
+      kvar: L.sista.kvar, ack: L.sista.ack, da: da, daAck: daVid.ack,
+      daRest: da.total - daVid.ack,
+      punkter: punkter, snittAndel: snittAndel,
+      modell: L.sista.ack / snittAndel, somForra: somForra,
+      lag: Math.min.apply(null, alla), hog: Math.max.apply(null, alla),
+      prov: traffsakerhet(fardiga, L.sista.kvar)
+    };
+  }
+
+  /* Ett scenario som kurva: förra valets dagsmönster efter brytpunkten,
+     uppräknat så att det slutar på `slut`. Före brytpunkten är serien
+     tom – framskrivningen börjar där mätningen slutar. */
+  function prognosBana(P, kvar, slut) {
+    var f = P.daRest ? (slut - P.ack) / P.daRest : 0;
+    return kvar.map(function (k) {
+      if (k > P.kvar) return null;
+      var d = dagVid(P.da.dagar, k);
+      return d ? P.ack + (d.ack - P.daAck) * f : null;
+    });
+  }
+
+  /* Bandet mellan ytterlägena plus den prickade mittlinjen. Bandets
+     kanter ritas utan egen linje: omfånget är en yta, inte tre kurvor.
+     `fill: "-1"` fyller mot närmast föregående dataset, alltså mot den
+     låga kanten – de två måste därför ligga intill varandra. */
+  function prognosDatasets(P, kvar, varde, nu) {
+    var till = varde(nu);
+    function serie(slut) {
+      return prognosBana(P, kvar, slut).map(function (v) {
+        return v === null ? null : till({ ack: v });
+      });
+    }
+    function kant(slut, etikett) {
+      return {
+        label: etikett, data: serie(slut),
+        borderColor: FARG_PROGNOS_BAND, backgroundColor: FARG_PROGNOS_BAND,
+        borderWidth: 0, pointRadius: 0, pointHoverRadius: 0,
+        spanGaps: false, tension: 0.1, order: 3, $utanLegend: true
+      };
+    }
+    var lag = kant(P.lag, "Lägre utfall");
+    var hog = kant(P.hog, "Högre utfall");
+    hog.fill = "-1";
+    return [lag, hog, {
+      label: "Framskrivning " + nu.ar,
+      data: serie(P.modell),
+      borderColor: FARG_PROGNOS, backgroundColor: FARG_PROGNOS,
+      borderWidth: 2.5, borderDash: STRECK_PROGNOS,
+      pointRadius: kvar.map(function (k) { return k === 0 ? 4 : 0; }),
+      pointHoverRadius: 6,
+      pointBackgroundColor: FARG.surface,
+      pointBorderColor: FARG_PROGNOS, pointBorderWidth: 2,
+      pointStyle: "circle", spanGaps: false, tension: 0.1, order: 3
+    }];
   }
 
   /* ---------- Nyckeltal ---------- */
@@ -219,7 +383,7 @@
     };
   }
 
-  function ritaKurva(id, L, nu, da, varde, ytitel, etikett, ytick, aldre) {
+  function ritaKurva(id, L, nu, da, varde, ytitel, etikett, ytick, aldre, P) {
     var kvar = skala(nu, da);
     var nuDagar = kvar.map(function (k) { return dagVid(L.dagar, k); });
     var datasets = [linjeSerie(nu, nuDagar, FARG_NU, [], varde(nu), true)];
@@ -235,6 +399,7 @@
       s.pointStyle = "line";
       datasets.push(s);
     });
+    if (P) datasets = datasets.concat(prognosDatasets(P, kvar, varde, nu));
     var chart = K.rita(id, {
       type: "line",
       data: { labels: etiketter(kvar, L, da), datasets: datasets },
@@ -244,18 +409,20 @@
     K.aktiveraToning(chart);
   }
 
-  function ritaAck(L, nu, da, aldre) {
+  function ritaAck(L, nu, da, aldre, P) {
     ritaKurva("diagram-ack", L, nu, da,
       function () { return function (d) { return d.ack; }; },
       "Förtidsröster sammanlagt",
       function (it) { return it.dataset.label + ": " + talSv(it.parsed.y); },
-      null, aldre);
+      null, aldre, P);
     el("kalla-ack").textContent = "Källa: Valmyndigheten. Valdagen är 0." +
       (aldre.length ? " Tunna grå linjer: " + aldre.map(function (v) { return v.ar; }).join(", ") + "." : "") +
-      (L.pagaende ? " Ofylld punkt = pågående dag, ofullständig siffra." : "");
+      (L.pagaende ? " Ofylld punkt = pågående dag, ofullständig siffra." : "") +
+      (P ? " Den prickade orange linjen och det orange fältet är framskrivna, inte" +
+           " uppmätta, och börjar vid " + kvarText(P.kvar) + "." : "");
   }
 
-  function ritaAndel(L, nu, da) {
+  function ritaAndel(L, nu, da, P) {
     var sektion = el("sektion-andel");
     if (!L.rbNu) {
       K.taBortDiagram("diagram-andel");
@@ -270,9 +437,10 @@
       },
       "Andel av de röstberättigade (%)",
       function (it) { return it.dataset.label + ": " + talSv(it.parsed.y, 1) + " %"; },
-      function (v) { return talSv(v) + " %"; });
+      function (v) { return talSv(v) + " %"; }, null, P);
     el("kalla-andel").textContent = "Källa: Valmyndigheten. Röstberättigade i riksdagsvalet: " +
-      talSv(L.rbNu) + " (" + nu.ar + ")" + (L.rbDa ? ", " + talSv(L.rbDa) + " (" + da.ar + ")" : "") + ".";
+      talSv(L.rbNu) + " (" + nu.ar + ")" + (L.rbDa ? ", " + talSv(L.rbDa) + " (" + da.ar + ")" : "") + "." +
+      (P ? " Orange: framskrivet, se rutan ovanför." : "");
   }
 
   /* ---------- Staplar per dag ---------- */
@@ -389,6 +557,58 @@
     K.visaKortSagt(p);
   }
 
+  /* ---------- Rutan med framskrivningen ----------
+     Tre tal – ytterlägena och modellen – och sedan vad de vilar på.
+     Rutan är orange, inte blå som "Kort sagt", för att det ska synas
+     på en meters håll att talen är räknade och inte mätta. */
+
+  function prognosTal(etikett, tal, klass) {
+    return "<div" + (klass ? ' class="' + klass + '"' : "") +
+      '><span class="prognos-etikett">' + etikett +
+      '</span><span class="prognos-tal">' + talSv(tal) + "</span></div>";
+  }
+
+  function prognosRuta(data, L, nu, da, P) {
+    var plats = el("prognos");
+    if (!plats) return;
+    if (!P) { plats.innerHTML = ""; plats.hidden = true; return; }
+
+    var ar = P.punkter.map(function (p) { return p.ar; });
+    var html = '<div class="prognos-ruta" role="note">' +
+      "<h3>Var landar det? En framskrivning</h3>" +
+      '<div class="prognos-spann">' +
+      prognosTal("Lägre utfall", grovt(P.lag)) +
+      prognosTal("Framskrivning", grovt(P.modell), "prognos-mitt") +
+      prognosTal("Högre utfall", grovt(P.hog)) +
+      "</div>";
+
+    html += "<p>Vid <strong>" + esc(kvarText(P.kvar)) + "</strong> hade " +
+      talSv(P.ack) + " förtidsröster tagits emot " + esc(iOmradet(data)) +
+      (L.diffPct === null ? "" : ", " + teckenPct(L.diffPct) + " mot " + esc(da.ar) +
+        " vid samma punkt") + ". I " +
+      (ar.length === 1 ? "valet " + esc(ar[0]) : "valen " + esc(ar.join(", "))) +
+      " var i snitt " + talSv(P.snittAndel * 100, 0) + "&nbsp;% av slutsumman inne " +
+      "så här långt in. Håller det mönstret slutar " + esc(nu.ar) + " på omkring <strong>" +
+      talSv(grovt(P.modell)) + "</strong> förtidsröster.</p>";
+
+    html += "<p>Osäkerheten sitter i tolkningen, inte i räkningen: siffrorna kan " +
+      "inte skilja fler förtidsröstare från samma väljare tidigare. Ger resten av " +
+      "perioden lika många röster som " + esc(da.ar) + " gav efter samma punkt " +
+      "stannar det vid <strong>" + talSv(grovt(P.somForra)) + "</strong>. Håller " +
+      "försprånget hela vägen blir det <strong>" + talSv(grovt(P.hog)) + "</strong>.</p>";
+
+    html += '<p class="prognos-not">Framskrivning, inte mätning – och den säger ' +
+      "ingenting om vilka partier rösterna går till." +
+      (P.prov ? " Samma modell prövad på de val som redan är avgjorda här, vid " +
+        "samma punkt, har legat i snitt " + talSv(P.prov.medel, 1) + "&nbsp;% fel och " +
+        "som mest " + talSv(P.prov.storsta, 1) + "&nbsp;% (" + P.prov.antal +
+        " jämförelser). Inget av de valen bytte mönster på vägen, så det felet är " +
+        "ett golv för osäkerheten, inte ett tak." : "") + "</p></div>";
+
+    plats.innerHTML = html;
+    plats.hidden = false;
+  }
+
   /* ---------- Källor, ångerröster, varning ---------- */
 
   function kallor(nu, da, aldre) {
@@ -479,12 +699,15 @@
       hamtad: datumTidSv(data.senastUppdaterad)
     });
 
+    var P = framskrivning(L, nu, da, aldre);
+
     varning(data, nu);
     nyckeltal(data, L, nu, da);
     angerNot(data, da);
     kortSagt(data, L, nu, da);
-    ritaAck(L, nu, da, aldre);
-    ritaAndel(L, nu, da);
+    ritaAck(L, nu, da, aldre, P);
+    prognosRuta(data, L, nu, da, P);
+    ritaAndel(L, nu, da, P);
     ritaDag(L, nu, da);
     topplista(L, nu);
     kallor(nu, da, aldre);

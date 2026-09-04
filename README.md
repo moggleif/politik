@@ -90,8 +90,9 @@ automatiskt två gånger om dagen under förtidsröstningen. Sidan visar hur
 många som röstat &ndash; inte vad de röstat på.
 
 - [Förtidsröstningen dag för dag](https://moggleif.github.io/politik/fortidsrostning.html)
-  &ndash; ackumulerat och per dag, andel av de röstberättigade, och en
-  topplista över röstningslokalerna, 26 augusti&ndash;13 september 2026.
+  &ndash; ackumulerat och per dag, andel av de röstberättigade, en
+  framskrivning av slutsumman och en topplista över röstningslokalerna,
+  26 augusti&ndash;13 september 2026.
   Välj område i sidans väljare eller i adressen:
   [`?omrade=hallands-lan`](https://moggleif.github.io/politik/fortidsrostning.html?omrade=hallands-lan),
   [`?omrade=hela-riket`](https://moggleif.github.io/politik/fortidsrostning.html?omrade=hela-riket)
@@ -198,7 +199,9 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   amnen.js                      Driver ämnesbetygssidan
   nian.js                       Driver sidan om nian och gymnasiet
   befolkning.js                 Driver sidan om barn och unga 0–15 år
-  fortidsrostning.js            Driver förtidsröstningssidan
+  fortidsrostning.js            Driver förtidsröstningssidan, inklusive
+                                framskrivningen av slutsumman (räknas i
+                                webbläsaren, inte i byggskriptet)
   index.js                      Driver startsidans sammanfattningar
   data.json, data-16-19.json    Data till prognossidorna (genereras)
   data-meritvarden.json         Data till meritvärdessidan (genereras)
@@ -328,6 +331,16 @@ rubriker); tolkningen klarar alla och avbryter om kolumnerna ändrats.
 justeras fram till den 16 september 2026. Sidan jämför åren på *dagar
 kvar till valdagen*, inte på kalenderdatum, så att samma veckodag hamnar
 på samma plats.
+
+Medan förtidsröstningen pågår visar sidan också en **framskrivning** av
+slutsumman: den andel av slutsumman som var inne vid samma antal dagar
+kvar i tidigare val, tillämpad på årets tal. Den räknas i webbläsaren ur
+sidans egen datafil &ndash; byggskripten skriver fortfarande bara fakta
+&ndash; och ritas i orange och prickat, aldrig i sidans blå, med ett
+omfång mellan två ytterlägen: att försprånget mot förra valet bara är
+tidigareläggning, och att det håller i sig hela vägen. Modellens fel vid
+tidigare val räknas fram för samma område och står i rutan. Metoden
+beskrivs på [metodsidan](https://moggleif.github.io/politik/metod.html).
 
 Kullarna (kör efter att meritvärdena och slutbetygen byggts om &ndash;
 skriptet läser de färdiga docs-filerna så att namnbyten och skolflyttar
