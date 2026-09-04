@@ -525,6 +525,21 @@ ul.undersidor a { font-weight: 600; }
 
 .prognos-ruta p { margin: 0.75rem 0 0; }
 
+/* När prognosen ställdes. Står överst, för att talen ska läsas som ett
+   påstående från ett visst datum och inte som något som följer datat. */
+.prognos-stalld {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0 0 1rem !important;
+}
+
+/* Facit mot prognosen, avskilt från resonemanget som ledde fram till den. */
+.prognos-facit {
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 1rem !important;
+}
+
 .prognos-spann {
   display: flex;
   flex-wrap: wrap;

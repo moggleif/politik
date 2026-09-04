@@ -11,6 +11,10 @@ Läser:
   data/fortidsroster/rostberattigade.json (från hamta_rostberattigade.py)
   data/fortidsroster/angerroster.json     (avskrift ur Valmyndighetens
                                            erfarenhetsrapport; rikssiffror)
+  data/fortidsroster/prognos.json         (den engångsprognos som ställdes
+                                           en gång av gor_prognos.py; läggs
+                                           in oförändrad hos de områden den
+                                           gäller, och räknas aldrig om här)
 
 Skriver:
   docs/data-fortidsroster/<kod>.json      kommun (fyra siffror), län (två)
@@ -215,7 +219,23 @@ def bygg_val(ar: int, omrade: dict, datum: list, rader: list, hamtad: str, rb) -
     }
 
 
-def bygg_omrade(omrade: dict, csvs: dict, hamtad: dict, rostberattigade, angerroster) -> dict:
+def prognos_for(omrade: dict, prognos) -> dict:
+    """Den ställda prognosen för ett område, om den gäller området.
+    Innehållet följer med oförändrat – det här skriptet räknar inte om
+    den, och ska inte göra det: den är ställd en gång, vid en dag som
+    står i filen, och ska gå att jämföra med utfallet efteråt."""
+    if not prognos:
+        return None
+    egen = prognos.get("omraden", {}).get(omrade["kod"])
+    if not egen:
+        return None
+    ut = {k: v for k, v in prognos.items() if k != "omraden"}
+    ut.update(egen)
+    return ut
+
+
+def bygg_omrade(omrade: dict, csvs: dict, hamtad: dict, rostberattigade, angerroster,
+                prognos=None) -> dict:
     rb_val = (rostberattigade or {}).get("val", {})
     val = {}
     for ar in sorted(csvs):
@@ -239,16 +259,18 @@ def bygg_omrade(omrade: dict, csvs: dict, hamtad: dict, rostberattigade, angerro
         "preliminarTom": aktuellt["preliminarTom"],
         "val": val,
         "angerroster": angerroster,
+        "prognos": prognos_for(omrade, prognos),
     }
 
 
-def bygg(csvs: dict, hamtad: dict, rostberattigade, angerroster=None) -> tuple:
+def bygg(csvs: dict, hamtad: dict, rostberattigade, angerroster=None,
+         prognos=None) -> tuple:
     """Hela utdatan som en ren funktion av indatafilerna, så att den går
     att kontrollräkna i testerna: ({kod: områdesfil}, index).
 
     csvs är {år: (datum, rader)} som tolka_csv ger dem."""
     register = omradesregister(csvs)
-    filer = {kod: bygg_omrade(o, csvs, hamtad, rostberattigade, angerroster)
+    filer = {kod: bygg_omrade(o, csvs, hamtad, rostberattigade, angerroster, prognos)
              for kod, o in register.items()}
     ordning = {"riket": 0, "lan": 1, "kommun": 2}
     index = {
@@ -274,9 +296,11 @@ def las_indata() -> tuple:
     hamtad = lasa_json(IN_MAPP / "hamtad.json")
     rb_fil = IN_MAPP / "rostberattigade.json"
     anger_fil = IN_MAPP / "angerroster.json"
+    prognos_fil = IN_MAPP / "prognos.json"
     return (csvs, hamtad,
             lasa_json(rb_fil) if rb_fil.exists() else None,
-            lasa_json(anger_fil) if anger_fil.exists() else None)
+            lasa_json(anger_fil) if anger_fil.exists() else None,
+            lasa_json(prognos_fil) if prognos_fil.exists() else None)
 
 
 def main() -> None:
