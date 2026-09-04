@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -892,7 +892,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -934,32 +934,39 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 782,
-     "ack": 4056
+     "antal": 847,
+     "ack": 4121
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 948,
-     "ack": 5004
+     "antal": 969,
+     "ack": 5090
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 823,
-     "ack": 5827
+     "ack": 5913
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 1154,
-     "ack": 6981
+     "ack": 7067
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 357,
+     "ack": 7424
     }
    ],
-   "total": 6981,
+   "total": 7424,
    "rostberattigade": {
     "riksdag": 38868,
     "kommun": 39525,
@@ -977,19 +984,19 @@
      "namn": "Kongahälla Center",
      "kommun": "Kungälv",
      "lokalId": "1482002",
-     "total": 3818,
-     "dagarMedRoster": 9,
+     "total": 4147,
+     "dagarMedRoster": 10,
      "storstaDag": 487,
-     "andel": 54.7
+     "andel": 55.9
     },
     {
      "namn": "Mimers hus",
      "kommun": "Kungälv",
      "lokalId": "1482004",
-     "total": 1279,
-     "dagarMedRoster": 7,
+     "total": 1374,
+     "dagarMedRoster": 8,
      "storstaDag": 246,
-     "andel": 18.3
+     "andel": 18.5
     },
     {
      "namn": "Stadshuset",
@@ -998,7 +1005,7 @@
      "total": 588,
      "dagarMedRoster": 6,
      "storstaDag": 115,
-     "andel": 8.4
+     "andel": 7.9
     },
     {
      "namn": "Kärna bygdegård",
@@ -1007,16 +1014,16 @@
      "total": 470,
      "dagarMedRoster": 4,
      "storstaDag": 184,
-     "andel": 6.7
+     "andel": 6.3
     },
     {
      "namn": "Ytterby Bibliotek",
      "kommun": "Kungälv",
      "lokalId": "1482005",
-     "total": 320,
+     "total": 335,
      "dagarMedRoster": 5,
-     "storstaDag": 69,
-     "andel": 4.6
+     "storstaDag": 83,
+     "andel": 4.5
     },
     {
      "namn": "Diseröds Bibliotek",
@@ -1025,7 +1032,7 @@
      "total": 187,
      "dagarMedRoster": 2,
      "storstaDag": 107,
-     "andel": 2.7
+     "andel": 2.5
     },
     {
      "namn": "Marstrands församlingsgård",
@@ -1034,7 +1041,7 @@
      "total": 187,
      "dagarMedRoster": 3,
      "storstaDag": 67,
-     "andel": 2.7
+     "andel": 2.5
     },
     {
      "namn": "Ytterbyhemmet",
@@ -1067,10 +1074,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kungälv",
      "lokalId": "1482008",
-     "total": 17,
+     "total": 21,
      "dagarMedRoster": 4,
-     "storstaDag": 7,
-     "andel": 0.2
+     "storstaDag": 8,
+     "andel": 0.3
     },
     {
      "namn": "Ranrikegården",

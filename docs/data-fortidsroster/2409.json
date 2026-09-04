@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -712,7 +712,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -777,9 +777,16 @@
      "kvar": 10,
      "antal": 148,
      "ack": 777
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 74,
+     "ack": 851
     }
    ],
-   "total": 777,
+   "total": 851,
    "rostberattigade": {
     "riksdag": 5168,
     "kommun": 5361,
@@ -797,10 +804,10 @@
      "namn": "Centrumhuset, Diamanten Förtidsröstn",
      "kommun": "Robertsfors",
      "lokalId": "2409005",
-     "total": 681,
-     "dagarMedRoster": 9,
+     "total": 749,
+     "dagarMedRoster": 10,
      "storstaDag": 114,
-     "andel": 87.6
+     "andel": 88.0
     },
     {
      "namn": "Ånäset, Biblioteket",
@@ -809,7 +816,7 @@
      "total": 69,
      "dagarMedRoster": 1,
      "storstaDag": 69,
-     "andel": 8.9
+     "andel": 8.1
     },
     {
      "namn": "Överklinten Folkets hus",
@@ -818,16 +825,16 @@
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 3.1
+     "andel": 2.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Robertsfors",
      "lokalId": "2409006",
-     "total": 3,
-     "dagarMedRoster": 2,
-     "storstaDag": 2,
-     "andel": 0.4
+     "total": 9,
+     "dagarMedRoster": 3,
+     "storstaDag": 6,
+     "andel": 1.1
     },
     {
      "namn": "Bygdeå, Biblioteket",

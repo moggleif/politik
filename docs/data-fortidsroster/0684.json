@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,7 +811,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -876,9 +876,16 @@
      "kvar": 10,
      "antal": 141,
      "ack": 1200
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 77,
+     "ack": 1277
     }
    ],
-   "total": 1200,
+   "total": 1277,
    "rostberattigade": {
     "riksdag": 8432,
     "kommun": 8893,
@@ -896,10 +903,10 @@
      "namn": "Kulturhuset",
      "kommun": "Sävsjö",
      "lokalId": "0684003",
-     "total": 815,
-     "dagarMedRoster": 9,
+     "total": 892,
+     "dagarMedRoster": 10,
      "storstaDag": 119,
-     "andel": 67.9
+     "andel": 69.9
     },
     {
      "namn": "Församlingshemmet Vrigstad",
@@ -908,7 +915,7 @@
      "total": 145,
      "dagarMedRoster": 4,
      "storstaDag": 52,
-     "andel": 12.1
+     "andel": 11.4
     },
     {
      "namn": "Södergården, restaurangen",
@@ -917,7 +924,7 @@
      "total": 110,
      "dagarMedRoster": 4,
      "storstaDag": 39,
-     "andel": 9.2
+     "andel": 8.6
     },
     {
      "namn": "Rörviks skola, biblioteket",
@@ -926,7 +933,7 @@
      "total": 96,
      "dagarMedRoster": 4,
      "storstaDag": 39,
-     "andel": 8.0
+     "andel": 7.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -935,7 +942,7 @@
      "total": 34,
      "dagarMedRoster": 2,
      "storstaDag": 22,
-     "andel": 2.8
+     "andel": 2.7
     }
    ],
    "antalLokaler": 5,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1065,9 +1065,16 @@
      "kvar": 10,
      "antal": 585,
      "ack": 2438
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 155,
+     "ack": 2593
     }
    ],
-   "total": 2438,
+   "total": 2593,
    "rostberattigade": {
     "riksdag": 12454,
     "kommun": 12704,
@@ -1085,10 +1092,19 @@
      "namn": "Henån, kommunhuset",
      "kommun": "Orust",
      "lokalId": "1421008",
-     "total": 1174,
-     "dagarMedRoster": 9,
+     "total": 1291,
+     "dagarMedRoster": 10,
      "storstaDag": 185,
-     "andel": 48.2
+     "andel": 49.8
+    },
+    {
+     "namn": "Ellös bibliotek",
+     "kommun": "Orust",
+     "lokalId": "1421001",
+     "total": 331,
+     "dagarMedRoster": 4,
+     "storstaDag": 132,
+     "andel": 12.8
     },
     {
      "namn": "Svanesund, Ängås skola",
@@ -1097,15 +1113,6 @@
      "total": 311,
      "dagarMedRoster": 4,
      "storstaDag": 91,
-     "andel": 12.8
-    },
-    {
-     "namn": "Ellös bibliotek",
-     "kommun": "Orust",
-     "lokalId": "1421001",
-     "total": 293,
-     "dagarMedRoster": 3,
-     "storstaDag": 132,
      "andel": 12.0
     },
     {
@@ -1115,7 +1122,7 @@
      "total": 279,
      "dagarMedRoster": 3,
      "storstaDag": 116,
-     "andel": 11.4
+     "andel": 10.8
     },
     {
      "namn": "Varekils bibliotek",
@@ -1124,7 +1131,7 @@
      "total": 148,
      "dagarMedRoster": 3,
      "storstaDag": 61,
-     "andel": 6.1
+     "andel": 5.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1133,7 +1140,7 @@
      "total": 128,
      "dagarMedRoster": 4,
      "storstaDag": 40,
-     "andel": 5.3
+     "andel": 4.9
     },
     {
      "namn": "Flatö skola",
@@ -1142,7 +1149,7 @@
      "total": 105,
      "dagarMedRoster": 2,
      "storstaDag": 64,
-     "andel": 4.3
+     "andel": 4.0
     },
     {
      "namn": "Gullholmsgården",

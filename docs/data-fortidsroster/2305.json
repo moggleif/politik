@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -946,11 +946,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 140,
-     "ack": 810
+     "antal": 154,
+     "ack": 824
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 110,
+     "ack": 934
     }
    ],
-   "total": 810,
+   "total": 934,
    "rostberattigade": {
     "riksdag": 4700,
     "kommun": 4958,
@@ -968,37 +975,37 @@
      "namn": "Riksvägen 15",
      "kommun": "Bräcke",
      "lokalId": "2305010",
-     "total": 370,
-     "dagarMedRoster": 9,
+     "total": 399,
+     "dagarMedRoster": 10,
      "storstaDag": 69,
-     "andel": 45.7
+     "andel": 42.7
     },
     {
      "namn": "Revsundsvägen 7 (Busstationen)",
      "kommun": "Bräcke",
      "lokalId": "2305011",
-     "total": 292,
-     "dagarMedRoster": 7,
+     "total": 345,
+     "dagarMedRoster": 8,
      "storstaDag": 66,
-     "andel": 36.0
+     "andel": 36.9
     },
     {
      "namn": "Stationsvägen 8d",
      "kommun": "Bräcke",
      "lokalId": "2305012",
-     "total": 148,
-     "dagarMedRoster": 7,
-     "storstaDag": 27,
-     "andel": 18.3
+     "total": 179,
+     "dagarMedRoster": 8,
+     "storstaDag": 31,
+     "andel": 19.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Bräcke",
      "lokalId": "2305009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 1.2
     },
     {
      "namn": "Nygåvan",

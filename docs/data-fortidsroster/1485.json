@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1243,7 +1243,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1306,11 +1306,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1129,
-     "ack": 8306
+     "antal": 1133,
+     "ack": 8310
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 622,
+     "ack": 8932
     }
    ],
-   "total": 8306,
+   "total": 8932,
    "rostberattigade": {
     "riksdag": 43802,
     "kommun": 44748,
@@ -1328,17 +1335,17 @@
      "namn": "Torp köpcentrum, Västra Torp",
      "kommun": "Uddevalla",
      "lokalId": "1485002",
-     "total": 3885,
-     "dagarMedRoster": 9,
+     "total": 4167,
+     "dagarMedRoster": 10,
      "storstaDag": 514,
-     "andel": 46.8
+     "andel": 46.7
     },
     {
      "namn": "Bohusläns museum",
      "kommun": "Uddevalla",
      "lokalId": "1485001",
-     "total": 1971,
-     "dagarMedRoster": 9,
+     "total": 2115,
+     "dagarMedRoster": 10,
      "storstaDag": 327,
      "andel": 23.7
     },
@@ -1346,28 +1353,28 @@
      "namn": "Kontaktcenter Rådhuset",
      "kommun": "Uddevalla",
      "lokalId": "1485004",
-     "total": 992,
-     "dagarMedRoster": 7,
+     "total": 1081,
+     "dagarMedRoster": 8,
      "storstaDag": 154,
-     "andel": 11.9
+     "andel": 12.1
     },
     {
      "namn": "Ljungskilegården",
      "kommun": "Uddevalla",
      "lokalId": "1485005",
-     "total": 790,
-     "dagarMedRoster": 8,
+     "total": 829,
+     "dagarMedRoster": 9,
      "storstaDag": 131,
-     "andel": 9.5
+     "andel": 9.3
     },
     {
      "namn": "Dalabergs bibliotek",
      "kommun": "Uddevalla",
      "lokalId": "1485003",
-     "total": 628,
-     "dagarMedRoster": 7,
+     "total": 700,
+     "dagarMedRoster": 8,
      "storstaDag": 120,
-     "andel": 7.6
+     "andel": 7.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1376,7 +1383,7 @@
      "total": 40,
      "dagarMedRoster": 1,
      "storstaDag": 40,
-     "andel": 0.5
+     "andel": 0.4
     }
    ],
    "antalLokaler": 6,

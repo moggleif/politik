@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -829,11 +829,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 273,
-     "ack": 1996
+     "antal": 276,
+     "ack": 1999
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 121,
+     "ack": 2120
     }
    ],
-   "total": 1996,
+   "total": 2120,
    "rostberattigade": {
     "riksdag": 13202,
     "kommun": 14118,
@@ -851,10 +858,10 @@
      "namn": "Arenan i Sågenhuset i Klippan",
      "kommun": "Klippan",
      "lokalId": "1276001",
-     "total": 1347,
-     "dagarMedRoster": 9,
+     "total": 1468,
+     "dagarMedRoster": 10,
      "storstaDag": 187,
-     "andel": 67.5
+     "andel": 69.2
     },
     {
      "namn": "Församlingshemmet i Ljungbyhed",
@@ -863,7 +870,7 @@
      "total": 404,
      "dagarMedRoster": 5,
      "storstaDag": 116,
-     "andel": 20.2
+     "andel": 19.1
     },
     {
      "namn": "Östra Ljungby Bygdegård",
@@ -872,14 +879,14 @@
      "total": 206,
      "dagarMedRoster": 4,
      "storstaDag": 69,
-     "andel": 10.3
+     "andel": 9.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Klippan",
      "lokalId": "1276005",
-     "total": 39,
-     "dagarMedRoster": 7,
+     "total": 42,
+     "dagarMedRoster": 8,
      "storstaDag": 16,
      "andel": 2.0
     }

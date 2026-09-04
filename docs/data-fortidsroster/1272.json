@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -784,11 +784,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 325,
-     "ack": 2209
+     "antal": 327,
+     "ack": 2211
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 130,
+     "ack": 2341
     }
    ],
-   "total": 2209,
+   "total": 2341,
    "rostberattigade": {
     "riksdag": 9751,
     "kommun": 10020,
@@ -806,10 +813,10 @@
      "namn": "Kulturpunkten",
      "kommun": "Bromölla",
      "lokalId": "1272002",
-     "total": 1986,
-     "dagarMedRoster": 9,
+     "total": 2115,
+     "dagarMedRoster": 10,
      "storstaDag": 278,
-     "andel": 89.9
+     "andel": 90.3
     },
     {
      "namn": "Näsums bibliotek",
@@ -818,16 +825,16 @@
      "total": 209,
      "dagarMedRoster": 4,
      "storstaDag": 63,
-     "andel": 9.5
+     "andel": 8.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Bromölla",
      "lokalId": "1272003",
-     "total": 14,
-     "dagarMedRoster": 4,
+     "total": 17,
+     "dagarMedRoster": 5,
      "storstaDag": 6,
-     "andel": 0.6
+     "andel": 0.7
     }
    ],
    "antalLokaler": 3,

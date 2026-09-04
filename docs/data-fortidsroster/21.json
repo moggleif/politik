@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1792,11 +1792,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 5527,
-     "ack": 39754
+     "antal": 5588,
+     "ack": 39815
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 2298,
+     "ack": 42113
     }
    ],
-   "total": 39754,
+   "total": 42113,
    "rostberattigade": {
     "riksdag": 222290,
     "kommun": 228691,
@@ -1814,8 +1821,8 @@
      "namn": "Agnes kulturhus",
      "kommun": "Gävle",
      "lokalId": "2180005",
-     "total": 5141,
-     "dagarMedRoster": 9,
+     "total": 5441,
+     "dagarMedRoster": 10,
      "storstaDag": 721,
      "andel": 12.9
     },
@@ -1823,35 +1830,35 @@
      "namn": "Hudiksvall - Kulturhuset",
      "kommun": "Hudiksvall",
      "lokalId": "2184003",
-     "total": 3351,
-     "dagarMedRoster": 9,
+     "total": 3610,
+     "dagarMedRoster": 10,
      "storstaDag": 485,
-     "andel": 8.4
+     "andel": 8.6
     },
     {
      "namn": "Stadshuset",
      "kommun": "Sandviken",
      "lokalId": "2181006",
-     "total": 3248,
-     "dagarMedRoster": 9,
+     "total": 3525,
+     "dagarMedRoster": 10,
      "storstaDag": 701,
-     "andel": 8.2
+     "andel": 8.4
     },
     {
      "namn": "Kulturhuset Bollnäs",
      "kommun": "Bollnäs",
      "lokalId": "2183005",
-     "total": 3005,
-     "dagarMedRoster": 9,
+     "total": 3222,
+     "dagarMedRoster": 10,
      "storstaDag": 424,
-     "andel": 7.6
+     "andel": 7.7
     },
     {
      "namn": "Röda Korset aktivitetslokal",
      "kommun": "Söderhamn",
      "lokalId": "2182002",
-     "total": 2677,
-     "dagarMedRoster": 9,
+     "total": 2818,
+     "dagarMedRoster": 10,
      "storstaDag": 384,
      "andel": 6.7
     },
@@ -1859,35 +1866,35 @@
      "namn": "Silvanum",
      "kommun": "Gävle",
      "lokalId": "2180002",
-     "total": 2105,
-     "dagarMedRoster": 7,
+     "total": 2265,
+     "dagarMedRoster": 8,
      "storstaDag": 371,
-     "andel": 5.3
+     "andel": 5.4
     },
     {
      "namn": "Ljusdals kommunhus",
      "kommun": "Ljusdal",
      "lokalId": "2161001",
-     "total": 1907,
-     "dagarMedRoster": 9,
+     "total": 2099,
+     "dagarMedRoster": 10,
      "storstaDag": 290,
-     "andel": 4.8
+     "andel": 5.0
     },
     {
      "namn": "Gävle sjukhus",
      "kommun": "Gävle",
      "lokalId": "2180009",
-     "total": 1746,
-     "dagarMedRoster": 7,
+     "total": 1914,
+     "dagarMedRoster": 8,
      "storstaDag": 280,
-     "andel": 4.4
+     "andel": 4.5
     },
     {
      "namn": "Förvaltningshuset",
      "kommun": "Gävle",
      "lokalId": "2180006",
-     "total": 1465,
-     "dagarMedRoster": 9,
+     "total": 1545,
+     "dagarMedRoster": 10,
      "storstaDag": 232,
      "andel": 3.7
     },
@@ -1895,8 +1902,8 @@
      "namn": "Folkets Hus",
      "kommun": "Hofors",
      "lokalId": "2104002",
-     "total": 1141,
-     "dagarMedRoster": 9,
+     "total": 1223,
+     "dagarMedRoster": 10,
      "storstaDag": 182,
      "andel": 2.9
     },
@@ -1904,10 +1911,10 @@
      "namn": "Södra Åsgatan 32B",
      "kommun": "Ockelbo",
      "lokalId": "2101004",
-     "total": 1087,
-     "dagarMedRoster": 9,
+     "total": 1170,
+     "dagarMedRoster": 10,
      "storstaDag": 183,
-     "andel": 2.7
+     "andel": 2.8
     },
     {
      "namn": "Bomhus centrum",
@@ -1916,7 +1923,7 @@
      "total": 1043,
      "dagarMedRoster": 4,
      "storstaDag": 284,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Furugården i Valbo",
@@ -1925,7 +1932,7 @@
      "total": 972,
      "dagarMedRoster": 4,
      "storstaDag": 307,
-     "andel": 2.4
+     "andel": 2.3
     },
     {
      "namn": "Biblioteket Vox Cultura",
@@ -1934,7 +1941,16 @@
      "total": 921,
      "dagarMedRoster": 9,
      "storstaDag": 152,
-     "andel": 2.3
+     "andel": 2.2
+    },
+    {
+     "namn": "Bergsjögården, lilla salen",
+     "kommun": "Nordanstig",
+     "lokalId": "2132003",
+     "total": 623,
+     "dagarMedRoster": 10,
+     "storstaDag": 108,
+     "andel": 1.5
     },
     {
      "namn": "Delsbo - Servicecenter",
@@ -1943,7 +1959,7 @@
      "total": 621,
      "dagarMedRoster": 8,
      "storstaDag": 99,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Stora Sätraskolan",
@@ -1952,16 +1968,16 @@
      "total": 619,
      "dagarMedRoster": 4,
      "storstaDag": 165,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
-     "namn": "Bergsjögården, lilla salen",
-     "kommun": "Nordanstig",
-     "lokalId": "2132003",
-     "total": 558,
-     "dagarMedRoster": 9,
-     "storstaDag": 108,
-     "andel": 1.4
+     "namn": "Ica, Storvik",
+     "kommun": "Sandviken",
+     "lokalId": "2181001",
+     "total": 562,
+     "dagarMedRoster": 4,
+     "storstaDag": 170,
+     "andel": 1.3
     },
     {
      "namn": "Andreassalen i Andersberg",
@@ -1970,7 +1986,7 @@
      "total": 556,
      "dagarMedRoster": 5,
      "storstaDag": 151,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Alfta sporthall",
@@ -1979,7 +1995,7 @@
      "total": 516,
      "dagarMedRoster": 9,
      "storstaDag": 85,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Iggesund - Folkets Hus",
@@ -1988,7 +2004,7 @@
      "total": 512,
      "dagarMedRoster": 8,
      "storstaDag": 82,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Milboskolan i Hille",
@@ -1997,7 +2013,7 @@
      "total": 499,
      "dagarMedRoster": 2,
      "storstaDag": 251,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Varianthuset Bergvk",
@@ -2006,33 +2022,24 @@
      "total": 498,
      "dagarMedRoster": 4,
      "storstaDag": 138,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Färila Bibliotek",
      "kommun": "Ljusdal",
      "lokalId": "2161002",
-     "total": 425,
+     "total": 432,
      "dagarMedRoster": 6,
      "storstaDag": 136,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Björksätraskolan, biblioteket",
      "kommun": "Sandviken",
      "lokalId": "2181007",
-     "total": 413,
+     "total": 416,
      "dagarMedRoster": 4,
-     "storstaDag": 132,
-     "andel": 1.0
-    },
-    {
-     "namn": "Ica, Storvik",
-     "kommun": "Sandviken",
-     "lokalId": "2181001",
-     "total": 408,
-     "dagarMedRoster": 3,
-     "storstaDag": 170,
+     "storstaDag": 135,
      "andel": 1.0
     },
     {
@@ -2045,13 +2052,22 @@
      "andel": 1.0
     },
     {
+     "namn": "Ängslunda",
+     "kommun": "Bollnäs",
+     "lokalId": "2183001",
+     "total": 365,
+     "dagarMedRoster": 5,
+     "storstaDag": 81,
+     "andel": 0.9
+    },
+    {
      "namn": "Kastanjen",
      "kommun": "Söderhamn",
      "lokalId": "2182003",
      "total": 356,
      "dagarMedRoster": 4,
      "storstaDag": 114,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Bergby centralskola",
@@ -2063,22 +2079,13 @@
      "andel": 0.8
     },
     {
-     "namn": "Ängslunda",
-     "kommun": "Bollnäs",
-     "lokalId": "2183001",
-     "total": 305,
-     "dagarMedRoster": 4,
-     "storstaDag": 81,
-     "andel": 0.8
-    },
-    {
      "namn": "Lövlundsskolan",
      "kommun": "Bollnäs",
      "lokalId": "2183003",
-     "total": 284,
-     "dagarMedRoster": 4,
+     "total": 334,
+     "dagarMedRoster": 5,
      "storstaDag": 84,
-     "andel": 0.7
+     "andel": 0.8
     }
    ],
    "antalLokaler": 74,

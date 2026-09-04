@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -937,7 +937,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1002,9 +1002,16 @@
      "kvar": 10,
      "antal": 91,
      "ack": 784
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 86,
+     "ack": 870
     }
    ],
-   "total": 784,
+   "total": 870,
    "rostberattigade": {
     "riksdag": 4208,
     "kommun": 4410,
@@ -1022,19 +1029,19 @@
      "namn": "Kulturtorget",
      "kommun": "Laxå",
      "lokalId": "1860002",
-     "total": 784,
-     "dagarMedRoster": 9,
+     "total": 865,
+     "dagarMedRoster": 10,
      "storstaDag": 118,
-     "andel": 100.0
+     "andel": 99.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Laxå",
      "lokalId": "1860004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 5,
+     "dagarMedRoster": 1,
+     "storstaDag": 5,
+     "andel": 0.6
     },
     {
      "namn": "Centralskolans matsal",

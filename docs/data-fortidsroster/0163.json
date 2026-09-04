@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1099,74 +1099,81 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 849,
-     "ack": 849
+     "antal": 850,
+     "ack": 850
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
      "antal": 736,
-     "ack": 1585
+     "ack": 1586
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 690,
-     "ack": 2275
+     "ack": 2276
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 482,
-     "ack": 2757
+     "ack": 2758
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 612,
-     "ack": 3369
+     "ack": 3370
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 1266,
-     "ack": 4635
+     "ack": 4636
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 1211,
-     "ack": 5846
+     "antal": 1212,
+     "ack": 5848
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 1247,
-     "ack": 7093
+     "antal": 1251,
+     "ack": 7099
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1202,
-     "ack": 8295
+     "antal": 1208,
+     "ack": 8307
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 544,
+     "ack": 8851
     }
    ],
-   "total": 8295,
+   "total": 8851,
    "rostberattigade": {
     "riksdag": 55677,
     "kommun": 59979,
@@ -1184,17 +1191,17 @@
      "namn": "Turebergshuset",
      "kommun": "Sollentuna",
      "lokalId": "0163002",
-     "total": 4275,
-     "dagarMedRoster": 9,
-     "storstaDag": 593,
-     "andel": 51.5
+     "total": 4464,
+     "dagarMedRoster": 10,
+     "storstaDag": 594,
+     "andel": 50.4
     },
     {
      "namn": "Stinsen kontorshus",
      "kommun": "Sollentuna",
      "lokalId": "0163001",
-     "total": 1815,
-     "dagarMedRoster": 9,
+     "total": 1934,
+     "dagarMedRoster": 10,
      "storstaDag": 256,
      "andel": 21.9
     },
@@ -1202,28 +1209,28 @@
      "namn": "Arena Edsberg",
      "kommun": "Sollentuna",
      "lokalId": "0163005",
-     "total": 796,
-     "dagarMedRoster": 4,
+     "total": 889,
+     "dagarMedRoster": 5,
      "storstaDag": 240,
-     "andel": 9.6
+     "andel": 10.0
     },
     {
      "namn": "Helenelunds centrum",
      "kommun": "Sollentuna",
      "lokalId": "0163003",
-     "total": 666,
-     "dagarMedRoster": 4,
+     "total": 744,
+     "dagarMedRoster": 5,
      "storstaDag": 186,
-     "andel": 8.0
+     "andel": 8.4
     },
     {
      "namn": "Rotebro Centrum",
      "kommun": "Sollentuna",
      "lokalId": "0163004",
-     "total": 523,
-     "dagarMedRoster": 4,
+     "total": 600,
+     "dagarMedRoster": 5,
      "storstaDag": 153,
-     "andel": 6.3
+     "andel": 6.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1232,7 +1239,7 @@
      "total": 220,
      "dagarMedRoster": 5,
      "storstaDag": 82,
-     "andel": 2.7
+     "andel": 2.5
     },
     {
      "namn": "Häktet Sollentuna",

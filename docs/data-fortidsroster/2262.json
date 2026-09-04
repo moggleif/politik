@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,74 +991,81 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 288,
-     "ack": 288
+     "antal": 217,
+     "ack": 217
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 325,
-     "ack": 613
+     "antal": 266,
+     "ack": 483
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 219,
-     "ack": 832
+     "antal": 179,
+     "ack": 662
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 33,
-     "ack": 865
+     "ack": 695
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 39,
-     "ack": 904
+     "antal": 0,
+     "ack": 695
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 390,
-     "ack": 1294
+     "antal": 337,
+     "ack": 1032
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 331,
-     "ack": 1625
+     "antal": 268,
+     "ack": 1300
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 334,
-     "ack": 1959
+     "antal": 273,
+     "ack": 1573
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 389,
-     "ack": 2348
+     "antal": 292,
+     "ack": 1865
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 106,
+     "ack": 1971
     }
    ],
-   "total": 2348,
+   "total": 1971,
    "rostberattigade": {
     "riksdag": 13866,
     "kommun": 14118,
@@ -1076,19 +1083,10 @@
      "namn": "Biblioteket Timrå",
      "kommun": "Timrå",
      "lokalId": "2262004",
-     "total": 1511,
-     "dagarMedRoster": 7,
-     "storstaDag": 268,
-     "andel": 64.4
-    },
-    {
-     "namn": "Söråkers Folkets Hus",
-     "kommun": "Timrå",
-     "lokalId": "2262001",
-     "total": 483,
+     "total": 1617,
      "dagarMedRoster": 8,
-     "storstaDag": 97,
-     "andel": 20.6
+     "storstaDag": 268,
+     "andel": 82.0
     },
     {
      "namn": "HSB brf Berge",
@@ -1097,7 +1095,7 @@
      "total": 256,
      "dagarMedRoster": 8,
      "storstaDag": 54,
-     "andel": 10.9
+     "andel": 13.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1106,7 +1104,7 @@
      "total": 98,
      "dagarMedRoster": 5,
      "storstaDag": 29,
-     "andel": 4.2
+     "andel": 5.0
     },
     {
      "namn": "Aktivitetshuset Pangea",
@@ -1154,7 +1152,7 @@
      "andel": 0.0
     }
    ],
-   "antalLokaler": 9,
+   "antalLokaler": 8,
    "lokalerKapad": false
   }
  },

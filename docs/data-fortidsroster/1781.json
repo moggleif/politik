@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,7 +1054,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1075,53 +1075,60 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 415,
-     "ack": 1247
+     "antal": 416,
+     "ack": 1248
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 228,
-     "ack": 1475
+     "ack": 1476
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 138,
-     "ack": 1613
+     "ack": 1614
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 512,
-     "ack": 2125
+     "ack": 2126
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 449,
-     "ack": 2574
+     "ack": 2575
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 535,
-     "ack": 3109
+     "ack": 3110
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 537,
-     "ack": 3646
+     "ack": 3647
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 218,
+     "ack": 3865
     }
    ],
-   "total": 3646,
+   "total": 3865,
    "rostberattigade": {
     "riksdag": 18869,
     "kommun": 19367,
@@ -1139,17 +1146,17 @@
      "namn": "Hörsalen Nämndhuset (biblioteket)",
      "kommun": "Kristinehamn",
      "lokalId": "1781006",
-     "total": 2078,
-     "dagarMedRoster": 9,
+     "total": 2217,
+     "dagarMedRoster": 10,
      "storstaDag": 330,
-     "andel": 57.0
+     "andel": 57.4
     },
     {
      "namn": "Merkuriushuset",
      "kommun": "Kristinehamn",
      "lokalId": "1781016",
-     "total": 1316,
-     "dagarMedRoster": 8,
+     "total": 1395,
+     "dagarMedRoster": 9,
      "storstaDag": 188,
      "andel": 36.1
     },
@@ -1160,7 +1167,7 @@
      "total": 127,
      "dagarMedRoster": 5,
      "storstaDag": 68,
-     "andel": 3.5
+     "andel": 3.3
     },
     {
      "namn": "Kolgården",
@@ -1187,7 +1194,7 @@
      "total": 17,
      "dagarMedRoster": 1,
      "storstaDag": 17,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Ölmegården",
@@ -1197,6 +1204,15 @@
      "dagarMedRoster": 1,
      "storstaDag": 14,
      "andel": 0.4
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Kristinehamn",
+     "lokalId": "1781018",
+     "total": 8,
+     "dagarMedRoster": 2,
+     "storstaDag": 7,
+     "andel": 0.2
     },
     {
      "namn": "Skogshyddan 1 och 2",
@@ -1214,15 +1230,6 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.2
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Kristinehamn",
-     "lokalId": "1781018",
-     "total": 7,
-     "dagarMedRoster": 1,
-     "storstaDag": 7,
      "andel": 0.2
     },
     {

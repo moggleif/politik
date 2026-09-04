@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -786,9 +786,16 @@
      "kvar": 10,
      "antal": 329,
      "ack": 2128
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 143,
+     "ack": 2271
     }
    ],
-   "total": 2128,
+   "total": 2271,
    "rostberattigade": {
     "riksdag": 12668,
     "kommun": 12730,
@@ -806,10 +813,10 @@
      "namn": "Folkets hus, Hammarö kommun",
      "kommun": "Hammarö",
      "lokalId": "1761001",
-     "total": 2071,
-     "dagarMedRoster": 9,
+     "total": 2214,
+     "dagarMedRoster": 10,
      "storstaDag": 311,
-     "andel": 97.3
+     "andel": 97.5
     },
     {
      "namn": "Djupängen, särskilt boende",
@@ -818,7 +825,7 @@
      "total": 53,
      "dagarMedRoster": 1,
      "storstaDag": 53,
-     "andel": 2.5
+     "andel": 2.3
     },
     {
      "namn": "Ambulerande röstmottagning",

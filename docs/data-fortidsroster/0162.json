@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1056,9 +1056,16 @@
      "kvar": 10,
      "antal": 670,
      "ack": 4182
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 390,
+     "ack": 4572
     }
    ],
-   "total": 4182,
+   "total": 4572,
    "rostberattigade": {
     "riksdag": 25286,
     "kommun": 25332,
@@ -1076,28 +1083,28 @@
      "namn": "Entrétorget, Danderyds Kontaktcenter",
      "kommun": "Danderyd",
      "lokalId": "0162002",
-     "total": 2401,
-     "dagarMedRoster": 9,
+     "total": 2572,
+     "dagarMedRoster": 10,
      "storstaDag": 375,
-     "andel": 57.4
+     "andel": 56.3
     },
     {
      "namn": "Djursholms bibliotek",
      "kommun": "Danderyd",
      "lokalId": "0162006",
-     "total": 1034,
-     "dagarMedRoster": 8,
+     "total": 1120,
+     "dagarMedRoster": 9,
      "storstaDag": 171,
-     "andel": 24.7
+     "andel": 24.5
     },
     {
      "namn": "Enebybergs bibliotek",
      "kommun": "Danderyd",
      "lokalId": "0162005",
-     "total": 549,
-     "dagarMedRoster": 8,
+     "total": 606,
+     "dagarMedRoster": 9,
      "storstaDag": 88,
-     "andel": 13.1
+     "andel": 13.3
     },
     {
      "namn": "Stocksunds bibliotek",
@@ -1106,7 +1113,7 @@
      "total": 106,
      "dagarMedRoster": 2,
      "storstaDag": 57,
-     "andel": 2.5
+     "andel": 2.3
     },
     {
      "namn": "Villa Odinslund",
@@ -1115,7 +1122,25 @@
      "total": 52,
      "dagarMedRoster": 1,
      "storstaDag": 52,
-     "andel": 1.2
+     "andel": 1.1
+    },
+    {
+     "namn": "Tallgårdens Äldreboende",
+     "kommun": "Danderyd",
+     "lokalId": "0162003",
+     "total": 44,
+     "dagarMedRoster": 1,
+     "storstaDag": 44,
+     "andel": 1.0
+    },
+    {
+     "namn": "Birgittasystrarna",
+     "kommun": "Danderyd",
+     "lokalId": "0162004",
+     "total": 32,
+     "dagarMedRoster": 1,
+     "storstaDag": 32,
+     "andel": 0.7
     },
     {
      "namn": "Stocksundsgården",
@@ -1124,7 +1149,7 @@
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Korttidsboende Idun",
@@ -1133,7 +1158,7 @@
      "total": 16,
      "dagarMedRoster": 1,
      "storstaDag": 16,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1154,27 +1179,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Birgittasystrarna",
-     "kommun": "Danderyd",
-     "lokalId": "0162004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Svalnäs äldreboende",
      "kommun": "Danderyd",
      "lokalId": "0162007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Tallgårdens Äldreboende",
-     "kommun": "Danderyd",
-     "lokalId": "0162003",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

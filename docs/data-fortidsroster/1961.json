@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -802,7 +802,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -858,18 +858,25 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 370,
-     "ack": 1901
+     "antal": 371,
+     "ack": 1902
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 268,
-     "ack": 2169
+     "antal": 273,
+     "ack": 2175
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 158,
+     "ack": 2333
     }
    ],
-   "total": 2169,
+   "total": 2333,
    "rostberattigade": {
     "riksdag": 12483,
     "kommun": 13013,
@@ -887,28 +894,28 @@
      "namn": "Kulturhuset",
      "kommun": "Hallstahammar",
      "lokalId": "1961002",
-     "total": 1732,
-     "dagarMedRoster": 8,
+     "total": 1846,
+     "dagarMedRoster": 9,
      "storstaDag": 339,
-     "andel": 79.9
+     "andel": 79.1
     },
     {
      "namn": "Stationshuset (Biblioteket), Kolbäck",
      "kommun": "Hallstahammar",
      "lokalId": "1961001",
-     "total": 434,
-     "dagarMedRoster": 4,
+     "total": 479,
+     "dagarMedRoster": 5,
      "storstaDag": 127,
-     "andel": 20.0
+     "andel": 20.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Hallstahammar",
      "lokalId": "1961003",
-     "total": 3,
-     "dagarMedRoster": 1,
-     "storstaDag": 3,
-     "andel": 0.1
+     "total": 8,
+     "dagarMedRoster": 2,
+     "storstaDag": 5,
+     "andel": 0.3
     }
    ],
    "antalLokaler": 3,

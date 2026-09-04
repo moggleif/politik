@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1486,7 +1486,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1551,9 +1551,16 @@
      "kvar": 10,
      "antal": 567,
      "ack": 3597
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 277,
+     "ack": 3874
     }
    ],
-   "total": 3597,
+   "total": 3874,
    "rostberattigade": {
     "riksdag": 16717,
     "kommun": 17963,
@@ -1571,10 +1578,19 @@
      "namn": "Stadshuset Kristallen",
      "kommun": "Kiruna",
      "lokalId": "2584014",
-     "total": 2932,
-     "dagarMedRoster": 9,
+     "total": 3153,
+     "dagarMedRoster": 10,
      "storstaDag": 545,
-     "andel": 81.5
+     "andel": 81.4
+    },
+    {
+     "namn": "Vittangi Folkets Hus",
+     "kommun": "Kiruna",
+     "lokalId": "2584011",
+     "total": 179,
+     "dagarMedRoster": 3,
+     "storstaDag": 76,
+     "andel": 4.6
     },
     {
      "namn": "Karesuando Eurosuandohuset",
@@ -1583,16 +1599,7 @@
      "total": 142,
      "dagarMedRoster": 3,
      "storstaDag": 58,
-     "andel": 3.9
-    },
-    {
-     "namn": "Vittangi Folkets Hus",
-     "kommun": "Kiruna",
-     "lokalId": "2584011",
-     "total": 138,
-     "dagarMedRoster": 2,
-     "storstaDag": 76,
-     "andel": 3.8
+     "andel": 3.7
     },
     {
      "namn": "Svappavaara Fritidsgård",
@@ -1601,7 +1608,7 @@
      "total": 74,
      "dagarMedRoster": 1,
      "storstaDag": 74,
-     "andel": 2.1
+     "andel": 1.9
     },
     {
      "namn": "Malmfältens Folkhögskola",
@@ -1610,7 +1617,7 @@
      "total": 73,
      "dagarMedRoster": 1,
      "storstaDag": 73,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Övre Soppero skola",
@@ -1619,7 +1626,7 @@
      "total": 55,
      "dagarMedRoster": 1,
      "storstaDag": 55,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Hjalmar Lundbohmsskolan",
@@ -1628,7 +1635,7 @@
      "total": 46,
      "dagarMedRoster": 1,
      "storstaDag": 46,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Kuttainen sporthall",
@@ -1637,7 +1644,7 @@
      "total": 46,
      "dagarMedRoster": 1,
      "storstaDag": 46,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Bokbuss Parakka",
@@ -1655,7 +1662,7 @@
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Bokbuss Jukkasjärvi",
@@ -1664,7 +1671,7 @@
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1673,7 +1680,16 @@
      "total": 17,
      "dagarMedRoster": 3,
      "storstaDag": 7,
-     "andel": 0.5
+     "andel": 0.4
+    },
+    {
+     "namn": "Daglig verksamhet Rymdhuset",
+     "kommun": "Kiruna",
+     "lokalId": "2584018",
+     "total": 15,
+     "dagarMedRoster": 1,
+     "storstaDag": 15,
+     "andel": 0.4
     },
     {
      "namn": "Abisko skola",
@@ -1706,15 +1722,6 @@
      "namn": "Bokbuss Övre Soppero",
      "kommun": "Kiruna",
      "lokalId": "2584004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Daglig verksamhet Rymdhuset",
-     "kommun": "Kiruna",
-     "lokalId": "2584018",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

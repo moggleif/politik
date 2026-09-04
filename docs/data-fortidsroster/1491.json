@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -784,11 +784,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 394,
-     "ack": 3193
+     "antal": 415,
+     "ack": 3214
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 200,
+     "ack": 3414
     }
    ],
-   "total": 3193,
+   "total": 3414,
    "rostberattigade": {
     "riksdag": 19144,
     "kommun": 19799,
@@ -806,10 +813,10 @@
      "namn": "Förtidsröstning, centrala Ulricehamn",
      "kommun": "Ulricehamn",
      "lokalId": "1491002",
-     "total": 2372,
-     "dagarMedRoster": 9,
+     "total": 2574,
+     "dagarMedRoster": 10,
      "storstaDag": 334,
-     "andel": 74.3
+     "andel": 75.4
     },
     {
      "namn": "Valbussen",
@@ -818,16 +825,16 @@
      "total": 664,
      "dagarMedRoster": 8,
      "storstaDag": 148,
-     "andel": 20.8
+     "andel": 19.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Ulricehamn",
      "lokalId": "1491003",
-     "total": 157,
-     "dagarMedRoster": 3,
+     "total": 176,
+     "dagarMedRoster": 4,
      "storstaDag": 80,
-     "andel": 4.9
+     "andel": 5.2
     }
    ],
    "antalLokaler": 3,

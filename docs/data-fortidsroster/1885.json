@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -928,7 +928,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -993,9 +993,16 @@
      "kvar": 10,
      "antal": 421,
      "ack": 2683
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 384,
+     "ack": 3067
     }
    ],
-   "total": 2683,
+   "total": 3067,
    "rostberattigade": {
     "riksdag": 17996,
     "kommun": 18485,
@@ -1013,28 +1020,37 @@
      "namn": "G:a Apoteket",
      "kommun": "Lindesberg",
      "lokalId": "1885004",
-     "total": 1837,
-     "dagarMedRoster": 9,
+     "total": 2013,
+     "dagarMedRoster": 10,
      "storstaDag": 245,
-     "andel": 68.5
+     "andel": 65.6
     },
     {
      "namn": "Järnvägsstationen",
      "kommun": "Lindesberg",
      "lokalId": "1885002",
-     "total": 492,
-     "dagarMedRoster": 4,
+     "total": 581,
+     "dagarMedRoster": 5,
      "storstaDag": 135,
-     "andel": 18.3
+     "andel": 18.9
     },
     {
      "namn": "Ekbackens skola",
      "kommun": "Lindesberg",
      "lokalId": "1885001",
-     "total": 181,
-     "dagarMedRoster": 4,
+     "total": 228,
+     "dagarMedRoster": 5,
      "storstaDag": 64,
-     "andel": 6.7
+     "andel": 7.4
+    },
+    {
+     "namn": "Lindeskolan",
+     "kommun": "Lindesberg",
+     "lokalId": "1885013",
+     "total": 72,
+     "dagarMedRoster": 1,
+     "storstaDag": 72,
+     "andel": 2.3
     },
     {
      "namn": "Grönboda",
@@ -1043,7 +1059,7 @@
      "total": 60,
      "dagarMedRoster": 1,
      "storstaDag": 60,
-     "andel": 2.2
+     "andel": 2.0
     },
     {
      "namn": "Tallåsen",
@@ -1052,7 +1068,7 @@
      "total": 30,
      "dagarMedRoster": 1,
      "storstaDag": 30,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Ågården",
@@ -1061,7 +1077,7 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 1.1
+     "andel": 0.9
     },
     {
      "namn": "Källgården",
@@ -1079,7 +1095,7 @@
      "total": 18,
      "dagarMedRoster": 1,
      "storstaDag": 18,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Solliden",
@@ -1103,15 +1119,6 @@
      "namn": "Anstalten Hinseberg",
      "kommun": "Lindesberg",
      "lokalId": "1885005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Lindeskolan",
-     "kommun": "Lindesberg",
-     "lokalId": "1885013",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -831,9 +831,16 @@
      "kvar": 10,
      "antal": 351,
      "ack": 2074
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 148,
+     "ack": 2222
     }
    ],
-   "total": 2074,
+   "total": 2222,
    "rostberattigade": {
     "riksdag": 11477,
     "kommun": 12054,
@@ -851,10 +858,10 @@
      "namn": "Medborgarhuset",
      "kommun": "Säffle",
      "lokalId": "1785002",
-     "total": 1953,
-     "dagarMedRoster": 9,
+     "total": 2079,
+     "dagarMedRoster": 10,
      "storstaDag": 359,
-     "andel": 94.2
+     "andel": 93.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -863,16 +870,16 @@
      "total": 80,
      "dagarMedRoster": 2,
      "storstaDag": 40,
-     "andel": 3.9
+     "andel": 3.6
     },
     {
      "namn": "Biblioteksbussen",
      "kommun": "Säffle",
      "lokalId": "1785001",
-     "total": 41,
-     "dagarMedRoster": 1,
+     "total": 63,
+     "dagarMedRoster": 2,
      "storstaDag": 41,
-     "andel": 2.0
+     "andel": 2.8
     },
     {
      "namn": "Stadshuset",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1153,7 +1153,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1218,9 +1218,16 @@
      "kvar": 10,
      "antal": 351,
      "ack": 1554
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 106,
+     "ack": 1660
     }
    ],
-   "total": 1554,
+   "total": 1660,
    "rostberattigade": {
     "riksdag": 11848,
     "kommun": 12109,
@@ -1238,10 +1245,10 @@
      "namn": "Krokoms kommunhus",
      "kommun": "Krokom",
      "lokalId": "2309011",
-     "total": 755,
-     "dagarMedRoster": 9,
+     "total": 830,
+     "dagarMedRoster": 10,
      "storstaDag": 170,
-     "andel": 48.6
+     "andel": 50.0
     },
     {
      "namn": "Ås församlingsgård",
@@ -1250,16 +1257,16 @@
      "total": 234,
      "dagarMedRoster": 3,
      "storstaDag": 91,
-     "andel": 15.1
+     "andel": 14.1
     },
     {
      "namn": "Änge servicekontor",
      "kommun": "Krokom",
      "lokalId": "2309013",
-     "total": 190,
-     "dagarMedRoster": 5,
+     "total": 221,
+     "dagarMedRoster": 6,
      "storstaDag": 65,
-     "andel": 12.2
+     "andel": 13.3
     },
     {
      "namn": "Edevallen",
@@ -1268,7 +1275,7 @@
      "total": 148,
      "dagarMedRoster": 5,
      "storstaDag": 52,
-     "andel": 9.5
+     "andel": 8.9
     },
     {
      "namn": "Trångsvikens bygdegård",
@@ -1277,7 +1284,7 @@
      "total": 117,
      "dagarMedRoster": 2,
      "storstaDag": 82,
-     "andel": 7.5
+     "andel": 7.0
     },
     {
      "namn": "Näldens bygdegård",
@@ -1286,7 +1293,7 @@
      "total": 108,
      "dagarMedRoster": 2,
      "storstaDag": 76,
-     "andel": 6.9
+     "andel": 6.5
     },
     {
      "namn": "Ambulerande röstmottagning",

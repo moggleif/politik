@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -982,74 +982,81 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 421,
-     "ack": 421
+     "antal": 422,
+     "ack": 422
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
      "antal": 410,
-     "ack": 831
+     "ack": 832
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 384,
-     "ack": 1215
+     "antal": 385,
+     "ack": 1217
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 370,
-     "ack": 1585
+     "ack": 1587
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 310,
-     "ack": 1895
+     "ack": 1897
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 600,
-     "ack": 2495
+     "antal": 601,
+     "ack": 2498
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 615,
-     "ack": 3110
+     "ack": 3113
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 614,
-     "ack": 3724
+     "antal": 615,
+     "ack": 3728
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 450,
-     "ack": 4174
+     "ack": 4178
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 240,
+     "ack": 4418
     }
    ],
-   "total": 4174,
+   "total": 4418,
    "rostberattigade": {
     "riksdag": 22091,
     "kommun": 22713,
@@ -1067,28 +1074,28 @@
      "namn": "Valtältet vid City Gross i Höganäs",
      "kommun": "Höganäs",
      "lokalId": "1284014",
-     "total": 1699,
-     "dagarMedRoster": 9,
+     "total": 1784,
+     "dagarMedRoster": 10,
      "storstaDag": 264,
-     "andel": 40.7
+     "andel": 40.4
     },
     {
      "namn": "Valtältet vid Ica Kvantum i Höganäs",
      "kommun": "Höganäs",
      "lokalId": "1284012",
-     "total": 1053,
-     "dagarMedRoster": 9,
+     "total": 1148,
+     "dagarMedRoster": 10,
      "storstaDag": 139,
-     "andel": 25.2
+     "andel": 26.0
     },
     {
      "namn": "Kulturhuset i Höganäs",
      "kommun": "Höganäs",
      "lokalId": "1284005",
-     "total": 931,
-     "dagarMedRoster": 9,
+     "total": 976,
+     "dagarMedRoster": 10,
      "storstaDag": 163,
-     "andel": 22.3
+     "andel": 22.1
     },
     {
      "namn": "Vikens hemgård",
@@ -1097,7 +1104,7 @@
      "total": 137,
      "dagarMedRoster": 1,
      "storstaDag": 137,
-     "andel": 3.3
+     "andel": 3.1
     },
     {
      "namn": "Mölle stationshus",
@@ -1106,7 +1113,7 @@
      "total": 85,
      "dagarMedRoster": 1,
      "storstaDag": 85,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Biblioteket i Jonstorp",
@@ -1115,7 +1122,7 @@
      "total": 83,
      "dagarMedRoster": 1,
      "storstaDag": 83,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1124,7 +1131,7 @@
      "total": 65,
      "dagarMedRoster": 6,
      "storstaDag": 24,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Biblioteket i Nyhamnsläge",
@@ -1152,6 +1159,15 @@
      "dagarMedRoster": 1,
      "storstaDag": 20,
      "andel": 0.5
+    },
+    {
+     "namn": "Valbussen i Arild",
+     "kommun": "Höganäs",
+     "lokalId": "1284008",
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 0.4
     },
     {
      "namn": "Valbussen i Mjöhult",
@@ -1193,15 +1209,6 @@
      "namn": "Valbussen - Pumpgatan 3 i Höganäs",
      "kommun": "Höganäs",
      "lokalId": "1284013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Valbussen i Arild",
-     "kommun": "Höganäs",
-     "lokalId": "1284008",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

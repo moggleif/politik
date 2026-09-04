@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -849,18 +849,25 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 155,
-     "ack": 1064
+     "antal": 157,
+     "ack": 1066
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 220,
-     "ack": 1284
+     "ack": 1286
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 69,
+     "ack": 1355
     }
    ],
-   "total": 1284,
+   "total": 1355,
    "rostberattigade": {
     "riksdag": 7398,
     "kommun": 7709,
@@ -878,10 +885,10 @@
      "namn": "Folkan Surahammar",
      "kommun": "Surahammar",
      "lokalId": "1907003",
-     "total": 982,
-     "dagarMedRoster": 9,
+     "total": 1047,
+     "dagarMedRoster": 10,
      "storstaDag": 158,
-     "andel": 76.5
+     "andel": 77.3
     },
     {
      "namn": "Biblioteket Virsbo",
@@ -890,7 +897,7 @@
      "total": 177,
      "dagarMedRoster": 4,
      "storstaDag": 62,
-     "andel": 13.8
+     "andel": 13.1
     },
     {
      "namn": "Biblioteket Ramnäs",
@@ -899,16 +906,16 @@
      "total": 125,
      "dagarMedRoster": 5,
      "storstaDag": 42,
-     "andel": 9.7
+     "andel": 9.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Surahammar",
      "lokalId": "1907006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 6,
+     "dagarMedRoster": 1,
+     "storstaDag": 6,
+     "andel": 0.4
     },
     {
      "namn": "Kommunkontoret, Surahammar",

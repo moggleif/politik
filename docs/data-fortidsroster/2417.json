@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1036,7 +1036,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1099,11 +1099,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 78,
-     "ack": 590
+     "antal": 122,
+     "ack": 634
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 19,
+     "ack": 653
     }
    ],
-   "total": 590,
+   "total": 653,
    "rostberattigade": {
     "riksdag": 2886,
     "kommun": 3052,
@@ -1121,10 +1128,19 @@
      "namn": "Norsjö Folkets Hus",
      "kommun": "Norsjö",
      "lokalId": "2417002",
-     "total": 538,
-     "dagarMedRoster": 9,
+     "total": 557,
+     "dagarMedRoster": 10,
      "storstaDag": 93,
-     "andel": 91.2
+     "andel": 85.3
+    },
+    {
+     "namn": "Kusfors",
+     "kommun": "Norsjö",
+     "lokalId": "2417009",
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
+     "andel": 5.1
     },
     {
      "namn": "Åmliden",
@@ -1133,7 +1149,7 @@
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 3.4
+     "andel": 3.1
     },
     {
      "namn": "Risliden",
@@ -1142,7 +1158,16 @@
      "total": 15,
      "dagarMedRoster": 1,
      "storstaDag": 15,
-     "andel": 2.5
+     "andel": 2.3
+    },
+    {
+     "namn": "Gumboda",
+     "kommun": "Norsjö",
+     "lokalId": "2417010",
+     "total": 9,
+     "dagarMedRoster": 1,
+     "storstaDag": 9,
+     "andel": 1.4
     },
     {
      "namn": "Kvarnåsen",
@@ -1151,7 +1176,7 @@
      "total": 7,
      "dagarMedRoster": 1,
      "storstaDag": 7,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Solbacka",
@@ -1160,7 +1185,7 @@
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Norsjövallen",
@@ -1169,16 +1194,16 @@
      "total": 4,
      "dagarMedRoster": 1,
      "storstaDag": 4,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Norsjö",
      "lokalId": "2417004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 2,
+     "dagarMedRoster": 1,
+     "storstaDag": 2,
+     "andel": 0.3
     },
     {
      "namn": "Bjurträsk",
@@ -1202,24 +1227,6 @@
      "namn": "Fromheden",
      "kommun": "Norsjö",
      "lokalId": "2417011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Gumboda",
-     "kommun": "Norsjö",
-     "lokalId": "2417010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Kusfors",
-     "kommun": "Norsjö",
-     "lokalId": "2417009",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

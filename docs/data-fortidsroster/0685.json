@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1261,7 +1261,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1324,11 +1324,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 458,
-     "ack": 3145
+     "antal": 463,
+     "ack": 3150
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 220,
+     "ack": 3370
     }
    ],
-   "total": 3145,
+   "total": 3370,
    "rostberattigade": {
     "riksdag": 20758,
     "kommun": 21545,
@@ -1346,10 +1353,10 @@
      "namn": "Stadshuset",
      "kommun": "Vetlanda",
      "lokalId": "0685010",
-     "total": 3017,
-     "dagarMedRoster": 9,
+     "total": 3241,
+     "dagarMedRoster": 10,
      "storstaDag": 456,
-     "andel": 95.9
+     "andel": 96.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1358,14 +1365,14 @@
      "total": 109,
      "dagarMedRoster": 6,
      "storstaDag": 47,
-     "andel": 3.5
+     "andel": 3.2
     },
     {
      "namn": "Bokbussen",
      "kommun": "Vetlanda",
      "lokalId": "0685002",
-     "total": 19,
-     "dagarMedRoster": 4,
+     "total": 20,
+     "dagarMedRoster": 5,
      "storstaDag": 7,
      "andel": 0.6
     },

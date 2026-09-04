@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1389,9 +1389,16 @@
      "kvar": 10,
      "antal": 1391,
      "ack": 6769
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 503,
+     "ack": 7272
     }
    ],
-   "total": 6769,
+   "total": 7272,
    "rostberattigade": {
     "riksdag": 43542,
     "kommun": 44347,
@@ -1409,10 +1416,10 @@
      "namn": "Arkenbiblioteket",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284015",
-     "total": 2992,
-     "dagarMedRoster": 8,
+     "total": 3252,
+     "dagarMedRoster": 9,
      "storstaDag": 448,
-     "andel": 44.2
+     "andel": 44.7
     },
     {
      "namn": "Gullänget, Folkets hus Gnistan",
@@ -1421,7 +1428,16 @@
      "total": 1330,
      "dagarMedRoster": 5,
      "storstaDag": 316,
-     "andel": 19.6
+     "andel": 18.3
+    },
+    {
+     "namn": "Domsjö bruksgården",
+     "kommun": "Örnsköldsvik",
+     "lokalId": "2284016",
+     "total": 415,
+     "dagarMedRoster": 3,
+     "storstaDag": 157,
+     "andel": 5.7
     },
     {
      "namn": "Bjästa entrébyggnad",
@@ -1430,7 +1446,7 @@
      "total": 368,
      "dagarMedRoster": 2,
      "storstaDag": 205,
-     "andel": 5.4
+     "andel": 5.1
     },
     {
      "namn": "Själevads församlingshem",
@@ -1439,16 +1455,7 @@
      "total": 342,
      "dagarMedRoster": 3,
      "storstaDag": 154,
-     "andel": 5.1
-    },
-    {
-     "namn": "Domsjö bruksgården",
-     "kommun": "Örnsköldsvik",
-     "lokalId": "2284016",
-     "total": 302,
-     "dagarMedRoster": 2,
-     "storstaDag": 157,
-     "andel": 4.5
+     "andel": 4.7
     },
     {
      "namn": "Anundsjö församlingsgård",
@@ -1457,7 +1464,7 @@
      "total": 277,
      "dagarMedRoster": 3,
      "storstaDag": 144,
-     "andel": 4.1
+     "andel": 3.8
     },
     {
      "namn": "Husumgården",
@@ -1466,7 +1473,7 @@
      "total": 273,
      "dagarMedRoster": 2,
      "storstaDag": 142,
-     "andel": 4.0
+     "andel": 3.8
     },
     {
      "namn": "Sörlidens församlingsgård",
@@ -1475,16 +1482,16 @@
      "total": 226,
      "dagarMedRoster": 3,
      "storstaDag": 104,
-     "andel": 3.3
+     "andel": 3.1
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284019",
-     "total": 186,
-     "dagarMedRoster": 7,
+     "total": 191,
+     "dagarMedRoster": 8,
      "storstaDag": 68,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Mellansels Bad & Fritid",
@@ -1493,7 +1500,16 @@
      "total": 149,
      "dagarMedRoster": 2,
      "storstaDag": 98,
-     "andel": 2.2
+     "andel": 2.0
+    },
+    {
+     "namn": "Köpmanholmen, Ringarbönninga",
+     "kommun": "Örnsköldsvik",
+     "lokalId": "2284003",
+     "total": 125,
+     "dagarMedRoster": 1,
+     "storstaDag": 125,
+     "andel": 1.7
     },
     {
      "namn": "Björnahallen",
@@ -1502,7 +1518,7 @@
      "total": 105,
      "dagarMedRoster": 2,
      "storstaDag": 95,
-     "andel": 1.6
+     "andel": 1.4
     },
     {
      "namn": "Skorpeds församlingshem",
@@ -1520,7 +1536,7 @@
      "total": 83,
      "dagarMedRoster": 1,
      "storstaDag": 83,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Sidensjö församlingshem",
@@ -1529,16 +1545,7 @@
      "total": 45,
      "dagarMedRoster": 1,
      "storstaDag": 45,
-     "andel": 0.7
-    },
-    {
-     "namn": "Köpmanholmen, Ringarbönninga",
-     "kommun": "Örnsköldsvik",
-     "lokalId": "2284003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 0.6
     },
     {
      "namn": "Nolaskolan (valdagen)",

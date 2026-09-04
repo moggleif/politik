@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1225,7 +1225,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1239,60 +1239,67 @@
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 320,
-     "ack": 556
+     "antal": 363,
+     "ack": 599
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 245,
-     "ack": 801
+     "ack": 844
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 73,
-     "ack": 874
+     "ack": 917
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 113,
-     "ack": 987
+     "ack": 1030
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 294,
-     "ack": 1281
+     "ack": 1324
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 242,
-     "ack": 1523
+     "ack": 1566
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 340,
-     "ack": 1863
+     "antal": 446,
+     "ack": 2012
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 400,
-     "ack": 2263
+     "antal": 401,
+     "ack": 2413
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 181,
+     "ack": 2594
     }
    ],
-   "total": 2263,
+   "total": 2594,
    "rostberattigade": {
     "riksdag": 8508,
     "kommun": 8953,
@@ -1310,19 +1317,28 @@
      "namn": "Folkets hus - Strömsund",
      "kommun": "Strömsund",
      "lokalId": "2313019",
-     "total": 1312,
-     "dagarMedRoster": 9,
+     "total": 1430,
+     "dagarMedRoster": 10,
      "storstaDag": 227,
-     "andel": 58.0
+     "andel": 55.1
     },
     {
      "namn": "Gamla lokalkontoret i Hammerdal",
      "kommun": "Strömsund",
      "lokalId": "2313010",
-     "total": 307,
-     "dagarMedRoster": 7,
-     "storstaDag": 65,
-     "andel": 13.6
+     "total": 408,
+     "dagarMedRoster": 8,
+     "storstaDag": 75,
+     "andel": 15.7
+    },
+    {
+     "namn": "Föreningshuset Hoting",
+     "kommun": "Strömsund",
+     "lokalId": "2313006",
+     "total": 162,
+     "dagarMedRoster": 4,
+     "storstaDag": 48,
+     "andel": 6.2
     },
     {
      "namn": "Biblioteket Backe",
@@ -1331,16 +1347,25 @@
      "total": 139,
      "dagarMedRoster": 5,
      "storstaDag": 39,
-     "andel": 6.1
+     "andel": 5.4
     },
     {
-     "namn": "Föreningshuset Hoting",
+     "namn": "Flottaren - Rossön",
      "kommun": "Strömsund",
-     "lokalId": "2313006",
-     "total": 119,
-     "dagarMedRoster": 3,
-     "storstaDag": 48,
-     "andel": 5.3
+     "lokalId": "2313020",
+     "total": 129,
+     "dagarMedRoster": 4,
+     "storstaDag": 42,
+     "andel": 5.0
+    },
+    {
+     "namn": "Mittpunkt Norråker",
+     "kommun": "Strömsund",
+     "lokalId": "2313022",
+     "total": 122,
+     "dagarMedRoster": 2,
+     "storstaDag": 78,
+     "andel": 4.7
     },
     {
      "namn": "Biblioteket Gäddede",
@@ -1349,25 +1374,7 @@
      "total": 111,
      "dagarMedRoster": 5,
      "storstaDag": 31,
-     "andel": 4.9
-    },
-    {
-     "namn": "Flottaren - Rossön",
-     "kommun": "Strömsund",
-     "lokalId": "2313020",
-     "total": 98,
-     "dagarMedRoster": 3,
-     "storstaDag": 42,
      "andel": 4.3
-    },
-    {
-     "namn": "Mittpunkt Norråker",
-     "kommun": "Strömsund",
-     "lokalId": "2313022",
-     "total": 84,
-     "dagarMedRoster": 2,
-     "storstaDag": 44,
-     "andel": 3.7
     },
     {
      "namn": "Tåsjögården",
@@ -1376,7 +1383,7 @@
      "total": 60,
      "dagarMedRoster": 2,
      "storstaDag": 31,
-     "andel": 2.7
+     "andel": 2.3
     },
     {
      "namn": "Församlingshemmet - Kyrktåsjö",
@@ -1385,7 +1392,7 @@
      "total": 31,
      "dagarMedRoster": 1,
      "storstaDag": 31,
-     "andel": 1.4
+     "andel": 1.2
     },
     {
      "namn": "Ambulerande röstmottagning",

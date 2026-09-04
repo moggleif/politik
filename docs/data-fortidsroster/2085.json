@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -955,74 +955,81 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 560,
-     "ack": 560
+     "antal": 561,
+     "ack": 561
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
      "antal": 516,
-     "ack": 1076
+     "ack": 1077
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 434,
-     "ack": 1510
+     "ack": 1511
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 140,
-     "ack": 1650
+     "ack": 1651
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 113,
-     "ack": 1763
+     "ack": 1764
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 519,
-     "ack": 2282
+     "ack": 2283
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 510,
-     "ack": 2792
+     "ack": 2793
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 604,
-     "ack": 3396
+     "ack": 3397
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 540,
-     "ack": 3936
+     "antal": 560,
+     "ack": 3957
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 287,
+     "ack": 4244
     }
    ],
-   "total": 3936,
+   "total": 4244,
    "rostberattigade": {
     "riksdag": 19683,
     "kommun": 20952,
@@ -1040,35 +1047,35 @@
      "namn": "Ludvika Folkets Hus",
      "kommun": "Ludvika",
      "lokalId": "2085004",
-     "total": 2161,
-     "dagarMedRoster": 9,
-     "storstaDag": 301,
-     "andel": 54.9
+     "total": 2352,
+     "dagarMedRoster": 10,
+     "storstaDag": 302,
+     "andel": 55.4
     },
     {
      "namn": "Grängesbergs bibliotek",
      "kommun": "Ludvika",
      "lokalId": "2085005",
-     "total": 563,
-     "dagarMedRoster": 7,
+     "total": 603,
+     "dagarMedRoster": 8,
      "storstaDag": 130,
-     "andel": 14.3
+     "andel": 14.2
     },
     {
      "namn": "Ludvika lasarett",
      "kommun": "Ludvika",
      "lokalId": "2085014",
-     "total": 417,
-     "dagarMedRoster": 7,
-     "storstaDag": 77,
-     "andel": 10.6
+     "total": 454,
+     "dagarMedRoster": 8,
+     "storstaDag": 79,
+     "andel": 10.7
     },
     {
      "namn": "Solgärde",
      "kommun": "Ludvika",
      "lokalId": "2085009",
-     "total": 274,
-     "dagarMedRoster": 7,
+     "total": 298,
+     "dagarMedRoster": 8,
      "storstaDag": 49,
      "andel": 7.0
     },
@@ -1079,16 +1086,16 @@
      "total": 273,
      "dagarMedRoster": 7,
      "storstaDag": 57,
-     "andel": 6.9
+     "andel": 6.4
     },
     {
      "namn": "Fredriksbergs bibliotek",
      "kommun": "Ludvika",
      "lokalId": "2085001",
-     "total": 139,
+     "total": 140,
      "dagarMedRoster": 5,
      "storstaDag": 38,
-     "andel": 3.5
+     "andel": 3.3
     },
     {
      "namn": "Biskopsgården",
@@ -1097,7 +1104,7 @@
      "total": 54,
      "dagarMedRoster": 1,
      "storstaDag": 54,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Ängsgården",
@@ -1106,7 +1113,7 @@
      "total": 27,
      "dagarMedRoster": 1,
      "storstaDag": 27,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Granliden",
@@ -1115,25 +1122,25 @@
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Ludvika",
      "lokalId": "2085012",
-     "total": 9,
-     "dagarMedRoster": 5,
-     "storstaDag": 3,
-     "andel": 0.2
+     "total": 13,
+     "dagarMedRoster": 6,
+     "storstaDag": 4,
+     "andel": 0.3
     },
     {
      "namn": "Solsidan",
      "kommun": "Ludvika",
      "lokalId": "2085010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.3
     }
    ],
    "antalLokaler": 11,

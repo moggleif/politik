@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -856,11 +856,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 333,
-     "ack": 2485
+     "antal": 370,
+     "ack": 2522
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 125,
+     "ack": 2647
     }
    ],
-   "total": 2485,
+   "total": 2647,
    "rostberattigade": {
     "riksdag": 17049,
     "kommun": 17430,
@@ -878,19 +885,19 @@
      "namn": "Svedala bibliotek",
      "kommun": "Svedala",
      "lokalId": "1263001",
-     "total": 2023,
-     "dagarMedRoster": 9,
+     "total": 2177,
+     "dagarMedRoster": 10,
      "storstaDag": 311,
-     "andel": 81.4
+     "andel": 82.2
     },
     {
      "namn": "Bara bibliotek",
      "kommun": "Svedala",
      "lokalId": "1263002",
-     "total": 422,
-     "dagarMedRoster": 4,
+     "total": 430,
+     "dagarMedRoster": 5,
      "storstaDag": 161,
-     "andel": 17.0
+     "andel": 16.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -899,7 +906,7 @@
      "total": 40,
      "dagarMedRoster": 4,
      "storstaDag": 17,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Klågerups bibliotek",

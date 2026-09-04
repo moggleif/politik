@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -856,7 +856,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -921,9 +921,16 @@
      "kvar": 10,
      "antal": 95,
      "ack": 637
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 81,
+     "ack": 718
     }
    ],
-   "total": 637,
+   "total": 718,
    "rostberattigade": {
     "riksdag": 3454,
     "kommun": 3718,
@@ -941,10 +948,10 @@
      "namn": "Kommunhuset",
      "kommun": "Dals-Ed",
      "lokalId": "1438007",
-     "total": 624,
-     "dagarMedRoster": 9,
+     "total": 692,
+     "dagarMedRoster": 10,
      "storstaDag": 140,
-     "andel": 98.0
+     "andel": 96.4
     },
     {
      "namn": "Linden",
@@ -953,30 +960,30 @@
      "total": 13,
      "dagarMedRoster": 1,
      "storstaDag": 13,
-     "andel": 2.0
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Dals-Ed",
-     "lokalId": "1438009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.8
     },
     {
      "namn": "Edsgärdets sjukhem",
      "kommun": "Dals-Ed",
      "lokalId": "1438004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 8,
+     "dagarMedRoster": 1,
+     "storstaDag": 8,
+     "andel": 1.1
     },
     {
      "namn": "Hagalid Servicehus",
      "kommun": "Dals-Ed",
      "lokalId": "1438003",
+     "total": 5,
+     "dagarMedRoster": 1,
+     "storstaDag": 5,
+     "andel": 0.7
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Dals-Ed",
+     "lokalId": "1438009",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

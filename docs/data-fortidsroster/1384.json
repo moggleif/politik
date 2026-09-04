@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1450,7 +1450,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1506,18 +1506,25 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 1601,
-     "ack": 9951
+     "antal": 1605,
+     "ack": 9955
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1614,
-     "ack": 11565
+     "antal": 1616,
+     "ack": 11571
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 556,
+     "ack": 12127
     }
    ],
-   "total": 11565,
+   "total": 12127,
    "rostberattigade": {
     "riksdag": 66505,
     "kommun": 67149,
@@ -1535,37 +1542,37 @@
      "namn": "Kungsmässan",
      "kommun": "Kungsbacka",
      "lokalId": "1384008",
-     "total": 7122,
-     "dagarMedRoster": 9,
+     "total": 7593,
+     "dagarMedRoster": 10,
      "storstaDag": 894,
-     "andel": 61.6
+     "andel": 62.6
     },
     {
      "namn": "Kullaviks bibliotek",
      "kommun": "Kungsbacka",
      "lokalId": "1384015",
-     "total": 1041,
+     "total": 1042,
      "dagarMedRoster": 7,
      "storstaDag": 214,
-     "andel": 9.0
+     "andel": 8.6
     },
     {
      "namn": "Kungsbacka, Stadshuset",
      "kommun": "Kungsbacka",
      "lokalId": "1384013",
-     "total": 794,
-     "dagarMedRoster": 7,
+     "total": 858,
+     "dagarMedRoster": 8,
      "storstaDag": 128,
-     "andel": 6.9
+     "andel": 7.1
     },
     {
      "namn": "Onsala Båt och Sjöfartsmuseum",
      "kommun": "Kungsbacka",
      "lokalId": "1384017",
-     "total": 773,
+     "total": 775,
      "dagarMedRoster": 7,
      "storstaDag": 153,
-     "andel": 6.7
+     "andel": 6.4
     },
     {
      "namn": "Åsa Bibliotek",
@@ -1574,7 +1581,7 @@
      "total": 666,
      "dagarMedRoster": 7,
      "storstaDag": 131,
-     "andel": 5.8
+     "andel": 5.5
     },
     {
      "namn": "Frillesåsskolan",
@@ -1583,7 +1590,7 @@
      "total": 360,
      "dagarMedRoster": 7,
      "storstaDag": 68,
-     "andel": 3.1
+     "andel": 3.0
     },
     {
      "namn": "Toråsskolan, biblioteket",
@@ -1592,7 +1599,7 @@
      "total": 271,
      "dagarMedRoster": 7,
      "storstaDag": 55,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Fjärås bibliotek",
@@ -1601,7 +1608,7 @@
      "total": 206,
      "dagarMedRoster": 3,
      "storstaDag": 86,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Älvsåkersskolan, Biblioteket",
@@ -1649,6 +1656,15 @@
      "andel": 0.2
     },
     {
+     "namn": "Särö vård- och omsorgsboende",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384002",
+     "total": 24,
+     "dagarMedRoster": 1,
+     "storstaDag": 24,
+     "andel": 0.2
+    },
+    {
      "namn": "Löftagårdens vård- och omsorgsboende",
      "kommun": "Kungsbacka",
      "lokalId": "1384009",
@@ -1664,7 +1680,7 @@
      "total": 18,
      "dagarMedRoster": 1,
      "storstaDag": 18,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Åsa vård- och omsorgsboende",
@@ -1673,7 +1689,7 @@
      "total": 18,
      "dagarMedRoster": 1,
      "storstaDag": 18,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1751,15 +1767,6 @@
      "namn": "Signeshus Vård- och Omsorgsboende",
      "kommun": "Kungsbacka",
      "lokalId": "1384027",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Särö vård- och omsorgsboende",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384002",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

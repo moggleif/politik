@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1648,7 +1648,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1711,11 +1711,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1613,
-     "ack": 14832
+     "antal": 1726,
+     "ack": 14945
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 822,
+     "ack": 15767
     }
    ],
-   "total": 14832,
+   "total": 15767,
    "rostberattigade": {
     "riksdag": 80320,
     "kommun": 83612,
@@ -1733,37 +1740,37 @@
      "namn": "Tuna Park",
      "kommun": "Eskilstuna",
      "lokalId": "0484017",
-     "total": 4646,
-     "dagarMedRoster": 9,
+     "total": 4901,
+     "dagarMedRoster": 10,
      "storstaDag": 584,
-     "andel": 31.3
+     "andel": 31.1
     },
     {
      "namn": "Sveaplan",
      "kommun": "Eskilstuna",
      "lokalId": "0484019",
-     "total": 3864,
-     "dagarMedRoster": 9,
+     "total": 4094,
+     "dagarMedRoster": 10,
      "storstaDag": 506,
-     "andel": 26.1
+     "andel": 26.0
     },
     {
      "namn": "Gallerian",
      "kommun": "Eskilstuna",
      "lokalId": "0484020",
-     "total": 3814,
-     "dagarMedRoster": 9,
+     "total": 4085,
+     "dagarMedRoster": 10,
      "storstaDag": 543,
-     "andel": 25.7
+     "andel": 25.9
     },
     {
      "namn": "PRO Torshälla",
      "kommun": "Eskilstuna",
      "lokalId": "0484014",
-     "total": 1338,
-     "dagarMedRoster": 7,
+     "total": 1408,
+     "dagarMedRoster": 8,
      "storstaDag": 226,
-     "andel": 9.0
+     "andel": 8.9
     },
     {
      "namn": "Gökstensskolans aula",
@@ -1781,7 +1788,7 @@
      "total": 178,
      "dagarMedRoster": 2,
      "storstaDag": 95,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Engelska skolan",
@@ -1799,7 +1806,7 @@
      "total": 112,
      "dagarMedRoster": 1,
      "storstaDag": 112,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Åsborgen",
@@ -1808,7 +1815,7 @@
      "total": 84,
      "dagarMedRoster": 1,
      "storstaDag": 84,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Hammargärdets Skola",
@@ -1845,6 +1852,33 @@
      "dagarMedRoster": 1,
      "storstaDag": 48,
      "andel": 0.3
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484018",
+     "total": 47,
+     "dagarMedRoster": 2,
+     "storstaDag": 29,
+     "andel": 0.3
+    },
+    {
+     "namn": "Odlarbäckens vård- och omsorgsboende",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484035",
+     "total": 42,
+     "dagarMedRoster": 1,
+     "storstaDag": 42,
+     "andel": 0.3
+    },
+    {
+     "namn": "Måsta äng vård- och omsorgsboende",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484024",
+     "total": 38,
+     "dagarMedRoster": 1,
+     "storstaDag": 38,
+     "andel": 0.2
     },
     {
      "namn": "Rosenforsgården",
@@ -1910,15 +1944,6 @@
      "andel": 0.2
     },
     {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484018",
-     "total": 18,
-     "dagarMedRoster": 1,
-     "storstaDag": 18,
-     "andel": 0.1
-    },
-    {
      "namn": "Sörmlands Stadsmission",
      "kommun": "Eskilstuna",
      "lokalId": "0484028",
@@ -1940,24 +1965,6 @@
      "namn": "Mälarsjukhuset",
      "kommun": "Eskilstuna",
      "lokalId": "0484010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Måsta äng vård- och omsorgsboende",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484024",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Odlarbäckens vård- och omsorgsboende",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484035",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -2467,7 +2467,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -2532,9 +2532,16 @@
      "kvar": 10,
      "antal": 1922,
      "ack": 10440
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 722,
+     "ack": 11162
     }
    ],
-   "total": 10440,
+   "total": 11162,
    "rostberattigade": {
     "riksdag": 57274,
     "kommun": 59715,
@@ -2552,10 +2559,19 @@
      "namn": "Sara Kulturhus",
      "kommun": "Skellefteå",
      "lokalId": "2482037",
-     "total": 5323,
-     "dagarMedRoster": 9,
+     "total": 5735,
+     "dagarMedRoster": 10,
      "storstaDag": 850,
-     "andel": 51.0
+     "andel": 51.4
+    },
+    {
+     "namn": "Campus, bibliotek",
+     "kommun": "Skellefteå",
+     "lokalId": "2482005",
+     "total": 581,
+     "dagarMedRoster": 8,
+     "storstaDag": 178,
+     "andel": 5.2
     },
     {
      "namn": "Morö backe, Fritidsgården Loftet",
@@ -2564,25 +2580,25 @@
      "total": 563,
      "dagarMedRoster": 4,
      "storstaDag": 201,
-     "andel": 5.4
-    },
-    {
-     "namn": "Campus, bibliotek",
-     "kommun": "Skellefteå",
-     "lokalId": "2482005",
-     "total": 509,
-     "dagarMedRoster": 7,
-     "storstaDag": 178,
-     "andel": 4.9
+     "andel": 5.0
     },
     {
      "namn": "Skellefteå sjukhus",
      "kommun": "Skellefteå",
      "lokalId": "2482031",
-     "total": 468,
-     "dagarMedRoster": 7,
+     "total": 513,
+     "dagarMedRoster": 8,
      "storstaDag": 118,
-     "andel": 4.5
+     "andel": 4.6
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Skellefteå",
+     "lokalId": "2482042",
+     "total": 458,
+     "dagarMedRoster": 7,
+     "storstaDag": 113,
+     "andel": 4.1
     },
     {
      "namn": "Ursvikens bibliotek",
@@ -2591,7 +2607,7 @@
      "total": 433,
      "dagarMedRoster": 5,
      "storstaDag": 141,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
      "namn": "Edelvik folkhögskola",
@@ -2600,7 +2616,7 @@
      "total": 427,
      "dagarMedRoster": 4,
      "storstaDag": 156,
-     "andel": 4.1
+     "andel": 3.8
     },
     {
      "namn": "Kåge bibliotek",
@@ -2609,7 +2625,7 @@
      "total": 396,
      "dagarMedRoster": 4,
      "storstaDag": 153,
-     "andel": 3.8
+     "andel": 3.5
     },
     {
      "namn": "Bureå bibliotek",
@@ -2618,16 +2634,7 @@
      "total": 383,
      "dagarMedRoster": 4,
      "storstaDag": 161,
-     "andel": 3.7
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Skellefteå",
-     "lokalId": "2482042",
-     "total": 365,
-     "dagarMedRoster": 6,
-     "storstaDag": 113,
-     "andel": 3.5
+     "andel": 3.4
     },
     {
      "namn": "Skelleftehamn, Folkets Hus, Rotan",
@@ -2636,7 +2643,7 @@
      "total": 362,
      "dagarMedRoster": 6,
      "storstaDag": 119,
-     "andel": 3.5
+     "andel": 3.2
     },
     {
      "namn": "Byske bibliotek",
@@ -2645,7 +2652,7 @@
      "total": 357,
      "dagarMedRoster": 4,
      "storstaDag": 131,
-     "andel": 3.4
+     "andel": 3.2
     },
     {
      "namn": "Boliden, bibliotek",
@@ -2654,7 +2661,7 @@
      "total": 240,
      "dagarMedRoster": 4,
      "storstaDag": 101,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Lövångers bibliotek",
@@ -2669,10 +2676,10 @@
      "namn": "Jörn, JESS-lokalen",
      "kommun": "Skellefteå",
      "lokalId": "2482016",
-     "total": 101,
-     "dagarMedRoster": 3,
+     "total": 131,
+     "dagarMedRoster": 4,
      "storstaDag": 53,
-     "andel": 1.0
+     "andel": 1.2
     },
     {
      "namn": "Boviken, Hembygdsgården",
@@ -2681,7 +2688,16 @@
      "total": 71,
      "dagarMedRoster": 1,
      "storstaDag": 71,
-     "andel": 0.7
+     "andel": 0.6
+    },
+    {
+     "namn": "Solbacken",
+     "kommun": "Skellefteå",
+     "lokalId": "2482041",
+     "total": 70,
+     "dagarMedRoster": 1,
+     "storstaDag": 70,
+     "andel": 0.6
     },
     {
      "namn": "Ljusvattnet, Kapellet",
@@ -2690,7 +2706,7 @@
      "total": 68,
      "dagarMedRoster": 1,
      "storstaDag": 68,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Klutmark byagård",
@@ -3074,15 +3090,6 @@
      "namn": "Skärgårdshemmet",
      "kommun": "Skellefteå",
      "lokalId": "2482053",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Solbacken",
-     "kommun": "Skellefteå",
-     "lokalId": "2482041",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

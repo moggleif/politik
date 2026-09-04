@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -907,32 +907,39 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 389,
-     "ack": 1206
+     "antal": 390,
+     "ack": 1207
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 232,
-     "ack": 1438
+     "ack": 1439
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 247,
-     "ack": 1685
+     "ack": 1686
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 263,
-     "ack": 1948
+     "antal": 264,
+     "ack": 1950
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 155,
+     "ack": 2105
     }
    ],
-   "total": 1948,
+   "total": 2105,
    "rostberattigade": {
     "riksdag": 9917,
     "kommun": 10163,
@@ -950,10 +957,10 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Tidaholm",
      "lokalId": "1498001",
-     "total": 1885,
-     "dagarMedRoster": 9,
-     "storstaDag": 372,
-     "andel": 96.8
+     "total": 2042,
+     "dagarMedRoster": 10,
+     "storstaDag": 373,
+     "andel": 97.0
     },
     {
      "namn": "Midgård",
@@ -962,7 +969,7 @@
      "total": 26,
      "dagarMedRoster": 1,
      "storstaDag": 26,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Solvik",
@@ -971,7 +978,7 @@
      "total": 17,
      "dagarMedRoster": 1,
      "storstaDag": 17,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Hellidshemmet",
@@ -980,7 +987,7 @@
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -989,7 +996,7 @@
      "total": 9,
      "dagarMedRoster": 4,
      "storstaDag": 3,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Lindängen",

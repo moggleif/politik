@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -784,7 +784,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -847,11 +847,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 296,
-     "ack": 2342
+     "antal": 297,
+     "ack": 2343
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 42,
+     "ack": 2385
     }
    ],
-   "total": 2342,
+   "total": 2385,
    "rostberattigade": {
     "riksdag": 14149,
     "kommun": 15443,
@@ -869,19 +876,19 @@
      "namn": "Burlöv Center",
      "kommun": "Burlöv",
      "lokalId": "1231005",
-     "total": 1362,
+     "total": 1363,
      "dagarMedRoster": 8,
      "storstaDag": 239,
-     "andel": 58.2
+     "andel": 57.1
     },
     {
      "namn": "Arlövs bibliotek",
      "kommun": "Burlöv",
      "lokalId": "1231001",
-     "total": 755,
-     "dagarMedRoster": 8,
+     "total": 797,
+     "dagarMedRoster": 9,
      "storstaDag": 128,
-     "andel": 32.2
+     "andel": 33.4
     },
     {
      "namn": "Tora Vega folkhögskola",
@@ -890,7 +897,7 @@
      "total": 196,
      "dagarMedRoster": 3,
      "storstaDag": 81,
-     "andel": 8.4
+     "andel": 8.2
     },
     {
      "namn": "Ambulerande röstmottagning",

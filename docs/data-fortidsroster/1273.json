@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -973,11 +973,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 200,
-     "ack": 1380
+     "antal": 243,
+     "ack": 1423
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 49,
+     "ack": 1472
     }
    ],
-   "total": 1380,
+   "total": 1472,
    "rostberattigade": {
     "riksdag": 9763,
     "kommun": 10187,
@@ -995,10 +1002,10 @@
      "namn": "Fullmäktigesalen Kommunhuset Osby",
      "kommun": "Osby",
      "lokalId": "1273011",
-     "total": 834,
-     "dagarMedRoster": 9,
-     "storstaDag": 114,
-     "andel": 60.4
+     "total": 868,
+     "dagarMedRoster": 10,
+     "storstaDag": 115,
+     "andel": 59.0
     },
     {
      "namn": "Medborgarhuset Lönsboda",
@@ -1007,7 +1014,7 @@
      "total": 326,
      "dagarMedRoster": 5,
      "storstaDag": 78,
-     "andel": 23.6
+     "andel": 22.1
     },
     {
      "namn": "Hemgården Killeberg",
@@ -1016,7 +1023,7 @@
      "total": 78,
      "dagarMedRoster": 2,
      "storstaDag": 55,
-     "andel": 5.7
+     "andel": 5.3
     },
     {
      "namn": "Pop-up förtidsröstning Familjedagen",
@@ -1025,16 +1032,25 @@
      "total": 76,
      "dagarMedRoster": 1,
      "storstaDag": 76,
-     "andel": 5.5
+     "andel": 5.2
     },
     {
      "namn": "Hembygdsgården Visseltofta",
      "kommun": "Osby",
      "lokalId": "1273007",
+     "total": 44,
+     "dagarMedRoster": 2,
+     "storstaDag": 28,
+     "andel": 3.0
+    },
+    {
+     "namn": "Rönnebackens äldreboende",
+     "kommun": "Osby",
+     "lokalId": "1273003",
      "total": 28,
      "dagarMedRoster": 1,
      "storstaDag": 28,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Bergfast äldreboende",
@@ -1043,7 +1059,16 @@
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 1.4
+     "andel": 1.3
+    },
+    {
+     "namn": "Lindhems äldreboende",
+     "kommun": "Osby",
+     "lokalId": "1273004",
+     "total": 14,
+     "dagarMedRoster": 1,
+     "storstaDag": 14,
+     "andel": 1.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1052,7 +1077,7 @@
      "total": 11,
      "dagarMedRoster": 2,
      "storstaDag": 7,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Solhems äldreboende",
@@ -1061,30 +1086,12 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Kontaktcenter, Kommunhuset",
      "kommun": "Osby",
      "lokalId": "1273008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Lindhems äldreboende",
-     "kommun": "Osby",
-     "lokalId": "1273004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Rönnebackens äldreboende",
-     "kommun": "Osby",
-     "lokalId": "1273003",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

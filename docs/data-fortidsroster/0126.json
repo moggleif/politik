@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1288,7 +1288,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1323,39 +1323,46 @@
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 1062,
-     "ack": 6047
+     "antal": 1064,
+     "ack": 6049
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 1452,
-     "ack": 7499
+     "ack": 7501
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 1404,
-     "ack": 8903
+     "ack": 8905
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 1675,
-     "ack": 10578
+     "antal": 1709,
+     "ack": 10614
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 1548,
-     "ack": 12126
+     "ack": 12162
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 592,
+     "ack": 12754
     }
    ],
-   "total": 12126,
+   "total": 12754,
    "rostberattigade": {
     "riksdag": 79905,
     "kommun": 86928,
@@ -1373,17 +1380,17 @@
      "namn": "Huddinge centrum, Folkes",
      "kommun": "Huddinge",
      "lokalId": "0126006",
-     "total": 2772,
-     "dagarMedRoster": 9,
+     "total": 2974,
+     "dagarMedRoster": 10,
      "storstaDag": 433,
-     "andel": 22.9
+     "andel": 23.3
     },
     {
      "namn": "Skogås bibliotek",
      "kommun": "Huddinge",
      "lokalId": "0126009",
-     "total": 1753,
-     "dagarMedRoster": 9,
+     "total": 1850,
+     "dagarMedRoster": 10,
      "storstaDag": 263,
      "andel": 14.5
     },
@@ -1391,19 +1398,19 @@
      "namn": "Huvudbibliotek Huddinge",
      "kommun": "Huddinge",
      "lokalId": "0126013",
-     "total": 1566,
-     "dagarMedRoster": 9,
+     "total": 1655,
+     "dagarMedRoster": 10,
      "storstaDag": 242,
-     "andel": 12.9
+     "andel": 13.0
     },
     {
      "namn": "Karolinska sjukhuset, Huddinge",
      "kommun": "Huddinge",
      "lokalId": "0126002",
-     "total": 1366,
-     "dagarMedRoster": 9,
+     "total": 1426,
+     "dagarMedRoster": 10,
      "storstaDag": 226,
-     "andel": 11.3
+     "andel": 11.2
     },
     {
      "namn": "Stuvsta stationshus",
@@ -1412,14 +1419,14 @@
      "total": 1205,
      "dagarMedRoster": 9,
      "storstaDag": 155,
-     "andel": 9.9
+     "andel": 9.4
     },
     {
      "namn": "Flemingsbergs bibliotek",
      "kommun": "Huddinge",
      "lokalId": "0126007",
-     "total": 974,
-     "dagarMedRoster": 9,
+     "total": 1021,
+     "dagarMedRoster": 10,
      "storstaDag": 144,
      "andel": 8.0
     },
@@ -1427,26 +1434,26 @@
      "namn": "Segeltorps bibliotek",
      "kommun": "Huddinge",
      "lokalId": "0126008",
-     "total": 777,
-     "dagarMedRoster": 9,
+     "total": 829,
+     "dagarMedRoster": 10,
      "storstaDag": 105,
-     "andel": 6.4
+     "andel": 6.5
     },
     {
      "namn": "Eklunden Seniorcenter",
      "kommun": "Huddinge",
      "lokalId": "0126019",
-     "total": 756,
-     "dagarMedRoster": 9,
+     "total": 775,
+     "dagarMedRoster": 10,
      "storstaDag": 120,
-     "andel": 6.2
+     "andel": 6.1
     },
     {
      "namn": "Vårby bibliotek",
      "kommun": "Huddinge",
      "lokalId": "0126010",
-     "total": 608,
-     "dagarMedRoster": 9,
+     "total": 636,
+     "dagarMedRoster": 10,
      "storstaDag": 97,
      "andel": 5.0
     },
@@ -1457,7 +1464,7 @@
      "total": 207,
      "dagarMedRoster": 9,
      "storstaDag": 41,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Stortorps äldreboende",
@@ -1467,6 +1474,15 @@
      "dagarMedRoster": 1,
      "storstaDag": 46,
      "andel": 0.4
+    },
+    {
+     "namn": "Rättspsykiatri Sektion Syd (Helix)",
+     "kommun": "Huddinge",
+     "lokalId": "0126021",
+     "total": 34,
+     "dagarMedRoster": 1,
+     "storstaDag": 34,
+     "andel": 0.3
     },
     {
      "namn": "Björnkulla äldreboende",
@@ -1517,15 +1533,6 @@
      "namn": "Ersta Susannahemmet",
      "kommun": "Huddinge",
      "lokalId": "0126020",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Rättspsykiatri Sektion Syd (Helix)",
-     "kommun": "Huddinge",
-     "lokalId": "0126021",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

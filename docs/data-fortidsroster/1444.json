@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -777,18 +777,25 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 183,
-     "ack": 830
+     "antal": 184,
+     "ack": 831
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 155,
-     "ack": 985
+     "ack": 986
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 76,
+     "ack": 1062
     }
    ],
-   "total": 985,
+   "total": 1062,
    "rostberattigade": {
     "riksdag": 4512,
     "kommun": 4598,
@@ -806,19 +813,19 @@
      "namn": "Kommunens Hus, Samlingssalen",
      "kommun": "Grästorp",
      "lokalId": "1444002",
-     "total": 984,
-     "dagarMedRoster": 9,
-     "storstaDag": 183,
-     "andel": 99.9
+     "total": 1058,
+     "dagarMedRoster": 10,
+     "storstaDag": 184,
+     "andel": 99.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Grästorp",
      "lokalId": "1444003",
-     "total": 1,
-     "dagarMedRoster": 1,
-     "storstaDag": 1,
-     "andel": 0.1
+     "total": 4,
+     "dagarMedRoster": 2,
+     "storstaDag": 3,
+     "andel": 0.4
     },
     {
      "namn": "Restaurang Jon Jesper",

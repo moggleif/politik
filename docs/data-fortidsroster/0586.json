@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1099,7 +1099,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1155,18 +1155,25 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 393,
-     "ack": 2698
+     "antal": 409,
+     "ack": 2714
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 735,
-     "ack": 3433
+     "ack": 3449
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 338,
+     "ack": 3787
     }
    ],
-   "total": 3433,
+   "total": 3787,
    "rostberattigade": {
     "riksdag": 22032,
     "kommun": 22635,
@@ -1184,28 +1191,28 @@
      "namn": "Gallerian",
      "kommun": "Mjölby",
      "lokalId": "0586010",
-     "total": 1896,
-     "dagarMedRoster": 8,
+     "total": 2103,
+     "dagarMedRoster": 9,
      "storstaDag": 509,
-     "andel": 55.2
+     "andel": 55.5
     },
     {
      "namn": "Häradsvallens förskola",
      "kommun": "Mjölby",
      "lokalId": "0586005",
-     "total": 632,
-     "dagarMedRoster": 7,
+     "total": 683,
+     "dagarMedRoster": 8,
      "storstaDag": 151,
-     "andel": 18.4
+     "andel": 18.0
     },
     {
      "namn": "Hatten gemenskapslokal",
      "kommun": "Mjölby",
      "lokalId": "0586007",
-     "total": 482,
-     "dagarMedRoster": 4,
+     "total": 525,
+     "dagarMedRoster": 5,
      "storstaDag": 184,
-     "andel": 14.0
+     "andel": 13.9
     },
     {
      "namn": "Folkungasalen",
@@ -1214,16 +1221,16 @@
      "total": 204,
      "dagarMedRoster": 4,
      "storstaDag": 66,
-     "andel": 5.9
+     "andel": 5.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Mjölby",
      "lokalId": "0586013",
-     "total": 111,
-     "dagarMedRoster": 3,
+     "total": 130,
+     "dagarMedRoster": 4,
      "storstaDag": 83,
-     "andel": 3.2
+     "andel": 3.4
     },
     {
      "namn": "Vifolkagårdens vårdboende",
@@ -1232,7 +1239,16 @@
      "total": 39,
      "dagarMedRoster": 1,
      "storstaDag": 39,
-     "andel": 1.1
+     "andel": 1.0
+    },
+    {
+     "namn": "Kriminalvårdsanstalten",
+     "kommun": "Mjölby",
+     "lokalId": "0586008",
+     "total": 34,
+     "dagarMedRoster": 2,
+     "storstaDag": 18,
+     "andel": 0.9
     },
     {
      "namn": "Folkungagården",
@@ -1269,15 +1285,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 15,
      "andel": 0.4
-    },
-    {
-     "namn": "Kriminalvårdsanstalten",
-     "kommun": "Mjölby",
-     "lokalId": "0586008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Stadshuset i Mjölby",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -946,7 +946,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -960,60 +960,67 @@
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 159,
-     "ack": 318
+     "antal": 160,
+     "ack": 319
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 129,
-     "ack": 447
+     "ack": 448
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 95,
-     "ack": 542
+     "ack": 543
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 131,
-     "ack": 673
+     "ack": 674
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 800,
-     "ack": 1473
+     "antal": 805,
+     "ack": 1479
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 438,
-     "ack": 1911
+     "antal": 535,
+     "ack": 2014
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 125,
-     "ack": 2036
+     "ack": 2139
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 771,
-     "ack": 2807
+     "antal": 844,
+     "ack": 2983
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 217,
+     "ack": 3200
     }
    ],
-   "total": 2807,
+   "total": 3200,
    "rostberattigade": {
     "riksdag": 17621,
     "kommun": 17983,
@@ -1031,19 +1038,19 @@
      "namn": "Societetshuset Källör",
      "kommun": "Östhammar",
      "lokalId": "0382002",
-     "total": 1259,
-     "dagarMedRoster": 9,
+     "total": 1402,
+     "dagarMedRoster": 10,
      "storstaDag": 177,
-     "andel": 44.9
+     "andel": 43.8
     },
     {
      "namn": "Sven Persson hallen",
      "kommun": "Östhammar",
      "lokalId": "0382004",
-     "total": 501,
+     "total": 513,
      "dagarMedRoster": 3,
      "storstaDag": 188,
-     "andel": 17.8
+     "andel": 16.0
     },
     {
      "namn": "Olandsskolans matsal",
@@ -1052,7 +1059,16 @@
      "total": 439,
      "dagarMedRoster": 3,
      "storstaDag": 162,
-     "andel": 15.6
+     "andel": 13.7
+    },
+    {
+     "namn": "Folkets Hus, Österbybruk",
+     "kommun": "Östhammar",
+     "lokalId": "0382006",
+     "total": 398,
+     "dagarMedRoster": 3,
+     "storstaDag": 159,
+     "andel": 12.4
     },
     {
      "namn": "Lärkbacken",
@@ -1061,16 +1077,16 @@
      "total": 373,
      "dagarMedRoster": 2,
      "storstaDag": 197,
-     "andel": 13.3
+     "andel": 11.7
     },
     {
-     "namn": "Folkets Hus, Österbybruk",
+     "namn": "Granhälla Bygdegård",
      "kommun": "Östhammar",
-     "lokalId": "0382006",
-     "total": 235,
-     "dagarMedRoster": 3,
-     "storstaDag": 142,
-     "andel": 8.4
+     "lokalId": "0382001",
+     "total": 75,
+     "dagarMedRoster": 1,
+     "storstaDag": 75,
+     "andel": 2.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1103,15 +1119,6 @@
      "namn": "Församlingshemmet, Gräsö",
      "kommun": "Östhammar",
      "lokalId": "0382011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Granhälla Bygdegård",
-     "kommun": "Östhammar",
-     "lokalId": "0382001",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1243,11 +1243,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1390,
-     "ack": 10912
+     "antal": 1402,
+     "ack": 10924
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 773,
+     "ack": 11697
     }
    ],
-   "total": 10912,
+   "total": 11697,
    "rostberattigade": {
     "riksdag": 69597,
     "kommun": 77516,
@@ -1265,53 +1272,53 @@
      "namn": "Ica Maxi",
      "kommun": "Haninge",
      "lokalId": "0136010",
-     "total": 3838,
-     "dagarMedRoster": 9,
-     "storstaDag": 558,
-     "andel": 35.2
+     "total": 4091,
+     "dagarMedRoster": 10,
+     "storstaDag": 559,
+     "andel": 35.0
     },
     {
      "namn": "Haninge kulturhus",
      "kommun": "Haninge",
      "lokalId": "0136003",
-     "total": 2564,
-     "dagarMedRoster": 9,
+     "total": 2738,
+     "dagarMedRoster": 10,
      "storstaDag": 384,
-     "andel": 23.5
+     "andel": 23.4
     },
     {
      "namn": "Västerhaninge bibliotek",
      "kommun": "Haninge",
      "lokalId": "0136002",
-     "total": 1891,
-     "dagarMedRoster": 8,
+     "total": 2047,
+     "dagarMedRoster": 9,
      "storstaDag": 271,
-     "andel": 17.3
+     "andel": 17.5
     },
     {
      "namn": "Jordbro bibliotek",
      "kommun": "Haninge",
      "lokalId": "0136001",
-     "total": 713,
-     "dagarMedRoster": 8,
+     "total": 769,
+     "dagarMedRoster": 9,
      "storstaDag": 146,
-     "andel": 6.5
+     "andel": 6.6
     },
     {
      "namn": "Träffpunkten Brandbergen",
      "kommun": "Haninge",
      "lokalId": "0136007",
-     "total": 548,
-     "dagarMedRoster": 7,
+     "total": 604,
+     "dagarMedRoster": 8,
      "storstaDag": 90,
-     "andel": 5.0
+     "andel": 5.2
     },
     {
      "namn": "Vega skola & aktivitetshus",
      "kommun": "Haninge",
      "lokalId": "0136008",
-     "total": 534,
-     "dagarMedRoster": 5,
+     "total": 577,
+     "dagarMedRoster": 6,
      "storstaDag": 150,
      "andel": 4.9
     },
@@ -1322,7 +1329,7 @@
      "total": 295,
      "dagarMedRoster": 5,
      "storstaDag": 69,
-     "andel": 2.7
+     "andel": 2.5
     },
     {
      "namn": "Tungelsta folk- och trädgårdsmuseum",
@@ -1331,7 +1338,16 @@
      "total": 289,
      "dagarMedRoster": 2,
      "storstaDag": 193,
-     "andel": 2.6
+     "andel": 2.5
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Haninge",
+     "lokalId": "0136009",
+     "total": 42,
+     "dagarMedRoster": 8,
+     "storstaDag": 6,
+     "andel": 0.4
     },
     {
      "namn": "Hanveden äldreboende",
@@ -1340,6 +1356,15 @@
      "total": 38,
      "dagarMedRoster": 1,
      "storstaDag": 38,
+     "andel": 0.3
+    },
+    {
+     "namn": "Johanneslund",
+     "kommun": "Haninge",
+     "lokalId": "0136020",
+     "total": 37,
+     "dagarMedRoster": 1,
+     "storstaDag": 37,
      "andel": 0.3
     },
     {
@@ -1352,22 +1377,13 @@
      "andel": 0.3
     },
     {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Haninge",
-     "lokalId": "0136009",
-     "total": 32,
-     "dagarMedRoster": 6,
-     "storstaDag": 6,
-     "andel": 0.3
-    },
-    {
      "namn": "Lillgårdsvägen äldreboende",
      "kommun": "Haninge",
      "lokalId": "0136015",
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Villa Tjädern",
@@ -1422,15 +1438,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 7,
      "andel": 0.1
-    },
-    {
-     "namn": "Johanneslund",
-     "kommun": "Haninge",
-     "lokalId": "0136020",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Ornö bygdegård",

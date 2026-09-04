@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1009,7 +1009,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1074,9 +1074,16 @@
      "kvar": 10,
      "antal": 189,
      "ack": 1735
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 116,
+     "ack": 1851
     }
    ],
-   "total": 1735,
+   "total": 1851,
    "rostberattigade": {
     "riksdag": 9919,
     "kommun": 10394,
@@ -1094,8 +1101,8 @@
      "namn": "Kulturhuset",
      "kommun": "Olofström",
      "lokalId": "1060006",
-     "total": 1513,
-     "dagarMedRoster": 9,
+     "total": 1614,
+     "dagarMedRoster": 10,
      "storstaDag": 252,
      "andel": 87.2
     },
@@ -1106,7 +1113,7 @@
      "total": 109,
      "dagarMedRoster": 1,
      "storstaDag": 109,
-     "andel": 6.3
+     "andel": 5.9
     },
     {
      "namn": "Träffpunkten vid Garvaregården",
@@ -1115,7 +1122,16 @@
      "total": 103,
      "dagarMedRoster": 1,
      "storstaDag": 103,
-     "andel": 5.9
+     "andel": 5.6
+    },
+    {
+     "namn": "Brännaregårdens äldreboende",
+     "kommun": "Olofström",
+     "lokalId": "1060009",
+     "total": 15,
+     "dagarMedRoster": 1,
+     "storstaDag": 15,
+     "andel": 0.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1124,21 +1140,12 @@
      "total": 10,
      "dagarMedRoster": 2,
      "storstaDag": 6,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Borggården",
      "kommun": "Olofström",
      "lokalId": "1060011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Brännaregårdens äldreboende",
-     "kommun": "Olofström",
-     "lokalId": "1060009",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

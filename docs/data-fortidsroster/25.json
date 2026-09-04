@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1778,25 +1778,32 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 4472,
-     "ack": 24905
+     "antal": 4475,
+     "ack": 24908
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 4783,
-     "ack": 29688
+     "antal": 4789,
+     "ack": 29697
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 4459,
-     "ack": 34147
+     "antal": 4496,
+     "ack": 34193
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 2688,
+     "ack": 36881
     }
    ],
-   "total": 34147,
+   "total": 36881,
    "rostberattigade": {
     "riksdag": 193266,
     "kommun": 201979,
@@ -1814,26 +1821,26 @@
      "namn": "Luleå Energi Arena",
      "kommun": "Luleå",
      "lokalId": "2580016",
-     "total": 5953,
-     "dagarMedRoster": 9,
+     "total": 6347,
+     "dagarMedRoster": 10,
      "storstaDag": 842,
-     "andel": 17.4
+     "andel": 17.2
     },
     {
      "namn": "Småstaden",
      "kommun": "Piteå",
      "lokalId": "2581014",
-     "total": 4104,
-     "dagarMedRoster": 9,
+     "total": 4400,
+     "dagarMedRoster": 10,
      "storstaDag": 585,
-     "andel": 12.0
+     "andel": 11.9
     },
     {
      "namn": "Stadshuset",
      "kommun": "Boden",
      "lokalId": "2582001",
-     "total": 3903,
-     "dagarMedRoster": 9,
+     "total": 4199,
+     "dagarMedRoster": 10,
      "storstaDag": 573,
      "andel": 11.4
     },
@@ -1841,28 +1848,64 @@
      "namn": "Stadshuset Kristallen",
      "kommun": "Kiruna",
      "lokalId": "2584014",
-     "total": 2932,
-     "dagarMedRoster": 9,
+     "total": 3153,
+     "dagarMedRoster": 10,
      "storstaDag": 545,
-     "andel": 8.6
+     "andel": 8.5
     },
     {
      "namn": "Enen - matsal",
      "kommun": "Gällivare",
      "lokalId": "2523008",
-     "total": 2117,
-     "dagarMedRoster": 9,
+     "total": 2257,
+     "dagarMedRoster": 10,
      "storstaDag": 339,
-     "andel": 6.2
+     "andel": 6.1
     },
     {
      "namn": "Gallerian Kalix",
      "kommun": "Kalix",
      "lokalId": "2514012",
-     "total": 2003,
-     "dagarMedRoster": 9,
+     "total": 2213,
+     "dagarMedRoster": 10,
      "storstaDag": 279,
-     "andel": 5.9
+     "andel": 6.0
+    },
+    {
+     "namn": "Medborgarhuset",
+     "kommun": "Arvidsjaur",
+     "lokalId": "2505005",
+     "total": 1046,
+     "dagarMedRoster": 10,
+     "storstaDag": 135,
+     "andel": 2.8
+    },
+    {
+     "namn": "Klippanhuset, vid stadsbiblioteket",
+     "kommun": "Haparanda",
+     "lokalId": "2583001",
+     "total": 1020,
+     "dagarMedRoster": 10,
+     "storstaDag": 148,
+     "andel": 2.8
+    },
+    {
+     "namn": "Samlingslokal i Porsö sporthall",
+     "kommun": "Luleå",
+     "lokalId": "2580012",
+     "total": 963,
+     "dagarMedRoster": 8,
+     "storstaDag": 135,
+     "andel": 2.6
+    },
+    {
+     "namn": "Christina Kultur",
+     "kommun": "Piteå",
+     "lokalId": "2581012",
+     "total": 954,
+     "dagarMedRoster": 5,
+     "storstaDag": 244,
+     "andel": 2.6
     },
     {
      "namn": "Kommunförvaltningen",
@@ -1871,77 +1914,41 @@
      "total": 952,
      "dagarMedRoster": 7,
      "storstaDag": 152,
-     "andel": 2.8
-    },
-    {
-     "namn": "Medborgarhuset",
-     "kommun": "Arvidsjaur",
-     "lokalId": "2505005",
-     "total": 908,
-     "dagarMedRoster": 9,
-     "storstaDag": 125,
-     "andel": 2.7
-    },
-    {
-     "namn": "Klippanhuset, vid stadsbiblioteket",
-     "kommun": "Haparanda",
-     "lokalId": "2583001",
-     "total": 872,
-     "dagarMedRoster": 9,
-     "storstaDag": 132,
      "andel": 2.6
-    },
-    {
-     "namn": "Christina Kultur",
-     "kommun": "Piteå",
-     "lokalId": "2581012",
-     "total": 839,
-     "dagarMedRoster": 4,
-     "storstaDag": 244,
-     "andel": 2.5
-    },
-    {
-     "namn": "Samlingslokal i Porsö sporthall",
-     "kommun": "Luleå",
-     "lokalId": "2580012",
-     "total": 839,
-     "dagarMedRoster": 7,
-     "storstaDag": 135,
-     "andel": 2.5
     },
     {
      "namn": "Aktivitetshuset Kubben",
      "kommun": "Luleå",
      "lokalId": "2580004",
-     "total": 761,
-     "dagarMedRoster": 7,
+     "total": 810,
+     "dagarMedRoster": 8,
      "storstaDag": 147,
      "andel": 2.2
-    },
-    {
-     "namn": "Konferenslokal Pärlan",
-     "kommun": "Luleå",
-     "lokalId": "2580018",
-     "total": 692,
-     "dagarMedRoster": 9,
-     "storstaDag": 104,
-     "andel": 2.0
     },
     {
      "namn": "Gymnasiebiblioteket",
      "kommun": "Luleå",
      "lokalId": "2580011",
-     "total": 637,
-     "dagarMedRoster": 7,
+     "total": 752,
+     "dagarMedRoster": 8,
      "storstaDag": 128,
-     "andel": 1.9
+     "andel": 2.0
+    },
+    {
+     "namn": "Konferenslokal Pärlan",
+     "kommun": "Luleå",
+     "lokalId": "2580018",
+     "total": 750,
+     "dagarMedRoster": 10,
+     "storstaDag": 104,
+     "andel": 2.0
     },
     {
      "namn": "Folkets Hus Jokkmokk",
      "kommun": "Jokkmokk",
      "lokalId": "2510013",
-     "total": 630,
-     "dagarMedRoster": 9,
+     "total": 674,
+     "dagarMedRoster": 10,
      "storstaDag": 102,
      "andel": 1.8
     },
@@ -1949,8 +1956,8 @@
      "namn": "Hyresgästlokal Lulebo",
      "kommun": "Luleå",
      "lokalId": "2580013",
-     "total": 605,
-     "dagarMedRoster": 7,
+     "total": 650,
+     "dagarMedRoster": 8,
      "storstaDag": 128,
      "andel": 1.8
     },
@@ -1958,8 +1965,8 @@
      "namn": "Pajala G:a Sporthallen",
      "kommun": "Pajala",
      "lokalId": "2521011",
-     "total": 569,
-     "dagarMedRoster": 7,
+     "total": 636,
+     "dagarMedRoster": 8,
      "storstaDag": 125,
      "andel": 1.7
     },
@@ -1967,8 +1974,8 @@
      "namn": "Överkalix kommunförvaltning",
      "kommun": "Överkalix",
      "lokalId": "2513004",
-     "total": 470,
-     "dagarMedRoster": 9,
+     "total": 533,
+     "dagarMedRoster": 10,
      "storstaDag": 75,
      "andel": 1.4
     },
@@ -1976,8 +1983,8 @@
      "namn": "Förvaltningsbyggnaden, Solsidan",
      "kommun": "Övertorneå",
      "lokalId": "2518004",
-     "total": 464,
-     "dagarMedRoster": 9,
+     "total": 509,
+     "dagarMedRoster": 10,
      "storstaDag": 71,
      "andel": 1.4
     },
@@ -1985,8 +1992,8 @@
      "namn": "Kommunbiblioteket",
      "kommun": "Arjeplog",
      "lokalId": "2506006",
-     "total": 395,
-     "dagarMedRoster": 9,
+     "total": 435,
+     "dagarMedRoster": 10,
      "storstaDag": 92,
      "andel": 1.2
     },
@@ -2009,21 +2016,30 @@
      "andel": 0.6
     },
     {
+     "namn": "Töre Folkets Hus",
+     "kommun": "Kalix",
+     "lokalId": "2514002",
+     "total": 200,
+     "dagarMedRoster": 8,
+     "storstaDag": 32,
+     "andel": 0.5
+    },
+    {
      "namn": "Tärendö Sporthall",
      "kommun": "Pajala",
      "lokalId": "2521007",
      "total": 196,
      "dagarMedRoster": 2,
      "storstaDag": 140,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
-     "namn": "Töre Folkets Hus",
-     "kommun": "Kalix",
-     "lokalId": "2514002",
-     "total": 180,
-     "dagarMedRoster": 7,
-     "storstaDag": 32,
+     "namn": "Vittangi Folkets Hus",
+     "kommun": "Kiruna",
+     "lokalId": "2584011",
+     "total": 179,
+     "dagarMedRoster": 3,
+     "storstaDag": 76,
      "andel": 0.5
     },
     {
@@ -2045,22 +2061,13 @@
      "andel": 0.4
     },
     {
-     "namn": "Vittangi Folkets Hus",
-     "kommun": "Kiruna",
-     "lokalId": "2584011",
-     "total": 138,
-     "dagarMedRoster": 2,
-     "storstaDag": 76,
-     "andel": 0.4
-    },
-    {
      "namn": "Dokkas skola",
      "kommun": "Gällivare",
      "lokalId": "2523011",
      "total": 129,
      "dagarMedRoster": 2,
      "storstaDag": 72,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Servicepunkten Harads",
@@ -2069,7 +2076,7 @@
      "total": 120,
      "dagarMedRoster": 1,
      "storstaDag": 120,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Vidsels aktivitetshus",

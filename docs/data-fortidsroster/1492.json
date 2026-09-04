@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -973,11 +973,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 279,
-     "ack": 2082
+     "antal": 282,
+     "ack": 2085
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 94,
+     "ack": 2179
     }
    ],
-   "total": 2082,
+   "total": 2179,
    "rostberattigade": {
     "riksdag": 9273,
     "kommun": 9461,
@@ -995,10 +1002,10 @@
      "namn": "Konsthallen",
      "kommun": "Åmål",
      "lokalId": "1492005",
-     "total": 1769,
-     "dagarMedRoster": 9,
+     "total": 1863,
+     "dagarMedRoster": 10,
      "storstaDag": 238,
-     "andel": 85.0
+     "andel": 85.5
     },
     {
      "namn": "Fengersfors Folkets hus",
@@ -1007,7 +1014,7 @@
      "total": 101,
      "dagarMedRoster": 1,
      "storstaDag": 101,
-     "andel": 4.9
+     "andel": 4.6
     },
     {
      "namn": "Edsleskogs prästgård",
@@ -1016,7 +1023,7 @@
      "total": 55,
      "dagarMedRoster": 1,
      "storstaDag": 55,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Ånimskogs Bygdegård",
@@ -1025,7 +1032,7 @@
      "total": 48,
      "dagarMedRoster": 1,
      "storstaDag": 48,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Mo-Berga Bygdegård",
@@ -1034,7 +1041,7 @@
      "total": 43,
      "dagarMedRoster": 1,
      "storstaDag": 43,
-     "andel": 2.1
+     "andel": 2.0
     },
     {
      "namn": "Åmålsgården Särskilt boende",
@@ -1094,10 +1101,10 @@
      "namn": "Illern Särskilt boende",
      "kommun": "Åmål",
      "lokalId": "1492014",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 3,
+     "dagarMedRoster": 1,
+     "storstaDag": 3,
+     "andel": 0.1
     },
     {
      "namn": "Stadshuset",

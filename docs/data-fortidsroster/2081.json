@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,7 +1054,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1082,46 +1082,53 @@
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
-     "antal": 477,
-     "ack": 3081
+     "antal": 478,
+     "ack": 3082
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 462,
-     "ack": 3543
+     "ack": 3544
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 1061,
-     "ack": 4604
+     "ack": 4605
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 938,
-     "ack": 5542
+     "ack": 5543
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 1006,
-     "ack": 6548
+     "ack": 6549
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1041,
-     "ack": 7589
+     "antal": 1042,
+     "ack": 7591
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 499,
+     "ack": 8090
     }
    ],
-   "total": 7589,
+   "total": 8090,
    "rostberattigade": {
     "riksdag": 39692,
     "kommun": 40643,
@@ -1139,28 +1146,28 @@
      "namn": "Kupolen köpcentrum",
      "kommun": "Borlänge",
      "lokalId": "2081011",
-     "total": 3807,
-     "dagarMedRoster": 9,
+     "total": 4015,
+     "dagarMedRoster": 10,
      "storstaDag": 491,
-     "andel": 50.2
+     "andel": 49.6
     },
     {
      "namn": "Borlänge stadsbibliotek",
      "kommun": "Borlänge",
      "lokalId": "2081007",
-     "total": 1907,
-     "dagarMedRoster": 9,
+     "total": 2059,
+     "dagarMedRoster": 10,
      "storstaDag": 277,
-     "andel": 25.1
+     "andel": 25.5
     },
     {
      "namn": "Stadshuset Borlänge kommun",
      "kommun": "Borlänge",
      "lokalId": "2081006",
-     "total": 1362,
-     "dagarMedRoster": 7,
+     "total": 1503,
+     "dagarMedRoster": 8,
      "storstaDag": 239,
-     "andel": 17.9
+     "andel": 18.6
     },
     {
      "namn": "PROs lokal Kvarnsveden",
@@ -1169,7 +1176,7 @@
      "total": 489,
      "dagarMedRoster": 4,
      "storstaDag": 135,
-     "andel": 6.4
+     "andel": 6.0
     },
     {
      "namn": "Ambulerande röstmottagning",

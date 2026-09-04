@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1252,7 +1252,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1315,11 +1315,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1103,
-     "ack": 9541
+     "antal": 1111,
+     "ack": 9549
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 811,
+     "ack": 10360
     }
    ],
-   "total": 9541,
+   "total": 10360,
    "rostberattigade": {
     "riksdag": 62903,
     "kommun": 65233,
@@ -1337,53 +1344,53 @@
      "namn": "Luleå Energi Arena",
      "kommun": "Luleå",
      "lokalId": "2580016",
-     "total": 5953,
-     "dagarMedRoster": 9,
+     "total": 6347,
+     "dagarMedRoster": 10,
      "storstaDag": 842,
-     "andel": 62.4
+     "andel": 61.3
     },
     {
      "namn": "Samlingslokal i Porsö sporthall",
      "kommun": "Luleå",
      "lokalId": "2580012",
-     "total": 839,
-     "dagarMedRoster": 7,
+     "total": 963,
+     "dagarMedRoster": 8,
      "storstaDag": 135,
-     "andel": 8.8
+     "andel": 9.3
     },
     {
      "namn": "Aktivitetshuset Kubben",
      "kommun": "Luleå",
      "lokalId": "2580004",
-     "total": 761,
-     "dagarMedRoster": 7,
+     "total": 810,
+     "dagarMedRoster": 8,
      "storstaDag": 147,
-     "andel": 8.0
-    },
-    {
-     "namn": "Konferenslokal Pärlan",
-     "kommun": "Luleå",
-     "lokalId": "2580018",
-     "total": 692,
-     "dagarMedRoster": 9,
-     "storstaDag": 104,
-     "andel": 7.3
+     "andel": 7.8
     },
     {
      "namn": "Gymnasiebiblioteket",
      "kommun": "Luleå",
      "lokalId": "2580011",
-     "total": 637,
-     "dagarMedRoster": 7,
+     "total": 752,
+     "dagarMedRoster": 8,
      "storstaDag": 128,
-     "andel": 6.7
+     "andel": 7.3
+    },
+    {
+     "namn": "Konferenslokal Pärlan",
+     "kommun": "Luleå",
+     "lokalId": "2580018",
+     "total": 750,
+     "dagarMedRoster": 10,
+     "storstaDag": 104,
+     "andel": 7.2
     },
     {
      "namn": "Hyresgästlokal Lulebo",
      "kommun": "Luleå",
      "lokalId": "2580013",
-     "total": 605,
-     "dagarMedRoster": 7,
+     "total": 650,
+     "dagarMedRoster": 8,
      "storstaDag": 128,
      "andel": 6.3
     },
@@ -1391,10 +1398,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Luleå",
      "lokalId": "2580017",
-     "total": 54,
-     "dagarMedRoster": 5,
-     "storstaDag": 16,
-     "andel": 0.6
+     "total": 88,
+     "dagarMedRoster": 6,
+     "storstaDag": 34,
+     "andel": 0.8
     },
     {
      "namn": "Brändöns byahus",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -973,11 +973,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 181,
-     "ack": 1395
+     "antal": 182,
+     "ack": 1396
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 119,
+     "ack": 1515
     }
    ],
-   "total": 1395,
+   "total": 1515,
    "rostberattigade": {
     "riksdag": 7354,
     "kommun": 7631,
@@ -995,19 +1002,19 @@
      "namn": "Huvudbibliotek Herrljunga",
      "kommun": "Herrljunga",
      "lokalId": "1466001",
-     "total": 987,
-     "dagarMedRoster": 9,
+     "total": 1076,
+     "dagarMedRoster": 10,
      "storstaDag": 172,
-     "andel": 70.8
+     "andel": 71.0
     },
     {
      "namn": "Gäsenegården",
      "kommun": "Herrljunga",
      "lokalId": "1466003",
-     "total": 375,
-     "dagarMedRoster": 8,
+     "total": 406,
+     "dagarMedRoster": 9,
      "storstaDag": 86,
-     "andel": 26.9
+     "andel": 26.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1016,7 +1023,7 @@
      "total": 33,
      "dagarMedRoster": 6,
      "storstaDag": 12,
-     "andel": 2.4
+     "andel": 2.2
     }
    ],
    "antalLokaler": 3,

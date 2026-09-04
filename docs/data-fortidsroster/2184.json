@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -858,9 +858,16 @@
      "kvar": 10,
      "antal": 654,
      "ack": 4606
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 270,
+     "ack": 4876
     }
    ],
-   "total": 4606,
+   "total": 4876,
    "rostberattigade": {
     "riksdag": 29840,
     "kommun": 30386,
@@ -878,10 +885,10 @@
      "namn": "Hudiksvall - Kulturhuset",
      "kommun": "Hudiksvall",
      "lokalId": "2184003",
-     "total": 3351,
-     "dagarMedRoster": 9,
+     "total": 3610,
+     "dagarMedRoster": 10,
      "storstaDag": 485,
-     "andel": 72.8
+     "andel": 74.0
     },
     {
      "namn": "Delsbo - Servicecenter",
@@ -890,7 +897,7 @@
      "total": 621,
      "dagarMedRoster": 8,
      "storstaDag": 99,
-     "andel": 13.5
+     "andel": 12.7
     },
     {
      "namn": "Iggesund - Folkets Hus",
@@ -899,7 +906,7 @@
      "total": 512,
      "dagarMedRoster": 8,
      "storstaDag": 82,
-     "andel": 11.1
+     "andel": 10.5
     },
     {
      "namn": "Bromangymnasiet",
@@ -908,7 +915,16 @@
      "total": 50,
      "dagarMedRoster": 1,
      "storstaDag": 50,
-     "andel": 1.1
+     "andel": 1.0
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Hudiksvall",
+     "lokalId": "2184010",
+     "total": 46,
+     "dagarMedRoster": 4,
+     "storstaDag": 28,
+     "andel": 0.9
     },
     {
      "namn": "Centrum för utveckling/lärande, Cul",
@@ -917,15 +933,6 @@
      "total": 37,
      "dagarMedRoster": 1,
      "storstaDag": 37,
-     "andel": 0.8
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Hudiksvall",
-     "lokalId": "2184010",
-     "total": 35,
-     "dagarMedRoster": 3,
-     "storstaDag": 28,
      "andel": 0.8
     },
     {

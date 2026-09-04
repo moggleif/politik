@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T11:02+02:00",
+ "senastUppdaterad": "2026-09-04T18:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -937,7 +937,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T11:02+02:00",
+   "hamtad": "2026-09-04T18:35+02:00",
    "klart": false,
    "dagar": [
     {
@@ -993,18 +993,25 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 614,
-     "ack": 3872
+     "antal": 615,
+     "ack": 3873
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 620,
-     "ack": 4492
+     "antal": 623,
+     "ack": 4496
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 310,
+     "ack": 4806
     }
    ],
-   "total": 4492,
+   "total": 4806,
    "rostberattigade": {
     "riksdag": 29517,
     "kommun": 30233,
@@ -1022,28 +1029,28 @@
      "namn": "Mölnlycke kulturhus",
      "kommun": "Härryda",
      "lokalId": "1401005",
-     "total": 2425,
-     "dagarMedRoster": 9,
-     "storstaDag": 333,
+     "total": 2594,
+     "dagarMedRoster": 10,
+     "storstaDag": 334,
      "andel": 54.0
     },
     {
      "namn": "Landvetters kulturhus",
      "kommun": "Härryda",
      "lokalId": "1401004",
-     "total": 1468,
-     "dagarMedRoster": 8,
+     "total": 1576,
+     "dagarMedRoster": 9,
      "storstaDag": 258,
-     "andel": 32.7
+     "andel": 32.8
     },
     {
      "namn": "Hindås stationshus",
      "kommun": "Härryda",
      "lokalId": "1401002",
-     "total": 306,
-     "dagarMedRoster": 3,
+     "total": 343,
+     "dagarMedRoster": 4,
      "storstaDag": 145,
-     "andel": 6.8
+     "andel": 7.1
     },
     {
      "namn": "Rävlanda föreningsgård",
@@ -1052,7 +1059,7 @@
      "total": 225,
      "dagarMedRoster": 3,
      "storstaDag": 84,
-     "andel": 5.0
+     "andel": 4.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1061,7 +1068,7 @@
      "total": 67,
      "dagarMedRoster": 4,
      "storstaDag": 32,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Mölnlycke kommunhus",
