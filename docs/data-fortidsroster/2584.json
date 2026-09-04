@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1486,74 +1486,74 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 474,
-     "ack": 474
+     "antal": 489,
+     "ack": 489
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
      "antal": 382,
-     "ack": 856
+     "ack": 871
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 279,
-     "ack": 1135
+     "ack": 1150
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 170,
-     "ack": 1305
+     "ack": 1320
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 158,
-     "ack": 1463
+     "ack": 1478
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 446,
-     "ack": 1909
+     "antal": 509,
+     "ack": 1987
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 423,
-     "ack": 2332
+     "ack": 2410
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 620,
-     "ack": 2952
+     "ack": 3030
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 222,
-     "ack": 3174
+     "antal": 567,
+     "ack": 3597
     }
    ],
-   "total": 3174,
+   "total": 3597,
    "rostberattigade": {
     "riksdag": 16717,
     "kommun": 17963,
@@ -1571,19 +1571,28 @@
      "namn": "Stadshuset Kristallen",
      "kommun": "Kiruna",
      "lokalId": "2584014",
-     "total": 2753,
+     "total": 2932,
      "dagarMedRoster": 9,
      "storstaDag": 545,
-     "andel": 86.7
+     "andel": 81.5
     },
     {
      "namn": "Karesuando Eurosuandohuset",
      "kommun": "Kiruna",
      "lokalId": "2584008",
-     "total": 84,
+     "total": 142,
+     "dagarMedRoster": 3,
+     "storstaDag": 58,
+     "andel": 3.9
+    },
+    {
+     "namn": "Vittangi Folkets Hus",
+     "kommun": "Kiruna",
+     "lokalId": "2584011",
+     "total": 138,
      "dagarMedRoster": 2,
-     "storstaDag": 55,
-     "andel": 2.6
+     "storstaDag": 76,
+     "andel": 3.8
     },
     {
      "namn": "Svappavaara Fritidsgård",
@@ -1592,7 +1601,7 @@
      "total": 74,
      "dagarMedRoster": 1,
      "storstaDag": 74,
-     "andel": 2.3
+     "andel": 2.1
     },
     {
      "namn": "Malmfältens Folkhögskola",
@@ -1601,15 +1610,15 @@
      "total": 73,
      "dagarMedRoster": 1,
      "storstaDag": 73,
-     "andel": 2.3
+     "andel": 2.0
     },
     {
-     "namn": "Vittangi Folkets Hus",
+     "namn": "Övre Soppero skola",
      "kommun": "Kiruna",
-     "lokalId": "2584011",
-     "total": 47,
+     "lokalId": "2584009",
+     "total": 55,
      "dagarMedRoster": 1,
-     "storstaDag": 47,
+     "storstaDag": 55,
      "andel": 1.5
     },
     {
@@ -1619,7 +1628,7 @@
      "total": 46,
      "dagarMedRoster": 1,
      "storstaDag": 46,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Kuttainen sporthall",
@@ -1628,7 +1637,16 @@
      "total": 46,
      "dagarMedRoster": 1,
      "storstaDag": 46,
-     "andel": 1.4
+     "andel": 1.3
+    },
+    {
+     "namn": "Bokbuss Parakka",
+     "kommun": "Kiruna",
+     "lokalId": "2584016",
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
+     "andel": 0.9
     },
     {
      "namn": "Bokbuss Abisko",
@@ -1637,7 +1655,7 @@
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Bokbuss Jukkasjärvi",
@@ -1652,10 +1670,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kiruna",
      "lokalId": "2584019",
-     "total": 10,
-     "dagarMedRoster": 2,
+     "total": 17,
+     "dagarMedRoster": 3,
      "storstaDag": 7,
-     "andel": 0.3
+     "andel": 0.5
     },
     {
      "namn": "Abisko skola",
@@ -1685,15 +1703,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Bokbuss Parakka",
-     "kommun": "Kiruna",
-     "lokalId": "2584016",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Bokbuss Övre Soppero",
      "kommun": "Kiruna",
      "lokalId": "2584004",
@@ -1706,15 +1715,6 @@
      "namn": "Daglig verksamhet Rymdhuset",
      "kommun": "Kiruna",
      "lokalId": "2584018",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Övre Soppero skola",
-     "kommun": "Kiruna",
-     "lokalId": "2584009",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

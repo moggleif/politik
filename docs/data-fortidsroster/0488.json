@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
@@ -928,11 +928,11 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 140,
-     "ack": 2287
+     "antal": 383,
+     "ack": 2530
     }
    ],
-   "total": 2287,
+   "total": 2530,
    "rostberattigade": {
     "riksdag": 11404,
     "kommun": 11804,
@@ -950,10 +950,10 @@
      "namn": "Skärborgarnas hus",
      "kommun": "Trosa",
      "lokalId": "0488004",
-     "total": 1550,
+     "total": 1728,
      "dagarMedRoster": 8,
-     "storstaDag": 255,
-     "andel": 67.8
+     "storstaDag": 295,
+     "andel": 68.3
     },
     {
      "namn": "Ungdomens hus",
@@ -962,7 +962,16 @@
      "total": 714,
      "dagarMedRoster": 5,
      "storstaDag": 185,
-     "andel": 31.2
+     "andel": 28.2
+    },
+    {
+     "namn": "Sockenstugan, Västerljung",
+     "kommun": "Trosa",
+     "lokalId": "0488001",
+     "total": 49,
+     "dagarMedRoster": 1,
+     "storstaDag": 49,
+     "andel": 1.9
     },
     {
      "namn": "Trosagården",
@@ -974,31 +983,22 @@
      "andel": 0.7
     },
     {
+     "namn": "Häradsgården",
+     "kommun": "Trosa",
+     "lokalId": "0488003",
+     "total": 16,
+     "dagarMedRoster": 1,
+     "storstaDag": 16,
+     "andel": 0.6
+    },
+    {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Trosa",
      "lokalId": "0488008",
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 0.3
-    },
-    {
-     "namn": "Häradsgården",
-     "kommun": "Trosa",
-     "lokalId": "0488003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Sockenstugan, Västerljung",
-     "kommun": "Trosa",
-     "lokalId": "0488001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 0.2
     }
    ],
    "antalLokaler": 6,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,7 +811,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
@@ -869,9 +869,16 @@
      "kvar": 11,
      "antal": 126,
      "ack": 1087
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 306,
+     "ack": 1393
     }
    ],
-   "total": 1087,
+   "total": 1393,
    "rostberattigade": {
     "riksdag": 7069,
     "kommun": 7384,
@@ -889,10 +896,10 @@
      "namn": "Gjutaren",
      "kommun": "Töreboda",
      "lokalId": "1473001",
-     "total": 973,
-     "dagarMedRoster": 8,
-     "storstaDag": 162,
-     "andel": 89.5
+     "total": 1237,
+     "dagarMedRoster": 9,
+     "storstaDag": 264,
+     "andel": 88.8
     },
     {
      "namn": "Moholms skolas gymnastiksal",
@@ -901,7 +908,16 @@
      "total": 94,
      "dagarMedRoster": 1,
      "storstaDag": 94,
-     "andel": 8.6
+     "andel": 6.7
+    },
+    {
+     "namn": "Älgarås skolas gymnastiksal",
+     "kommun": "Töreboda",
+     "lokalId": "1473002",
+     "total": 42,
+     "dagarMedRoster": 1,
+     "storstaDag": 42,
+     "andel": 3.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -910,16 +926,7 @@
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 1.8
-    },
-    {
-     "namn": "Älgarås skolas gymnastiksal",
-     "kommun": "Töreboda",
-     "lokalId": "1473002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.4
     }
    ],
    "antalLokaler": 4,

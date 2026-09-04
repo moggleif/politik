@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1153,7 +1153,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1216,11 +1216,11 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 69,
-     "ack": 1272
+     "antal": 351,
+     "ack": 1554
     }
    ],
-   "total": 1272,
+   "total": 1554,
    "rostberattigade": {
     "riksdag": 11848,
     "kommun": 12109,
@@ -1241,25 +1241,43 @@
      "total": 755,
      "dagarMedRoster": 9,
      "storstaDag": 170,
-     "andel": 59.4
+     "andel": 48.6
     },
     {
      "namn": "Ås församlingsgård",
      "kommun": "Krokom",
      "lokalId": "2309014",
-     "total": 151,
-     "dagarMedRoster": 2,
+     "total": 234,
+     "dagarMedRoster": 3,
      "storstaDag": 91,
-     "andel": 11.9
+     "andel": 15.1
     },
     {
      "namn": "Änge servicekontor",
      "kommun": "Krokom",
      "lokalId": "2309013",
-     "total": 125,
-     "dagarMedRoster": 4,
-     "storstaDag": 47,
-     "andel": 9.8
+     "total": 190,
+     "dagarMedRoster": 5,
+     "storstaDag": 65,
+     "andel": 12.2
+    },
+    {
+     "namn": "Edevallen",
+     "kommun": "Krokom",
+     "lokalId": "2309012",
+     "total": 148,
+     "dagarMedRoster": 5,
+     "storstaDag": 52,
+     "andel": 9.5
+    },
+    {
+     "namn": "Trångsvikens bygdegård",
+     "kommun": "Krokom",
+     "lokalId": "2309010",
+     "total": 117,
+     "dagarMedRoster": 2,
+     "storstaDag": 82,
+     "andel": 7.5
     },
     {
      "namn": "Näldens bygdegård",
@@ -1268,25 +1286,7 @@
      "total": 108,
      "dagarMedRoster": 2,
      "storstaDag": 76,
-     "andel": 8.5
-    },
-    {
-     "namn": "Edevallen",
-     "kommun": "Krokom",
-     "lokalId": "2309012",
-     "total": 96,
-     "dagarMedRoster": 4,
-     "storstaDag": 40,
-     "andel": 7.5
-    },
-    {
-     "namn": "Trångsvikens bygdegård",
-     "kommun": "Krokom",
-     "lokalId": "2309010",
-     "total": 35,
-     "dagarMedRoster": 1,
-     "storstaDag": 35,
-     "andel": 2.8
+     "andel": 6.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1295,7 +1295,7 @@
      "total": 2,
      "dagarMedRoster": 2,
      "storstaDag": 1,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Blomstergården, Krokom",

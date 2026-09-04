@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1045,7 +1045,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1108,11 +1108,11 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 393,
-     "ack": 7270
+     "antal": 1019,
+     "ack": 7896
     }
    ],
-   "total": 7270,
+   "total": 7896,
    "rostberattigade": {
     "riksdag": 54338,
     "kommun": 56607,
@@ -1130,37 +1130,37 @@
      "namn": "Mölndal galleria",
      "kommun": "Mölndal",
      "lokalId": "1481010",
-     "total": 3804,
+     "total": 4157,
      "dagarMedRoster": 9,
-     "storstaDag": 512,
-     "andel": 52.3
+     "storstaDag": 532,
+     "andel": 52.6
     },
     {
      "namn": "Lindome centrum",
      "kommun": "Mölndal",
      "lokalId": "1481009",
-     "total": 1216,
+     "total": 1296,
      "dagarMedRoster": 8,
      "storstaDag": 201,
-     "andel": 16.7
+     "andel": 16.4
     },
     {
      "namn": "Aktiviteten",
      "kommun": "Mölndal",
      "lokalId": "1481014",
-     "total": 1077,
+     "total": 1182,
      "dagarMedRoster": 8,
      "storstaDag": 181,
-     "andel": 14.8
+     "andel": 15.0
     },
     {
      "namn": "Kållereds fritidsgård",
      "kommun": "Mölndal",
      "lokalId": "1481008",
-     "total": 1005,
+     "total": 1067,
      "dagarMedRoster": 8,
      "storstaDag": 158,
-     "andel": 13.8
+     "andel": 13.5
     },
     {
      "namn": "Berzelius äldreboende",
@@ -1172,21 +1172,30 @@
      "andel": 0.6
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Mölndal",
+     "lokalId": "1481012",
+     "total": 39,
+     "dagarMedRoster": 6,
+     "storstaDag": 13,
+     "andel": 0.5
+    },
+    {
+     "namn": "Lackarebäcks äldreboende",
+     "kommun": "Mölndal",
+     "lokalId": "1481004",
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
+     "andel": 0.4
+    },
+    {
      "namn": "Eklanda äldreboende",
      "kommun": "Mölndal",
      "lokalId": "1481005",
      "total": 31,
      "dagarMedRoster": 1,
      "storstaDag": 31,
-     "andel": 0.4
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Mölndal",
-     "lokalId": "1481012",
-     "total": 26,
-     "dagarMedRoster": 5,
-     "storstaDag": 8,
      "andel": 0.4
     },
     {
@@ -1199,22 +1208,13 @@
      "andel": 0.3
     },
     {
-     "namn": "Lackarebäcks äldreboende",
-     "kommun": "Mölndal",
-     "lokalId": "1481004",
-     "total": 20,
-     "dagarMedRoster": 1,
-     "storstaDag": 20,
-     "andel": 0.3
-    },
-    {
      "namn": "Fagareds ungdomshem",
      "kommun": "Mölndal",
      "lokalId": "1481002",
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Brogårdens äldreboende",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
@@ -842,25 +842,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 207,
-     "ack": 1056
+     "antal": 240,
+     "ack": 1089
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 277,
-     "ack": 1333
+     "ack": 1366
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 149,
-     "ack": 1482
+     "antal": 417,
+     "ack": 1783
     }
    ],
-   "total": 1482,
+   "total": 1783,
    "rostberattigade": {
     "riksdag": 9084,
     "kommun": 9199,
@@ -878,10 +878,19 @@
      "namn": "Citylokalen",
      "kommun": "Åtvidaberg",
      "lokalId": "0561013",
-     "total": 1352,
+     "total": 1559,
      "dagarMedRoster": 9,
-     "storstaDag": 237,
-     "andel": 91.2
+     "storstaDag": 293,
+     "andel": 87.4
+    },
+    {
+     "namn": "Kvarnvik-Hannäs Bygdegård",
+     "kommun": "Åtvidaberg",
+     "lokalId": "0561005",
+     "total": 94,
+     "dagarMedRoster": 1,
+     "storstaDag": 94,
+     "andel": 5.3
     },
     {
      "namn": "Särskilt boende i Åtvidaberg",
@@ -890,7 +899,7 @@
      "total": 72,
      "dagarMedRoster": 2,
      "storstaDag": 42,
-     "andel": 4.9
+     "andel": 4.0
     },
     {
      "namn": "Falerums bygdegård, Bykupan",
@@ -899,7 +908,7 @@
      "total": 50,
      "dagarMedRoster": 1,
      "storstaDag": 50,
-     "andel": 3.4
+     "andel": 2.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -908,7 +917,7 @@
      "total": 8,
      "dagarMedRoster": 3,
      "storstaDag": 5,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Björsäter skola",
@@ -923,15 +932,6 @@
      "namn": "Grebo skola",
      "kommun": "Åtvidaberg",
      "lokalId": "0561014",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Kvarnvik-Hannäs Bygdegård",
-     "kommun": "Åtvidaberg",
-     "lokalId": "0561005",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1036,7 +1036,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1099,11 +1099,11 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 260,
-     "ack": 5020
+     "antal": 739,
+     "ack": 5499
     }
    ],
-   "total": 5020,
+   "total": 5499,
    "rostberattigade": {
     "riksdag": 26090,
     "kommun": 26371,
@@ -1121,10 +1121,28 @@
      "namn": "Ystads Stadsbibliotek",
      "kommun": "Ystad",
      "lokalId": "1286002",
-     "total": 4306,
+     "total": 4552,
      "dagarMedRoster": 9,
      "storstaDag": 626,
-     "andel": 85.8
+     "andel": 82.8
+    },
+    {
+     "namn": "Köpingebro bibliotek",
+     "kommun": "Ystad",
+     "lokalId": "1286003",
+     "total": 294,
+     "dagarMedRoster": 2,
+     "storstaDag": 175,
+     "andel": 5.3
+    },
+    {
+     "namn": "Svarte bibliotek",
+     "kommun": "Ystad",
+     "lokalId": "1286001",
+     "total": 170,
+     "dagarMedRoster": 2,
+     "storstaDag": 112,
+     "andel": 3.1
     },
     {
      "namn": "Glemmingebro medborgarhus",
@@ -1133,7 +1151,7 @@
      "total": 135,
      "dagarMedRoster": 2,
      "storstaDag": 69,
-     "andel": 2.7
+     "andel": 2.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1142,7 +1160,7 @@
      "total": 134,
      "dagarMedRoster": 3,
      "storstaDag": 127,
-     "andel": 2.7
+     "andel": 2.4
     },
     {
      "namn": "Löderupsgården",
@@ -1151,25 +1169,7 @@
      "total": 133,
      "dagarMedRoster": 1,
      "storstaDag": 133,
-     "andel": 2.6
-    },
-    {
-     "namn": "Köpingebro bibliotek",
-     "kommun": "Ystad",
-     "lokalId": "1286003",
-     "total": 119,
-     "dagarMedRoster": 1,
-     "storstaDag": 119,
      "andel": 2.4
-    },
-    {
-     "namn": "Svarte bibliotek",
-     "kommun": "Ystad",
-     "lokalId": "1286001",
-     "total": 112,
-     "dagarMedRoster": 1,
-     "storstaDag": 112,
-     "andel": 2.2
     },
     {
      "namn": "Väderleksvägen",
@@ -1178,7 +1178,7 @@
      "total": 38,
      "dagarMedRoster": 1,
      "storstaDag": 38,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Bellevue",

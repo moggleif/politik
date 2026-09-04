@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1099,67 +1099,74 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 0,
-     "ack": 0
+     "antal": 44,
+     "ack": 44
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
      "antal": 163,
-     "ack": 163
+     "ack": 207
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 104,
-     "ack": 267
+     "antal": 126,
+     "ack": 333
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 48,
-     "ack": 315
+     "ack": 381
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 58,
-     "ack": 373
+     "ack": 439
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 286,
-     "ack": 659
+     "ack": 725
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 243,
-     "ack": 902
+     "ack": 968
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 218,
-     "ack": 1120
+     "antal": 223,
+     "ack": 1191
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 244,
+     "ack": 1435
     }
    ],
-   "total": 1120,
+   "total": 1435,
    "rostberattigade": {
     "riksdag": 8980,
     "kommun": 9728,
@@ -1177,10 +1184,10 @@
      "namn": "Restaurangen vid äldreboendet Örnen",
      "kommun": "Tingsryd",
      "lokalId": "0763001",
-     "total": 509,
-     "dagarMedRoster": 7,
+     "total": 627,
+     "dagarMedRoster": 9,
      "storstaDag": 100,
-     "andel": 45.4
+     "andel": 43.7
     },
     {
      "namn": "Gillet, Ryd",
@@ -1189,7 +1196,7 @@
      "total": 225,
      "dagarMedRoster": 3,
      "storstaDag": 83,
-     "andel": 20.1
+     "andel": 15.7
     },
     {
      "namn": "Parken, Urshult",
@@ -1198,7 +1205,34 @@
      "total": 149,
      "dagarMedRoster": 3,
      "storstaDag": 56,
-     "andel": 13.3
+     "andel": 10.4
+    },
+    {
+     "namn": "Linneryds bygdegård",
+     "kommun": "Tingsryd",
+     "lokalId": "0763009",
+     "total": 124,
+     "dagarMedRoster": 2,
+     "storstaDag": 70,
+     "andel": 8.6
+    },
+    {
+     "namn": "Byahuset, Rävemåla",
+     "kommun": "Tingsryd",
+     "lokalId": "0763008",
+     "total": 98,
+     "dagarMedRoster": 2,
+     "storstaDag": 50,
+     "andel": 6.8
+    },
+    {
+     "namn": "Konga Folkets Hus",
+     "kommun": "Tingsryd",
+     "lokalId": "0763006",
+     "total": 87,
+     "dagarMedRoster": 2,
+     "storstaDag": 51,
+     "andel": 6.1
     },
     {
      "namn": "Björkeborg, Väckelsång",
@@ -1207,43 +1241,16 @@
      "total": 81,
      "dagarMedRoster": 1,
      "storstaDag": 81,
-     "andel": 7.2
-    },
-    {
-     "namn": "Linneryds bygdegård",
-     "kommun": "Tingsryd",
-     "lokalId": "0763009",
-     "total": 70,
-     "dagarMedRoster": 1,
-     "storstaDag": 70,
-     "andel": 6.2
-    },
-    {
-     "namn": "Byahuset, Rävemåla",
-     "kommun": "Tingsryd",
-     "lokalId": "0763008",
-     "total": 50,
-     "dagarMedRoster": 1,
-     "storstaDag": 50,
-     "andel": 4.5
-    },
-    {
-     "namn": "Konga Folkets Hus",
-     "kommun": "Tingsryd",
-     "lokalId": "0763006",
-     "total": 36,
-     "dagarMedRoster": 1,
-     "storstaDag": 36,
-     "andel": 3.2
+     "andel": 5.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Tingsryd",
      "lokalId": "0763003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 44,
+     "dagarMedRoster": 3,
+     "storstaDag": 22,
+     "andel": 3.1
     }
    ],
    "antalLokaler": 8,

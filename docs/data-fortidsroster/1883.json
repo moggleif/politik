@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1040,25 +1040,25 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 777,
-     "ack": 3167
+     "antal": 778,
+     "ack": 3168
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 684,
-     "ack": 3851
+     "antal": 685,
+     "ack": 3853
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 342,
-     "ack": 4193
+     "antal": 787,
+     "ack": 4640
     }
    ],
-   "total": 4193,
+   "total": 4640,
    "rostberattigade": {
     "riksdag": 23963,
     "kommun": 24453,
@@ -1076,28 +1076,37 @@
      "namn": "Karlskoga bibliotek",
      "kommun": "Karlskoga",
      "lokalId": "1883003",
-     "total": 1745,
+     "total": 1865,
      "dagarMedRoster": 9,
      "storstaDag": 248,
-     "andel": 41.6
+     "andel": 40.2
     },
     {
      "namn": "Karlskoga lasarett",
      "kommun": "Karlskoga",
      "lokalId": "1883006",
-     "total": 1387,
+     "total": 1533,
      "dagarMedRoster": 7,
-     "storstaDag": 258,
-     "andel": 33.1
+     "storstaDag": 262,
+     "andel": 33.0
     },
     {
      "namn": "Brickegårdens vårdcentral",
      "kommun": "Karlskoga",
      "lokalId": "1883012",
-     "total": 641,
+     "total": 701,
      "dagarMedRoster": 7,
      "storstaDag": 128,
-     "andel": 15.3
+     "andel": 15.1
+    },
+    {
+     "namn": "Karlskoga konsthall",
+     "kommun": "Karlskoga",
+     "lokalId": "1883013",
+     "total": 178,
+     "dagarMedRoster": 4,
+     "storstaDag": 56,
+     "andel": 3.8
     },
     {
      "namn": "Anstalten Karlskoga",
@@ -1106,16 +1115,16 @@
      "total": 139,
      "dagarMedRoster": 1,
      "storstaDag": 139,
-     "andel": 3.3
+     "andel": 3.0
     },
     {
-     "namn": "Karlskoga konsthall",
+     "namn": "Bråten skolan",
      "kommun": "Karlskoga",
-     "lokalId": "1883013",
-     "total": 139,
-     "dagarMedRoster": 4,
-     "storstaDag": 56,
-     "andel": 3.3
+     "lokalId": "1883014",
+     "total": 66,
+     "dagarMedRoster": 1,
+     "storstaDag": 66,
+     "andel": 1.4
     },
     {
      "namn": "Karlskoga Folkhögskola - mobil",
@@ -1124,7 +1133,16 @@
      "total": 48,
      "dagarMedRoster": 1,
      "storstaDag": 48,
-     "andel": 1.1
+     "andel": 1.0
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Karlskoga",
+     "lokalId": "1883011",
+     "total": 40,
+     "dagarMedRoster": 4,
+     "storstaDag": 17,
+     "andel": 0.9
     },
     {
      "namn": "Nickkällan - mobil",
@@ -1133,7 +1151,7 @@
      "total": 33,
      "dagarMedRoster": 1,
      "storstaDag": 33,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Möckelngymnasiet - mobil",
@@ -1142,16 +1160,7 @@
      "total": 25,
      "dagarMedRoster": 1,
      "storstaDag": 25,
-     "andel": 0.6
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Karlskoga",
-     "lokalId": "1883011",
-     "total": 24,
-     "dagarMedRoster": 3,
-     "storstaDag": 16,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Vuxnas Lärande - mobil",
@@ -1161,15 +1170,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 12,
      "andel": 0.3
-    },
-    {
-     "namn": "Bråten skolan",
-     "kommun": "Karlskoga",
-     "lokalId": "1883014",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Linnebäcks Bygdegård - mobil",

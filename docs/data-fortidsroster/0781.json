@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,7 +1108,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1166,9 +1166,16 @@
      "kvar": 11,
      "antal": 314,
      "ack": 1819
+    },
+    {
+     "datum": "2026-09-03",
+     "veckodag": "tor",
+     "kvar": 10,
+     "antal": 393,
+     "ack": 2212
     }
    ],
-   "total": 1819,
+   "total": 2212,
    "rostberattigade": {
     "riksdag": 21376,
     "kommun": 22704,
@@ -1186,10 +1193,19 @@
      "namn": "Garvaren",
      "kommun": "Ljungby",
      "lokalId": "0781001",
-     "total": 1596,
-     "dagarMedRoster": 8,
-     "storstaDag": 225,
-     "andel": 87.7
+     "total": 1878,
+     "dagarMedRoster": 9,
+     "storstaDag": 282,
+     "andel": 84.9
+    },
+    {
+     "namn": "Biblioteket",
+     "kommun": "Ljungby",
+     "lokalId": "0781005",
+     "total": 154,
+     "dagarMedRoster": 2,
+     "storstaDag": 111,
+     "andel": 7.0
     },
     {
      "namn": "Västanå",
@@ -1198,7 +1214,7 @@
      "total": 103,
      "dagarMedRoster": 1,
      "storstaDag": 103,
-     "andel": 5.7
+     "andel": 4.7
     },
     {
      "namn": "Biblioteket (Ica)",
@@ -1207,16 +1223,7 @@
      "total": 66,
      "dagarMedRoster": 2,
      "storstaDag": 39,
-     "andel": 3.6
-    },
-    {
-     "namn": "Biblioteket",
-     "kommun": "Ljungby",
-     "lokalId": "0781005",
-     "total": 43,
-     "dagarMedRoster": 1,
-     "storstaDag": 43,
-     "andel": 2.4
+     "andel": 3.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1225,7 +1232,7 @@
      "total": 11,
      "dagarMedRoster": 2,
      "storstaDag": 7,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Bolmsöskolan",

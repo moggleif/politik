@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-03T19:13+02:00",
+ "senastUppdaterad": "2026-09-04T11:02+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-03T19:13+02:00",
+   "hamtad": "2026-09-04T11:02+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1054,11 +1054,11 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 101,
-     "ack": 1816
+     "antal": 267,
+     "ack": 1982
     }
    ],
-   "total": 1816,
+   "total": 1982,
    "rostberattigade": {
     "riksdag": 13647,
     "kommun": 14080,
@@ -1076,10 +1076,10 @@
      "namn": "Olsbergs Arena",
      "kommun": "Eksjö",
      "lokalId": "0686001",
-     "total": 1452,
+     "total": 1593,
      "dagarMedRoster": 9,
      "storstaDag": 249,
-     "andel": 80.0
+     "andel": 80.4
     },
     {
      "namn": "Emilkraften, Mariannelund",
@@ -1088,7 +1088,7 @@
      "total": 206,
      "dagarMedRoster": 4,
      "storstaDag": 59,
-     "andel": 11.3
+     "andel": 10.4
     },
     {
      "namn": "Folkets Hus, Bruzaholm",
@@ -1097,7 +1097,7 @@
      "total": 43,
      "dagarMedRoster": 2,
      "storstaDag": 25,
-     "andel": 2.4
+     "andel": 2.2
     },
     {
      "namn": "Solgården, Ingatorp",
@@ -1106,7 +1106,7 @@
      "total": 37,
      "dagarMedRoster": 2,
      "storstaDag": 25,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Hjältevad Tallgården (Gamla skolan)",
@@ -1115,7 +1115,16 @@
      "total": 35,
      "dagarMedRoster": 2,
      "storstaDag": 18,
-     "andel": 1.9
+     "andel": 1.8
+    },
+    {
+     "namn": "Mogården - Särskilt boende",
+     "kommun": "Eksjö",
+     "lokalId": "0686006",
+     "total": 25,
+     "dagarMedRoster": 1,
+     "storstaDag": 25,
+     "andel": 1.3
     },
     {
      "namn": "Almgården - Särskilt boende",
@@ -1124,7 +1133,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Bobinen - Trygghetsboende",
@@ -1148,15 +1157,6 @@
      "namn": "Marieberg - Särskilt boende",
      "kommun": "Eksjö",
      "lokalId": "0686008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Mogården - Särskilt boende",
-     "kommun": "Eksjö",
-     "lokalId": "0686006",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
