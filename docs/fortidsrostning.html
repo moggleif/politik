@@ -79,12 +79,16 @@
     <p class="forklaring">
       Sammanlagt antal, dag för dag. X-axeln är dagar kvar till valdagen,
       så att samma veckodag hamnar på samma plats alla åren. De tunna
-      grå linjerna är tidigare val, bara som bakgrund.
+      grå linjerna är tidigare val, bara som bakgrund. Den prickade
+      orange linjen är en prognos som ställdes en gång, vid tio dagar kvar
+      &ndash; räknad, inte mätt &ndash; med det orange fältet som omfång.
+      Den räknas inte om.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-ack" aria-label="Diagram: ackumulerat antal förtidsröster, 2026 och 2022, efter dagar kvar till valdagen" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-ack" aria-label="Diagram: ackumulerat antal förtidsröster, 2026 och 2022, efter dagar kvar till valdagen, med den ställda prognosen för återstående dagar" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-ack"></p>
     </div>
+    <div id="prognos" hidden></div>
   </section>
 
   <section id="sektion-andel" hidden>
@@ -143,6 +147,15 @@
       röster mottagna i områdets lokaler, oavsett var väljaren är
       folkbokförd, så andelen av de röstberättigade är ungefärlig. Röster
       på valdagen i förtidsröstningslokaler ingår (0 dagar kvar).
+    </p>
+    <p class="forklaring">
+      <strong>Prognosen:</strong> allt annat på sidan är uppmätt, men den
+      orange linjen och rutan under huvudgrafen är räknade fram ur
+      mönstret i tidigare val och kan slå fel. Prognosen ställdes en enda
+      gång, den 3 september vid tio dagar kvar, och räknas aldrig om:
+      talen står kvar som de var, så att de går att jämföra med utfallet.
+      Den finns för hela riket och för Kungsbacka. Hur den räknades står
+      på <a href="metod.html#sektion-regler">metodsidan</a>.
     </p>
     <p class="forklaring">
       Valmyndigheten uppdaterar filen kl. 06 och 14; dagens siffra är

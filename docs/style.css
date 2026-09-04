@@ -14,6 +14,8 @@
   --blue-dark: #1c5cab;
   --blue-light: #9ec5f4;
   --red: #e34948;       /* divergerande motpol: prognosen för hög */
+  --orange: #e69f00;    /* framskrivet, aldrig uppmätt */
+  --orange-dark: #b57c00;
   --neutral-mid: #f0efec;
   --focus: #1c5cab;
 }
@@ -494,6 +496,83 @@ ul.undersidor a { font-weight: 600; }
   line-height: 1.15rem;
   text-align: center;
   margin-top: 0.15rem;
+}
+
+/* ---------- Framskrivningar ----------
+   Rutan för tal som är räknade fram i stället för uppmätta. Orange
+   kantlinje, inte blå som "Kort sagt": läsaren ska se skillnad på det
+   som är mätt och det som är gissat utan att först läsa texten. Orange
+   används bara till kanten och till de stora talen – #b57c00 klarar
+   AA för stor text (3:1) men inte för brödtext, som därför är i
+   --ink-2. */
+
+.prognos-ruta {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--orange-dark);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0 2rem;
+  max-width: 46rem;
+  color: var(--ink-2);
+}
+
+.prognos-ruta h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+}
+
+.prognos-ruta p { margin: 0.75rem 0 0; }
+
+/* När prognosen ställdes. Står överst, för att talen ska läsas som ett
+   påstående från ett visst datum och inte som något som följer datat. */
+.prognos-stalld {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0 0 1rem !important;
+}
+
+/* Facit mot prognosen, avskilt från resonemanget som ledde fram till den. */
+.prognos-facit {
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 1rem !important;
+}
+
+.prognos-spann {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  align-items: baseline;
+  padding-bottom: 0.25rem;
+}
+
+.prognos-spann > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 7rem;
+}
+
+.prognos-etikett {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.prognos-tal {
+  font-size: 1.5rem;      /* stor text: 3:1 räcker för orange på ljust */
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--orange-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Mittalet är det modellen faktiskt pekar på; ytterlägena är omfånget. */
+.prognos-mitt .prognos-tal { font-size: 1.9rem; }
+
+.prognos-ruta .prognos-not {
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 /* ---------- Tabellverktyg ---------- */

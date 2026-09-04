@@ -1796,5 +1796,122 @@
     "fortidsrosterRiket": 2918072
    }
   }
+ },
+ "prognos": {
+  "stalld": "2026-09-04",
+  "brytpunkt": {
+   "datum": "2026-09-03",
+   "kvar": 10
+  },
+  "val": 2026,
+  "valdag": "2026-09-13",
+  "metod": "Andelen av slutsumman som var inne vid samma antal dagar kvar till valdagen i tidigare val, tillämpad på årets tal. Omfånget går mellan två ytterlägen: att försprånget mot förra valet bara är tidigareläggning, och att det håller i sig hela vägen.",
+  "kalla": "Egen framskrivning ur Valmyndigheten, Mottagna förtidsröster, val 2026 t.o.m. 2026-09-03, med 2022, 2018, 2014, 2010 som mönster.",
+  "skript": "scripts/gor_prognos.py",
+  "ack": 11565,
+  "forraValet": 2022,
+  "forraValetVid": 8498,
+  "forraValetSlut": 27282,
+  "snittAndel": 0.30684,
+  "punkter": [
+   {
+    "ar": 2022,
+    "andel": 0.31149,
+    "slut": 37128
+   },
+   {
+    "ar": 2018,
+    "andel": 0.32293,
+    "slut": 35813
+   },
+   {
+    "ar": 2014,
+    "andel": 0.28932,
+    "slut": 39973
+   },
+   {
+    "ar": 2010,
+    "andel": 0.30363,
+    "slut": 38089
+   }
+  ],
+  "modell": 37690,
+  "somForra": 30349,
+  "lag": 30349,
+  "hog": 39973,
+  "prov": {
+   "antal": 3,
+   "medel": 5.22,
+   "storsta": 8.92
+  },
+  "bana": [
+   {
+    "kvar": 10,
+    "lag": 11565,
+    "modell": 11565,
+    "hog": 11565
+   },
+   {
+    "kvar": 9,
+    "lag": 12685,
+    "modell": 13123,
+    "hog": 13259
+   },
+   {
+    "kvar": 8,
+    "lag": 13576,
+    "modell": 14362,
+    "hog": 14606
+   },
+   {
+    "kvar": 7,
+    "lag": 14567,
+    "modell": 15740,
+    "hog": 16105
+   },
+   {
+    "kvar": 6,
+    "lag": 16792,
+    "modell": 18835,
+    "hog": 19470
+   },
+   {
+    "kvar": 5,
+    "lag": 19018,
+    "modell": 21931,
+    "hog": 22837
+   },
+   {
+    "kvar": 4,
+    "lag": 21729,
+    "modell": 25701,
+    "hog": 26937
+   },
+   {
+    "kvar": 3,
+    "lag": 24614,
+    "modell": 29714,
+    "hog": 31300
+   },
+   {
+    "kvar": 2,
+    "lag": 27500,
+    "modell": 33728,
+    "hog": 35664
+   },
+   {
+    "kvar": 1,
+    "lag": 29616,
+    "modell": 36671,
+    "hog": 38864
+   },
+   {
+    "kvar": 0,
+    "lag": 30349,
+    "modell": 37690,
+    "hog": 39973
+   }
+  ],
+  "omrade": "Kungsbacka"
  }
 }

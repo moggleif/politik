@@ -376,8 +376,9 @@
         på gymnasienivå rör det sig om ungefär tre av tio av kommunens
         elever, på grundskolenivå om drygt en procent.</dd>
       <dt>Framskrivning är inte prognos</dt>
-      <dd>Kohortframskrivningen är den enda beräkning på webbplatsen som
-        inte kommer ur en källa, utan räknas fram här: dagens
+      <dd>Kohortframskrivningen är en av två beräkningar på webbplatsen som
+        inte kommer ur en källa utan räknas fram här (den andra är
+        förtidsröstningens prognos, nedan): dagens
         åldersklasser flyttade ett år i taget. Den räknar varken in- eller
         utflyttning och är därmed ingen prognos &ndash; men inte heller
         antagandefri, eftersom att bära kohorten rakt fram förutsätter att
@@ -387,6 +388,40 @@
         vid varje horisont, så att avvikelsen går att läsa av i stället
         för att uppskattas. Vad avvikelsen beror på framgår inte av det
         här datat.</dd>
+      <dt>Förtidsröstningens prognos: ställd en gång, aldrig omräknad</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/gor_prognos.py">gor_prognos.py</a>
+        ställde <strong>en</strong> prognos för hur många förtidsröster
+        valet 2026 slutar på, den 3 september vid tio dagar kvar till
+        valdagen, för hela riket och för Kungsbacka. Den frystes då till
+        <code>data/fortidsroster/prognos.json</code> och räknas aldrig om:
+        skriptet vägrar skriva över filen, hämtjobbet kör det inte, och
+        <a href="fortidsrostning.html">förtidsröstningssidan</a> ritar bara
+        ut de tal som står i den. Det är avsiktligt. En prognos som räknas
+        om vid varje sidvisning följer med datat och kan aldrig ha fel;
+        den här står kvar och kan jämföras med utfallet, både under
+        perioden och efter valdagen. Sidan visar därför också hur långt
+        ifrån den ligger.
+        <br>Modellen är den enklaste tänkbara: i vart och ett av de
+        tidigare valen var ungefär <strong>samma andel av slutsumman inne
+        vid samma antal dagar kvar till valdagen</strong> (i riket omkring
+        31&nbsp;% vid tio dagar kvar i alla fyra valen). Årets tal delat
+        med genomsnittet av de andelarna ger slutsumman. Återstående dagar
+        räknas som förra valets dagsmönster uppräknat med en faktor, så att
+        helgdipparna och slutveckans ryck följer med. Utgångspunkten är
+        senaste <em>avslutade</em> dag &ndash; aldrig en pågående, vars
+        siffra är ofullständig.
+        <br>Omfånget spänner mellan två ytterlägen: att resten av perioden
+        ger lika många röster som förra valet gav efter samma punkt
+        (försprånget är då bara tidigareläggning, inte fler väljare), och
+        att försprånget håller i sig hela vägen. Modellen kan inte skilja
+        de två fallen åt &ndash; det avgörs av dagarna som återstår, och det
+        är prognosens största svaghet. Som med kohortframskrivningen
+        redovisas felet öppet: modellen prövas på de val som redan är
+        avgjorda i samma område, vid samma punkt och på exakt det sätt den
+        användes nu &ndash; varje val förutsagt ur snittet av de val som låg
+        före det &ndash; och medelfelet och det största felet står i rutan
+        på sidan. Alla de valen följde ett stabilt mönster, så det felet är
+        ett golv för osäkerheten, inte ett tak.</dd>
       <dt>Varför vissa år saknas</dt>
       <dd>Antagningsåret 2018 saknas därför att GR:s rapport från det året
         inte gått att få tag på &ndash; den försvann när GR bytte

@@ -90,8 +90,9 @@ automatiskt två gånger om dagen under förtidsröstningen. Sidan visar hur
 många som röstat &ndash; inte vad de röstat på.
 
 - [Förtidsröstningen dag för dag](https://moggleif.github.io/politik/fortidsrostning.html)
-  &ndash; ackumulerat och per dag, andel av de röstberättigade, och en
-  topplista över röstningslokalerna, 26 augusti&ndash;13 september 2026.
+  &ndash; ackumulerat och per dag, andel av de röstberättigade, en
+  prognos för slutsumman (riket och Kungsbacka) och en topplista över
+  röstningslokalerna, 26 augusti&ndash;13 september 2026.
   Välj område i sidans väljare eller i adressen:
   [`?omrade=hallands-lan`](https://moggleif.github.io/politik/fortidsrostning.html?omrade=hallands-lan),
   [`?omrade=hela-riket`](https://moggleif.github.io/politik/fortidsrostning.html?omrade=hela-riket)
@@ -128,6 +129,10 @@ data/
                                 rike på kvalifikationsdagen, 2026 och 2022
   fortidsroster/angerroster.json  Ångerröster i riket 2018 och 2022, ur
                                 Valmyndighetens erfarenhetsrapport
+  fortidsroster/prognos.json    Den prognos som ställdes en gång, den 3
+                                september 2026 vid tio dagar kvar, för
+                                riket och Kungsbacka. Skrivs en gång och
+                                ändras inte (se gor_prognos.py)
   KALLOR.md                     Dokumentation av var varje rapport hittades
 scripts/
   hamta_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API):
@@ -164,7 +169,13 @@ scripts/
   build_fortidsroster.py        Bygger docs/data-fortidsroster/<kod>.json, en
                                 fil per kommun, län och rike: förtidsröstningen
                                 på dagar kvar till valdagen, 2026 mot 2022,
-                                samt index.json med områdeslistan
+                                samt index.json med områdeslistan. Lägger in
+                                den ställda prognosen oförändrad hos de två
+                                områden den gäller
+  gor_prognos.py                Engångsskript: ställde prognosen för valet
+                                2026 och frös den till
+                                data/fortidsroster/prognos.json. Körs inte
+                                av hämtjobbet och vägrar skriva över filen
 tests/
   test_berakningar.py           Kontrollräknar beräkningarna och stämmer av
                                 att docs/data*.json går att reproducera ur
@@ -198,7 +209,9 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   amnen.js                      Driver ämnesbetygssidan
   nian.js                       Driver sidan om nian och gymnasiet
   befolkning.js                 Driver sidan om barn och unga 0–15 år
-  fortidsrostning.js            Driver förtidsröstningssidan
+  fortidsrostning.js            Driver förtidsröstningssidan; ritar också
+                                ut den ställda prognosen, som den läser
+                                färdig ur datafilen
   index.js                      Driver startsidans sammanfattningar
   data.json, data-16-19.json    Data till prognossidorna (genereras)
   data-meritvarden.json         Data till meritvärdessidan (genereras)
@@ -305,6 +318,11 @@ python3 scripts/hamta_rostberattigade.py          # röstberättigade, en gång
 python3 scripts/build_fortidsroster.py            # bygger om docs/data-fortidsroster/
 ```
 
+Prognosen ingår inte i den kedjan. Den ställdes en gång med
+`python3 scripts/gor_prognos.py`, och skriptet vägrar sedan skriva över
+filen &ndash; det krävs `--skriv-om`, och då är prognosen inte längre
+densamma som den som publicerades.
+
 Under förtidsröstningen 2026 gör GitHub Actions det här automatiskt två
 gånger om dagen, strax efter att Valmyndigheten uppdaterat sin fil kl. 06
 och 14 (`.github/workflows/fortidsroster.yml`, går även att starta för
@@ -328,6 +346,24 @@ rubriker); tolkningen klarar alla och avbryter om kolumnerna ändrats.
 justeras fram till den 16 september 2026. Sidan jämför åren på *dagar
 kvar till valdagen*, inte på kalenderdatum, så att samma veckodag hamnar
 på samma plats.
+
+Sidan visar också **en prognos** för hur många förtidsröster valet
+slutar på, för hela riket och för Kungsbacka. Den ställdes en enda gång,
+den 3 september 2026 vid tio dagar kvar, av `scripts/gor_prognos.py`, och
+ligger frusen i `data/fortidsroster/prognos.json`. Den räknas aldrig om:
+skriptet vägrar skriva över filen, hämtjobbet kör det inte, och sidan
+ritar bara ut de tal som står där. Det är avsiktligt &ndash; en prognos som
+räknas om vid varje sidvisning följer med datat och kan aldrig ha fel,
+medan den här går att jämföra med utfallet. Sidan visar också hur långt
+ifrån den ligger.
+
+Modellen: den andel av slutsumman som var inne vid samma antal dagar kvar
+i tidigare val, tillämpad på årets tal, med ett omfång mellan två
+ytterlägen &ndash; att försprånget mot förra valet bara är tidigareläggning,
+och att det håller i sig hela vägen. Modellens fel vid tidigare val är
+uträknat för samma område och står i rutan. Prognosen ritas i orange och
+prickat, aldrig i sidans blå, som betyder uppmätt. Metoden beskrivs på
+[metodsidan](https://moggleif.github.io/politik/metod.html).
 
 Kullarna (kör efter att meritvärdena och slutbetygen byggts om &ndash;
 skriptet läser de färdiga docs-filerna så att namnbyten och skolflyttar

@@ -889,6 +889,31 @@ class TestFortidsroster(unittest.TestCase):
         filer, _ = build_fortidsroster.bygg({2026: self.NU}, self.HAMTAD, None)
         self.assertIsNone(filer["1384"]["forra"])
 
+    def test_prognosen_laggs_in_oforandrad_och_bara_dar_den_galler(self):
+        """Den ställda prognosen är indata, inte något bygget räknar om:
+        den ska följa med ordagrant till de områden den gäller och inte
+        finnas alls hos de andra."""
+        prognos = {
+            "stalld": "2026-09-11", "val": 2026,
+            "brytpunkt": {"datum": "2026-09-10", "kvar": 3},
+            "omraden": {"1384": {"ack": 120, "modell": 300, "lag": 250, "hog": 350,
+                                 "bana": [{"kvar": 3, "lag": 120, "modell": 120,
+                                           "hog": 120}]}},
+        }
+        filer, _ = build_fortidsroster.bygg(
+            {2022: self.DA, 2026: self.NU}, self.HAMTAD, self.RB, {"val": {}}, prognos)
+        kb = filer["1384"]["prognos"]
+        self.assertEqual(kb["stalld"], "2026-09-11")
+        self.assertEqual(kb["brytpunkt"], {"datum": "2026-09-10", "kvar": 3})
+        self.assertEqual(kb["modell"], 300)
+        self.assertEqual(kb["bana"], prognos["omraden"]["1384"]["bana"])
+        self.assertNotIn("omraden", kb)
+        for kod in ("00", "13", "1380", "1280"):
+            self.assertIsNone(filer[kod]["prognos"], kod)
+
+    def test_utan_prognosfil_star_falter_tomt(self):
+        self.assertIsNone(self.filer["1384"]["prognos"])
+
 
 class TestFortidsrosterSlug(unittest.TestCase):
     """Adressen ?omrade=<slug> ska bildas med samma regler som K.slug i
