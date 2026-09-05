@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1171,7 +1171,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1243,9 +1243,16 @@
      "kvar": 9,
      "antal": 946,
      "ack": 8281
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 572,
+     "ack": 8853
     }
    ],
-   "total": 8281,
+   "total": 8853,
    "rostberattigade": {
     "riksdag": 36586,
     "kommun": 38482,
@@ -1263,19 +1270,19 @@
      "namn": "Åkersberga bibliotek",
      "kommun": "Österåker",
      "lokalId": "0117002",
-     "total": 2903,
-     "dagarMedRoster": 10,
+     "total": 3098,
+     "dagarMedRoster": 11,
      "storstaDag": 329,
-     "andel": 35.1
+     "andel": 35.0
     },
     {
      "namn": "Västra Centrum",
      "kommun": "Österåker",
      "lokalId": "0117021",
-     "total": 2077,
-     "dagarMedRoster": 10,
+     "total": 2211,
+     "dagarMedRoster": 11,
      "storstaDag": 256,
-     "andel": 25.1
+     "andel": 25.0
     },
     {
      "namn": "Kommunhuset/Alceahuset",
@@ -1284,34 +1291,34 @@
      "total": 1478,
      "dagarMedRoster": 8,
      "storstaDag": 209,
-     "andel": 17.8
+     "andel": 16.7
     },
     {
      "namn": "Österåkers Multiarena",
      "kommun": "Österåker",
      "lokalId": "0117015",
-     "total": 1063,
-     "dagarMedRoster": 10,
+     "total": 1190,
+     "dagarMedRoster": 11,
      "storstaDag": 147,
-     "andel": 12.8
+     "andel": 13.4
     },
     {
      "namn": "Tempo Ljusterö",
      "kommun": "Österåker",
      "lokalId": "0117003",
-     "total": 546,
-     "dagarMedRoster": 9,
+     "total": 614,
+     "dagarMedRoster": 10,
      "storstaDag": 74,
-     "andel": 6.6
+     "andel": 6.9
     },
     {
      "namn": "Bygdegården Lurkan",
      "kommun": "Österåker",
      "lokalId": "0117001",
-     "total": 33,
-     "dagarMedRoster": 1,
-     "storstaDag": 33,
-     "andel": 0.4
+     "total": 81,
+     "dagarMedRoster": 2,
+     "storstaDag": 48,
+     "andel": 0.9
     },
     {
      "namn": "Österåkers gymnasium",
@@ -1320,7 +1327,7 @@
      "total": 30,
      "dagarMedRoster": 1,
      "storstaDag": 30,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Enebackens äldreboende",
@@ -1329,7 +1336,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Träffpunkt Solhälla",
@@ -1338,7 +1345,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Humana Norrgårdshöjden",

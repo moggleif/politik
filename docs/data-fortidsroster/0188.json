@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1126,7 +1126,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1198,9 +1198,16 @@
      "kvar": 9,
      "antal": 1420,
      "ack": 12362
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 788,
+     "ack": 13150
     }
    ],
-   "total": 12362,
+   "total": 13150,
    "rostberattigade": {
     "riksdag": 53247,
     "kommun": 55138,
@@ -1218,37 +1225,46 @@
      "namn": "Norrtälje stadsbibliotek",
      "kommun": "Norrtälje",
      "lokalId": "0188003",
-     "total": 4043,
-     "dagarMedRoster": 9,
+     "total": 4273,
+     "dagarMedRoster": 10,
      "storstaDag": 586,
-     "andel": 32.7
+     "andel": 32.5
     },
     {
      "namn": "Kommunhuset Ankaret",
      "kommun": "Norrtälje",
      "lokalId": "0188011",
-     "total": 1757,
-     "dagarMedRoster": 10,
+     "total": 1891,
+     "dagarMedRoster": 11,
      "storstaDag": 242,
-     "andel": 14.2
+     "andel": 14.4
     },
     {
      "namn": "Rimbo kontaktcenter",
      "kommun": "Norrtälje",
      "lokalId": "0188006",
-     "total": 1486,
-     "dagarMedRoster": 9,
+     "total": 1623,
+     "dagarMedRoster": 10,
      "storstaDag": 250,
-     "andel": 12.0
+     "andel": 12.3
     },
     {
      "namn": "Hallstaviks bibliotek",
      "kommun": "Norrtälje",
      "lokalId": "0188004",
-     "total": 1299,
-     "dagarMedRoster": 9,
+     "total": 1405,
+     "dagarMedRoster": 10,
      "storstaDag": 173,
-     "andel": 10.5
+     "andel": 10.7
+    },
+    {
+     "namn": "Väddö Träffpunkt",
+     "kommun": "Norrtälje",
+     "lokalId": "0188005",
+     "total": 966,
+     "dagarMedRoster": 8,
+     "storstaDag": 184,
+     "andel": 7.3
     },
     {
      "namn": "Roslagens Sparbank",
@@ -1257,25 +1273,16 @@
      "total": 870,
      "dagarMedRoster": 8,
      "storstaDag": 135,
-     "andel": 7.0
-    },
-    {
-     "namn": "Väddö Träffpunkt",
-     "kommun": "Norrtälje",
-     "lokalId": "0188005",
-     "total": 848,
-     "dagarMedRoster": 7,
-     "storstaDag": 184,
-     "andel": 6.9
+     "andel": 6.6
     },
     {
      "namn": "Norrtälje Hamnkontor",
      "kommun": "Norrtälje",
      "lokalId": "0188016",
-     "total": 544,
-     "dagarMedRoster": 9,
+     "total": 607,
+     "dagarMedRoster": 10,
      "storstaDag": 88,
-     "andel": 4.4
+     "andel": 4.6
     },
     {
      "namn": "Gräddö by samfällighetslokal",
@@ -1284,7 +1291,7 @@
      "total": 442,
      "dagarMedRoster": 6,
      "storstaDag": 96,
-     "andel": 3.6
+     "andel": 3.4
     },
     {
      "namn": "Bergshamra bygdegård",
@@ -1293,7 +1300,7 @@
      "total": 437,
      "dagarMedRoster": 8,
      "storstaDag": 81,
-     "andel": 3.5
+     "andel": 3.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1302,7 +1309,7 @@
      "total": 294,
      "dagarMedRoster": 8,
      "storstaDag": 64,
-     "andel": 2.4
+     "andel": 2.2
     },
     {
      "namn": "Edsbro bibliotek",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1396,9 +1396,16 @@
      "kvar": 9,
      "antal": 100,
      "ack": 998
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 183,
+     "ack": 1181
     }
    ],
-   "total": 998,
+   "total": 1181,
    "rostberattigade": {
     "riksdag": 4441,
     "kommun": 4660,
@@ -1416,10 +1423,10 @@
      "namn": "Pajala G:a Sporthallen",
      "kommun": "Pajala",
      "lokalId": "2521011",
-     "total": 667,
-     "dagarMedRoster": 8,
+     "total": 717,
+     "dagarMedRoster": 9,
      "storstaDag": 125,
-     "andel": 66.8
+     "andel": 60.7
     },
     {
      "namn": "Tärendö Sporthall",
@@ -1428,7 +1435,16 @@
      "total": 196,
      "dagarMedRoster": 2,
      "storstaDag": 140,
-     "andel": 19.6
+     "andel": 16.6
+    },
+    {
+     "namn": "Sattajärvi skola",
+     "kommun": "Pajala",
+     "lokalId": "2521008",
+     "total": 133,
+     "dagarMedRoster": 1,
+     "storstaDag": 133,
+     "andel": 11.3
     },
     {
      "namn": "Korpilombolo, Gårdsbyskolan matsal",
@@ -1437,7 +1453,7 @@
      "total": 71,
      "dagarMedRoster": 1,
      "storstaDag": 71,
-     "andel": 7.1
+     "andel": 6.0
     },
     {
      "namn": "Junosuando, fd centralskolan",
@@ -1446,7 +1462,7 @@
      "total": 62,
      "dagarMedRoster": 1,
      "storstaDag": 62,
-     "andel": 6.2
+     "andel": 5.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1551,15 +1567,6 @@
      "namn": "Saittarova, Tre Tallar",
      "kommun": "Pajala",
      "lokalId": "2521016",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Sattajärvi skola",
-     "kommun": "Pajala",
-     "lokalId": "2521008",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

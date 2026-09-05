@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1639,7 +1639,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1711,9 +1711,16 @@
      "kvar": 9,
      "antal": 2458,
      "ack": 24886
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 2185,
+     "ack": 27071
     }
    ],
-   "total": 24886,
+   "total": 27071,
    "rostberattigade": {
     "riksdag": 123912,
     "kommun": 127167,
@@ -1731,46 +1738,46 @@
      "namn": "Marieberg Galleria",
      "kommun": "Örebro",
      "lokalId": "1880012",
-     "total": 5272,
-     "dagarMedRoster": 10,
+     "total": 5623,
+     "dagarMedRoster": 11,
      "storstaDag": 620,
-     "andel": 21.2
+     "andel": 20.8
     },
     {
      "namn": "Vågen Gallerian",
      "kommun": "Örebro",
      "lokalId": "1880028",
-     "total": 4429,
-     "dagarMedRoster": 10,
+     "total": 4755,
+     "dagarMedRoster": 11,
      "storstaDag": 497,
-     "andel": 17.8
+     "andel": 17.6
     },
     {
      "namn": "Haga centrum",
      "kommun": "Örebro",
      "lokalId": "1880014",
-     "total": 3337,
-     "dagarMedRoster": 10,
+     "total": 3502,
+     "dagarMedRoster": 11,
      "storstaDag": 400,
-     "andel": 13.4
+     "andel": 12.9
     },
     {
      "namn": "Eurostop, Best Western",
      "kommun": "Örebro",
      "lokalId": "1880026",
-     "total": 3197,
-     "dagarMedRoster": 10,
+     "total": 3396,
+     "dagarMedRoster": 11,
      "storstaDag": 388,
-     "andel": 12.8
+     "andel": 12.5
     },
     {
      "namn": "Kulturkvarteret",
      "kommun": "Örebro",
      "lokalId": "1880008",
-     "total": 2907,
-     "dagarMedRoster": 10,
+     "total": 3047,
+     "dagarMedRoster": 11,
      "storstaDag": 389,
-     "andel": 11.7
+     "andel": 11.3
     },
     {
      "namn": "Universitetssjukhuset (USÖ), M-huset",
@@ -1779,7 +1786,7 @@
      "total": 2479,
      "dagarMedRoster": 8,
      "storstaDag": 406,
-     "andel": 10.0
+     "andel": 9.2
     },
     {
      "namn": "Universitetet, Långhuset",
@@ -1788,34 +1795,61 @@
      "total": 1392,
      "dagarMedRoster": 5,
      "storstaDag": 328,
-     "andel": 5.6
-    },
-    {
-     "namn": "Vivallaskolan, fritidsgården",
-     "kommun": "Örebro",
-     "lokalId": "1880004",
-     "total": 303,
-     "dagarMedRoster": 2,
-     "storstaDag": 186,
-     "andel": 1.2
+     "andel": 5.1
     },
     {
      "namn": "Odenskolan",
      "kommun": "Örebro",
      "lokalId": "1880001",
-     "total": 295,
+     "total": 475,
+     "dagarMedRoster": 3,
+     "storstaDag": 180,
+     "andel": 1.8
+    },
+    {
+     "namn": "Vivallaskolan, fritidsgården",
+     "kommun": "Örebro",
+     "lokalId": "1880004",
+     "total": 370,
+     "dagarMedRoster": 3,
+     "storstaDag": 186,
+     "andel": 1.4
+    },
+    {
+     "namn": "Glanshammars skola",
+     "kommun": "Örebro",
+     "lokalId": "1880002",
+     "total": 334,
      "dagarMedRoster": 2,
-     "storstaDag": 163,
+     "storstaDag": 193,
      "andel": 1.2
     },
     {
      "namn": "Tegelbruket, Markbackens centrum",
      "kommun": "Örebro",
      "lokalId": "1880009",
-     "total": 251,
-     "dagarMedRoster": 2,
+     "total": 325,
+     "dagarMedRoster": 3,
      "storstaDag": 140,
+     "andel": 1.2
+    },
+    {
+     "namn": "Föreningen Trädet",
+     "kommun": "Örebro",
+     "lokalId": "1880020",
+     "total": 282,
+     "dagarMedRoster": 2,
+     "storstaDag": 147,
      "andel": 1.0
+    },
+    {
+     "namn": "Navets skola",
+     "kommun": "Örebro",
+     "lokalId": "1880011",
+     "total": 187,
+     "dagarMedRoster": 1,
+     "storstaDag": 187,
+     "andel": 0.7
     },
     {
      "namn": "Lillåns skola",
@@ -1827,21 +1861,12 @@
      "andel": 0.7
     },
     {
-     "namn": "Föreningen Trädet",
+     "namn": "Garphyttans skola",
      "kommun": "Örebro",
-     "lokalId": "1880020",
-     "total": 147,
-     "dagarMedRoster": 1,
-     "storstaDag": 147,
-     "andel": 0.6
-    },
-    {
-     "namn": "Glanshammars skola",
-     "kommun": "Örebro",
-     "lokalId": "1880002",
-     "total": 141,
-     "dagarMedRoster": 1,
-     "storstaDag": 141,
+     "lokalId": "1880021",
+     "total": 159,
+     "dagarMedRoster": 2,
+     "storstaDag": 95,
      "andel": 0.6
     },
     {
@@ -1851,16 +1876,16 @@
      "total": 139,
      "dagarMedRoster": 8,
      "storstaDag": 40,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
-     "namn": "Garphyttans skola",
+     "namn": "Vinön, Vinöns gamla skola",
      "kommun": "Örebro",
-     "lokalId": "1880021",
-     "total": 95,
+     "lokalId": "1880005",
+     "total": 83,
      "dagarMedRoster": 1,
-     "storstaDag": 95,
-     "andel": 0.4
+     "storstaDag": 83,
+     "andel": 0.3
     },
     {
      "namn": "Vintrosa skola",
@@ -1869,7 +1894,7 @@
      "total": 64,
      "dagarMedRoster": 1,
      "storstaDag": 64,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Brevens bruk, Brevensgården",
@@ -1929,6 +1954,15 @@
      "namn": "BEGRÄNSAT TILLTRÄDE: Runnagården",
      "kommun": "Örebro",
      "lokalId": "1880017",
+     "total": 21,
+     "dagarMedRoster": 1,
+     "storstaDag": 21,
+     "andel": 0.1
+    },
+    {
+     "namn": "Mellringeskolan",
+     "kommun": "Örebro",
+     "lokalId": "1880019",
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
@@ -2028,33 +2062,6 @@
      "namn": "BEGRÄNSAT TILLTRÄDE: Tullhuset",
      "kommun": "Örebro",
      "lokalId": "1880025",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Mellringeskolan",
-     "kommun": "Örebro",
-     "lokalId": "1880019",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Navets skola",
-     "kommun": "Örebro",
-     "lokalId": "1880011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vinön, Vinöns gamla skola",
-     "kommun": "Örebro",
-     "lokalId": "1880005",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

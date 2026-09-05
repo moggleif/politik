@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1072,7 +1072,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1144,9 +1144,16 @@
      "kvar": 9,
      "antal": 947,
      "ack": 7535
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 308,
+     "ack": 7843
     }
    ],
-   "total": 7535,
+   "total": 7843,
    "rostberattigade": {
     "riksdag": 35007,
     "kommun": 36132,
@@ -1164,10 +1171,19 @@
      "namn": "Centrumhuset i Gustavsbergs centrum",
      "kommun": "Värmdö",
      "lokalId": "0120016",
-     "total": 1816,
-     "dagarMedRoster": 10,
+     "total": 1989,
+     "dagarMedRoster": 11,
      "storstaDag": 215,
-     "andel": 24.1
+     "andel": 25.4
+    },
+    {
+     "namn": "Värmdö kulturhus",
+     "kommun": "Värmdö",
+     "lokalId": "0120017",
+     "total": 1534,
+     "dagarMedRoster": 11,
+     "storstaDag": 179,
+     "andel": 19.6
     },
     {
      "namn": "Kommunhuset",
@@ -1176,16 +1192,7 @@
      "total": 1489,
      "dagarMedRoster": 8,
      "storstaDag": 212,
-     "andel": 19.8
-    },
-    {
-     "namn": "Värmdö kulturhus",
-     "kommun": "Värmdö",
-     "lokalId": "0120017",
-     "total": 1399,
-     "dagarMedRoster": 10,
-     "storstaDag": 179,
-     "andel": 18.6
+     "andel": 19.0
     },
     {
      "namn": "Hemmesta bibliotek",
@@ -1194,7 +1201,7 @@
      "total": 1045,
      "dagarMedRoster": 8,
      "storstaDag": 180,
-     "andel": 13.9
+     "andel": 13.3
     },
     {
      "namn": "Ingarö föreningshus",
@@ -1203,7 +1210,7 @@
      "total": 960,
      "dagarMedRoster": 8,
      "storstaDag": 180,
-     "andel": 12.7
+     "andel": 12.2
     },
     {
      "namn": "Djurö bibliotek",
@@ -1212,7 +1219,7 @@
      "total": 749,
      "dagarMedRoster": 8,
      "storstaDag": 123,
-     "andel": 9.9
+     "andel": 9.5
     },
     {
      "namn": "Ambulerande röstmottagning",

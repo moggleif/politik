@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -955,9 +955,16 @@
      "kvar": 9,
      "antal": 592,
      "ack": 4677
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 179,
+     "ack": 4856
     }
    ],
-   "total": 4677,
+   "total": 4856,
    "rostberattigade": {
     "riksdag": 22412,
     "kommun": 24116,
@@ -975,19 +982,19 @@
      "namn": "Nynäshamns kulturhus",
      "kommun": "Nynäshamn",
      "lokalId": "0192002",
-     "total": 2212,
-     "dagarMedRoster": 10,
+     "total": 2310,
+     "dagarMedRoster": 11,
      "storstaDag": 259,
-     "andel": 47.3
+     "andel": 47.6
     },
     {
      "namn": "Seglargränd gästhamnen",
      "kommun": "Nynäshamn",
      "lokalId": "0192003",
-     "total": 1076,
-     "dagarMedRoster": 10,
+     "total": 1157,
+     "dagarMedRoster": 11,
      "storstaDag": 161,
-     "andel": 23.0
+     "andel": 23.8
     },
     {
      "namn": "Centrumhuset Ösmo",
@@ -996,7 +1003,7 @@
      "total": 724,
      "dagarMedRoster": 8,
      "storstaDag": 111,
-     "andel": 15.5
+     "andel": 14.9
     },
     {
      "namn": "Sorunda bygdegård",
@@ -1005,7 +1012,7 @@
      "total": 480,
      "dagarMedRoster": 8,
      "storstaDag": 78,
-     "andel": 10.3
+     "andel": 9.9
     },
     {
      "namn": "Nickstadalen",
@@ -1014,7 +1021,7 @@
      "total": 139,
      "dagarMedRoster": 8,
      "storstaDag": 24,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1023,7 +1030,7 @@
      "total": 46,
      "dagarMedRoster": 7,
      "storstaDag": 9,
-     "andel": 1.0
+     "andel": 0.9
     }
    ],
    "antalLokaler": 6,

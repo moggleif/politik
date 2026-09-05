@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -946,7 +946,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1018,9 +1018,16 @@
      "kvar": 9,
      "antal": 173,
      "ack": 1646
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 186,
+     "ack": 1832
     }
    ],
-   "total": 1646,
+   "total": 1832,
    "rostberattigade": {
     "riksdag": 8640,
     "kommun": 8809,
@@ -1038,19 +1045,19 @@
      "namn": "Kommunhuset Smedjebacken",
      "kommun": "Smedjebacken",
      "lokalId": "2061006",
-     "total": 1289,
-     "dagarMedRoster": 10,
+     "total": 1358,
+     "dagarMedRoster": 11,
      "storstaDag": 173,
-     "andel": 78.3
+     "andel": 74.1
     },
     {
      "namn": "Söderbärke Folkets Hus",
      "kommun": "Smedjebacken",
      "lokalId": "2061003",
-     "total": 332,
-     "dagarMedRoster": 4,
+     "total": 449,
+     "dagarMedRoster": 5,
      "storstaDag": 119,
-     "andel": 20.2
+     "andel": 24.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1059,7 +1066,7 @@
      "total": 25,
      "dagarMedRoster": 4,
      "storstaDag": 16,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Biblioteket Smedjebacken",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,7 +919,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -991,9 +991,16 @@
      "kvar": 9,
      "antal": 211,
      "ack": 2312
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 127,
+     "ack": 2439
     }
    ],
-   "total": 2312,
+   "total": 2439,
    "rostberattigade": {
     "riksdag": 14965,
     "kommun": 15603,
@@ -1011,10 +1018,10 @@
      "namn": "Sjöbo bibliotek",
      "kommun": "Sjöbo",
      "lokalId": "1265001",
-     "total": 1865,
-     "dagarMedRoster": 10,
+     "total": 1992,
+     "dagarMedRoster": 11,
      "storstaDag": 237,
-     "andel": 80.7
+     "andel": 81.7
     },
     {
      "namn": "Blentarp bibliotek",
@@ -1023,7 +1030,7 @@
      "total": 205,
      "dagarMedRoster": 3,
      "storstaDag": 82,
-     "andel": 8.9
+     "andel": 8.4
     },
     {
      "namn": "Vollsjö bibliotek",
@@ -1032,7 +1039,7 @@
      "total": 114,
      "dagarMedRoster": 3,
      "storstaDag": 42,
-     "andel": 4.9
+     "andel": 4.7
     },
     {
      "namn": "Lövestad bibliotek",
@@ -1041,7 +1048,7 @@
      "total": 96,
      "dagarMedRoster": 3,
      "storstaDag": 36,
-     "andel": 4.2
+     "andel": 3.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1050,7 +1057,7 @@
      "total": 32,
      "dagarMedRoster": 3,
      "storstaDag": 14,
-     "andel": 1.4
+     "andel": 1.3
     }
    ],
    "antalLokaler": 5,

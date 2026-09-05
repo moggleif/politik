@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1018,7 +1018,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1090,9 +1090,16 @@
      "kvar": 9,
      "antal": 490,
      "ack": 3301
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 158,
+     "ack": 3459
     }
    ],
-   "total": 3301,
+   "total": 3459,
    "rostberattigade": {
     "riksdag": 16325,
     "kommun": 16747,
@@ -1110,10 +1117,10 @@
      "namn": "Mora bibliotek",
      "kommun": "Mora",
      "lokalId": "2062006",
-     "total": 2619,
-     "dagarMedRoster": 10,
+     "total": 2766,
+     "dagarMedRoster": 11,
      "storstaDag": 360,
-     "andel": 79.3
+     "andel": 80.0
     },
     {
      "namn": "Sollerö bibliotek",
@@ -1122,7 +1129,7 @@
      "total": 305,
      "dagarMedRoster": 8,
      "storstaDag": 60,
-     "andel": 9.2
+     "andel": 8.8
     },
     {
      "namn": "Våmhus bibliotek",
@@ -1131,16 +1138,16 @@
      "total": 259,
      "dagarMedRoster": 7,
      "storstaDag": 54,
-     "andel": 7.8
+     "andel": 7.5
     },
     {
      "namn": "Tempo i Venjan",
      "kommun": "Mora",
      "lokalId": "2062005",
-     "total": 96,
-     "dagarMedRoster": 9,
+     "total": 107,
+     "dagarMedRoster": 10,
      "storstaDag": 17,
-     "andel": 2.9
+     "andel": 3.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1149,7 +1156,7 @@
      "total": 22,
      "dagarMedRoster": 4,
      "storstaDag": 7,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Andreasgården",

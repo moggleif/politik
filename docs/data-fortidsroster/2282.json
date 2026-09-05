@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,7 +1108,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1180,9 +1180,16 @@
      "kvar": 9,
      "antal": 410,
      "ack": 3084
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 195,
+     "ack": 3279
     }
    ],
-   "total": 3084,
+   "total": 3279,
    "rostberattigade": {
     "riksdag": 13670,
     "kommun": 14351,
@@ -1200,10 +1207,10 @@
      "namn": "Kramfors Fritidsgård",
      "kommun": "Kramfors",
      "lokalId": "2282002",
-     "total": 1571,
-     "dagarMedRoster": 9,
+     "total": 1683,
+     "dagarMedRoster": 10,
      "storstaDag": 215,
-     "andel": 50.9
+     "andel": 51.3
     },
     {
      "namn": "Nylands Folkets Hus",
@@ -1212,7 +1219,7 @@
      "total": 607,
      "dagarMedRoster": 8,
      "storstaDag": 109,
-     "andel": 19.7
+     "andel": 18.5
     },
     {
      "namn": "Generationernas hus",
@@ -1221,23 +1228,23 @@
      "total": 420,
      "dagarMedRoster": 7,
      "storstaDag": 75,
-     "andel": 13.6
+     "andel": 12.8
     },
     {
      "namn": "Bollstakyrkan",
      "kommun": "Kramfors",
      "lokalId": "2282001",
-     "total": 258,
-     "dagarMedRoster": 4,
+     "total": 330,
+     "dagarMedRoster": 5,
      "storstaDag": 79,
-     "andel": 8.4
+     "andel": 10.1
     },
     {
      "namn": "Gula Huset Docksta",
      "kommun": "Kramfors",
      "lokalId": "2282003",
-     "total": 178,
-     "dagarMedRoster": 9,
+     "total": 189,
+     "dagarMedRoster": 10,
      "storstaDag": 29,
      "andel": 5.8
     },
@@ -1248,7 +1255,7 @@
      "total": 50,
      "dagarMedRoster": 4,
      "storstaDag": 27,
-     "andel": 1.6
+     "andel": 1.5
     }
    ],
    "antalLokaler": 6,

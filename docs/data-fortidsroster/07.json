@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1799,11 +1799,18 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 2853,
-     "ack": 24759
+     "antal": 2854,
+     "ack": 24760
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 1262,
+     "ack": 26022
     }
    ],
-   "total": 24759,
+   "total": 26022,
    "rostberattigade": {
     "riksdag": 151650,
     "kommun": 159383,
@@ -1821,64 +1828,64 @@
      "namn": "Stadsbiblioteket, Växjö",
      "kommun": "Växjö",
      "lokalId": "0780031",
-     "total": 5501,
-     "dagarMedRoster": 9,
+     "total": 5796,
+     "dagarMedRoster": 10,
      "storstaDag": 727,
-     "andel": 22.2
+     "andel": 22.3
     },
     {
      "namn": "Garvaren",
      "kommun": "Ljungby",
      "lokalId": "0781001",
-     "total": 2099,
-     "dagarMedRoster": 10,
+     "total": 2355,
+     "dagarMedRoster": 11,
      "storstaDag": 282,
-     "andel": 8.5
+     "andel": 9.1
     },
     {
      "namn": "Art Center",
      "kommun": "Älmhult",
      "lokalId": "0765012",
-     "total": 1972,
-     "dagarMedRoster": 10,
+     "total": 2111,
+     "dagarMedRoster": 11,
      "storstaDag": 249,
-     "andel": 8.0
+     "andel": 8.1
     },
     {
      "namn": "Kommunhuset Alvesta",
      "kommun": "Alvesta",
      "lokalId": "0764004",
-     "total": 1543,
-     "dagarMedRoster": 10,
+     "total": 1662,
+     "dagarMedRoster": 11,
      "storstaDag": 192,
-     "andel": 6.2
+     "andel": 6.4
     },
     {
      "namn": "Växjö kommunhus",
      "kommun": "Växjö",
      "lokalId": "0780001",
-     "total": 1414,
-     "dagarMedRoster": 9,
+     "total": 1483,
+     "dagarMedRoster": 10,
      "storstaDag": 205,
      "andel": 5.7
-    },
-    {
-     "namn": "Markaryds kulturhus",
-     "kommun": "Markaryd",
-     "lokalId": "0767002",
-     "total": 1023,
-     "dagarMedRoster": 10,
-     "storstaDag": 147,
-     "andel": 4.1
     },
     {
      "namn": "Konsthallen",
      "kommun": "Växjö",
      "lokalId": "0780040",
-     "total": 983,
-     "dagarMedRoster": 10,
+     "total": 1146,
+     "dagarMedRoster": 11,
      "storstaDag": 206,
-     "andel": 4.0
+     "andel": 4.4
+    },
+    {
+     "namn": "Markaryds kulturhus",
+     "kommun": "Markaryd",
+     "lokalId": "0767002",
+     "total": 1066,
+     "dagarMedRoster": 11,
+     "storstaDag": 147,
+     "andel": 4.1
     },
     {
      "namn": "Mötesplats Framtidsvägen, Teleborg",
@@ -1887,23 +1894,23 @@
      "total": 807,
      "dagarMedRoster": 8,
      "storstaDag": 129,
-     "andel": 3.3
+     "andel": 3.1
     },
     {
      "namn": "Restaurangen vid äldreboendet Örnen",
      "kommun": "Tingsryd",
      "lokalId": "0763001",
-     "total": 710,
-     "dagarMedRoster": 10,
+     "total": 770,
+     "dagarMedRoster": 11,
      "storstaDag": 100,
-     "andel": 2.9
+     "andel": 3.0
     },
     {
      "namn": "Lessebo Bibliotek",
      "kommun": "Lessebo",
      "lokalId": "0761002",
-     "total": 593,
-     "dagarMedRoster": 10,
+     "total": 635,
+     "dagarMedRoster": 11,
      "storstaDag": 90,
      "andel": 2.4
     },
@@ -1914,7 +1921,7 @@
      "total": 539,
      "dagarMedRoster": 8,
      "storstaDag": 85,
-     "andel": 2.2
+     "andel": 2.1
     },
     {
      "namn": "Gustavslundskolan",
@@ -1923,7 +1930,7 @@
      "total": 477,
      "dagarMedRoster": 6,
      "storstaDag": 97,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Vislanda bibliotek",
@@ -1932,7 +1939,7 @@
      "total": 439,
      "dagarMedRoster": 6,
      "storstaDag": 108,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Hovmantorps Folkets Hus",
@@ -1941,7 +1948,7 @@
      "total": 421,
      "dagarMedRoster": 5,
      "storstaDag": 137,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Öjaby församlingshem",
@@ -1950,7 +1957,7 @@
      "total": 416,
      "dagarMedRoster": 8,
      "storstaDag": 61,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Moheda bibliotek",
@@ -1959,7 +1966,7 @@
      "total": 397,
      "dagarMedRoster": 6,
      "storstaDag": 127,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Kommunhuset, Åseda",
@@ -1968,7 +1975,7 @@
      "total": 391,
      "dagarMedRoster": 8,
      "storstaDag": 59,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Näckrosen i Ingelstad",
@@ -1986,7 +1993,7 @@
      "total": 345,
      "dagarMedRoster": 8,
      "storstaDag": 62,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Fritidslokalen Borgen",
@@ -1995,7 +2002,7 @@
      "total": 336,
      "dagarMedRoster": 2,
      "storstaDag": 200,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Birkagården, Öster",
@@ -2013,7 +2020,7 @@
      "total": 294,
      "dagarMedRoster": 4,
      "storstaDag": 83,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Lammhults bibliotek",
@@ -2031,7 +2038,7 @@
      "total": 246,
      "dagarMedRoster": 8,
      "storstaDag": 51,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Strömsnäsbruk Servicekontoret",
@@ -2058,7 +2065,7 @@
      "total": 162,
      "dagarMedRoster": 6,
      "storstaDag": 40,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Biblioteket",
@@ -2076,7 +2083,7 @@
      "total": 139,
      "dagarMedRoster": 2,
      "storstaDag": 81,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Eneborg Eneryda",

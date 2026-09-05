@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -775,7 +775,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -847,9 +847,16 @@
      "kvar": 9,
      "antal": 168,
      "ack": 1199
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 82,
+     "ack": 1281
     }
    ],
-   "total": 1199,
+   "total": 1281,
    "rostberattigade": {
     "riksdag": 5498,
     "kommun": 5706,
@@ -867,10 +874,10 @@
      "namn": "Torsås Bibliotek",
      "kommun": "Torsås",
      "lokalId": "0834001",
-     "total": 1171,
-     "dagarMedRoster": 10,
+     "total": 1253,
+     "dagarMedRoster": 11,
      "storstaDag": 168,
-     "andel": 97.7
+     "andel": 97.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -879,7 +886,7 @@
      "total": 28,
      "dagarMedRoster": 2,
      "storstaDag": 18,
-     "andel": 2.3
+     "andel": 2.2
     }
    ],
    "antalLokaler": 2,

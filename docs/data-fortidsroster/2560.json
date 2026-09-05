@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,7 +829,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -901,9 +901,16 @@
      "kvar": 9,
      "antal": 174,
      "ack": 1285
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 74,
+     "ack": 1359
     }
    ],
-   "total": 1285,
+   "total": 1359,
    "rostberattigade": {
     "riksdag": 6010,
     "kommun": 6272,
@@ -924,7 +931,7 @@
      "total": 1118,
      "dagarMedRoster": 8,
      "storstaDag": 166,
-     "andel": 87.0
+     "andel": 82.3
     },
     {
      "namn": "Vidsels aktivitetshus",
@@ -933,7 +940,16 @@
      "total": 94,
      "dagarMedRoster": 2,
      "storstaDag": 48,
-     "andel": 7.3
+     "andel": 6.9
+    },
+    {
+     "namn": "Vistträskskolan",
+     "kommun": "Älvsbyn",
+     "lokalId": "2560003",
+     "total": 74,
+     "dagarMedRoster": 1,
+     "storstaDag": 74,
+     "andel": 5.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -942,21 +958,12 @@
      "total": 73,
      "dagarMedRoster": 7,
      "storstaDag": 27,
-     "andel": 5.7
+     "andel": 5.4
     },
     {
      "namn": "Fluxen, servicehus",
      "kommun": "Älvsbyn",
      "lokalId": "2560002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vistträskskolan",
-     "kommun": "Älvsbyn",
-     "lokalId": "2560003",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -874,7 +874,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -946,9 +946,16 @@
      "kvar": 9,
      "antal": 516,
      "ack": 4124
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 211,
+     "ack": 4335
     }
    ],
-   "total": 4124,
+   "total": 4335,
    "rostberattigade": {
     "riksdag": 23853,
     "kommun": 24739,
@@ -966,10 +973,10 @@
      "namn": "Hörnan, Ale Torg",
      "kommun": "Ale",
      "lokalId": "1440002",
-     "total": 1798,
-     "dagarMedRoster": 10,
+     "total": 1913,
+     "dagarMedRoster": 11,
      "storstaDag": 232,
-     "andel": 43.6
+     "andel": 44.1
     },
     {
      "namn": "Älvängens aktivitetshus",
@@ -978,25 +985,25 @@
      "total": 1132,
      "dagarMedRoster": 9,
      "storstaDag": 143,
-     "andel": 27.4
+     "andel": 26.1
     },
     {
      "namn": "Bohus Servicehus",
      "kommun": "Ale",
      "lokalId": "1440001",
-     "total": 583,
-     "dagarMedRoster": 9,
+     "total": 636,
+     "dagarMedRoster": 10,
      "storstaDag": 84,
-     "andel": 14.1
+     "andel": 14.7
     },
     {
      "namn": "Skepplanda bibliotek",
      "kommun": "Ale",
      "lokalId": "1440004",
-     "total": 526,
-     "dagarMedRoster": 8,
+     "total": 569,
+     "dagarMedRoster": 9,
      "storstaDag": 83,
-     "andel": 12.8
+     "andel": 13.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1005,7 +1012,7 @@
      "total": 85,
      "dagarMedRoster": 5,
      "storstaDag": 41,
-     "andel": 2.1
+     "andel": 2.0
     }
    ],
    "antalLokaler": 5,

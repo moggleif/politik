@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -955,9 +955,16 @@
      "kvar": 9,
      "antal": 136,
      "ack": 1273
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 109,
+     "ack": 1382
     }
    ],
-   "total": 1273,
+   "total": 1382,
    "rostberattigade": {
     "riksdag": 4718,
     "kommun": 4963,
@@ -975,10 +982,10 @@
      "namn": "Medborgarhuset",
      "kommun": "Arvidsjaur",
      "lokalId": "2505005",
-     "total": 1047,
-     "dagarMedRoster": 10,
+     "total": 1129,
+     "dagarMedRoster": 11,
      "storstaDag": 136,
-     "andel": 82.2
+     "andel": 81.7
     },
     {
      "namn": "Café Navet i Moskosel",
@@ -987,7 +994,16 @@
      "total": 91,
      "dagarMedRoster": 2,
      "storstaDag": 49,
-     "andel": 7.1
+     "andel": 6.6
+    },
+    {
+     "namn": "Affär'n Abborrträsk",
+     "kommun": "Arvidsjaur",
+     "lokalId": "2505002",
+     "total": 82,
+     "dagarMedRoster": 3,
+     "storstaDag": 29,
+     "andel": 5.9
     },
     {
      "namn": "Finnbergs Diversehandel",
@@ -996,16 +1012,7 @@
      "total": 74,
      "dagarMedRoster": 2,
      "storstaDag": 46,
-     "andel": 5.8
-    },
-    {
-     "namn": "Affär'n Abborrträsk",
-     "kommun": "Arvidsjaur",
-     "lokalId": "2505002",
-     "total": 55,
-     "dagarMedRoster": 2,
-     "storstaDag": 29,
-     "andel": 4.3
+     "andel": 5.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1014,7 +1021,7 @@
      "total": 6,
      "dagarMedRoster": 3,
      "storstaDag": 3,
-     "andel": 0.5
+     "andel": 0.4
     }
    ],
    "antalLokaler": 5,

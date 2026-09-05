@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1072,9 +1072,16 @@
      "kvar": 9,
      "antal": 249,
      "ack": 2687
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 258,
+     "ack": 2945
     }
    ],
-   "total": 2687,
+   "total": 2945,
    "rostberattigade": {
     "riksdag": 12454,
     "kommun": 12704,
@@ -1092,10 +1099,19 @@
      "namn": "Henån, kommunhuset",
      "kommun": "Orust",
      "lokalId": "1421008",
-     "total": 1359,
-     "dagarMedRoster": 10,
+     "total": 1461,
+     "dagarMedRoster": 11,
      "storstaDag": 185,
-     "andel": 50.6
+     "andel": 49.6
+    },
+    {
+     "namn": "Göksäter",
+     "kommun": "Orust",
+     "lokalId": "1421011",
+     "total": 380,
+     "dagarMedRoster": 4,
+     "storstaDag": 116,
+     "andel": 12.9
     },
     {
      "namn": "Ellös bibliotek",
@@ -1104,7 +1120,7 @@
      "total": 357,
      "dagarMedRoster": 4,
      "storstaDag": 132,
-     "andel": 13.3
+     "andel": 12.1
     },
     {
      "namn": "Svanesund, Ängås skola",
@@ -1113,16 +1129,7 @@
      "total": 311,
      "dagarMedRoster": 4,
      "storstaDag": 91,
-     "andel": 11.6
-    },
-    {
-     "namn": "Göksäter",
-     "kommun": "Orust",
-     "lokalId": "1421011",
-     "total": 279,
-     "dagarMedRoster": 3,
-     "storstaDag": 116,
-     "andel": 10.4
+     "andel": 10.6
     },
     {
      "namn": "Varekils bibliotek",
@@ -1131,7 +1138,7 @@
      "total": 148,
      "dagarMedRoster": 3,
      "storstaDag": 61,
-     "andel": 5.5
+     "andel": 5.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1140,7 +1147,7 @@
      "total": 128,
      "dagarMedRoster": 4,
      "storstaDag": 40,
-     "andel": 4.8
+     "andel": 4.3
     },
     {
      "namn": "Flatö skola",
@@ -1149,7 +1156,16 @@
      "total": 105,
      "dagarMedRoster": 2,
      "storstaDag": 64,
-     "andel": 3.9
+     "andel": 3.6
+    },
+    {
+     "namn": "Mollösund, Änggårdens idrottshall",
+     "kommun": "Orust",
+     "lokalId": "1421002",
+     "total": 55,
+     "dagarMedRoster": 1,
+     "storstaDag": 55,
+     "andel": 1.9
     },
     {
      "namn": "Gullholmsgården",
@@ -1173,15 +1189,6 @@
      "namn": "Käringön, gamla hamnkontoret",
      "kommun": "Orust",
      "lokalId": "1421006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Mollösund, Änggårdens idrottshall",
-     "kommun": "Orust",
-     "lokalId": "1421002",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

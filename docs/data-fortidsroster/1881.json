@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -937,7 +937,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1009,9 +1009,16 @@
      "kvar": 9,
      "antal": 338,
      "ack": 3479
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 276,
+     "ack": 3755
     }
    ],
-   "total": 3479,
+   "total": 3755,
    "rostberattigade": {
     "riksdag": 16987,
     "kommun": 17432,
@@ -1029,19 +1036,19 @@
      "namn": "Kumla bibliotek",
      "kommun": "Kumla",
      "lokalId": "1881001",
-     "total": 3075,
-     "dagarMedRoster": 10,
+     "total": 3255,
+     "dagarMedRoster": 11,
      "storstaDag": 451,
-     "andel": 88.4
+     "andel": 86.7
     },
     {
      "namn": "Anstalten Kumla",
      "kommun": "Kumla",
      "lokalId": "1881002",
-     "total": 311,
-     "dagarMedRoster": 8,
+     "total": 407,
+     "dagarMedRoster": 9,
      "storstaDag": 161,
-     "andel": 8.9
+     "andel": 10.8
     },
     {
      "namn": "Kumla Skofabrik",
@@ -1050,7 +1057,7 @@
      "total": 59,
      "dagarMedRoster": 2,
      "storstaDag": 34,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1059,7 +1066,7 @@
      "total": 34,
      "dagarMedRoster": 3,
      "storstaDag": 28,
-     "andel": 1.0
+     "andel": 0.9
     }
    ],
    "antalLokaler": 4,

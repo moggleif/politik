@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -2854,7 +2854,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -2924,11 +2924,18 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 2812,
-     "ack": 23005
+     "antal": 2823,
+     "ack": 23016
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 1191,
+     "ack": 24207
     }
    ],
-   "total": 23005,
+   "total": 24207,
    "rostberattigade": {
     "riksdag": 112280,
     "kommun": 116520,
@@ -2943,65 +2950,65 @@
    },
    "lokaler": [
     {
-     "namn": "Asecs Paviljong",
-     "kommun": "Jönköping",
-     "lokalId": "0680062",
-     "total": 2696,
-     "dagarMedRoster": 10,
-     "storstaDag": 356,
-     "andel": 11.7
-    },
-    {
      "namn": "Asecs köpcenter",
      "kommun": "Jönköping",
      "lokalId": "0680055",
-     "total": 2677,
-     "dagarMedRoster": 10,
+     "total": 2884,
+     "dagarMedRoster": 11,
      "storstaDag": 360,
-     "andel": 11.6
+     "andel": 11.9
+    },
+    {
+     "namn": "Asecs Paviljong",
+     "kommun": "Jönköping",
+     "lokalId": "0680062",
+     "total": 2874,
+     "dagarMedRoster": 11,
+     "storstaDag": 356,
+     "andel": 11.9
     },
     {
      "namn": "Jönköpings stadsbibliotek",
      "kommun": "Jönköping",
      "lokalId": "0680053",
-     "total": 2636,
-     "dagarMedRoster": 10,
+     "total": 2805,
+     "dagarMedRoster": 11,
      "storstaDag": 327,
-     "andel": 11.5
+     "andel": 11.6
     },
     {
      "namn": "Huskvarna stadshus",
      "kommun": "Jönköping",
      "lokalId": "0680051",
-     "total": 1861,
-     "dagarMedRoster": 9,
-     "storstaDag": 267,
-     "andel": 8.1
+     "total": 2072,
+     "dagarMedRoster": 10,
+     "storstaDag": 268,
+     "andel": 8.6
     },
     {
      "namn": "Juneporten",
      "kommun": "Jönköping",
      "lokalId": "0680056",
-     "total": 1681,
-     "dagarMedRoster": 9,
+     "total": 1754,
+     "dagarMedRoster": 10,
      "storstaDag": 250,
-     "andel": 7.3
+     "andel": 7.2
     },
     {
      "namn": "Råslätt Paviljong",
      "kommun": "Jönköping",
      "lokalId": "0680049",
-     "total": 1567,
-     "dagarMedRoster": 9,
+     "total": 1681,
+     "dagarMedRoster": 10,
      "storstaDag": 221,
-     "andel": 6.8
+     "andel": 6.9
     },
     {
      "namn": "Österängens centrum",
      "kommun": "Jönköping",
      "lokalId": "0680024",
-     "total": 1513,
-     "dagarMedRoster": 9,
+     "total": 1604,
+     "dagarMedRoster": 10,
      "storstaDag": 203,
      "andel": 6.6
     },
@@ -3012,7 +3019,7 @@
      "total": 1226,
      "dagarMedRoster": 8,
      "storstaDag": 198,
-     "andel": 5.3
+     "andel": 5.1
     },
     {
      "namn": "Jönköping University Biblioteket",
@@ -3021,16 +3028,16 @@
      "total": 1146,
      "dagarMedRoster": 8,
      "storstaDag": 181,
-     "andel": 5.0
+     "andel": 4.7
     },
     {
      "namn": "Gränna bibliotek",
      "kommun": "Jönköping",
      "lokalId": "0680059",
-     "total": 706,
-     "dagarMedRoster": 9,
+     "total": 768,
+     "dagarMedRoster": 10,
      "storstaDag": 101,
-     "andel": 3.1
+     "andel": 3.2
     },
     {
      "namn": "Ryhov Lärcentrum",
@@ -3039,7 +3046,7 @@
      "total": 678,
      "dagarMedRoster": 8,
      "storstaDag": 113,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Huskvarna centrum",
@@ -3048,7 +3055,16 @@
      "total": 637,
      "dagarMedRoster": 8,
      "storstaDag": 105,
-     "andel": 2.8
+     "andel": 2.6
+    },
+    {
+     "namn": "Rådhusparken Paviljong",
+     "kommun": "Jönköping",
+     "lokalId": "0680007",
+     "total": 637,
+     "dagarMedRoster": 6,
+     "storstaDag": 127,
+     "andel": 2.6
     },
     {
      "namn": "Norrahammars Församlingshem",
@@ -3057,16 +3073,16 @@
      "total": 620,
      "dagarMedRoster": 8,
      "storstaDag": 100,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Öxnehaga Vardagsrummet",
      "kommun": "Jönköping",
      "lokalId": "0680040",
-     "total": 571,
+     "total": 573,
      "dagarMedRoster": 8,
      "storstaDag": 86,
-     "andel": 2.5
+     "andel": 2.4
     },
     {
      "namn": "Tenhults bibliotek",
@@ -3075,16 +3091,7 @@
      "total": 556,
      "dagarMedRoster": 7,
      "storstaDag": 150,
-     "andel": 2.4
-    },
-    {
-     "namn": "Rådhusparken Paviljong",
-     "kommun": "Jönköping",
-     "lokalId": "0680007",
-     "total": 542,
-     "dagarMedRoster": 5,
-     "storstaDag": 127,
-     "andel": 2.4
+     "andel": 2.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -3093,7 +3100,7 @@
      "total": 465,
      "dagarMedRoster": 9,
      "storstaDag": 107,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Tabergs Missionskyrka",
@@ -3102,7 +3109,7 @@
      "total": 443,
      "dagarMedRoster": 5,
      "storstaDag": 111,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Lekeryds församlingshem",
@@ -3111,7 +3118,7 @@
      "total": 200,
      "dagarMedRoster": 5,
      "storstaDag": 69,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Visingsö bibliotek",
@@ -3156,7 +3163,7 @@
      "total": 59,
      "dagarMedRoster": 2,
      "storstaDag": 36,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Ödestugu skola",

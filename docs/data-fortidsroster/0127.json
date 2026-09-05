@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1090,7 +1090,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1162,9 +1162,16 @@
      "kvar": 9,
      "antal": 1445,
      "ack": 13957
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 731,
+     "ack": 14688
     }
    ],
-   "total": 13957,
+   "total": 14688,
    "rostberattigade": {
     "riksdag": 64900,
     "kommun": 73467,
@@ -1182,17 +1189,17 @@
      "namn": "Tullinge centrum",
      "kommun": "Botkyrka",
      "lokalId": "0127005",
-     "total": 2370,
-     "dagarMedRoster": 10,
+     "total": 2520,
+     "dagarMedRoster": 11,
      "storstaDag": 279,
-     "andel": 17.0
+     "andel": 17.2
     },
     {
      "namn": "Hallunda medborgarkontor",
      "kommun": "Botkyrka",
      "lokalId": "0127006",
-     "total": 2127,
-     "dagarMedRoster": 10,
+     "total": 2236,
+     "dagarMedRoster": 11,
      "storstaDag": 256,
      "andel": 15.2
     },
@@ -1200,8 +1207,8 @@
      "namn": "Tumba centrum",
      "kommun": "Botkyrka",
      "lokalId": "0127008",
-     "total": 1954,
-     "dagarMedRoster": 10,
+     "total": 2063,
+     "dagarMedRoster": 11,
      "storstaDag": 259,
      "andel": 14.0
     },
@@ -1209,8 +1216,8 @@
      "namn": "Tumba bibliotek",
      "kommun": "Botkyrka",
      "lokalId": "0127002",
-     "total": 1732,
-     "dagarMedRoster": 10,
+     "total": 1817,
+     "dagarMedRoster": 11,
      "storstaDag": 217,
      "andel": 12.4
     },
@@ -1218,8 +1225,8 @@
      "namn": "Alby medborgarkontor",
      "kommun": "Botkyrka",
      "lokalId": "0127003",
-     "total": 1689,
-     "dagarMedRoster": 10,
+     "total": 1770,
+     "dagarMedRoster": 11,
      "storstaDag": 211,
      "andel": 12.1
     },
@@ -1227,8 +1234,8 @@
      "namn": "Ica Maxi Botkyrka",
      "kommun": "Botkyrka",
      "lokalId": "0127007",
-     "total": 1447,
-     "dagarMedRoster": 10,
+     "total": 1527,
+     "dagarMedRoster": 11,
      "storstaDag": 189,
      "andel": 10.4
     },
@@ -1236,8 +1243,8 @@
      "namn": "Fittja medborgarkontor",
      "kommun": "Botkyrka",
      "lokalId": "0127004",
-     "total": 1276,
-     "dagarMedRoster": 10,
+     "total": 1339,
+     "dagarMedRoster": 11,
      "storstaDag": 174,
      "andel": 9.1
     },
@@ -1245,8 +1252,8 @@
      "namn": "Mötesplats Grödinge",
      "kommun": "Botkyrka",
      "lokalId": "0127001",
-     "total": 753,
-     "dagarMedRoster": 10,
+     "total": 791,
+     "dagarMedRoster": 11,
      "storstaDag": 100,
      "andel": 5.4
     },
@@ -1257,7 +1264,7 @@
      "total": 204,
      "dagarMedRoster": 3,
      "storstaDag": 104,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1284,7 +1291,7 @@
      "total": 63,
      "dagarMedRoster": 1,
      "storstaDag": 63,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Campus Botkyrka (SFI)",
@@ -1296,13 +1303,22 @@
      "andel": 0.3
     },
     {
+     "namn": "Hågelbyparken, Hågelby Hus",
+     "kommun": "Botkyrka",
+     "lokalId": "0127024",
+     "total": 29,
+     "dagarMedRoster": 2,
+     "storstaDag": 16,
+     "andel": 0.2
+    },
+    {
      "namn": "Södertörns gymnasium",
      "kommun": "Botkyrka",
      "lokalId": "0127025",
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "S:t Botvids gymnasium",
@@ -1311,15 +1327,6 @@
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 0.1
-    },
-    {
-     "namn": "Hågelbyparken, Hågelby Hus",
-     "kommun": "Botkyrka",
-     "lokalId": "0127024",
-     "total": 13,
-     "dagarMedRoster": 1,
-     "storstaDag": 13,
      "andel": 0.1
     },
     {

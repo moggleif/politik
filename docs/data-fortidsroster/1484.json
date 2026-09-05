@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -836,11 +836,18 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 314,
-     "ack": 2863
+     "antal": 380,
+     "ack": 2929
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 134,
+     "ack": 3063
     }
    ],
-   "total": 2863,
+   "total": 3063,
    "rostberattigade": {
     "riksdag": 11166,
     "kommun": 11390,
@@ -858,8 +865,8 @@
      "namn": "Kommunhuset Lysekil",
      "kommun": "Lysekil",
      "lokalId": "1484001",
-     "total": 1900,
-     "dagarMedRoster": 10,
+     "total": 2034,
+     "dagarMedRoster": 11,
      "storstaDag": 258,
      "andel": 66.4
     },
@@ -870,16 +877,16 @@
      "total": 581,
      "dagarMedRoster": 8,
      "storstaDag": 104,
-     "andel": 20.3
+     "andel": 19.0
     },
     {
      "namn": "Skaftö församlingshem",
      "kommun": "Lysekil",
      "lokalId": "1484002",
-     "total": 326,
-     "dagarMedRoster": 6,
+     "total": 392,
+     "dagarMedRoster": 7,
      "storstaDag": 66,
-     "andel": 11.4
+     "andel": 12.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -888,7 +895,7 @@
      "total": 56,
      "dagarMedRoster": 4,
      "storstaDag": 24,
-     "andel": 2.0
+     "andel": 1.8
     }
    ],
    "antalLokaler": 4,

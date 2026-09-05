@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -955,7 +955,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1027,9 +1027,16 @@
      "kvar": 9,
      "antal": 1176,
      "ack": 10398
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 538,
+     "ack": 10936
     }
    ],
-   "total": 10398,
+   "total": 10936,
    "rostberattigade": {
     "riksdag": 62994,
     "kommun": 69745,
@@ -1047,10 +1054,10 @@
      "namn": "Biblioteket i Solna centrum",
      "kommun": "Solna",
      "lokalId": "0184002",
-     "total": 5083,
-     "dagarMedRoster": 9,
+     "total": 5335,
+     "dagarMedRoster": 10,
      "storstaDag": 683,
-     "andel": 48.9
+     "andel": 48.8
     },
     {
      "namn": "Solna stadshus",
@@ -1059,34 +1066,34 @@
      "total": 2210,
      "dagarMedRoster": 9,
      "storstaDag": 353,
-     "andel": 21.3
+     "andel": 20.2
     },
     {
      "namn": "Biblioteket i Bergshamra",
      "kommun": "Solna",
      "lokalId": "0184001",
-     "total": 1280,
-     "dagarMedRoster": 9,
+     "total": 1370,
+     "dagarMedRoster": 10,
      "storstaDag": 200,
-     "andel": 12.3
+     "andel": 12.5
     },
     {
      "namn": "Valbuss",
      "kommun": "Solna",
      "lokalId": "0184010",
-     "total": 595,
-     "dagarMedRoster": 5,
+     "total": 660,
+     "dagarMedRoster": 6,
      "storstaDag": 172,
-     "andel": 5.7
+     "andel": 6.0
     },
     {
      "namn": "Solna Simhall",
      "kommun": "Solna",
      "lokalId": "0184009",
-     "total": 368,
-     "dagarMedRoster": 2,
+     "total": 499,
+     "dagarMedRoster": 3,
      "storstaDag": 232,
-     "andel": 3.5
+     "andel": 4.6
     },
     {
      "namn": "Skoga Omvårdnadsboende",
@@ -1095,7 +1102,7 @@
      "total": 322,
      "dagarMedRoster": 2,
      "storstaDag": 164,
-     "andel": 3.1
+     "andel": 2.9
     },
     {
      "namn": "Ankaret i Hagalund",
@@ -1104,7 +1111,7 @@
      "total": 263,
      "dagarMedRoster": 3,
      "storstaDag": 107,
-     "andel": 2.5
+     "andel": 2.4
     },
     {
      "namn": "Hallen äldreboende",
@@ -1113,7 +1120,7 @@
      "total": 228,
      "dagarMedRoster": 2,
      "storstaDag": 117,
-     "andel": 2.2
+     "andel": 2.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1122,7 +1129,7 @@
      "total": 49,
      "dagarMedRoster": 7,
      "storstaDag": 31,
-     "andel": 0.5
+     "andel": 0.4
     }
    ],
    "antalLokaler": 9,

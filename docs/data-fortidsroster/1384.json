@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1450,7 +1450,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1522,9 +1522,16 @@
      "kvar": 9,
      "antal": 1383,
      "ack": 12954
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 880,
+     "ack": 13834
     }
    ],
-   "total": 12954,
+   "total": 13834,
    "rostberattigade": {
     "riksdag": 66505,
     "kommun": 67149,
@@ -1542,19 +1549,28 @@
      "namn": "Kungsmässan",
      "kommun": "Kungsbacka",
      "lokalId": "1384008",
-     "total": 8118,
-     "dagarMedRoster": 10,
+     "total": 8643,
+     "dagarMedRoster": 11,
      "storstaDag": 993,
-     "andel": 62.7
+     "andel": 62.5
     },
     {
      "namn": "Kullaviks bibliotek",
      "kommun": "Kungsbacka",
      "lokalId": "1384015",
-     "total": 1042,
-     "dagarMedRoster": 7,
+     "total": 1246,
+     "dagarMedRoster": 8,
      "storstaDag": 214,
-     "andel": 8.0
+     "andel": 9.0
+    },
+    {
+     "namn": "Kungsbacka, Stadshuset",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384013",
+     "total": 923,
+     "dagarMedRoster": 9,
+     "storstaDag": 128,
+     "andel": 6.7
     },
     {
      "namn": "Onsala Båt och Sjöfartsmuseum",
@@ -1563,25 +1579,16 @@
      "total": 923,
      "dagarMedRoster": 8,
      "storstaDag": 153,
-     "andel": 7.1
-    },
-    {
-     "namn": "Kungsbacka, Stadshuset",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384013",
-     "total": 878,
-     "dagarMedRoster": 8,
-     "storstaDag": 128,
-     "andel": 6.8
+     "andel": 6.7
     },
     {
      "namn": "Åsa Bibliotek",
      "kommun": "Kungsbacka",
      "lokalId": "1384011",
-     "total": 666,
-     "dagarMedRoster": 7,
+     "total": 772,
+     "dagarMedRoster": 8,
      "storstaDag": 131,
-     "andel": 5.1
+     "andel": 5.6
     },
     {
      "namn": "Frillesåsskolan",
@@ -1590,7 +1597,7 @@
      "total": 416,
      "dagarMedRoster": 8,
      "storstaDag": 68,
-     "andel": 3.2
+     "andel": 3.0
     },
     {
      "namn": "Toråsskolan, biblioteket",
@@ -1599,7 +1606,7 @@
      "total": 318,
      "dagarMedRoster": 8,
      "storstaDag": 55,
-     "andel": 2.5
+     "andel": 2.3
     },
     {
      "namn": "Fjärås bibliotek",
@@ -1608,7 +1615,7 @@
      "total": 206,
      "dagarMedRoster": 3,
      "storstaDag": 86,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Älvsåkersskolan, Biblioteket",

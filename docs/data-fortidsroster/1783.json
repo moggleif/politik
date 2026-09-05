@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T10:34+02:00",
+ "senastUppdaterad": "2026-09-05T17:31+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T10:34+02:00",
+   "hamtad": "2026-09-05T17:31+02:00",
    "klart": false,
    "dagar": [
     {
@@ -982,9 +982,16 @@
      "kvar": 9,
      "antal": 138,
      "ack": 1720
+    },
+    {
+     "datum": "2026-09-05",
+     "veckodag": "lör",
+     "kvar": 8,
+     "antal": 118,
+     "ack": 1838
     }
    ],
-   "total": 1720,
+   "total": 1838,
    "rostberattigade": {
     "riksdag": 8424,
     "kommun": 9454,
@@ -1002,10 +1009,10 @@
      "namn": "Stadshuset i Hagfors",
      "kommun": "Hagfors",
      "lokalId": "1783001",
-     "total": 1197,
-     "dagarMedRoster": 8,
+     "total": 1315,
+     "dagarMedRoster": 9,
      "storstaDag": 245,
-     "andel": 69.6
+     "andel": 71.5
     },
     {
      "namn": "Bågskytten, Ekshärad",
@@ -1014,7 +1021,7 @@
      "total": 284,
      "dagarMedRoster": 3,
      "storstaDag": 135,
-     "andel": 16.5
+     "andel": 15.5
     },
     {
      "namn": "Sunnemo skola",
@@ -1023,7 +1030,7 @@
      "total": 121,
      "dagarMedRoster": 1,
      "storstaDag": 121,
-     "andel": 7.0
+     "andel": 6.6
     },
     {
      "namn": "Råda skola",
@@ -1032,7 +1039,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 4.4
+     "andel": 4.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1041,7 +1048,7 @@
      "total": 43,
      "dagarMedRoster": 2,
      "storstaDag": 31,
-     "andel": 2.5
+     "andel": 2.3
     }
    ],
    "antalLokaler": 5,
