@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T18:35+02:00",
+ "senastUppdaterad": "2026-09-05T10:34+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1135,7 +1135,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T18:35+02:00",
+   "hamtad": "2026-09-05T10:34+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1205,11 +1205,11 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 348,
-     "ack": 4389
+     "antal": 558,
+     "ack": 4599
     }
    ],
-   "total": 4389,
+   "total": 4599,
    "rostberattigade": {
     "riksdag": 23547,
     "kommun": 24548,
@@ -1227,10 +1227,19 @@
      "namn": "Stadsbiblioteket Nässjö",
      "kommun": "Nässjö",
      "lokalId": "0682005",
-     "total": 3176,
+     "total": 3315,
      "dagarMedRoster": 10,
      "storstaDag": 443,
-     "andel": 72.4
+     "andel": 72.1
+    },
+    {
+     "namn": "Biblioteket Bodafors",
+     "kommun": "Nässjö",
+     "lokalId": "0682002",
+     "total": 356,
+     "dagarMedRoster": 3,
+     "storstaDag": 150,
+     "andel": 7.7
     },
     {
      "namn": "Biblioteket Forserum",
@@ -1239,25 +1248,16 @@
      "total": 337,
      "dagarMedRoster": 3,
      "storstaDag": 128,
-     "andel": 7.7
-    },
-    {
-     "namn": "Biblioteket Bodafors",
-     "kommun": "Nässjö",
-     "lokalId": "0682002",
-     "total": 292,
-     "dagarMedRoster": 3,
-     "storstaDag": 110,
-     "andel": 6.7
+     "andel": 7.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nässjö",
      "lokalId": "0682007",
-     "total": 188,
-     "dagarMedRoster": 7,
+     "total": 195,
+     "dagarMedRoster": 8,
      "storstaDag": 65,
-     "andel": 4.3
+     "andel": 4.2
     },
     {
      "namn": "Annebergs bibliotek",
@@ -1266,7 +1266,7 @@
      "total": 170,
      "dagarMedRoster": 3,
      "storstaDag": 70,
-     "andel": 3.9
+     "andel": 3.7
     },
     {
      "namn": "Biblioteket Malmbäck",
@@ -1275,7 +1275,7 @@
      "total": 169,
      "dagarMedRoster": 3,
      "storstaDag": 70,
-     "andel": 3.9
+     "andel": 3.7
     },
     {
      "namn": "Brinellgymnasiet",
@@ -1284,7 +1284,7 @@
      "total": 57,
      "dagarMedRoster": 1,
      "storstaDag": 57,
-     "andel": 1.3
+     "andel": 1.2
     }
    ],
    "antalLokaler": 7,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T18:35+02:00",
+ "senastUppdaterad": "2026-09-05T10:34+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,7 +919,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T18:35+02:00",
+   "hamtad": "2026-09-05T10:34+02:00",
    "klart": false,
    "dagar": [
     {
@@ -989,11 +989,11 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 35,
-     "ack": 1499
+     "antal": 197,
+     "ack": 1661
     }
    ],
-   "total": 1499,
+   "total": 1661,
    "rostberattigade": {
     "riksdag": 10408,
     "kommun": 10783,
@@ -1008,22 +1008,22 @@
    },
    "lokaler": [
     {
+     "namn": "Broby Bibliotek",
+     "kommun": "Östra Göinge",
+     "lokalId": "1256001",
+     "total": 623,
+     "dagarMedRoster": 5,
+     "storstaDag": 197,
+     "andel": 37.5
+    },
+    {
      "namn": "Knislinge Bibliotek",
      "kommun": "Östra Göinge",
      "lokalId": "1256005",
      "total": 476,
      "dagarMedRoster": 5,
      "storstaDag": 141,
-     "andel": 31.8
-    },
-    {
-     "namn": "Broby Bibliotek",
-     "kommun": "Östra Göinge",
-     "lokalId": "1256001",
-     "total": 461,
-     "dagarMedRoster": 5,
-     "storstaDag": 129,
-     "andel": 30.8
+     "andel": 28.7
     },
     {
      "namn": "Glimåkra Bibliotek",
@@ -1032,7 +1032,7 @@
      "total": 212,
      "dagarMedRoster": 3,
      "storstaDag": 97,
-     "andel": 14.1
+     "andel": 12.8
     },
     {
      "namn": "Sibbhults Bibliotek",
@@ -1041,7 +1041,7 @@
      "total": 201,
      "dagarMedRoster": 3,
      "storstaDag": 89,
-     "andel": 13.4
+     "andel": 12.1
     },
     {
      "namn": "Hanaskogs Bibliotek",
@@ -1050,7 +1050,7 @@
      "total": 145,
      "dagarMedRoster": 3,
      "storstaDag": 64,
-     "andel": 9.7
+     "andel": 8.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1059,7 +1059,7 @@
      "total": 4,
      "dagarMedRoster": 2,
      "storstaDag": 2,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Kommunhuset",

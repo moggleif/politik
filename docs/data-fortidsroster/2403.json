@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T18:35+02:00",
+ "senastUppdaterad": "2026-09-05T10:34+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T18:35+02:00",
+   "hamtad": "2026-09-05T10:34+02:00",
    "klart": false,
    "dagar": [
     {
@@ -822,9 +822,16 @@
      "kvar": 10,
      "antal": 46,
      "ack": 314
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 51,
+     "ack": 365
     }
    ],
-   "total": 314,
+   "total": 365,
    "rostberattigade": {
     "riksdag": 1796,
     "kommun": 1871,
@@ -842,10 +849,10 @@
      "namn": "Kommunkontoret",
      "kommun": "Bjurholm",
      "lokalId": "2403001",
-     "total": 310,
-     "dagarMedRoster": 9,
+     "total": 361,
+     "dagarMedRoster": 10,
      "storstaDag": 55,
-     "andel": 98.7
+     "andel": 98.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -854,7 +861,7 @@
      "total": 4,
      "dagarMedRoster": 1,
      "storstaDag": 4,
-     "andel": 1.3
+     "andel": 1.1
     },
     {
      "namn": "Kommunkontoret",

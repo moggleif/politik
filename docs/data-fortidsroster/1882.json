@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T18:35+02:00",
+ "senastUppdaterad": "2026-09-05T10:34+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -775,7 +775,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T18:35+02:00",
+   "hamtad": "2026-09-05T10:34+02:00",
    "klart": false,
    "dagar": [
     {
@@ -840,9 +840,16 @@
      "kvar": 10,
      "antal": 257,
      "ack": 1342
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 127,
+     "ack": 1469
     }
    ],
-   "total": 1342,
+   "total": 1469,
    "rostberattigade": {
     "riksdag": 9168,
     "kommun": 9355,
@@ -860,10 +867,10 @@
      "namn": "Sjöängen",
      "kommun": "Askersund",
      "lokalId": "1882003",
-     "total": 1078,
-     "dagarMedRoster": 9,
+     "total": 1202,
+     "dagarMedRoster": 10,
      "storstaDag": 150,
-     "andel": 80.3
+     "andel": 81.8
     },
     {
      "namn": "Åsbro skola",
@@ -872,7 +879,7 @@
      "total": 110,
      "dagarMedRoster": 1,
      "storstaDag": 110,
-     "andel": 8.2
+     "andel": 7.5
     },
     {
      "namn": "Zinkgruvan",
@@ -881,7 +888,7 @@
      "total": 90,
      "dagarMedRoster": 1,
      "storstaDag": 90,
-     "andel": 6.7
+     "andel": 6.1
     },
     {
      "namn": "Olshammar",
@@ -890,7 +897,16 @@
      "total": 35,
      "dagarMedRoster": 1,
      "storstaDag": 35,
-     "andel": 2.6
+     "andel": 2.4
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Askersund",
+     "lokalId": "1882005",
+     "total": 12,
+     "dagarMedRoster": 5,
+     "storstaDag": 3,
+     "andel": 0.8
     },
     {
      "namn": "Smedsgården",
@@ -908,15 +924,6 @@
      "total": 10,
      "dagarMedRoster": 1,
      "storstaDag": 10,
-     "andel": 0.7
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Askersund",
-     "lokalId": "1882005",
-     "total": 9,
-     "dagarMedRoster": 4,
-     "storstaDag": 3,
      "andel": 0.7
     }
    ],

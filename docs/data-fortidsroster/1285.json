@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T18:35+02:00",
+ "senastUppdaterad": "2026-09-05T10:34+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1153,7 +1153,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T18:35+02:00",
+   "hamtad": "2026-09-05T10:34+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1216,18 +1216,18 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 565,
-     "ack": 4285
+     "antal": 574,
+     "ack": 4294
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 245,
-     "ack": 4530
+     "antal": 499,
+     "ack": 4793
     }
    ],
-   "total": 4530,
+   "total": 4793,
    "rostberattigade": {
     "riksdag": 25779,
     "kommun": 27143,
@@ -1245,19 +1245,19 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Eslöv",
      "lokalId": "1285007",
-     "total": 2263,
+     "total": 2390,
      "dagarMedRoster": 9,
      "storstaDag": 305,
-     "andel": 50.0
+     "andel": 49.9
     },
     {
      "namn": "Stadshuset",
      "kommun": "Eslöv",
      "lokalId": "1285006",
-     "total": 347,
+     "total": 353,
      "dagarMedRoster": 8,
-     "storstaDag": 52,
-     "andel": 7.7
+     "storstaDag": 58,
+     "andel": 7.4
     },
     {
      "namn": "Hantverksgården i Löberöd",
@@ -1266,34 +1266,43 @@
      "total": 314,
      "dagarMedRoster": 5,
      "storstaDag": 75,
-     "andel": 6.9
-    },
-    {
-     "namn": "Kärråkra vårdcentral",
-     "kommun": "Eslöv",
-     "lokalId": "1285012",
-     "total": 291,
-     "dagarMedRoster": 5,
-     "storstaDag": 70,
-     "andel": 6.4
+     "andel": 6.6
     },
     {
      "namn": "Hyresgästföreningen Snäckan Sallerup",
      "kommun": "Eslöv",
      "lokalId": "1285009",
-     "total": 268,
-     "dagarMedRoster": 5,
+     "total": 293,
+     "dagarMedRoster": 6,
      "storstaDag": 69,
-     "andel": 5.9
+     "andel": 6.1
+    },
+    {
+     "namn": "Kärråkra vårdcentral",
+     "kommun": "Eslöv",
+     "lokalId": "1285012",
+     "total": 293,
+     "dagarMedRoster": 5,
+     "storstaDag": 70,
+     "andel": 6.1
     },
     {
      "namn": "Marieholms bibliotek",
      "kommun": "Eslöv",
      "lokalId": "1285004",
-     "total": 220,
+     "total": 226,
      "dagarMedRoster": 3,
      "storstaDag": 87,
-     "andel": 4.9
+     "andel": 4.7
+    },
+    {
+     "namn": "Flyinge församlingshem",
+     "kommun": "Eslöv",
+     "lokalId": "1285008",
+     "total": 222,
+     "dagarMedRoster": 4,
+     "storstaDag": 73,
+     "andel": 4.6
     },
     {
      "namn": "Stehags bibliotek",
@@ -1302,43 +1311,34 @@
      "total": 212,
      "dagarMedRoster": 3,
      "storstaDag": 84,
-     "andel": 4.7
+     "andel": 4.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Eslöv",
      "lokalId": "1285013",
-     "total": 185,
-     "dagarMedRoster": 6,
+     "total": 186,
+     "dagarMedRoster": 7,
      "storstaDag": 117,
-     "andel": 4.1
-    },
-    {
-     "namn": "Flyinge församlingshem",
-     "kommun": "Eslöv",
-     "lokalId": "1285008",
-     "total": 168,
-     "dagarMedRoster": 3,
-     "storstaDag": 73,
-     "andel": 3.7
+     "andel": 3.9
     },
     {
      "namn": "Harlösa Byahus",
      "kommun": "Eslöv",
      "lokalId": "1285002",
-     "total": 155,
-     "dagarMedRoster": 4,
+     "total": 181,
+     "dagarMedRoster": 5,
      "storstaDag": 56,
-     "andel": 3.4
+     "andel": 3.8
     },
     {
      "namn": "Rönningen",
      "kommun": "Eslöv",
      "lokalId": "1285010",
-     "total": 107,
-     "dagarMedRoster": 3,
+     "total": 123,
+     "dagarMedRoster": 4,
      "storstaDag": 57,
-     "andel": 2.4
+     "andel": 2.6
     }
    ],
    "antalLokaler": 11,

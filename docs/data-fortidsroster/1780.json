@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T18:35+02:00",
+ "senastUppdaterad": "2026-09-05T10:34+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T18:35+02:00",
+   "hamtad": "2026-09-05T10:34+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1380,25 +1380,25 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 1956,
-     "ack": 10846
+     "antal": 1960,
+     "ack": 10850
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 1884,
-     "ack": 12730
+     "ack": 12734
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 329,
-     "ack": 13059
+     "antal": 1357,
+     "ack": 14091
     }
    ],
-   "total": 13059,
+   "total": 14091,
    "rostberattigade": {
     "riksdag": 78861,
     "kommun": 80401,
@@ -1416,28 +1416,37 @@
      "namn": "Bibliotekshuset",
      "kommun": "Karlstad",
      "lokalId": "1780010",
-     "total": 5614,
+     "total": 5874,
      "dagarMedRoster": 10,
      "storstaDag": 687,
-     "andel": 43.0
+     "andel": 41.7
     },
     {
      "namn": "Stadsträdgården, Köpmannagatan 2",
      "kommun": "Karlstad",
      "lokalId": "1780005",
-     "total": 1674,
+     "total": 1796,
      "dagarMedRoster": 8,
      "storstaDag": 259,
-     "andel": 12.8
+     "andel": 12.7
     },
     {
      "namn": "Våxnäs bibliotek, entréhall",
      "kommun": "Karlstad",
      "lokalId": "1780009",
-     "total": 1478,
-     "dagarMedRoster": 7,
+     "total": 1695,
+     "dagarMedRoster": 8,
      "storstaDag": 262,
-     "andel": 11.3
+     "andel": 12.0
+    },
+    {
+     "namn": "Fröding Arena",
+     "kommun": "Karlstad",
+     "lokalId": "1780001",
+     "total": 1211,
+     "dagarMedRoster": 8,
+     "storstaDag": 177,
+     "andel": 8.6
     },
     {
      "namn": "Älvkullegymnasiets huvudentré",
@@ -1446,34 +1455,25 @@
      "total": 1088,
      "dagarMedRoster": 6,
      "storstaDag": 219,
-     "andel": 8.3
-    },
-    {
-     "namn": "Fröding Arena",
-     "kommun": "Karlstad",
-     "lokalId": "1780001",
-     "total": 1073,
-     "dagarMedRoster": 7,
-     "storstaDag": 177,
-     "andel": 8.2
+     "andel": 7.7
     },
     {
      "namn": "Ilandahallen",
      "kommun": "Karlstad",
      "lokalId": "1780011",
-     "total": 623,
-     "dagarMedRoster": 7,
-     "storstaDag": 111,
-     "andel": 4.8
+     "total": 740,
+     "dagarMedRoster": 8,
+     "storstaDag": 115,
+     "andel": 5.3
     },
     {
      "namn": "Vårt hus",
      "kommun": "Karlstad",
      "lokalId": "1780007",
-     "total": 505,
-     "dagarMedRoster": 7,
+     "total": 582,
+     "dagarMedRoster": 8,
      "storstaDag": 114,
-     "andel": 3.9
+     "andel": 4.1
     },
     {
      "namn": "Molkoms bibliotek",
@@ -1482,25 +1482,25 @@
      "total": 491,
      "dagarMedRoster": 6,
      "storstaDag": 98,
-     "andel": 3.8
+     "andel": 3.5
     },
     {
      "namn": "Älvenäs bygdegård",
      "kommun": "Karlstad",
      "lokalId": "1780002",
-     "total": 278,
-     "dagarMedRoster": 3,
+     "total": 318,
+     "dagarMedRoster": 4,
      "storstaDag": 119,
-     "andel": 2.1
+     "andel": 2.3
     },
     {
      "namn": "Edsvalla Folkets hus",
      "kommun": "Karlstad",
      "lokalId": "1780012",
-     "total": 186,
-     "dagarMedRoster": 4,
+     "total": 247,
+     "dagarMedRoster": 5,
      "storstaDag": 81,
-     "andel": 1.4
+     "andel": 1.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1509,7 +1509,7 @@
      "total": 49,
      "dagarMedRoster": 3,
      "storstaDag": 24,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Häktet Karlstad",

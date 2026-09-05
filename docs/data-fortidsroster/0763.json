@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T18:35+02:00",
+ "senastUppdaterad": "2026-09-05T10:34+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1099,7 +1099,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T18:35+02:00",
+   "hamtad": "2026-09-05T10:34+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1164,9 +1164,16 @@
      "kvar": 10,
      "antal": 244,
      "ack": 1443
+    },
+    {
+     "datum": "2026-09-04",
+     "veckodag": "fre",
+     "kvar": 9,
+     "antal": 260,
+     "ack": 1703
     }
    ],
-   "total": 1443,
+   "total": 1703,
    "rostberattigade": {
     "riksdag": 8980,
     "kommun": 9728,
@@ -1184,28 +1191,37 @@
      "namn": "Restaurangen vid äldreboendet Örnen",
      "kommun": "Tingsryd",
      "lokalId": "0763001",
-     "total": 629,
-     "dagarMedRoster": 9,
+     "total": 710,
+     "dagarMedRoster": 10,
      "storstaDag": 100,
-     "andel": 43.6
+     "andel": 41.7
     },
     {
      "namn": "Gillet, Ryd",
      "kommun": "Tingsryd",
      "lokalId": "0763004",
-     "total": 225,
-     "dagarMedRoster": 3,
+     "total": 294,
+     "dagarMedRoster": 4,
      "storstaDag": 83,
-     "andel": 15.6
+     "andel": 17.3
     },
     {
      "namn": "Parken, Urshult",
      "kommun": "Tingsryd",
      "lokalId": "0763005",
-     "total": 152,
-     "dagarMedRoster": 3,
+     "total": 204,
+     "dagarMedRoster": 4,
      "storstaDag": 56,
-     "andel": 10.5
+     "andel": 12.0
+    },
+    {
+     "namn": "Björkeborg, Väckelsång",
+     "kommun": "Tingsryd",
+     "lokalId": "0763007",
+     "total": 139,
+     "dagarMedRoster": 2,
+     "storstaDag": 81,
+     "andel": 8.2
     },
     {
      "namn": "Linneryds bygdegård",
@@ -1214,7 +1230,7 @@
      "total": 124,
      "dagarMedRoster": 2,
      "storstaDag": 70,
-     "andel": 8.6
+     "andel": 7.3
     },
     {
      "namn": "Byahuset, Rävemåla",
@@ -1223,7 +1239,7 @@
      "total": 99,
      "dagarMedRoster": 2,
      "storstaDag": 51,
-     "andel": 6.9
+     "andel": 5.8
     },
     {
      "namn": "Konga Folkets Hus",
@@ -1232,16 +1248,7 @@
      "total": 89,
      "dagarMedRoster": 2,
      "storstaDag": 51,
-     "andel": 6.2
-    },
-    {
-     "namn": "Björkeborg, Väckelsång",
-     "kommun": "Tingsryd",
-     "lokalId": "0763007",
-     "total": 81,
-     "dagarMedRoster": 1,
-     "storstaDag": 81,
-     "andel": 5.6
+     "andel": 5.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1250,7 +1257,7 @@
      "total": 44,
      "dagarMedRoster": 3,
      "storstaDag": 22,
-     "andel": 3.0
+     "andel": 2.6
     }
    ],
    "antalLokaler": 8,

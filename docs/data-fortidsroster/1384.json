@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T18:35+02:00",
+ "senastUppdaterad": "2026-09-05T10:34+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1450,7 +1450,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T18:35+02:00",
+   "hamtad": "2026-09-05T10:34+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1520,11 +1520,11 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 556,
-     "ack": 12127
+     "antal": 1383,
+     "ack": 12954
     }
    ],
-   "total": 12127,
+   "total": 12954,
    "rostberattigade": {
     "riksdag": 66505,
     "kommun": 67149,
@@ -1542,10 +1542,10 @@
      "namn": "Kungsmässan",
      "kommun": "Kungsbacka",
      "lokalId": "1384008",
-     "total": 7593,
+     "total": 8118,
      "dagarMedRoster": 10,
-     "storstaDag": 894,
-     "andel": 62.6
+     "storstaDag": 993,
+     "andel": 62.7
     },
     {
      "namn": "Kullaviks bibliotek",
@@ -1554,25 +1554,25 @@
      "total": 1042,
      "dagarMedRoster": 7,
      "storstaDag": 214,
-     "andel": 8.6
-    },
-    {
-     "namn": "Kungsbacka, Stadshuset",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384013",
-     "total": 858,
-     "dagarMedRoster": 8,
-     "storstaDag": 128,
-     "andel": 7.1
+     "andel": 8.0
     },
     {
      "namn": "Onsala Båt och Sjöfartsmuseum",
      "kommun": "Kungsbacka",
      "lokalId": "1384017",
-     "total": 775,
-     "dagarMedRoster": 7,
+     "total": 923,
+     "dagarMedRoster": 8,
      "storstaDag": 153,
-     "andel": 6.4
+     "andel": 7.1
+    },
+    {
+     "namn": "Kungsbacka, Stadshuset",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384013",
+     "total": 878,
+     "dagarMedRoster": 8,
+     "storstaDag": 128,
+     "andel": 6.8
     },
     {
      "namn": "Åsa Bibliotek",
@@ -1581,25 +1581,25 @@
      "total": 666,
      "dagarMedRoster": 7,
      "storstaDag": 131,
-     "andel": 5.5
+     "andel": 5.1
     },
     {
      "namn": "Frillesåsskolan",
      "kommun": "Kungsbacka",
      "lokalId": "1384021",
-     "total": 360,
-     "dagarMedRoster": 7,
+     "total": 416,
+     "dagarMedRoster": 8,
      "storstaDag": 68,
-     "andel": 3.0
+     "andel": 3.2
     },
     {
      "namn": "Toråsskolan, biblioteket",
      "kommun": "Kungsbacka",
      "lokalId": "1384014",
-     "total": 271,
-     "dagarMedRoster": 7,
+     "total": 318,
+     "dagarMedRoster": 8,
      "storstaDag": 55,
-     "andel": 2.2
+     "andel": 2.5
     },
     {
      "namn": "Fjärås bibliotek",
@@ -1608,7 +1608,7 @@
      "total": 206,
      "dagarMedRoster": 3,
      "storstaDag": 86,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Älvsåkersskolan, Biblioteket",
@@ -1617,7 +1617,7 @@
      "total": 97,
      "dagarMedRoster": 2,
      "storstaDag": 50,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Gällinge",
@@ -1626,7 +1626,7 @@
      "total": 56,
      "dagarMedRoster": 2,
      "storstaDag": 29,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Ekhaga vård- och omsorgsboende",
@@ -1636,6 +1636,15 @@
      "dagarMedRoster": 1,
      "storstaDag": 39,
      "andel": 0.3
+    },
+    {
+     "namn": "Måhaga vård- och omsorgsboende",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384006",
+     "total": 31,
+     "dagarMedRoster": 1,
+     "storstaDag": 31,
+     "andel": 0.2
     },
     {
      "namn": "Kolla vård- och omsorgsboende",
@@ -1671,7 +1680,7 @@
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Vickans vård- och omsorgsboende",
@@ -1749,15 +1758,6 @@
      "namn": "Löftadalens Folkhögskola",
      "kommun": "Kungsbacka",
      "lokalId": "1384023",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Måhaga vård- och omsorgsboende",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384006",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

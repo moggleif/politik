@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-04T18:35+02:00",
+ "senastUppdaterad": "2026-09-05T10:34+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-04T18:35+02:00",
+   "hamtad": "2026-09-05T10:34+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1785,25 +1785,25 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 8475,
-     "ack": 52449
+     "antal": 8603,
+     "ack": 52577
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 8904,
-     "ack": 61353
+     "antal": 8916,
+     "ack": 61493
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 3869,
-     "ack": 65222
+     "antal": 8012,
+     "ack": 69505
     }
    ],
-   "total": 65222,
+   "total": 69505,
    "rostberattigade": {
     "riksdag": 367060,
     "kommun": 376918,
@@ -1821,7 +1821,7 @@
      "namn": "Mirum Galleria",
      "kommun": "Norrköping",
      "lokalId": "0581011",
-     "total": 4900,
+     "total": 5210,
      "dagarMedRoster": 10,
      "storstaDag": 600,
      "andel": 7.5
@@ -1830,25 +1830,25 @@
      "namn": "Huvudbiblioteket",
      "kommun": "Linköping",
      "lokalId": "0580025",
-     "total": 4353,
+     "total": 4575,
      "dagarMedRoster": 10,
      "storstaDag": 570,
-     "andel": 6.7
+     "andel": 6.6
     },
     {
      "namn": "Norrköpings stadsbibliotek",
      "kommun": "Norrköping",
      "lokalId": "0581001",
-     "total": 3426,
+     "total": 3569,
      "dagarMedRoster": 10,
      "storstaDag": 432,
-     "andel": 5.3
+     "andel": 5.1
     },
     {
      "namn": "Ekholmens centrum",
      "kommun": "Linköping",
      "lokalId": "0580015",
-     "total": 3171,
+     "total": 3431,
      "dagarMedRoster": 10,
      "storstaDag": 405,
      "andel": 4.9
@@ -1857,34 +1857,43 @@
      "namn": "Motala bibliotek",
      "kommun": "Motala",
      "lokalId": "0583011",
-     "total": 3084,
+     "total": 3318,
      "dagarMedRoster": 9,
      "storstaDag": 513,
-     "andel": 4.7
+     "andel": 4.8
     },
     {
      "namn": "Lilla torget (Gyllentorget)",
      "kommun": "Linköping",
      "lokalId": "0580052",
-     "total": 2520,
+     "total": 2765,
      "dagarMedRoster": 8,
      "storstaDag": 407,
-     "andel": 3.9
+     "andel": 4.0
     },
     {
      "namn": "Berga Centrum",
      "kommun": "Linköping",
      "lokalId": "0580013",
-     "total": 2236,
+     "total": 2367,
      "dagarMedRoster": 10,
      "storstaDag": 299,
+     "andel": 3.4
+    },
+    {
+     "namn": "Gallerian",
+     "kommun": "Mjölby",
+     "lokalId": "0586010",
+     "total": 2352,
+     "dagarMedRoster": 9,
+     "storstaDag": 509,
      "andel": 3.4
     },
     {
      "namn": "Linden Köpcentrum",
      "kommun": "Norrköping",
      "lokalId": "0581005",
-     "total": 2226,
+     "total": 2351,
      "dagarMedRoster": 10,
      "storstaDag": 268,
      "andel": 3.4
@@ -1893,25 +1902,16 @@
      "namn": "Stadsbiblioteket Stinsen",
      "kommun": "Söderköping",
      "lokalId": "0582001",
-     "total": 2155,
+     "total": 2298,
      "dagarMedRoster": 10,
      "storstaDag": 311,
      "andel": 3.3
     },
     {
-     "namn": "Gallerian",
-     "kommun": "Mjölby",
-     "lokalId": "0586010",
-     "total": 2103,
-     "dagarMedRoster": 9,
-     "storstaDag": 509,
-     "andel": 3.2
-    },
-    {
      "namn": "Valbod vid Livli/IKEA",
      "kommun": "Linköping",
      "lokalId": "0580032",
-     "total": 2001,
+     "total": 2152,
      "dagarMedRoster": 10,
      "storstaDag": 254,
      "andel": 3.1
@@ -1920,28 +1920,37 @@
      "namn": "Vilbergens bibliotek",
      "kommun": "Norrköping",
      "lokalId": "0581009",
-     "total": 1946,
+     "total": 2045,
      "dagarMedRoster": 7,
      "storstaDag": 416,
-     "andel": 3.0
-    },
-    {
-     "namn": "Citylokalen",
-     "kommun": "Åtvidaberg",
-     "lokalId": "0561013",
-     "total": 1674,
-     "dagarMedRoster": 10,
-     "storstaDag": 293,
-     "andel": 2.6
+     "andel": 2.9
     },
     {
      "namn": "Valbod Djurgårdens centrum",
      "kommun": "Linköping",
      "lokalId": "0580050",
-     "total": 1669,
+     "total": 1796,
      "dagarMedRoster": 10,
-     "storstaDag": 218,
+     "storstaDag": 240,
      "andel": 2.6
+    },
+    {
+     "namn": "Citylokalen",
+     "kommun": "Åtvidaberg",
+     "lokalId": "0561013",
+     "total": 1742,
+     "dagarMedRoster": 10,
+     "storstaDag": 293,
+     "andel": 2.5
+    },
+    {
+     "namn": "Kulturhuset, Foajé",
+     "kommun": "Finspång",
+     "lokalId": "0562004",
+     "total": 1677,
+     "dagarMedRoster": 5,
+     "storstaDag": 376,
+     "andel": 2.4
     },
     {
      "namn": "Eneby bibliotek",
@@ -1950,25 +1959,25 @@
      "total": 1638,
      "dagarMedRoster": 5,
      "storstaDag": 538,
-     "andel": 2.5
-    },
-    {
-     "namn": "Kulturhuset, Foajé",
-     "kommun": "Finspång",
-     "lokalId": "0562004",
-     "total": 1513,
-     "dagarMedRoster": 5,
-     "storstaDag": 376,
-     "andel": 2.3
+     "andel": 2.4
     },
     {
      "namn": "Skäggetorp centrum, lokal WILL-MEET",
      "kommun": "Linköping",
      "lokalId": "0580012",
-     "total": 1280,
+     "total": 1396,
      "dagarMedRoster": 10,
-     "storstaDag": 168,
+     "storstaDag": 182,
      "andel": 2.0
+    },
+    {
+     "namn": "Träffpunkt Nyköpingsvägen 28",
+     "kommun": "Norrköping",
+     "lokalId": "0581013",
+     "total": 1285,
+     "dagarMedRoster": 8,
+     "storstaDag": 175,
+     "andel": 1.8
     },
     {
      "namn": "Kulturhuset, Galaxen",
@@ -1977,22 +1986,22 @@
      "total": 1272,
      "dagarMedRoster": 7,
      "storstaDag": 319,
-     "andel": 2.0
+     "andel": 1.8
     },
     {
-     "namn": "Träffpunkt Nyköpingsvägen 28",
-     "kommun": "Norrköping",
-     "lokalId": "0581013",
-     "total": 1222,
-     "dagarMedRoster": 8,
-     "storstaDag": 175,
-     "andel": 1.9
+     "namn": "Ljungsbro bibliotek",
+     "kommun": "Linköping",
+     "lokalId": "0580028",
+     "total": 1173,
+     "dagarMedRoster": 7,
+     "storstaDag": 303,
+     "andel": 1.7
     },
     {
      "namn": "Valdemarsviks Folkets Hus",
      "kommun": "Valdemarsvik",
      "lokalId": "0563003",
-     "total": 1113,
+     "total": 1147,
      "dagarMedRoster": 10,
      "storstaDag": 150,
      "andel": 1.7
@@ -2001,34 +2010,16 @@
      "namn": "Arbetets museum, Strykjärnet",
      "kommun": "Norrköping",
      "lokalId": "0581006",
-     "total": 1080,
+     "total": 1115,
      "dagarMedRoster": 10,
      "storstaDag": 145,
-     "andel": 1.7
-    },
-    {
-     "namn": "Rödtornet",
-     "kommun": "Vadstena",
-     "lokalId": "0584005",
-     "total": 1071,
-     "dagarMedRoster": 9,
-     "storstaDag": 219,
-     "andel": 1.6
-    },
-    {
-     "namn": "Ljungsbro bibliotek",
-     "kommun": "Linköping",
-     "lokalId": "0580028",
-     "total": 1069,
-     "dagarMedRoster": 7,
-     "storstaDag": 303,
      "andel": 1.6
     },
     {
      "namn": "Skärblacka bibliotek",
      "kommun": "Norrköping",
      "lokalId": "0581008",
-     "total": 1012,
+     "total": 1114,
      "dagarMedRoster": 6,
      "storstaDag": 227,
      "andel": 1.6
@@ -2037,16 +2028,25 @@
      "namn": "Linköpings universitet",
      "kommun": "Linköping",
      "lokalId": "0580001",
-     "total": 999,
+     "total": 1082,
      "dagarMedRoster": 8,
      "storstaDag": 182,
+     "andel": 1.6
+    },
+    {
+     "namn": "Rödtornet",
+     "kommun": "Vadstena",
+     "lokalId": "0584005",
+     "total": 1071,
+     "dagarMedRoster": 9,
+     "storstaDag": 219,
      "andel": 1.5
     },
     {
      "namn": "Biblioteket, Kisa",
      "kommun": "Kinda",
      "lokalId": "0513004",
-     "total": 873,
+     "total": 880,
      "dagarMedRoster": 10,
      "storstaDag": 134,
      "andel": 1.3
@@ -2055,37 +2055,37 @@
      "namn": "Boxholms bibliotek",
      "kommun": "Boxholm",
      "lokalId": "0560001",
-     "total": 804,
+     "total": 844,
      "dagarMedRoster": 10,
-     "storstaDag": 123,
-     "andel": 1.2
-    },
-    {
-     "namn": "Kommunhuset",
-     "kommun": "Motala",
-     "lokalId": "0583009",
-     "total": 767,
-     "dagarMedRoster": 9,
-     "storstaDag": 157,
+     "storstaDag": 125,
      "andel": 1.2
     },
     {
      "namn": "UngZon Ryd",
      "kommun": "Linköping",
      "lokalId": "0580030",
-     "total": 764,
+     "total": 844,
      "dagarMedRoster": 10,
-     "storstaDag": 114,
+     "storstaDag": 119,
      "andel": 1.2
     },
     {
-     "namn": "Ödeshögs bibliotek",
-     "kommun": "Ödeshög",
-     "lokalId": "0509001",
-     "total": 759,
-     "dagarMedRoster": 10,
-     "storstaDag": 109,
+     "namn": "Malmslätts bibliotek",
+     "kommun": "Linköping",
+     "lokalId": "0580009",
+     "total": 824,
+     "dagarMedRoster": 5,
+     "storstaDag": 270,
      "andel": 1.2
+    },
+    {
+     "namn": "Träffpunkt Valhallavägen 1C",
+     "kommun": "Norrköping",
+     "lokalId": "0581007",
+     "total": 798,
+     "dagarMedRoster": 8,
+     "storstaDag": 128,
+     "andel": 1.1
     }
    ],
    "antalLokaler": 141,
