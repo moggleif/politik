@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1090,7 +1090,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1169,9 +1169,16 @@
      "kvar": 8,
      "antal": 31,
      "ack": 974
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 70,
+     "ack": 1044
     }
    ],
-   "total": 974,
+   "total": 1044,
    "rostberattigade": {
     "riksdag": 3664,
     "kommun": 3871,
@@ -1192,7 +1199,7 @@
      "total": 759,
      "dagarMedRoster": 11,
      "storstaDag": 102,
-     "andel": 77.9
+     "andel": 72.7
     },
     {
      "namn": "Biblioteket Vuollerim",
@@ -1201,7 +1208,7 @@
      "total": 151,
      "dagarMedRoster": 3,
      "storstaDag": 71,
-     "andel": 15.5
+     "andel": 14.5
     },
     {
      "namn": "Laponiaporten Porjus",
@@ -1210,7 +1217,7 @@
      "total": 43,
      "dagarMedRoster": 1,
      "storstaDag": 43,
-     "andel": 4.4
+     "andel": 4.1
     },
     {
      "namn": "Hembygdsgården, Murjek",
@@ -1219,7 +1226,43 @@
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
-     "andel": 2.2
+     "andel": 2.0
+    },
+    {
+     "namn": "Kåbdalis Brandstation",
+     "kommun": "Jokkmokk",
+     "lokalId": "2510008",
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 1.8
+    },
+    {
+     "namn": "Älvgården, Tårrajaur",
+     "kommun": "Jokkmokk",
+     "lokalId": "2510009",
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 1.8
+    },
+    {
+     "namn": "Årrenjarka Fjällby",
+     "kommun": "Jokkmokk",
+     "lokalId": "2510002",
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 1.8
+    },
+    {
+     "namn": "Medborgarhuset, Randijaur",
+     "kommun": "Jokkmokk",
+     "lokalId": "2510003",
+     "total": 13,
+     "dagarMedRoster": 1,
+     "storstaDag": 13,
+     "andel": 1.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1243,42 +1286,6 @@
      "namn": "Hemvärnsgården Puottaure",
      "kommun": "Jokkmokk",
      "lokalId": "2510004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Kåbdalis Brandstation",
-     "kommun": "Jokkmokk",
-     "lokalId": "2510008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Medborgarhuset, Randijaur",
-     "kommun": "Jokkmokk",
-     "lokalId": "2510003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Älvgården, Tårrajaur",
-     "kommun": "Jokkmokk",
-     "lokalId": "2510009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Årrenjarka Fjällby",
-     "kommun": "Jokkmokk",
-     "lokalId": "2510002",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

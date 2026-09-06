@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1799,18 +1799,25 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 4499,
-     "ack": 37454
+     "antal": 4519,
+     "ack": 37474
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 2585,
-     "ack": 40039
+     "antal": 2630,
+     "ack": 40104
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 1406,
+     "ack": 41510
     }
    ],
-   "total": 40039,
+   "total": 41510,
    "rostberattigade": {
     "riksdag": 191083,
     "kommun": 197431,
@@ -1828,10 +1835,10 @@
      "namn": "Kulturhuset Strömmen",
      "kommun": "Kalmar",
      "lokalId": "0880023",
-     "total": 5453,
-     "dagarMedRoster": 11,
+     "total": 5733,
+     "dagarMedRoster": 12,
      "storstaDag": 611,
-     "andel": 13.6
+     "andel": 13.8
     },
     {
      "namn": "Stadsbiblioteket, Västervik",
@@ -1840,25 +1847,25 @@
      "total": 4725,
      "dagarMedRoster": 10,
      "storstaDag": 613,
-     "andel": 11.8
+     "andel": 11.4
     },
     {
      "namn": "Kulturhuset, Oskarshamn",
      "kommun": "Oskarshamn",
      "lokalId": "0882006",
-     "total": 3964,
-     "dagarMedRoster": 11,
+     "total": 4205,
+     "dagarMedRoster": 12,
      "storstaDag": 490,
-     "andel": 9.9
+     "andel": 10.1
     },
     {
      "namn": "Biblioteket i Nybro",
      "kommun": "Nybro",
      "lokalId": "0881002",
-     "total": 2944,
-     "dagarMedRoster": 11,
+     "total": 3113,
+     "dagarMedRoster": 12,
      "storstaDag": 385,
-     "andel": 7.4
+     "andel": 7.5
     },
     {
      "namn": "Biblioteket, Färjestaden",
@@ -1867,7 +1874,16 @@
      "total": 2440,
      "dagarMedRoster": 10,
      "storstaDag": 323,
-     "andel": 6.1
+     "andel": 5.9
+    },
+    {
+     "namn": "Plenisalen, Stadshuset",
+     "kommun": "Vimmerby",
+     "lokalId": "0884001",
+     "total": 2042,
+     "dagarMedRoster": 12,
+     "storstaDag": 223,
+     "andel": 4.9
     },
     {
      "namn": "Huvudbiblioteket i Borgholm",
@@ -1876,34 +1892,43 @@
      "total": 1981,
      "dagarMedRoster": 10,
      "storstaDag": 283,
-     "andel": 4.9
-    },
-    {
-     "namn": "Plenisalen, Stadshuset",
-     "kommun": "Vimmerby",
-     "lokalId": "0884001",
-     "total": 1879,
-     "dagarMedRoster": 11,
-     "storstaDag": 223,
-     "andel": 4.7
+     "andel": 4.8
     },
     {
      "namn": "Biblioteket",
      "kommun": "Mönsterås",
      "lokalId": "0861003",
-     "total": 1754,
-     "dagarMedRoster": 11,
+     "total": 1856,
+     "dagarMedRoster": 12,
      "storstaDag": 245,
-     "andel": 4.4
+     "andel": 4.5
     },
     {
      "namn": "Torsås Bibliotek",
      "kommun": "Torsås",
      "lokalId": "0834001",
-     "total": 1253,
-     "dagarMedRoster": 11,
+     "total": 1310,
+     "dagarMedRoster": 12,
      "storstaDag": 168,
+     "andel": 3.2
+    },
+    {
+     "namn": "Valhall",
+     "kommun": "Hultsfred",
+     "lokalId": "0860008",
+     "total": 1267,
+     "dagarMedRoster": 12,
+     "storstaDag": 182,
      "andel": 3.1
+    },
+    {
+     "namn": "Emmaboda bibliotek",
+     "kommun": "Emmaboda",
+     "lokalId": "0862001",
+     "total": 1238,
+     "dagarMedRoster": 12,
+     "storstaDag": 128,
+     "andel": 3.0
     },
     {
      "namn": "Fritidsgården, Gamleby",
@@ -1912,24 +1937,6 @@
      "total": 1191,
      "dagarMedRoster": 8,
      "storstaDag": 238,
-     "andel": 3.0
-    },
-    {
-     "namn": "Valhall",
-     "kommun": "Hultsfred",
-     "lokalId": "0860008",
-     "total": 1191,
-     "dagarMedRoster": 11,
-     "storstaDag": 182,
-     "andel": 3.0
-    },
-    {
-     "namn": "Emmaboda bibliotek",
-     "kommun": "Emmaboda",
-     "lokalId": "0862001",
-     "total": 1179,
-     "dagarMedRoster": 11,
-     "storstaDag": 128,
      "andel": 2.9
     },
     {
@@ -1939,16 +1946,16 @@
      "total": 755,
      "dagarMedRoster": 5,
      "storstaDag": 190,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Kommunkontoret",
      "kommun": "Högsby",
      "lokalId": "0821003",
-     "total": 663,
-     "dagarMedRoster": 11,
+     "total": 736,
+     "dagarMedRoster": 12,
      "storstaDag": 77,
-     "andel": 1.7
+     "andel": 1.8
     },
     {
      "namn": "Biblioteket Bergavik",
@@ -1984,7 +1991,7 @@
      "total": 432,
      "dagarMedRoster": 3,
      "storstaDag": 188,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Träffpunkt Stensberg",
@@ -1999,8 +2006,8 @@
      "namn": "ICA Nära Byxelkrok",
      "kommun": "Borgholm",
      "lokalId": "0885003",
-     "total": 360,
-     "dagarMedRoster": 11,
+     "total": 386,
+     "dagarMedRoster": 12,
      "storstaDag": 49,
      "andel": 0.9
     },
@@ -2038,7 +2045,7 @@
      "total": 303,
      "dagarMedRoster": 3,
      "storstaDag": 125,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Biblioteket Rinkabyholm",
@@ -2065,7 +2072,7 @@
      "total": 269,
      "dagarMedRoster": 3,
      "storstaDag": 98,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Skeppet",

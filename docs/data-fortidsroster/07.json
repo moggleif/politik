@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1808,9 +1808,16 @@
      "kvar": 8,
      "antal": 1636,
      "ack": 26396
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 999,
+     "ack": 27395
     }
    ],
-   "total": 26396,
+   "total": 27395,
    "rostberattigade": {
     "riksdag": 151650,
     "kommun": 159383,
@@ -1828,35 +1835,35 @@
      "namn": "Stadsbiblioteket, Växjö",
      "kommun": "Växjö",
      "lokalId": "0780031",
-     "total": 5960,
-     "dagarMedRoster": 10,
+     "total": 6098,
+     "dagarMedRoster": 11,
      "storstaDag": 727,
-     "andel": 22.6
+     "andel": 22.3
     },
     {
      "namn": "Garvaren",
      "kommun": "Ljungby",
      "lokalId": "0781001",
-     "total": 2355,
-     "dagarMedRoster": 11,
+     "total": 2633,
+     "dagarMedRoster": 12,
      "storstaDag": 282,
-     "andel": 8.9
+     "andel": 9.6
     },
     {
      "namn": "Art Center",
      "kommun": "Älmhult",
      "lokalId": "0765012",
-     "total": 2130,
-     "dagarMedRoster": 11,
+     "total": 2245,
+     "dagarMedRoster": 12,
      "storstaDag": 249,
-     "andel": 8.1
+     "andel": 8.2
     },
     {
      "namn": "Kommunhuset Alvesta",
      "kommun": "Alvesta",
      "lokalId": "0764004",
-     "total": 1709,
-     "dagarMedRoster": 11,
+     "total": 1779,
+     "dagarMedRoster": 12,
      "storstaDag": 192,
      "andel": 6.5
     },
@@ -1867,25 +1874,34 @@
      "total": 1528,
      "dagarMedRoster": 10,
      "storstaDag": 205,
-     "andel": 5.8
+     "andel": 5.6
     },
     {
      "namn": "Konsthallen",
      "kommun": "Växjö",
      "lokalId": "0780040",
-     "total": 1242,
-     "dagarMedRoster": 11,
+     "total": 1339,
+     "dagarMedRoster": 12,
      "storstaDag": 259,
-     "andel": 4.7
+     "andel": 4.9
     },
     {
      "namn": "Markaryds kulturhus",
      "kommun": "Markaryd",
      "lokalId": "0767002",
-     "total": 1066,
-     "dagarMedRoster": 11,
+     "total": 1135,
+     "dagarMedRoster": 12,
      "storstaDag": 147,
-     "andel": 4.0
+     "andel": 4.1
+    },
+    {
+     "namn": "Restaurangen vid äldreboendet Örnen",
+     "kommun": "Tingsryd",
+     "lokalId": "0763001",
+     "total": 852,
+     "dagarMedRoster": 12,
+     "storstaDag": 100,
+     "andel": 3.1
     },
     {
      "namn": "Mötesplats Framtidsvägen, Teleborg",
@@ -1894,25 +1910,16 @@
      "total": 807,
      "dagarMedRoster": 8,
      "storstaDag": 129,
-     "andel": 3.1
-    },
-    {
-     "namn": "Restaurangen vid äldreboendet Örnen",
-     "kommun": "Tingsryd",
-     "lokalId": "0763001",
-     "total": 772,
-     "dagarMedRoster": 11,
-     "storstaDag": 100,
      "andel": 2.9
     },
     {
      "namn": "Lessebo Bibliotek",
      "kommun": "Lessebo",
      "lokalId": "0761002",
-     "total": 635,
-     "dagarMedRoster": 11,
+     "total": 695,
+     "dagarMedRoster": 12,
      "storstaDag": 90,
-     "andel": 2.4
+     "andel": 2.5
     },
     {
      "namn": "Tallgården, Araby",
@@ -1930,7 +1937,7 @@
      "total": 477,
      "dagarMedRoster": 6,
      "storstaDag": 97,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Vislanda bibliotek",
@@ -1939,7 +1946,7 @@
      "total": 439,
      "dagarMedRoster": 6,
      "storstaDag": 108,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Hovmantorps Folkets Hus",
@@ -1948,7 +1955,7 @@
      "total": 421,
      "dagarMedRoster": 5,
      "storstaDag": 137,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Öjaby församlingshem",
@@ -1957,7 +1964,7 @@
      "total": 416,
      "dagarMedRoster": 8,
      "storstaDag": 61,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Moheda bibliotek",
@@ -1966,7 +1973,7 @@
      "total": 397,
      "dagarMedRoster": 6,
      "storstaDag": 127,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Kommunhuset, Åseda",
@@ -1975,7 +1982,7 @@
      "total": 391,
      "dagarMedRoster": 8,
      "storstaDag": 59,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Näckrosen i Ingelstad",
@@ -2002,7 +2009,7 @@
      "total": 336,
      "dagarMedRoster": 2,
      "storstaDag": 200,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Birkagården, Öster",
@@ -2056,7 +2063,7 @@
      "total": 204,
      "dagarMedRoster": 4,
      "storstaDag": 56,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Kulturbussen",

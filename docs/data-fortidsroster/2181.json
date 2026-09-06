@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1126,7 +1126,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1196,18 +1196,25 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 598,
-     "ack": 5347
+     "antal": 599,
+     "ack": 5348
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 628,
-     "ack": 5975
+     "antal": 629,
+     "ack": 5977
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 256,
+     "ack": 6233
     }
    ],
-   "total": 5975,
+   "total": 6233,
    "rostberattigade": {
     "riksdag": 29335,
     "kommun": 30740,
@@ -1225,28 +1232,28 @@
      "namn": "Stadshuset",
      "kommun": "Sandviken",
      "lokalId": "2181006",
-     "total": 3997,
-     "dagarMedRoster": 11,
+     "total": 4253,
+     "dagarMedRoster": 12,
      "storstaDag": 701,
-     "andel": 66.9
+     "andel": 68.2
     },
     {
      "namn": "Ica, Storvik",
      "kommun": "Sandviken",
      "lokalId": "2181001",
-     "total": 562,
+     "total": 563,
      "dagarMedRoster": 4,
      "storstaDag": 170,
-     "andel": 9.4
+     "andel": 9.0
     },
     {
      "namn": "Gullhedskolan",
      "kommun": "Sandviken",
      "lokalId": "2181003",
-     "total": 449,
+     "total": 450,
      "dagarMedRoster": 2,
-     "storstaDag": 289,
-     "andel": 7.5
+     "storstaDag": 290,
+     "andel": 7.2
     },
     {
      "namn": "Björksätraskolan, biblioteket",
@@ -1255,7 +1262,7 @@
      "total": 416,
      "dagarMedRoster": 4,
      "storstaDag": 135,
-     "andel": 7.0
+     "andel": 6.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1264,7 +1271,7 @@
      "total": 190,
      "dagarMedRoster": 8,
      "storstaDag": 54,
-     "andel": 3.2
+     "andel": 3.0
     },
     {
      "namn": "Åshammar IK klubbstuga",
@@ -1273,7 +1280,7 @@
      "total": 108,
      "dagarMedRoster": 2,
      "storstaDag": 60,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Årsunda, Kvarterslokal",
@@ -1300,7 +1307,7 @@
      "total": 65,
      "dagarMedRoster": 2,
      "storstaDag": 39,
-     "andel": 1.1
+     "andel": 1.0
     }
    ],
    "antalLokaler": 9,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1243,7 +1243,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1322,9 +1322,16 @@
      "kvar": 8,
      "antal": 967,
      "ack": 10491
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 463,
+     "ack": 10954
     }
    ],
-   "total": 10491,
+   "total": 10954,
    "rostberattigade": {
     "riksdag": 43802,
     "kommun": 44748,
@@ -1342,19 +1349,19 @@
      "namn": "Torp köpcentrum, Västra Torp",
      "kommun": "Uddevalla",
      "lokalId": "1485002",
-     "total": 5084,
-     "dagarMedRoster": 11,
+     "total": 5371,
+     "dagarMedRoster": 12,
      "storstaDag": 612,
-     "andel": 48.5
+     "andel": 49.0
     },
     {
      "namn": "Bohusläns museum",
      "kommun": "Uddevalla",
      "lokalId": "1485001",
-     "total": 2378,
-     "dagarMedRoster": 11,
+     "total": 2554,
+     "dagarMedRoster": 12,
      "storstaDag": 327,
-     "andel": 22.7
+     "andel": 23.3
     },
     {
      "namn": "Kontaktcenter Rådhuset",
@@ -1363,7 +1370,7 @@
      "total": 1220,
      "dagarMedRoster": 9,
      "storstaDag": 155,
-     "andel": 11.6
+     "andel": 11.1
     },
     {
      "namn": "Ljungskilegården",
@@ -1372,7 +1379,7 @@
      "total": 1008,
      "dagarMedRoster": 10,
      "storstaDag": 131,
-     "andel": 9.6
+     "andel": 9.2
     },
     {
      "namn": "Dalabergs bibliotek",
@@ -1381,7 +1388,7 @@
      "total": 752,
      "dagarMedRoster": 8,
      "storstaDag": 122,
-     "andel": 7.2
+     "andel": 6.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1390,7 +1397,7 @@
      "total": 49,
      "dagarMedRoster": 2,
      "storstaDag": 40,
-     "andel": 0.5
+     "andel": 0.4
     }
    ],
    "antalLokaler": 6,

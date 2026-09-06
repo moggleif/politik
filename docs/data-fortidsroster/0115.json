@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -836,9 +836,16 @@
      "kvar": 8,
      "antal": 503,
      "ack": 5071
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 351,
+     "ack": 5422
     }
    ],
-   "total": 5071,
+   "total": 5422,
    "rostberattigade": {
     "riksdag": 26029,
     "kommun": 27208,
@@ -856,10 +863,19 @@
      "namn": "Kulturhuset",
      "kommun": "Vallentuna",
      "lokalId": "0115003",
-     "total": 4669,
-     "dagarMedRoster": 11,
+     "total": 4882,
+     "dagarMedRoster": 12,
      "storstaDag": 564,
-     "andel": 92.1
+     "andel": 90.0
+    },
+    {
+     "namn": "Karbyskolan - KUB:en",
+     "kommun": "Vallentuna",
+     "lokalId": "0115002",
+     "total": 293,
+     "dagarMedRoster": 2,
+     "storstaDag": 155,
+     "andel": 5.4
     },
     {
      "namn": "Kårsta bibliotek",
@@ -868,15 +884,6 @@
      "total": 167,
      "dagarMedRoster": 2,
      "storstaDag": 86,
-     "andel": 3.3
-    },
-    {
-     "namn": "Karbyskolan - KUB:en",
-     "kommun": "Vallentuna",
-     "lokalId": "0115002",
-     "total": 155,
-     "dagarMedRoster": 1,
-     "storstaDag": 155,
      "andel": 3.1
     },
     {
@@ -886,7 +893,7 @@
      "total": 80,
      "dagarMedRoster": 2,
      "storstaDag": 40,
-     "andel": 1.6
+     "andel": 1.5
     }
    ],
    "antalLokaler": 4,

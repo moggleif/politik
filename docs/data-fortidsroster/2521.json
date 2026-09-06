@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1403,9 +1403,16 @@
      "kvar": 8,
      "antal": 237,
      "ack": 1235
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 130,
+     "ack": 1365
     }
    ],
-   "total": 1235,
+   "total": 1365,
    "rostberattigade": {
     "riksdag": 4441,
     "kommun": 4660,
@@ -1423,10 +1430,10 @@
      "namn": "Pajala G:a Sporthallen",
      "kommun": "Pajala",
      "lokalId": "2521011",
-     "total": 740,
-     "dagarMedRoster": 9,
+     "total": 772,
+     "dagarMedRoster": 10,
      "storstaDag": 125,
-     "andel": 59.9
+     "andel": 56.6
     },
     {
      "namn": "Tärendö Sporthall",
@@ -1435,7 +1442,7 @@
      "total": 196,
      "dagarMedRoster": 2,
      "storstaDag": 140,
-     "andel": 15.9
+     "andel": 14.4
     },
     {
      "namn": "Sattajärvi skola",
@@ -1444,25 +1451,25 @@
      "total": 164,
      "dagarMedRoster": 1,
      "storstaDag": 164,
-     "andel": 13.3
+     "andel": 12.0
     },
     {
      "namn": "Korpilombolo, Gårdsbyskolan matsal",
      "kommun": "Pajala",
      "lokalId": "2521003",
-     "total": 71,
-     "dagarMedRoster": 1,
+     "total": 117,
+     "dagarMedRoster": 2,
      "storstaDag": 71,
-     "andel": 5.7
+     "andel": 8.6
     },
     {
      "namn": "Junosuando, fd centralskolan",
      "kommun": "Pajala",
      "lokalId": "2521004",
-     "total": 62,
-     "dagarMedRoster": 1,
+     "total": 114,
+     "dagarMedRoster": 2,
      "storstaDag": 62,
-     "andel": 5.0
+     "andel": 8.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1471,7 +1478,7 @@
      "total": 2,
      "dagarMedRoster": 1,
      "storstaDag": 2,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Erkheikki Folkets Hus",

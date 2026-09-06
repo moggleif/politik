@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1799,18 +1799,25 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 21368,
-     "ack": 217564
+     "antal": 21386,
+     "ack": 217582
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 19372,
-     "ack": 236936
+     "antal": 19375,
+     "ack": 236957
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 11502,
+     "ack": 248459
     }
    ],
-   "total": 236936,
+   "total": 248459,
    "rostberattigade": {
     "riksdag": 1075715,
     "kommun": 1126988,
@@ -1828,8 +1835,8 @@
      "namn": "Mobilia",
      "kommun": "Malmö",
      "lokalId": "1280033",
-     "total": 7609,
-     "dagarMedRoster": 11,
+     "total": 7939,
+     "dagarMedRoster": 12,
      "storstaDag": 792,
      "andel": 3.2
     },
@@ -1837,44 +1844,44 @@
      "namn": "Emporia",
      "kommun": "Malmö",
      "lokalId": "1280045",
-     "total": 5906,
-     "dagarMedRoster": 11,
+     "total": 6133,
+     "dagarMedRoster": 12,
      "storstaDag": 644,
      "andel": 2.5
-    },
-    {
-     "namn": "Väla Centrum",
-     "kommun": "Helsingborg",
-     "lokalId": "1283005",
-     "total": 5653,
-     "dagarMedRoster": 11,
-     "storstaDag": 621,
-     "andel": 2.4
     },
     {
      "namn": "Ystads Stadsbibliotek",
      "kommun": "Ystad",
      "lokalId": "1286002",
-     "total": 5452,
-     "dagarMedRoster": 11,
+     "total": 5908,
+     "dagarMedRoster": 12,
      "storstaDag": 626,
-     "andel": 2.3
+     "andel": 2.4
+    },
+    {
+     "namn": "Väla Centrum",
+     "kommun": "Helsingborg",
+     "lokalId": "1283005",
+     "total": 5871,
+     "dagarMedRoster": 12,
+     "storstaDag": 621,
+     "andel": 2.4
     },
     {
      "namn": "Helsingborg C",
      "kommun": "Helsingborg",
      "lokalId": "1283014",
-     "total": 5380,
-     "dagarMedRoster": 11,
+     "total": 5585,
+     "dagarMedRoster": 12,
      "storstaDag": 607,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Triangeln",
      "kommun": "Malmö",
      "lokalId": "1280029",
-     "total": 5186,
-     "dagarMedRoster": 11,
+     "total": 5415,
+     "dagarMedRoster": 12,
      "storstaDag": 598,
      "andel": 2.2
     },
@@ -1882,62 +1889,62 @@
      "namn": "Råå Center",
      "kommun": "Helsingborg",
      "lokalId": "1283009",
-     "total": 4750,
-     "dagarMedRoster": 11,
+     "total": 4984,
+     "dagarMedRoster": 12,
      "storstaDag": 512,
-     "andel": 2.0
-    },
-    {
-     "namn": "Rosengårdsbiblioteket",
-     "kommun": "Malmö",
-     "lokalId": "1280076",
-     "total": 4729,
-     "dagarMedRoster": 11,
-     "storstaDag": 500,
      "andel": 2.0
     },
     {
      "namn": "Rådhus Skåne",
      "kommun": "Kristianstad",
      "lokalId": "1290007",
-     "total": 4706,
-     "dagarMedRoster": 11,
+     "total": 4970,
+     "dagarMedRoster": 12,
      "storstaDag": 534,
+     "andel": 2.0
+    },
+    {
+     "namn": "Rosengårdsbiblioteket",
+     "kommun": "Malmö",
+     "lokalId": "1280076",
+     "total": 4897,
+     "dagarMedRoster": 12,
+     "storstaDag": 500,
      "andel": 2.0
     },
     {
      "namn": "Jägersro Center",
      "kommun": "Malmö",
      "lokalId": "1280032",
-     "total": 4116,
-     "dagarMedRoster": 11,
+     "total": 4301,
+     "dagarMedRoster": 12,
      "storstaDag": 418,
-     "andel": 1.7
-    },
-    {
-     "namn": "Kronprinsen",
-     "kommun": "Malmö",
-     "lokalId": "1280074",
-     "total": 4010,
-     "dagarMedRoster": 11,
-     "storstaDag": 453,
      "andel": 1.7
     },
     {
      "namn": "Kyrkskolan",
      "kommun": "Hässleholm",
      "lokalId": "1293007",
-     "total": 3924,
-     "dagarMedRoster": 11,
+     "total": 4201,
+     "dagarMedRoster": 12,
      "storstaDag": 429,
+     "andel": 1.7
+    },
+    {
+     "namn": "Kronprinsen",
+     "kommun": "Malmö",
+     "lokalId": "1280074",
+     "total": 4138,
+     "dagarMedRoster": 12,
+     "storstaDag": 453,
      "andel": 1.7
     },
     {
      "namn": "Nova Lund",
      "kommun": "Lund",
      "lokalId": "1281020",
-     "total": 3879,
-     "dagarMedRoster": 11,
+     "total": 4082,
+     "dagarMedRoster": 12,
      "storstaDag": 371,
      "andel": 1.6
     },
@@ -1945,8 +1952,8 @@
      "namn": "Galleria Center Syd",
      "kommun": "Kävlinge",
      "lokalId": "1261005",
-     "total": 3586,
-     "dagarMedRoster": 10,
+     "total": 3850,
+     "dagarMedRoster": 11,
      "storstaDag": 442,
      "andel": 1.5
     },
@@ -1954,8 +1961,8 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Landskrona",
      "lokalId": "1282003",
-     "total": 3562,
-     "dagarMedRoster": 11,
+     "total": 3814,
+     "dagarMedRoster": 12,
      "storstaDag": 413,
      "andel": 1.5
     },
@@ -1963,10 +1970,19 @@
      "namn": "Blomstertorget Toppengallerian",
      "kommun": "Vellinge",
      "lokalId": "1233006",
-     "total": 3527,
-     "dagarMedRoster": 11,
+     "total": 3680,
+     "dagarMedRoster": 12,
      "storstaDag": 407,
      "andel": 1.5
+    },
+    {
+     "namn": "Stadsbiblioteket",
+     "kommun": "Lund",
+     "lokalId": "1281010",
+     "total": 3462,
+     "dagarMedRoster": 11,
+     "storstaDag": 489,
+     "andel": 1.4
     },
     {
      "namn": "Stadsbiblioteket",
@@ -1975,34 +1991,43 @@
      "total": 3438,
      "dagarMedRoster": 10,
      "storstaDag": 448,
-     "andel": 1.5
-    },
-    {
-     "namn": "Stadsbiblioteket",
-     "kommun": "Lund",
-     "lokalId": "1281010",
-     "total": 3312,
-     "dagarMedRoster": 10,
-     "storstaDag": 489,
      "andel": 1.4
-    },
-    {
-     "namn": "Entré",
-     "kommun": "Malmö",
-     "lokalId": "1280044",
-     "total": 2830,
-     "dagarMedRoster": 11,
-     "storstaDag": 307,
-     "andel": 1.2
     },
     {
      "namn": "IKEA Helsingborg",
      "kommun": "Helsingborg",
      "lokalId": "1283012",
-     "total": 2812,
-     "dagarMedRoster": 11,
+     "total": 3027,
+     "dagarMedRoster": 12,
      "storstaDag": 287,
      "andel": 1.2
+    },
+    {
+     "namn": "Entré",
+     "kommun": "Malmö",
+     "lokalId": "1280044",
+     "total": 2946,
+     "dagarMedRoster": 12,
+     "storstaDag": 307,
+     "andel": 1.2
+    },
+    {
+     "namn": "Stadshallen",
+     "kommun": "Lund",
+     "lokalId": "1281002",
+     "total": 2892,
+     "dagarMedRoster": 11,
+     "storstaDag": 425,
+     "andel": 1.2
+    },
+    {
+     "namn": "Medborgarhuset Staffanstorp",
+     "kommun": "Staffanstorp",
+     "lokalId": "1230002",
+     "total": 2745,
+     "dagarMedRoster": 12,
+     "storstaDag": 334,
+     "andel": 1.1
     },
     {
      "namn": "Mitt Möllan",
@@ -2011,16 +2036,34 @@
      "total": 2740,
      "dagarMedRoster": 10,
      "storstaDag": 353,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
-     "namn": "Stadshallen",
-     "kommun": "Lund",
-     "lokalId": "1281002",
-     "total": 2726,
-     "dagarMedRoster": 10,
-     "storstaDag": 425,
-     "andel": 1.2
+     "namn": "Kulturhuset Anders",
+     "kommun": "Höör",
+     "lokalId": "1267001",
+     "total": 2732,
+     "dagarMedRoster": 12,
+     "storstaDag": 298,
+     "andel": 1.1
+    },
+    {
+     "namn": "Limhamns torg",
+     "kommun": "Malmö",
+     "lokalId": "1280086",
+     "total": 2684,
+     "dagarMedRoster": 12,
+     "storstaDag": 307,
+     "andel": 1.1
+    },
+    {
+     "namn": "Svedala bibliotek",
+     "kommun": "Svedala",
+     "lokalId": "1263001",
+     "total": 2676,
+     "dagarMedRoster": 12,
+     "storstaDag": 311,
+     "andel": 1.1
     },
     {
      "namn": "Stadsbiblioteket",
@@ -2038,60 +2081,24 @@
      "total": 2595,
      "dagarMedRoster": 10,
      "storstaDag": 373,
-     "andel": 1.1
-    },
-    {
-     "namn": "Medborgarhuset Staffanstorp",
-     "kommun": "Staffanstorp",
-     "lokalId": "1230002",
-     "total": 2549,
-     "dagarMedRoster": 11,
-     "storstaDag": 334,
-     "andel": 1.1
-    },
-    {
-     "namn": "Åhus IF - Klubbstuga",
-     "kommun": "Kristianstad",
-     "lokalId": "1290006",
-     "total": 2507,
-     "dagarMedRoster": 10,
-     "storstaDag": 290,
-     "andel": 1.1
-    },
-    {
-     "namn": "Kulturhuset Anders",
-     "kommun": "Höör",
-     "lokalId": "1267001",
-     "total": 2506,
-     "dagarMedRoster": 11,
-     "storstaDag": 298,
-     "andel": 1.1
-    },
-    {
-     "namn": "Limhamns torg",
-     "kommun": "Malmö",
-     "lokalId": "1280086",
-     "total": 2495,
-     "dagarMedRoster": 11,
-     "storstaDag": 307,
-     "andel": 1.1
-    },
-    {
-     "namn": "Svedala bibliotek",
-     "kommun": "Svedala",
-     "lokalId": "1263001",
-     "total": 2489,
-     "dagarMedRoster": 11,
-     "storstaDag": 311,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Södergallerian",
      "kommun": "Helsingborg",
      "lokalId": "1283047",
-     "total": 2433,
-     "dagarMedRoster": 11,
+     "total": 2575,
+     "dagarMedRoster": 12,
      "storstaDag": 285,
+     "andel": 1.0
+    },
+    {
+     "namn": "Simrishamn, Skeppet",
+     "kommun": "Simrishamn",
+     "lokalId": "1291001",
+     "total": 2560,
+     "dagarMedRoster": 12,
+     "storstaDag": 293,
      "andel": 1.0
     }
    ],

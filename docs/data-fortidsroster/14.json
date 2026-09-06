@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1792,25 +1792,32 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 32469,
-     "ack": 228126
+     "antal": 32532,
+     "ack": 228189
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 30590,
-     "ack": 258716
+     "ack": 258779
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 21896,
-     "ack": 280612
+     "antal": 21897,
+     "ack": 280676
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 12348,
+     "ack": 293024
     }
    ],
-   "total": 280612,
+   "total": 293024,
    "rostberattigade": {
     "riksdag": 1354200,
     "kommun": 1409152,
@@ -1828,8 +1835,8 @@
      "namn": "Nordstan",
      "kommun": "Göteborg",
      "lokalId": "1480080",
-     "total": 13778,
-     "dagarMedRoster": 11,
+     "total": 14313,
+     "dagarMedRoster": 12,
      "storstaDag": 1386,
      "andel": 4.9
     },
@@ -1837,8 +1844,8 @@
      "namn": "Frölunda Torg köpcenter",
      "kommun": "Göteborg",
      "lokalId": "1480081",
-     "total": 9488,
-     "dagarMedRoster": 11,
+     "total": 9936,
+     "dagarMedRoster": 12,
      "storstaDag": 1041,
      "andel": 3.4
     },
@@ -1846,8 +1853,8 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Göteborg",
      "lokalId": "1480073",
-     "total": 8379,
-     "dagarMedRoster": 11,
+     "total": 8869,
+     "dagarMedRoster": 12,
      "storstaDag": 966,
      "andel": 3.0
     },
@@ -1855,35 +1862,35 @@
      "namn": "Allum",
      "kommun": "Partille",
      "lokalId": "1402001",
-     "total": 6602,
-     "dagarMedRoster": 11,
+     "total": 6946,
+     "dagarMedRoster": 12,
      "storstaDag": 687,
      "andel": 2.4
-    },
-    {
-     "namn": "Järntorget",
-     "kommun": "Göteborg",
-     "lokalId": "1480057",
-     "total": 6399,
-     "dagarMedRoster": 11,
-     "storstaDag": 775,
-     "andel": 2.3
     },
     {
      "namn": "Stadshuset",
      "kommun": "Lidköping",
      "lokalId": "1494001",
-     "total": 6378,
-     "dagarMedRoster": 11,
+     "total": 6735,
+     "dagarMedRoster": 12,
      "storstaDag": 895,
+     "andel": 2.3
+    },
+    {
+     "namn": "Järntorget",
+     "kommun": "Göteborg",
+     "lokalId": "1480057",
+     "total": 6726,
+     "dagarMedRoster": 12,
+     "storstaDag": 775,
      "andel": 2.3
     },
     {
      "namn": "Arena Skövde",
      "kommun": "Skövde",
      "lokalId": "1496021",
-     "total": 5229,
-     "dagarMedRoster": 11,
+     "total": 5589,
+     "dagarMedRoster": 12,
      "storstaDag": 619,
      "andel": 1.9
     },
@@ -1891,8 +1898,8 @@
      "namn": "Mölndal galleria",
      "kommun": "Mölndal",
      "lokalId": "1481010",
-     "total": 5221,
-     "dagarMedRoster": 11,
+     "total": 5421,
+     "dagarMedRoster": 12,
      "storstaDag": 571,
      "andel": 1.9
     },
@@ -1900,8 +1907,8 @@
      "namn": "Kongahälla Center",
      "kommun": "Kungälv",
      "lokalId": "1482002",
-     "total": 5103,
-     "dagarMedRoster": 11,
+     "total": 5413,
+     "dagarMedRoster": 12,
      "storstaDag": 614,
      "andel": 1.8
     },
@@ -1909,8 +1916,8 @@
      "namn": "Torp köpcentrum, Västra Torp",
      "kommun": "Uddevalla",
      "lokalId": "1485002",
-     "total": 5084,
-     "dagarMedRoster": 11,
+     "total": 5371,
+     "dagarMedRoster": 12,
      "storstaDag": 612,
      "andel": 1.8
     },
@@ -1918,8 +1925,8 @@
      "namn": "Stora torgets valstuga",
      "kommun": "Borås",
      "lokalId": "1490008",
-     "total": 4320,
-     "dagarMedRoster": 11,
+     "total": 4522,
+     "dagarMedRoster": 12,
      "storstaDag": 468,
      "andel": 1.5
     },
@@ -1927,8 +1934,8 @@
      "namn": "Kulturhuset Fregatten",
      "kommun": "Stenungsund",
      "lokalId": "1415002",
-     "total": 4302,
-     "dagarMedRoster": 11,
+     "total": 4518,
+     "dagarMedRoster": 12,
      "storstaDag": 510,
      "andel": 1.5
     },
@@ -1936,19 +1943,55 @@
      "namn": "Olskrokstorget",
      "kommun": "Göteborg",
      "lokalId": "1480008",
-     "total": 4027,
-     "dagarMedRoster": 11,
+     "total": 4264,
+     "dagarMedRoster": 12,
      "storstaDag": 496,
-     "andel": 1.4
+     "andel": 1.5
     },
     {
      "namn": "Hjalmar Brantingsplatsen",
      "kommun": "Göteborg",
      "lokalId": "1480036",
-     "total": 3965,
-     "dagarMedRoster": 11,
+     "total": 4169,
+     "dagarMedRoster": 12,
      "storstaDag": 477,
      "andel": 1.4
+    },
+    {
+     "namn": "Kulturhuset Kåken",
+     "kommun": "Göteborg",
+     "lokalId": "1480014",
+     "total": 3878,
+     "dagarMedRoster": 12,
+     "storstaDag": 396,
+     "andel": 1.3
+    },
+    {
+     "namn": "Stadshuset",
+     "kommun": "Mariestad",
+     "lokalId": "1493001",
+     "total": 3875,
+     "dagarMedRoster": 12,
+     "storstaDag": 466,
+     "andel": 1.3
+    },
+    {
+     "namn": "Arena Vänersborg",
+     "kommun": "Vänersborg",
+     "lokalId": "1487001",
+     "total": 3835,
+     "dagarMedRoster": 12,
+     "storstaDag": 426,
+     "andel": 1.3
+    },
+    {
+     "namn": "Knallelands valstuga",
+     "kommun": "Borås",
+     "lokalId": "1490013",
+     "total": 3745,
+     "dagarMedRoster": 12,
+     "storstaDag": 405,
+     "andel": 1.3
     },
     {
      "namn": "Torslanda bibliotek",
@@ -1960,65 +2003,38 @@
      "andel": 1.3
     },
     {
-     "namn": "Stadshuset",
-     "kommun": "Mariestad",
-     "lokalId": "1493001",
-     "total": 3686,
-     "dagarMedRoster": 11,
-     "storstaDag": 466,
-     "andel": 1.3
-    },
-    {
-     "namn": "Kulturhuset Kåken",
+     "namn": "Kulturhuset Blå Stället",
      "kommun": "Göteborg",
-     "lokalId": "1480014",
-     "total": 3603,
-     "dagarMedRoster": 11,
-     "storstaDag": 396,
+     "lokalId": "1480071",
+     "total": 3681,
+     "dagarMedRoster": 12,
+     "storstaDag": 383,
      "andel": 1.3
     },
     {
-     "namn": "Arena Vänersborg",
-     "kommun": "Vänersborg",
-     "lokalId": "1487001",
-     "total": 3594,
-     "dagarMedRoster": 11,
-     "storstaDag": 426,
+     "namn": "Hjelmarsrörsgatan 20",
+     "kommun": "Falköping",
+     "lokalId": "1499015",
+     "total": 3670,
+     "dagarMedRoster": 12,
+     "storstaDag": 425,
      "andel": 1.3
     },
     {
      "namn": "Folkets hus / Kulturhuset",
      "kommun": "Trollhättan",
      "lokalId": "1488012",
-     "total": 3542,
-     "dagarMedRoster": 11,
+     "total": 3669,
+     "dagarMedRoster": 12,
      "storstaDag": 440,
      "andel": 1.3
-    },
-    {
-     "namn": "Knallelands valstuga",
-     "kommun": "Borås",
-     "lokalId": "1490013",
-     "total": 3511,
-     "dagarMedRoster": 11,
-     "storstaDag": 405,
-     "andel": 1.3
-    },
-    {
-     "namn": "Kulturhuset Blå Stället",
-     "kommun": "Göteborg",
-     "lokalId": "1480071",
-     "total": 3499,
-     "dagarMedRoster": 11,
-     "storstaDag": 383,
-     "andel": 1.2
     },
     {
      "namn": "Överby Etagehuset",
      "kommun": "Trollhättan",
      "lokalId": "1488010",
-     "total": 3457,
-     "dagarMedRoster": 11,
+     "total": 3635,
+     "dagarMedRoster": 12,
      "storstaDag": 416,
      "andel": 1.2
     },
@@ -2026,8 +2042,8 @@
      "namn": "Lerum - Solkatten",
      "kommun": "Lerum",
      "lokalId": "1441005",
-     "total": 3445,
-     "dagarMedRoster": 11,
+     "total": 3585,
+     "dagarMedRoster": 12,
      "storstaDag": 389,
      "andel": 1.2
     },
@@ -2041,20 +2057,11 @@
      "andel": 1.2
     },
     {
-     "namn": "Hjelmarsrörsgatan 20",
-     "kommun": "Falköping",
-     "lokalId": "1499015",
-     "total": 3418,
-     "dagarMedRoster": 11,
-     "storstaDag": 425,
-     "andel": 1.2
-    },
-    {
      "namn": "Mölnlycke kulturhus",
      "kommun": "Härryda",
      "lokalId": "1401005",
-     "total": 3024,
-     "dagarMedRoster": 11,
+     "total": 3235,
+     "dagarMedRoster": 12,
      "storstaDag": 334,
      "andel": 1.1
     },
@@ -2062,9 +2069,18 @@
      "namn": "Förtidsröstning, centrala Ulricehamn",
      "kommun": "Ulricehamn",
      "lokalId": "1491002",
-     "total": 2974,
-     "dagarMedRoster": 11,
+     "total": 3119,
+     "dagarMedRoster": 12,
      "storstaDag": 404,
+     "andel": 1.1
+    },
+    {
+     "namn": "Kommunhuset",
+     "kommun": "Alingsås",
+     "lokalId": "1489003",
+     "total": 3112,
+     "dagarMedRoster": 12,
+     "storstaDag": 506,
      "andel": 1.1
     },
     {
@@ -2077,20 +2093,11 @@
      "andel": 1.0
     },
     {
-     "namn": "Kommunhuset",
-     "kommun": "Alingsås",
-     "lokalId": "1489003",
-     "total": 2846,
-     "dagarMedRoster": 11,
-     "storstaDag": 506,
-     "andel": 1.0
-    },
-    {
      "namn": "Pilen 5 ( sjukhusfastigheten)",
      "kommun": "Strömstad",
      "lokalId": "1486001",
-     "total": 2676,
-     "dagarMedRoster": 11,
+     "total": 2836,
+     "dagarMedRoster": 12,
      "storstaDag": 296,
      "andel": 1.0
     }

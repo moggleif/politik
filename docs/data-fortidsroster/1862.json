@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -849,32 +849,39 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 168,
-     "ack": 866
+     "antal": 172,
+     "ack": 870
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 219,
-     "ack": 1085
+     "antal": 221,
+     "ack": 1091
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 132,
-     "ack": 1217
+     "ack": 1223
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 94,
-     "ack": 1311
+     "ack": 1317
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 96,
+     "ack": 1413
     }
    ],
-   "total": 1311,
+   "total": 1413,
    "rostberattigade": {
     "riksdag": 7334,
     "kommun": 7544,
@@ -892,10 +899,10 @@
      "namn": "Folkets Hus",
      "kommun": "Degerfors",
      "lokalId": "1862003",
-     "total": 1102,
-     "dagarMedRoster": 11,
+     "total": 1199,
+     "dagarMedRoster": 12,
      "storstaDag": 143,
-     "andel": 84.1
+     "andel": 84.9
     },
     {
      "namn": "Åtorps utvecklingsgrupps lokal",
@@ -904,25 +911,25 @@
      "total": 88,
      "dagarMedRoster": 5,
      "storstaDag": 23,
-     "andel": 6.7
+     "andel": 6.2
     },
     {
      "namn": "Folkets Hus Svartå",
      "kommun": "Degerfors",
      "lokalId": "1862002",
-     "total": 73,
+     "total": 77,
      "dagarMedRoster": 5,
      "storstaDag": 22,
-     "andel": 5.6
+     "andel": 5.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Degerfors",
      "lokalId": "1862004",
-     "total": 48,
+     "total": 49,
      "dagarMedRoster": 3,
-     "storstaDag": 32,
-     "andel": 3.7
+     "storstaDag": 33,
+     "andel": 3.5
     }
    ],
    "antalLokaler": 4,

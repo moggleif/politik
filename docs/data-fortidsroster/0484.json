@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1648,7 +1648,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1727,9 +1727,16 @@
      "kvar": 8,
      "antal": 1796,
      "ack": 18422
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 1053,
+     "ack": 19475
     }
    ],
-   "total": 18422,
+   "total": 19475,
    "rostberattigade": {
     "riksdag": 80320,
     "kommun": 83612,
@@ -1747,28 +1754,28 @@
      "namn": "Tuna Park",
      "kommun": "Eskilstuna",
      "lokalId": "0484017",
-     "total": 5759,
-     "dagarMedRoster": 11,
+     "total": 6032,
+     "dagarMedRoster": 12,
      "storstaDag": 586,
-     "andel": 31.3
+     "andel": 31.0
     },
     {
      "namn": "Sveaplan",
      "kommun": "Eskilstuna",
      "lokalId": "0484019",
-     "total": 4637,
-     "dagarMedRoster": 11,
+     "total": 4852,
+     "dagarMedRoster": 12,
      "storstaDag": 506,
-     "andel": 25.2
+     "andel": 24.9
     },
     {
      "namn": "Gallerian",
      "kommun": "Eskilstuna",
      "lokalId": "0484020",
-     "total": 4553,
-     "dagarMedRoster": 11,
+     "total": 4671,
+     "dagarMedRoster": 12,
      "storstaDag": 543,
-     "andel": 24.7
+     "andel": 24.0
     },
     {
      "namn": "PRO Torshälla",
@@ -1777,25 +1784,25 @@
      "total": 1502,
      "dagarMedRoster": 8,
      "storstaDag": 226,
-     "andel": 8.2
-    },
-    {
-     "namn": "Gökstensskolans aula",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484030",
-     "total": 311,
-     "dagarMedRoster": 3,
-     "storstaDag": 121,
-     "andel": 1.7
+     "andel": 7.7
     },
     {
      "namn": "Skogstorpsskolan",
      "kommun": "Eskilstuna",
      "lokalId": "0484001",
-     "total": 298,
-     "dagarMedRoster": 3,
+     "total": 380,
+     "dagarMedRoster": 4,
      "storstaDag": 120,
-     "andel": 1.6
+     "andel": 2.0
+    },
+    {
+     "namn": "Gökstensskolans aula",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484030",
+     "total": 369,
+     "dagarMedRoster": 4,
+     "storstaDag": 121,
+     "andel": 1.9
     },
     {
      "namn": "Kjula skola",
@@ -1804,7 +1811,7 @@
      "total": 240,
      "dagarMedRoster": 2,
      "storstaDag": 128,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Åsborgen",
@@ -1816,40 +1823,40 @@
      "andel": 1.1
     },
     {
-     "namn": "Engelska skolan",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484029",
-     "total": 122,
-     "dagarMedRoster": 1,
-     "storstaDag": 122,
-     "andel": 0.7
-    },
-    {
-     "namn": "Skiftingehus skola",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484005",
-     "total": 91,
-     "dagarMedRoster": 1,
-     "storstaDag": 91,
-     "andel": 0.5
-    },
-    {
      "namn": "Tegelvikens skola",
      "kommun": "Eskilstuna",
      "lokalId": "0484003",
-     "total": 84,
-     "dagarMedRoster": 1,
-     "storstaDag": 84,
-     "andel": 0.5
+     "total": 199,
+     "dagarMedRoster": 2,
+     "storstaDag": 115,
+     "andel": 1.0
+    },
+    {
+     "namn": "Engelska skolan",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484029",
+     "total": 189,
+     "dagarMedRoster": 2,
+     "storstaDag": 122,
+     "andel": 1.0
     },
     {
      "namn": "Hammargärdets Skola",
      "kommun": "Eskilstuna",
      "lokalId": "0484002",
-     "total": 78,
-     "dagarMedRoster": 1,
-     "storstaDag": 78,
-     "andel": 0.4
+     "total": 160,
+     "dagarMedRoster": 2,
+     "storstaDag": 82,
+     "andel": 0.8
+    },
+    {
+     "namn": "Skiftingehus skola",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484005",
+     "total": 134,
+     "dagarMedRoster": 2,
+     "storstaDag": 91,
+     "andel": 0.7
     },
     {
      "namn": "Bolindergården",
@@ -1867,7 +1874,7 @@
      "total": 48,
      "dagarMedRoster": 1,
      "storstaDag": 48,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Marielunds vård- och omsorgsboende",
@@ -1876,7 +1883,7 @@
      "total": 48,
      "dagarMedRoster": 1,
      "storstaDag": 48,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1885,7 +1892,7 @@
      "total": 47,
      "dagarMedRoster": 2,
      "storstaDag": 29,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Vågens vård- och omsorgsboende",
@@ -1939,7 +1946,7 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Åbacken vård- och omsorgsboende",
@@ -1948,7 +1955,7 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Ekebo vård- och omsorgsboende",
@@ -1957,7 +1964,7 @@
      "total": 28,
      "dagarMedRoster": 1,
      "storstaDag": 28,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Näshultagården",

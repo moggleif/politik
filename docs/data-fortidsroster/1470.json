@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -989,9 +989,16 @@
      "kvar": 8,
      "antal": 165,
      "ack": 2506
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 122,
+     "ack": 2628
     }
    ],
-   "total": 2506,
+   "total": 2628,
    "rostberattigade": {
     "riksdag": 12282,
     "kommun": 12895,
@@ -1012,7 +1019,7 @@
      "total": 2362,
      "dagarMedRoster": 10,
      "storstaDag": 327,
-     "andel": 94.3
+     "andel": 89.9
     },
     {
      "namn": "Nästegårdsskolan i Kvänum",
@@ -1021,7 +1028,16 @@
      "total": 144,
      "dagarMedRoster": 1,
      "storstaDag": 144,
-     "andel": 5.7
+     "andel": 5.5
+    },
+    {
+     "namn": "Laskegården Vedum",
+     "kommun": "Vara",
+     "lokalId": "1470004",
+     "total": 122,
+     "dagarMedRoster": 1,
+     "storstaDag": 122,
+     "andel": 4.6
     },
     {
      "namn": "Alléhallen",
@@ -1036,15 +1052,6 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Vara",
      "lokalId": "1470005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Laskegården Vedum",
-     "kommun": "Vara",
-     "lokalId": "1470004",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

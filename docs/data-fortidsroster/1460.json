@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1070,9 +1070,16 @@
      "kvar": 8,
      "antal": 144,
      "ack": 1709
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 156,
+     "ack": 1865
     }
    ],
-   "total": 1709,
+   "total": 1865,
    "rostberattigade": {
     "riksdag": 6855,
     "kommun": 7394,
@@ -1090,10 +1097,10 @@
      "namn": "Biblioteket Bengtsfors",
      "kommun": "Bengtsfors",
      "lokalId": "1460006",
-     "total": 1114,
-     "dagarMedRoster": 11,
+     "total": 1162,
+     "dagarMedRoster": 12,
      "storstaDag": 143,
-     "andel": 65.2
+     "andel": 62.3
     },
     {
      "namn": "Nybygget Stenebyskolan",
@@ -1102,16 +1109,16 @@
      "total": 257,
      "dagarMedRoster": 3,
      "storstaDag": 102,
-     "andel": 15.0
+     "andel": 13.8
     },
     {
      "namn": "Bäckegården Bäckefors",
      "kommun": "Bengtsfors",
      "lokalId": "1460002",
-     "total": 112,
-     "dagarMedRoster": 2,
+     "total": 158,
+     "dagarMedRoster": 3,
      "storstaDag": 62,
-     "andel": 6.6
+     "andel": 8.5
     },
     {
      "namn": "Lövåsenskolan Billingsfors",
@@ -1120,7 +1127,7 @@
      "total": 109,
      "dagarMedRoster": 3,
      "storstaDag": 45,
-     "andel": 6.4
+     "andel": 5.8
     },
     {
      "namn": "Folkets hus Gustavsfors",
@@ -1129,7 +1136,16 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 4.4
+     "andel": 4.0
+    },
+    {
+     "namn": "Torrskogs stom bygdegård",
+     "kommun": "Bengtsfors",
+     "lokalId": "1460004",
+     "total": 62,
+     "dagarMedRoster": 1,
+     "storstaDag": 62,
+     "andel": 3.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1138,16 +1154,7 @@
      "total": 42,
      "dagarMedRoster": 3,
      "storstaDag": 34,
-     "andel": 2.5
-    },
-    {
-     "namn": "Torrskogs stom bygdegård",
-     "kommun": "Bengtsfors",
-     "lokalId": "1460004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 2.3
     }
    ],
    "antalLokaler": 7,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1153,7 +1153,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1232,9 +1232,16 @@
      "kvar": 8,
      "antal": 114,
      "ack": 1842
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 226,
+     "ack": 2068
     }
    ],
-   "total": 1842,
+   "total": 2068,
    "rostberattigade": {
     "riksdag": 11848,
     "kommun": 12109,
@@ -1255,7 +1262,7 @@
      "total": 1012,
      "dagarMedRoster": 11,
      "storstaDag": 170,
-     "andel": 54.9
+     "andel": 48.9
     },
     {
      "namn": "Ås församlingsgård",
@@ -1264,7 +1271,7 @@
      "total": 234,
      "dagarMedRoster": 3,
      "storstaDag": 91,
-     "andel": 12.7
+     "andel": 11.3
     },
     {
      "namn": "Änge servicekontor",
@@ -1273,7 +1280,7 @@
      "total": 221,
      "dagarMedRoster": 6,
      "storstaDag": 65,
-     "andel": 12.0
+     "andel": 10.7
     },
     {
      "namn": "Edevallen",
@@ -1282,7 +1289,7 @@
      "total": 148,
      "dagarMedRoster": 5,
      "storstaDag": 52,
-     "andel": 8.0
+     "andel": 7.2
     },
     {
      "namn": "Trångsvikens bygdegård",
@@ -1291,7 +1298,7 @@
      "total": 117,
      "dagarMedRoster": 2,
      "storstaDag": 82,
-     "andel": 6.4
+     "andel": 5.7
     },
     {
      "namn": "Näldens bygdegård",
@@ -1300,7 +1307,70 @@
      "total": 108,
      "dagarMedRoster": 2,
      "storstaDag": 76,
-     "andel": 5.9
+     "andel": 5.2
+    },
+    {
+     "namn": "Rötvikens bygdegård",
+     "kommun": "Krokom",
+     "lokalId": "2309002",
+     "total": 71,
+     "dagarMedRoster": 1,
+     "storstaDag": 71,
+     "andel": 3.4
+    },
+    {
+     "namn": "Bredbyns föreningshus",
+     "kommun": "Krokom",
+     "lokalId": "2309007",
+     "total": 46,
+     "dagarMedRoster": 1,
+     "storstaDag": 46,
+     "andel": 2.2
+    },
+    {
+     "namn": "Blomstergården, Krokom",
+     "kommun": "Krokom",
+     "lokalId": "2309003",
+     "total": 34,
+     "dagarMedRoster": 1,
+     "storstaDag": 34,
+     "andel": 1.6
+    },
+    {
+     "namn": "Kaxås bygdegård",
+     "kommun": "Krokom",
+     "lokalId": "2309008",
+     "total": 27,
+     "dagarMedRoster": 1,
+     "storstaDag": 27,
+     "andel": 1.3
+    },
+    {
+     "namn": "Tångeråsens bygdegård",
+     "kommun": "Krokom",
+     "lokalId": "2309009",
+     "total": 21,
+     "dagarMedRoster": 1,
+     "storstaDag": 21,
+     "andel": 1.0
+    },
+    {
+     "namn": "Solbacka, Föllinge",
+     "kommun": "Krokom",
+     "lokalId": "2309004",
+     "total": 15,
+     "dagarMedRoster": 1,
+     "storstaDag": 15,
+     "andel": 0.7
+    },
+    {
+     "namn": "Hällebo, Ede",
+     "kommun": "Krokom",
+     "lokalId": "2309005",
+     "total": 12,
+     "dagarMedRoster": 1,
+     "storstaDag": 12,
+     "andel": 0.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1312,72 +1382,9 @@
      "andel": 0.1
     },
     {
-     "namn": "Blomstergården, Krokom",
-     "kommun": "Krokom",
-     "lokalId": "2309003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Bredbyns föreningshus",
-     "kommun": "Krokom",
-     "lokalId": "2309007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Hällebo, Ede",
-     "kommun": "Krokom",
-     "lokalId": "2309005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Kaxås bygdegård",
-     "kommun": "Krokom",
-     "lokalId": "2309008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Laxsjö bygdegård",
      "kommun": "Krokom",
      "lokalId": "2309001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Rötvikens bygdegård",
-     "kommun": "Krokom",
-     "lokalId": "2309002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Solbacka, Föllinge",
-     "kommun": "Krokom",
-     "lokalId": "2309004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Tångeråsens bygdegård",
-     "kommun": "Krokom",
-     "lokalId": "2309009",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

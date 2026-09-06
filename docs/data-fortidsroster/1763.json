@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -813,32 +813,39 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 89,
-     "ack": 1089
+     "antal": 100,
+     "ack": 1100
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 217,
-     "ack": 1306
+     "ack": 1317
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 215,
-     "ack": 1521
+     "ack": 1532
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 85,
-     "ack": 1606
+     "ack": 1617
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 161,
+     "ack": 1778
     }
    ],
-   "total": 1606,
+   "total": 1778,
    "rostberattigade": {
     "riksdag": 8707,
     "kommun": 8864,
@@ -856,10 +863,10 @@
      "namn": "Forshaga Lärcenter",
      "kommun": "Forshaga",
      "lokalId": "1763002",
-     "total": 1035,
-     "dagarMedRoster": 10,
-     "storstaDag": 139,
-     "andel": 64.4
+     "total": 1207,
+     "dagarMedRoster": 11,
+     "storstaDag": 161,
+     "andel": 67.9
     },
     {
      "namn": "Kulturhuset Deje",
@@ -868,7 +875,7 @@
      "total": 548,
      "dagarMedRoster": 7,
      "storstaDag": 99,
-     "andel": 34.1
+     "andel": 30.8
     },
     {
      "namn": "Klarälvsgården",
@@ -877,7 +884,7 @@
      "total": 14,
      "dagarMedRoster": 1,
      "storstaDag": 14,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -886,7 +893,7 @@
      "total": 9,
      "dagarMedRoster": 1,
      "storstaDag": 9,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Kommunkontoret",

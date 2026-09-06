@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -946,7 +946,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1025,9 +1025,16 @@
      "kvar": 8,
      "antal": 601,
      "ack": 3846
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 400,
+     "ack": 4246
     }
    ],
-   "total": 3846,
+   "total": 4246,
    "rostberattigade": {
     "riksdag": 17621,
     "kommun": 17983,
@@ -1045,19 +1052,37 @@
      "namn": "Societetshuset Källör",
      "kommun": "Östhammar",
      "lokalId": "0382002",
-     "total": 1534,
-     "dagarMedRoster": 11,
+     "total": 1614,
+     "dagarMedRoster": 12,
      "storstaDag": 177,
-     "andel": 39.9
+     "andel": 38.0
+    },
+    {
+     "namn": "Olandsskolans matsal",
+     "kommun": "Östhammar",
+     "lokalId": "0382007",
+     "total": 576,
+     "dagarMedRoster": 4,
+     "storstaDag": 162,
+     "andel": 13.6
+    },
+    {
+     "namn": "Folkets Hus, Österbybruk",
+     "kommun": "Östhammar",
+     "lokalId": "0382006",
+     "total": 572,
+     "dagarMedRoster": 4,
+     "storstaDag": 159,
+     "andel": 13.5
     },
     {
      "namn": "Sven Persson hallen",
      "kommun": "Östhammar",
      "lokalId": "0382004",
-     "total": 513,
-     "dagarMedRoster": 3,
+     "total": 561,
+     "dagarMedRoster": 4,
      "storstaDag": 188,
-     "andel": 13.3
+     "andel": 13.2
     },
     {
      "namn": "Lärkbacken",
@@ -1066,25 +1091,7 @@
      "total": 476,
      "dagarMedRoster": 3,
      "storstaDag": 197,
-     "andel": 12.4
-    },
-    {
-     "namn": "Olandsskolans matsal",
-     "kommun": "Östhammar",
-     "lokalId": "0382007",
-     "total": 439,
-     "dagarMedRoster": 3,
-     "storstaDag": 162,
-     "andel": 11.4
-    },
-    {
-     "namn": "Folkets Hus, Österbybruk",
-     "kommun": "Östhammar",
-     "lokalId": "0382006",
-     "total": 437,
-     "dagarMedRoster": 3,
-     "storstaDag": 159,
-     "andel": 11.4
+     "andel": 11.2
     },
     {
      "namn": "Söderögården, Långalma",
@@ -1093,7 +1100,7 @@
      "total": 132,
      "dagarMedRoster": 1,
      "storstaDag": 132,
-     "andel": 3.4
+     "andel": 3.1
     },
     {
      "namn": "Ekebyskolan",
@@ -1102,7 +1109,7 @@
      "total": 121,
      "dagarMedRoster": 1,
      "storstaDag": 121,
-     "andel": 3.1
+     "andel": 2.8
     },
     {
      "namn": "Folkets Hus, Hargshamn",
@@ -1111,7 +1118,7 @@
      "total": 115,
      "dagarMedRoster": 1,
      "storstaDag": 115,
-     "andel": 3.0
+     "andel": 2.7
     },
     {
      "namn": "Granhälla Bygdegård",
@@ -1120,7 +1127,7 @@
      "total": 79,
      "dagarMedRoster": 1,
      "storstaDag": 79,
-     "andel": 2.1
+     "andel": 1.9
     },
     {
      "namn": "Ambulerande röstmottagning",

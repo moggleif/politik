@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1090,7 +1090,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1146,32 +1146,39 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 1659,
-     "ack": 11000
+     "antal": 1661,
+     "ack": 11002
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1512,
-     "ack": 12512
+     "antal": 1514,
+     "ack": 12516
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 1445,
-     "ack": 13957
+     "ack": 13961
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 1224,
-     "ack": 15181
+     "ack": 15185
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 730,
+     "ack": 15915
     }
    ],
-   "total": 15181,
+   "total": 15915,
    "rostberattigade": {
     "riksdag": 64900,
     "kommun": 73467,
@@ -1189,44 +1196,44 @@
      "namn": "Tullinge centrum",
      "kommun": "Botkyrka",
      "lokalId": "0127005",
-     "total": 2612,
-     "dagarMedRoster": 11,
+     "total": 2766,
+     "dagarMedRoster": 12,
      "storstaDag": 279,
-     "andel": 17.2
+     "andel": 17.4
     },
     {
      "namn": "Hallunda medborgarkontor",
      "kommun": "Botkyrka",
      "lokalId": "0127006",
-     "total": 2303,
-     "dagarMedRoster": 11,
+     "total": 2409,
+     "dagarMedRoster": 12,
      "storstaDag": 256,
-     "andel": 15.2
+     "andel": 15.1
     },
     {
      "namn": "Tumba centrum",
      "kommun": "Botkyrka",
      "lokalId": "0127008",
-     "total": 2119,
-     "dagarMedRoster": 11,
-     "storstaDag": 259,
-     "andel": 14.0
+     "total": 2200,
+     "dagarMedRoster": 12,
+     "storstaDag": 261,
+     "andel": 13.8
     },
     {
      "namn": "Tumba bibliotek",
      "kommun": "Botkyrka",
      "lokalId": "0127002",
-     "total": 1871,
-     "dagarMedRoster": 11,
+     "total": 1968,
+     "dagarMedRoster": 12,
      "storstaDag": 217,
-     "andel": 12.3
+     "andel": 12.4
     },
     {
      "namn": "Alby medborgarkontor",
      "kommun": "Botkyrka",
      "lokalId": "0127003",
-     "total": 1841,
-     "dagarMedRoster": 11,
+     "total": 1919,
+     "dagarMedRoster": 12,
      "storstaDag": 211,
      "andel": 12.1
     },
@@ -1234,28 +1241,28 @@
      "namn": "Ica Maxi Botkyrka",
      "kommun": "Botkyrka",
      "lokalId": "0127007",
-     "total": 1604,
-     "dagarMedRoster": 11,
+     "total": 1728,
+     "dagarMedRoster": 12,
      "storstaDag": 189,
-     "andel": 10.6
+     "andel": 10.9
     },
     {
      "namn": "Fittja medborgarkontor",
      "kommun": "Botkyrka",
      "lokalId": "0127004",
-     "total": 1393,
-     "dagarMedRoster": 11,
+     "total": 1441,
+     "dagarMedRoster": 12,
      "storstaDag": 174,
-     "andel": 9.2
+     "andel": 9.1
     },
     {
      "namn": "Mötesplats Grödinge",
      "kommun": "Botkyrka",
      "lokalId": "0127001",
-     "total": 808,
-     "dagarMedRoster": 11,
+     "total": 854,
+     "dagarMedRoster": 12,
      "storstaDag": 100,
-     "andel": 5.3
+     "andel": 5.4
     },
     {
      "namn": "Hallunda Centrum",
@@ -1273,7 +1280,7 @@
      "total": 145,
      "dagarMedRoster": 8,
      "storstaDag": 43,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Anstalten Asptuna",
@@ -1282,7 +1289,7 @@
      "total": 87,
      "dagarMedRoster": 1,
      "storstaDag": 87,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Tumba gymnasium",

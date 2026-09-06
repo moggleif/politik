@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1259,9 +1259,16 @@
      "kvar": 8,
      "antal": 1379,
      "ack": 13738
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 672,
+     "ack": 14410
     }
    ],
-   "total": 13738,
+   "total": 14410,
    "rostberattigade": {
     "riksdag": 69597,
     "kommun": 77516,
@@ -1279,19 +1286,19 @@
      "namn": "Ica Maxi",
      "kommun": "Haninge",
      "lokalId": "0136010",
-     "total": 4895,
-     "dagarMedRoster": 11,
+     "total": 5175,
+     "dagarMedRoster": 12,
      "storstaDag": 559,
-     "andel": 35.6
+     "andel": 35.9
     },
     {
      "namn": "Haninge kulturhus",
      "kommun": "Haninge",
      "lokalId": "0136003",
-     "total": 3184,
-     "dagarMedRoster": 11,
+     "total": 3290,
+     "dagarMedRoster": 12,
      "storstaDag": 384,
-     "andel": 23.2
+     "andel": 22.8
     },
     {
      "namn": "Västerhaninge bibliotek",
@@ -1300,7 +1307,7 @@
      "total": 2363,
      "dagarMedRoster": 10,
      "storstaDag": 294,
-     "andel": 17.2
+     "andel": 16.4
     },
     {
      "namn": "Jordbro bibliotek",
@@ -1309,16 +1316,16 @@
      "total": 928,
      "dagarMedRoster": 10,
      "storstaDag": 146,
-     "andel": 6.8
+     "andel": 6.4
     },
     {
      "namn": "Vega skola & aktivitetshus",
      "kommun": "Haninge",
      "lokalId": "0136008",
-     "total": 779,
-     "dagarMedRoster": 7,
+     "total": 909,
+     "dagarMedRoster": 8,
      "storstaDag": 158,
-     "andel": 5.7
+     "andel": 6.3
     },
     {
      "namn": "Träffpunkten Brandbergen",
@@ -1327,7 +1334,16 @@
      "total": 626,
      "dagarMedRoster": 8,
      "storstaDag": 90,
-     "andel": 4.6
+     "andel": 4.3
+    },
+    {
+     "namn": "Tungelsta folk- och trädgårdsmuseum",
+     "kommun": "Haninge",
+     "lokalId": "0136011",
+     "total": 445,
+     "dagarMedRoster": 3,
+     "storstaDag": 193,
+     "andel": 3.1
     },
     {
      "namn": "Träffpunkten Dalarö",
@@ -1336,16 +1352,7 @@
      "total": 387,
      "dagarMedRoster": 6,
      "storstaDag": 92,
-     "andel": 2.8
-    },
-    {
-     "namn": "Tungelsta folk- och trädgårdsmuseum",
-     "kommun": "Haninge",
-     "lokalId": "0136011",
-     "total": 289,
-     "dagarMedRoster": 2,
-     "storstaDag": 193,
-     "andel": 2.1
+     "andel": 2.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1417,7 +1424,7 @@
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Malmgården",
@@ -1444,7 +1451,7 @@
      "total": 7,
      "dagarMedRoster": 1,
      "storstaDag": 7,
-     "andel": 0.1
+     "andel": 0.0
     },
     {
      "namn": "Ornö bygdegård",

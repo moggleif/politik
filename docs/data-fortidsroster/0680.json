@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -2854,7 +2854,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -2875,67 +2875,74 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 2169,
-     "ack": 6814
+     "antal": 2170,
+     "ack": 6815
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 1053,
-     "ack": 7867
+     "ack": 7868
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 695,
-     "ack": 8562
+     "ack": 8563
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 2810,
-     "ack": 11372
+     "ack": 11373
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 2826,
-     "ack": 14198
+     "ack": 14199
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 2992,
-     "ack": 17190
+     "ack": 17191
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 3003,
-     "ack": 20193
+     "ack": 20194
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 2823,
-     "ack": 23016
+     "antal": 2835,
+     "ack": 23029
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 1708,
-     "ack": 24724
+     "ack": 24737
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 608,
+     "ack": 25345
     }
    ],
-   "total": 24724,
+   "total": 25345,
    "rostberattigade": {
     "riksdag": 112280,
     "kommun": 116520,
@@ -2953,28 +2960,28 @@
      "namn": "Asecs köpcenter",
      "kommun": "Jönköping",
      "lokalId": "0680055",
-     "total": 3124,
-     "dagarMedRoster": 11,
+     "total": 3333,
+     "dagarMedRoster": 12,
      "storstaDag": 447,
-     "andel": 12.6
+     "andel": 13.2
     },
     {
      "namn": "Asecs Paviljong",
      "kommun": "Jönköping",
      "lokalId": "0680062",
-     "total": 3051,
-     "dagarMedRoster": 11,
+     "total": 3266,
+     "dagarMedRoster": 12,
      "storstaDag": 356,
-     "andel": 12.3
+     "andel": 12.9
     },
     {
      "namn": "Jönköpings stadsbibliotek",
      "kommun": "Jönköping",
      "lokalId": "0680053",
-     "total": 2860,
-     "dagarMedRoster": 11,
+     "total": 3045,
+     "dagarMedRoster": 12,
      "storstaDag": 327,
-     "andel": 11.6
+     "andel": 12.0
     },
     {
      "namn": "Huskvarna stadshus",
@@ -2983,7 +2990,7 @@
      "total": 2082,
      "dagarMedRoster": 10,
      "storstaDag": 268,
-     "andel": 8.4
+     "andel": 8.2
     },
     {
      "namn": "Juneporten",
@@ -2992,7 +2999,7 @@
      "total": 1756,
      "dagarMedRoster": 10,
      "storstaDag": 250,
-     "andel": 7.1
+     "andel": 6.9
     },
     {
      "namn": "Råslätt Paviljong",
@@ -3001,7 +3008,7 @@
      "total": 1698,
      "dagarMedRoster": 10,
      "storstaDag": 221,
-     "andel": 6.9
+     "andel": 6.7
     },
     {
      "namn": "Österängens centrum",
@@ -3010,7 +3017,7 @@
      "total": 1609,
      "dagarMedRoster": 10,
      "storstaDag": 203,
-     "andel": 6.5
+     "andel": 6.3
     },
     {
      "namn": "Bankeryds centrum",
@@ -3019,7 +3026,7 @@
      "total": 1226,
      "dagarMedRoster": 8,
      "storstaDag": 198,
-     "andel": 5.0
+     "andel": 4.8
     },
     {
      "namn": "Jönköping University Biblioteket",
@@ -3028,7 +3035,7 @@
      "total": 1146,
      "dagarMedRoster": 8,
      "storstaDag": 181,
-     "andel": 4.6
+     "andel": 4.5
     },
     {
      "namn": "Gränna bibliotek",
@@ -3055,7 +3062,7 @@
      "total": 641,
      "dagarMedRoster": 6,
      "storstaDag": 127,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Huskvarna centrum",
@@ -3064,7 +3071,7 @@
      "total": 637,
      "dagarMedRoster": 8,
      "storstaDag": 105,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Norrahammars Församlingshem",
@@ -3073,7 +3080,7 @@
      "total": 620,
      "dagarMedRoster": 8,
      "storstaDag": 100,
-     "andel": 2.5
+     "andel": 2.4
     },
     {
      "namn": "Öxnehaga Vardagsrummet",
@@ -3097,7 +3104,7 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Jönköping",
      "lokalId": "0680065",
-     "total": 465,
+     "total": 477,
      "dagarMedRoster": 9,
      "storstaDag": 107,
      "andel": 1.9
@@ -3109,7 +3116,7 @@
      "total": 443,
      "dagarMedRoster": 5,
      "storstaDag": 111,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Lekeryds församlingshem",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -836,9 +836,16 @@
      "kvar": 8,
      "antal": 181,
      "ack": 863
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 165,
+     "ack": 1028
     }
    ],
-   "total": 863,
+   "total": 1028,
    "rostberattigade": {
     "riksdag": 3875,
     "kommun": 4158,
@@ -856,10 +863,10 @@
      "namn": "Amnegården",
      "kommun": "Gullspång",
      "lokalId": "1447002",
-     "total": 434,
-     "dagarMedRoster": 3,
+     "total": 599,
+     "dagarMedRoster": 4,
      "storstaDag": 181,
-     "andel": 50.3
+     "andel": 58.3
     },
     {
      "namn": "Hova förvaltningsbyggnad/sessionssal",
@@ -868,7 +875,7 @@
      "total": 429,
      "dagarMedRoster": 8,
      "storstaDag": 89,
-     "andel": 49.7
+     "andel": 41.7
     },
     {
      "namn": "Ambulerande röstmottagning",

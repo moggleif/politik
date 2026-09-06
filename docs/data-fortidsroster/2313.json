@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1225,7 +1225,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1304,9 +1304,16 @@
      "kvar": 8,
      "antal": 95,
      "ack": 2747
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 195,
+     "ack": 2942
     }
    ],
-   "total": 2747,
+   "total": 2942,
    "rostberattigade": {
     "riksdag": 8508,
     "kommun": 8953,
@@ -1324,10 +1331,10 @@
      "namn": "Folkets hus - Strömsund",
      "kommun": "Strömsund",
      "lokalId": "2313019",
-     "total": 1559,
-     "dagarMedRoster": 11,
+     "total": 1640,
+     "dagarMedRoster": 12,
      "storstaDag": 227,
-     "andel": 56.8
+     "andel": 55.7
     },
     {
      "namn": "Gamla lokalkontoret i Hammerdal",
@@ -1336,7 +1343,7 @@
      "total": 423,
      "dagarMedRoster": 8,
      "storstaDag": 75,
-     "andel": 15.4
+     "andel": 14.4
     },
     {
      "namn": "Föreningshuset Hoting",
@@ -1345,7 +1352,7 @@
      "total": 162,
      "dagarMedRoster": 4,
      "storstaDag": 48,
-     "andel": 5.9
+     "andel": 5.5
     },
     {
      "namn": "Biblioteket Backe",
@@ -1354,7 +1361,7 @@
      "total": 139,
      "dagarMedRoster": 5,
      "storstaDag": 39,
-     "andel": 5.1
+     "andel": 4.7
     },
     {
      "namn": "Flottaren - Rossön",
@@ -1363,7 +1370,7 @@
      "total": 138,
      "dagarMedRoster": 4,
      "storstaDag": 42,
-     "andel": 5.0
+     "andel": 4.7
     },
     {
      "namn": "Mittpunkt Norråker",
@@ -1372,7 +1379,7 @@
      "total": 122,
      "dagarMedRoster": 2,
      "storstaDag": 78,
-     "andel": 4.4
+     "andel": 4.1
     },
     {
      "namn": "Biblioteket Gäddede",
@@ -1381,16 +1388,25 @@
      "total": 111,
      "dagarMedRoster": 5,
      "storstaDag": 31,
-     "andel": 4.0
+     "andel": 3.8
     },
     {
      "namn": "Tåsjögården",
      "kommun": "Strömsund",
      "lokalId": "2313003",
-     "total": 60,
-     "dagarMedRoster": 2,
+     "total": 66,
+     "dagarMedRoster": 3,
      "storstaDag": 31,
      "andel": 2.2
+    },
+    {
+     "namn": "Strömbacka/Granbacken",
+     "kommun": "Strömsund",
+     "lokalId": "2313013",
+     "total": 40,
+     "dagarMedRoster": 1,
+     "storstaDag": 40,
+     "andel": 1.4
     },
     {
      "namn": "Församlingshemmet - Kyrktåsjö",
@@ -1402,6 +1418,51 @@
      "andel": 1.1
     },
     {
+     "namn": "Solbackens sjukhem",
+     "kommun": "Strömsund",
+     "lokalId": "2313011",
+     "total": 24,
+     "dagarMedRoster": 1,
+     "storstaDag": 24,
+     "andel": 0.8
+    },
+    {
+     "namn": "Åshamra",
+     "kommun": "Strömsund",
+     "lokalId": "2313001",
+     "total": 13,
+     "dagarMedRoster": 1,
+     "storstaDag": 13,
+     "andel": 0.4
+    },
+    {
+     "namn": "Älvgården",
+     "kommun": "Strömsund",
+     "lokalId": "2313002",
+     "total": 12,
+     "dagarMedRoster": 1,
+     "storstaDag": 12,
+     "andel": 0.4
+    },
+    {
+     "namn": "Rossöcenter",
+     "kommun": "Strömsund",
+     "lokalId": "2313015",
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.4
+    },
+    {
+     "namn": "Brismarksgården",
+     "kommun": "Strömsund",
+     "lokalId": "2313007",
+     "total": 8,
+     "dagarMedRoster": 1,
+     "storstaDag": 8,
+     "andel": 0.3
+    },
+    {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Strömsund",
      "lokalId": "2313016",
@@ -1409,15 +1470,6 @@
      "dagarMedRoster": 2,
      "storstaDag": 1,
      "andel": 0.1
-    },
-    {
-     "namn": "Brismarksgården",
-     "kommun": "Strömsund",
-     "lokalId": "2313007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Folkets hus - Stora Blåsjön",
@@ -1441,51 +1493,6 @@
      "namn": "Jormstugan Folkets hus",
      "kommun": "Strömsund",
      "lokalId": "2313018",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Rossöcenter",
-     "kommun": "Strömsund",
-     "lokalId": "2313015",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Solbackens sjukhem",
-     "kommun": "Strömsund",
-     "lokalId": "2313011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Strömbacka/Granbacken",
-     "kommun": "Strömsund",
-     "lokalId": "2313013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Älvgården",
-     "kommun": "Strömsund",
-     "lokalId": "2313002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Åshamra",
-     "kommun": "Strömsund",
-     "lokalId": "2313001",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

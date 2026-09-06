@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -829,25 +829,32 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 335,
-     "ack": 2549
+     "antal": 398,
+     "ack": 2612
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 380,
-     "ack": 2929
+     "ack": 2992
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 143,
-     "ack": 3072
+     "ack": 3135
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 99,
+     "ack": 3234
     }
    ],
-   "total": 3072,
+   "total": 3234,
    "rostberattigade": {
     "riksdag": 11166,
     "kommun": 11390,
@@ -865,10 +872,10 @@
      "namn": "Kommunhuset Lysekil",
      "kommun": "Lysekil",
      "lokalId": "1484001",
-     "total": 2043,
-     "dagarMedRoster": 11,
+     "total": 2142,
+     "dagarMedRoster": 12,
      "storstaDag": 258,
-     "andel": 66.5
+     "andel": 66.2
     },
     {
      "namn": "Folkets Hus - Brastad",
@@ -877,16 +884,16 @@
      "total": 581,
      "dagarMedRoster": 8,
      "storstaDag": 104,
-     "andel": 18.9
+     "andel": 18.0
     },
     {
      "namn": "Skaftö församlingshem",
      "kommun": "Lysekil",
      "lokalId": "1484002",
-     "total": 392,
-     "dagarMedRoster": 7,
+     "total": 455,
+     "dagarMedRoster": 8,
      "storstaDag": 66,
-     "andel": 12.8
+     "andel": 14.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -895,7 +902,7 @@
      "total": 56,
      "dagarMedRoster": 4,
      "storstaDag": 24,
-     "andel": 1.8
+     "andel": 1.7
     }
    ],
    "antalLokaler": 4,

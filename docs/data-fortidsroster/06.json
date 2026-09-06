@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1750,67 +1750,74 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 4909,
-     "ack": 15055
+     "antal": 4910,
+     "ack": 15056
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 2407,
-     "ack": 17462
+     "ack": 17463
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 1861,
-     "ack": 19323
+     "ack": 19324
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 6360,
-     "ack": 25683
+     "ack": 25684
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 6325,
-     "ack": 32008
+     "ack": 32009
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 6881,
-     "ack": 38889
+     "ack": 38890
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 6709,
-     "ack": 45598
+     "ack": 45599
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 6682,
-     "ack": 52280
+     "antal": 6694,
+     "ack": 52293
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 3923,
-     "ack": 56203
+     "ack": 56216
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 2559,
+     "ack": 58775
     }
    ],
-   "total": 56203,
+   "total": 58775,
    "rostberattigade": {
     "riksdag": 279005,
     "kommun": 289890,
@@ -1828,55 +1835,73 @@
      "namn": "Stadshuset",
      "kommun": "Vetlanda",
      "lokalId": "0685010",
-     "total": 3781,
-     "dagarMedRoster": 11,
+     "total": 4020,
+     "dagarMedRoster": 12,
      "storstaDag": 487,
-     "andel": 6.7
+     "andel": 6.8
     },
     {
      "namn": "Stadsbiblioteket Nässjö",
      "kommun": "Nässjö",
      "lokalId": "0682005",
-     "total": 3650,
-     "dagarMedRoster": 11,
+     "total": 3905,
+     "dagarMedRoster": 12,
      "storstaDag": 443,
-     "andel": 6.5
+     "andel": 6.6
     },
     {
      "namn": "Exposkolans aula (Östbosalen)",
      "kommun": "Värnamo",
      "lokalId": "0683003",
-     "total": 3527,
-     "dagarMedRoster": 11,
+     "total": 3795,
+     "dagarMedRoster": 12,
      "storstaDag": 423,
-     "andel": 6.3
+     "andel": 6.5
     },
     {
      "namn": "Asecs köpcenter",
      "kommun": "Jönköping",
      "lokalId": "0680055",
-     "total": 3124,
-     "dagarMedRoster": 11,
+     "total": 3333,
+     "dagarMedRoster": 12,
      "storstaDag": 447,
-     "andel": 5.6
+     "andel": 5.7
     },
     {
      "namn": "Asecs Paviljong",
      "kommun": "Jönköping",
      "lokalId": "0680062",
-     "total": 3051,
-     "dagarMedRoster": 11,
+     "total": 3266,
+     "dagarMedRoster": 12,
      "storstaDag": 356,
-     "andel": 5.4
+     "andel": 5.6
     },
     {
      "namn": "Jönköpings stadsbibliotek",
      "kommun": "Jönköping",
      "lokalId": "0680053",
-     "total": 2860,
-     "dagarMedRoster": 11,
+     "total": 3045,
+     "dagarMedRoster": 12,
      "storstaDag": 327,
-     "andel": 5.1
+     "andel": 5.2
+    },
+    {
+     "namn": "Olsbergs Arena",
+     "kommun": "Eksjö",
+     "lokalId": "0686001",
+     "total": 2170,
+     "dagarMedRoster": 12,
+     "storstaDag": 292,
+     "andel": 3.7
+    },
+    {
+     "namn": "Habo bibliotek",
+     "kommun": "Habo",
+     "lokalId": "0643001",
+     "total": 2142,
+     "dagarMedRoster": 12,
+     "storstaDag": 233,
+     "andel": 3.6
     },
     {
      "namn": "Huskvarna stadshus",
@@ -1885,32 +1910,14 @@
      "total": 2082,
      "dagarMedRoster": 10,
      "storstaDag": 268,
-     "andel": 3.7
-    },
-    {
-     "namn": "Olsbergs Arena",
-     "kommun": "Eksjö",
-     "lokalId": "0686001",
-     "total": 2040,
-     "dagarMedRoster": 11,
-     "storstaDag": 292,
-     "andel": 3.6
-    },
-    {
-     "namn": "Habo bibliotek",
-     "kommun": "Habo",
-     "lokalId": "0643001",
-     "total": 1997,
-     "dagarMedRoster": 11,
-     "storstaDag": 233,
-     "andel": 3.6
+     "andel": 3.5
     },
     {
      "namn": "Storgatan 40",
      "kommun": "Tranås",
      "lokalId": "0687001",
-     "total": 1852,
-     "dagarMedRoster": 11,
+     "total": 1948,
+     "dagarMedRoster": 12,
      "storstaDag": 206,
      "andel": 3.3
     },
@@ -1921,7 +1928,7 @@
      "total": 1756,
      "dagarMedRoster": 10,
      "storstaDag": 250,
-     "andel": 3.1
+     "andel": 3.0
     },
     {
      "namn": "Råslätt Paviljong",
@@ -1930,7 +1937,7 @@
      "total": 1698,
      "dagarMedRoster": 10,
      "storstaDag": 221,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Österängens centrum",
@@ -1939,14 +1946,14 @@
      "total": 1609,
      "dagarMedRoster": 10,
      "storstaDag": 203,
-     "andel": 2.9
+     "andel": 2.7
     },
     {
      "namn": "Kommunhuset",
      "kommun": "Gislaved",
      "lokalId": "0662002",
-     "total": 1347,
-     "dagarMedRoster": 11,
+     "total": 1410,
+     "dagarMedRoster": 12,
      "storstaDag": 213,
      "andel": 2.4
     },
@@ -1957,7 +1964,16 @@
      "total": 1226,
      "dagarMedRoster": 8,
      "storstaDag": 198,
-     "andel": 2.2
+     "andel": 2.1
+    },
+    {
+     "namn": "Parkhallen",
+     "kommun": "Tranås",
+     "lokalId": "0687002",
+     "total": 1180,
+     "dagarMedRoster": 12,
+     "storstaDag": 141,
+     "andel": 2.0
     },
     {
      "namn": "Jönköping University Biblioteket",
@@ -1966,33 +1982,42 @@
      "total": 1146,
      "dagarMedRoster": 8,
      "storstaDag": 181,
-     "andel": 2.0
-    },
-    {
-     "namn": "Parkhallen",
-     "kommun": "Tranås",
-     "lokalId": "0687002",
-     "total": 1089,
-     "dagarMedRoster": 11,
-     "storstaDag": 141,
      "andel": 1.9
     },
     {
      "namn": "Kulturhuset",
      "kommun": "Sävsjö",
      "lokalId": "0684003",
-     "total": 1009,
-     "dagarMedRoster": 11,
+     "total": 1117,
+     "dagarMedRoster": 12,
      "storstaDag": 119,
-     "andel": 1.8
+     "andel": 1.9
+    },
+    {
+     "namn": "Folkets hus, Vaggeryd",
+     "kommun": "Vaggeryd",
+     "lokalId": "0665005",
+     "total": 1090,
+     "dagarMedRoster": 10,
+     "storstaDag": 150,
+     "andel": 1.9
     },
     {
      "namn": "Druvan",
      "kommun": "Aneby",
      "lokalId": "0604001",
-     "total": 993,
-     "dagarMedRoster": 11,
+     "total": 1067,
+     "dagarMedRoster": 12,
      "storstaDag": 123,
+     "andel": 1.8
+    },
+    {
+     "namn": "Gunnarsbohallens cafeteria",
+     "kommun": "Mullsjö",
+     "lokalId": "0642004",
+     "total": 1058,
+     "dagarMedRoster": 12,
+     "storstaDag": 112,
      "andel": 1.8
     },
     {
@@ -2002,34 +2027,16 @@
      "total": 990,
      "dagarMedRoster": 10,
      "storstaDag": 173,
-     "andel": 1.8
-    },
-    {
-     "namn": "Gunnarsbohallens cafeteria",
-     "kommun": "Mullsjö",
-     "lokalId": "0642004",
-     "total": 957,
-     "dagarMedRoster": 11,
-     "storstaDag": 112,
-     "andel": 1.7
-    },
-    {
-     "namn": "Folkets hus, Vaggeryd",
-     "kommun": "Vaggeryd",
-     "lokalId": "0665005",
-     "total": 950,
-     "dagarMedRoster": 9,
-     "storstaDag": 150,
      "andel": 1.7
     },
     {
      "namn": "Gnosjö Bibliotek",
      "kommun": "Gnosjö",
      "lokalId": "0617002",
-     "total": 913,
-     "dagarMedRoster": 11,
+     "total": 982,
+     "dagarMedRoster": 12,
      "storstaDag": 129,
-     "andel": 1.6
+     "andel": 1.7
     },
     {
      "namn": "Äldrecentrum Mejeriet, Skillingaryd",
@@ -2047,7 +2054,7 @@
      "total": 775,
      "dagarMedRoster": 10,
      "storstaDag": 101,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Anderstorps Bibliotek",
@@ -2056,7 +2063,7 @@
      "total": 712,
      "dagarMedRoster": 10,
      "storstaDag": 103,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Ryhov Lärcentrum",

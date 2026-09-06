@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1459,7 +1459,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1538,9 +1538,16 @@
      "kvar": 8,
      "antal": 335,
      "ack": 5062
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 300,
+     "ack": 5362
     }
    ],
-   "total": 5062,
+   "total": 5362,
    "rostberattigade": {
     "riksdag": 26944,
     "kommun": 27764,
@@ -1558,10 +1565,10 @@
      "namn": "Kommunhuset Kinnaborgssalen",
      "kommun": "Mark",
      "lokalId": "1463010",
-     "total": 2313,
-     "dagarMedRoster": 11,
+     "total": 2480,
+     "dagarMedRoster": 12,
      "storstaDag": 287,
-     "andel": 45.7
+     "andel": 46.3
     },
     {
      "namn": "Ängshallen, Skene",
@@ -1570,7 +1577,7 @@
      "total": 1095,
      "dagarMedRoster": 8,
      "storstaDag": 178,
-     "andel": 21.6
+     "andel": 20.4
     },
     {
      "namn": "Ekelund linneväveri",
@@ -1579,7 +1586,7 @@
      "total": 496,
      "dagarMedRoster": 10,
      "storstaDag": 73,
-     "andel": 9.8
+     "andel": 9.3
     },
     {
      "namn": "Lundagård, Sätila",
@@ -1588,7 +1595,7 @@
      "total": 476,
      "dagarMedRoster": 4,
      "storstaDag": 137,
-     "andel": 9.4
+     "andel": 8.9
     },
     {
      "namn": "Fritsla Folketshus",
@@ -1597,7 +1604,16 @@
      "total": 313,
      "dagarMedRoster": 4,
      "storstaDag": 91,
-     "andel": 6.2
+     "andel": 5.8
+    },
+    {
+     "namn": "Älekulla Bygdegård",
+     "kommun": "Mark",
+     "lokalId": "1463002",
+     "total": 133,
+     "dagarMedRoster": 1,
+     "storstaDag": 133,
+     "andel": 2.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1606,7 +1622,7 @@
      "total": 108,
      "dagarMedRoster": 6,
      "storstaDag": 37,
-     "andel": 2.1
+     "andel": 2.0
     },
     {
      "namn": "Församlingshemmet i Björketorp",
@@ -1615,7 +1631,7 @@
      "total": 108,
      "dagarMedRoster": 1,
      "storstaDag": 108,
-     "andel": 2.1
+     "andel": 2.0
     },
     {
      "namn": "Hajoms bygdegård",
@@ -1624,7 +1640,7 @@
      "total": 83,
      "dagarMedRoster": 1,
      "storstaDag": 83,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Rydals Museum",
@@ -1633,16 +1649,7 @@
      "total": 70,
      "dagarMedRoster": 1,
      "storstaDag": 70,
-     "andel": 1.4
-    },
-    {
-     "namn": "Älekulla Bygdegård",
-     "kommun": "Mark",
-     "lokalId": "1463002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.3
     },
     {
      "namn": "Öxabäckshallen, caféet",

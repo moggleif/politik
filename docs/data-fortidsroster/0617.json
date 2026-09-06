@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -874,7 +874,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -953,9 +953,16 @@
      "kvar": 8,
      "antal": 74,
      "ack": 1145
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 94,
+     "ack": 1239
     }
    ],
-   "total": 1145,
+   "total": 1239,
    "rostberattigade": {
     "riksdag": 6742,
     "kommun": 7177,
@@ -973,10 +980,10 @@
      "namn": "Gnosjö Bibliotek",
      "kommun": "Gnosjö",
      "lokalId": "0617002",
-     "total": 913,
-     "dagarMedRoster": 11,
+     "total": 982,
+     "dagarMedRoster": 12,
      "storstaDag": 129,
-     "andel": 79.7
+     "andel": 79.3
     },
     {
      "namn": "Hillecenter",
@@ -985,7 +992,16 @@
      "total": 231,
      "dagarMedRoster": 8,
      "storstaDag": 41,
-     "andel": 20.2
+     "andel": 18.6
+    },
+    {
+     "namn": "Rosendals servicehus",
+     "kommun": "Gnosjö",
+     "lokalId": "0617001",
+     "total": 25,
+     "dagarMedRoster": 1,
+     "storstaDag": 25,
+     "andel": 2.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -995,15 +1011,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 1,
      "andel": 0.1
-    },
-    {
-     "namn": "Rosendals servicehus",
-     "kommun": "Gnosjö",
-     "lokalId": "0617001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Töllstorpshallen",

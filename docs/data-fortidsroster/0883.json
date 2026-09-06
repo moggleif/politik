@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1234,7 +1234,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1304,18 +1304,25 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 817,
-     "ack": 6088
+     "antal": 837,
+     "ack": 6108
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 405,
-     "ack": 6493
+     "antal": 450,
+     "ack": 6558
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 124,
+     "ack": 6682
     }
    ],
-   "total": 6493,
+   "total": 6682,
    "rostberattigade": {
     "riksdag": 29033,
     "kommun": 29611,
@@ -1336,7 +1343,7 @@
      "total": 4725,
      "dagarMedRoster": 10,
      "storstaDag": 613,
-     "andel": 72.8
+     "andel": 70.7
     },
     {
      "namn": "Fritidsgården, Gamleby",
@@ -1345,7 +1352,7 @@
      "total": 1191,
      "dagarMedRoster": 8,
      "storstaDag": 238,
-     "andel": 18.3
+     "andel": 17.8
     },
     {
      "namn": "Ankarsrums bibliotek",
@@ -1354,25 +1361,25 @@
      "total": 322,
      "dagarMedRoster": 5,
      "storstaDag": 81,
-     "andel": 5.0
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Västervik",
-     "lokalId": "0883007",
-     "total": 150,
-     "dagarMedRoster": 4,
-     "storstaDag": 52,
-     "andel": 2.3
+     "andel": 4.8
     },
     {
      "namn": "Kommunhuset, Valnämnden",
      "kommun": "Västervik",
      "lokalId": "0883005",
-     "total": 105,
-     "dagarMedRoster": 1,
-     "storstaDag": 105,
-     "andel": 1.6
+     "total": 229,
+     "dagarMedRoster": 2,
+     "storstaDag": 124,
+     "andel": 3.4
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Västervik",
+     "lokalId": "0883007",
+     "total": 215,
+     "dagarMedRoster": 6,
+     "storstaDag": 52,
+     "andel": 3.2
     },
     {
      "namn": "Anstalten, Västervik Norra",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -730,7 +730,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -809,9 +809,16 @@
      "kvar": 8,
      "antal": 220,
      "ack": 1813
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 117,
+     "ack": 1930
     }
    ],
-   "total": 1813,
+   "total": 1930,
    "rostberattigade": {
     "riksdag": 9311,
     "kommun": 9393,
@@ -829,10 +836,10 @@
      "namn": "Lägerbacken",
      "kommun": "Vaxholm",
      "lokalId": "0187001",
-     "total": 1786,
-     "dagarMedRoster": 11,
+     "total": 1903,
+     "dagarMedRoster": 12,
      "storstaDag": 220,
-     "andel": 98.5
+     "andel": 98.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -841,7 +848,7 @@
      "total": 27,
      "dagarMedRoster": 1,
      "storstaDag": 27,
-     "andel": 1.5
+     "andel": 1.4
     }
    ],
    "antalLokaler": 2,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -836,9 +836,16 @@
      "kvar": 8,
      "antal": 687,
      "ack": 7879
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 344,
+     "ack": 8223
     }
    ],
-   "total": 7879,
+   "total": 8223,
    "rostberattigade": {
     "riksdag": 29884,
     "kommun": 31101,
@@ -856,10 +863,10 @@
      "namn": "Allum",
      "kommun": "Partille",
      "lokalId": "1402001",
-     "total": 6602,
-     "dagarMedRoster": 11,
+     "total": 6946,
+     "dagarMedRoster": 12,
      "storstaDag": 687,
-     "andel": 83.8
+     "andel": 84.5
     },
     {
      "namn": "Partille kommunhus",
@@ -868,7 +875,7 @@
      "total": 1191,
      "dagarMedRoster": 8,
      "storstaDag": 169,
-     "andel": 15.1
+     "andel": 14.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -877,7 +884,7 @@
      "total": 86,
      "dagarMedRoster": 5,
      "storstaDag": 41,
-     "andel": 1.1
+     "andel": 1.0
     }
    ],
    "antalLokaler": 3,

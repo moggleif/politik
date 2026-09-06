@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1243,25 +1243,32 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 748,
-     "ack": 5367
+     "antal": 772,
+     "ack": 5391
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 644,
-     "ack": 6011
+     "antal": 653,
+     "ack": 6044
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 540,
-     "ack": 6551
+     "antal": 635,
+     "ack": 6679
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 243,
+     "ack": 6922
     }
    ],
-   "total": 6551,
+   "total": 6922,
    "rostberattigade": {
     "riksdag": 29814,
     "kommun": 31033,
@@ -1279,19 +1286,19 @@
      "namn": "Kulturhuset Multeum",
      "kommun": "Strängnäs",
      "lokalId": "0486008",
-     "total": 3413,
-     "dagarMedRoster": 8,
-     "storstaDag": 467,
-     "andel": 52.1
+     "total": 3687,
+     "dagarMedRoster": 9,
+     "storstaDag": 491,
+     "andel": 53.3
     },
     {
      "namn": "Medborgarkontoret Mariefred",
      "kommun": "Strängnäs",
      "lokalId": "0486011",
-     "total": 1263,
+     "total": 1267,
      "dagarMedRoster": 10,
      "storstaDag": 160,
-     "andel": 19.3
+     "andel": 18.3
     },
     {
      "namn": "Medborgarkontoret Stallarholmen",
@@ -1300,7 +1307,7 @@
      "total": 753,
      "dagarMedRoster": 10,
      "storstaDag": 101,
-     "andel": 11.5
+     "andel": 10.9
     },
     {
      "namn": "Paulinska salen",
@@ -1309,7 +1316,7 @@
      "total": 603,
      "dagarMedRoster": 4,
      "storstaDag": 235,
-     "andel": 9.2
+     "andel": 8.7
     },
     {
      "namn": "Medborgarkontoret Åker",
@@ -1318,7 +1325,43 @@
      "total": 511,
      "dagarMedRoster": 10,
      "storstaDag": 72,
-     "andel": 7.8
+     "andel": 7.4
+    },
+    {
+     "namn": "Mariefredsanstalten",
+     "kommun": "Strängnäs",
+     "lokalId": "0486006",
+     "total": 49,
+     "dagarMedRoster": 1,
+     "storstaDag": 49,
+     "andel": 0.7
+    },
+    {
+     "namn": "Hammargården/Nypongården",
+     "kommun": "Strängnäs",
+     "lokalId": "0486007",
+     "total": 20,
+     "dagarMedRoster": 1,
+     "storstaDag": 20,
+     "andel": 0.3
+    },
+    {
+     "namn": "Isabellagården 1 & 2",
+     "kommun": "Strängnäs",
+     "lokalId": "0486009",
+     "total": 15,
+     "dagarMedRoster": 1,
+     "storstaDag": 15,
+     "andel": 0.2
+    },
+    {
+     "namn": "Mariagården",
+     "kommun": "Strängnäs",
+     "lokalId": "0486013",
+     "total": 9,
+     "dagarMedRoster": 1,
+     "storstaDag": 9,
+     "andel": 0.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1348,45 +1391,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Hammargården/Nypongården",
-     "kommun": "Strängnäs",
-     "lokalId": "0486007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Isabellagården 1 & 2",
-     "kommun": "Strängnäs",
-     "lokalId": "0486009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Kristinagården 1 & 2",
      "kommun": "Strängnäs",
      "lokalId": "0486014",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Mariagården",
-     "kommun": "Strängnäs",
-     "lokalId": "0486013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Mariefredsanstalten",
-     "kommun": "Strängnäs",
-     "lokalId": "0486006",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T10:53+02:00",
+ "senastUppdaterad": "2026-09-06T17:44+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -2512,7 +2512,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T10:53+02:00",
+   "hamtad": "2026-09-06T17:44+02:00",
    "klart": false,
    "dagar": [
     {
@@ -2591,9 +2591,16 @@
      "kvar": 8,
      "antal": 3937,
      "ack": 41237
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 1308,
+     "ack": 42545
     }
    ],
-   "total": 41237,
+   "total": 42545,
    "rostberattigade": {
     "riksdag": 187691,
     "kommun": 197645,
@@ -2611,55 +2618,55 @@
      "namn": "Gränbystaden Galleria",
      "kommun": "Uppsala",
      "lokalId": "0380025",
-     "total": 8961,
-     "dagarMedRoster": 11,
+     "total": 9386,
+     "dagarMedRoster": 12,
      "storstaDag": 972,
-     "andel": 21.7
+     "andel": 22.1
     },
     {
      "namn": "Stadsbiblioteket",
      "kommun": "Uppsala",
      "lokalId": "0380007",
-     "total": 4576,
-     "dagarMedRoster": 10,
+     "total": 4637,
+     "dagarMedRoster": 11,
      "storstaDag": 560,
-     "andel": 11.1
+     "andel": 10.9
     },
     {
      "namn": "Stadshuset",
      "kommun": "Uppsala",
      "lokalId": "0380026",
-     "total": 4163,
-     "dagarMedRoster": 11,
+     "total": 4366,
+     "dagarMedRoster": 12,
      "storstaDag": 472,
-     "andel": 10.1
-    },
-    {
-     "namn": "Gottsundabiblioteket",
-     "kommun": "Uppsala",
-     "lokalId": "0380011",
-     "total": 3568,
-     "dagarMedRoster": 11,
-     "storstaDag": 444,
-     "andel": 8.7
+     "andel": 10.3
     },
     {
      "namn": "Bolandcity",
      "kommun": "Uppsala",
      "lokalId": "0380001",
-     "total": 3484,
-     "dagarMedRoster": 11,
+     "total": 3693,
+     "dagarMedRoster": 12,
      "storstaDag": 377,
-     "andel": 8.4
+     "andel": 8.7
+    },
+    {
+     "namn": "Gottsundabiblioteket",
+     "kommun": "Uppsala",
+     "lokalId": "0380011",
+     "total": 3660,
+     "dagarMedRoster": 12,
+     "storstaDag": 444,
+     "andel": 8.6
     },
     {
      "namn": "Fyrishov",
      "kommun": "Uppsala",
      "lokalId": "0380014",
-     "total": 2371,
-     "dagarMedRoster": 11,
+     "total": 2531,
+     "dagarMedRoster": 12,
      "storstaDag": 251,
-     "andel": 5.7
+     "andel": 5.9
     },
     {
      "namn": "Ekonomikum",
@@ -2668,7 +2675,7 @@
      "total": 1979,
      "dagarMedRoster": 10,
      "storstaDag": 240,
-     "andel": 4.8
+     "andel": 4.7
     },
     {
      "namn": "Stenhagenbiblioteket",
@@ -2677,7 +2684,7 @@
      "total": 1562,
      "dagarMedRoster": 9,
      "storstaDag": 212,
-     "andel": 3.8
+     "andel": 3.7
     },
     {
      "namn": "Akademiska sjukhuset (Ingång10)",
@@ -2686,7 +2693,16 @@
      "total": 1242,
      "dagarMedRoster": 9,
      "storstaDag": 176,
-     "andel": 3.0
+     "andel": 2.9
+    },
+    {
+     "namn": "Studenternas",
+     "kommun": "Uppsala",
+     "lokalId": "0380031",
+     "total": 1226,
+     "dagarMedRoster": 11,
+     "storstaDag": 146,
+     "andel": 2.9
     },
     {
      "namn": "Rosendalsbiblioteket",
@@ -2695,24 +2711,15 @@
      "total": 1160,
      "dagarMedRoster": 8,
      "storstaDag": 205,
-     "andel": 2.8
+     "andel": 2.7
     },
     {
      "namn": "Valbuss",
      "kommun": "Uppsala",
      "lokalId": "0380030",
-     "total": 1125,
-     "dagarMedRoster": 11,
+     "total": 1157,
+     "dagarMedRoster": 12,
      "storstaDag": 164,
-     "andel": 2.7
-    },
-    {
-     "namn": "Studenternas",
-     "kommun": "Uppsala",
-     "lokalId": "0380031",
-     "total": 1100,
-     "dagarMedRoster": 10,
-     "storstaDag": 146,
      "andel": 2.7
     },
     {
@@ -2722,7 +2729,7 @@
      "total": 1064,
      "dagarMedRoster": 8,
      "storstaDag": 203,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Sävja kulturcentrum",
@@ -2731,7 +2738,7 @@
      "total": 914,
      "dagarMedRoster": 10,
      "storstaDag": 141,
-     "andel": 2.2
+     "andel": 2.1
     },
     {
      "namn": "Sveriges Lantbruksuniversitet, SLU",
@@ -2749,7 +2756,7 @@
      "total": 640,
      "dagarMedRoster": 5,
      "storstaDag": 172,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Utbildnings- och jobbcenter",
@@ -2767,7 +2774,7 @@
      "total": 440,
      "dagarMedRoster": 5,
      "storstaDag": 109,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Nyby Servicehus",
@@ -2776,7 +2783,7 @@
      "total": 316,
      "dagarMedRoster": 3,
      "storstaDag": 116,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -2785,7 +2792,7 @@
      "total": 191,
      "dagarMedRoster": 8,
      "storstaDag": 37,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Attendo Orgelgatan",
