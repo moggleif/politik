@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T17:31+02:00",
+ "senastUppdaterad": "2026-09-06T10:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T17:31+02:00",
+   "hamtad": "2026-09-06T10:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1799,18 +1799,18 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 5156,
-     "ack": 47035
+     "antal": 5208,
+     "ack": 47087
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 3027,
-     "ack": 50062
+     "antal": 3976,
+     "ack": 51063
     }
    ],
-   "total": 50062,
+   "total": 51063,
    "rostberattigade": {
     "riksdag": 229568,
     "kommun": 237379,
@@ -1828,10 +1828,28 @@
      "namn": "Tuna Park",
      "kommun": "Eskilstuna",
      "lokalId": "0484017",
-     "total": 5483,
+     "total": 5759,
      "dagarMedRoster": 11,
-     "storstaDag": 585,
-     "andel": 11.0
+     "storstaDag": 586,
+     "andel": 11.3
+    },
+    {
+     "namn": "Sveaplan",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484019",
+     "total": 4637,
+     "dagarMedRoster": 11,
+     "storstaDag": 506,
+     "andel": 9.1
+    },
+    {
+     "namn": "Gallerian",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484020",
+     "total": 4553,
+     "dagarMedRoster": 11,
+     "storstaDag": 543,
+     "andel": 8.9
     },
     {
      "namn": "Bibliotek/kulturhuset Ängeln",
@@ -1840,31 +1858,13 @@
      "total": 4530,
      "dagarMedRoster": 11,
      "storstaDag": 554,
-     "andel": 9.0
-    },
-    {
-     "namn": "Sveaplan",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484019",
-     "total": 4526,
-     "dagarMedRoster": 11,
-     "storstaDag": 506,
-     "andel": 9.0
-    },
-    {
-     "namn": "Gallerian",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484020",
-     "total": 4445,
-     "dagarMedRoster": 11,
-     "storstaDag": 543,
      "andel": 8.9
     },
     {
      "namn": "Stadshuset Nyköping",
      "kommun": "Nyköping",
      "lokalId": "0480003",
-     "total": 4336,
+     "total": 4442,
      "dagarMedRoster": 11,
      "storstaDag": 497,
      "andel": 8.7
@@ -1873,7 +1873,7 @@
      "namn": "Kulturhuset Multeum",
      "kommun": "Strängnäs",
      "lokalId": "0486008",
-     "total": 3337,
+     "total": 3413,
      "dagarMedRoster": 8,
      "storstaDag": 467,
      "andel": 6.7
@@ -1882,10 +1882,10 @@
      "namn": "Träffen Nyköping",
      "kommun": "Nyköping",
      "lokalId": "0480008",
-     "total": 3078,
+     "total": 3156,
      "dagarMedRoster": 11,
      "storstaDag": 346,
-     "andel": 6.1
+     "andel": 6.2
     },
     {
      "namn": "D-skolans matsal",
@@ -1903,25 +1903,25 @@
      "total": 2114,
      "dagarMedRoster": 11,
      "storstaDag": 252,
-     "andel": 4.2
+     "andel": 4.1
     },
     {
      "namn": "Skärborgarnas hus",
      "kommun": "Trosa",
      "lokalId": "0488004",
-     "total": 2085,
+     "total": 2092,
      "dagarMedRoster": 10,
      "storstaDag": 295,
-     "andel": 4.2
+     "andel": 4.1
     },
     {
      "namn": "Servicecenter",
      "kommun": "Gnesta",
      "lokalId": "0461001",
-     "total": 1990,
+     "total": 1994,
      "dagarMedRoster": 11,
      "storstaDag": 246,
-     "andel": 4.0
+     "andel": 3.9
     },
     {
      "namn": "Vingåkers Bibliotek",
@@ -1930,7 +1930,7 @@
      "total": 1599,
      "dagarMedRoster": 11,
      "storstaDag": 203,
-     "andel": 3.2
+     "andel": 3.1
     },
     {
      "namn": "PRO Torshälla",
@@ -1939,13 +1939,13 @@
      "total": 1502,
      "dagarMedRoster": 8,
      "storstaDag": 226,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Medborgarkontoret Mariefred",
      "kommun": "Strängnäs",
      "lokalId": "0486011",
-     "total": 1252,
+     "total": 1263,
      "dagarMedRoster": 10,
      "storstaDag": 160,
      "andel": 2.5
@@ -1954,7 +1954,7 @@
      "namn": "Ungdomens hus",
      "kommun": "Trosa",
      "lokalId": "0488007",
-     "total": 890,
+     "total": 894,
      "dagarMedRoster": 7,
      "storstaDag": 185,
      "andel": 1.8
@@ -1963,7 +1963,7 @@
      "namn": "Medborgarkontoret Stallarholmen",
      "kommun": "Strängnäs",
      "lokalId": "0486010",
-     "total": 751,
+     "total": 753,
      "dagarMedRoster": 10,
      "storstaDag": 101,
      "andel": 1.5
@@ -1984,13 +1984,13 @@
      "total": 532,
      "dagarMedRoster": 5,
      "storstaDag": 145,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Medborgarkontoret Åker",
      "kommun": "Strängnäs",
      "lokalId": "0486012",
-     "total": 507,
+     "total": 511,
      "dagarMedRoster": 10,
      "storstaDag": 72,
      "andel": 1.0
@@ -2014,12 +2014,30 @@
      "andel": 0.6
     },
     {
+     "namn": "Gökstensskolans aula",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484030",
+     "total": 311,
+     "dagarMedRoster": 3,
+     "storstaDag": 121,
+     "andel": 0.6
+    },
+    {
      "namn": "Brukslokalen Nävekvarn",
      "kommun": "Nyköping",
      "lokalId": "0480004",
      "total": 310,
      "dagarMedRoster": 5,
      "storstaDag": 77,
+     "andel": 0.6
+    },
+    {
+     "namn": "Skogstorpsskolan",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484001",
+     "total": 298,
+     "dagarMedRoster": 3,
+     "storstaDag": 120,
      "andel": 0.6
     },
     {
@@ -2059,39 +2077,21 @@
      "andel": 0.5
     },
     {
-     "namn": "Gökstensskolans aula",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484030",
-     "total": 261,
-     "dagarMedRoster": 3,
-     "storstaDag": 121,
-     "andel": 0.5
-    },
-    {
-     "namn": "Skogstorpsskolan",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484001",
-     "total": 248,
-     "dagarMedRoster": 3,
-     "storstaDag": 95,
-     "andel": 0.5
-    },
-    {
      "namn": "Kjula skola",
      "kommun": "Eskilstuna",
      "lokalId": "0484007",
-     "total": 227,
+     "total": 240,
      "dagarMedRoster": 2,
-     "storstaDag": 115,
+     "storstaDag": 128,
      "andel": 0.5
     },
     {
      "namn": "Åsborgen",
      "kommun": "Eskilstuna",
      "lokalId": "0484004",
-     "total": 202,
+     "total": 211,
      "dagarMedRoster": 2,
-     "storstaDag": 118,
+     "storstaDag": 127,
      "andel": 0.4
     }
    ],

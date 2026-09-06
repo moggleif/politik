@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-05T17:31+02:00",
+ "senastUppdaterad": "2026-09-06T10:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-05T17:31+02:00",
+   "hamtad": "2026-09-06T10:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1806,11 +1806,11 @@
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 2760,
-     "ack": 44422
+     "antal": 3404,
+     "ack": 45066
     }
    ],
-   "total": 44422,
+   "total": 45066,
    "rostberattigade": {
     "riksdag": 219299,
     "kommun": 228750,
@@ -1828,19 +1828,28 @@
      "namn": "Bibliotekshuset",
      "kommun": "Karlstad",
      "lokalId": "1780010",
-     "total": 6407,
+     "total": 6681,
      "dagarMedRoster": 11,
-     "storstaDag": 687,
-     "andel": 14.4
+     "storstaDag": 807,
+     "andel": 14.8
     },
     {
      "namn": "Biblioteket",
      "kommun": "Arvika",
      "lokalId": "1784003",
-     "total": 4087,
+     "total": 4158,
      "dagarMedRoster": 11,
      "storstaDag": 506,
      "andel": 9.2
+    },
+    {
+     "namn": "Folkets hus, Hammarö kommun",
+     "kommun": "Hammarö",
+     "lokalId": "1761001",
+     "total": 2503,
+     "dagarMedRoster": 11,
+     "storstaDag": 311,
+     "andel": 5.6
     },
     {
      "namn": "Hörsalen Nämndhuset (biblioteket)",
@@ -1849,15 +1858,6 @@
      "total": 2470,
      "dagarMedRoster": 11,
      "storstaDag": 330,
-     "andel": 5.6
-    },
-    {
-     "namn": "Folkets hus, Hammarö kommun",
-     "kommun": "Hammarö",
-     "lokalId": "1761001",
-     "total": 2450,
-     "dagarMedRoster": 11,
-     "storstaDag": 311,
      "andel": 5.5
     },
     {
@@ -1867,13 +1867,13 @@
      "total": 2317,
      "dagarMedRoster": 11,
      "storstaDag": 359,
-     "andel": 5.2
+     "andel": 5.1
     },
     {
      "namn": "Biblioteket, Galleri Björken",
      "kommun": "Sunne",
      "lokalId": "1766002",
-     "total": 2014,
+     "total": 2017,
      "dagarMedRoster": 11,
      "storstaDag": 275,
      "andel": 4.5
@@ -1897,40 +1897,40 @@
      "andel": 3.8
     },
     {
+     "namn": "Merkuriushuset",
+     "kommun": "Kristinehamn",
+     "lokalId": "1781016",
+     "total": 1690,
+     "dagarMedRoster": 10,
+     "storstaDag": 197,
+     "andel": 3.8
+    },
+    {
      "namn": "Kils bibliotek",
      "kommun": "Kil",
      "lokalId": "1715001",
      "total": 1683,
      "dagarMedRoster": 11,
      "storstaDag": 202,
-     "andel": 3.8
-    },
-    {
-     "namn": "Merkuriushuset",
-     "kommun": "Kristinehamn",
-     "lokalId": "1781016",
-     "total": 1637,
-     "dagarMedRoster": 10,
-     "storstaDag": 188,
      "andel": 3.7
     },
     {
      "namn": "Grums bibliotek",
      "kommun": "Grums",
      "lokalId": "1764001",
-     "total": 1535,
+     "total": 1547,
      "dagarMedRoster": 11,
      "storstaDag": 235,
-     "andel": 3.5
+     "andel": 3.4
     },
     {
      "namn": "Filipstads kultur och konferens",
      "kommun": "Filipstad",
      "lokalId": "1782001",
-     "total": 1382,
+     "total": 1463,
      "dagarMedRoster": 8,
      "storstaDag": 395,
-     "andel": 3.1
+     "andel": 3.2
     },
     {
      "namn": "Stadshuset i Hagfors",
@@ -1939,7 +1939,7 @@
      "total": 1315,
      "dagarMedRoster": 9,
      "storstaDag": 245,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Biblioteket Torsby",
@@ -1972,7 +1972,7 @@
      "namn": "Biblioteket Årjäng",
      "kommun": "Årjäng",
      "lokalId": "1765002",
-     "total": 1076,
+     "total": 1079,
      "dagarMedRoster": 10,
      "storstaDag": 151,
      "andel": 2.4
@@ -1990,7 +1990,7 @@
      "namn": "Charlottenbergs Folkets Hus",
      "kommun": "Eda",
      "lokalId": "1730004",
-     "total": 976,
+     "total": 1001,
      "dagarMedRoster": 11,
      "storstaDag": 118,
      "andel": 2.2
@@ -2002,7 +2002,7 @@
      "total": 740,
      "dagarMedRoster": 8,
      "storstaDag": 115,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Vårt hus",
@@ -2026,7 +2026,7 @@
      "namn": "Molkoms bibliotek",
      "kommun": "Karlstad",
      "lokalId": "1780006",
-     "total": 552,
+     "total": 560,
      "dagarMedRoster": 7,
      "storstaDag": 98,
      "andel": 1.2
@@ -2035,7 +2035,7 @@
      "namn": "Kulturhuset Deje",
      "kommun": "Forshaga",
      "lokalId": "1763003",
-     "total": 545,
+     "total": 548,
      "dagarMedRoster": 7,
      "storstaDag": 99,
      "andel": 1.2
@@ -2047,7 +2047,16 @@
      "total": 471,
      "dagarMedRoster": 11,
      "storstaDag": 74,
-     "andel": 1.1
+     "andel": 1.0
+    },
+    {
+     "namn": "Älvenäs bygdegård",
+     "kommun": "Karlstad",
+     "lokalId": "1780002",
+     "total": 394,
+     "dagarMedRoster": 5,
+     "storstaDag": 119,
+     "andel": 0.9
     },
     {
      "namn": "Kommunhuset Torsby",
@@ -2059,22 +2068,13 @@
      "andel": 0.9
     },
     {
-     "namn": "Älvenäs bygdegård",
-     "kommun": "Karlstad",
-     "lokalId": "1780002",
-     "total": 356,
-     "dagarMedRoster": 5,
-     "storstaDag": 119,
-     "andel": 0.8
-    },
-    {
      "namn": "Biblioteket Töcksfors",
      "kommun": "Årjäng",
      "lokalId": "1765001",
      "total": 334,
      "dagarMedRoster": 4,
      "storstaDag": 118,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Bågskytten, Ekshärad",
@@ -2092,7 +2092,7 @@
      "total": 247,
      "dagarMedRoster": 5,
      "storstaDag": 81,
-     "andel": 0.6
+     "andel": 0.5
     }
    ],
    "antalLokaler": 90,
