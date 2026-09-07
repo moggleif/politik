@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1585,7 +1585,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1648,32 +1648,39 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1685,
-     "ack": 10000
+     "antal": 1708,
+     "ack": 10023
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 1520,
-     "ack": 11520
+     "antal": 1527,
+     "ack": 11550
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 707,
-     "ack": 12227
+     "antal": 708,
+     "ack": 12258
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 796,
-     "ack": 13023
+     "antal": 799,
+     "ack": 13057
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 605,
+     "ack": 13662
     }
    ],
-   "total": 13023,
+   "total": 13662,
    "rostberattigade": {
     "riksdag": 51056,
     "kommun": 52071,
@@ -1691,46 +1698,46 @@
      "namn": "Stora Coop, Lillänge",
      "kommun": "Östersund",
      "lokalId": "2380016",
-     "total": 4647,
-     "dagarMedRoster": 12,
+     "total": 4900,
+     "dagarMedRoster": 13,
      "storstaDag": 544,
-     "andel": 35.7
+     "andel": 35.9
     },
     {
      "namn": "Storsjöteatern",
      "kommun": "Östersund",
      "lokalId": "2380029",
-     "total": 2147,
-     "dagarMedRoster": 12,
+     "total": 2297,
+     "dagarMedRoster": 13,
      "storstaDag": 248,
-     "andel": 16.5
+     "andel": 16.8
     },
     {
      "namn": "Östersunds arena",
      "kommun": "Östersund",
      "lokalId": "2380001",
-     "total": 1441,
-     "dagarMedRoster": 12,
+     "total": 1498,
+     "dagarMedRoster": 13,
      "storstaDag": 170,
-     "andel": 11.1
+     "andel": 11.0
     },
     {
      "namn": "Östersunds kommunhus",
      "kommun": "Östersund",
      "lokalId": "2380003",
-     "total": 1374,
-     "dagarMedRoster": 12,
+     "total": 1456,
+     "dagarMedRoster": 13,
      "storstaDag": 151,
-     "andel": 10.6
+     "andel": 10.7
     },
     {
      "namn": "Hornsbergskyrkan, Frösön",
      "kommun": "Östersund",
      "lokalId": "2380014",
-     "total": 1039,
+     "total": 1062,
      "dagarMedRoster": 8,
      "storstaDag": 165,
-     "andel": 8.0
+     "andel": 7.8
     },
     {
      "namn": "Mötesplats Brunflo",
@@ -1739,7 +1746,7 @@
      "total": 831,
      "dagarMedRoster": 8,
      "storstaDag": 126,
-     "andel": 6.4
+     "andel": 6.1
     },
     {
      "namn": "Torvalla Mötesplats",
@@ -1748,16 +1755,16 @@
      "total": 478,
      "dagarMedRoster": 5,
      "storstaDag": 119,
-     "andel": 3.7
+     "andel": 3.5
     },
     {
      "namn": "Bykontoret i Lit",
      "kommun": "Östersund",
      "lokalId": "2380015",
-     "total": 389,
-     "dagarMedRoster": 5,
+     "total": 435,
+     "dagarMedRoster": 6,
      "storstaDag": 121,
-     "andel": 3.0
+     "andel": 3.2
     },
     {
      "namn": "Lugnvikskyrkan",
@@ -1766,7 +1773,7 @@
      "total": 237,
      "dagarMedRoster": 5,
      "storstaDag": 65,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Östersunds sjukhus",
@@ -1781,8 +1788,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Östersund",
      "lokalId": "2380028",
-     "total": 92,
-     "dagarMedRoster": 5,
+     "total": 97,
+     "dagarMedRoster": 6,
      "storstaDag": 74,
      "andel": 0.7
     },
@@ -1812,6 +1819,15 @@
      "dagarMedRoster": 1,
      "storstaDag": 27,
      "andel": 0.2
+    },
+    {
+     "namn": "Östersund rehab centra - Remonthagen",
+     "kommun": "Östersund",
+     "lokalId": "2380026",
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 0.1
     },
     {
      "namn": "Frösö Strand",
@@ -1913,18 +1929,18 @@
      "andel": 0.0
     },
     {
-     "namn": "Bonden",
-     "kommun": "Östersund",
-     "lokalId": "2380006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Myran",
      "kommun": "Östersund",
      "lokalId": "2380023",
+     "total": 4,
+     "dagarMedRoster": 1,
+     "storstaDag": 4,
+     "andel": 0.0
+    },
+    {
+     "namn": "Bonden",
+     "kommun": "Östersund",
+     "lokalId": "2380006",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
@@ -1979,15 +1995,6 @@
      "namn": "Ängegården",
      "kommun": "Östersund",
      "lokalId": "2380019",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Östersund rehab centra - Remonthagen",
-     "kommun": "Östersund",
-     "lokalId": "2380026",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

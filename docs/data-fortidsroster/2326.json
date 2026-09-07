@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1215,60 +1215,67 @@
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 73,
-     "ack": 434
+     "antal": 75,
+     "ack": 436
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 214,
-     "ack": 648
+     "ack": 650
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 68,
-     "ack": 716
+     "ack": 718
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 153,
-     "ack": 869
+     "ack": 871
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 163,
-     "ack": 1032
+     "ack": 1034
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 151,
-     "ack": 1183
+     "antal": 152,
+     "ack": 1186
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 64,
-     "ack": 1247
+     "ack": 1250
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 61,
-     "ack": 1308
+     "ack": 1311
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 43,
+     "ack": 1354
     }
    ],
-   "total": 1308,
+   "total": 1354,
    "rostberattigade": {
     "riksdag": 5539,
     "kommun": 5708,
@@ -1286,19 +1293,19 @@
      "namn": "Biblioteket i Svenstavik",
      "kommun": "Berg",
      "lokalId": "2326002",
-     "total": 502,
-     "dagarMedRoster": 7,
+     "total": 539,
+     "dagarMedRoster": 8,
      "storstaDag": 95,
-     "andel": 38.4
+     "andel": 39.8
     },
     {
      "namn": "Biblioteket i Myrviken",
      "kommun": "Berg",
      "lokalId": "2326003",
-     "total": 242,
+     "total": 243,
      "dagarMedRoster": 5,
-     "storstaDag": 69,
-     "andel": 18.5
+     "storstaDag": 70,
+     "andel": 17.9
     },
     {
      "namn": "Föreninga i Klövsjö",
@@ -1307,7 +1314,7 @@
      "total": 154,
      "dagarMedRoster": 2,
      "storstaDag": 93,
-     "andel": 11.8
+     "andel": 11.4
     },
     {
      "namn": "Biblioteket i Rätan",
@@ -1316,7 +1323,7 @@
      "total": 111,
      "dagarMedRoster": 3,
      "storstaDag": 45,
-     "andel": 8.5
+     "andel": 8.2
     },
     {
      "namn": "Biblioteket i Hackås",
@@ -1325,16 +1332,16 @@
      "total": 105,
      "dagarMedRoster": 4,
      "storstaDag": 56,
-     "andel": 8.0
+     "andel": 7.8
     },
     {
      "namn": "Ljungdalens skola",
      "kommun": "Berg",
      "lokalId": "2326005",
-     "total": 73,
+     "total": 75,
      "dagarMedRoster": 1,
-     "storstaDag": 73,
-     "andel": 5.6
+     "storstaDag": 75,
+     "andel": 5.5
     },
     {
      "namn": "Storsjö Bygdegård",
@@ -1343,7 +1350,7 @@
      "total": 64,
      "dagarMedRoster": 1,
      "storstaDag": 64,
-     "andel": 4.9
+     "andel": 4.7
     },
     {
      "namn": "Kommunkontoret",
@@ -1352,7 +1359,16 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 2.2
+     "andel": 2.1
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Berg",
+     "lokalId": "2326011",
+     "total": 11,
+     "dagarMedRoster": 2,
+     "storstaDag": 6,
+     "andel": 0.8
     },
     {
      "namn": "Vallmogården",
@@ -1379,15 +1395,6 @@
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 0.5
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Berg",
-     "lokalId": "2326011",
-     "total": 5,
-     "dagarMedRoster": 1,
-     "storstaDag": 5,
      "andel": 0.4
     },
     {

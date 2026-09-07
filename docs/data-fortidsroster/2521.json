@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1410,9 +1410,16 @@
      "kvar": 7,
      "antal": 196,
      "ack": 1431
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 115,
+     "ack": 1546
     }
    ],
-   "total": 1431,
+   "total": 1546,
    "rostberattigade": {
     "riksdag": 4441,
     "kommun": 4660,
@@ -1430,10 +1437,10 @@
      "namn": "Pajala G:a Sporthallen",
      "kommun": "Pajala",
      "lokalId": "2521011",
-     "total": 798,
-     "dagarMedRoster": 10,
+     "total": 852,
+     "dagarMedRoster": 11,
      "storstaDag": 125,
-     "andel": 55.8
+     "andel": 55.1
     },
     {
      "namn": "Tärendö Sporthall",
@@ -1442,7 +1449,7 @@
      "total": 196,
      "dagarMedRoster": 2,
      "storstaDag": 140,
-     "andel": 13.7
+     "andel": 12.7
     },
     {
      "namn": "Sattajärvi skola",
@@ -1451,7 +1458,7 @@
      "total": 164,
      "dagarMedRoster": 1,
      "storstaDag": 164,
-     "andel": 11.5
+     "andel": 10.6
     },
     {
      "namn": "Korpilombolo, Gårdsbyskolan matsal",
@@ -1460,7 +1467,7 @@
      "total": 136,
      "dagarMedRoster": 2,
      "storstaDag": 71,
-     "andel": 9.5
+     "andel": 8.8
     },
     {
      "namn": "Junosuando, fd centralskolan",
@@ -1469,7 +1476,25 @@
      "total": 135,
      "dagarMedRoster": 2,
      "storstaDag": 73,
-     "andel": 9.4
+     "andel": 8.7
+    },
+    {
+     "namn": "Muodoslompolo, Våra byars hus",
+     "kommun": "Pajala",
+     "lokalId": "2521015",
+     "total": 38,
+     "dagarMedRoster": 1,
+     "storstaDag": 38,
+     "andel": 2.5
+    },
+    {
+     "namn": "Kardis Bygdegård",
+     "kommun": "Pajala",
+     "lokalId": "2521006",
+     "total": 23,
+     "dagarMedRoster": 1,
+     "storstaDag": 23,
+     "andel": 1.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1508,15 +1533,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Kardis Bygdegård",
-     "kommun": "Pajala",
-     "lokalId": "2521006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Kaunisvaara Folkets hus",
      "kommun": "Pajala",
      "lokalId": "2521012",
@@ -1538,15 +1554,6 @@
      "namn": "Kitkiöjärvi Skolan",
      "kommun": "Pajala",
      "lokalId": "2521005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Muodoslompolo, Våra byars hus",
-     "kommun": "Pajala",
-     "lokalId": "2521015",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

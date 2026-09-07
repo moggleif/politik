@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,7 +829,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -899,25 +899,32 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 829,
-     "ack": 7275
+     "antal": 831,
+     "ack": 7277
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 675,
-     "ack": 7950
+     "ack": 7952
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 522,
-     "ack": 8472
+     "ack": 8474
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 536,
+     "ack": 9010
     }
    ],
-   "total": 8472,
+   "total": 9010,
    "rostberattigade": {
     "riksdag": 41432,
     "kommun": 45353,
@@ -935,60 +942,60 @@
      "namn": "Biblioteket Signalfabriken",
      "kommun": "Sundbyberg",
      "lokalId": "0183004",
-     "total": 4908,
-     "dagarMedRoster": 12,
+     "total": 5203,
+     "dagarMedRoster": 13,
      "storstaDag": 531,
-     "andel": 57.9
+     "andel": 57.7
     },
     {
      "namn": "Biblioteket Hallonbergen C",
      "kommun": "Sundbyberg",
      "lokalId": "0183005",
-     "total": 1381,
-     "dagarMedRoster": 10,
+     "total": 1479,
+     "dagarMedRoster": 11,
      "storstaDag": 196,
-     "andel": 16.3
+     "andel": 16.4
     },
     {
      "namn": "Förvaltarens träfflokal i Rissne",
      "kommun": "Sundbyberg",
      "lokalId": "0183001",
-     "total": 987,
-     "dagarMedRoster": 12,
+     "total": 1028,
+     "dagarMedRoster": 13,
      "storstaDag": 134,
-     "andel": 11.7
+     "andel": 11.4
     },
     {
      "namn": "Kulturhuset",
      "kommun": "Sundbyberg",
      "lokalId": "0183009",
-     "total": 660,
-     "dagarMedRoster": 10,
+     "total": 689,
+     "dagarMedRoster": 11,
      "storstaDag": 105,
-     "andel": 7.8
+     "andel": 7.6
     },
     {
      "namn": "Stadshuset",
      "kommun": "Sundbyberg",
      "lokalId": "0183006",
-     "total": 536,
-     "dagarMedRoster": 8,
+     "total": 602,
+     "dagarMedRoster": 9,
      "storstaDag": 81,
-     "andel": 6.3
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Sundbyberg",
-     "lokalId": "0183008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 6.7
     },
     {
      "namn": "Bällstahof",
      "kommun": "Sundbyberg",
      "lokalId": "0183007",
+     "total": 9,
+     "dagarMedRoster": 1,
+     "storstaDag": 9,
+     "andel": 0.1
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Sundbyberg",
+     "lokalId": "0183008",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

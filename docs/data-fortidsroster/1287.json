@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -901,7 +901,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -978,18 +978,25 @@
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 559,
-     "ack": 8178
+     "antal": 560,
+     "ack": 8179
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 607,
-     "ack": 8785
+     "antal": 610,
+     "ack": 8789
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 442,
+     "ack": 9231
     }
    ],
-   "total": 8785,
+   "total": 9231,
    "rostberattigade": {
     "riksdag": 35925,
     "kommun": 37525,
@@ -1007,64 +1014,64 @@
      "namn": "Valengallerian",
      "kommun": "Trelleborg",
      "lokalId": "1287003",
-     "total": 2509,
-     "dagarMedRoster": 12,
+     "total": 2612,
+     "dagarMedRoster": 13,
      "storstaDag": 335,
-     "andel": 28.6
+     "andel": 28.3
     },
     {
      "namn": "ICA Maxi",
      "kommun": "Trelleborg",
      "lokalId": "1287001",
-     "total": 1755,
-     "dagarMedRoster": 11,
+     "total": 1835,
+     "dagarMedRoster": 12,
      "storstaDag": 282,
-     "andel": 20.0
+     "andel": 19.9
     },
     {
      "namn": "Stora Coop",
      "kommun": "Trelleborg",
      "lokalId": "1287004",
-     "total": 1571,
-     "dagarMedRoster": 10,
+     "total": 1636,
+     "dagarMedRoster": 11,
      "storstaDag": 203,
-     "andel": 17.9
+     "andel": 17.7
     },
     {
      "namn": "CityGross",
      "kommun": "Trelleborg",
      "lokalId": "1287002",
-     "total": 1512,
-     "dagarMedRoster": 10,
-     "storstaDag": 212,
-     "andel": 17.2
-    },
-    {
-     "namn": "Valbussen",
-     "kommun": "Trelleborg",
-     "lokalId": "1287006",
-     "total": 649,
+     "total": 1604,
      "dagarMedRoster": 11,
-     "storstaDag": 110,
-     "andel": 7.4
+     "storstaDag": 212,
+     "andel": 17.4
     },
     {
      "namn": "Biblioteket",
      "kommun": "Trelleborg",
      "lokalId": "1287005",
-     "total": 645,
-     "dagarMedRoster": 7,
+     "total": 708,
+     "dagarMedRoster": 8,
      "storstaDag": 138,
+     "andel": 7.7
+    },
+    {
+     "namn": "Valbussen",
+     "kommun": "Trelleborg",
+     "lokalId": "1287006",
+     "total": 670,
+     "dagarMedRoster": 12,
+     "storstaDag": 110,
      "andel": 7.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Trelleborg",
      "lokalId": "1287008",
-     "total": 144,
-     "dagarMedRoster": 8,
+     "total": 166,
+     "dagarMedRoster": 9,
      "storstaDag": 29,
-     "andel": 1.6
+     "andel": 1.8
     }
    ],
    "antalLokaler": 7,

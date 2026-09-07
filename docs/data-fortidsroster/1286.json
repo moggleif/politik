@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1036,7 +1036,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1099,32 +1099,39 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 747,
-     "ack": 5507
+     "antal": 748,
+     "ack": 5508
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 469,
-     "ack": 5976
+     "ack": 5977
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 429,
-     "ack": 6405
+     "antal": 433,
+     "ack": 6410
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 498,
-     "ack": 6903
+     "antal": 499,
+     "ack": 6909
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 360,
+     "ack": 7269
     }
    ],
-   "total": 6903,
+   "total": 7269,
    "rostberattigade": {
     "riksdag": 26090,
     "kommun": 26371,
@@ -1142,10 +1149,10 @@
      "namn": "Ystads Stadsbibliotek",
      "kommun": "Ystad",
      "lokalId": "1286002",
-     "total": 5950,
-     "dagarMedRoster": 12,
+     "total": 6285,
+     "dagarMedRoster": 13,
      "storstaDag": 626,
-     "andel": 86.2
+     "andel": 86.5
     },
     {
      "namn": "Köpingebro bibliotek",
@@ -1154,7 +1161,7 @@
      "total": 294,
      "dagarMedRoster": 2,
      "storstaDag": 175,
-     "andel": 4.3
+     "andel": 4.0
     },
     {
      "namn": "Svarte bibliotek",
@@ -1163,7 +1170,16 @@
      "total": 170,
      "dagarMedRoster": 2,
      "storstaDag": 112,
-     "andel": 2.5
+     "andel": 2.3
+    },
+    {
+     "namn": "Löderupsgården",
+     "kommun": "Ystad",
+     "lokalId": "1286004",
+     "total": 164,
+     "dagarMedRoster": 2,
+     "storstaDag": 133,
+     "andel": 2.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1172,7 +1188,7 @@
      "total": 140,
      "dagarMedRoster": 4,
      "storstaDag": 127,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Glemmingebro medborgarhus",
@@ -1181,15 +1197,6 @@
      "total": 135,
      "dagarMedRoster": 2,
      "storstaDag": 69,
-     "andel": 2.0
-    },
-    {
-     "namn": "Löderupsgården",
-     "kommun": "Ystad",
-     "lokalId": "1286004",
-     "total": 133,
-     "dagarMedRoster": 1,
-     "storstaDag": 133,
      "andel": 1.9
     },
     {
@@ -1199,7 +1206,7 @@
      "total": 38,
      "dagarMedRoster": 1,
      "storstaDag": 38,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Bellevue",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1009,7 +1009,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1095,9 +1095,16 @@
      "kvar": 7,
      "antal": 114,
      "ack": 2172
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 138,
+     "ack": 2310
     }
    ],
-   "total": 2172,
+   "total": 2310,
    "rostberattigade": {
     "riksdag": 9919,
     "kommun": 10394,
@@ -1115,10 +1122,10 @@
      "namn": "Kulturhuset",
      "kommun": "Olofström",
      "lokalId": "1060006",
-     "total": 1928,
-     "dagarMedRoster": 12,
+     "total": 2063,
+     "dagarMedRoster": 13,
      "storstaDag": 252,
-     "andel": 88.8
+     "andel": 89.3
     },
     {
      "namn": "Jämshögs Medborgarhus",
@@ -1127,7 +1134,7 @@
      "total": 109,
      "dagarMedRoster": 1,
      "storstaDag": 109,
-     "andel": 5.0
+     "andel": 4.7
     },
     {
      "namn": "Träffpunkten vid Garvaregården",
@@ -1136,7 +1143,7 @@
      "total": 103,
      "dagarMedRoster": 1,
      "storstaDag": 103,
-     "andel": 4.7
+     "andel": 4.5
     },
     {
      "namn": "Brännaregårdens äldreboende",
@@ -1154,7 +1161,16 @@
      "total": 10,
      "dagarMedRoster": 2,
      "storstaDag": 6,
-     "andel": 0.5
+     "andel": 0.4
+    },
+    {
+     "namn": "Västralid",
+     "kommun": "Olofström",
+     "lokalId": "1060008",
+     "total": 3,
+     "dagarMedRoster": 1,
+     "storstaDag": 3,
+     "andel": 0.1
     },
     {
      "namn": "Borggården",
@@ -1178,15 +1194,6 @@
      "namn": "Vilshults gymnastiksal (bara valdag)",
      "kommun": "Olofström",
      "lokalId": "1060003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Västralid",
-     "kommun": "Olofström",
-     "lokalId": "1060008",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

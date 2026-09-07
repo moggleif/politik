@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1135,7 +1135,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1221,9 +1221,16 @@
      "kvar": 7,
      "antal": 148,
      "ack": 3295
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 265,
+     "ack": 3560
     }
    ],
-   "total": 3295,
+   "total": 3560,
    "rostberattigade": {
     "riksdag": 14135,
     "kommun": 14724,
@@ -1241,10 +1248,19 @@
      "namn": "Kommunhuset Sollefteå",
      "kommun": "Sollefteå",
      "lokalId": "2283008",
-     "total": 2218,
-     "dagarMedRoster": 12,
+     "total": 2410,
+     "dagarMedRoster": 13,
      "storstaDag": 274,
-     "andel": 67.3
+     "andel": 67.7
+    },
+    {
+     "namn": "Medborgarkontoret Ramsele",
+     "kommun": "Sollefteå",
+     "lokalId": "2283007",
+     "total": 373,
+     "dagarMedRoster": 9,
+     "storstaDag": 63,
+     "andel": 10.5
     },
     {
      "namn": "Långsele bibliotek",
@@ -1253,34 +1269,25 @@
      "total": 363,
      "dagarMedRoster": 8,
      "storstaDag": 63,
-     "andel": 11.0
-    },
-    {
-     "namn": "Medborgarkontoret Ramsele",
-     "kommun": "Sollefteå",
-     "lokalId": "2283007",
-     "total": 325,
-     "dagarMedRoster": 8,
-     "storstaDag": 63,
-     "andel": 9.9
+     "andel": 10.2
     },
     {
      "namn": "Medborgarkontoret Junsele",
      "kommun": "Sollefteå",
      "lokalId": "2283009",
-     "total": 209,
-     "dagarMedRoster": 8,
+     "total": 227,
+     "dagarMedRoster": 9,
      "storstaDag": 36,
-     "andel": 6.3
+     "andel": 6.4
     },
     {
      "namn": "Markusgården",
      "kommun": "Sollefteå",
      "lokalId": "2283010",
-     "total": 180,
-     "dagarMedRoster": 8,
+     "total": 187,
+     "dagarMedRoster": 9,
      "storstaDag": 30,
-     "andel": 5.5
+     "andel": 5.3
     },
     {
      "namn": "Ambulerande röstmottagning",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -836,25 +836,32 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 208,
-     "ack": 2207
+     "antal": 209,
+     "ack": 2208
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 129,
-     "ack": 2336
+     "ack": 2337
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 166,
-     "ack": 2502
+     "ack": 2503
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 126,
+     "ack": 2629
     }
    ],
-   "total": 2502,
+   "total": 2629,
    "rostberattigade": {
     "riksdag": 13202,
     "kommun": 14118,
@@ -872,19 +879,19 @@
      "namn": "Arenan i Sågenhuset i Klippan",
      "kommun": "Klippan",
      "lokalId": "1276001",
-     "total": 1767,
-     "dagarMedRoster": 12,
+     "total": 1838,
+     "dagarMedRoster": 13,
      "storstaDag": 187,
-     "andel": 70.6
+     "andel": 69.9
     },
     {
      "namn": "Församlingshemmet i Ljungbyhed",
      "kommun": "Klippan",
      "lokalId": "1276003",
-     "total": 487,
-     "dagarMedRoster": 6,
+     "total": 542,
+     "dagarMedRoster": 7,
      "storstaDag": 116,
-     "andel": 19.5
+     "andel": 20.6
     },
     {
      "namn": "Östra Ljungby Bygdegård",
@@ -893,16 +900,16 @@
      "total": 206,
      "dagarMedRoster": 4,
      "storstaDag": 69,
-     "andel": 8.2
+     "andel": 7.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Klippan",
      "lokalId": "1276005",
-     "total": 42,
-     "dagarMedRoster": 8,
+     "total": 43,
+     "dagarMedRoster": 9,
      "storstaDag": 16,
-     "andel": 1.7
+     "andel": 1.6
     }
    ],
    "antalLokaler": 4,

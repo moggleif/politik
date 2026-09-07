@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -784,7 +784,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -847,32 +847,39 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 368,
-     "ack": 2623
+     "antal": 373,
+     "ack": 2628
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 430,
-     "ack": 3053
+     "ack": 3058
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 295,
-     "ack": 3348
+     "antal": 298,
+     "ack": 3356
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 60,
-     "ack": 3408
+     "antal": 61,
+     "ack": 3417
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 78,
+     "ack": 3495
     }
    ],
-   "total": 3408,
+   "total": 3495,
    "rostberattigade": {
     "riksdag": 12792,
     "kommun": 12951,
@@ -890,17 +897,17 @@
      "namn": "Biblioteket, Färjestaden",
      "kommun": "Mörbylånga",
      "lokalId": "0840001",
-     "total": 2440,
-     "dagarMedRoster": 10,
+     "total": 2484,
+     "dagarMedRoster": 11,
      "storstaDag": 323,
-     "andel": 71.6
+     "andel": 71.1
     },
     {
      "namn": "Biblioteket, Mörbylånga",
      "kommun": "Mörbylånga",
      "lokalId": "0840003",
-     "total": 609,
-     "dagarMedRoster": 7,
+     "total": 627,
+     "dagarMedRoster": 8,
      "storstaDag": 109,
      "andel": 17.9
     },
@@ -908,28 +915,28 @@
      "namn": "Biblioteket, Degerhamn",
      "kommun": "Mörbylånga",
      "lokalId": "0840002",
-     "total": 223,
-     "dagarMedRoster": 3,
+     "total": 242,
+     "dagarMedRoster": 4,
      "storstaDag": 86,
-     "andel": 6.5
+     "andel": 6.9
     },
     {
      "namn": "Kommunkontoret, Mörbylånga",
      "kommun": "Mörbylånga",
      "lokalId": "0840004",
-     "total": 77,
+     "total": 78,
      "dagarMedRoster": 2,
-     "storstaDag": 60,
-     "andel": 2.3
+     "storstaDag": 61,
+     "andel": 2.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Mörbylånga",
      "lokalId": "0840005",
-     "total": 59,
-     "dagarMedRoster": 4,
+     "total": 64,
+     "dagarMedRoster": 5,
      "storstaDag": 22,
-     "andel": 1.7
+     "andel": 1.8
     }
    ],
    "antalLokaler": 5,

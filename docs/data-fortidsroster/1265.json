@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,7 +919,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1005,9 +1005,16 @@
      "kvar": 7,
      "antal": 198,
      "ack": 2676
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 151,
+     "ack": 2827
     }
    ],
-   "total": 2676,
+   "total": 2827,
    "rostberattigade": {
     "riksdag": 14965,
     "kommun": 15603,
@@ -1025,10 +1032,10 @@
      "namn": "Sjöbo bibliotek",
      "kommun": "Sjöbo",
      "lokalId": "1265001",
-     "total": 2229,
-     "dagarMedRoster": 12,
+     "total": 2375,
+     "dagarMedRoster": 13,
      "storstaDag": 237,
-     "andel": 83.3
+     "andel": 84.0
     },
     {
      "namn": "Blentarp bibliotek",
@@ -1037,7 +1044,7 @@
      "total": 205,
      "dagarMedRoster": 3,
      "storstaDag": 82,
-     "andel": 7.7
+     "andel": 7.3
     },
     {
      "namn": "Vollsjö bibliotek",
@@ -1046,14 +1053,14 @@
      "total": 114,
      "dagarMedRoster": 3,
      "storstaDag": 42,
-     "andel": 4.3
+     "andel": 4.0
     },
     {
      "namn": "Lövestad bibliotek",
      "kommun": "Sjöbo",
      "lokalId": "1265004",
-     "total": 96,
-     "dagarMedRoster": 3,
+     "total": 101,
+     "dagarMedRoster": 4,
      "storstaDag": 36,
      "andel": 3.6
     },
@@ -1064,7 +1071,7 @@
      "total": 32,
      "dagarMedRoster": 3,
      "storstaDag": 14,
-     "andel": 1.2
+     "andel": 1.1
     }
    ],
    "antalLokaler": 5,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1771,53 +1771,60 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 5830,
-     "ack": 23086
+     "antal": 5834,
+     "ack": 23090
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 5390,
-     "ack": 28476
+     "antal": 5391,
+     "ack": 28481
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 5704,
-     "ack": 34180
+     "ack": 34185
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 6088,
-     "ack": 40268
+     "antal": 6091,
+     "ack": 40276
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 5663,
-     "ack": 45931
+     "antal": 5677,
+     "ack": 45953
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 3113,
-     "ack": 49044
+     "antal": 3115,
+     "ack": 49068
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 2363,
-     "ack": 51407
+     "antal": 2425,
+     "ack": 51493
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 3358,
+     "ack": 54851
     }
    ],
-   "total": 51407,
+   "total": 54851,
    "rostberattigade": {
     "riksdag": 223629,
     "kommun": 229598,
@@ -1832,29 +1839,29 @@
    },
    "lokaler": [
     {
-     "namn": "Kupolen köpcentrum",
-     "kommun": "Borlänge",
-     "lokalId": "2081011",
-     "total": 5231,
-     "dagarMedRoster": 12,
-     "storstaDag": 491,
-     "andel": 10.2
-    },
-    {
      "namn": "Stadsbiblioteket, Falun",
      "kommun": "Falun",
      "lokalId": "2080009",
-     "total": 5187,
-     "dagarMedRoster": 10,
+     "total": 5579,
+     "dagarMedRoster": 11,
      "storstaDag": 655,
-     "andel": 10.1
+     "andel": 10.2
+    },
+    {
+     "namn": "Kupolen köpcentrum",
+     "kommun": "Borlänge",
+     "lokalId": "2081011",
+     "total": 5457,
+     "dagarMedRoster": 13,
+     "storstaDag": 491,
+     "andel": 9.9
     },
     {
      "namn": "Avestaparken",
      "kommun": "Avesta",
      "lokalId": "2084002",
-     "total": 3246,
-     "dagarMedRoster": 12,
+     "total": 3469,
+     "dagarMedRoster": 13,
      "storstaDag": 384,
      "andel": 6.3
     },
@@ -1862,26 +1869,26 @@
      "namn": "Mora bibliotek",
      "kommun": "Mora",
      "lokalId": "2062006",
-     "total": 2995,
-     "dagarMedRoster": 12,
+     "total": 3218,
+     "dagarMedRoster": 13,
      "storstaDag": 360,
-     "andel": 5.8
+     "andel": 5.9
     },
     {
      "namn": "Ludvika Folkets Hus",
      "kommun": "Ludvika",
      "lokalId": "2085004",
-     "total": 2910,
-     "dagarMedRoster": 12,
-     "storstaDag": 350,
-     "andel": 5.7
+     "total": 3092,
+     "dagarMedRoster": 13,
+     "storstaDag": 351,
+     "andel": 5.6
     },
     {
      "namn": "Borlänge stadsbibliotek",
      "kommun": "Borlänge",
      "lokalId": "2081007",
-     "total": 2490,
-     "dagarMedRoster": 12,
+     "total": 2640,
+     "dagarMedRoster": 13,
      "storstaDag": 277,
      "andel": 4.8
     },
@@ -1889,8 +1896,8 @@
      "namn": "Tjädernhuset",
      "kommun": "Hedemora",
      "lokalId": "2083001",
-     "total": 2434,
-     "dagarMedRoster": 12,
+     "total": 2598,
+     "dagarMedRoster": 13,
      "storstaDag": 324,
      "andel": 4.7
     },
@@ -1898,44 +1905,35 @@
      "namn": "Kulturhuset",
      "kommun": "Rättvik",
      "lokalId": "2031002",
-     "total": 2195,
-     "dagarMedRoster": 12,
-     "storstaDag": 289,
+     "total": 2369,
+     "dagarMedRoster": 13,
+     "storstaDag": 291,
      "andel": 4.3
     },
     {
      "namn": "Säters bibliotek",
      "kommun": "Säter",
      "lokalId": "2082004",
-     "total": 1696,
-     "dagarMedRoster": 12,
+     "total": 1778,
+     "dagarMedRoster": 13,
      "storstaDag": 226,
-     "andel": 3.3
+     "andel": 3.2
     },
     {
      "namn": "Stadshuset Borlänge kommun",
      "kommun": "Borlänge",
      "lokalId": "2081006",
-     "total": 1563,
-     "dagarMedRoster": 8,
+     "total": 1690,
+     "dagarMedRoster": 9,
      "storstaDag": 239,
-     "andel": 3.0
-    },
-    {
-     "namn": "Kristinegården, Falun",
-     "kommun": "Falun",
-     "lokalId": "2080013",
-     "total": 1513,
-     "dagarMedRoster": 12,
-     "storstaDag": 274,
-     "andel": 2.9
+     "andel": 3.1
     },
     {
      "namn": "Leksands bibliotek",
      "kommun": "Leksand",
      "lokalId": "2029005",
-     "total": 1506,
-     "dagarMedRoster": 10,
+     "total": 1606,
+     "dagarMedRoster": 11,
      "storstaDag": 188,
      "andel": 2.9
     },
@@ -1943,17 +1941,26 @@
      "namn": "Malungs bibliotek",
      "kommun": "Malung-Sälen",
      "lokalId": "2023001",
-     "total": 1492,
-     "dagarMedRoster": 12,
+     "total": 1606,
+     "dagarMedRoster": 13,
      "storstaDag": 164,
+     "andel": 2.9
+    },
+    {
+     "namn": "Kristinegården, Falun",
+     "kommun": "Falun",
+     "lokalId": "2080013",
+     "total": 1586,
+     "dagarMedRoster": 13,
+     "storstaDag": 274,
      "andel": 2.9
     },
     {
      "namn": "Kommunhuset Smedjebacken",
      "kommun": "Smedjebacken",
      "lokalId": "2061006",
-     "total": 1417,
-     "dagarMedRoster": 12,
+     "total": 1528,
+     "dagarMedRoster": 13,
      "storstaDag": 173,
      "andel": 2.8
     },
@@ -1961,8 +1968,8 @@
      "namn": "Tingshuset - Tingssalen",
      "kommun": "Orsa",
      "lokalId": "2034006",
-     "total": 1235,
-     "dagarMedRoster": 12,
+     "total": 1295,
+     "dagarMedRoster": 13,
      "storstaDag": 184,
      "andel": 2.4
     },
@@ -1970,17 +1977,17 @@
      "namn": "Adelborgssalen, Djurås",
      "kommun": "Gagnef",
      "lokalId": "2026002",
-     "total": 1189,
+     "total": 1225,
      "dagarMedRoster": 9,
      "storstaDag": 195,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Kommunhuset i Älvdalen",
      "kommun": "Älvdalen",
      "lokalId": "2039005",
-     "total": 812,
-     "dagarMedRoster": 10,
+     "total": 882,
+     "dagarMedRoster": 11,
      "storstaDag": 131,
      "andel": 1.6
     },
@@ -1988,18 +1995,45 @@
      "namn": "Kommunhuset",
      "kommun": "Leksand",
      "lokalId": "2029002",
-     "total": 724,
-     "dagarMedRoster": 10,
+     "total": 810,
+     "dagarMedRoster": 11,
      "storstaDag": 110,
+     "andel": 1.5
+    },
+    {
+     "namn": "Falu lasarett, Stora entrén",
+     "kommun": "Falun",
+     "lokalId": "2080001",
+     "total": 756,
+     "dagarMedRoster": 7,
+     "storstaDag": 150,
      "andel": 1.4
     },
     {
      "namn": "Sälens bibliotek",
      "kommun": "Malung-Sälen",
      "lokalId": "2023003",
-     "total": 680,
-     "dagarMedRoster": 12,
+     "total": 728,
+     "dagarMedRoster": 13,
      "storstaDag": 81,
+     "andel": 1.3
+    },
+    {
+     "namn": "Grängesbergs bibliotek",
+     "kommun": "Ludvika",
+     "lokalId": "2085005",
+     "total": 708,
+     "dagarMedRoster": 9,
+     "storstaDag": 130,
+     "andel": 1.3
+    },
+    {
+     "namn": "Krylbo församlingsgård",
+     "kommun": "Avesta",
+     "lokalId": "2084001",
+     "total": 703,
+     "dagarMedRoster": 9,
+     "storstaDag": 92,
      "andel": 1.3
     },
     {
@@ -2009,33 +2043,6 @@
      "total": 654,
      "dagarMedRoster": 9,
      "storstaDag": 145,
-     "andel": 1.3
-    },
-    {
-     "namn": "Grängesbergs bibliotek",
-     "kommun": "Ludvika",
-     "lokalId": "2085005",
-     "total": 636,
-     "dagarMedRoster": 8,
-     "storstaDag": 130,
-     "andel": 1.2
-    },
-    {
-     "namn": "Krylbo församlingsgård",
-     "kommun": "Avesta",
-     "lokalId": "2084001",
-     "total": 620,
-     "dagarMedRoster": 8,
-     "storstaDag": 92,
-     "andel": 1.2
-    },
-    {
-     "namn": "Falu lasarett, Stora entrén",
-     "kommun": "Falun",
-     "lokalId": "2080001",
-     "total": 606,
-     "dagarMedRoster": 6,
-     "storstaDag": 125,
      "andel": 1.2
     },
     {
@@ -2048,6 +2055,24 @@
      "andel": 1.1
     },
     {
+     "namn": "Söderbärke Folkets Hus",
+     "kommun": "Smedjebacken",
+     "lokalId": "2061003",
+     "total": 541,
+     "dagarMedRoster": 6,
+     "storstaDag": 119,
+     "andel": 1.0
+    },
+    {
+     "namn": "Ludvika lasarett",
+     "kommun": "Ludvika",
+     "lokalId": "2085014",
+     "total": 526,
+     "dagarMedRoster": 9,
+     "storstaDag": 79,
+     "andel": 1.0
+    },
+    {
      "namn": "Bjursås Bibliotek",
      "kommun": "Falun",
      "lokalId": "2080004",
@@ -2057,31 +2082,13 @@
      "andel": 0.9
     },
     {
-     "namn": "Ludvika lasarett",
-     "kommun": "Ludvika",
-     "lokalId": "2085014",
-     "total": 470,
-     "dagarMedRoster": 8,
-     "storstaDag": 79,
-     "andel": 0.9
-    },
-    {
      "namn": "Klubbstugan Pumpen, Korsnäs IF",
      "kommun": "Falun",
      "lokalId": "2080002",
      "total": 449,
      "dagarMedRoster": 5,
      "storstaDag": 136,
-     "andel": 0.9
-    },
-    {
-     "namn": "Söderbärke Folkets Hus",
-     "kommun": "Smedjebacken",
-     "lokalId": "2061003",
-     "total": 449,
-     "dagarMedRoster": 5,
-     "storstaDag": 119,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Svärdsjö Bibliotek",
@@ -2090,15 +2097,15 @@
      "total": 447,
      "dagarMedRoster": 4,
      "storstaDag": 171,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
-     "namn": "Fd. biblioteket",
-     "kommun": "Vansbro",
-     "lokalId": "2021001",
-     "total": 329,
-     "dagarMedRoster": 3,
-     "storstaDag": 126,
+     "namn": "Solgärde",
+     "kommun": "Ludvika",
+     "lokalId": "2085009",
+     "total": 343,
+     "dagarMedRoster": 9,
+     "storstaDag": 49,
      "andel": 0.6
     }
    ],

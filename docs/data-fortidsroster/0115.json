@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -820,32 +820,39 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 681,
-     "ack": 4101
+     "antal": 683,
+     "ack": 4103
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 467,
-     "ack": 4568
+     "ack": 4570
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 503,
-     "ack": 5071
+     "antal": 505,
+     "ack": 5075
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 610,
-     "ack": 5681
+     "antal": 611,
+     "ack": 5686
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 282,
+     "ack": 5968
     }
    ],
-   "total": 5681,
+   "total": 5968,
    "rostberattigade": {
     "riksdag": 26029,
     "kommun": 27208,
@@ -863,28 +870,28 @@
      "namn": "Kulturhuset",
      "kommun": "Vallentuna",
      "lokalId": "0115003",
-     "total": 5082,
-     "dagarMedRoster": 12,
+     "total": 5366,
+     "dagarMedRoster": 13,
      "storstaDag": 564,
-     "andel": 89.5
+     "andel": 89.9
     },
     {
      "namn": "Karbyskolan - KUB:en",
      "kommun": "Vallentuna",
      "lokalId": "0115002",
-     "total": 352,
+     "total": 353,
      "dagarMedRoster": 2,
-     "storstaDag": 197,
-     "andel": 6.2
+     "storstaDag": 198,
+     "andel": 5.9
     },
     {
      "namn": "Kårsta bibliotek",
      "kommun": "Vallentuna",
      "lokalId": "0115001",
-     "total": 167,
+     "total": 169,
      "dagarMedRoster": 2,
      "storstaDag": 86,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -893,7 +900,7 @@
      "total": 80,
      "dagarMedRoster": 2,
      "storstaDag": 40,
-     "andel": 1.4
+     "andel": 1.3
     }
    ],
    "antalLokaler": 4,

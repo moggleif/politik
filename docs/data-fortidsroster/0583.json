@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1162,7 +1162,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1248,9 +1248,16 @@
      "kvar": 7,
      "antal": 231,
      "ack": 6114
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 402,
+     "ack": 6516
     }
    ],
-   "total": 6114,
+   "total": 6516,
    "rostberattigade": {
     "riksdag": 33696,
     "kommun": 34523,
@@ -1268,28 +1275,28 @@
      "namn": "Motala bibliotek",
      "kommun": "Motala",
      "lokalId": "0583011",
-     "total": 3638,
-     "dagarMedRoster": 10,
+     "total": 3847,
+     "dagarMedRoster": 11,
      "storstaDag": 513,
-     "andel": 59.5
+     "andel": 59.0
     },
     {
      "namn": "Kommunhuset",
      "kommun": "Motala",
      "lokalId": "0583009",
-     "total": 998,
-     "dagarMedRoster": 10,
+     "total": 1070,
+     "dagarMedRoster": 11,
      "storstaDag": 231,
-     "andel": 16.3
+     "andel": 16.4
     },
     {
      "namn": "Bråstorp Räddningstjänst idrottshall",
      "kommun": "Motala",
      "lokalId": "0583024",
-     "total": 623,
-     "dagarMedRoster": 5,
+     "total": 710,
+     "dagarMedRoster": 6,
      "storstaDag": 200,
-     "andel": 10.2
+     "andel": 10.9
     },
     {
      "namn": "Borensberg Svanen",
@@ -1298,7 +1305,7 @@
      "total": 535,
      "dagarMedRoster": 4,
      "storstaDag": 176,
-     "andel": 8.8
+     "andel": 8.2
     },
     {
      "namn": "Fornåsa bygdegård",
@@ -1307,7 +1314,7 @@
      "total": 148,
      "dagarMedRoster": 2,
      "storstaDag": 112,
-     "andel": 2.4
+     "andel": 2.3
     },
     {
      "namn": "Tjällmo bibliotek",
@@ -1325,7 +1332,7 @@
      "total": 54,
      "dagarMedRoster": 2,
      "storstaDag": 28,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Bokbussen",
@@ -1337,22 +1344,22 @@
      "andel": 0.6
     },
     {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Motala",
-     "lokalId": "0583026",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Björkbladet",
      "kommun": "Motala",
      "lokalId": "0583013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 24,
+     "dagarMedRoster": 1,
+     "storstaDag": 24,
+     "andel": 0.4
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Motala",
+     "lokalId": "0583026",
+     "total": 10,
+     "dagarMedRoster": 1,
+     "storstaDag": 10,
+     "andel": 0.2
     },
     {
      "namn": "Boregatans trygghetsboende",

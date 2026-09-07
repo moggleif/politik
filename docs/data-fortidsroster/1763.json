@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -813,39 +813,46 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 115,
-     "ack": 1115
+     "antal": 149,
+     "ack": 1149
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 217,
-     "ack": 1332
+     "ack": 1366
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 215,
-     "ack": 1547
+     "ack": 1581
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 85,
-     "ack": 1632
+     "ack": 1666
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 170,
-     "ack": 1802
+     "ack": 1836
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 81,
+     "ack": 1917
     }
    ],
-   "total": 1802,
+   "total": 1917,
    "rostberattigade": {
     "riksdag": 8707,
     "kommun": 8864,
@@ -863,10 +870,10 @@
      "namn": "Forshaga Lärcenter",
      "kommun": "Forshaga",
      "lokalId": "1763002",
-     "total": 1231,
-     "dagarMedRoster": 11,
+     "total": 1333,
+     "dagarMedRoster": 12,
      "storstaDag": 170,
-     "andel": 68.3
+     "andel": 69.5
     },
     {
      "namn": "Kulturhuset Deje",
@@ -875,7 +882,16 @@
      "total": 548,
      "dagarMedRoster": 7,
      "storstaDag": 99,
-     "andel": 30.4
+     "andel": 28.6
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Forshaga",
+     "lokalId": "1763005",
+     "total": 22,
+     "dagarMedRoster": 2,
+     "storstaDag": 13,
+     "andel": 1.1
     },
     {
      "namn": "Klarälvsgården",
@@ -884,16 +900,7 @@
      "total": 14,
      "dagarMedRoster": 1,
      "storstaDag": 14,
-     "andel": 0.8
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Forshaga",
-     "lokalId": "1763005",
-     "total": 9,
-     "dagarMedRoster": 1,
-     "storstaDag": 9,
-     "andel": 0.5
+     "andel": 0.7
     },
     {
      "namn": "Kommunkontoret",

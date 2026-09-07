@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1261,7 +1261,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1331,25 +1331,32 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 499,
-     "ack": 3649
+     "antal": 501,
+     "ack": 3651
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 273,
-     "ack": 3922
+     "antal": 275,
+     "ack": 3926
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 285,
-     "ack": 4207
+     "antal": 287,
+     "ack": 4213
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 250,
+     "ack": 4463
     }
    ],
-   "total": 4207,
+   "total": 4463,
    "rostberattigade": {
     "riksdag": 20758,
     "kommun": 21545,
@@ -1367,19 +1374,19 @@
      "namn": "Stadshuset",
      "kommun": "Vetlanda",
      "lokalId": "0685010",
-     "total": 4066,
-     "dagarMedRoster": 12,
-     "storstaDag": 487,
-     "andel": 96.6
+     "total": 4320,
+     "dagarMedRoster": 13,
+     "storstaDag": 489,
+     "andel": 96.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Vetlanda",
      "lokalId": "0685011",
-     "total": 121,
-     "dagarMedRoster": 7,
+     "total": 123,
+     "dagarMedRoster": 8,
      "storstaDag": 47,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Bokbussen",
@@ -1388,7 +1395,7 @@
      "total": 20,
      "dagarMedRoster": 5,
      "storstaDag": 7,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Näshults bygdegård",

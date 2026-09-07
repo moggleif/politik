@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -969,9 +969,16 @@
      "kvar": 7,
      "antal": 92,
      "ack": 1673
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 117,
+     "ack": 1790
     }
    ],
-   "total": 1673,
+   "total": 1790,
    "rostberattigade": {
     "riksdag": 6139,
     "kommun": 6243,
@@ -989,19 +996,19 @@
      "namn": "Valdemarsviks Folkets Hus",
      "kommun": "Valdemarsvik",
      "lokalId": "0563003",
-     "total": 1335,
-     "dagarMedRoster": 12,
+     "total": 1395,
+     "dagarMedRoster": 13,
      "storstaDag": 150,
-     "andel": 79.8
+     "andel": 77.9
     },
     {
      "namn": "Gusums Folket Hus",
      "kommun": "Valdemarsvik",
      "lokalId": "0563001",
-     "total": 181,
-     "dagarMedRoster": 5,
-     "storstaDag": 45,
-     "andel": 10.8
+     "total": 238,
+     "dagarMedRoster": 6,
+     "storstaDag": 57,
+     "andel": 13.3
     },
     {
      "namn": "Ringarums Stationshus",
@@ -1010,7 +1017,7 @@
      "total": 141,
      "dagarMedRoster": 5,
      "storstaDag": 34,
-     "andel": 8.4
+     "andel": 7.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1019,7 +1026,7 @@
      "total": 16,
      "dagarMedRoster": 2,
      "storstaDag": 13,
-     "andel": 1.0
+     "andel": 0.9
     }
    ],
    "antalLokaler": 4,

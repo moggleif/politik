@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -838,7 +838,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -915,18 +915,25 @@
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 44,
-     "ack": 1008
+     "antal": 85,
+     "ack": 1049
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 23,
-     "ack": 1031
+     "ack": 1072
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 31,
+     "ack": 1103
     }
    ],
-   "total": 1031,
+   "total": 1103,
    "rostberattigade": {
     "riksdag": 4832,
     "kommun": 5124,
@@ -944,19 +951,28 @@
      "namn": "Kommunkontoret",
      "kommun": "Hällefors",
      "lokalId": "1863007",
-     "total": 699,
-     "dagarMedRoster": 8,
+     "total": 716,
+     "dagarMedRoster": 9,
      "storstaDag": 111,
-     "andel": 67.8
+     "andel": 64.9
     },
     {
      "namn": "Tempo",
      "kommun": "Hällefors",
      "lokalId": "1863001",
-     "total": 316,
-     "dagarMedRoster": 12,
-     "storstaDag": 44,
-     "andel": 30.6
+     "total": 331,
+     "dagarMedRoster": 13,
+     "storstaDag": 45,
+     "andel": 30.0
+    },
+    {
+     "namn": "Hjulsjö gamla skolan",
+     "kommun": "Hällefors",
+     "lokalId": "1863003",
+     "total": 40,
+     "dagarMedRoster": 1,
+     "storstaDag": 40,
+     "andel": 3.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -965,21 +981,12 @@
      "total": 16,
      "dagarMedRoster": 2,
      "storstaDag": 10,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Björkhaga (entren)",
      "kommun": "Hällefors",
      "lokalId": "1863002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Hjulsjö gamla skolan",
-     "kommun": "Hällefors",
-     "lokalId": "1863003",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

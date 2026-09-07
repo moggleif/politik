@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -949,11 +949,18 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 119,
-     "ack": 1678
+     "antal": 120,
+     "ack": 1679
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 101,
+     "ack": 1780
     }
    ],
-   "total": 1678,
+   "total": 1780,
    "rostberattigade": {
     "riksdag": 7712,
     "kommun": 8253,
@@ -971,10 +978,19 @@
      "namn": "Huvudbiblioteket",
      "kommun": "Örkelljunga",
      "lokalId": "1257004",
-     "total": 1676,
-     "dagarMedRoster": 12,
+     "total": 1773,
+     "dagarMedRoster": 13,
      "storstaDag": 206,
-     "andel": 99.9
+     "andel": 99.6
+    },
+    {
+     "namn": "Solhaga Vårdhem",
+     "kommun": "Örkelljunga",
+     "lokalId": "1257005",
+     "total": 3,
+     "dagarMedRoster": 1,
+     "storstaDag": 3,
+     "andel": 0.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -983,6 +999,15 @@
      "total": 2,
      "dagarMedRoster": 2,
      "storstaDag": 1,
+     "andel": 0.1
+    },
+    {
+     "namn": "Solgården särskilt boende",
+     "kommun": "Örkelljunga",
+     "lokalId": "1257006",
+     "total": 2,
+     "dagarMedRoster": 1,
+     "storstaDag": 2,
      "andel": 0.1
     },
     {
@@ -1007,24 +1032,6 @@
      "namn": "SiS ungdomshem Ljungaskog",
      "kommun": "Örkelljunga",
      "lokalId": "1257001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Solgården särskilt boende",
-     "kommun": "Örkelljunga",
-     "lokalId": "1257006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Solhaga Vårdhem",
-     "kommun": "Örkelljunga",
-     "lokalId": "1257005",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

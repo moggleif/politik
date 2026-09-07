@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1785,39 +1785,46 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 4605,
-     "ack": 26159
+     "antal": 4612,
+     "ack": 26166
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 5315,
-     "ack": 31474
+     "antal": 5318,
+     "ack": 31484
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 4657,
-     "ack": 36131
+     "antal": 4664,
+     "ack": 36148
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 2620,
-     "ack": 38751
+     "ack": 38768
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 1690,
-     "ack": 40441
+     "ack": 40458
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 2445,
+     "ack": 42903
     }
    ],
-   "total": 40441,
+   "total": 42903,
    "rostberattigade": {
     "riksdag": 189501,
     "kommun": 194234,
@@ -1835,46 +1842,55 @@
      "namn": "Sundsvalls stadsbibliotek",
      "kommun": "Sundsvall",
      "lokalId": "2281011",
-     "total": 4953,
-     "dagarMedRoster": 12,
-     "storstaDag": 533,
+     "total": 5240,
+     "dagarMedRoster": 13,
+     "storstaDag": 535,
      "andel": 12.2
     },
     {
      "namn": "Sambiblioteket plan 4 övre ingång",
      "kommun": "Härnösand",
      "lokalId": "2280001",
-     "total": 4146,
-     "dagarMedRoster": 10,
+     "total": 4471,
+     "dagarMedRoster": 11,
      "storstaDag": 496,
-     "andel": 10.3
+     "andel": 10.4
     },
     {
      "namn": "Arkenbiblioteket",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284015",
-     "total": 3776,
-     "dagarMedRoster": 10,
+     "total": 4075,
+     "dagarMedRoster": 11,
      "storstaDag": 448,
-     "andel": 9.3
+     "andel": 9.5
     },
     {
      "namn": "Kommunhuset Sollefteå",
      "kommun": "Sollefteå",
      "lokalId": "2283008",
-     "total": 2218,
-     "dagarMedRoster": 12,
+     "total": 2410,
+     "dagarMedRoster": 13,
      "storstaDag": 274,
-     "andel": 5.5
+     "andel": 5.6
     },
     {
      "namn": "Biblioteket Timrå",
      "kommun": "Timrå",
      "lokalId": "2262004",
-     "total": 1973,
-     "dagarMedRoster": 10,
+     "total": 2115,
+     "dagarMedRoster": 11,
      "storstaDag": 268,
      "andel": 4.9
+    },
+    {
+     "namn": "Kramfors Fritidsgård",
+     "kommun": "Kramfors",
+     "lokalId": "2282002",
+     "total": 1838,
+     "dagarMedRoster": 11,
+     "storstaDag": 215,
+     "andel": 4.3
     },
     {
      "namn": "Gullänget, Folkets hus Gnistan",
@@ -1883,41 +1899,32 @@
      "total": 1782,
      "dagarMedRoster": 6,
      "storstaDag": 452,
-     "andel": 4.4
-    },
-    {
-     "namn": "Kramfors Fritidsgård",
-     "kommun": "Kramfors",
-     "lokalId": "2282002",
-     "total": 1719,
-     "dagarMedRoster": 10,
-     "storstaDag": 215,
-     "andel": 4.3
+     "andel": 4.2
     },
     {
      "namn": "Kvissleby bibliotek",
      "kommun": "Sundsvall",
      "lokalId": "2281009",
-     "total": 1642,
-     "dagarMedRoster": 10,
+     "total": 1684,
+     "dagarMedRoster": 11,
      "storstaDag": 231,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
      "namn": "EQ-House",
      "kommun": "Sundsvall",
      "lokalId": "2281002",
-     "total": 1295,
-     "dagarMedRoster": 8,
+     "total": 1448,
+     "dagarMedRoster": 9,
      "storstaDag": 198,
-     "andel": 3.2
+     "andel": 3.4
     },
     {
      "namn": "Alnö bibliotek, Vibackeskolan",
      "kommun": "Sundsvall",
      "lokalId": "2281012",
-     "total": 1241,
-     "dagarMedRoster": 10,
+     "total": 1349,
+     "dagarMedRoster": 11,
      "storstaDag": 192,
      "andel": 3.1
     },
@@ -1928,16 +1935,16 @@
      "total": 1159,
      "dagarMedRoster": 10,
      "storstaDag": 174,
-     "andel": 2.9
+     "andel": 2.7
     },
     {
      "namn": "Kommunhuset",
      "kommun": "Sundsvall",
      "lokalId": "2281006",
-     "total": 901,
-     "dagarMedRoster": 8,
+     "total": 1021,
+     "dagarMedRoster": 9,
      "storstaDag": 139,
-     "andel": 2.2
+     "andel": 2.4
     },
     {
      "namn": "Ånge kommunkontor, foajén",
@@ -1946,25 +1953,43 @@
      "total": 841,
      "dagarMedRoster": 12,
      "storstaDag": 100,
-     "andel": 2.1
+     "andel": 2.0
     },
     {
      "namn": "Selånger Folketshus",
      "kommun": "Sundsvall",
      "lokalId": "2281017",
-     "total": 798,
+     "total": 799,
      "dagarMedRoster": 9,
-     "storstaDag": 129,
-     "andel": 2.0
+     "storstaDag": 130,
+     "andel": 1.9
     },
     {
      "namn": "Nylands Folkets Hus",
      "kommun": "Kramfors",
      "lokalId": "2282004",
-     "total": 702,
-     "dagarMedRoster": 9,
+     "total": 785,
+     "dagarMedRoster": 10,
      "storstaDag": 109,
-     "andel": 1.7
+     "andel": 1.8
+    },
+    {
+     "namn": "Mittuniversitetets bibliotek, Hus N",
+     "kommun": "Sundsvall",
+     "lokalId": "2281007",
+     "total": 675,
+     "dagarMedRoster": 9,
+     "storstaDag": 105,
+     "andel": 1.6
+    },
+    {
+     "namn": "Söråkers Folkets Hus",
+     "kommun": "Timrå",
+     "lokalId": "2262001",
+     "total": 671,
+     "dagarMedRoster": 12,
+     "storstaDag": 97,
+     "andel": 1.6
     },
     {
      "namn": "Länssjukhuset i Sundsvall",
@@ -1973,24 +1998,15 @@
      "total": 654,
      "dagarMedRoster": 5,
      "storstaDag": 140,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
-     "namn": "Söråkers Folkets Hus",
-     "kommun": "Timrå",
-     "lokalId": "2262001",
-     "total": 632,
-     "dagarMedRoster": 11,
-     "storstaDag": 97,
-     "andel": 1.6
-    },
-    {
-     "namn": "Mittuniversitetets bibliotek, Hus N",
-     "kommun": "Sundsvall",
-     "lokalId": "2281007",
-     "total": 600,
-     "dagarMedRoster": 8,
-     "storstaDag": 105,
+     "namn": "Själevads församlingshem",
+     "kommun": "Örnsköldsvik",
+     "lokalId": "2284005",
+     "total": 644,
+     "dagarMedRoster": 5,
+     "storstaDag": 173,
      "andel": 1.5
     },
     {
@@ -2000,7 +2016,7 @@
      "total": 593,
      "dagarMedRoster": 8,
      "storstaDag": 89,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Bjästa entrébyggnad",
@@ -2009,24 +2025,15 @@
      "total": 568,
      "dagarMedRoster": 3,
      "storstaDag": 205,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Nacksta bibliotek",
      "kommun": "Sundsvall",
      "lokalId": "2281008",
-     "total": 517,
-     "dagarMedRoster": 5,
+     "total": 551,
+     "dagarMedRoster": 6,
      "storstaDag": 121,
-     "andel": 1.3
-    },
-    {
-     "namn": "Själevads församlingshem",
-     "kommun": "Örnsköldsvik",
-     "lokalId": "2284005",
-     "total": 515,
-     "dagarMedRoster": 4,
-     "storstaDag": 173,
      "andel": 1.3
     },
     {
@@ -2036,7 +2043,7 @@
      "total": 512,
      "dagarMedRoster": 8,
      "storstaDag": 92,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Domsjö bruksgården",
@@ -2045,7 +2052,7 @@
      "total": 443,
      "dagarMedRoster": 3,
      "storstaDag": 157,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Anundsjö församlingsgård",
@@ -2054,7 +2061,7 @@
      "total": 391,
      "dagarMedRoster": 4,
      "storstaDag": 144,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Husumgården",
@@ -2075,30 +2082,30 @@
      "andel": 0.9
     },
     {
+     "namn": "Medborgarkontoret Ramsele",
+     "kommun": "Sollefteå",
+     "lokalId": "2283007",
+     "total": 373,
+     "dagarMedRoster": 9,
+     "storstaDag": 63,
+     "andel": 0.9
+    },
+    {
      "namn": "Långsele bibliotek",
      "kommun": "Sollefteå",
      "lokalId": "2283006",
      "total": 363,
      "dagarMedRoster": 8,
      "storstaDag": 63,
-     "andel": 0.9
-    },
-    {
-     "namn": "Bollstakyrkan",
-     "kommun": "Kramfors",
-     "lokalId": "2282001",
-     "total": 330,
-     "dagarMedRoster": 5,
-     "storstaDag": 79,
      "andel": 0.8
     },
     {
-     "namn": "Medborgarkontoret Ramsele",
-     "kommun": "Sollefteå",
-     "lokalId": "2283007",
-     "total": 325,
-     "dagarMedRoster": 8,
-     "storstaDag": 63,
+     "namn": "Stöde bibliotek",
+     "kommun": "Sundsvall",
+     "lokalId": "2281015",
+     "total": 346,
+     "dagarMedRoster": 9,
+     "storstaDag": 83,
      "andel": 0.8
     }
    ],

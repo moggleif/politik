@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -935,25 +935,32 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 119,
-     "ack": 1387
+     "antal": 136,
+     "ack": 1404
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 145,
-     "ack": 1532
+     "antal": 146,
+     "ack": 1550
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 67,
-     "ack": 1599
+     "antal": 68,
+     "ack": 1618
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 54,
+     "ack": 1672
     }
    ],
-   "total": 1599,
+   "total": 1672,
    "rostberattigade": {
     "riksdag": 11430,
     "kommun": 12418,
@@ -971,10 +978,10 @@
      "namn": "Kommunhuset",
      "kommun": "Bjuv",
      "lokalId": "1260002",
-     "total": 880,
-     "dagarMedRoster": 12,
+     "total": 932,
+     "dagarMedRoster": 13,
      "storstaDag": 123,
-     "andel": 55.0
+     "andel": 55.7
     },
     {
      "namn": "Skeneholmssalen, Billesholm",
@@ -983,25 +990,25 @@
      "total": 429,
      "dagarMedRoster": 5,
      "storstaDag": 127,
-     "andel": 26.8
+     "andel": 25.7
     },
     {
      "namn": "Ekebyskolan, cafeteria",
      "kommun": "Bjuv",
      "lokalId": "1260006",
-     "total": 237,
-     "dagarMedRoster": 4,
+     "total": 242,
+     "dagarMedRoster": 5,
      "storstaDag": 66,
-     "andel": 14.8
+     "andel": 14.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Bjuv",
      "lokalId": "1260005",
-     "total": 53,
-     "dagarMedRoster": 3,
+     "total": 69,
+     "dagarMedRoster": 4,
      "storstaDag": 35,
-     "andel": 3.3
+     "andel": 4.1
     }
    ],
    "antalLokaler": 4,

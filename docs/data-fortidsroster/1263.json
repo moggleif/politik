@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -863,25 +863,32 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 258,
-     "ack": 2780
+     "antal": 260,
+     "ack": 2782
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 286,
-     "ack": 3066
+     "ack": 3068
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 187,
-     "ack": 3253
+     "ack": 3255
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 223,
+     "ack": 3478
     }
    ],
-   "total": 3253,
+   "total": 3478,
    "rostberattigade": {
     "riksdag": 17049,
     "kommun": 17430,
@@ -899,19 +906,19 @@
      "namn": "Svedala bibliotek",
      "kommun": "Svedala",
      "lokalId": "1263001",
-     "total": 2676,
-     "dagarMedRoster": 12,
+     "total": 2838,
+     "dagarMedRoster": 13,
      "storstaDag": 311,
-     "andel": 82.3
+     "andel": 81.6
     },
     {
      "namn": "Bara bibliotek",
      "kommun": "Svedala",
      "lokalId": "1263002",
-     "total": 537,
-     "dagarMedRoster": 6,
+     "total": 563,
+     "dagarMedRoster": 7,
      "storstaDag": 161,
-     "andel": 16.5
+     "andel": 16.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -926,10 +933,10 @@
      "namn": "Klågerups bibliotek",
      "kommun": "Svedala",
      "lokalId": "1263003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 37,
+     "dagarMedRoster": 1,
+     "storstaDag": 37,
+     "andel": 1.1
     },
     {
      "namn": "Naverlönnskolan",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1099,7 +1099,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1169,25 +1169,32 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 176,
-     "ack": 1502
+     "antal": 181,
+     "ack": 1507
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 90,
-     "ack": 1592
+     "ack": 1597
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 85,
-     "ack": 1677
+     "ack": 1682
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 76,
+     "ack": 1758
     }
    ],
-   "total": 1677,
+   "total": 1758,
    "rostberattigade": {
     "riksdag": 9006,
     "kommun": 9398,
@@ -1205,10 +1212,10 @@
      "namn": "Centralen, Biblioteket",
      "kommun": "Tranemo",
      "lokalId": "1452007",
-     "total": 1466,
-     "dagarMedRoster": 12,
+     "total": 1545,
+     "dagarMedRoster": 13,
      "storstaDag": 184,
-     "andel": 87.4
+     "andel": 87.9
     },
     {
      "namn": "Församlingshemmet Länghem",
@@ -1217,7 +1224,7 @@
      "total": 85,
      "dagarMedRoster": 1,
      "storstaDag": 85,
-     "andel": 5.1
+     "andel": 4.8
     },
     {
      "namn": "Bokbuss",
@@ -1226,14 +1233,14 @@
      "total": 82,
      "dagarMedRoster": 5,
      "storstaDag": 23,
-     "andel": 4.9
+     "andel": 4.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Tranemo",
      "lokalId": "1452012",
-     "total": 44,
-     "dagarMedRoster": 5,
+     "total": 46,
+     "dagarMedRoster": 6,
      "storstaDag": 18,
      "andel": 2.6
     },

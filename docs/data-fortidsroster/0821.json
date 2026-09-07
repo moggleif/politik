@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -685,7 +685,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -771,9 +771,16 @@
      "kvar": 7,
      "antal": 73,
      "ack": 738
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 70,
+     "ack": 808
     }
    ],
-   "total": 738,
+   "total": 808,
    "rostberattigade": {
     "riksdag": 3740,
     "kommun": 4194,
@@ -791,10 +798,10 @@
      "namn": "Kommunkontoret",
      "kommun": "Högsby",
      "lokalId": "0821003",
-     "total": 736,
-     "dagarMedRoster": 12,
+     "total": 806,
+     "dagarMedRoster": 13,
      "storstaDag": 77,
-     "andel": 99.7
+     "andel": 99.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -803,7 +810,7 @@
      "total": 2,
      "dagarMedRoster": 1,
      "storstaDag": 2,
-     "andel": 0.3
+     "andel": 0.2
     }
    ],
    "antalLokaler": 2,

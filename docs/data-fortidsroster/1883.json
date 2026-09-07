@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1054,32 +1054,39 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 788,
-     "ack": 4643
+     "antal": 790,
+     "ack": 4645
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 632,
-     "ack": 5275
+     "ack": 5277
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 243,
-     "ack": 5518
+     "antal": 244,
+     "ack": 5521
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 250,
-     "ack": 5768
+     "ack": 5771
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 409,
+     "ack": 6180
     }
    ],
-   "total": 5768,
+   "total": 6180,
    "rostberattigade": {
     "riksdag": 23963,
     "kommun": 24453,
@@ -1097,37 +1104,37 @@
      "namn": "Karlskoga bibliotek",
      "kommun": "Karlskoga",
      "lokalId": "1883003",
-     "total": 2569,
-     "dagarMedRoster": 12,
+     "total": 2740,
+     "dagarMedRoster": 13,
      "storstaDag": 250,
-     "andel": 44.5
+     "andel": 44.3
     },
     {
      "namn": "Karlskoga lasarett",
      "kommun": "Karlskoga",
      "lokalId": "1883006",
-     "total": 1781,
-     "dagarMedRoster": 8,
-     "storstaDag": 262,
-     "andel": 30.9
+     "total": 1934,
+     "dagarMedRoster": 9,
+     "storstaDag": 264,
+     "andel": 31.3
     },
     {
      "namn": "Brickegårdens vårdcentral",
      "kommun": "Karlskoga",
      "lokalId": "1883012",
-     "total": 810,
-     "dagarMedRoster": 8,
+     "total": 877,
+     "dagarMedRoster": 9,
      "storstaDag": 128,
-     "andel": 14.0
+     "andel": 14.2
     },
     {
      "namn": "Karlskoga konsthall",
      "kommun": "Karlskoga",
      "lokalId": "1883013",
-     "total": 200,
-     "dagarMedRoster": 5,
+     "total": 205,
+     "dagarMedRoster": 6,
      "storstaDag": 56,
-     "andel": 3.5
+     "andel": 3.3
     },
     {
      "namn": "Anstalten Karlskoga",
@@ -1136,7 +1143,7 @@
      "total": 139,
      "dagarMedRoster": 1,
      "storstaDag": 139,
-     "andel": 2.4
+     "andel": 2.2
     },
     {
      "namn": "Bråten skolan",
@@ -1148,6 +1155,15 @@
      "andel": 1.1
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Karlskoga",
+     "lokalId": "1883011",
+     "total": 61,
+     "dagarMedRoster": 6,
+     "storstaDag": 17,
+     "andel": 1.0
+    },
+    {
      "namn": "Karlskoga Folkhögskola - mobil",
      "kommun": "Karlskoga",
      "lokalId": "1883002",
@@ -1157,22 +1173,13 @@
      "andel": 0.8
     },
     {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Karlskoga",
-     "lokalId": "1883011",
-     "total": 45,
-     "dagarMedRoster": 5,
-     "storstaDag": 17,
-     "andel": 0.8
-    },
-    {
      "namn": "Linnebäcks Bygdegård - mobil",
      "kommun": "Karlskoga",
      "lokalId": "1883001",
      "total": 40,
      "dagarMedRoster": 1,
      "storstaDag": 40,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Nickkällan - mobil",
@@ -1181,7 +1188,7 @@
      "total": 33,
      "dagarMedRoster": 1,
      "storstaDag": 33,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Möckelngymnasiet - mobil",

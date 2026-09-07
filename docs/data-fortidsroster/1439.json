@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -739,7 +739,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -795,39 +795,46 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 95,
-     "ack": 715
+     "antal": 96,
+     "ack": 716
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 76,
-     "ack": 791
+     "antal": 102,
+     "ack": 818
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 119,
-     "ack": 910
+     "ack": 937
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 101,
-     "ack": 1011
+     "ack": 1038
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 93,
-     "ack": 1104
+     "ack": 1131
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 66,
+     "ack": 1197
     }
    ],
-   "total": 1104,
+   "total": 1197,
    "rostberattigade": {
     "riksdag": 4931,
     "kommun": 5064,
@@ -845,46 +852,46 @@
      "namn": "Centrumhuset",
      "kommun": "Färgelanda",
      "lokalId": "1439001",
-     "total": 1104,
-     "dagarMedRoster": 12,
+     "total": 1170,
+     "dagarMedRoster": 13,
      "storstaDag": 119,
-     "andel": 100.0
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Färgelanda",
-     "lokalId": "1439006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 97.7
     },
     {
      "namn": "Håvestensgården",
      "kommun": "Färgelanda",
      "lokalId": "1439009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Lillågården",
-     "kommun": "Färgelanda",
-     "lokalId": "1439008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.9
     },
     {
      "namn": "Solgården",
      "kommun": "Färgelanda",
      "lokalId": "1439007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 10,
+     "dagarMedRoster": 1,
+     "storstaDag": 10,
+     "andel": 0.8
+    },
+    {
+     "namn": "Lillågården",
+     "kommun": "Färgelanda",
+     "lokalId": "1439008",
+     "total": 5,
+     "dagarMedRoster": 1,
+     "storstaDag": 5,
+     "andel": 0.4
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Färgelanda",
+     "lokalId": "1439006",
+     "total": 1,
+     "dagarMedRoster": 1,
+     "storstaDag": 1,
+     "andel": 0.1
     }
    ],
    "antalLokaler": 5,

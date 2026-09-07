@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -892,7 +892,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -962,25 +962,32 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 813,
-     "ack": 7993
+     "antal": 824,
+     "ack": 8004
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 614,
-     "ack": 8607
+     "ack": 8618
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 608,
-     "ack": 9215
+     "ack": 9226
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 481,
+     "ack": 9707
     }
    ],
-   "total": 9215,
+   "total": 9707,
    "rostberattigade": {
     "riksdag": 38868,
     "kommun": 39525,
@@ -998,28 +1005,28 @@
      "namn": "Kongahälla Center",
      "kommun": "Kungälv",
      "lokalId": "1482002",
-     "total": 5711,
-     "dagarMedRoster": 12,
+     "total": 5971,
+     "dagarMedRoster": 13,
      "storstaDag": 614,
-     "andel": 62.0
+     "andel": 61.5
     },
     {
      "namn": "Mimers hus",
      "kommun": "Kungälv",
      "lokalId": "1482004",
-     "total": 1539,
-     "dagarMedRoster": 8,
+     "total": 1627,
+     "dagarMedRoster": 9,
      "storstaDag": 247,
-     "andel": 16.7
+     "andel": 16.8
     },
     {
      "namn": "Stadshuset",
      "kommun": "Kungälv",
      "lokalId": "1482007",
-     "total": 589,
-     "dagarMedRoster": 6,
-     "storstaDag": 115,
-     "andel": 6.4
+     "total": 730,
+     "dagarMedRoster": 7,
+     "storstaDag": 141,
+     "andel": 7.5
     },
     {
      "namn": "Kärna bygdegård",
@@ -1028,7 +1035,7 @@
      "total": 481,
      "dagarMedRoster": 4,
      "storstaDag": 184,
-     "andel": 5.2
+     "andel": 5.0
     },
     {
      "namn": "Ytterby Bibliotek",
@@ -1037,7 +1044,7 @@
      "total": 340,
      "dagarMedRoster": 5,
      "storstaDag": 88,
-     "andel": 3.7
+     "andel": 3.5
     },
     {
      "namn": "Diseröds Bibliotek",
@@ -1046,7 +1053,7 @@
      "total": 187,
      "dagarMedRoster": 2,
      "storstaDag": 107,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Marstrands församlingsgård",
@@ -1055,14 +1062,14 @@
      "total": 187,
      "dagarMedRoster": 3,
      "storstaDag": 67,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kungälv",
      "lokalId": "1482008",
-     "total": 45,
-     "dagarMedRoster": 5,
+     "total": 48,
+     "dagarMedRoster": 6,
      "storstaDag": 24,
      "andel": 0.5
     },
@@ -1073,7 +1080,7 @@
      "total": 43,
      "dagarMedRoster": 1,
      "storstaDag": 43,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Solhaga",

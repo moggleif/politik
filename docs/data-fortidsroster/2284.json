@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1410,9 +1410,16 @@
      "kvar": 7,
      "antal": 652,
      "ack": 9176
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 434,
+     "ack": 9610
     }
    ],
-   "total": 9176,
+   "total": 9610,
    "rostberattigade": {
     "riksdag": 43542,
     "kommun": 44347,
@@ -1430,10 +1437,10 @@
      "namn": "Arkenbiblioteket",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284015",
-     "total": 3776,
-     "dagarMedRoster": 10,
+     "total": 4075,
+     "dagarMedRoster": 11,
      "storstaDag": 448,
-     "andel": 41.2
+     "andel": 42.4
     },
     {
      "namn": "Gullänget, Folkets hus Gnistan",
@@ -1442,7 +1449,16 @@
      "total": 1782,
      "dagarMedRoster": 6,
      "storstaDag": 452,
-     "andel": 19.4
+     "andel": 18.5
+    },
+    {
+     "namn": "Själevads församlingshem",
+     "kommun": "Örnsköldsvik",
+     "lokalId": "2284005",
+     "total": 644,
+     "dagarMedRoster": 5,
+     "storstaDag": 173,
+     "andel": 6.7
     },
     {
      "namn": "Bjästa entrébyggnad",
@@ -1451,16 +1467,7 @@
      "total": 568,
      "dagarMedRoster": 3,
      "storstaDag": 205,
-     "andel": 6.2
-    },
-    {
-     "namn": "Själevads församlingshem",
-     "kommun": "Örnsköldsvik",
-     "lokalId": "2284005",
-     "total": 515,
-     "dagarMedRoster": 4,
-     "storstaDag": 173,
-     "andel": 5.6
+     "andel": 5.9
     },
     {
      "namn": "Domsjö bruksgården",
@@ -1469,7 +1476,7 @@
      "total": 443,
      "dagarMedRoster": 3,
      "storstaDag": 157,
-     "andel": 4.8
+     "andel": 4.6
     },
     {
      "namn": "Anundsjö församlingsgård",
@@ -1478,7 +1485,7 @@
      "total": 391,
      "dagarMedRoster": 4,
      "storstaDag": 144,
-     "andel": 4.3
+     "andel": 4.1
     },
     {
      "namn": "Husumgården",
@@ -1487,7 +1494,7 @@
      "total": 383,
      "dagarMedRoster": 3,
      "storstaDag": 142,
-     "andel": 4.2
+     "andel": 4.0
     },
     {
      "namn": "Sörlidens församlingsgård",
@@ -1496,14 +1503,14 @@
      "total": 375,
      "dagarMedRoster": 5,
      "storstaDag": 104,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284019",
-     "total": 249,
-     "dagarMedRoster": 8,
+     "total": 255,
+     "dagarMedRoster": 9,
      "storstaDag": 68,
      "andel": 2.7
     },
@@ -1523,7 +1530,7 @@
      "total": 135,
      "dagarMedRoster": 2,
      "storstaDag": 90,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Köpmanholmen, Ringarbönninga",
@@ -1550,7 +1557,7 @@
      "total": 91,
      "dagarMedRoster": 1,
      "storstaDag": 91,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Gideå församlingshem",

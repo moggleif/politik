@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1225,7 +1225,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1267,53 +1267,60 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 294,
-     "ack": 1324
+     "antal": 344,
+     "ack": 1374
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 242,
-     "ack": 1566
+     "antal": 243,
+     "ack": 1617
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 446,
-     "ack": 2012
+     "ack": 2063
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 401,
-     "ack": 2413
+     "ack": 2464
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 239,
-     "ack": 2652
+     "ack": 2703
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 95,
-     "ack": 2747
+     "ack": 2798
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 239,
-     "ack": 2986
+     "antal": 240,
+     "ack": 3038
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 51,
+     "ack": 3089
     }
    ],
-   "total": 2986,
+   "total": 3089,
    "rostberattigade": {
     "riksdag": 8508,
     "kommun": 8953,
@@ -1331,10 +1338,10 @@
      "namn": "Folkets hus - Strömsund",
      "kommun": "Strömsund",
      "lokalId": "2313019",
-     "total": 1640,
+     "total": 1641,
      "dagarMedRoster": 12,
      "storstaDag": 227,
-     "andel": 54.9
+     "andel": 53.1
     },
     {
      "namn": "Gamla lokalkontoret i Hammerdal",
@@ -1343,25 +1350,25 @@
      "total": 423,
      "dagarMedRoster": 8,
      "storstaDag": 75,
-     "andel": 14.2
+     "andel": 13.7
     },
     {
      "namn": "Föreningshuset Hoting",
      "kommun": "Strömsund",
      "lokalId": "2313006",
-     "total": 162,
-     "dagarMedRoster": 4,
-     "storstaDag": 48,
-     "andel": 5.4
+     "total": 238,
+     "dagarMedRoster": 6,
+     "storstaDag": 50,
+     "andel": 7.7
     },
     {
      "namn": "Biblioteket Backe",
      "kommun": "Strömsund",
      "lokalId": "2313009",
-     "total": 139,
-     "dagarMedRoster": 5,
+     "total": 164,
+     "dagarMedRoster": 6,
      "storstaDag": 39,
-     "andel": 4.7
+     "andel": 5.3
     },
     {
      "namn": "Flottaren - Rossön",
@@ -1370,7 +1377,7 @@
      "total": 138,
      "dagarMedRoster": 4,
      "storstaDag": 42,
-     "andel": 4.6
+     "andel": 4.5
     },
     {
      "namn": "Mittpunkt Norråker",
@@ -1379,7 +1386,7 @@
      "total": 122,
      "dagarMedRoster": 2,
      "storstaDag": 78,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
      "namn": "Biblioteket Gäddede",
@@ -1388,7 +1395,7 @@
      "total": 111,
      "dagarMedRoster": 5,
      "storstaDag": 31,
-     "andel": 3.7
+     "andel": 3.6
     },
     {
      "namn": "Tåsjögården",
@@ -1397,7 +1404,7 @@
      "total": 72,
      "dagarMedRoster": 3,
      "storstaDag": 31,
-     "andel": 2.4
+     "andel": 2.3
     },
     {
      "namn": "Strömbacka/Granbacken",
@@ -1424,7 +1431,7 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Solbackens sjukhem",
@@ -1466,8 +1473,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Strömsund",
      "lokalId": "2313016",
-     "total": 2,
-     "dagarMedRoster": 2,
+     "total": 3,
+     "dagarMedRoster": 3,
      "storstaDag": 1,
      "andel": 0.1
     },

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,7 +829,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -915,9 +915,16 @@
      "kvar": 7,
      "antal": 107,
      "ack": 2152
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 123,
+     "ack": 2275
     }
    ],
-   "total": 2152,
+   "total": 2275,
    "rostberattigade": {
     "riksdag": 10607,
     "kommun": 11041,
@@ -935,10 +942,10 @@
      "namn": "Kommunhuset Tomelilla",
      "kommun": "Tomelilla",
      "lokalId": "1270002",
-     "total": 1757,
-     "dagarMedRoster": 10,
+     "total": 1880,
+     "dagarMedRoster": 11,
      "storstaDag": 480,
-     "andel": 81.6
+     "andel": 82.6
     },
     {
      "namn": "Brösarps skola, gymnastiksalen",
@@ -947,7 +954,7 @@
      "total": 225,
      "dagarMedRoster": 2,
      "storstaDag": 115,
-     "andel": 10.5
+     "andel": 9.9
     },
     {
      "namn": "Medborgarhuset, Smedstorp",
@@ -956,7 +963,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 3.5
+     "andel": 3.3
     },
     {
      "namn": "Odenslundsskolan, matsalen",
@@ -965,7 +972,7 @@
      "total": 51,
      "dagarMedRoster": 1,
      "storstaDag": 51,
-     "andel": 2.4
+     "andel": 2.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -974,7 +981,7 @@
      "total": 44,
      "dagarMedRoster": 5,
      "storstaDag": 22,
-     "andel": 2.0
+     "andel": 1.9
     }
    ],
    "antalLokaler": 5,

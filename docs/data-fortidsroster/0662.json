@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T11:41+02:00",
+ "senastUppdaterad": "2026-09-07T19:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1279,7 +1279,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T11:41+02:00",
+   "hamtad": "2026-09-07T19:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1342,32 +1342,39 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 472,
-     "ack": 3136
+     "antal": 475,
+     "ack": 3139
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 658,
-     "ack": 3794
+     "antal": 659,
+     "ack": 3798
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 343,
-     "ack": 4137
+     "ack": 4141
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 63,
-     "ack": 4200
+     "ack": 4204
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 259,
+     "ack": 4463
     }
    ],
-   "total": 4200,
+   "total": 4463,
    "rostberattigade": {
     "riksdag": 21349,
     "kommun": 22500,
@@ -1385,35 +1392,35 @@
      "namn": "Kommunhuset",
      "kommun": "Gislaved",
      "lokalId": "0662002",
-     "total": 1410,
-     "dagarMedRoster": 12,
-     "storstaDag": 213,
-     "andel": 33.6
+     "total": 1482,
+     "dagarMedRoster": 13,
+     "storstaDag": 214,
+     "andel": 33.2
     },
     {
      "namn": "Torghuset Smålandsstenar",
      "kommun": "Gislaved",
      "lokalId": "0662013",
-     "total": 990,
-     "dagarMedRoster": 10,
+     "total": 1066,
+     "dagarMedRoster": 11,
      "storstaDag": 173,
-     "andel": 23.6
+     "andel": 23.9
     },
     {
      "namn": "Anderstorps Bibliotek",
      "kommun": "Gislaved",
      "lokalId": "0662001",
-     "total": 712,
-     "dagarMedRoster": 10,
+     "total": 769,
+     "dagarMedRoster": 11,
      "storstaDag": 103,
-     "andel": 17.0
+     "andel": 17.2
     },
     {
      "namn": "Burseryds Lantmän",
      "kommun": "Gislaved",
      "lokalId": "0662014",
-     "total": 334,
-     "dagarMedRoster": 10,
+     "total": 355,
+     "dagarMedRoster": 11,
      "storstaDag": 53,
      "andel": 8.0
     },
@@ -1421,19 +1428,19 @@
      "namn": "Reftele Lantmän",
      "kommun": "Gislaved",
      "lokalId": "0662009",
-     "total": 317,
-     "dagarMedRoster": 10,
+     "total": 341,
+     "dagarMedRoster": 11,
      "storstaDag": 48,
-     "andel": 7.5
+     "andel": 7.6
     },
     {
      "namn": "AB Hestra Radio & Sport (Preem)",
      "kommun": "Gislaved",
      "lokalId": "0662011",
-     "total": 303,
-     "dagarMedRoster": 10,
+     "total": 316,
+     "dagarMedRoster": 11,
      "storstaDag": 52,
-     "andel": 7.2
+     "andel": 7.1
     },
     {
      "namn": "Klockaregården",
@@ -1460,7 +1467,7 @@
      "total": 19,
      "dagarMedRoster": 2,
      "storstaDag": 15,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Hestragården",
@@ -1469,7 +1476,7 @@
      "total": 15,
      "dagarMedRoster": 1,
      "storstaDag": 15,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Vitsippan",
@@ -1478,7 +1485,7 @@
      "total": 15,
      "dagarMedRoster": 1,
      "storstaDag": 15,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Ambulerande röstmottagning",
