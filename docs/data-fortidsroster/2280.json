@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T17:44+02:00",
+ "senastUppdaterad": "2026-09-07T11:41+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T17:44+02:00",
+   "hamtad": "2026-09-07T11:41+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1052,9 +1052,16 @@
      "kvar": 8,
      "antal": 399,
      "ack": 4617
+    },
+    {
+     "datum": "2026-09-06",
+     "veckodag": "sön",
+     "kvar": 7,
+     "antal": 24,
+     "ack": 4641
     }
    ],
-   "total": 4617,
+   "total": 4641,
    "rostberattigade": {
     "riksdag": 18984,
     "kommun": 19478,
@@ -1075,7 +1082,7 @@
      "total": 4146,
      "dagarMedRoster": 10,
      "storstaDag": 496,
-     "andel": 89.8
+     "andel": 89.3
     },
     {
      "namn": "Älandsbro Folketshus",
@@ -1123,6 +1130,15 @@
      "andel": 0.9
     },
     {
+     "namn": "Häggdånger Församlingshem",
+     "kommun": "Härnösand",
+     "lokalId": "2280002",
+     "total": 40,
+     "dagarMedRoster": 2,
+     "storstaDag": 24,
+     "andel": 0.9
+    },
+    {
      "namn": "Brunnegården",
      "kommun": "Härnösand",
      "lokalId": "2280008",
@@ -1130,15 +1146,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 33,
      "andel": 0.7
-    },
-    {
-     "namn": "Häggdånger Församlingshem",
-     "kommun": "Härnösand",
-     "lokalId": "2280002",
-     "total": 16,
-     "dagarMedRoster": 1,
-     "storstaDag": 16,
-     "andel": 0.3
     },
     {
      "namn": "Anstalt Härnösand",

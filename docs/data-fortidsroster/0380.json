@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T17:44+02:00",
+ "senastUppdaterad": "2026-09-07T11:41+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -2512,7 +2512,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T17:44+02:00",
+   "hamtad": "2026-09-07T11:41+02:00",
    "klart": false,
    "dagar": [
     {
@@ -2575,32 +2575,32 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 4496,
-     "ack": 32944
+     "antal": 4498,
+     "ack": 32946
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 4356,
-     "ack": 37300
+     "ack": 37302
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 3937,
-     "ack": 41237
+     "antal": 3939,
+     "ack": 41241
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 1308,
-     "ack": 42545
+     "antal": 3240,
+     "ack": 44481
     }
    ],
-   "total": 42545,
+   "total": 44481,
    "rostberattigade": {
     "riksdag": 187691,
     "kommun": 197645,
@@ -2618,16 +2618,16 @@
      "namn": "Gränbystaden Galleria",
      "kommun": "Uppsala",
      "lokalId": "0380025",
-     "total": 9386,
+     "total": 10069,
      "dagarMedRoster": 12,
-     "storstaDag": 972,
-     "andel": 22.1
+     "storstaDag": 1108,
+     "andel": 22.6
     },
     {
      "namn": "Stadsbiblioteket",
      "kommun": "Uppsala",
      "lokalId": "0380007",
-     "total": 4637,
+     "total": 4847,
      "dagarMedRoster": 11,
      "storstaDag": 560,
      "andel": 10.9
@@ -2636,37 +2636,37 @@
      "namn": "Stadshuset",
      "kommun": "Uppsala",
      "lokalId": "0380026",
-     "total": 4366,
+     "total": 4646,
      "dagarMedRoster": 12,
-     "storstaDag": 472,
-     "andel": 10.3
+     "storstaDag": 483,
+     "andel": 10.4
     },
     {
      "namn": "Bolandcity",
      "kommun": "Uppsala",
      "lokalId": "0380001",
-     "total": 3693,
+     "total": 3891,
      "dagarMedRoster": 12,
-     "storstaDag": 377,
+     "storstaDag": 407,
      "andel": 8.7
     },
     {
      "namn": "Gottsundabiblioteket",
      "kommun": "Uppsala",
      "lokalId": "0380011",
-     "total": 3660,
+     "total": 3741,
      "dagarMedRoster": 12,
      "storstaDag": 444,
-     "andel": 8.6
+     "andel": 8.4
     },
     {
      "namn": "Fyrishov",
      "kommun": "Uppsala",
      "lokalId": "0380014",
-     "total": 2531,
+     "total": 2810,
      "dagarMedRoster": 12,
-     "storstaDag": 251,
-     "andel": 5.9
+     "storstaDag": 439,
+     "andel": 6.3
     },
     {
      "namn": "Ekonomikum",
@@ -2675,7 +2675,7 @@
      "total": 1979,
      "dagarMedRoster": 10,
      "storstaDag": 240,
-     "andel": 4.7
+     "andel": 4.4
     },
     {
      "namn": "Stenhagenbiblioteket",
@@ -2684,7 +2684,16 @@
      "total": 1562,
      "dagarMedRoster": 9,
      "storstaDag": 212,
-     "andel": 3.7
+     "andel": 3.5
+    },
+    {
+     "namn": "Studenternas",
+     "kommun": "Uppsala",
+     "lokalId": "0380031",
+     "total": 1366,
+     "dagarMedRoster": 11,
+     "storstaDag": 266,
+     "andel": 3.1
     },
     {
      "namn": "Akademiska sjukhuset (Ingång10)",
@@ -2693,16 +2702,16 @@
      "total": 1242,
      "dagarMedRoster": 9,
      "storstaDag": 176,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
-     "namn": "Studenternas",
+     "namn": "Valbuss",
      "kommun": "Uppsala",
-     "lokalId": "0380031",
-     "total": 1226,
-     "dagarMedRoster": 11,
-     "storstaDag": 146,
-     "andel": 2.9
+     "lokalId": "0380030",
+     "total": 1218,
+     "dagarMedRoster": 12,
+     "storstaDag": 164,
+     "andel": 2.7
     },
     {
      "namn": "Rosendalsbiblioteket",
@@ -2711,16 +2720,7 @@
      "total": 1160,
      "dagarMedRoster": 8,
      "storstaDag": 205,
-     "andel": 2.7
-    },
-    {
-     "namn": "Valbuss",
-     "kommun": "Uppsala",
-     "lokalId": "0380030",
-     "total": 1157,
-     "dagarMedRoster": 12,
-     "storstaDag": 164,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Storvretabiblioteket",
@@ -2729,7 +2729,7 @@
      "total": 1064,
      "dagarMedRoster": 8,
      "storstaDag": 203,
-     "andel": 2.5
+     "andel": 2.4
     },
     {
      "namn": "Sävja kulturcentrum",
@@ -2747,7 +2747,7 @@
      "total": 832,
      "dagarMedRoster": 8,
      "storstaDag": 132,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Björklingebiblioteket",
@@ -2756,7 +2756,7 @@
      "total": 640,
      "dagarMedRoster": 5,
      "storstaDag": 172,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Utbildnings- och jobbcenter",
@@ -2765,7 +2765,7 @@
      "total": 502,
      "dagarMedRoster": 8,
      "storstaDag": 100,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Bälingebiblioteket",
@@ -2906,15 +2906,24 @@
      "namn": "Attendo Råbyvägen",
      "kommun": "Uppsala",
      "lokalId": "0380039",
-     "total": 29,
+     "total": 30,
      "dagarMedRoster": 1,
-     "storstaDag": 29,
+     "storstaDag": 30,
      "andel": 0.1
     },
     {
      "namn": "Balder",
      "kommun": "Uppsala",
      "lokalId": "0380049",
+     "total": 29,
+     "dagarMedRoster": 1,
+     "storstaDag": 29,
+     "andel": 0.1
+    },
+    {
+     "namn": "Häktet Uppsala",
+     "kommun": "Uppsala",
+     "lokalId": "0380006",
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
@@ -2957,15 +2966,6 @@
      "andel": 0.1
     },
     {
-     "namn": "Häktet Uppsala",
-     "kommun": "Uppsala",
-     "lokalId": "0380006",
-     "total": 27,
-     "dagarMedRoster": 1,
-     "storstaDag": 27,
-     "andel": 0.1
-    },
-    {
      "namn": "Villa Hovstallet",
      "kommun": "Uppsala",
      "lokalId": "0380047",
@@ -2990,7 +2990,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 0.1
+     "andel": 0.0
     },
     {
      "namn": "SiS ungdomshem Bärby",
@@ -2999,7 +2999,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 0.1
+     "andel": 0.0
     },
     {
      "namn": "Björklingegården",
@@ -3065,6 +3065,15 @@
      "andel": 0.0
     },
     {
+     "namn": "Dalbyhemmet 1 och 2",
+     "kommun": "Uppsala",
+     "lokalId": "0380053",
+     "total": 17,
+     "dagarMedRoster": 1,
+     "storstaDag": 17,
+     "andel": 0.0
+    },
+    {
      "namn": "Skogsgården",
      "kommun": "Uppsala",
      "lokalId": "0380065",
@@ -3080,15 +3089,6 @@
      "total": 17,
      "dagarMedRoster": 1,
      "storstaDag": 17,
-     "andel": 0.0
-    },
-    {
-     "namn": "Dalbyhemmet 1 och 2",
-     "kommun": "Uppsala",
-     "lokalId": "0380053",
-     "total": 16,
-     "dagarMedRoster": 1,
-     "storstaDag": 16,
      "andel": 0.0
     },
     {

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T17:44+02:00",
+ "senastUppdaterad": "2026-09-07T11:41+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1252,7 +1252,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T17:44+02:00",
+   "hamtad": "2026-09-07T11:41+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1336,11 +1336,11 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 764,
-     "ack": 21224
+     "antal": 1370,
+     "ack": 21830
     }
    ],
-   "total": 21224,
+   "total": 21830,
    "rostberattigade": {
     "riksdag": 86834,
     "kommun": 90596,
@@ -1358,28 +1358,37 @@
      "namn": "Stora torgets valstuga",
      "kommun": "Borås",
      "lokalId": "1490008",
-     "total": 4522,
+     "total": 4665,
      "dagarMedRoster": 12,
      "storstaDag": 468,
-     "andel": 21.3
+     "andel": 21.4
     },
     {
      "namn": "Knallelands valstuga",
      "kommun": "Borås",
      "lokalId": "1490013",
-     "total": 3745,
+     "total": 3965,
      "dagarMedRoster": 12,
-     "storstaDag": 405,
-     "andel": 17.6
+     "storstaDag": 454,
+     "andel": 18.2
     },
     {
      "namn": "Stadsbiblioteket",
      "kommun": "Borås",
      "lokalId": "1490005",
-     "total": 2746,
+     "total": 2886,
      "dagarMedRoster": 12,
-     "storstaDag": 276,
-     "andel": 12.9
+     "storstaDag": 290,
+     "andel": 13.2
+    },
+    {
+     "namn": "Mobil förtidsröstningslokal, valbuss",
+     "kommun": "Borås",
+     "lokalId": "1490017",
+     "total": 1309,
+     "dagarMedRoster": 12,
+     "storstaDag": 140,
+     "andel": 6.0
     },
     {
      "namn": "Equmeniakyrkan i Fristad",
@@ -1388,25 +1397,16 @@
      "total": 1305,
      "dagarMedRoster": 10,
      "storstaDag": 160,
-     "andel": 6.1
-    },
-    {
-     "namn": "Mobil förtidsröstningslokal, valbuss",
-     "kommun": "Borås",
-     "lokalId": "1490017",
-     "total": 1261,
-     "dagarMedRoster": 12,
-     "storstaDag": 140,
-     "andel": 5.9
+     "andel": 6.0
     },
     {
      "namn": "Dalsjöfors folkets park",
      "kommun": "Borås",
      "lokalId": "1490010",
-     "total": 1018,
+     "total": 1073,
      "dagarMedRoster": 11,
-     "storstaDag": 119,
-     "andel": 4.8
+     "storstaDag": 174,
+     "andel": 4.9
     },
     {
      "namn": "Göta, Boråshallen, Rotundan",
@@ -1415,7 +1415,7 @@
      "total": 741,
      "dagarMedRoster": 8,
      "storstaDag": 108,
-     "andel": 3.5
+     "andel": 3.4
     },
     {
      "namn": "Hultahuset",
@@ -1424,7 +1424,7 @@
      "total": 682,
      "dagarMedRoster": 8,
      "storstaDag": 105,
-     "andel": 3.2
+     "andel": 3.1
     },
     {
      "namn": "Sjöbohuset",
@@ -1433,7 +1433,7 @@
      "total": 662,
      "dagarMedRoster": 9,
      "storstaDag": 89,
-     "andel": 3.1
+     "andel": 3.0
     },
     {
      "namn": "Sandared, Simklubben SK70",
@@ -1442,7 +1442,7 @@
      "total": 659,
      "dagarMedRoster": 10,
      "storstaDag": 85,
-     "andel": 3.1
+     "andel": 3.0
     },
     {
      "namn": "Viskafors bibliotek",
@@ -1451,7 +1451,7 @@
      "total": 637,
      "dagarMedRoster": 10,
      "storstaDag": 85,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Södra Älvsborgs Sjukhus",
@@ -1460,7 +1460,7 @@
      "total": 628,
      "dagarMedRoster": 8,
      "storstaDag": 95,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Norrbyhuset",
@@ -1469,7 +1469,7 @@
      "total": 570,
      "dagarMedRoster": 8,
      "storstaDag": 94,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Sjömarkenkyrkan, bottenvåningen",
@@ -1478,7 +1478,7 @@
      "total": 552,
      "dagarMedRoster": 10,
      "storstaDag": 80,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Hässlehuset, föreningslokalen",
@@ -1487,7 +1487,7 @@
      "total": 531,
      "dagarMedRoster": 8,
      "storstaDag": 97,
-     "andel": 2.5
+     "andel": 2.4
     },
     {
      "namn": "Stadshuset, receptionen",
@@ -1496,7 +1496,7 @@
      "total": 422,
      "dagarMedRoster": 10,
      "storstaDag": 67,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Träffpunkt Simonsland",
@@ -1505,7 +1505,7 @@
      "total": 161,
      "dagarMedRoster": 2,
      "storstaDag": 85,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Ambulerande röstmottagning",

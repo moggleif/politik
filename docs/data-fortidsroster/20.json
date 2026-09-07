@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T17:44+02:00",
+ "senastUppdaterad": "2026-09-07T11:41+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T17:44+02:00",
+   "hamtad": "2026-09-07T11:41+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1813,11 +1813,11 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 1424,
-     "ack": 50468
+     "antal": 2363,
+     "ack": 51407
     }
    ],
-   "total": 50468,
+   "total": 51407,
    "rostberattigade": {
     "riksdag": 223629,
     "kommun": 229598,
@@ -1832,31 +1832,40 @@
    },
    "lokaler": [
     {
+     "namn": "Kupolen köpcentrum",
+     "kommun": "Borlänge",
+     "lokalId": "2081011",
+     "total": 5231,
+     "dagarMedRoster": 12,
+     "storstaDag": 491,
+     "andel": 10.2
+    },
+    {
      "namn": "Stadsbiblioteket, Falun",
      "kommun": "Falun",
      "lokalId": "2080009",
      "total": 5187,
      "dagarMedRoster": 10,
      "storstaDag": 655,
-     "andel": 10.3
-    },
-    {
-     "namn": "Kupolen köpcentrum",
-     "kommun": "Borlänge",
-     "lokalId": "2081011",
-     "total": 4950,
-     "dagarMedRoster": 12,
-     "storstaDag": 491,
-     "andel": 9.8
+     "andel": 10.1
     },
     {
      "namn": "Avestaparken",
      "kommun": "Avesta",
      "lokalId": "2084002",
-     "total": 3062,
-     "dagarMedRoster": 11,
+     "total": 3246,
+     "dagarMedRoster": 12,
      "storstaDag": 384,
-     "andel": 6.1
+     "andel": 6.3
+    },
+    {
+     "namn": "Mora bibliotek",
+     "kommun": "Mora",
+     "lokalId": "2062006",
+     "total": 2995,
+     "dagarMedRoster": 12,
+     "storstaDag": 360,
+     "andel": 5.8
     },
     {
      "namn": "Ludvika Folkets Hus",
@@ -1865,22 +1874,13 @@
      "total": 2910,
      "dagarMedRoster": 12,
      "storstaDag": 350,
-     "andel": 5.8
-    },
-    {
-     "namn": "Mora bibliotek",
-     "kommun": "Mora",
-     "lokalId": "2062006",
-     "total": 2899,
-     "dagarMedRoster": 12,
-     "storstaDag": 360,
      "andel": 5.7
     },
     {
      "namn": "Borlänge stadsbibliotek",
      "kommun": "Borlänge",
      "lokalId": "2081007",
-     "total": 2440,
+     "total": 2490,
      "dagarMedRoster": 12,
      "storstaDag": 277,
      "andel": 4.8
@@ -1889,10 +1889,10 @@
      "namn": "Tjädernhuset",
      "kommun": "Hedemora",
      "lokalId": "2083001",
-     "total": 2421,
+     "total": 2434,
      "dagarMedRoster": 12,
      "storstaDag": 324,
-     "andel": 4.8
+     "andel": 4.7
     },
     {
      "namn": "Kulturhuset",
@@ -1907,10 +1907,10 @@
      "namn": "Säters bibliotek",
      "kommun": "Säter",
      "lokalId": "2082004",
-     "total": 1692,
+     "total": 1696,
      "dagarMedRoster": 12,
      "storstaDag": 226,
-     "andel": 3.4
+     "andel": 3.3
     },
     {
      "namn": "Stadshuset Borlänge kommun",
@@ -1919,7 +1919,16 @@
      "total": 1563,
      "dagarMedRoster": 8,
      "storstaDag": 239,
-     "andel": 3.1
+     "andel": 3.0
+    },
+    {
+     "namn": "Kristinegården, Falun",
+     "kommun": "Falun",
+     "lokalId": "2080013",
+     "total": 1513,
+     "dagarMedRoster": 12,
+     "storstaDag": 274,
+     "andel": 2.9
     },
     {
      "namn": "Leksands bibliotek",
@@ -1928,13 +1937,13 @@
      "total": 1506,
      "dagarMedRoster": 10,
      "storstaDag": 188,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Malungs bibliotek",
      "kommun": "Malung-Sälen",
      "lokalId": "2023001",
-     "total": 1470,
+     "total": 1492,
      "dagarMedRoster": 12,
      "storstaDag": 164,
      "andel": 2.9
@@ -1949,15 +1958,6 @@
      "andel": 2.8
     },
     {
-     "namn": "Kristinegården, Falun",
-     "kommun": "Falun",
-     "lokalId": "2080013",
-     "total": 1378,
-     "dagarMedRoster": 12,
-     "storstaDag": 164,
-     "andel": 2.7
-    },
-    {
      "namn": "Tingshuset - Tingssalen",
      "kommun": "Orsa",
      "lokalId": "2034006",
@@ -1970,7 +1970,7 @@
      "namn": "Adelborgssalen, Djurås",
      "kommun": "Gagnef",
      "lokalId": "2026002",
-     "total": 1184,
+     "total": 1189,
      "dagarMedRoster": 9,
      "storstaDag": 195,
      "andel": 2.3
@@ -1988,16 +1988,16 @@
      "namn": "Kommunhuset",
      "kommun": "Leksand",
      "lokalId": "2029002",
-     "total": 702,
+     "total": 724,
      "dagarMedRoster": 10,
-     "storstaDag": 102,
+     "storstaDag": 110,
      "andel": 1.4
     },
     {
      "namn": "Sälens bibliotek",
      "kommun": "Malung-Sälen",
      "lokalId": "2023003",
-     "total": 679,
+     "total": 680,
      "dagarMedRoster": 12,
      "storstaDag": 81,
      "andel": 1.3
@@ -2018,7 +2018,7 @@
      "total": 636,
      "dagarMedRoster": 8,
      "storstaDag": 130,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Krylbo församlingsgård",
@@ -2045,7 +2045,7 @@
      "total": 582,
      "dagarMedRoster": 5,
      "storstaDag": 135,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Bjursås Bibliotek",
@@ -2093,12 +2093,12 @@
      "andel": 0.9
     },
     {
-     "namn": "Församlingshemmet, Dala-Floda",
-     "kommun": "Gagnef",
-     "lokalId": "2026001",
-     "total": 320,
+     "namn": "Fd. biblioteket",
+     "kommun": "Vansbro",
+     "lokalId": "2021001",
+     "total": 329,
      "dagarMedRoster": 3,
-     "storstaDag": 143,
+     "storstaDag": 126,
      "andel": 0.6
     }
    ],

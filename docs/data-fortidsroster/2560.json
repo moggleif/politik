@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-06T17:44+02:00",
+ "senastUppdaterad": "2026-09-07T11:41+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,7 +829,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-06T17:44+02:00",
+   "hamtad": "2026-09-07T11:41+02:00",
    "klart": false,
    "dagar": [
     {
@@ -913,11 +913,11 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 34,
-     "ack": 1406
+     "antal": 105,
+     "ack": 1477
     }
    ],
-   "total": 1406,
+   "total": 1477,
    "rostberattigade": {
     "riksdag": 6010,
     "kommun": 6272,
@@ -938,7 +938,16 @@
      "total": 1118,
      "dagarMedRoster": 8,
      "storstaDag": 166,
-     "andel": 79.5
+     "andel": 75.7
+    },
+    {
+     "namn": "Fluxen, servicehus",
+     "kommun": "Älvsbyn",
+     "lokalId": "2560002",
+     "total": 105,
+     "dagarMedRoster": 1,
+     "storstaDag": 105,
+     "andel": 7.1
     },
     {
      "namn": "Vidsels aktivitetshus",
@@ -947,7 +956,7 @@
      "total": 94,
      "dagarMedRoster": 2,
      "storstaDag": 48,
-     "andel": 6.7
+     "andel": 6.4
     },
     {
      "namn": "Vistträskskolan",
@@ -956,7 +965,7 @@
      "total": 87,
      "dagarMedRoster": 1,
      "storstaDag": 87,
-     "andel": 6.2
+     "andel": 5.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -965,16 +974,7 @@
      "total": 73,
      "dagarMedRoster": 7,
      "storstaDag": 27,
-     "andel": 5.2
-    },
-    {
-     "namn": "Fluxen, servicehus",
-     "kommun": "Älvsbyn",
-     "lokalId": "2560002",
-     "total": 34,
-     "dagarMedRoster": 1,
-     "storstaDag": 34,
-     "andel": 2.4
+     "andel": 4.9
     }
    ],
    "antalLokaler": 5,
