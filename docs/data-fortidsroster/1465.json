@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T19:53+02:00",
+ "senastUppdaterad": "2026-09-08T11:04+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1189,7 +1189,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T19:53+02:00",
+   "hamtad": "2026-09-08T11:04+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1280,11 +1280,11 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 66,
-     "ack": 1634
+     "antal": 243,
+     "ack": 1811
     }
    ],
-   "total": 1634,
+   "total": 1811,
    "rostberattigade": {
     "riksdag": 8057,
     "kommun": 8428,
@@ -1302,10 +1302,19 @@
      "namn": "Svenljunga Bibliotek",
      "kommun": "Svenljunga",
      "lokalId": "1465009",
-     "total": 1392,
+     "total": 1528,
      "dagarMedRoster": 13,
-     "storstaDag": 176,
-     "andel": 85.2
+     "storstaDag": 200,
+     "andel": 84.4
+    },
+    {
+     "namn": "Medborgarhuset, Östra Frölunda",
+     "kommun": "Svenljunga",
+     "lokalId": "1465008",
+     "total": 96,
+     "dagarMedRoster": 2,
+     "storstaDag": 55,
+     "andel": 5.3
     },
     {
      "namn": "Långehall, Överlida",
@@ -1314,16 +1323,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 4.6
-    },
-    {
-     "namn": "Medborgarhuset, Östra Frölunda",
-     "kommun": "Svenljunga",
-     "lokalId": "1465008",
-     "total": 55,
-     "dagarMedRoster": 1,
-     "storstaDag": 55,
-     "andel": 3.4
+     "andel": 4.1
     },
     {
      "namn": "Hillareds skola",
@@ -1332,7 +1332,7 @@
      "total": 45,
      "dagarMedRoster": 1,
      "storstaDag": 45,
-     "andel": 2.8
+     "andel": 2.5
     },
     {
      "namn": "Klockaregården",
@@ -1341,7 +1341,7 @@
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 1.5
+     "andel": 1.3
     },
     {
      "namn": "Skaparverkstaden",
@@ -1350,7 +1350,7 @@
      "total": 16,
      "dagarMedRoster": 1,
      "storstaDag": 16,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1359,7 +1359,7 @@
      "total": 11,
      "dagarMedRoster": 5,
      "storstaDag": 4,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Östrabo",
@@ -1368,7 +1368,7 @@
      "total": 9,
      "dagarMedRoster": 1,
      "storstaDag": 9,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Lysjölid",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T19:53+02:00",
+ "senastUppdaterad": "2026-09-08T11:04+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,7 +1054,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T19:53+02:00",
+   "hamtad": "2026-09-08T11:04+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1117,39 +1117,39 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 223,
-     "ack": 1649
+     "antal": 224,
+     "ack": 1650
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 209,
-     "ack": 1858
+     "ack": 1859
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 94,
-     "ack": 1952
+     "antal": 96,
+     "ack": 1955
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 85,
-     "ack": 2037
+     "ack": 2040
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 181,
-     "ack": 2218
+     "antal": 403,
+     "ack": 2443
     }
    ],
-   "total": 2218,
+   "total": 2443,
    "rostberattigade": {
     "riksdag": 9659,
     "kommun": 9969,
@@ -1167,19 +1167,28 @@
      "namn": "Åre bibliotek",
      "kommun": "Åre",
      "lokalId": "2321001",
-     "total": 1052,
+     "total": 1098,
      "dagarMedRoster": 13,
-     "storstaDag": 118,
-     "andel": 47.4
+     "storstaDag": 124,
+     "andel": 44.9
     },
     {
      "namn": "Biblioteket Järpen",
      "kommun": "Åre",
      "lokalId": "2321005",
-     "total": 790,
+     "total": 908,
      "dagarMedRoster": 9,
-     "storstaDag": 145,
-     "andel": 35.6
+     "storstaDag": 194,
+     "andel": 37.2
+    },
+    {
+     "namn": "Mörsils bibliotek",
+     "kommun": "Åre",
+     "lokalId": "2321003",
+     "total": 174,
+     "dagarMedRoster": 2,
+     "storstaDag": 93,
+     "andel": 7.1
     },
     {
      "namn": "Hallens bibliotek",
@@ -1188,16 +1197,7 @@
      "total": 157,
      "dagarMedRoster": 2,
      "storstaDag": 97,
-     "andel": 7.1
-    },
-    {
-     "namn": "Mörsils bibliotek",
-     "kommun": "Åre",
-     "lokalId": "2321003",
-     "total": 117,
-     "dagarMedRoster": 2,
-     "storstaDag": 93,
-     "andel": 5.3
+     "andel": 6.4
     },
     {
      "namn": "Kalls bibliotek",
@@ -1206,14 +1206,14 @@
      "total": 63,
      "dagarMedRoster": 2,
      "storstaDag": 40,
-     "andel": 2.8
+     "andel": 2.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Åre",
      "lokalId": "2321007",
-     "total": 39,
-     "dagarMedRoster": 3,
+     "total": 43,
+     "dagarMedRoster": 4,
      "storstaDag": 28,
      "andel": 1.8
     },

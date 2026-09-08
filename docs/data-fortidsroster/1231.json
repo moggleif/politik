@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T19:53+02:00",
+ "senastUppdaterad": "2026-09-08T11:04+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -784,7 +784,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T19:53+02:00",
+   "hamtad": "2026-09-08T11:04+02:00",
    "klart": false,
    "dagar": [
     {
@@ -847,32 +847,39 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 297,
-     "ack": 2343
+     "antal": 300,
+     "ack": 2346
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 215,
-     "ack": 2558
+     "ack": 2561
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 333,
-     "ack": 2891
+     "ack": 2894
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 225,
-     "ack": 3116
+     "antal": 267,
+     "ack": 3161
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 139,
+     "ack": 3300
     }
    ],
-   "total": 3116,
+   "total": 3300,
    "rostberattigade": {
     "riksdag": 14149,
     "kommun": 15443,
@@ -890,19 +897,19 @@
      "namn": "Burlöv Center",
      "kommun": "Burlöv",
      "lokalId": "1231005",
-     "total": 1992,
+     "total": 2034,
      "dagarMedRoster": 11,
-     "storstaDag": 261,
-     "andel": 63.9
+     "storstaDag": 267,
+     "andel": 61.6
     },
     {
      "namn": "Arlövs bibliotek",
      "kommun": "Burlöv",
      "lokalId": "1231001",
-     "total": 869,
-     "dagarMedRoster": 10,
-     "storstaDag": 128,
-     "andel": 27.9
+     "total": 1009,
+     "dagarMedRoster": 11,
+     "storstaDag": 139,
+     "andel": 30.6
     },
     {
      "namn": "Tora Vega folkhögskola",
@@ -911,14 +918,14 @@
      "total": 226,
      "dagarMedRoster": 4,
      "storstaDag": 81,
-     "andel": 7.3
+     "andel": 6.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Burlöv",
      "lokalId": "1231006",
-     "total": 29,
-     "dagarMedRoster": 4,
+     "total": 31,
+     "dagarMedRoster": 5,
      "storstaDag": 10,
      "andel": 0.9
     },

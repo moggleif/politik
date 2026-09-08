@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T19:53+02:00",
+ "senastUppdaterad": "2026-09-08T11:04+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,7 +829,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T19:53+02:00",
+   "hamtad": "2026-09-08T11:04+02:00",
    "klart": false,
    "dagar": [
     {
@@ -920,11 +920,11 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 123,
-     "ack": 2275
+     "antal": 486,
+     "ack": 2638
     }
    ],
-   "total": 2275,
+   "total": 2638,
    "rostberattigade": {
     "riksdag": 10607,
     "kommun": 11041,
@@ -942,19 +942,28 @@
      "namn": "Kommunhuset Tomelilla",
      "kommun": "Tomelilla",
      "lokalId": "1270002",
-     "total": 1880,
+     "total": 2084,
      "dagarMedRoster": 11,
      "storstaDag": 480,
-     "andel": 82.6
+     "andel": 79.0
     },
     {
      "namn": "Brösarps skola, gymnastiksalen",
      "kommun": "Tomelilla",
      "lokalId": "1270001",
-     "total": 225,
+     "total": 345,
+     "dagarMedRoster": 3,
+     "storstaDag": 120,
+     "andel": 13.1
+    },
+    {
+     "namn": "Odenslundsskolan, matsalen",
+     "kommun": "Tomelilla",
+     "lokalId": "1270003",
+     "total": 90,
      "dagarMedRoster": 2,
-     "storstaDag": 115,
-     "andel": 9.9
+     "storstaDag": 51,
+     "andel": 3.4
     },
     {
      "namn": "Medborgarhuset, Smedstorp",
@@ -963,16 +972,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 3.3
-    },
-    {
-     "namn": "Odenslundsskolan, matsalen",
-     "kommun": "Tomelilla",
-     "lokalId": "1270003",
-     "total": 51,
-     "dagarMedRoster": 1,
-     "storstaDag": 51,
-     "andel": 2.2
+     "andel": 2.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -981,7 +981,7 @@
      "total": 44,
      "dagarMedRoster": 5,
      "storstaDag": 22,
-     "andel": 1.9
+     "andel": 1.7
     }
    ],
    "antalLokaler": 5,

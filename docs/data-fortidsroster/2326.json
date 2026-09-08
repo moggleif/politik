@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T19:53+02:00",
+ "senastUppdaterad": "2026-09-08T11:04+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T19:53+02:00",
+   "hamtad": "2026-09-08T11:04+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1271,11 +1271,11 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 43,
-     "ack": 1354
+     "antal": 256,
+     "ack": 1567
     }
    ],
-   "total": 1354,
+   "total": 1567,
    "rostberattigade": {
     "riksdag": 5539,
     "kommun": 5708,
@@ -1293,19 +1293,28 @@
      "namn": "Biblioteket i Svenstavik",
      "kommun": "Berg",
      "lokalId": "2326002",
-     "total": 539,
+     "total": 599,
      "dagarMedRoster": 8,
-     "storstaDag": 95,
-     "andel": 39.8
+     "storstaDag": 97,
+     "andel": 38.2
     },
     {
      "namn": "Biblioteket i Myrviken",
      "kommun": "Berg",
      "lokalId": "2326003",
-     "total": 243,
-     "dagarMedRoster": 5,
+     "total": 310,
+     "dagarMedRoster": 6,
      "storstaDag": 70,
-     "andel": 17.9
+     "andel": 19.8
+    },
+    {
+     "namn": "Biblioteket i Rätan",
+     "kommun": "Berg",
+     "lokalId": "2326007",
+     "total": 154,
+     "dagarMedRoster": 4,
+     "storstaDag": 45,
+     "andel": 9.8
     },
     {
      "namn": "Föreninga i Klövsjö",
@@ -1314,25 +1323,16 @@
      "total": 154,
      "dagarMedRoster": 2,
      "storstaDag": 93,
-     "andel": 11.4
-    },
-    {
-     "namn": "Biblioteket i Rätan",
-     "kommun": "Berg",
-     "lokalId": "2326007",
-     "total": 111,
-     "dagarMedRoster": 3,
-     "storstaDag": 45,
-     "andel": 8.2
+     "andel": 9.8
     },
     {
      "namn": "Biblioteket i Hackås",
      "kommun": "Berg",
      "lokalId": "2326009",
-     "total": 105,
-     "dagarMedRoster": 4,
+     "total": 148,
+     "dagarMedRoster": 5,
      "storstaDag": 56,
-     "andel": 7.8
+     "andel": 9.4
     },
     {
      "namn": "Ljungdalens skola",
@@ -1341,7 +1341,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 5.5
+     "andel": 4.8
     },
     {
      "namn": "Storsjö Bygdegård",
@@ -1350,7 +1350,7 @@
      "total": 64,
      "dagarMedRoster": 1,
      "storstaDag": 64,
-     "andel": 4.7
+     "andel": 4.1
     },
     {
      "namn": "Kommunkontoret",
@@ -1359,7 +1359,7 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 2.1
+     "andel": 1.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1368,7 +1368,7 @@
      "total": 11,
      "dagarMedRoster": 2,
      "storstaDag": 6,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Vallmogården",
@@ -1377,7 +1377,7 @@
      "total": 9,
      "dagarMedRoster": 1,
      "storstaDag": 9,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Östgärde",
@@ -1386,7 +1386,7 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Treklövern",

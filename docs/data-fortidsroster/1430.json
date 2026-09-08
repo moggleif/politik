@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T19:53+02:00",
+ "senastUppdaterad": "2026-09-08T11:04+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T19:53+02:00",
+   "hamtad": "2026-09-08T11:04+02:00",
    "klart": false,
    "dagar": [
     {
@@ -879,9 +879,16 @@
      "kvar": 7,
      "antal": 106,
      "ack": 1810
+    },
+    {
+     "datum": "2026-09-07",
+     "veckodag": "mån",
+     "kvar": 6,
+     "antal": 347,
+     "ack": 2157
     }
    ],
-   "total": 1810,
+   "total": 2157,
    "rostberattigade": {
     "riksdag": 7932,
     "kommun": 8228,
@@ -899,10 +906,19 @@
      "namn": "Kommunhuset Forum Munkedal",
      "kommun": "Munkedal",
      "lokalId": "1430001",
-     "total": 1227,
-     "dagarMedRoster": 12,
-     "storstaDag": 157,
-     "andel": 67.8
+     "total": 1455,
+     "dagarMedRoster": 13,
+     "storstaDag": 228,
+     "andel": 67.5
+    },
+    {
+     "namn": "Hällevadsholms Folkets Hus",
+     "kommun": "Munkedal",
+     "lokalId": "1430004",
+     "total": 293,
+     "dagarMedRoster": 6,
+     "storstaDag": 112,
+     "andel": 13.6
     },
     {
      "namn": "Utvecklingscentrum Munkedal (Dingle)",
@@ -911,16 +927,7 @@
      "total": 199,
      "dagarMedRoster": 4,
      "storstaDag": 88,
-     "andel": 11.0
-    },
-    {
-     "namn": "Hällevadsholms Folkets Hus",
-     "kommun": "Munkedal",
-     "lokalId": "1430004",
-     "total": 181,
-     "dagarMedRoster": 5,
-     "storstaDag": 74,
-     "andel": 10.0
+     "andel": 9.2
     },
     {
      "namn": "Bygdegården Hedekas",
@@ -929,16 +936,16 @@
      "total": 175,
      "dagarMedRoster": 4,
      "storstaDag": 85,
-     "andel": 9.7
+     "andel": 8.1
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Munkedal",
      "lokalId": "1430005",
-     "total": 28,
-     "dagarMedRoster": 6,
+     "total": 35,
+     "dagarMedRoster": 7,
      "storstaDag": 12,
-     "andel": 1.5
+     "andel": 1.6
     }
    ],
    "antalLokaler": 5,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-07T19:53+02:00",
+ "senastUppdaterad": "2026-09-08T11:04+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1567,7 +1567,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-07T19:53+02:00",
+   "hamtad": "2026-09-08T11:04+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1658,11 +1658,11 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 426,
-     "ack": 10613
+     "antal": 2068,
+     "ack": 12255
     }
    ],
-   "total": 10613,
+   "total": 12255,
    "rostberattigade": {
     "riksdag": 56257,
     "kommun": 57789,
@@ -1680,64 +1680,73 @@
      "namn": "Kulturhuset Strömmen",
      "kommun": "Kalmar",
      "lokalId": "0880023",
-     "total": 6282,
+     "total": 6800,
      "dagarMedRoster": 13,
-     "storstaDag": 611,
-     "andel": 59.2
+     "storstaDag": 864,
+     "andel": 55.5
     },
     {
      "namn": "Biblioteket Lindsdal",
      "kommun": "Kalmar",
      "lokalId": "0880019",
-     "total": 755,
-     "dagarMedRoster": 5,
-     "storstaDag": 190,
-     "andel": 7.1
+     "total": 1004,
+     "dagarMedRoster": 6,
+     "storstaDag": 249,
+     "andel": 8.2
     },
     {
      "namn": "Biblioteket Bergavik",
      "kommun": "Kalmar",
      "lokalId": "0880005",
-     "total": 686,
+     "total": 876,
      "dagarMedRoster": 6,
-     "storstaDag": 203,
-     "andel": 6.5
+     "storstaDag": 217,
+     "andel": 7.1
     },
     {
      "namn": "Träffpunkt Skogsrået",
      "kommun": "Kalmar",
      "lokalId": "0880021",
-     "total": 482,
-     "dagarMedRoster": 5,
-     "storstaDag": 106,
+     "total": 591,
+     "dagarMedRoster": 6,
+     "storstaDag": 109,
+     "andel": 4.8
+    },
+    {
+     "namn": "Allaktivitetshuset Rockneby",
+     "kommun": "Kalmar",
+     "lokalId": "0880007",
+     "total": 554,
+     "dagarMedRoster": 4,
+     "storstaDag": 197,
      "andel": 4.5
     },
     {
      "namn": "Träffpunkt Stensberg",
      "kommun": "Kalmar",
      "lokalId": "0880022",
-     "total": 453,
+     "total": 553,
      "dagarMedRoster": 4,
      "storstaDag": 151,
-     "andel": 4.3
-    },
-    {
-     "namn": "Allaktivitetshuset Rockneby",
-     "kommun": "Kalmar",
-     "lokalId": "0880007",
-     "total": 357,
-     "dagarMedRoster": 3,
-     "storstaDag": 167,
-     "andel": 3.4
+     "andel": 4.5
     },
     {
      "namn": "Biblioteket Ljungbyholm",
      "kommun": "Kalmar",
      "lokalId": "0880010",
-     "total": 303,
-     "dagarMedRoster": 3,
-     "storstaDag": 125,
-     "andel": 2.9
+     "total": 474,
+     "dagarMedRoster": 4,
+     "storstaDag": 171,
+     "andel": 3.9
+    },
+    {
+     "namn": "Biblioteket Trekanten",
+     "kommun": "Kalmar",
+     "lokalId": "0880008",
+     "total": 334,
+     "dagarMedRoster": 4,
+     "storstaDag": 104,
+     "andel": 2.7
     },
     {
      "namn": "Biblioteket Rinkabyholm",
@@ -1746,7 +1755,7 @@
      "total": 299,
      "dagarMedRoster": 3,
      "storstaDag": 112,
-     "andel": 2.8
+     "andel": 2.4
     },
     {
      "namn": "Biblioteket Hagby",
@@ -1755,7 +1764,7 @@
      "total": 292,
      "dagarMedRoster": 2,
      "storstaDag": 179,
-     "andel": 2.8
+     "andel": 2.4
     },
     {
      "namn": "Träffpunkt Ingelstorpsvägen 1",
@@ -1764,15 +1773,6 @@
      "total": 269,
      "dagarMedRoster": 3,
      "storstaDag": 98,
-     "andel": 2.5
-    },
-    {
-     "namn": "Biblioteket Trekanten",
-     "kommun": "Kalmar",
-     "lokalId": "0880008",
-     "total": 230,
-     "dagarMedRoster": 3,
-     "storstaDag": 92,
      "andel": 2.2
     },
     {
@@ -1782,7 +1782,7 @@
      "total": 109,
      "dagarMedRoster": 2,
      "storstaDag": 75,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Träffpunkt Äringen",
@@ -1791,13 +1791,13 @@
      "total": 62,
      "dagarMedRoster": 2,
      "storstaDag": 47,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kalmar",
      "lokalId": "0880029",
-     "total": 34,
+     "total": 38,
      "dagarMedRoster": 5,
      "storstaDag": 9,
      "andel": 0.3
