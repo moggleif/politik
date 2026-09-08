@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1234,7 +1234,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1327,9 +1327,16 @@
      "kvar": 6,
      "antal": 1091,
      "ack": 7805
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 560,
+     "ack": 8365
     }
    ],
-   "total": 7805,
+   "total": 8365,
    "rostberattigade": {
     "riksdag": 29033,
     "kommun": 29611,
@@ -1347,19 +1354,19 @@
      "namn": "Stadsbiblioteket, Västervik",
      "kommun": "Västervik",
      "lokalId": "0883004",
-     "total": 5453,
-     "dagarMedRoster": 11,
+     "total": 5807,
+     "dagarMedRoster": 12,
      "storstaDag": 713,
-     "andel": 69.9
+     "andel": 69.4
     },
     {
      "namn": "Fritidsgården, Gamleby",
      "kommun": "Västervik",
      "lokalId": "0883006",
-     "total": 1448,
-     "dagarMedRoster": 9,
+     "total": 1612,
+     "dagarMedRoster": 10,
      "storstaDag": 254,
-     "andel": 18.6
+     "andel": 19.3
     },
     {
      "namn": "Ankarsrums bibliotek",
@@ -1368,7 +1375,7 @@
      "total": 446,
      "dagarMedRoster": 6,
      "storstaDag": 124,
-     "andel": 5.7
+     "andel": 5.3
     },
     {
      "namn": "Kommunhuset, Valnämnden",
@@ -1377,7 +1384,7 @@
      "total": 229,
      "dagarMedRoster": 2,
      "storstaDag": 124,
-     "andel": 2.9
+     "andel": 2.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1386,7 +1393,16 @@
      "total": 215,
      "dagarMedRoster": 6,
      "storstaDag": 52,
-     "andel": 2.8
+     "andel": 2.6
+    },
+    {
+     "namn": "Västerviks Gymnasium",
+     "kommun": "Västervik",
+     "lokalId": "0883001",
+     "total": 42,
+     "dagarMedRoster": 1,
+     "storstaDag": 42,
+     "andel": 0.5
     },
     {
      "namn": "Anstalten, Västervik Norra",
@@ -1396,15 +1412,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 14,
      "andel": 0.2
-    },
-    {
-     "namn": "Västerviks Gymnasium",
-     "kommun": "Västervik",
-     "lokalId": "0883001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 7,

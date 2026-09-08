@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1099,7 +1099,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1190,11 +1190,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 242,
-     "ack": 1924
+     "antal": 260,
+     "ack": 1942
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 117,
+     "ack": 2059
     }
    ],
-   "total": 1924,
+   "total": 2059,
    "rostberattigade": {
     "riksdag": 9006,
     "kommun": 9398,
@@ -1212,10 +1219,19 @@
      "namn": "Centralen, Biblioteket",
      "kommun": "Tranemo",
      "lokalId": "1452007",
-     "total": 1659,
-     "dagarMedRoster": 13,
+     "total": 1767,
+     "dagarMedRoster": 14,
      "storstaDag": 188,
-     "andel": 86.2
+     "andel": 85.8
+    },
+    {
+     "namn": "Bokbuss",
+     "kommun": "Tranemo",
+     "lokalId": "1452013",
+     "total": 100,
+     "dagarMedRoster": 6,
+     "storstaDag": 23,
+     "andel": 4.9
     },
     {
      "namn": "Församlingshemmet Länghem",
@@ -1224,16 +1240,16 @@
      "total": 85,
      "dagarMedRoster": 1,
      "storstaDag": 85,
-     "andel": 4.4
+     "andel": 4.1
     },
     {
-     "namn": "Bokbuss",
+     "namn": "Ambulerande röstmottagning",
      "kommun": "Tranemo",
-     "lokalId": "1452013",
-     "total": 82,
-     "dagarMedRoster": 5,
-     "storstaDag": 23,
-     "andel": 4.3
+     "lokalId": "1452012",
+     "total": 55,
+     "dagarMedRoster": 7,
+     "storstaDag": 18,
+     "andel": 2.7
     },
     {
      "namn": "Grimsås bygdegård",
@@ -1242,16 +1258,7 @@
      "total": 52,
      "dagarMedRoster": 1,
      "storstaDag": 52,
-     "andel": 2.7
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Tranemo",
-     "lokalId": "1452012",
-     "total": 46,
-     "dagarMedRoster": 6,
-     "storstaDag": 18,
-     "andel": 2.4
+     "andel": 2.5
     },
     {
      "namn": "Bygdegården Månstad",

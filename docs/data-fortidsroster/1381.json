@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -856,7 +856,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -949,9 +949,16 @@
      "kvar": 6,
      "antal": 655,
      "ack": 5283
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 283,
+     "ack": 5566
     }
    ],
-   "total": 5283,
+   "total": 5566,
    "rostberattigade": {
     "riksdag": 20525,
     "kommun": 21154,
@@ -969,8 +976,8 @@
      "namn": "Mellby Center",
      "kommun": "Laholm",
      "lokalId": "1381001",
-     "total": 3089,
-     "dagarMedRoster": 13,
+     "total": 3255,
+     "dagarMedRoster": 14,
      "storstaDag": 321,
      "andel": 58.5
     },
@@ -978,10 +985,10 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Laholm",
      "lokalId": "1381003",
-     "total": 1832,
-     "dagarMedRoster": 11,
+     "total": 1949,
+     "dagarMedRoster": 12,
      "storstaDag": 233,
-     "andel": 34.7
+     "andel": 35.0
     },
     {
      "namn": "Knäreds bibliotek",
@@ -990,7 +997,7 @@
      "total": 285,
      "dagarMedRoster": 4,
      "storstaDag": 107,
-     "andel": 5.4
+     "andel": 5.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -999,7 +1006,7 @@
      "total": 77,
      "dagarMedRoster": 7,
      "storstaDag": 24,
-     "andel": 1.5
+     "andel": 1.4
     }
    ],
    "antalLokaler": 4,

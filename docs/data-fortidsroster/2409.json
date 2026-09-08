@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -712,7 +712,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -803,11 +803,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 156,
-     "ack": 1137
+     "antal": 158,
+     "ack": 1139
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 86,
+     "ack": 1225
     }
    ],
-   "total": 1137,
+   "total": 1225,
    "rostberattigade": {
     "riksdag": 5168,
     "kommun": 5361,
@@ -825,19 +832,19 @@
      "namn": "Centrumhuset, Diamanten Förtidsröstn",
      "kommun": "Robertsfors",
      "lokalId": "2409005",
-     "total": 952,
-     "dagarMedRoster": 13,
+     "total": 1029,
+     "dagarMedRoster": 14,
      "storstaDag": 114,
-     "andel": 83.7
+     "andel": 84.0
     },
     {
      "namn": "Bygdeå, Biblioteket",
      "kommun": "Robertsfors",
      "lokalId": "2409008",
-     "total": 75,
+     "total": 77,
      "dagarMedRoster": 1,
-     "storstaDag": 75,
-     "andel": 6.6
+     "storstaDag": 77,
+     "andel": 6.3
     },
     {
      "namn": "Ånäset, Biblioteket",
@@ -846,7 +853,16 @@
      "total": 69,
      "dagarMedRoster": 1,
      "storstaDag": 69,
-     "andel": 6.1
+     "andel": 5.6
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Robertsfors",
+     "lokalId": "2409006",
+     "total": 26,
+     "dagarMedRoster": 4,
+     "storstaDag": 14,
+     "andel": 2.1
     },
     {
      "namn": "Överklinten Folkets hus",
@@ -855,16 +871,7 @@
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 2.1
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Robertsfors",
-     "lokalId": "2409006",
-     "total": 17,
-     "dagarMedRoster": 3,
-     "storstaDag": 14,
-     "andel": 1.5
+     "andel": 2.0
     }
    ],
    "antalLokaler": 5,

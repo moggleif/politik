@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1252,7 +1252,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1343,11 +1343,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 2956,
-     "ack": 24804
+     "antal": 2960,
+     "ack": 24808
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 1280,
+     "ack": 26088
     }
    ],
-   "total": 24804,
+   "total": 26088,
    "rostberattigade": {
     "riksdag": 86834,
     "kommun": 90596,
@@ -1365,26 +1372,26 @@
      "namn": "Stora torgets valstuga",
      "kommun": "Borås",
      "lokalId": "1490008",
-     "total": 5172,
-     "dagarMedRoster": 13,
-     "storstaDag": 504,
-     "andel": 20.9
+     "total": 5397,
+     "dagarMedRoster": 14,
+     "storstaDag": 508,
+     "andel": 20.7
     },
     {
      "namn": "Knallelands valstuga",
      "kommun": "Borås",
      "lokalId": "1490013",
-     "total": 4443,
-     "dagarMedRoster": 13,
+     "total": 4635,
+     "dagarMedRoster": 14,
      "storstaDag": 473,
-     "andel": 17.9
+     "andel": 17.8
     },
     {
      "namn": "Stadsbiblioteket",
      "kommun": "Borås",
      "lokalId": "1490005",
-     "total": 3284,
-     "dagarMedRoster": 13,
+     "total": 3447,
+     "dagarMedRoster": 14,
      "storstaDag": 392,
      "andel": 13.2
     },
@@ -1392,8 +1399,8 @@
      "namn": "Equmeniakyrkan i Fristad",
      "kommun": "Borås",
      "lokalId": "1490004",
-     "total": 1487,
-     "dagarMedRoster": 11,
+     "total": 1572,
+     "dagarMedRoster": 12,
      "storstaDag": 182,
      "andel": 6.0
     },
@@ -1401,17 +1408,17 @@
      "namn": "Mobil förtidsröstningslokal, valbuss",
      "kommun": "Borås",
      "lokalId": "1490017",
-     "total": 1401,
-     "dagarMedRoster": 13,
+     "total": 1447,
+     "dagarMedRoster": 14,
      "storstaDag": 140,
-     "andel": 5.6
+     "andel": 5.5
     },
     {
      "namn": "Dalsjöfors folkets park",
      "kommun": "Borås",
      "lokalId": "1490010",
-     "total": 1205,
-     "dagarMedRoster": 12,
+     "total": 1268,
+     "dagarMedRoster": 13,
      "storstaDag": 175,
      "andel": 4.9
     },
@@ -1419,26 +1426,35 @@
      "namn": "Göta, Boråshallen, Rotundan",
      "kommun": "Borås",
      "lokalId": "1490007",
-     "total": 899,
-     "dagarMedRoster": 9,
+     "total": 954,
+     "dagarMedRoster": 10,
      "storstaDag": 158,
-     "andel": 3.6
+     "andel": 3.7
     },
     {
      "namn": "Hultahuset",
      "kommun": "Borås",
      "lokalId": "1490015",
-     "total": 774,
-     "dagarMedRoster": 9,
+     "total": 829,
+     "dagarMedRoster": 10,
      "storstaDag": 105,
-     "andel": 3.1
+     "andel": 3.2
+    },
+    {
+     "namn": "Södra Älvsborgs Sjukhus",
+     "kommun": "Borås",
+     "lokalId": "1490012",
+     "total": 828,
+     "dagarMedRoster": 10,
+     "storstaDag": 123,
+     "andel": 3.2
     },
     {
      "namn": "Sjöbohuset",
      "kommun": "Borås",
      "lokalId": "1490011",
-     "total": 770,
-     "dagarMedRoster": 10,
+     "total": 812,
+     "dagarMedRoster": 11,
      "storstaDag": 108,
      "andel": 3.1
     },
@@ -1446,35 +1462,26 @@
      "namn": "Sandared, Simklubben SK70",
      "kommun": "Borås",
      "lokalId": "1490030",
-     "total": 753,
-     "dagarMedRoster": 11,
+     "total": 783,
+     "dagarMedRoster": 12,
      "storstaDag": 94,
-     "andel": 3.0
-    },
-    {
-     "namn": "Södra Älvsborgs Sjukhus",
-     "kommun": "Borås",
-     "lokalId": "1490012",
-     "total": 751,
-     "dagarMedRoster": 9,
-     "storstaDag": 123,
      "andel": 3.0
     },
     {
      "namn": "Viskafors bibliotek",
      "kommun": "Borås",
      "lokalId": "1490006",
-     "total": 700,
-     "dagarMedRoster": 11,
+     "total": 764,
+     "dagarMedRoster": 12,
      "storstaDag": 85,
-     "andel": 2.8
+     "andel": 2.9
     },
     {
      "namn": "Hässlehuset, föreningslokalen",
      "kommun": "Borås",
      "lokalId": "1490014",
-     "total": 672,
-     "dagarMedRoster": 9,
+     "total": 714,
+     "dagarMedRoster": 10,
      "storstaDag": 140,
      "andel": 2.7
     },
@@ -1482,8 +1489,8 @@
      "namn": "Norrbyhuset",
      "kommun": "Borås",
      "lokalId": "1490001",
-     "total": 670,
-     "dagarMedRoster": 9,
+     "total": 706,
+     "dagarMedRoster": 10,
      "storstaDag": 100,
      "andel": 2.7
     },
@@ -1491,8 +1498,8 @@
      "namn": "Sjömarkenkyrkan, bottenvåningen",
      "kommun": "Borås",
      "lokalId": "1490003",
-     "total": 647,
-     "dagarMedRoster": 11,
+     "total": 687,
+     "dagarMedRoster": 12,
      "storstaDag": 94,
      "andel": 2.6
     },
@@ -1500,10 +1507,10 @@
      "namn": "Stadshuset, receptionen",
      "kommun": "Borås",
      "lokalId": "1490009",
-     "total": 499,
-     "dagarMedRoster": 11,
+     "total": 538,
+     "dagarMedRoster": 12,
      "storstaDag": 77,
-     "andel": 2.0
+     "andel": 2.1
     },
     {
      "namn": "Träffpunkt Simonsland",
@@ -1558,6 +1565,15 @@
      "dagarMedRoster": 1,
      "storstaDag": 40,
      "andel": 0.2
+    },
+    {
+     "namn": "Häkte Sandgärdsgatan",
+     "kommun": "Borås",
+     "lokalId": "1490018",
+     "total": 30,
+     "dagarMedRoster": 1,
+     "storstaDag": 30,
+     "andel": 0.1
     },
     {
      "namn": "Klintesväng 2-8",
@@ -1620,7 +1636,7 @@
      "total": 13,
      "dagarMedRoster": 1,
      "storstaDag": 13,
-     "andel": 0.1
+     "andel": 0.0
     },
     {
      "namn": "Söderkullagatan 64-66",
@@ -1653,15 +1669,6 @@
      "namn": "Häkte Brodal",
      "kommun": "Borås",
      "lokalId": "1490031",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Häkte Sandgärdsgatan",
-     "kommun": "Borås",
-     "lokalId": "1490018",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

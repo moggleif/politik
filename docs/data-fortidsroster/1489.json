@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1093,9 +1093,16 @@
      "kvar": 6,
      "antal": 1160,
      "ack": 8129
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 497,
+     "ack": 8626
     }
    ],
-   "total": 8129,
+   "total": 8626,
    "rostberattigade": {
     "riksdag": 33154,
     "kommun": 33688,
@@ -1110,21 +1117,21 @@
    },
    "lokaler": [
     {
-     "namn": "Kommunhuset",
-     "kommun": "Alingsås",
-     "lokalId": "1489003",
-     "total": 3559,
-     "dagarMedRoster": 13,
-     "storstaDag": 507,
-     "andel": 43.8
-    },
-    {
      "namn": "Alingsås kulturhus",
      "kommun": "Alingsås",
      "lokalId": "1489002",
-     "total": 3505,
-     "dagarMedRoster": 7,
+     "total": 3831,
+     "dagarMedRoster": 8,
      "storstaDag": 648,
+     "andel": 44.4
+    },
+    {
+     "namn": "Kommunhuset",
+     "kommun": "Alingsås",
+     "lokalId": "1489003",
+     "total": 3720,
+     "dagarMedRoster": 14,
+     "storstaDag": 507,
      "andel": 43.1
     },
     {
@@ -1134,14 +1141,14 @@
      "total": 936,
      "dagarMedRoster": 7,
      "storstaDag": 214,
-     "andel": 11.5
+     "andel": 10.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Alingsås",
      "lokalId": "1489004",
-     "total": 129,
-     "dagarMedRoster": 9,
+     "total": 139,
+     "dagarMedRoster": 10,
      "storstaDag": 44,
      "andel": 1.6
     },

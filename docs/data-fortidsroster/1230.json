@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -847,7 +847,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -940,9 +940,16 @@
      "kvar": 6,
      "antal": 623,
      "ack": 4138
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 193,
+     "ack": 4331
     }
    ],
-   "total": 4138,
+   "total": 4331,
    "rostberattigade": {
     "riksdag": 19897,
     "kommun": 20418,
@@ -960,10 +967,10 @@
      "namn": "Medborgarhuset Staffanstorp",
      "kommun": "Staffanstorp",
      "lokalId": "1230002",
-     "total": 3169,
-     "dagarMedRoster": 13,
+     "total": 3362,
+     "dagarMedRoster": 14,
      "storstaDag": 422,
-     "andel": 76.6
+     "andel": 77.6
     },
     {
      "namn": "Hjärups bibliotek",
@@ -972,7 +979,7 @@
      "total": 852,
      "dagarMedRoster": 11,
      "storstaDag": 194,
-     "andel": 20.6
+     "andel": 19.7
     },
     {
      "namn": "Villa Vikhem",
@@ -999,7 +1006,7 @@
      "total": 23,
      "dagarMedRoster": 1,
      "storstaDag": 23,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Villa Roos Park",
@@ -1008,7 +1015,7 @@
      "total": 23,
      "dagarMedRoster": 1,
      "storstaDag": 23,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1017,7 +1024,7 @@
      "total": 15,
      "dagarMedRoster": 4,
      "storstaDag": 7,
-     "andel": 0.4
+     "andel": 0.3
     }
    ],
    "antalLokaler": 7,

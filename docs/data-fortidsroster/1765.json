@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1003,9 +1003,16 @@
      "kvar": 6,
      "antal": 287,
      "ack": 1800
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 134,
+     "ack": 1934
     }
    ],
-   "total": 1800,
+   "total": 1934,
    "rostberattigade": {
     "riksdag": 6906,
     "kommun": 7911,
@@ -1023,10 +1030,10 @@
      "namn": "Biblioteket Årjäng",
      "kommun": "Årjäng",
      "lokalId": "1765002",
-     "total": 1255,
-     "dagarMedRoster": 11,
+     "total": 1371,
+     "dagarMedRoster": 12,
      "storstaDag": 172,
-     "andel": 69.7
+     "andel": 70.9
     },
     {
      "namn": "Biblioteket Töcksfors",
@@ -1035,16 +1042,16 @@
      "total": 545,
      "dagarMedRoster": 6,
      "storstaDag": 121,
-     "andel": 30.3
+     "andel": 28.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Årjäng",
      "lokalId": "1765010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 18,
+     "dagarMedRoster": 1,
+     "storstaDag": 18,
+     "andel": 0.9
     },
     {
      "namn": "Böns föredetta skola, Östervallskog",

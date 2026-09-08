@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,7 +919,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1010,11 +1010,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 360,
-     "ack": 3036
+     "antal": 362,
+     "ack": 3038
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 194,
+     "ack": 3232
     }
    ],
-   "total": 3036,
+   "total": 3232,
    "rostberattigade": {
     "riksdag": 14965,
     "kommun": 15603,
@@ -1032,19 +1039,19 @@
      "namn": "Sjöbo bibliotek",
      "kommun": "Sjöbo",
      "lokalId": "1265001",
-     "total": 2537,
-     "dagarMedRoster": 13,
-     "storstaDag": 308,
-     "andel": 83.6
+     "total": 2680,
+     "dagarMedRoster": 14,
+     "storstaDag": 310,
+     "andel": 82.9
     },
     {
      "namn": "Blentarp bibliotek",
      "kommun": "Sjöbo",
      "lokalId": "1265002",
-     "total": 205,
-     "dagarMedRoster": 3,
+     "total": 244,
+     "dagarMedRoster": 4,
      "storstaDag": 82,
-     "andel": 6.8
+     "andel": 7.5
     },
     {
      "namn": "Lövestad bibliotek",
@@ -1053,16 +1060,16 @@
      "total": 148,
      "dagarMedRoster": 4,
      "storstaDag": 52,
-     "andel": 4.9
+     "andel": 4.6
     },
     {
      "namn": "Vollsjö bibliotek",
      "kommun": "Sjöbo",
      "lokalId": "1265003",
-     "total": 114,
-     "dagarMedRoster": 3,
+     "total": 128,
+     "dagarMedRoster": 4,
      "storstaDag": 42,
-     "andel": 3.8
+     "andel": 4.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1071,7 +1078,7 @@
      "total": 32,
      "dagarMedRoster": 3,
      "storstaDag": 14,
-     "andel": 1.1
+     "andel": 1.0
     }
    ],
    "antalLokaler": 5,

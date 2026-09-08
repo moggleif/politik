@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -814,9 +814,16 @@
      "kvar": 6,
      "antal": 370,
      "ack": 3238
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 166,
+     "ack": 3404
     }
    ],
-   "total": 3238,
+   "total": 3404,
    "rostberattigade": {
     "riksdag": 9407,
     "kommun": 10687,
@@ -834,19 +841,19 @@
      "namn": "Pilen 5 ( sjukhusfastigheten)",
      "kommun": "Strömstad",
      "lokalId": "1486001",
-     "total": 3228,
-     "dagarMedRoster": 13,
+     "total": 3386,
+     "dagarMedRoster": 14,
      "storstaDag": 370,
-     "andel": 99.7
+     "andel": 99.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Strömstad",
      "lokalId": "1486003",
-     "total": 10,
-     "dagarMedRoster": 1,
+     "total": 18,
+     "dagarMedRoster": 2,
      "storstaDag": 10,
-     "andel": 0.3
+     "andel": 0.5
     },
     {
      "namn": "Kosters Sportklubb",

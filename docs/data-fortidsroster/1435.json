@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -892,7 +892,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -985,9 +985,16 @@
      "kvar": 6,
      "antal": 429,
      "ack": 2717
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 184,
+     "ack": 2901
     }
    ],
-   "total": 2717,
+   "total": 2901,
    "rostberattigade": {
     "riksdag": 10198,
     "kommun": 10450,
@@ -1005,10 +1012,10 @@
      "namn": "Tanums bygdegård",
      "kommun": "Tanum",
      "lokalId": "1435006",
-     "total": 1829,
-     "dagarMedRoster": 13,
+     "total": 1900,
+     "dagarMedRoster": 14,
      "storstaDag": 221,
-     "andel": 67.3
+     "andel": 65.5
     },
     {
      "namn": "Folkets hus,  Hamburgsund",
@@ -1017,7 +1024,16 @@
      "total": 420,
      "dagarMedRoster": 2,
      "storstaDag": 237,
-     "andel": 15.5
+     "andel": 14.5
+    },
+    {
+     "namn": "Fjällbacka församlingshem",
+     "kommun": "Tanum",
+     "lokalId": "1435005",
+     "total": 259,
+     "dagarMedRoster": 3,
+     "storstaDag": 131,
+     "andel": 8.9
     },
     {
      "namn": "Charlottenlund (Lunden)",
@@ -1026,16 +1042,7 @@
      "total": 194,
      "dagarMedRoster": 1,
      "storstaDag": 194,
-     "andel": 7.1
-    },
-    {
-     "namn": "Fjällbacka församlingshem",
-     "kommun": "Tanum",
-     "lokalId": "1435005",
-     "total": 151,
-     "dagarMedRoster": 2,
-     "storstaDag": 131,
-     "andel": 5.6
+     "andel": 6.7
     },
     {
      "namn": "Bullaregården",
@@ -1044,16 +1051,16 @@
      "total": 65,
      "dagarMedRoster": 1,
      "storstaDag": 65,
-     "andel": 2.4
+     "andel": 2.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Tanum",
      "lokalId": "1435007",
-     "total": 58,
-     "dagarMedRoster": 7,
+     "total": 63,
+     "dagarMedRoster": 8,
      "storstaDag": 27,
-     "andel": 2.1
+     "andel": 2.2
     },
     {
      "namn": "Kommunhuset Tanumshede",

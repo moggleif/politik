@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -808,60 +808,67 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 327,
-     "ack": 1168
+     "antal": 338,
+     "ack": 1179
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 196,
-     "ack": 1364
+     "ack": 1375
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 359,
-     "ack": 1723
+     "ack": 1734
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 351,
-     "ack": 2074
+     "ack": 2085
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 246,
-     "ack": 2320
+     "antal": 254,
+     "ack": 2339
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 140,
-     "ack": 2460
+     "ack": 2479
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 142,
-     "ack": 2602
+     "ack": 2621
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 366,
-     "ack": 2968
+     "ack": 2987
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 164,
+     "ack": 3151
     }
    ],
-   "total": 2968,
+   "total": 3151,
    "rostberattigade": {
     "riksdag": 11477,
     "kommun": 12054,
@@ -879,28 +886,28 @@
      "namn": "Medborgarhuset",
      "kommun": "Säffle",
      "lokalId": "1785002",
-     "total": 2825,
-     "dagarMedRoster": 13,
+     "total": 2974,
+     "dagarMedRoster": 14,
      "storstaDag": 366,
-     "andel": 95.2
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Säffle",
-     "lokalId": "1785005",
-     "total": 80,
-     "dagarMedRoster": 2,
-     "storstaDag": 40,
-     "andel": 2.7
+     "andel": 94.4
     },
     {
      "namn": "Biblioteksbussen",
      "kommun": "Säffle",
      "lokalId": "1785001",
-     "total": 63,
-     "dagarMedRoster": 2,
-     "storstaDag": 41,
-     "andel": 2.1
+     "total": 94,
+     "dagarMedRoster": 3,
+     "storstaDag": 52,
+     "andel": 3.0
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Säffle",
+     "lokalId": "1785005",
+     "total": 83,
+     "dagarMedRoster": 3,
+     "storstaDag": 40,
+     "andel": 2.6
     },
     {
      "namn": "Stadshuset",

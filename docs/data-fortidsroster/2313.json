@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1225,7 +1225,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1309,18 +1309,25 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 240,
-     "ack": 3038
+     "antal": 266,
+     "ack": 3064
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 384,
-     "ack": 3422
+     "ack": 3448
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 137,
+     "ack": 3585
     }
    ],
-   "total": 3422,
+   "total": 3585,
    "rostberattigade": {
     "riksdag": 8508,
     "kommun": 8953,
@@ -1338,19 +1345,19 @@
      "namn": "Folkets hus - Strömsund",
      "kommun": "Strömsund",
      "lokalId": "2313019",
-     "total": 1870,
-     "dagarMedRoster": 13,
+     "total": 1968,
+     "dagarMedRoster": 14,
      "storstaDag": 229,
-     "andel": 54.6
+     "andel": 54.9
     },
     {
      "namn": "Gamla lokalkontoret i Hammerdal",
      "kommun": "Strömsund",
      "lokalId": "2313010",
-     "total": 484,
-     "dagarMedRoster": 9,
+     "total": 511,
+     "dagarMedRoster": 10,
      "storstaDag": 75,
-     "andel": 14.1
+     "andel": 14.3
     },
     {
      "namn": "Föreningshuset Hoting",
@@ -1359,7 +1366,7 @@
      "total": 248,
      "dagarMedRoster": 6,
      "storstaDag": 50,
-     "andel": 7.2
+     "andel": 6.9
     },
     {
      "namn": "Biblioteket Backe",
@@ -1368,7 +1375,16 @@
      "total": 169,
      "dagarMedRoster": 6,
      "storstaDag": 39,
-     "andel": 4.9
+     "andel": 4.7
+    },
+    {
+     "namn": "Flottaren - Rossön",
+     "kommun": "Strömsund",
+     "lokalId": "2313020",
+     "total": 150,
+     "dagarMedRoster": 5,
+     "storstaDag": 42,
+     "andel": 4.2
     },
     {
      "namn": "Biblioteket Gäddede",
@@ -1377,16 +1393,7 @@
      "total": 138,
      "dagarMedRoster": 6,
      "storstaDag": 31,
-     "andel": 4.0
-    },
-    {
-     "namn": "Flottaren - Rossön",
-     "kommun": "Strömsund",
-     "lokalId": "2313020",
-     "total": 138,
-     "dagarMedRoster": 4,
-     "storstaDag": 42,
-     "andel": 4.0
+     "andel": 3.8
     },
     {
      "namn": "Mittpunkt Norråker",
@@ -1395,7 +1402,7 @@
      "total": 122,
      "dagarMedRoster": 2,
      "storstaDag": 78,
-     "andel": 3.6
+     "andel": 3.4
     },
     {
      "namn": "Tåsjögården",
@@ -1404,7 +1411,7 @@
      "total": 72,
      "dagarMedRoster": 3,
      "storstaDag": 31,
-     "andel": 2.1
+     "andel": 2.0
     },
     {
      "namn": "Strömbacka/Granbacken",
@@ -1413,7 +1420,7 @@
      "total": 40,
      "dagarMedRoster": 1,
      "storstaDag": 40,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Församlingshemmet - Kyrktåsjö",
@@ -1432,6 +1439,15 @@
      "dagarMedRoster": 1,
      "storstaDag": 29,
      "andel": 0.8
+    },
+    {
+     "namn": "Forsgården/Levinsgården",
+     "kommun": "Strömsund",
+     "lokalId": "2313008",
+     "total": 26,
+     "dagarMedRoster": 1,
+     "storstaDag": 26,
+     "andel": 0.7
     },
     {
      "namn": "Solbackens sjukhem",
@@ -1458,7 +1474,7 @@
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Brismarksgården",
@@ -1482,15 +1498,6 @@
      "namn": "Folkets hus - Stora Blåsjön",
      "kommun": "Strömsund",
      "lokalId": "2313017",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Forsgården/Levinsgården",
-     "kommun": "Strömsund",
-     "lokalId": "2313008",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

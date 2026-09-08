@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1345,81 +1345,88 @@
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 440,
-     "ack": 1627
+     "antal": 441,
+     "ack": 1628
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
-     "antal": 265,
-     "ack": 1892
+     "antal": 268,
+     "ack": 1896
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 511,
-     "ack": 2403
+     "ack": 2407
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 878,
-     "ack": 3281
+     "ack": 3285
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 1073,
-     "ack": 4354
+     "antal": 1075,
+     "ack": 4360
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 1024,
-     "ack": 5378
+     "antal": 1026,
+     "ack": 5386
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1391,
-     "ack": 6769
+     "antal": 1451,
+     "ack": 6837
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 1054,
-     "ack": 7823
+     "antal": 1057,
+     "ack": 7894
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 701,
-     "ack": 8524
+     "antal": 702,
+     "ack": 8596
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 652,
-     "ack": 9176
+     "antal": 657,
+     "ack": 9253
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1389,
-     "ack": 10565
+     "antal": 1390,
+     "ack": 10643
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 498,
+     "ack": 11141
     }
    ],
-   "total": 10565,
+   "total": 11141,
    "rostberattigade": {
     "riksdag": 43542,
     "kommun": 44347,
@@ -1437,10 +1444,10 @@
      "namn": "Arkenbiblioteket",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284015",
-     "total": 4535,
-     "dagarMedRoster": 11,
-     "storstaDag": 759,
-     "andel": 42.9
+     "total": 4855,
+     "dagarMedRoster": 12,
+     "storstaDag": 760,
+     "andel": 43.6
     },
     {
      "namn": "Gullänget, Folkets hus Gnistan",
@@ -1449,25 +1456,34 @@
      "total": 1782,
      "dagarMedRoster": 6,
      "storstaDag": 452,
-     "andel": 16.9
+     "andel": 16.0
     },
     {
      "namn": "Själevads församlingshem",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284005",
-     "total": 644,
+     "total": 703,
      "dagarMedRoster": 5,
      "storstaDag": 173,
-     "andel": 6.1
+     "andel": 6.3
+    },
+    {
+     "namn": "Domsjö bruksgården",
+     "kommun": "Örnsköldsvik",
+     "lokalId": "2284016",
+     "total": 596,
+     "dagarMedRoster": 4,
+     "storstaDag": 157,
+     "andel": 5.3
     },
     {
      "namn": "Bjästa entrébyggnad",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284001",
-     "total": 568,
+     "total": 573,
      "dagarMedRoster": 3,
      "storstaDag": 205,
-     "andel": 5.4
+     "andel": 5.1
     },
     {
      "namn": "Husumgården",
@@ -1476,7 +1492,7 @@
      "total": 513,
      "dagarMedRoster": 4,
      "storstaDag": 142,
-     "andel": 4.9
+     "andel": 4.6
     },
     {
      "namn": "Sörlidens församlingsgård",
@@ -1485,16 +1501,7 @@
      "total": 487,
      "dagarMedRoster": 6,
      "storstaDag": 112,
-     "andel": 4.6
-    },
-    {
-     "namn": "Domsjö bruksgården",
-     "kommun": "Örnsköldsvik",
-     "lokalId": "2284016",
-     "total": 443,
-     "dagarMedRoster": 3,
-     "storstaDag": 157,
-     "andel": 4.2
+     "andel": 4.4
     },
     {
      "namn": "Anundsjö församlingsgård",
@@ -1503,25 +1510,25 @@
      "total": 391,
      "dagarMedRoster": 4,
      "storstaDag": 144,
-     "andel": 3.7
-    },
-    {
-     "namn": "Köpmanholmen, Ringarbönninga",
-     "kommun": "Örnsköldsvik",
-     "lokalId": "2284003",
-     "total": 256,
-     "dagarMedRoster": 2,
-     "storstaDag": 131,
-     "andel": 2.4
+     "andel": 3.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284019",
-     "total": 255,
-     "dagarMedRoster": 9,
+     "total": 293,
+     "dagarMedRoster": 10,
      "storstaDag": 68,
-     "andel": 2.4
+     "andel": 2.6
+    },
+    {
+     "namn": "Köpmanholmen, Ringarbönninga",
+     "kommun": "Örnsköldsvik",
+     "lokalId": "2284003",
+     "total": 257,
+     "dagarMedRoster": 2,
+     "storstaDag": 132,
+     "andel": 2.3
     },
     {
      "namn": "Mellansels Bad & Fritid",
@@ -1530,7 +1537,7 @@
      "total": 149,
      "dagarMedRoster": 2,
      "storstaDag": 98,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Sidensjö församlingshem",
@@ -1539,7 +1546,7 @@
      "total": 135,
      "dagarMedRoster": 2,
      "storstaDag": 90,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Trehörningsjö Medborgarhus",
@@ -1548,7 +1555,7 @@
      "total": 128,
      "dagarMedRoster": 1,
      "storstaDag": 128,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Björnahallen",
@@ -1557,7 +1564,7 @@
      "total": 105,
      "dagarMedRoster": 2,
      "storstaDag": 95,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Skorpeds församlingshem",
@@ -1566,7 +1573,7 @@
      "total": 91,
      "dagarMedRoster": 1,
      "storstaDag": 91,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Gideå församlingshem",
@@ -1575,7 +1582,7 @@
      "total": 83,
      "dagarMedRoster": 1,
      "storstaDag": 83,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Nolaskolan (valdagen)",

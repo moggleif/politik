@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -5482,7 +5482,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -5517,67 +5517,74 @@
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 10325,
-     "ack": 65876
+     "antal": 10326,
+     "ack": 65877
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 16875,
-     "ack": 82751
+     "ack": 82752
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 15678,
-     "ack": 98429
+     "antal": 15679,
+     "ack": 98431
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 18233,
-     "ack": 116662
+     "antal": 18239,
+     "ack": 116670
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 17056,
-     "ack": 133718
+     "antal": 17067,
+     "ack": 133737
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 16210,
-     "ack": 149928
+     "antal": 16237,
+     "ack": 149974
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 13348,
-     "ack": 163276
+     "antal": 13351,
+     "ack": 163325
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 15242,
-     "ack": 178518
+     "antal": 15267,
+     "ack": 178592
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 24142,
-     "ack": 202660
+     "ack": 202734
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 9217,
+     "ack": 211951
     }
    ],
-   "total": 202660,
+   "total": 211951,
    "rostberattigade": {
     "riksdag": 764889,
     "kommun": 802366,
@@ -5595,8 +5602,8 @@
      "namn": "Odenplan",
      "kommun": "Stockholm",
      "lokalId": "0180013",
-     "total": 10768,
-     "dagarMedRoster": 13,
+     "total": 11215,
+     "dagarMedRoster": 14,
      "storstaDag": 1289,
      "andel": 5.3
     },
@@ -5604,35 +5611,35 @@
      "namn": "Liljeholmstorget",
      "kommun": "Stockholm",
      "lokalId": "0180038",
-     "total": 8784,
-     "dagarMedRoster": 13,
+     "total": 9211,
+     "dagarMedRoster": 14,
      "storstaDag": 968,
-     "andel": 4.3
-    },
-    {
-     "namn": "Medborgarhuset",
-     "kommun": "Stockholm",
-     "lokalId": "0180028",
-     "total": 8755,
-     "dagarMedRoster": 13,
-     "storstaDag": 1099,
      "andel": 4.3
     },
     {
      "namn": "Stockholms central, Centralhallen",
      "kommun": "Stockholm",
      "lokalId": "0180023",
-     "total": 8610,
-     "dagarMedRoster": 13,
+     "total": 9172,
+     "dagarMedRoster": 14,
      "storstaDag": 1032,
-     "andel": 4.2
+     "andel": 4.3
+    },
+    {
+     "namn": "Medborgarhuset",
+     "kommun": "Stockholm",
+     "lokalId": "0180028",
+     "total": 9130,
+     "dagarMedRoster": 14,
+     "storstaDag": 1099,
+     "andel": 4.3
     },
     {
      "namn": "SKHLM-Skärholmens centrum",
      "kommun": "Stockholm",
      "lokalId": "0180020",
-     "total": 7695,
-     "dagarMedRoster": 13,
+     "total": 7964,
+     "dagarMedRoster": 14,
      "storstaDag": 724,
      "andel": 3.8
     },
@@ -5640,8 +5647,8 @@
      "namn": "Farsta bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180007",
-     "total": 7583,
-     "dagarMedRoster": 13,
+     "total": 7760,
+     "dagarMedRoster": 14,
      "storstaDag": 825,
      "andel": 3.7
     },
@@ -5649,17 +5656,17 @@
      "namn": "Östermalms bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180011",
-     "total": 7104,
-     "dagarMedRoster": 13,
+     "total": 7298,
+     "dagarMedRoster": 14,
      "storstaDag": 890,
-     "andel": 3.5
+     "andel": 3.4
     },
     {
      "namn": "Humlegården",
      "kommun": "Stockholm",
      "lokalId": "0180018",
-     "total": 6655,
-     "dagarMedRoster": 13,
+     "total": 7058,
+     "dagarMedRoster": 14,
      "storstaDag": 864,
      "andel": 3.3
     },
@@ -5667,8 +5674,8 @@
      "namn": "Mariatorget",
      "kommun": "Stockholm",
      "lokalId": "0180030",
-     "total": 6374,
-     "dagarMedRoster": 13,
+     "total": 6630,
+     "dagarMedRoster": 14,
      "storstaDag": 710,
      "andel": 3.1
     },
@@ -5676,26 +5683,26 @@
      "namn": "Vällingby bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180046",
-     "total": 6247,
-     "dagarMedRoster": 13,
+     "total": 6375,
+     "dagarMedRoster": 14,
      "storstaDag": 767,
-     "andel": 3.1
+     "andel": 3.0
     },
     {
      "namn": "Kungsholmens bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180026",
-     "total": 6048,
-     "dagarMedRoster": 13,
+     "total": 6177,
+     "dagarMedRoster": 14,
      "storstaDag": 738,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Globen Shopping",
      "kommun": "Stockholm",
      "lokalId": "0180051",
-     "total": 5877,
-     "dagarMedRoster": 13,
+     "total": 6176,
+     "dagarMedRoster": 14,
      "storstaDag": 670,
      "andel": 2.9
     },
@@ -5703,8 +5710,8 @@
      "namn": "Högdalens bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180017",
-     "total": 5719,
-     "dagarMedRoster": 13,
+     "total": 5860,
+     "dagarMedRoster": 14,
      "storstaDag": 664,
      "andel": 2.8
     },
@@ -5712,44 +5719,44 @@
      "namn": "Kista bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180022",
-     "total": 5397,
-     "dagarMedRoster": 13,
+     "total": 5609,
+     "dagarMedRoster": 14,
      "storstaDag": 647,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Kulturhuset",
      "kommun": "Stockholm",
      "lokalId": "0180010",
-     "total": 5266,
-     "dagarMedRoster": 13,
+     "total": 5590,
+     "dagarMedRoster": 14,
      "storstaDag": 718,
      "andel": 2.6
-    },
-    {
-     "namn": "Fruängstorget",
-     "kommun": "Stockholm",
-     "lokalId": "0180002",
-     "total": 5056,
-     "dagarMedRoster": 13,
-     "storstaDag": 553,
-     "andel": 2.5
     },
     {
      "namn": "Fridhemsplan",
      "kommun": "Stockholm",
      "lokalId": "0180008",
-     "total": 5053,
-     "dagarMedRoster": 13,
+     "total": 5318,
+     "dagarMedRoster": 14,
      "storstaDag": 568,
+     "andel": 2.5
+    },
+    {
+     "namn": "Fruängstorget",
+     "kommun": "Stockholm",
+     "lokalId": "0180002",
+     "total": 5295,
+     "dagarMedRoster": 14,
+     "storstaDag": 553,
      "andel": 2.5
     },
     {
      "namn": "Spånga torg",
      "kommun": "Stockholm",
      "lokalId": "0180003",
-     "total": 3966,
-     "dagarMedRoster": 13,
+     "total": 4196,
+     "dagarMedRoster": 14,
      "storstaDag": 480,
      "andel": 2.0
     },
@@ -5757,8 +5764,8 @@
      "namn": "Telefonplan",
      "kommun": "Stockholm",
      "lokalId": "0180047",
-     "total": 3837,
-     "dagarMedRoster": 13,
+     "total": 4052,
+     "dagarMedRoster": 14,
      "storstaDag": 396,
      "andel": 1.9
     },
@@ -5766,8 +5773,8 @@
      "namn": "Rinkeby Folkets Hus",
      "kommun": "Stockholm",
      "lokalId": "0180040",
-     "total": 3791,
-     "dagarMedRoster": 13,
+     "total": 3946,
+     "dagarMedRoster": 14,
      "storstaDag": 425,
      "andel": 1.9
     },
@@ -5775,35 +5782,35 @@
      "namn": "Hornstulls servicehus",
      "kommun": "Stockholm",
      "lokalId": "0180012",
-     "total": 3381,
-     "dagarMedRoster": 13,
+     "total": 3549,
+     "dagarMedRoster": 14,
      "storstaDag": 370,
      "andel": 1.7
-    },
-    {
-     "namn": "Brommaplans bibliotek",
-     "kommun": "Stockholm",
-     "lokalId": "0180037",
-     "total": 3336,
-     "dagarMedRoster": 11,
-     "storstaDag": 494,
-     "andel": 1.6
     },
     {
      "namn": "Bromma blocks, Hangar 5",
      "kommun": "Stockholm",
      "lokalId": "0180101",
-     "total": 3323,
-     "dagarMedRoster": 13,
+     "total": 3494,
+     "dagarMedRoster": 14,
      "storstaDag": 421,
+     "andel": 1.6
+    },
+    {
+     "namn": "Brommaplans bibliotek",
+     "kommun": "Stockholm",
+     "lokalId": "0180037",
+     "total": 3435,
+     "dagarMedRoster": 12,
+     "storstaDag": 494,
      "andel": 1.6
     },
     {
      "namn": "Observatorielunden",
      "kommun": "Stockholm",
      "lokalId": "0180001",
-     "total": 3207,
-     "dagarMedRoster": 13,
+     "total": 3384,
+     "dagarMedRoster": 14,
      "storstaDag": 398,
      "andel": 1.6
     },
@@ -5811,17 +5818,17 @@
      "namn": "Stadshuset",
      "kommun": "Stockholm",
      "lokalId": "0180029",
-     "total": 3138,
-     "dagarMedRoster": 9,
+     "total": 3379,
+     "dagarMedRoster": 10,
      "storstaDag": 409,
-     "andel": 1.5
+     "andel": 1.6
     },
     {
      "namn": "Alviks bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180041",
-     "total": 3095,
-     "dagarMedRoster": 11,
+     "total": 3231,
+     "dagarMedRoster": 12,
      "storstaDag": 448,
      "andel": 1.5
     },
@@ -5829,8 +5836,8 @@
      "namn": "Orionteatern",
      "kommun": "Stockholm",
      "lokalId": "0180027",
-     "total": 2978,
-     "dagarMedRoster": 11,
+     "total": 3094,
+     "dagarMedRoster": 12,
      "storstaDag": 407,
      "andel": 1.5
     },
@@ -5838,44 +5845,44 @@
      "namn": "Moa Martinssons torg",
      "kommun": "Stockholm",
      "lokalId": "0180050",
-     "total": 2925,
-     "dagarMedRoster": 13,
+     "total": 3082,
+     "dagarMedRoster": 14,
      "storstaDag": 353,
-     "andel": 1.4
+     "andel": 1.5
     },
     {
      "namn": "Tensta bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180009",
-     "total": 2817,
-     "dagarMedRoster": 13,
+     "total": 2896,
+     "dagarMedRoster": 14,
      "storstaDag": 312,
      "andel": 1.4
-    },
-    {
-     "namn": "Hässelby Villastads bibliotek",
-     "kommun": "Stockholm",
-     "lokalId": "0180045",
-     "total": 2684,
-     "dagarMedRoster": 9,
-     "storstaDag": 391,
-     "andel": 1.3
     },
     {
      "namn": "Älvsjö medborgarkontor",
      "kommun": "Stockholm",
      "lokalId": "0180053",
-     "total": 2659,
-     "dagarMedRoster": 13,
+     "total": 2817,
+     "dagarMedRoster": 14,
      "storstaDag": 339,
+     "andel": 1.3
+    },
+    {
+     "namn": "Hässelby Villastads bibliotek",
+     "kommun": "Stockholm",
+     "lokalId": "0180045",
+     "total": 2803,
+     "dagarMedRoster": 10,
+     "storstaDag": 391,
      "andel": 1.3
     },
     {
      "namn": "Luma bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180042",
-     "total": 2646,
-     "dagarMedRoster": 9,
+     "total": 2773,
+     "dagarMedRoster": 10,
      "storstaDag": 430,
      "andel": 1.3
     },
@@ -5883,8 +5890,8 @@
      "namn": "Eriksdalsbadet",
      "kommun": "Stockholm",
      "lokalId": "0180033",
-     "total": 2572,
-     "dagarMedRoster": 13,
+     "total": 2702,
+     "dagarMedRoster": 14,
      "storstaDag": 311,
      "andel": 1.3
     },
@@ -5892,35 +5899,35 @@
      "namn": "Gullmarsplan",
      "kommun": "Stockholm",
      "lokalId": "0180031",
-     "total": 2522,
-     "dagarMedRoster": 13,
+     "total": 2620,
+     "dagarMedRoster": 14,
      "storstaDag": 302,
-     "andel": 1.2
-    },
-    {
-     "namn": "Hässelby gårds Bibbleria",
-     "kommun": "Stockholm",
-     "lokalId": "0180034",
-     "total": 2343,
-     "dagarMedRoster": 11,
-     "storstaDag": 285,
      "andel": 1.2
     },
     {
      "namn": "Historiska museet",
      "kommun": "Stockholm",
      "lokalId": "0180039",
-     "total": 2316,
-     "dagarMedRoster": 12,
+     "total": 2516,
+     "dagarMedRoster": 13,
      "storstaDag": 424,
-     "andel": 1.1
+     "andel": 1.2
+    },
+    {
+     "namn": "Hässelby gårds Bibbleria",
+     "kommun": "Stockholm",
+     "lokalId": "0180034",
+     "total": 2478,
+     "dagarMedRoster": 12,
+     "storstaDag": 285,
+     "andel": 1.2
     },
     {
      "namn": "Årsta bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180044",
-     "total": 2253,
-     "dagarMedRoster": 11,
+     "total": 2342,
+     "dagarMedRoster": 12,
      "storstaDag": 286,
      "andel": 1.1
     },
@@ -5928,8 +5935,8 @@
      "namn": "Bagarmossens Folkets Hus",
      "kommun": "Stockholm",
      "lokalId": "0180043",
-     "total": 2086,
-     "dagarMedRoster": 13,
+     "total": 2180,
+     "dagarMedRoster": 14,
      "storstaDag": 228,
      "andel": 1.0
     },
@@ -5937,8 +5944,8 @@
      "namn": "Blackebergs bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180035",
-     "total": 2043,
-     "dagarMedRoster": 11,
+     "total": 2114,
+     "dagarMedRoster": 12,
      "storstaDag": 273,
      "andel": 1.0
     },
@@ -5946,8 +5953,8 @@
      "namn": "Bredängs bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180019",
-     "total": 2001,
-     "dagarMedRoster": 13,
+     "total": 2078,
+     "dagarMedRoster": 14,
      "storstaDag": 214,
      "andel": 1.0
     },
@@ -5955,35 +5962,35 @@
      "namn": "Björkhagen, Skarpnäcks Stadsdelsförv",
      "kommun": "Stockholm",
      "lokalId": "0180004",
-     "total": 1773,
-     "dagarMedRoster": 11,
+     "total": 1868,
+     "dagarMedRoster": 12,
      "storstaDag": 266,
+     "andel": 0.9
+    },
+    {
+     "namn": "Norrsken",
+     "kommun": "Stockholm",
+     "lokalId": "0180098",
+     "total": 1840,
+     "dagarMedRoster": 12,
+     "storstaDag": 277,
      "andel": 0.9
     },
     {
      "namn": "Gubbängens bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180006",
-     "total": 1703,
-     "dagarMedRoster": 9,
+     "total": 1797,
+     "dagarMedRoster": 10,
      "storstaDag": 265,
-     "andel": 0.8
-    },
-    {
-     "namn": "Norrsken",
-     "kommun": "Stockholm",
-     "lokalId": "0180098",
-     "total": 1703,
-     "dagarMedRoster": 11,
-     "storstaDag": 277,
      "andel": 0.8
     },
     {
      "namn": "Hägerstensåsens medborgarhus",
      "kommun": "Stockholm",
      "lokalId": "0180025",
-     "total": 1631,
-     "dagarMedRoster": 9,
+     "total": 1731,
+     "dagarMedRoster": 10,
      "storstaDag": 293,
      "andel": 0.8
     },
@@ -5991,8 +5998,8 @@
      "namn": "Bibliotekslabbet",
      "kommun": "Stockholm",
      "lokalId": "0180064",
-     "total": 1572,
-     "dagarMedRoster": 9,
+     "total": 1690,
+     "dagarMedRoster": 10,
      "storstaDag": 353,
      "andel": 0.8
     },
@@ -6000,8 +6007,8 @@
      "namn": "Enskede bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180097",
-     "total": 1524,
-     "dagarMedRoster": 9,
+     "total": 1611,
+     "dagarMedRoster": 10,
      "storstaDag": 254,
      "andel": 0.8
     },
@@ -6009,8 +6016,8 @@
      "namn": "Skarpnäcks bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180005",
-     "total": 1494,
-     "dagarMedRoster": 9,
+     "total": 1558,
+     "dagarMedRoster": 10,
      "storstaDag": 267,
      "andel": 0.7
     },
@@ -6018,8 +6025,8 @@
      "namn": "Hagsätra bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180016",
-     "total": 1344,
-     "dagarMedRoster": 9,
+     "total": 1411,
+     "dagarMedRoster": 10,
      "storstaDag": 169,
      "andel": 0.7
     },
@@ -6027,8 +6034,8 @@
      "namn": "Husby medborgarkontor",
      "kommun": "Stockholm",
      "lokalId": "0180052",
-     "total": 1224,
-     "dagarMedRoster": 9,
+     "total": 1309,
+     "dagarMedRoster": 10,
      "storstaDag": 208,
      "andel": 0.6
     },
@@ -6036,17 +6043,17 @@
      "namn": "Stockholms universitetet",
      "kommun": "Stockholm",
      "lokalId": "0180065",
-     "total": 1104,
-     "dagarMedRoster": 9,
+     "total": 1236,
+     "dagarMedRoster": 10,
      "storstaDag": 218,
-     "andel": 0.5
+     "andel": 0.6
     },
     {
      "namn": "Sköndals bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180015",
-     "total": 1055,
-     "dagarMedRoster": 5,
+     "total": 1145,
+     "dagarMedRoster": 6,
      "storstaDag": 274,
      "andel": 0.5
     },
@@ -6054,8 +6061,8 @@
      "namn": "Hjorthagshallen",
      "kommun": "Stockholm",
      "lokalId": "0180021",
-     "total": 848,
-     "dagarMedRoster": 11,
+     "total": 904,
+     "dagarMedRoster": 12,
      "storstaDag": 145,
      "andel": 0.4
     },
@@ -6063,7 +6070,7 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Stockholm",
      "lokalId": "0180054",
-     "total": 589,
+     "total": 611,
      "dagarMedRoster": 13,
      "storstaDag": 82,
      "andel": 0.3
@@ -6072,8 +6079,8 @@
      "namn": "Östberga kulturhus",
      "kommun": "Stockholm",
      "lokalId": "0180032",
-     "total": 555,
-     "dagarMedRoster": 11,
+     "total": 588,
+     "dagarMedRoster": 12,
      "storstaDag": 98,
      "andel": 0.3
     },
@@ -6135,9 +6142,9 @@
      "namn": "BEGRÄNSAT TILLTRÄDE Axelsbergs VOB",
      "kommun": "Stockholm",
      "lokalId": "0180057",
-     "total": 65,
+     "total": 66,
      "dagarMedRoster": 1,
-     "storstaDag": 65,
+     "storstaDag": 66,
      "andel": 0.0
     },
     {
@@ -6147,6 +6154,15 @@
      "total": 65,
      "dagarMedRoster": 2,
      "storstaDag": 47,
+     "andel": 0.0
+    },
+    {
+     "namn": "BEGR. Älvsjö serviceh/Älvsjögården",
+     "kommun": "Stockholm",
+     "lokalId": "0180096",
+     "total": 53,
+     "dagarMedRoster": 1,
+     "storstaDag": 53,
      "andel": 0.0
     },
     {
@@ -6189,9 +6205,9 @@
      "namn": "BEGR. TILLTRÄDE Tunets aktivitetsc.",
      "kommun": "Stockholm",
      "lokalId": "0180099",
-     "total": 42,
+     "total": 43,
      "dagarMedRoster": 1,
-     "storstaDag": 42,
+     "storstaDag": 43,
      "andel": 0.0
     },
     {
@@ -6264,15 +6280,6 @@
      "total": 35,
      "dagarMedRoster": 1,
      "storstaDag": 35,
-     "andel": 0.0
-    },
-    {
-     "namn": "BEGR. Älvsjö serviceh/Älvsjögården",
-     "kommun": "Stockholm",
-     "lokalId": "0180096",
-     "total": 33,
-     "dagarMedRoster": 1,
-     "storstaDag": 33,
      "andel": 0.0
     },
     {

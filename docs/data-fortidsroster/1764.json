@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -814,9 +814,16 @@
      "kvar": 6,
      "antal": 140,
      "ack": 1905
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 130,
+     "ack": 2035
     }
    ],
-   "total": 1905,
+   "total": 2035,
    "rostberattigade": {
     "riksdag": 6923,
     "kommun": 7197,
@@ -834,10 +841,10 @@
      "namn": "Grums bibliotek",
      "kommun": "Grums",
      "lokalId": "1764001",
-     "total": 1787,
-     "dagarMedRoster": 13,
+     "total": 1917,
+     "dagarMedRoster": 14,
      "storstaDag": 235,
-     "andel": 93.8
+     "andel": 94.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -846,7 +853,7 @@
      "total": 67,
      "dagarMedRoster": 5,
      "storstaDag": 27,
-     "andel": 3.5
+     "andel": 3.3
     },
     {
      "namn": "Mobil röstningslokal, Värmskog",
@@ -855,7 +862,7 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Mobil röstningslokal, Långsta",
@@ -864,7 +871,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 1.2
+     "andel": 1.1
     }
    ],
    "antalLokaler": 4,

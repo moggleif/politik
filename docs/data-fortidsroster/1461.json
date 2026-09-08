@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -892,7 +892,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -969,25 +969,32 @@
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 107,
-     "ack": 1364
+     "antal": 126,
+     "ack": 1383
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 98,
-     "ack": 1462
+     "antal": 128,
+     "ack": 1511
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 123,
-     "ack": 1585
+     "antal": 126,
+     "ack": 1637
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 34,
+     "ack": 1671
     }
    ],
-   "total": 1585,
+   "total": 1671,
    "rostberattigade": {
     "riksdag": 6951,
     "kommun": 7330,
@@ -1005,55 +1012,55 @@
      "namn": "Grinstadrummet, Mellerud",
      "kommun": "Mellerud",
      "lokalId": "1461005",
-     "total": 1585,
-     "dagarMedRoster": 13,
+     "total": 1620,
+     "dagarMedRoster": 14,
      "storstaDag": 179,
-     "andel": 100.0
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Mellerud",
-     "lokalId": "1461007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 96.9
     },
     {
      "namn": "Fagerlids särskilda boende",
      "kommun": "Mellerud",
      "lokalId": "1461006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Karolinen",
-     "kommun": "Mellerud",
-     "lokalId": "1461003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 1.1
     },
     {
      "namn": "Skållerudshemmet",
      "kommun": "Mellerud",
      "lokalId": "1461002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.7
     },
     {
      "namn": "Ängenäs särskilda boende",
      "kommun": "Mellerud",
      "lokalId": "1461001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.7
+    },
+    {
+     "namn": "Karolinen",
+     "kommun": "Mellerud",
+     "lokalId": "1461003",
+     "total": 7,
+     "dagarMedRoster": 1,
+     "storstaDag": 7,
+     "andel": 0.4
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Mellerud",
+     "lokalId": "1461007",
+     "total": 3,
+     "dagarMedRoster": 1,
+     "storstaDag": 3,
+     "andel": 0.2
     }
    ],
    "antalLokaler": 6,

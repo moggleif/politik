@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1084,9 +1084,16 @@
      "kvar": 6,
      "antal": 306,
      "ack": 3039
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 137,
+     "ack": 3176
     }
    ],
-   "total": 3039,
+   "total": 3176,
    "rostberattigade": {
     "riksdag": 13647,
     "kommun": 14080,
@@ -1104,19 +1111,19 @@
      "namn": "Olsbergs Arena",
      "kommun": "Eksjö",
      "lokalId": "0686001",
-     "total": 2477,
-     "dagarMedRoster": 13,
+     "total": 2585,
+     "dagarMedRoster": 14,
      "storstaDag": 306,
-     "andel": 81.5
+     "andel": 81.4
     },
     {
      "namn": "Emilkraften, Mariannelund",
      "kommun": "Eksjö",
      "lokalId": "0686002",
-     "total": 268,
-     "dagarMedRoster": 5,
+     "total": 287,
+     "dagarMedRoster": 6,
      "storstaDag": 62,
-     "andel": 8.8
+     "andel": 9.0
     },
     {
      "namn": "Solgården, Ingatorp",
@@ -1125,7 +1132,7 @@
      "total": 70,
      "dagarMedRoster": 3,
      "storstaDag": 33,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Folkets Hus, Bruzaholm",
@@ -1182,6 +1189,15 @@
      "andel": 0.4
     },
     {
+     "namn": "Tuvan - Trygghetsboende",
+     "kommun": "Eksjö",
+     "lokalId": "0686010",
+     "total": 10,
+     "dagarMedRoster": 1,
+     "storstaDag": 10,
+     "andel": 0.3
+    },
+    {
      "namn": "Marieberg - Särskilt boende",
      "kommun": "Eksjö",
      "lokalId": "0686008",
@@ -1194,15 +1210,6 @@
      "namn": "Snickaren - Trygghetsboende",
      "kommun": "Eksjö",
      "lokalId": "0686009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Tuvan - Trygghetsboende",
-     "kommun": "Eksjö",
-     "lokalId": "0686010",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1064,11 +1064,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 838,
-     "ack": 6600
+     "antal": 840,
+     "ack": 6602
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 342,
+     "ack": 6944
     }
    ],
-   "total": 6600,
+   "total": 6944,
    "rostberattigade": {
     "riksdag": 24943,
     "kommun": 25528,
@@ -1086,19 +1093,19 @@
      "namn": "Rådhuset, Rådhussalen",
      "kommun": "Karlshamn",
      "lokalId": "1082001",
-     "total": 3362,
-     "dagarMedRoster": 13,
-     "storstaDag": 354,
-     "andel": 50.9
+     "total": 3561,
+     "dagarMedRoster": 14,
+     "storstaDag": 355,
+     "andel": 51.3
     },
     {
      "namn": "Bellevueparken, Karlshamn",
      "kommun": "Karlshamn",
      "lokalId": "1082006",
-     "total": 2048,
-     "dagarMedRoster": 13,
+     "total": 2182,
+     "dagarMedRoster": 14,
      "storstaDag": 201,
-     "andel": 31.0
+     "andel": 31.4
     },
     {
      "namn": "Mörrumsparken",
@@ -1107,7 +1114,7 @@
      "total": 654,
      "dagarMedRoster": 6,
      "storstaDag": 158,
-     "andel": 9.9
+     "andel": 9.4
     },
     {
      "namn": "Svängsta fritidsgård",
@@ -1116,7 +1123,7 @@
      "total": 297,
      "dagarMedRoster": 4,
      "storstaDag": 117,
-     "andel": 4.5
+     "andel": 4.3
     },
     {
      "namn": "Hällaryds skola",
@@ -1125,7 +1132,7 @@
      "total": 142,
      "dagarMedRoster": 3,
      "storstaDag": 56,
-     "andel": 2.2
+     "andel": 2.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1140,10 +1147,10 @@
      "namn": "Väggaskolan",
      "kommun": "Karlshamn",
      "lokalId": "1082004",
-     "total": 17,
-     "dagarMedRoster": 1,
+     "total": 28,
+     "dagarMedRoster": 2,
      "storstaDag": 17,
-     "andel": 0.3
+     "andel": 0.4
     }
    ],
    "antalLokaler": 7,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -946,7 +946,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1009,39 +1009,46 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 317,
-     "ack": 2400
+     "antal": 320,
+     "ack": 2403
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 385,
-     "ack": 2785
+     "antal": 392,
+     "ack": 2795
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 180,
-     "ack": 2965
+     "ack": 2975
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 242,
-     "ack": 3207
+     "antal": 269,
+     "ack": 3244
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 532,
-     "ack": 3739
+     "antal": 543,
+     "ack": 3787
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 247,
+     "ack": 4034
     }
    ],
-   "total": 3739,
+   "total": 4034,
    "rostberattigade": {
     "riksdag": 15081,
     "kommun": 15774,
@@ -1059,10 +1066,10 @@
      "namn": "Biblioteket i Nybro",
      "kommun": "Nybro",
      "lokalId": "0881002",
-     "total": 3596,
-     "dagarMedRoster": 13,
-     "storstaDag": 483,
-     "andel": 96.2
+     "total": 3851,
+     "dagarMedRoster": 14,
+     "storstaDag": 487,
+     "andel": 95.5
     },
     {
      "namn": "Fryshuset Nybro",
@@ -1071,7 +1078,7 @@
      "total": 49,
      "dagarMedRoster": 1,
      "storstaDag": 49,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Vattugatan, äldreboende",
@@ -1086,10 +1093,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nybro",
      "lokalId": "0881012",
-     "total": 21,
-     "dagarMedRoster": 6,
-     "storstaDag": 6,
-     "andel": 0.6
+     "total": 34,
+     "dagarMedRoster": 9,
+     "storstaDag": 7,
+     "andel": 0.8
     },
     {
      "namn": "Fröjdekulla, äldreboende",
@@ -1101,36 +1108,36 @@
      "andel": 0.5
     },
     {
+     "namn": "Almen, äldreboende",
+     "kommun": "Nybro",
+     "lokalId": "0881001",
+     "total": 18,
+     "dagarMedRoster": 1,
+     "storstaDag": 18,
+     "andel": 0.4
+    },
+    {
      "namn": "Strandvägen, äldreboende",
      "kommun": "Nybro",
      "lokalId": "0881005",
      "total": 14,
      "dagarMedRoster": 1,
      "storstaDag": 14,
-     "andel": 0.4
-    },
-    {
-     "namn": "Almen, äldreboende",
-     "kommun": "Nybro",
-     "lokalId": "0881001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Kulturhuset Kristallen",
-     "kommun": "Nybro",
-     "lokalId": "0881013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 0.3
     },
     {
      "namn": "Kvarnbacken, äldreboende",
      "kommun": "Nybro",
      "lokalId": "0881010",
+     "total": 9,
+     "dagarMedRoster": 1,
+     "storstaDag": 9,
+     "andel": 0.2
+    },
+    {
+     "namn": "Kulturhuset Kristallen",
+     "kommun": "Nybro",
+     "lokalId": "0881013",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

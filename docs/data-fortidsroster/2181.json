@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1126,7 +1126,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1217,11 +1217,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 817,
-     "ack": 7133
+     "antal": 818,
+     "ack": 7134
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 476,
+     "ack": 7610
     }
    ],
-   "total": 7133,
+   "total": 7610,
    "rostberattigade": {
     "riksdag": 29335,
     "kommun": 30740,
@@ -1239,19 +1246,28 @@
      "namn": "Stadshuset",
      "kommun": "Sandviken",
      "lokalId": "2181006",
-     "total": 5000,
-     "dagarMedRoster": 13,
+     "total": 5329,
+     "dagarMedRoster": 14,
      "storstaDag": 701,
-     "andel": 70.1
+     "andel": 70.0
     },
     {
      "namn": "Ica, Storvik",
      "kommun": "Sandviken",
      "lokalId": "2181001",
-     "total": 563,
-     "dagarMedRoster": 4,
+     "total": 564,
+     "dagarMedRoster": 5,
      "storstaDag": 170,
-     "andel": 7.9
+     "andel": 7.4
+    },
+    {
+     "namn": "Björksätraskolan, biblioteket",
+     "kommun": "Sandviken",
+     "lokalId": "2181007",
+     "total": 562,
+     "dagarMedRoster": 5,
+     "storstaDag": 146,
+     "andel": 7.4
     },
     {
      "namn": "Gullhedskolan",
@@ -1260,25 +1276,16 @@
      "total": 450,
      "dagarMedRoster": 2,
      "storstaDag": 290,
-     "andel": 6.3
-    },
-    {
-     "namn": "Björksätraskolan, biblioteket",
-     "kommun": "Sandviken",
-     "lokalId": "2181007",
-     "total": 416,
-     "dagarMedRoster": 4,
-     "storstaDag": 135,
-     "andel": 5.8
+     "andel": 5.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Sandviken",
      "lokalId": "2181008",
-     "total": 272,
+     "total": 273,
      "dagarMedRoster": 9,
-     "storstaDag": 82,
-     "andel": 3.8
+     "storstaDag": 83,
+     "andel": 3.6
     },
     {
      "namn": "Åshammar IK klubbstuga",
@@ -1287,7 +1294,7 @@
      "total": 179,
      "dagarMedRoster": 3,
      "storstaDag": 71,
-     "andel": 2.5
+     "andel": 2.4
     },
     {
      "namn": "Årsunda, Kvarterslokal",
@@ -1305,7 +1312,7 @@
      "total": 85,
      "dagarMedRoster": 1,
      "storstaDag": 85,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "IOGT/NTO-lokal, Nya Bruket",

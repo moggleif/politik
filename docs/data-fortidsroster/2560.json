@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,7 +829,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -922,9 +922,16 @@
      "kvar": 6,
      "antal": 331,
      "ack": 1808
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 165,
+     "ack": 1973
     }
    ],
-   "total": 1808,
+   "total": 1973,
    "rostberattigade": {
     "riksdag": 6010,
     "kommun": 6272,
@@ -942,10 +949,10 @@
      "namn": "Kommunförvaltningen",
      "kommun": "Älvsbyn",
      "lokalId": "2560001",
-     "total": 1444,
-     "dagarMedRoster": 9,
+     "total": 1597,
+     "dagarMedRoster": 10,
      "storstaDag": 326,
-     "andel": 79.9
+     "andel": 80.9
     },
     {
      "namn": "Fluxen, servicehus",
@@ -954,7 +961,7 @@
      "total": 105,
      "dagarMedRoster": 1,
      "storstaDag": 105,
-     "andel": 5.8
+     "andel": 5.3
     },
     {
      "namn": "Vidsels aktivitetshus",
@@ -963,7 +970,16 @@
      "total": 94,
      "dagarMedRoster": 2,
      "storstaDag": 48,
-     "andel": 5.2
+     "andel": 4.8
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Älvsbyn",
+     "lokalId": "2560005",
+     "total": 90,
+     "dagarMedRoster": 9,
+     "storstaDag": 27,
+     "andel": 4.6
     },
     {
      "namn": "Vistträskskolan",
@@ -972,16 +988,7 @@
      "total": 87,
      "dagarMedRoster": 1,
      "storstaDag": 87,
-     "andel": 4.8
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Älvsbyn",
-     "lokalId": "2560005",
-     "total": 78,
-     "dagarMedRoster": 8,
-     "storstaDag": 27,
-     "andel": 4.3
+     "andel": 4.4
     }
    ],
    "antalLokaler": 5,

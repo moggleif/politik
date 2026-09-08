@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1003,9 +1003,16 @@
      "kvar": 6,
      "antal": 242,
      "ack": 1647
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 54,
+     "ack": 1701
     }
    ],
-   "total": 1647,
+   "total": 1701,
    "rostberattigade": {
     "riksdag": 6172,
     "kommun": 6247,
@@ -1026,7 +1033,16 @@
      "total": 1585,
      "dagarMedRoster": 12,
      "storstaDag": 237,
-     "andel": 96.2
+     "andel": 93.2
+    },
+    {
+     "namn": "Rättspsykiatriska kliniken",
+     "kommun": "Vadstena",
+     "lokalId": "0584002",
+     "total": 54,
+     "dagarMedRoster": 1,
+     "storstaDag": 54,
+     "andel": 3.2
     },
     {
      "namn": "Wasagården",
@@ -1035,7 +1051,7 @@
      "total": 31,
      "dagarMedRoster": 1,
      "storstaDag": 31,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Vätterngården",
@@ -1053,21 +1069,12 @@
      "total": 11,
      "dagarMedRoster": 4,
      "storstaDag": 5,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Kommunhuset",
      "kommun": "Vadstena",
      "lokalId": "0584004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Rättspsykiatriska kliniken",
-     "kommun": "Vadstena",
-     "lokalId": "0584002",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

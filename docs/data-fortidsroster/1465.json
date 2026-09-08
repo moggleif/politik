@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1189,7 +1189,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1282,9 +1282,16 @@
      "kvar": 6,
      "antal": 243,
      "ack": 1811
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 110,
+     "ack": 1921
     }
    ],
-   "total": 1811,
+   "total": 1921,
    "rostberattigade": {
     "riksdag": 8057,
     "kommun": 8428,
@@ -1302,10 +1309,10 @@
      "namn": "Svenljunga Bibliotek",
      "kommun": "Svenljunga",
      "lokalId": "1465009",
-     "total": 1528,
-     "dagarMedRoster": 13,
+     "total": 1632,
+     "dagarMedRoster": 14,
      "storstaDag": 200,
-     "andel": 84.4
+     "andel": 85.0
     },
     {
      "namn": "Medborgarhuset, Östra Frölunda",
@@ -1314,7 +1321,7 @@
      "total": 96,
      "dagarMedRoster": 2,
      "storstaDag": 55,
-     "andel": 5.3
+     "andel": 5.0
     },
     {
      "namn": "Långehall, Överlida",
@@ -1323,7 +1330,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
      "namn": "Hillareds skola",
@@ -1332,7 +1339,7 @@
      "total": 45,
      "dagarMedRoster": 1,
      "storstaDag": 45,
-     "andel": 2.5
+     "andel": 2.3
     },
     {
      "namn": "Klockaregården",
@@ -1341,7 +1348,16 @@
      "total": 24,
      "dagarMedRoster": 1,
      "storstaDag": 24,
-     "andel": 1.3
+     "andel": 1.2
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Svenljunga",
+     "lokalId": "1465010",
+     "total": 17,
+     "dagarMedRoster": 6,
+     "storstaDag": 6,
+     "andel": 0.9
     },
     {
      "namn": "Skaparverkstaden",
@@ -1350,16 +1366,7 @@
      "total": 16,
      "dagarMedRoster": 1,
      "storstaDag": 16,
-     "andel": 0.9
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Svenljunga",
-     "lokalId": "1465010",
-     "total": 11,
-     "dagarMedRoster": 5,
-     "storstaDag": 4,
-     "andel": 0.6
+     "andel": 0.8
     },
     {
      "namn": "Östrabo",

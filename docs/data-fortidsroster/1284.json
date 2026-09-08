@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -982,7 +982,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1073,11 +1073,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 652,
-     "ack": 6294
+     "antal": 692,
+     "ack": 6334
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 254,
+     "ack": 6588
     }
    ],
-   "total": 6294,
+   "total": 6588,
    "rostberattigade": {
     "riksdag": 22091,
     "kommun": 22713,
@@ -1095,37 +1102,46 @@
      "namn": "Valtältet vid City Gross i Höganäs",
      "kommun": "Höganäs",
      "lokalId": "1284014",
-     "total": 2780,
-     "dagarMedRoster": 13,
+     "total": 2939,
+     "dagarMedRoster": 14,
      "storstaDag": 302,
-     "andel": 44.2
+     "andel": 44.6
     },
     {
      "namn": "Valtältet vid Ica Kvantum i Höganäs",
      "kommun": "Höganäs",
      "lokalId": "1284012",
-     "total": 1752,
-     "dagarMedRoster": 13,
-     "storstaDag": 221,
-     "andel": 27.8
+     "total": 1788,
+     "dagarMedRoster": 14,
+     "storstaDag": 222,
+     "andel": 27.1
     },
     {
      "namn": "Kulturhuset i Höganäs",
      "kommun": "Höganäs",
      "lokalId": "1284005",
-     "total": 1217,
-     "dagarMedRoster": 13,
+     "total": 1251,
+     "dagarMedRoster": 14,
      "storstaDag": 163,
-     "andel": 19.3
+     "andel": 19.0
     },
     {
      "namn": "Vikens hemgård",
      "kommun": "Höganäs",
      "lokalId": "1284001",
-     "total": 137,
-     "dagarMedRoster": 1,
+     "total": 167,
+     "dagarMedRoster": 2,
      "storstaDag": 137,
-     "andel": 2.2
+     "andel": 2.5
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Höganäs",
+     "lokalId": "1284017",
+     "total": 99,
+     "dagarMedRoster": 8,
+     "storstaDag": 33,
+     "andel": 1.5
     },
     {
      "namn": "Mölle stationshus",
@@ -1134,7 +1150,7 @@
      "total": 85,
      "dagarMedRoster": 1,
      "storstaDag": 85,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Biblioteket i Jonstorp",
@@ -1146,22 +1162,13 @@
      "andel": 1.3
     },
     {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Höganäs",
-     "lokalId": "1284017",
-     "total": 65,
-     "dagarMedRoster": 6,
-     "storstaDag": 24,
-     "andel": 1.0
-    },
-    {
      "namn": "Biblioteket i Lerberget",
      "kommun": "Höganäs",
      "lokalId": "1284004",
-     "total": 48,
+     "total": 49,
      "dagarMedRoster": 2,
-     "storstaDag": 26,
-     "andel": 0.8
+     "storstaDag": 27,
+     "andel": 0.7
     },
     {
      "namn": "Biblioteket i Nyhamnsläge",

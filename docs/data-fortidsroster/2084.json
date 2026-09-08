@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1061,32 +1061,39 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 408,
-     "ack": 3905
+     "antal": 414,
+     "ack": 3911
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 195,
-     "ack": 4100
+     "antal": 196,
+     "ack": 4107
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 184,
-     "ack": 4284
+     "ack": 4291
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 686,
-     "ack": 4970
+     "antal": 692,
+     "ack": 4983
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 308,
+     "ack": 5291
     }
    ],
-   "total": 4970,
+   "total": 5291,
    "rostberattigade": {
     "riksdag": 17397,
     "kommun": 17935,
@@ -1104,35 +1111,35 @@
      "namn": "Avestaparken",
      "kommun": "Avesta",
      "lokalId": "2084002",
-     "total": 3714,
-     "dagarMedRoster": 13,
+     "total": 3901,
+     "dagarMedRoster": 14,
      "storstaDag": 468,
-     "andel": 74.7
+     "andel": 73.7
     },
     {
      "namn": "Krylbo församlingsgård",
      "kommun": "Avesta",
      "lokalId": "2084001",
-     "total": 730,
-     "dagarMedRoster": 9,
-     "storstaDag": 110,
-     "andel": 14.7
+     "total": 796,
+     "dagarMedRoster": 10,
+     "storstaDag": 112,
+     "andel": 15.0
     },
     {
      "namn": "Horndals församlingshem",
      "kommun": "Avesta",
      "lokalId": "2084003",
-     "total": 288,
-     "dagarMedRoster": 5,
-     "storstaDag": 73,
-     "andel": 5.8
+     "total": 333,
+     "dagarMedRoster": 6,
+     "storstaDag": 74,
+     "andel": 6.3
     },
     {
      "namn": "Fors Folkets hus",
      "kommun": "Avesta",
      "lokalId": "2084004",
-     "total": 223,
-     "dagarMedRoster": 5,
+     "total": 237,
+     "dagarMedRoster": 6,
      "storstaDag": 52,
      "andel": 4.5
     },
@@ -1140,10 +1147,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Avesta",
      "lokalId": "2084006",
-     "total": 15,
-     "dagarMedRoster": 3,
+     "total": 24,
+     "dagarMedRoster": 4,
      "storstaDag": 12,
-     "andel": 0.3
+     "andel": 0.5
     }
    ],
    "antalLokaler": 5,

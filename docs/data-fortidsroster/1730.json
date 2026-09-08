@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,7 +811,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -904,9 +904,16 @@
      "kvar": 6,
      "antal": 135,
      "ack": 1299
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 129,
+     "ack": 1428
     }
    ],
-   "total": 1299,
+   "total": 1428,
    "rostberattigade": {
     "riksdag": 5491,
     "kommun": 6597,
@@ -924,10 +931,19 @@
      "namn": "Charlottenbergs Folkets Hus",
      "kommun": "Eda",
      "lokalId": "1730004",
-     "total": 1211,
-     "dagarMedRoster": 13,
+     "total": 1266,
+     "dagarMedRoster": 14,
      "storstaDag": 128,
-     "andel": 93.2
+     "andel": 88.7
+    },
+    {
+     "namn": "Älvgården",
+     "kommun": "Eda",
+     "lokalId": "1730005",
+     "total": 74,
+     "dagarMedRoster": 1,
+     "storstaDag": 74,
+     "andel": 5.2
     },
     {
      "namn": "Bruksgården",
@@ -936,7 +952,7 @@
      "total": 65,
      "dagarMedRoster": 1,
      "storstaDag": 65,
-     "andel": 5.0
+     "andel": 4.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -945,21 +961,12 @@
      "total": 23,
      "dagarMedRoster": 5,
      "storstaDag": 13,
-     "andel": 1.8
+     "andel": 1.6
     },
     {
      "namn": "Gillevihallen",
      "kommun": "Eda",
      "lokalId": "1730006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Älvgården",
-     "kommun": "Eda",
-     "lokalId": "1730005",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

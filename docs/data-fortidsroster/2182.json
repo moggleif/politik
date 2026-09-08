@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1093,9 +1093,16 @@
      "kvar": 6,
      "antal": 699,
      "ack": 5416
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 599,
+     "ack": 6015
     }
    ],
-   "total": 5416,
+   "total": 6015,
    "rostberattigade": {
     "riksdag": 19225,
     "kommun": 19677,
@@ -1113,28 +1120,37 @@
      "namn": "Röda Korset aktivitetslokal",
      "kommun": "Söderhamn",
      "lokalId": "2182002",
-     "total": 3793,
-     "dagarMedRoster": 13,
+     "total": 3980,
+     "dagarMedRoster": 14,
      "storstaDag": 405,
-     "andel": 70.0
+     "andel": 66.2
     },
     {
      "namn": "Varianthuset Bergvk",
      "kommun": "Söderhamn",
      "lokalId": "2182005",
-     "total": 895,
-     "dagarMedRoster": 7,
+     "total": 1020,
+     "dagarMedRoster": 8,
      "storstaDag": 151,
-     "andel": 16.5
+     "andel": 17.0
     },
     {
      "namn": "Kastanjen",
      "kommun": "Söderhamn",
      "lokalId": "2182003",
-     "total": 635,
-     "dagarMedRoster": 7,
+     "total": 734,
+     "dagarMedRoster": 8,
      "storstaDag": 129,
-     "andel": 11.7
+     "andel": 12.2
+    },
+    {
+     "namn": "Trönö församlingshem",
+     "kommun": "Söderhamn",
+     "lokalId": "2182001",
+     "total": 94,
+     "dagarMedRoster": 1,
+     "storstaDag": 94,
+     "andel": 1.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1143,34 +1159,25 @@
      "total": 93,
      "dagarMedRoster": 7,
      "storstaDag": 30,
-     "andel": 1.7
+     "andel": 1.5
     },
     {
      "namn": "Idrottsgården Holmsveden",
      "kommun": "Söderhamn",
      "lokalId": "2182004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 68,
+     "dagarMedRoster": 1,
+     "storstaDag": 68,
+     "andel": 1.1
     },
     {
      "namn": "Skogs Bygdegård",
      "kommun": "Söderhamn",
      "lokalId": "2182006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Trönö församlingshem",
-     "kommun": "Söderhamn",
-     "lokalId": "2182001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 26,
+     "dagarMedRoster": 1,
+     "storstaDag": 26,
+     "andel": 0.4
     }
    ],
    "antalLokaler": 7,

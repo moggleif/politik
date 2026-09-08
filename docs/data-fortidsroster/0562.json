@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -820,7 +820,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -876,46 +876,53 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 334,
-     "ack": 2252
+     "antal": 341,
+     "ack": 2259
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 381,
-     "ack": 2633
+     "antal": 382,
+     "ack": 2641
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 352,
-     "ack": 2985
+     "ack": 2993
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 146,
-     "ack": 3131
+     "antal": 147,
+     "ack": 3140
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 164,
-     "ack": 3295
+     "ack": 3304
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 631,
-     "ack": 3926
+     "antal": 658,
+     "ack": 3962
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 206,
+     "ack": 4168
     }
    ],
-   "total": 3926,
+   "total": 4168,
    "rostberattigade": {
     "riksdag": 16583,
     "kommun": 17166,
@@ -933,10 +940,10 @@
      "namn": "Kulturhuset, Foajé",
      "kommun": "Finspång",
      "lokalId": "0562004",
-     "total": 2444,
-     "dagarMedRoster": 8,
+     "total": 2659,
+     "dagarMedRoster": 9,
      "storstaDag": 421,
-     "andel": 62.3
+     "andel": 63.8
     },
     {
      "namn": "Kulturhuset, Galaxen",
@@ -945,7 +952,7 @@
      "total": 1272,
      "dagarMedRoster": 7,
      "storstaDag": 319,
-     "andel": 32.4
+     "andel": 30.5
     },
     {
      "namn": "Rejmyre Folkets Hus",
@@ -954,7 +961,7 @@
      "total": 109,
      "dagarMedRoster": 1,
      "storstaDag": 109,
-     "andel": 2.8
+     "andel": 2.6
     },
     {
      "namn": "Hällestadgården",
@@ -963,16 +970,16 @@
      "total": 101,
      "dagarMedRoster": 1,
      "storstaDag": 101,
-     "andel": 2.6
+     "andel": 2.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Finspång",
      "lokalId": "0562005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 27,
+     "dagarMedRoster": 1,
+     "storstaDag": 27,
+     "andel": 0.6
     },
     {
      "namn": "Kommunhuset",

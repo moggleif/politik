@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1082,11 +1082,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 247,
-     "ack": 3480
+     "antal": 250,
+     "ack": 3483
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 233,
+     "ack": 3716
     }
    ],
-   "total": 3480,
+   "total": 3716,
    "rostberattigade": {
     "riksdag": 12971,
     "kommun": 13205,
@@ -1104,10 +1111,10 @@
      "namn": "Kommunkontoret",
      "kommun": "Båstad",
      "lokalId": "1278005",
-     "total": 2215,
-     "dagarMedRoster": 13,
-     "storstaDag": 246,
-     "andel": 63.6
+     "total": 2342,
+     "dagarMedRoster": 14,
+     "storstaDag": 249,
+     "andel": 63.0
     },
     {
      "namn": "Förslövs skola/biblioteket",
@@ -1116,7 +1123,16 @@
      "total": 573,
      "dagarMedRoster": 6,
      "storstaDag": 126,
-     "andel": 16.5
+     "andel": 15.4
+    },
+    {
+     "namn": "Sandlyckekolan/biblioteket i Torekov",
+     "kommun": "Båstad",
+     "lokalId": "1278004",
+     "total": 375,
+     "dagarMedRoster": 4,
+     "storstaDag": 102,
+     "andel": 10.1
     },
     {
      "namn": "ICA Supermarket/biblioteket",
@@ -1125,25 +1141,16 @@
      "total": 363,
      "dagarMedRoster": 4,
      "storstaDag": 107,
-     "andel": 10.4
-    },
-    {
-     "namn": "Sandlyckekolan/biblioteket i Torekov",
-     "kommun": "Båstad",
-     "lokalId": "1278004",
-     "total": 290,
-     "dagarMedRoster": 3,
-     "storstaDag": 102,
-     "andel": 8.3
+     "andel": 9.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Båstad",
      "lokalId": "1278012",
-     "total": 39,
-     "dagarMedRoster": 4,
-     "storstaDag": 20,
-     "andel": 1.1
+     "total": 63,
+     "dagarMedRoster": 5,
+     "storstaDag": 24,
+     "andel": 1.7
     },
     {
      "namn": "Hovs församlingshem",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -974,11 +974,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1175,
-     "ack": 9441
+     "antal": 1176,
+     "ack": 9442
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 477,
+     "ack": 9919
     }
    ],
-   "total": 9441,
+   "total": 9919,
    "rostberattigade": {
     "riksdag": 36820,
     "kommun": 38355,
@@ -996,37 +1003,37 @@
      "namn": "Huvudbiblioteket Tyresö Centrum",
      "kommun": "Tyresö",
      "lokalId": "0138003",
-     "total": 5101,
-     "dagarMedRoster": 13,
+     "total": 5330,
+     "dagarMedRoster": 14,
      "storstaDag": 566,
-     "andel": 54.0
+     "andel": 53.7
     },
     {
      "namn": "Biblioteket Trollbäcken",
      "kommun": "Tyresö",
      "lokalId": "0138001",
-     "total": 1957,
-     "dagarMedRoster": 11,
-     "storstaDag": 332,
-     "andel": 20.7
+     "total": 2073,
+     "dagarMedRoster": 12,
+     "storstaDag": 333,
+     "andel": 20.9
     },
     {
      "namn": "Biblioteket Tyresö Strand",
      "kommun": "Tyresö",
      "lokalId": "0138002",
-     "total": 1173,
-     "dagarMedRoster": 11,
+     "total": 1249,
+     "dagarMedRoster": 12,
      "storstaDag": 164,
-     "andel": 12.4
+     "andel": 12.6
     },
     {
      "namn": "Servicecenter Tyresö kommun",
      "kommun": "Tyresö",
      "lokalId": "0138004",
-     "total": 785,
-     "dagarMedRoster": 13,
+     "total": 842,
+     "dagarMedRoster": 14,
      "storstaDag": 97,
-     "andel": 8.3
+     "andel": 8.5
     },
     {
      "namn": "G60, Granängsringen",
@@ -1035,7 +1042,7 @@
      "total": 371,
      "dagarMedRoster": 11,
      "storstaDag": 78,
-     "andel": 3.9
+     "andel": 3.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1044,7 +1051,7 @@
      "total": 54,
      "dagarMedRoster": 4,
      "storstaDag": 37,
-     "andel": 0.6
+     "andel": 0.5
     }
    ],
    "antalLokaler": 6,

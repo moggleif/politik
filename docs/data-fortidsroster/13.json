@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1799,32 +1799,39 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 5722,
-     "ack": 49482
+     "antal": 5764,
+     "ack": 49524
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 5457,
-     "ack": 54939
+     "ack": 54981
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 4607,
-     "ack": 59546
+     "antal": 4610,
+     "ack": 59591
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 8680,
-     "ack": 68226
+     "antal": 8743,
+     "ack": 68334
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 3502,
+     "ack": 71836
     }
    ],
-   "total": 68226,
+   "total": 71836,
    "rostberattigade": {
     "riksdag": 268009,
     "kommun": 273578,
@@ -1842,26 +1849,26 @@
      "namn": "Kungsmässan",
      "kommun": "Kungsbacka",
      "lokalId": "1384008",
-     "total": 11467,
-     "dagarMedRoster": 13,
-     "storstaDag": 1194,
-     "andel": 16.8
+     "total": 12014,
+     "dagarMedRoster": 14,
+     "storstaDag": 1201,
+     "andel": 16.7
     },
     {
      "namn": "Hallarna",
      "kommun": "Halmstad",
      "lokalId": "1380007",
-     "total": 4420,
-     "dagarMedRoster": 13,
+     "total": 4549,
+     "dagarMedRoster": 14,
      "storstaDag": 486,
-     "andel": 6.5
+     "andel": 6.3
     },
     {
      "namn": "Varbergs stadsbibliotek, våning 1",
      "kommun": "Varberg",
      "lokalId": "1383002",
-     "total": 4274,
-     "dagarMedRoster": 13,
+     "total": 4501,
+     "dagarMedRoster": 14,
      "storstaDag": 512,
      "andel": 6.3
     },
@@ -1869,17 +1876,17 @@
      "namn": "Argus",
      "kommun": "Falkenberg",
      "lokalId": "1382004",
-     "total": 4114,
-     "dagarMedRoster": 13,
-     "storstaDag": 540,
+     "total": 4316,
+     "dagarMedRoster": 14,
+     "storstaDag": 541,
      "andel": 6.0
     },
     {
      "namn": "Lorensberg",
      "kommun": "Varberg",
      "lokalId": "1383007",
-     "total": 3135,
-     "dagarMedRoster": 13,
+     "total": 3305,
+     "dagarMedRoster": 14,
      "storstaDag": 343,
      "andel": 4.6
     },
@@ -1887,8 +1894,8 @@
      "namn": "Mellby Center",
      "kommun": "Laholm",
      "lokalId": "1381001",
-     "total": 3089,
-     "dagarMedRoster": 13,
+     "total": 3255,
+     "dagarMedRoster": 14,
      "storstaDag": 321,
      "andel": 4.5
     },
@@ -1896,17 +1903,17 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Halmstad",
      "lokalId": "1380005",
-     "total": 3020,
-     "dagarMedRoster": 12,
-     "storstaDag": 379,
+     "total": 3136,
+     "dagarMedRoster": 13,
+     "storstaDag": 381,
      "andel": 4.4
     },
     {
      "namn": "Halmstads arena",
      "kommun": "Halmstad",
      "lokalId": "1380002",
-     "total": 2915,
-     "dagarMedRoster": 13,
+     "total": 3103,
+     "dagarMedRoster": 14,
      "storstaDag": 368,
      "andel": 4.3
     },
@@ -1914,8 +1921,8 @@
      "namn": "Varbergs stadsbibliotek, våning 2",
      "kommun": "Varberg",
      "lokalId": "1383014",
-     "total": 2589,
-     "dagarMedRoster": 13,
+     "total": 2720,
+     "dagarMedRoster": 14,
      "storstaDag": 305,
      "andel": 3.8
     },
@@ -1923,35 +1930,35 @@
      "namn": "Halmstads kommuns rådhus",
      "kommun": "Halmstad",
      "lokalId": "1380001",
-     "total": 2490,
-     "dagarMedRoster": 11,
-     "storstaDag": 333,
-     "andel": 3.6
-    },
-    {
-     "namn": "Söndrums bibliotek",
-     "kommun": "Halmstad",
-     "lokalId": "1380004",
-     "total": 2382,
-     "dagarMedRoster": 9,
-     "storstaDag": 349,
-     "andel": 3.5
+     "total": 2693,
+     "dagarMedRoster": 12,
+     "storstaDag": 334,
+     "andel": 3.7
     },
     {
      "namn": "Stadshuset, Falkenberg",
      "kommun": "Falkenberg",
      "lokalId": "1382005",
-     "total": 2368,
-     "dagarMedRoster": 9,
+     "total": 2632,
+     "dagarMedRoster": 10,
      "storstaDag": 351,
+     "andel": 3.7
+    },
+    {
+     "namn": "Söndrums bibliotek",
+     "kommun": "Halmstad",
+     "lokalId": "1380004",
+     "total": 2501,
+     "dagarMedRoster": 10,
+     "storstaDag": 349,
      "andel": 3.5
     },
     {
      "namn": "Stadsbiblioteket",
      "kommun": "Laholm",
      "lokalId": "1381003",
-     "total": 1832,
-     "dagarMedRoster": 11,
+     "total": 1949,
+     "dagarMedRoster": 12,
      "storstaDag": 233,
      "andel": 2.7
     },
@@ -1959,10 +1966,19 @@
      "namn": "Kullaviks bibliotek",
      "kommun": "Kungsbacka",
      "lokalId": "1384015",
-     "total": 1633,
-     "dagarMedRoster": 9,
+     "total": 1678,
+     "dagarMedRoster": 10,
      "storstaDag": 352,
-     "andel": 2.4
+     "andel": 2.3
+    },
+    {
+     "namn": "Kungsbacka, Stadshuset",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384013",
+     "total": 1275,
+     "dagarMedRoster": 12,
+     "storstaDag": 156,
+     "andel": 1.8
     },
     {
      "namn": "Falkenbergs Netto, Heberg",
@@ -1971,16 +1987,7 @@
      "total": 1184,
      "dagarMedRoster": 13,
      "storstaDag": 123,
-     "andel": 1.7
-    },
-    {
-     "namn": "Kungsbacka, Stadshuset",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384013",
-     "total": 1181,
-     "dagarMedRoster": 11,
-     "storstaDag": 154,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Onsala Båt och Sjöfartsmuseum",
@@ -1989,52 +1996,61 @@
      "total": 1151,
      "dagarMedRoster": 9,
      "storstaDag": 228,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Hörsalen",
      "kommun": "Hylte",
      "lokalId": "1315001",
-     "total": 1026,
-     "dagarMedRoster": 13,
+     "total": 1109,
+     "dagarMedRoster": 14,
      "storstaDag": 131,
-     "andel": 1.5
-    },
-    {
-     "namn": "Åsa Bibliotek",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384011",
-     "total": 1008,
-     "dagarMedRoster": 9,
-     "storstaDag": 228,
      "andel": 1.5
     },
     {
      "namn": "Bua bibliotek",
      "kommun": "Varberg",
      "lokalId": "1383006",
-     "total": 989,
-     "dagarMedRoster": 9,
+     "total": 1083,
+     "dagarMedRoster": 10,
      "storstaDag": 202,
+     "andel": 1.5
+    },
+    {
+     "namn": "Åsa Bibliotek",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384011",
+     "total": 1058,
+     "dagarMedRoster": 10,
+     "storstaDag": 228,
+     "andel": 1.5
+    },
+    {
+     "namn": "Tvååkers bibliotek",
+     "kommun": "Varberg",
+     "lokalId": "1383004",
+     "total": 1008,
+     "dagarMedRoster": 10,
+     "storstaDag": 187,
      "andel": 1.4
     },
     {
      "namn": "Vallås bibliotek",
      "kommun": "Halmstad",
      "lokalId": "1380003",
-     "total": 924,
-     "dagarMedRoster": 9,
+     "total": 980,
+     "dagarMedRoster": 10,
      "storstaDag": 170,
      "andel": 1.4
     },
     {
-     "namn": "Tvååkers bibliotek",
+     "namn": "Träslövsläge bibliotek",
      "kommun": "Varberg",
-     "lokalId": "1383004",
-     "total": 917,
-     "dagarMedRoster": 9,
-     "storstaDag": 187,
-     "andel": 1.3
+     "lokalId": "1383009",
+     "total": 866,
+     "dagarMedRoster": 10,
+     "storstaDag": 143,
+     "andel": 1.2
     },
     {
      "namn": "Haverdalshallen",
@@ -2043,16 +2059,25 @@
      "total": 819,
      "dagarMedRoster": 4,
      "storstaDag": 273,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
-     "namn": "Träslövsläge bibliotek",
-     "kommun": "Varberg",
-     "lokalId": "1383009",
-     "total": 783,
-     "dagarMedRoster": 9,
-     "storstaDag": 143,
-     "andel": 1.1
+     "namn": "Halmstads högskola",
+     "kommun": "Halmstad",
+     "lokalId": "1380006",
+     "total": 736,
+     "dagarMedRoster": 10,
+     "storstaDag": 109,
+     "andel": 1.0
+    },
+    {
+     "namn": "Medborgarservice Andersberg",
+     "kommun": "Halmstad",
+     "lokalId": "1380008",
+     "total": 674,
+     "dagarMedRoster": 10,
+     "storstaDag": 102,
+     "andel": 0.9
     },
     {
      "namn": "Veddige bibliotek",
@@ -2064,38 +2089,20 @@
      "andel": 0.9
     },
     {
-     "namn": "Halmstads högskola",
-     "kommun": "Halmstad",
-     "lokalId": "1380006",
-     "total": 627,
-     "dagarMedRoster": 9,
-     "storstaDag": 100,
-     "andel": 0.9
-    },
-    {
-     "namn": "Medborgarservice Andersberg",
-     "kommun": "Halmstad",
-     "lokalId": "1380008",
-     "total": 618,
-     "dagarMedRoster": 9,
-     "storstaDag": 100,
-     "andel": 0.9
-    },
-    {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Halmstad",
      "lokalId": "1380021",
-     "total": 559,
-     "dagarMedRoster": 7,
+     "total": 614,
+     "dagarMedRoster": 8,
      "storstaDag": 137,
-     "andel": 0.8
+     "andel": 0.9
     },
     {
      "namn": "Oskarströms brottningshall",
      "kommun": "Halmstad",
      "lokalId": "1380010",
-     "total": 534,
-     "dagarMedRoster": 5,
+     "total": 557,
+     "dagarMedRoster": 6,
      "storstaDag": 142,
      "andel": 0.8
     },
@@ -2103,10 +2110,10 @@
      "namn": "Mariagården, Ullared",
      "kommun": "Falkenberg",
      "lokalId": "1382007",
-     "total": 518,
+     "total": 519,
      "dagarMedRoster": 3,
-     "storstaDag": 222,
-     "andel": 0.8
+     "storstaDag": 223,
+     "andel": 0.7
     }
    ],
    "antalLokaler": 75,

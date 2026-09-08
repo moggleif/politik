@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1273,9 +1273,16 @@
      "kvar": 6,
      "antal": 992,
      "ack": 8146
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 433,
+     "ack": 8579
     }
    ],
-   "total": 8146,
+   "total": 8579,
    "rostberattigade": {
     "riksdag": 29814,
     "kommun": 31033,
@@ -1293,28 +1300,37 @@
      "namn": "Kulturhuset Multeum",
      "kommun": "Strängnäs",
      "lokalId": "0486008",
-     "total": 4361,
-     "dagarMedRoster": 10,
+     "total": 4632,
+     "dagarMedRoster": 11,
      "storstaDag": 577,
-     "andel": 53.5
+     "andel": 54.0
     },
     {
      "namn": "Medborgarkontoret Mariefred",
      "kommun": "Strängnäs",
      "lokalId": "0486011",
-     "total": 1482,
-     "dagarMedRoster": 11,
+     "total": 1567,
+     "dagarMedRoster": 12,
      "storstaDag": 212,
-     "andel": 18.2
+     "andel": 18.3
     },
     {
      "namn": "Medborgarkontoret Stallarholmen",
      "kommun": "Strängnäs",
      "lokalId": "0486010",
-     "total": 875,
-     "dagarMedRoster": 11,
+     "total": 918,
+     "dagarMedRoster": 12,
      "storstaDag": 122,
      "andel": 10.7
+    },
+    {
+     "namn": "Medborgarkontoret Åker",
+     "kommun": "Strängnäs",
+     "lokalId": "0486012",
+     "total": 626,
+     "dagarMedRoster": 12,
+     "storstaDag": 81,
+     "andel": 7.3
     },
     {
      "namn": "Paulinska salen",
@@ -1323,16 +1339,7 @@
      "total": 603,
      "dagarMedRoster": 4,
      "storstaDag": 235,
-     "andel": 7.4
-    },
-    {
-     "namn": "Medborgarkontoret Åker",
-     "kommun": "Strängnäs",
-     "lokalId": "0486012",
-     "total": 592,
-     "dagarMedRoster": 11,
-     "storstaDag": 81,
-     "andel": 7.3
+     "andel": 7.0
     },
     {
      "namn": "Mariefredsanstalten",
@@ -1341,7 +1348,7 @@
      "total": 103,
      "dagarMedRoster": 1,
      "storstaDag": 103,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Södra stadsskogen",

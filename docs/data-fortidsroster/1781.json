@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,7 +1054,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1082,74 +1082,81 @@
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
-     "antal": 228,
-     "ack": 1476
+     "antal": 230,
+     "ack": 1478
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 138,
-     "ack": 1614
+     "ack": 1616
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 512,
-     "ack": 2126
+     "ack": 2128
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 449,
-     "ack": 2575
+     "ack": 2577
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 535,
-     "ack": 3110
+     "antal": 536,
+     "ack": 3113
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 537,
-     "ack": 3647
+     "ack": 3650
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 434,
-     "ack": 4081
+     "ack": 4084
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 362,
-     "ack": 4443
+     "ack": 4446
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 205,
-     "ack": 4648
+     "ack": 4651
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 652,
-     "ack": 5300
+     "ack": 5303
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 352,
+     "ack": 5655
     }
    ],
-   "total": 5300,
+   "total": 5655,
    "rostberattigade": {
     "riksdag": 18869,
     "kommun": 19367,
@@ -1167,17 +1174,17 @@
      "namn": "Hörsalen Nämndhuset (biblioteket)",
      "kommun": "Kristinehamn",
      "lokalId": "1781006",
-     "total": 3036,
-     "dagarMedRoster": 13,
+     "total": 3224,
+     "dagarMedRoster": 14,
      "storstaDag": 411,
-     "andel": 57.3
+     "andel": 57.0
     },
     {
      "namn": "Merkuriushuset",
      "kommun": "Kristinehamn",
      "lokalId": "1781016",
-     "total": 1911,
-     "dagarMedRoster": 11,
+     "total": 2040,
+     "dagarMedRoster": 12,
      "storstaDag": 221,
      "andel": 36.1
     },
@@ -1188,7 +1195,16 @@
      "total": 221,
      "dagarMedRoster": 8,
      "storstaDag": 68,
-     "andel": 4.2
+     "andel": 3.9
+    },
+    {
+     "namn": "Sannagården",
+     "kommun": "Kristinehamn",
+     "lokalId": "1781009",
+     "total": 30,
+     "dagarMedRoster": 1,
+     "storstaDag": 30,
+     "andel": 0.5
     },
     {
      "namn": "Kolgården",
@@ -1224,7 +1240,7 @@
      "total": 14,
      "dagarMedRoster": 3,
      "storstaDag": 7,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Ölmegården",
@@ -1233,7 +1249,7 @@
      "total": 14,
      "dagarMedRoster": 1,
      "storstaDag": 14,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Skogshyddan 1 och 2",
@@ -1242,7 +1258,7 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Sörgården",
@@ -1251,7 +1267,16 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.2
+     "andel": 0.1
+    },
+    {
+     "namn": "Uranus",
+     "kommun": "Kristinehamn",
+     "lokalId": "1781020",
+     "total": 8,
+     "dagarMedRoster": 1,
+     "storstaDag": 8,
+     "andel": 0.1
     },
     {
      "namn": "Rudskoga servicehem",
@@ -1284,24 +1309,6 @@
      "namn": "Rättspsykiatrin Kristinehamn",
      "kommun": "Kristinehamn",
      "lokalId": "1781019",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Sannagården",
-     "kommun": "Kristinehamn",
-     "lokalId": "1781009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Uranus",
-     "kommun": "Kristinehamn",
-     "lokalId": "1781020",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

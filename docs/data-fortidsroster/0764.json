@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -820,39 +820,46 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 448,
-     "ack": 2302
+     "antal": 449,
+     "ack": 2303
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 285,
-     "ack": 2587
+     "ack": 2588
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 166,
-     "ack": 2753
+     "antal": 168,
+     "ack": 2756
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 150,
-     "ack": 2903
+     "antal": 151,
+     "ack": 2907
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 557,
-     "ack": 3460
+     "antal": 559,
+     "ack": 3466
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 164,
+     "ack": 3630
     }
    ],
-   "total": 3460,
+   "total": 3630,
    "rostberattigade": {
     "riksdag": 14834,
     "kommun": 15382,
@@ -870,28 +877,28 @@
      "namn": "Kommunhuset Alvesta",
      "kommun": "Alvesta",
      "lokalId": "0764004",
-     "total": 2136,
-     "dagarMedRoster": 13,
-     "storstaDag": 277,
-     "andel": 61.7
+     "total": 2217,
+     "dagarMedRoster": 14,
+     "storstaDag": 278,
+     "andel": 61.1
     },
     {
      "namn": "Vislanda bibliotek",
      "kommun": "Alvesta",
      "lokalId": "0764001",
-     "total": 566,
-     "dagarMedRoster": 7,
+     "total": 618,
+     "dagarMedRoster": 8,
      "storstaDag": 127,
-     "andel": 16.4
+     "andel": 17.0
     },
     {
      "namn": "Moheda bibliotek",
      "kommun": "Alvesta",
      "lokalId": "0764002",
-     "total": 531,
-     "dagarMedRoster": 7,
+     "total": 567,
+     "dagarMedRoster": 8,
      "storstaDag": 134,
-     "andel": 15.3
+     "andel": 15.6
     },
     {
      "namn": "Kulturbussen",
@@ -900,7 +907,7 @@
      "total": 181,
      "dagarMedRoster": 7,
      "storstaDag": 40,
-     "andel": 5.2
+     "andel": 5.0
     },
     {
      "namn": "Björkliden",
@@ -915,8 +922,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Alvesta",
      "lokalId": "0764011",
-     "total": 13,
-     "dagarMedRoster": 6,
+     "total": 14,
+     "dagarMedRoster": 7,
      "storstaDag": 3,
      "andel": 0.4
     },

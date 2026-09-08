@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1585,7 +1585,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1678,9 +1678,16 @@
      "kvar": 6,
      "antal": 1903,
      "ack": 14960
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 675,
+     "ack": 15635
     }
    ],
-   "total": 14960,
+   "total": 15635,
    "rostberattigade": {
     "riksdag": 51056,
     "kommun": 52071,
@@ -1698,37 +1705,37 @@
      "namn": "Stora Coop, Lillänge",
      "kommun": "Östersund",
      "lokalId": "2380016",
-     "total": 5248,
-     "dagarMedRoster": 13,
+     "total": 5505,
+     "dagarMedRoster": 14,
      "storstaDag": 596,
-     "andel": 35.1
+     "andel": 35.2
     },
     {
      "namn": "Storsjöteatern",
      "kommun": "Östersund",
      "lokalId": "2380029",
-     "total": 2397,
-     "dagarMedRoster": 13,
+     "total": 2532,
+     "dagarMedRoster": 14,
      "storstaDag": 249,
-     "andel": 16.0
+     "andel": 16.2
     },
     {
      "namn": "Östersunds arena",
      "kommun": "Östersund",
      "lokalId": "2380001",
-     "total": 1613,
-     "dagarMedRoster": 13,
+     "total": 1718,
+     "dagarMedRoster": 14,
      "storstaDag": 171,
-     "andel": 10.8
+     "andel": 11.0
     },
     {
      "namn": "Östersunds kommunhus",
      "kommun": "Östersund",
      "lokalId": "2380003",
-     "total": 1578,
-     "dagarMedRoster": 13,
+     "total": 1672,
+     "dagarMedRoster": 14,
      "storstaDag": 200,
-     "andel": 10.5
+     "andel": 10.7
     },
     {
      "namn": "Hornsbergskyrkan, Frösön",
@@ -1737,7 +1744,7 @@
      "total": 1282,
      "dagarMedRoster": 9,
      "storstaDag": 220,
-     "andel": 8.6
+     "andel": 8.2
     },
     {
      "namn": "Mötesplats Brunflo",
@@ -1746,7 +1753,7 @@
      "total": 969,
      "dagarMedRoster": 9,
      "storstaDag": 138,
-     "andel": 6.5
+     "andel": 6.2
     },
     {
      "namn": "Torvalla Mötesplats",
@@ -1755,16 +1762,16 @@
      "total": 638,
      "dagarMedRoster": 6,
      "storstaDag": 160,
-     "andel": 4.3
+     "andel": 4.1
     },
     {
      "namn": "Bykontoret i Lit",
      "kommun": "Östersund",
      "lokalId": "2380015",
-     "total": 444,
-     "dagarMedRoster": 6,
+     "total": 493,
+     "dagarMedRoster": 7,
      "storstaDag": 121,
-     "andel": 3.0
+     "andel": 3.2
     },
     {
      "namn": "Lugnvikskyrkan",
@@ -1773,23 +1780,23 @@
      "total": 320,
      "dagarMedRoster": 6,
      "storstaDag": 83,
-     "andel": 2.1
+     "andel": 2.0
     },
     {
      "namn": "Östersunds sjukhus",
      "kommun": "Östersund",
      "lokalId": "2380018",
-     "total": 123,
-     "dagarMedRoster": 3,
+     "total": 142,
+     "dagarMedRoster": 4,
      "storstaDag": 65,
-     "andel": 0.8
+     "andel": 0.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Östersund",
      "lokalId": "2380028",
-     "total": 98,
-     "dagarMedRoster": 6,
+     "total": 102,
+     "dagarMedRoster": 7,
      "storstaDag": 74,
      "andel": 0.7
     },
@@ -1800,7 +1807,7 @@
      "total": 39,
      "dagarMedRoster": 1,
      "storstaDag": 39,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Bangårdsgatan",
@@ -1884,6 +1891,15 @@
      "andel": 0.1
     },
     {
+     "namn": "Slutna psykiatrin",
+     "kommun": "Östersund",
+     "lokalId": "2380030",
+     "total": 12,
+     "dagarMedRoster": 1,
+     "storstaDag": 12,
+     "andel": 0.1
+    },
+    {
      "namn": "Trossgränd äldreboende",
      "kommun": "Östersund",
      "lokalId": "2380021",
@@ -1950,15 +1966,6 @@
      "namn": "Rådmansgatan",
      "kommun": "Östersund",
      "lokalId": "2380009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Slutna psykiatrin",
-     "kommun": "Östersund",
-     "lokalId": "2380030",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

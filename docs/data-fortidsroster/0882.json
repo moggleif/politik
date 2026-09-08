@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,7 +919,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1012,9 +1012,16 @@
      "kvar": 6,
      "antal": 516,
      "ack": 5658
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 271,
+     "ack": 5929
     }
    ],
-   "total": 5658,
+   "total": 5929,
    "rostberattigade": {
     "riksdag": 20938,
     "kommun": 21448,
@@ -1032,10 +1039,10 @@
      "namn": "Kulturhuset, Oskarshamn",
      "kommun": "Oskarshamn",
      "lokalId": "0882006",
-     "total": 4743,
-     "dagarMedRoster": 13,
+     "total": 4999,
+     "dagarMedRoster": 14,
      "storstaDag": 515,
-     "andel": 83.8
+     "andel": 84.3
     },
     {
      "namn": "Kristdala bibliotek",
@@ -1044,7 +1051,7 @@
      "total": 244,
      "dagarMedRoster": 4,
      "storstaDag": 89,
-     "andel": 4.3
+     "andel": 4.1
     },
     {
      "namn": "Figeholms bibliotek",
@@ -1053,7 +1060,7 @@
      "total": 234,
      "dagarMedRoster": 5,
      "storstaDag": 104,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
      "namn": "Strandagården",
@@ -1062,7 +1069,7 @@
      "total": 231,
      "dagarMedRoster": 4,
      "storstaDag": 94,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
      "namn": "Bockara församlingshem",
@@ -1071,7 +1078,7 @@
      "total": 113,
      "dagarMedRoster": 1,
      "storstaDag": 113,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Misterhults skola",
@@ -1080,7 +1087,7 @@
      "total": 60,
      "dagarMedRoster": 1,
      "storstaDag": 60,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1095,10 +1102,10 @@
      "namn": "Oscarsgymnasiet",
      "kommun": "Oskarshamn",
      "lokalId": "0882008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 15,
+     "dagarMedRoster": 1,
+     "storstaDag": 15,
+     "andel": 0.3
     }
    ],
    "antalLokaler": 8,

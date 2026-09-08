@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1001,11 +1001,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 364,
-     "ack": 2313
+     "antal": 365,
+     "ack": 2314
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 131,
+     "ack": 2445
     }
    ],
-   "total": 2313,
+   "total": 2445,
    "rostberattigade": {
     "riksdag": 8424,
     "kommun": 9454,
@@ -1023,10 +1030,10 @@
      "namn": "Stadshuset i Hagfors",
      "kommun": "Hagfors",
      "lokalId": "1783001",
-     "total": 1659,
-     "dagarMedRoster": 11,
+     "total": 1791,
+     "dagarMedRoster": 12,
      "storstaDag": 245,
-     "andel": 71.7
+     "andel": 73.3
     },
     {
      "namn": "Bågskytten, Ekshärad",
@@ -1035,7 +1042,7 @@
      "total": 404,
      "dagarMedRoster": 4,
      "storstaDag": 135,
-     "andel": 17.5
+     "andel": 16.5
     },
     {
      "namn": "Sunnemo skola",
@@ -1044,7 +1051,7 @@
      "total": 121,
      "dagarMedRoster": 1,
      "storstaDag": 121,
-     "andel": 5.2
+     "andel": 4.9
     },
     {
      "namn": "Råda skola",
@@ -1053,7 +1060,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 3.2
+     "andel": 3.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1062,7 +1069,7 @@
      "total": 54,
      "dagarMedRoster": 3,
      "storstaDag": 31,
-     "andel": 2.3
+     "andel": 2.2
     }
    ],
    "antalLokaler": 5,

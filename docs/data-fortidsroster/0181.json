@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1081,7 +1081,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1172,11 +1172,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1980,
-     "ack": 18938
+     "antal": 1981,
+     "ack": 18939
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 790,
+     "ack": 19729
     }
    ],
-   "total": 18938,
+   "total": 19729,
    "rostberattigade": {
     "riksdag": 69612,
     "kommun": 79206,
@@ -1194,64 +1201,64 @@
      "namn": "Vasa handelsplats",
      "kommun": "Södertälje",
      "lokalId": "0181005",
-     "total": 3650,
-     "dagarMedRoster": 13,
+     "total": 3820,
+     "dagarMedRoster": 14,
      "storstaDag": 402,
-     "andel": 19.3
+     "andel": 19.4
     },
     {
      "namn": "Morabergs handelsplats",
      "kommun": "Södertälje",
      "lokalId": "0181028",
-     "total": 2739,
-     "dagarMedRoster": 13,
+     "total": 2872,
+     "dagarMedRoster": 14,
      "storstaDag": 363,
-     "andel": 14.5
+     "andel": 14.6
     },
     {
      "namn": "Södertälje centrum, Storgatan 17",
      "kommun": "Södertälje",
      "lokalId": "0181003",
-     "total": 2713,
-     "dagarMedRoster": 13,
-     "storstaDag": 305,
-     "andel": 14.3
+     "total": 2854,
+     "dagarMedRoster": 14,
+     "storstaDag": 306,
+     "andel": 14.5
     },
     {
      "namn": "Futurum Järna",
      "kommun": "Södertälje",
      "lokalId": "0181006",
-     "total": 2210,
-     "dagarMedRoster": 13,
+     "total": 2295,
+     "dagarMedRoster": 14,
      "storstaDag": 246,
-     "andel": 11.7
+     "andel": 11.6
     },
     {
      "namn": "Stadshuset Södertälje kommun",
      "kommun": "Södertälje",
      "lokalId": "0181010",
-     "total": 1473,
-     "dagarMedRoster": 13,
+     "total": 1549,
+     "dagarMedRoster": 14,
      "storstaDag": 194,
-     "andel": 7.8
+     "andel": 7.9
     },
     {
      "namn": "Hovsjö Hub",
      "kommun": "Södertälje",
      "lokalId": "0181008",
-     "total": 929,
-     "dagarMedRoster": 13,
+     "total": 954,
+     "dagarMedRoster": 14,
      "storstaDag": 119,
-     "andel": 4.9
+     "andel": 4.8
     },
     {
      "namn": "Södertälje Syd",
      "kommun": "Södertälje",
      "lokalId": "0181027",
-     "total": 807,
-     "dagarMedRoster": 13,
+     "total": 835,
+     "dagarMedRoster": 14,
      "storstaDag": 97,
-     "andel": 4.3
+     "andel": 4.2
     },
     {
      "namn": "Mötesplats Bergvik",
@@ -1260,14 +1267,14 @@
      "total": 806,
      "dagarMedRoster": 8,
      "storstaDag": 158,
-     "andel": 4.3
+     "andel": 4.1
     },
     {
      "namn": "Aktivitetshuset Mosaik Ronna",
      "kommun": "Södertälje",
      "lokalId": "0181026",
-     "total": 780,
-     "dagarMedRoster": 13,
+     "total": 804,
+     "dagarMedRoster": 14,
      "storstaDag": 99,
      "andel": 4.1
     },
@@ -1275,8 +1282,8 @@
      "namn": "Enhörna församlingshem",
      "kommun": "Södertälje",
      "lokalId": "0181004",
-     "total": 601,
-     "dagarMedRoster": 5,
+     "total": 634,
+     "dagarMedRoster": 6,
      "storstaDag": 143,
      "andel": 3.2
     },
@@ -1287,7 +1294,16 @@
      "total": 476,
      "dagarMedRoster": 2,
      "storstaDag": 276,
-     "andel": 2.5
+     "andel": 2.4
+    },
+    {
+     "namn": "Östertälje station",
+     "kommun": "Södertälje",
+     "lokalId": "0181033",
+     "total": 308,
+     "dagarMedRoster": 2,
+     "storstaDag": 232,
+     "andel": 1.6
     },
     {
      "namn": "Saltsjötorg",
@@ -1305,15 +1321,6 @@
      "total": 245,
      "dagarMedRoster": 2,
      "storstaDag": 127,
-     "andel": 1.3
-    },
-    {
-     "namn": "Östertälje station",
-     "kommun": "Södertälje",
-     "lokalId": "0181033",
-     "total": 232,
-     "dagarMedRoster": 1,
-     "storstaDag": 232,
      "andel": 1.2
     },
     {
@@ -1341,7 +1348,7 @@
      "total": 181,
      "dagarMedRoster": 1,
      "storstaDag": 181,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Scania Tekniskt center",
@@ -1350,7 +1357,7 @@
      "total": 162,
      "dagarMedRoster": 1,
      "storstaDag": 162,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Stora torget, Södertälje centrum",

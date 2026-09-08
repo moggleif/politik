@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1820,11 +1820,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 6427,
-     "ack": 56768
+     "antal": 6431,
+     "ack": 56772
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 3131,
+     "ack": 59903
     }
    ],
-   "total": 56768,
+   "total": 59903,
    "rostberattigade": {
     "riksdag": 213611,
     "kommun": 221916,
@@ -1842,44 +1849,44 @@
      "namn": "Sara Kulturhus",
      "kommun": "Skellefteå",
      "lokalId": "2482037",
-     "total": 7948,
-     "dagarMedRoster": 13,
+     "total": 8487,
+     "dagarMedRoster": 14,
      "storstaDag": 851,
-     "andel": 14.0
+     "andel": 14.2
     },
     {
      "namn": "Nolia",
      "kommun": "Umeå",
      "lokalId": "2480001",
-     "total": 5094,
-     "dagarMedRoster": 13,
+     "total": 5429,
+     "dagarMedRoster": 14,
      "storstaDag": 735,
-     "andel": 9.0
+     "andel": 9.1
     },
     {
      "namn": "Norrlands Universitetssjukhus",
      "kommun": "Umeå",
      "lokalId": "2480013",
-     "total": 4613,
-     "dagarMedRoster": 13,
-     "storstaDag": 575,
+     "total": 4840,
+     "dagarMedRoster": 14,
+     "storstaDag": 576,
      "andel": 8.1
     },
     {
      "namn": "Hotell Scandic Syd",
      "kommun": "Umeå",
      "lokalId": "2480018",
-     "total": 4273,
-     "dagarMedRoster": 13,
-     "storstaDag": 588,
-     "andel": 7.5
+     "total": 4530,
+     "dagarMedRoster": 14,
+     "storstaDag": 589,
+     "andel": 7.6
     },
     {
      "namn": "Sjuans mötesplats",
      "kommun": "Umeå",
      "lokalId": "2480023",
-     "total": 2830,
-     "dagarMedRoster": 13,
+     "total": 2966,
+     "dagarMedRoster": 14,
      "storstaDag": 333,
      "andel": 5.0
     },
@@ -1887,8 +1894,8 @@
      "namn": "Lycksele stadshus, entréplan",
      "kommun": "Lycksele",
      "lokalId": "2481003",
-     "total": 2787,
-     "dagarMedRoster": 13,
+     "total": 2934,
+     "dagarMedRoster": 14,
      "storstaDag": 475,
      "andel": 4.9
     },
@@ -1896,17 +1903,17 @@
      "namn": "Ersboda, Sporthushallen",
      "kommun": "Umeå",
      "lokalId": "2480022",
-     "total": 2291,
-     "dagarMedRoster": 13,
+     "total": 2433,
+     "dagarMedRoster": 14,
      "storstaDag": 394,
-     "andel": 4.0
+     "andel": 4.1
     },
     {
      "namn": "Musköten",
      "kommun": "Umeå",
      "lokalId": "2480045",
-     "total": 1816,
-     "dagarMedRoster": 13,
+     "total": 1940,
+     "dagarMedRoster": 14,
      "storstaDag": 268,
      "andel": 3.2
     },
@@ -1914,19 +1921,28 @@
      "namn": "Vilhelmina Folkets Hus",
      "kommun": "Vilhelmina",
      "lokalId": "2462002",
-     "total": 1506,
-     "dagarMedRoster": 13,
+     "total": 1658,
+     "dagarMedRoster": 14,
      "storstaDag": 176,
-     "andel": 2.7
+     "andel": 2.8
     },
     {
      "namn": "Storsjöskolan",
      "kommun": "Umeå",
      "lokalId": "2480016",
-     "total": 1505,
-     "dagarMedRoster": 13,
+     "total": 1592,
+     "dagarMedRoster": 14,
      "storstaDag": 224,
      "andel": 2.7
+    },
+    {
+     "namn": "Norrskenshallen",
+     "kommun": "Nordmaling",
+     "lokalId": "2401001",
+     "total": 1288,
+     "dagarMedRoster": 14,
+     "storstaDag": 211,
+     "andel": 2.2
     },
     {
      "namn": "Lilla salongen, Vegaskolan",
@@ -1935,25 +1951,34 @@
      "total": 1286,
      "dagarMedRoster": 10,
      "storstaDag": 240,
-     "andel": 2.3
-    },
-    {
-     "namn": "Norrskenshallen",
-     "kommun": "Nordmaling",
-     "lokalId": "2401001",
-     "total": 1179,
-     "dagarMedRoster": 13,
-     "storstaDag": 211,
      "andel": 2.1
     },
     {
      "namn": "Folkets hus Storuman",
      "kommun": "Storuman",
      "lokalId": "2421004",
-     "total": 1034,
-     "dagarMedRoster": 13,
+     "total": 1081,
+     "dagarMedRoster": 14,
      "storstaDag": 128,
      "andel": 1.8
+    },
+    {
+     "namn": "Forum, Renforsskolan",
+     "kommun": "Vindeln",
+     "lokalId": "2404001",
+     "total": 1038,
+     "dagarMedRoster": 14,
+     "storstaDag": 144,
+     "andel": 1.7
+    },
+    {
+     "namn": "Centrumhuset, Diamanten Förtidsröstn",
+     "kommun": "Robertsfors",
+     "lokalId": "2409005",
+     "total": 1029,
+     "dagarMedRoster": 14,
+     "storstaDag": 114,
+     "andel": 1.7
     },
     {
      "namn": "Hörnefors Centrumhus",
@@ -1962,25 +1987,7 @@
      "total": 961,
      "dagarMedRoster": 13,
      "storstaDag": 142,
-     "andel": 1.7
-    },
-    {
-     "namn": "Forum, Renforsskolan",
-     "kommun": "Vindeln",
-     "lokalId": "2404001",
-     "total": 958,
-     "dagarMedRoster": 13,
-     "storstaDag": 144,
-     "andel": 1.7
-    },
-    {
-     "namn": "Centrumhuset, Diamanten Förtidsröstn",
-     "kommun": "Robertsfors",
-     "lokalId": "2409005",
-     "total": 952,
-     "dagarMedRoster": 13,
-     "storstaDag": 114,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Sävar skola",
@@ -1995,8 +2002,8 @@
      "namn": "Norsjö Folkets Hus",
      "kommun": "Norsjö",
      "lokalId": "2417002",
-     "total": 785,
-     "dagarMedRoster": 13,
+     "total": 829,
+     "dagarMedRoster": 14,
      "storstaDag": 93,
      "andel": 1.4
     },
@@ -2004,10 +2011,28 @@
      "namn": "Campus, bibliotek",
      "kommun": "Skellefteå",
      "lokalId": "2482005",
-     "total": 667,
-     "dagarMedRoster": 9,
+     "total": 758,
+     "dagarMedRoster": 10,
      "storstaDag": 178,
+     "andel": 1.3
+    },
+    {
+     "namn": "Morö backe, Fritidsgården Loftet",
+     "kommun": "Skellefteå",
+     "lokalId": "2482038",
+     "total": 734,
+     "dagarMedRoster": 6,
+     "storstaDag": 201,
      "andel": 1.2
+    },
+    {
+     "namn": "Skellefteå sjukhus",
+     "kommun": "Skellefteå",
+     "lokalId": "2482031",
+     "total": 681,
+     "dagarMedRoster": 10,
+     "storstaDag": 118,
+     "andel": 1.1
     },
     {
      "namn": "Åsele kulturhus",
@@ -2016,16 +2041,16 @@
      "total": 656,
      "dagarMedRoster": 13,
      "storstaDag": 88,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
-     "namn": "Morö backe, Fritidsgården Loftet",
-     "kommun": "Skellefteå",
-     "lokalId": "2482038",
-     "total": 646,
-     "dagarMedRoster": 5,
-     "storstaDag": 201,
-     "andel": 1.1
+     "namn": "Biblioteket Dorotea",
+     "kommun": "Dorotea",
+     "lokalId": "2425004",
+     "total": 607,
+     "dagarMedRoster": 14,
+     "storstaDag": 97,
+     "andel": 1.0
     },
     {
      "namn": "Kåge bibliotek",
@@ -2034,15 +2059,6 @@
      "total": 604,
      "dagarMedRoster": 6,
      "storstaDag": 153,
-     "andel": 1.1
-    },
-    {
-     "namn": "Skellefteå sjukhus",
-     "kommun": "Skellefteå",
-     "lokalId": "2482031",
-     "total": 593,
-     "dagarMedRoster": 9,
-     "storstaDag": 118,
      "andel": 1.0
     },
     {
@@ -2055,22 +2071,31 @@
      "andel": 1.0
     },
     {
+     "namn": "Edelvik folkhögskola",
+     "kommun": "Skellefteå",
+     "lokalId": "2482032",
+     "total": 582,
+     "dagarMedRoster": 6,
+     "storstaDag": 156,
+     "andel": 1.0
+    },
+    {
      "namn": "Malå kommun",
      "kommun": "Malå",
      "lokalId": "2418004",
      "total": 569,
      "dagarMedRoster": 13,
      "storstaDag": 60,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
-     "namn": "Biblioteket Dorotea",
-     "kommun": "Dorotea",
-     "lokalId": "2425004",
-     "total": 559,
-     "dagarMedRoster": 13,
-     "storstaDag": 97,
-     "andel": 1.0
+     "namn": "Bureå bibliotek",
+     "kommun": "Skellefteå",
+     "lokalId": "2482002",
+     "total": 563,
+     "dagarMedRoster": 6,
+     "storstaDag": 162,
+     "andel": 0.9
     },
     {
      "namn": "Carlslundsskolan",
@@ -2079,7 +2104,7 @@
      "total": 555,
      "dagarMedRoster": 4,
      "storstaDag": 176,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Kommunkontoret",
@@ -2088,24 +2113,6 @@
      "total": 543,
      "dagarMedRoster": 13,
      "storstaDag": 90,
-     "andel": 1.0
-    },
-    {
-     "namn": "Solbacken",
-     "kommun": "Skellefteå",
-     "lokalId": "2482041",
-     "total": 520,
-     "dagarMedRoster": 3,
-     "storstaDag": 175,
-     "andel": 0.9
-    },
-    {
-     "namn": "Ursvikens bibliotek",
-     "kommun": "Skellefteå",
-     "lokalId": "2482039",
-     "total": 519,
-     "dagarMedRoster": 6,
-     "storstaDag": 141,
      "andel": 0.9
     }
    ],

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1171,7 +1171,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1234,39 +1234,46 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 973,
-     "ack": 7335
+     "antal": 974,
+     "ack": 7336
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 951,
-     "ack": 8286
+     "antal": 956,
+     "ack": 8292
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 806,
-     "ack": 9092
+     "ack": 9098
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 720,
-     "ack": 9812
+     "ack": 9818
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1216,
-     "ack": 11028
+     "antal": 1220,
+     "ack": 11038
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 571,
+     "ack": 11609
     }
    ],
-   "total": 11028,
+   "total": 11609,
    "rostberattigade": {
     "riksdag": 36586,
     "kommun": 38482,
@@ -1284,44 +1291,44 @@
      "namn": "Åkersberga bibliotek",
      "kommun": "Österåker",
      "lokalId": "0117002",
-     "total": 3859,
-     "dagarMedRoster": 13,
-     "storstaDag": 415,
-     "andel": 35.0
+     "total": 4055,
+     "dagarMedRoster": 14,
+     "storstaDag": 417,
+     "andel": 34.9
     },
     {
      "namn": "Västra Centrum",
      "kommun": "Österåker",
      "lokalId": "0117021",
-     "total": 2721,
-     "dagarMedRoster": 13,
-     "storstaDag": 304,
+     "total": 2866,
+     "dagarMedRoster": 14,
+     "storstaDag": 305,
      "andel": 24.7
-    },
-    {
-     "namn": "Österåkers Multiarena",
-     "kommun": "Österåker",
-     "lokalId": "0117015",
-     "total": 1718,
-     "dagarMedRoster": 13,
-     "storstaDag": 294,
-     "andel": 15.6
     },
     {
      "namn": "Kommunhuset/Alceahuset",
      "kommun": "Österåker",
      "lokalId": "0117008",
-     "total": 1717,
-     "dagarMedRoster": 9,
-     "storstaDag": 239,
-     "andel": 15.6
+     "total": 1873,
+     "dagarMedRoster": 10,
+     "storstaDag": 240,
+     "andel": 16.1
+    },
+    {
+     "namn": "Österåkers Multiarena",
+     "kommun": "Österåker",
+     "lokalId": "0117015",
+     "total": 1759,
+     "dagarMedRoster": 14,
+     "storstaDag": 294,
+     "andel": 15.2
     },
     {
      "namn": "Tempo Ljusterö",
      "kommun": "Österåker",
      "lokalId": "0117003",
-     "total": 705,
-     "dagarMedRoster": 11,
+     "total": 742,
+     "dagarMedRoster": 12,
      "storstaDag": 95,
      "andel": 6.4
     },
@@ -1332,7 +1339,7 @@
      "total": 97,
      "dagarMedRoster": 2,
      "storstaDag": 64,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Vardaga Villa Näs",
@@ -1386,7 +1393,7 @@
      "total": 17,
      "dagarMedRoster": 1,
      "storstaDag": 17,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Attendo Kantarellvägen",
@@ -1443,18 +1450,18 @@
      "andel": 0.1
     },
     {
-     "namn": "Anstalten Österåker",
-     "kommun": "Österåker",
-     "lokalId": "0117005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Förenade Care Muskötvägen",
      "kommun": "Österåker",
      "lokalId": "0117016",
+     "total": 6,
+     "dagarMedRoster": 1,
+     "storstaDag": 6,
+     "andel": 0.1
+    },
+    {
+     "namn": "Anstalten Österåker",
+     "kommun": "Österåker",
+     "lokalId": "0117005",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

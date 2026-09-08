@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T11:04+02:00",
+ "senastUppdaterad": "2026-09-08T18:50+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -901,7 +901,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T11:04+02:00",
+   "hamtad": "2026-09-08T18:50+02:00",
    "klart": false,
    "dagar": [
     {
@@ -950,53 +950,60 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 968,
-     "ack": 5060
+     "antal": 969,
+     "ack": 5061
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 929,
-     "ack": 5989
+     "ack": 5990
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 835,
-     "ack": 6824
+     "ack": 6825
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 795,
-     "ack": 7619
+     "ack": 7620
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 560,
-     "ack": 8179
+     "ack": 8180
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 610,
-     "ack": 8789
+     "ack": 8790
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1168,
-     "ack": 9957
+     "antal": 1175,
+     "ack": 9965
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 540,
+     "ack": 10505
     }
    ],
-   "total": 9957,
+   "total": 10505,
    "rostberattigade": {
     "riksdag": 35925,
     "kommun": 37525,
@@ -1014,53 +1021,53 @@
      "namn": "Valengallerian",
      "kommun": "Trelleborg",
      "lokalId": "1287003",
-     "total": 2794,
-     "dagarMedRoster": 13,
+     "total": 2921,
+     "dagarMedRoster": 14,
      "storstaDag": 335,
-     "andel": 28.1
+     "andel": 27.8
     },
     {
      "namn": "ICA Maxi",
      "kommun": "Trelleborg",
      "lokalId": "1287001",
-     "total": 1946,
-     "dagarMedRoster": 12,
+     "total": 2055,
+     "dagarMedRoster": 13,
      "storstaDag": 282,
-     "andel": 19.5
+     "andel": 19.6
     },
     {
      "namn": "Stora Coop",
      "kommun": "Trelleborg",
      "lokalId": "1287004",
-     "total": 1801,
-     "dagarMedRoster": 11,
+     "total": 1917,
+     "dagarMedRoster": 12,
      "storstaDag": 230,
-     "andel": 18.1
+     "andel": 18.2
     },
     {
      "namn": "CityGross",
      "kommun": "Trelleborg",
      "lokalId": "1287002",
-     "total": 1759,
-     "dagarMedRoster": 11,
-     "storstaDag": 247,
-     "andel": 17.7
+     "total": 1846,
+     "dagarMedRoster": 12,
+     "storstaDag": 249,
+     "andel": 17.6
     },
     {
      "namn": "Biblioteket",
      "kommun": "Trelleborg",
      "lokalId": "1287005",
-     "total": 776,
-     "dagarMedRoster": 8,
+     "total": 826,
+     "dagarMedRoster": 9,
      "storstaDag": 138,
-     "andel": 7.8
+     "andel": 7.9
     },
     {
      "namn": "Valbussen",
      "kommun": "Trelleborg",
      "lokalId": "1287006",
-     "total": 712,
-     "dagarMedRoster": 12,
+     "total": 758,
+     "dagarMedRoster": 13,
      "storstaDag": 110,
      "andel": 7.2
     },
@@ -1068,8 +1075,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Trelleborg",
      "lokalId": "1287008",
-     "total": 169,
-     "dagarMedRoster": 9,
+     "total": 182,
+     "dagarMedRoster": 10,
      "storstaDag": 29,
      "andel": 1.7
     }
