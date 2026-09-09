@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1117,7 +1117,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1187,39 +1187,46 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 1247,
-     "ack": 9181
+     "antal": 1248,
+     "ack": 9182
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 561,
-     "ack": 9742
+     "ack": 9743
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 275,
-     "ack": 10017
+     "ack": 10018
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1804,
-     "ack": 11821
+     "antal": 1843,
+     "ack": 11861
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 1981,
-     "ack": 13802
+     "ack": 13842
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 762,
+     "ack": 14604
     }
    ],
-   "total": 13802,
+   "total": 14604,
    "rostberattigade": {
     "riksdag": 46886,
     "kommun": 47541,
@@ -1237,28 +1244,28 @@
      "namn": "Stadsbiblioteket, Falun",
      "kommun": "Falun",
      "lokalId": "2080009",
-     "total": 6873,
-     "dagarMedRoster": 12,
+     "total": 7287,
+     "dagarMedRoster": 13,
      "storstaDag": 868,
-     "andel": 49.8
+     "andel": 49.9
     },
     {
      "namn": "Kristinegården, Falun",
      "kommun": "Falun",
      "lokalId": "2080013",
-     "total": 1908,
-     "dagarMedRoster": 14,
+     "total": 1999,
+     "dagarMedRoster": 15,
      "storstaDag": 275,
-     "andel": 13.8
+     "andel": 13.7
     },
     {
      "namn": "Falu lasarett, Stora entrén",
      "kommun": "Falun",
      "lokalId": "2080001",
-     "total": 916,
-     "dagarMedRoster": 8,
-     "storstaDag": 160,
-     "andel": 6.6
+     "total": 1069,
+     "dagarMedRoster": 9,
+     "storstaDag": 161,
+     "andel": 7.3
     },
     {
      "namn": "Svärdsjö Bibliotek",
@@ -1267,7 +1274,16 @@
      "total": 778,
      "dagarMedRoster": 6,
      "storstaDag": 206,
-     "andel": 5.6
+     "andel": 5.3
+    },
+    {
+     "namn": "Klubbstugan Pumpen, Korsnäs IF",
+     "kommun": "Falun",
+     "lokalId": "2080002",
+     "total": 745,
+     "dagarMedRoster": 7,
+     "storstaDag": 222,
+     "andel": 5.1
     },
     {
      "namn": "Bjursås Bibliotek",
@@ -1276,16 +1292,16 @@
      "total": 724,
      "dagarMedRoster": 8,
      "storstaDag": 147,
-     "andel": 5.2
+     "andel": 5.0
     },
     {
-     "namn": "Klubbstugan Pumpen, Korsnäs IF",
+     "namn": "Vika församlingshem",
      "kommun": "Falun",
-     "lokalId": "2080002",
-     "total": 672,
-     "dagarMedRoster": 6,
-     "storstaDag": 222,
-     "andel": 4.9
+     "lokalId": "2080008",
+     "total": 370,
+     "dagarMedRoster": 8,
+     "storstaDag": 112,
+     "andel": 2.5
     },
     {
      "namn": "Grycksbo Bystuga",
@@ -1294,15 +1310,6 @@
      "total": 356,
      "dagarMedRoster": 4,
      "storstaDag": 118,
-     "andel": 2.6
-    },
-    {
-     "namn": "Vika församlingshem",
-     "kommun": "Falun",
-     "lokalId": "2080008",
-     "total": 331,
-     "dagarMedRoster": 7,
-     "storstaDag": 112,
      "andel": 2.4
     },
     {
@@ -1312,7 +1319,7 @@
      "total": 322,
      "dagarMedRoster": 4,
      "storstaDag": 103,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Sundborns PRO-lokal",
@@ -1321,7 +1328,7 @@
      "total": 267,
      "dagarMedRoster": 4,
      "storstaDag": 94,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "K-stugan Bojsenburg",
@@ -1330,16 +1337,16 @@
      "total": 181,
      "dagarMedRoster": 5,
      "storstaDag": 79,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Sågmyra IOGT/NTO",
      "kommun": "Falun",
      "lokalId": "2080007",
-     "total": 177,
+     "total": 178,
      "dagarMedRoster": 4,
      "storstaDag": 55,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Triangelgården Nedre Norslund",
@@ -1363,10 +1370,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Falun",
      "lokalId": "2080014",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 31,
+     "dagarMedRoster": 1,
+     "storstaDag": 31,
+     "andel": 0.2
     },
     {
      "namn": "Tofta bystuga",

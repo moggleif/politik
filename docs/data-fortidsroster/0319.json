@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -857,18 +857,25 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 249,
-     "ack": 2241
+     "antal": 250,
+     "ack": 2242
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 270,
-     "ack": 2511
+     "antal": 291,
+     "ack": 2533
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 101,
+     "ack": 2634
     }
    ],
-   "total": 2511,
+   "total": 2634,
    "rostberattigade": {
     "riksdag": 7435,
     "kommun": 7600,
@@ -886,19 +893,19 @@
      "namn": "Biblioteket Skutskär",
      "kommun": "Älvkarleby",
      "lokalId": "0319001",
-     "total": 2504,
-     "dagarMedRoster": 14,
-     "storstaDag": 270,
-     "andel": 99.7
+     "total": 2610,
+     "dagarMedRoster": 15,
+     "storstaDag": 274,
+     "andel": 99.1
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Älvkarleby",
      "lokalId": "0319003",
-     "total": 7,
-     "dagarMedRoster": 1,
-     "storstaDag": 7,
-     "andel": 0.3
+     "total": 24,
+     "dagarMedRoster": 2,
+     "storstaDag": 17,
+     "andel": 0.9
     },
     {
      "namn": "Ljusgården, Kommunhuset",

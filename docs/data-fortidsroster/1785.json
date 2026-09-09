@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -850,25 +850,32 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 143,
-     "ack": 2625
+     "antal": 144,
+     "ack": 2626
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 367,
-     "ack": 2992
+     "ack": 2993
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 419,
-     "ack": 3411
+     "ack": 3412
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 163,
+     "ack": 3575
     }
    ],
-   "total": 3411,
+   "total": 3575,
    "rostberattigade": {
     "riksdag": 11477,
     "kommun": 12054,
@@ -886,10 +893,10 @@
      "namn": "Medborgarhuset",
      "kommun": "Säffle",
      "lokalId": "1785002",
-     "total": 3220,
-     "dagarMedRoster": 14,
+     "total": 3384,
+     "dagarMedRoster": 15,
      "storstaDag": 390,
-     "andel": 94.4
+     "andel": 94.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -898,7 +905,7 @@
      "total": 97,
      "dagarMedRoster": 3,
      "storstaDag": 40,
-     "andel": 2.8
+     "andel": 2.7
     },
     {
      "namn": "Biblioteksbussen",
@@ -907,7 +914,7 @@
      "total": 94,
      "dagarMedRoster": 3,
      "storstaDag": 52,
-     "andel": 2.8
+     "andel": 2.6
     },
     {
      "namn": "Stadshuset",

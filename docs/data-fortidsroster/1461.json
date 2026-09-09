@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -892,7 +892,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -992,9 +992,16 @@
      "kvar": 5,
      "antal": 244,
      "ack": 1882
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 172,
+     "ack": 2054
     }
    ],
-   "total": 1882,
+   "total": 2054,
    "rostberattigade": {
     "riksdag": 6951,
     "kommun": 7330,
@@ -1012,10 +1019,10 @@
      "namn": "Grinstadrummet, Mellerud",
      "kommun": "Mellerud",
      "lokalId": "1461005",
-     "total": 1831,
-     "dagarMedRoster": 14,
+     "total": 2003,
+     "dagarMedRoster": 15,
      "storstaDag": 244,
-     "andel": 97.3
+     "andel": 97.5
     },
     {
      "namn": "Fagerlids särskilda boende",
@@ -1024,7 +1031,7 @@
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Skållerudshemmet",
@@ -1033,7 +1040,7 @@
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Ängenäs särskilda boende",
@@ -1042,7 +1049,7 @@
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Karolinen",
@@ -1051,7 +1058,7 @@
      "total": 7,
      "dagarMedRoster": 1,
      "storstaDag": 7,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1060,7 +1067,7 @@
      "total": 3,
      "dagarMedRoster": 1,
      "storstaDag": 3,
-     "andel": 0.2
+     "andel": 0.1
     }
    ],
    "antalLokaler": 6,

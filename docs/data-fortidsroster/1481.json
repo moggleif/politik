@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1045,7 +1045,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1094,60 +1094,67 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 1071,
-     "ack": 5825
+     "antal": 1075,
+     "ack": 5829
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 1053,
-     "ack": 6878
+     "antal": 1055,
+     "ack": 6884
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 1019,
-     "ack": 7897
+     "antal": 1021,
+     "ack": 7905
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 1208,
-     "ack": 9105
+     "antal": 1211,
+     "ack": 9116
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 1020,
-     "ack": 10125
+     "antal": 1026,
+     "ack": 10142
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 540,
-     "ack": 10665
+     "antal": 543,
+     "ack": 10685
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 1638,
-     "ack": 12303
+     "ack": 12323
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 1862,
-     "ack": 14165
+     "ack": 14185
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 532,
+     "ack": 14717
     }
    ],
-   "total": 14165,
+   "total": 14717,
    "rostberattigade": {
     "riksdag": 54338,
     "kommun": 56607,
@@ -1165,17 +1172,17 @@
      "namn": "Mölndal galleria",
      "kommun": "Mölndal",
      "lokalId": "1481010",
-     "total": 7413,
-     "dagarMedRoster": 14,
+     "total": 7620,
+     "dagarMedRoster": 15,
      "storstaDag": 872,
-     "andel": 52.3
+     "andel": 51.8
     },
     {
      "namn": "Lindome centrum",
      "kommun": "Mölndal",
      "lokalId": "1481009",
-     "total": 2318,
-     "dagarMedRoster": 12,
+     "total": 2420,
+     "dagarMedRoster": 13,
      "storstaDag": 383,
      "andel": 16.4
     },
@@ -1183,19 +1190,19 @@
      "namn": "Aktiviteten",
      "kommun": "Mölndal",
      "lokalId": "1481014",
-     "total": 2257,
-     "dagarMedRoster": 12,
+     "total": 2369,
+     "dagarMedRoster": 13,
      "storstaDag": 330,
-     "andel": 15.9
+     "andel": 16.1
     },
     {
      "namn": "Kållereds fritidsgård",
      "kommun": "Mölndal",
      "lokalId": "1481008",
-     "total": 1804,
-     "dagarMedRoster": 12,
+     "total": 1914,
+     "dagarMedRoster": 13,
      "storstaDag": 239,
-     "andel": 12.7
+     "andel": 13.0
     },
     {
      "namn": "Sagsjöns kriminalvårdsanstalt",
@@ -1210,8 +1217,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Mölndal",
      "lokalId": "1481012",
-     "total": 56,
-     "dagarMedRoster": 9,
+     "total": 58,
+     "dagarMedRoster": 10,
      "storstaDag": 13,
      "andel": 0.4
     },
@@ -1282,10 +1289,10 @@
      "namn": "Fässbergs äldreboende",
      "kommun": "Mölndal",
      "lokalId": "1481007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 0.1
     }
    ],
    "antalLokaler": 14,

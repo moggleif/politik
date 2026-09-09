@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -893,9 +893,16 @@
      "kvar": 5,
      "antal": 1182,
      "ack": 8091
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 383,
+     "ack": 8474
     }
    ],
-   "total": 8091,
+   "total": 8474,
    "rostberattigade": {
     "riksdag": 29840,
     "kommun": 30386,
@@ -913,10 +920,10 @@
      "namn": "Hudiksvall - Kulturhuset",
      "kommun": "Hudiksvall",
      "lokalId": "2184003",
-     "total": 5736,
-     "dagarMedRoster": 14,
+     "total": 6084,
+     "dagarMedRoster": 15,
      "storstaDag": 813,
-     "andel": 70.9
+     "andel": 71.8
     },
     {
      "namn": "Delsbo - Servicecenter",
@@ -925,7 +932,7 @@
      "total": 1078,
      "dagarMedRoster": 12,
      "storstaDag": 155,
-     "andel": 13.3
+     "andel": 12.7
     },
     {
      "namn": "Iggesund - Folkets Hus",
@@ -934,7 +941,16 @@
      "total": 908,
      "dagarMedRoster": 12,
      "storstaDag": 163,
-     "andel": 11.2
+     "andel": 10.7
+    },
+    {
+     "namn": "Mobila biblioteket",
+     "kommun": "Hudiksvall",
+     "lokalId": "2184004",
+     "total": 135,
+     "dagarMedRoster": 3,
+     "storstaDag": 51,
+     "andel": 1.6
     },
     {
      "namn": "Sörforsa bibliotek",
@@ -944,15 +960,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 133,
      "andel": 1.6
-    },
-    {
-     "namn": "Mobila biblioteket",
-     "kommun": "Hudiksvall",
-     "lokalId": "2184004",
-     "total": 100,
-     "dagarMedRoster": 2,
-     "storstaDag": 51,
-     "andel": 1.2
     },
     {
      "namn": "Bromangymnasiet",
@@ -979,7 +986,7 @@
      "total": 37,
      "dagarMedRoster": 1,
      "storstaDag": 37,
-     "andel": 0.5
+     "andel": 0.4
     }
    ],
    "antalLokaler": 8,

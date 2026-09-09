@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1036,7 +1036,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1134,11 +1134,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 162,
-     "ack": 1044
+     "antal": 163,
+     "ack": 1045
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 66,
+     "ack": 1111
     }
    ],
-   "total": 1044,
+   "total": 1111,
    "rostberattigade": {
     "riksdag": 2886,
     "kommun": 3052,
@@ -1156,10 +1163,10 @@
      "namn": "Norsjö Folkets Hus",
      "kommun": "Norsjö",
      "lokalId": "2417002",
-     "total": 881,
-     "dagarMedRoster": 14,
-     "storstaDag": 96,
-     "andel": 84.4
+     "total": 908,
+     "dagarMedRoster": 15,
+     "storstaDag": 97,
+     "andel": 81.7
     },
     {
      "namn": "Folkets Hus, Bastuträsk",
@@ -1168,7 +1175,16 @@
      "total": 66,
      "dagarMedRoster": 1,
      "storstaDag": 66,
-     "andel": 6.3
+     "andel": 5.9
+    },
+    {
+     "namn": "Bjurträsk",
+     "kommun": "Norsjö",
+     "lokalId": "2417012",
+     "total": 36,
+     "dagarMedRoster": 1,
+     "storstaDag": 36,
+     "andel": 3.2
     },
     {
      "namn": "Kusfors",
@@ -1177,7 +1193,7 @@
      "total": 33,
      "dagarMedRoster": 1,
      "storstaDag": 33,
-     "andel": 3.2
+     "andel": 3.0
     },
     {
      "namn": "Åmliden",
@@ -1186,7 +1202,7 @@
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Risliden",
@@ -1204,7 +1220,7 @@
      "total": 9,
      "dagarMedRoster": 1,
      "storstaDag": 9,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Kvarnåsen",
@@ -1213,7 +1229,7 @@
      "total": 7,
      "dagarMedRoster": 1,
      "storstaDag": 7,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Solbacka",
@@ -1222,7 +1238,16 @@
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 0.6
+     "andel": 0.5
+    },
+    {
+     "namn": "Fromheden",
+     "kommun": "Norsjö",
+     "lokalId": "2417011",
+     "total": 4,
+     "dagarMedRoster": 1,
+     "storstaDag": 4,
+     "andel": 0.4
     },
     {
      "namn": "Norsjövallen",
@@ -1241,24 +1266,6 @@
      "dagarMedRoster": 2,
      "storstaDag": 2,
      "andel": 0.3
-    },
-    {
-     "namn": "Bjurträsk",
-     "kommun": "Norsjö",
-     "lokalId": "2417012",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Fromheden",
-     "kommun": "Norsjö",
-     "lokalId": "2417011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 12,

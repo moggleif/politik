@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1424,9 +1424,16 @@
      "kvar": 5,
      "antal": 249,
      "ack": 1897
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 64,
+     "ack": 1961
     }
    ],
-   "total": 1897,
+   "total": 1961,
    "rostberattigade": {
     "riksdag": 4441,
     "kommun": 4660,
@@ -1444,10 +1451,10 @@
      "namn": "Pajala G:a Sporthallen",
      "kommun": "Pajala",
      "lokalId": "2521011",
-     "total": 1006,
-     "dagarMedRoster": 12,
+     "total": 1049,
+     "dagarMedRoster": 13,
      "storstaDag": 125,
-     "andel": 53.0
+     "andel": 53.5
     },
     {
      "namn": "Tärendö Sporthall",
@@ -1456,7 +1463,7 @@
      "total": 196,
      "dagarMedRoster": 2,
      "storstaDag": 140,
-     "andel": 10.3
+     "andel": 10.0
     },
     {
      "namn": "Junosuando, fd centralskolan",
@@ -1465,7 +1472,7 @@
      "total": 186,
      "dagarMedRoster": 3,
      "storstaDag": 73,
-     "andel": 9.8
+     "andel": 9.5
     },
     {
      "namn": "Sattajärvi skola",
@@ -1474,7 +1481,7 @@
      "total": 164,
      "dagarMedRoster": 1,
      "storstaDag": 164,
-     "andel": 8.6
+     "andel": 8.4
     },
     {
      "namn": "Korpilombolo, Gårdsbyskolan matsal",
@@ -1483,7 +1490,7 @@
      "total": 136,
      "dagarMedRoster": 2,
      "storstaDag": 71,
-     "andel": 7.2
+     "andel": 6.9
     },
     {
      "namn": "Kaunisvaara Folkets hus",
@@ -1492,7 +1499,7 @@
      "total": 50,
      "dagarMedRoster": 1,
      "storstaDag": 50,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Narken  Skolan",
@@ -1501,7 +1508,7 @@
      "total": 45,
      "dagarMedRoster": 1,
      "storstaDag": 45,
-     "andel": 2.4
+     "andel": 2.3
     },
     {
      "namn": "Kardis Bygdegård",
@@ -1510,7 +1517,7 @@
      "total": 43,
      "dagarMedRoster": 1,
      "storstaDag": 43,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Muodoslompolo, Våra byars hus",
@@ -1519,7 +1526,7 @@
      "total": 38,
      "dagarMedRoster": 1,
      "storstaDag": 38,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Kitkiöjärvi Skolan",
@@ -1528,7 +1535,16 @@
      "total": 28,
      "dagarMedRoster": 1,
      "storstaDag": 28,
-     "andel": 1.5
+     "andel": 1.4
+    },
+    {
+     "namn": "Erkheikki Folkets Hus",
+     "kommun": "Pajala",
+     "lokalId": "2521002",
+     "total": 21,
+     "dagarMedRoster": 1,
+     "storstaDag": 21,
+     "andel": 1.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1538,15 +1554,6 @@
      "dagarMedRoster": 2,
      "storstaDag": 3,
      "andel": 0.3
-    },
-    {
-     "namn": "Erkheikki Folkets Hus",
-     "kommun": "Pajala",
-     "lokalId": "2521002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Kainulasjärvi Fd Skolan",

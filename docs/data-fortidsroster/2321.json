@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,7 +1054,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1154,9 +1154,16 @@
      "kvar": 5,
      "antal": 323,
      "ack": 2766
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 288,
+     "ack": 3054
     }
    ],
-   "total": 2766,
+   "total": 3054,
    "rostberattigade": {
     "riksdag": 9659,
     "kommun": 9969,
@@ -1174,19 +1181,28 @@
      "namn": "Åre bibliotek",
      "kommun": "Åre",
      "lokalId": "2321001",
-     "total": 1218,
-     "dagarMedRoster": 14,
-     "storstaDag": 124,
-     "andel": 44.0
+     "total": 1357,
+     "dagarMedRoster": 15,
+     "storstaDag": 139,
+     "andel": 44.4
     },
     {
      "namn": "Biblioteket Järpen",
      "kommun": "Åre",
      "lokalId": "2321005",
-     "total": 1110,
-     "dagarMedRoster": 10,
+     "total": 1215,
+     "dagarMedRoster": 11,
      "storstaDag": 202,
-     "andel": 40.1
+     "andel": 39.8
+    },
+    {
+     "namn": "Hallens bibliotek",
+     "kommun": "Åre",
+     "lokalId": "2321002",
+     "total": 201,
+     "dagarMedRoster": 3,
+     "storstaDag": 97,
+     "andel": 6.6
     },
     {
      "namn": "Mörsils bibliotek",
@@ -1195,15 +1211,6 @@
      "total": 174,
      "dagarMedRoster": 2,
      "storstaDag": 93,
-     "andel": 6.3
-    },
-    {
-     "namn": "Hallens bibliotek",
-     "kommun": "Åre",
-     "lokalId": "2321002",
-     "total": 157,
-     "dagarMedRoster": 2,
-     "storstaDag": 97,
      "andel": 5.7
     },
     {
@@ -1213,7 +1220,7 @@
      "total": 63,
      "dagarMedRoster": 2,
      "storstaDag": 40,
-     "andel": 2.3
+     "andel": 2.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1222,7 +1229,7 @@
      "total": 44,
      "dagarMedRoster": 5,
      "storstaDag": 28,
-     "andel": 1.6
+     "andel": 1.4
     },
     {
      "namn": "Enaforsholm",

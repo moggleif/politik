@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -847,7 +847,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -903,53 +903,60 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 153,
-     "ack": 996
+     "antal": 156,
+     "ack": 999
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 156,
-     "ack": 1152
+     "ack": 1155
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 110,
-     "ack": 1262
+     "ack": 1265
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 108,
-     "ack": 1370
+     "ack": 1373
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 175,
-     "ack": 1545
+     "ack": 1548
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 199,
-     "ack": 1744
+     "ack": 1747
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 323,
-     "ack": 2067
+     "ack": 2070
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 93,
+     "ack": 2163
     }
    ],
-   "total": 2067,
+   "total": 2163,
    "rostberattigade": {
     "riksdag": 6523,
     "kommun": 6706,
@@ -967,10 +974,10 @@
      "namn": "Biblioteket Kungsör",
      "kommun": "Kungsör",
      "lokalId": "1960002",
-     "total": 1798,
-     "dagarMedRoster": 14,
+     "total": 1891,
+     "dagarMedRoster": 15,
      "storstaDag": 270,
-     "andel": 87.0
+     "andel": 87.4
     },
     {
      "namn": "Entrén Björskogsskolans matsal",
@@ -979,7 +986,7 @@
      "total": 118,
      "dagarMedRoster": 2,
      "storstaDag": 63,
-     "andel": 5.7
+     "andel": 5.5
     },
     {
      "namn": "Torpa bygdegård",
@@ -988,7 +995,7 @@
      "total": 83,
      "dagarMedRoster": 3,
      "storstaDag": 53,
-     "andel": 4.0
+     "andel": 3.8
     },
     {
      "namn": "Misteln",
@@ -997,7 +1004,7 @@
      "total": 35,
      "dagarMedRoster": 1,
      "storstaDag": 35,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Södergården",
@@ -1015,16 +1022,16 @@
      "total": 16,
      "dagarMedRoster": 1,
      "storstaDag": 16,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kungsör",
      "lokalId": "1960006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 3,
+     "dagarMedRoster": 1,
+     "storstaDag": 3,
+     "andel": 0.1
     }
    ],
    "antalLokaler": 7,

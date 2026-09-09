@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1071,11 +1071,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 753,
-     "ack": 6110
+     "antal": 826,
+     "ack": 6183
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 306,
+     "ack": 6489
     }
    ],
-   "total": 6110,
+   "total": 6489,
    "rostberattigade": {
     "riksdag": 18984,
     "kommun": 19478,
@@ -1093,10 +1100,10 @@
      "namn": "Sambiblioteket plan 4 övre ingång",
      "kommun": "Härnösand",
      "lokalId": "2280001",
-     "total": 5469,
-     "dagarMedRoster": 12,
+     "total": 5775,
+     "dagarMedRoster": 13,
      "storstaDag": 675,
-     "andel": 89.5
+     "andel": 89.0
     },
     {
      "namn": "Älandsbro Folketshus",
@@ -1105,7 +1112,7 @@
      "total": 156,
      "dagarMedRoster": 2,
      "storstaDag": 95,
-     "andel": 2.6
+     "andel": 2.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1114,7 +1121,7 @@
      "total": 155,
      "dagarMedRoster": 9,
      "storstaDag": 62,
-     "andel": 2.5
+     "andel": 2.4
     },
     {
      "namn": "Högsjögården",
@@ -1123,7 +1130,7 @@
      "total": 123,
      "dagarMedRoster": 2,
      "storstaDag": 62,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Utansjögården",
@@ -1132,7 +1139,16 @@
      "total": 92,
      "dagarMedRoster": 2,
      "storstaDag": 50,
-     "andel": 1.5
+     "andel": 1.4
+    },
+    {
+     "namn": "Anstalt Härnösand",
+     "kommun": "Härnösand",
+     "lokalId": "2280009",
+     "total": 73,
+     "dagarMedRoster": 1,
+     "storstaDag": 73,
+     "andel": 1.1
     },
     {
      "namn": "Viksjö Folkets Hus",
@@ -1141,7 +1157,7 @@
      "total": 42,
      "dagarMedRoster": 1,
      "storstaDag": 42,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Häggdånger Församlingshem",
@@ -1150,7 +1166,7 @@
      "total": 40,
      "dagarMedRoster": 2,
      "storstaDag": 24,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Brunnegården",
@@ -1160,15 +1176,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 33,
      "andel": 0.5
-    },
-    {
-     "namn": "Anstalt Härnösand",
-     "kommun": "Härnösand",
-     "lokalId": "2280009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Kriminalvårdsanstalten Saltvik",

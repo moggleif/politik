@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1594,7 +1594,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1692,11 +1692,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 2700,
-     "ack": 23556
+     "antal": 2706,
+     "ack": 23562
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 1009,
+     "ack": 24571
     }
    ],
-   "total": 23556,
+   "total": 24571,
    "rostberattigade": {
     "riksdag": 82211,
     "kommun": 84105,
@@ -1714,55 +1721,64 @@
      "namn": "Hallarna",
      "kommun": "Halmstad",
      "lokalId": "1380007",
-     "total": 4926,
-     "dagarMedRoster": 14,
-     "storstaDag": 503,
-     "andel": 20.9
+     "total": 5038,
+     "dagarMedRoster": 15,
+     "storstaDag": 505,
+     "andel": 20.5
     },
     {
      "namn": "Stadsbiblioteket",
      "kommun": "Halmstad",
      "lokalId": "1380005",
-     "total": 3424,
-     "dagarMedRoster": 13,
-     "storstaDag": 402,
+     "total": 3552,
+     "dagarMedRoster": 14,
+     "storstaDag": 404,
      "andel": 14.5
     },
     {
      "namn": "Halmstads arena",
      "kommun": "Halmstad",
      "lokalId": "1380002",
-     "total": 3359,
-     "dagarMedRoster": 14,
-     "storstaDag": 443,
+     "total": 3523,
+     "dagarMedRoster": 15,
+     "storstaDag": 444,
      "andel": 14.3
-    },
-    {
-     "namn": "Söndrums bibliotek",
-     "kommun": "Halmstad",
-     "lokalId": "1380004",
-     "total": 2863,
-     "dagarMedRoster": 10,
-     "storstaDag": 473,
-     "andel": 12.2
     },
     {
      "namn": "Halmstads kommuns rådhus",
      "kommun": "Halmstad",
      "lokalId": "1380001",
-     "total": 2814,
-     "dagarMedRoster": 12,
+     "total": 3060,
+     "dagarMedRoster": 13,
      "storstaDag": 334,
-     "andel": 11.9
+     "andel": 12.5
+    },
+    {
+     "namn": "Söndrums bibliotek",
+     "kommun": "Halmstad",
+     "lokalId": "1380004",
+     "total": 2864,
+     "dagarMedRoster": 10,
+     "storstaDag": 474,
+     "andel": 11.7
     },
     {
      "namn": "Vallås bibliotek",
      "kommun": "Halmstad",
      "lokalId": "1380003",
-     "total": 1117,
-     "dagarMedRoster": 10,
+     "total": 1168,
+     "dagarMedRoster": 11,
      "storstaDag": 193,
-     "andel": 4.7
+     "andel": 4.8
+    },
+    {
+     "namn": "Halmstads högskola",
+     "kommun": "Halmstad",
+     "lokalId": "1380006",
+     "total": 890,
+     "dagarMedRoster": 11,
+     "storstaDag": 142,
+     "andel": 3.6
     },
     {
      "namn": "Haverdalshallen",
@@ -1771,34 +1787,25 @@
      "total": 819,
      "dagarMedRoster": 4,
      "storstaDag": 273,
-     "andel": 3.5
-    },
-    {
-     "namn": "Halmstads högskola",
-     "kommun": "Halmstad",
-     "lokalId": "1380006",
-     "total": 769,
-     "dagarMedRoster": 10,
-     "storstaDag": 142,
      "andel": 3.3
     },
     {
      "namn": "Medborgarservice Andersberg",
      "kommun": "Halmstad",
      "lokalId": "1380008",
-     "total": 704,
-     "dagarMedRoster": 10,
+     "total": 715,
+     "dagarMedRoster": 11,
      "storstaDag": 102,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Halmstad",
      "lokalId": "1380021",
-     "total": 619,
-     "dagarMedRoster": 8,
+     "total": 663,
+     "dagarMedRoster": 9,
      "storstaDag": 137,
-     "andel": 2.6
+     "andel": 2.7
     },
     {
      "namn": "Oskarströms brottningshall",
@@ -1807,7 +1814,7 @@
      "total": 619,
      "dagarMedRoster": 6,
      "storstaDag": 142,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Getinge- Getingehallen",
@@ -1834,7 +1841,7 @@
      "total": 227,
      "dagarMedRoster": 2,
      "storstaDag": 115,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Trönninge- idrottshall",
@@ -1843,7 +1850,7 @@
      "total": 204,
      "dagarMedRoster": 2,
      "storstaDag": 129,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Kvibille- Gymnastikhall",
@@ -1861,7 +1868,7 @@
      "total": 157,
      "dagarMedRoster": 2,
      "storstaDag": 91,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Simlångsdalen- idrottshallen",
@@ -1873,18 +1880,18 @@
      "andel": 0.6
     },
     {
-     "namn": "Anstalten i Halmstad",
-     "kommun": "Halmstad",
-     "lokalId": "1380012",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Hallands sjukhus Halmstad",
      "kommun": "Halmstad",
      "lokalId": "1380011",
+     "total": 137,
+     "dagarMedRoster": 1,
+     "storstaDag": 137,
+     "andel": 0.6
+    },
+    {
+     "namn": "Anstalten i Halmstad",
+     "kommun": "Halmstad",
+     "lokalId": "1380012",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

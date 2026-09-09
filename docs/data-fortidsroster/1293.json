@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -946,7 +946,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1046,9 +1046,16 @@
      "kvar": 5,
      "antal": 900,
      "ack": 10393
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 490,
+     "ack": 10883
     }
    ],
-   "total": 10393,
+   "total": 10883,
    "rostberattigade": {
     "riksdag": 39880,
     "kommun": 41411,
@@ -1066,10 +1073,19 @@
      "namn": "Kyrkskolan",
      "kommun": "Hässleholm",
      "lokalId": "1293007",
-     "total": 5547,
-     "dagarMedRoster": 14,
+     "total": 5808,
+     "dagarMedRoster": 15,
      "storstaDag": 658,
      "andel": 53.4
+    },
+    {
+     "namn": "Vinslövs bibliotek",
+     "kommun": "Hässleholm",
+     "lokalId": "1293005",
+     "total": 1430,
+     "dagarMedRoster": 9,
+     "storstaDag": 329,
+     "andel": 13.1
     },
     {
      "namn": "Tyringe bibliotek",
@@ -1078,25 +1094,16 @@
      "total": 1356,
      "dagarMedRoster": 8,
      "storstaDag": 273,
-     "andel": 13.0
-    },
-    {
-     "namn": "Vinslövs bibliotek",
-     "kommun": "Hässleholm",
-     "lokalId": "1293005",
-     "total": 1316,
-     "dagarMedRoster": 8,
-     "storstaDag": 329,
-     "andel": 12.7
+     "andel": 12.5
     },
     {
      "namn": "Bjärnums bibliotek",
      "kommun": "Hässleholm",
      "lokalId": "1293002",
-     "total": 613,
-     "dagarMedRoster": 6,
+     "total": 714,
+     "dagarMedRoster": 7,
      "storstaDag": 167,
-     "andel": 5.9
+     "andel": 6.6
     },
     {
      "namn": "Vittsjö bibliotek",
@@ -1105,7 +1112,7 @@
      "total": 531,
      "dagarMedRoster": 8,
      "storstaDag": 115,
-     "andel": 5.1
+     "andel": 4.9
     },
     {
      "namn": "Hästveda bibliotek",
@@ -1114,7 +1121,7 @@
      "total": 499,
      "dagarMedRoster": 8,
      "storstaDag": 115,
-     "andel": 4.8
+     "andel": 4.6
     },
     {
      "namn": "Sösdala bibliotek",
@@ -1123,16 +1130,16 @@
      "total": 395,
      "dagarMedRoster": 8,
      "storstaDag": 122,
-     "andel": 3.8
+     "andel": 3.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Hässleholm",
      "lokalId": "1293008",
-     "total": 136,
-     "dagarMedRoster": 10,
+     "total": 150,
+     "dagarMedRoster": 11,
      "storstaDag": 26,
-     "andel": 1.3
+     "andel": 1.4
     }
    ],
    "antalLokaler": 8,

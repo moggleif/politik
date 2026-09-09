@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -857,9 +857,16 @@
      "kvar": 5,
      "antal": 243,
      "ack": 2337
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 64,
+     "ack": 2401
     }
    ],
-   "total": 2337,
+   "total": 2401,
    "rostberattigade": {
     "riksdag": 7410,
     "kommun": 7892,
@@ -877,10 +884,10 @@
      "namn": "Filipstads kultur och konferens",
      "kommun": "Filipstad",
      "lokalId": "1782001",
-     "total": 1856,
-     "dagarMedRoster": 10,
+     "total": 1920,
+     "dagarMedRoster": 11,
      "storstaDag": 395,
-     "andel": 79.4
+     "andel": 80.0
     },
     {
      "namn": "Åhrlundsgården",
@@ -889,7 +896,7 @@
      "total": 230,
      "dagarMedRoster": 2,
      "storstaDag": 120,
-     "andel": 9.8
+     "andel": 9.6
     },
     {
      "namn": "Stålvallaskolan",
@@ -898,7 +905,7 @@
      "total": 189,
      "dagarMedRoster": 2,
      "storstaDag": 99,
-     "andel": 8.1
+     "andel": 7.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -907,7 +914,7 @@
      "total": 62,
      "dagarMedRoster": 5,
      "storstaDag": 29,
-     "andel": 2.7
+     "andel": 2.6
     }
    ],
    "antalLokaler": 4,

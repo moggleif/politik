@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1450,7 +1450,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1548,11 +1548,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 2324,
-     "ack": 20492
+     "antal": 2329,
+     "ack": 20497
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 788,
+     "ack": 21285
     }
    ],
-   "total": 20492,
+   "total": 21285,
    "rostberattigade": {
     "riksdag": 66505,
     "kommun": 67149,
@@ -1570,19 +1577,28 @@
      "namn": "Kungsmässan",
      "kommun": "Kungsbacka",
      "lokalId": "1384008",
-     "total": 12820,
-     "dagarMedRoster": 14,
-     "storstaDag": 1346,
-     "andel": 62.6
+     "total": 13342,
+     "dagarMedRoster": 15,
+     "storstaDag": 1351,
+     "andel": 62.7
     },
     {
      "namn": "Kullaviks bibliotek",
      "kommun": "Kungsbacka",
      "lokalId": "1384015",
-     "total": 1824,
-     "dagarMedRoster": 10,
+     "total": 1943,
+     "dagarMedRoster": 11,
      "storstaDag": 352,
-     "andel": 8.9
+     "andel": 9.1
+    },
+    {
+     "namn": "Kungsbacka, Stadshuset",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384013",
+     "total": 1441,
+     "dagarMedRoster": 13,
+     "storstaDag": 156,
+     "andel": 6.8
     },
     {
      "namn": "Onsala Båt och Sjöfartsmuseum",
@@ -1591,25 +1607,16 @@
      "total": 1352,
      "dagarMedRoster": 10,
      "storstaDag": 228,
-     "andel": 6.6
-    },
-    {
-     "namn": "Kungsbacka, Stadshuset",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384013",
-     "total": 1325,
-     "dagarMedRoster": 12,
-     "storstaDag": 156,
-     "andel": 6.5
+     "andel": 6.4
     },
     {
      "namn": "Åsa Bibliotek",
      "kommun": "Kungsbacka",
      "lokalId": "1384011",
-     "total": 1130,
-     "dagarMedRoster": 10,
+     "total": 1160,
+     "dagarMedRoster": 11,
      "storstaDag": 228,
-     "andel": 5.5
+     "andel": 5.4
     },
     {
      "namn": "Frillesåsskolan",
@@ -1618,7 +1625,7 @@
      "total": 621,
      "dagarMedRoster": 10,
      "storstaDag": 110,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Toråsskolan, biblioteket",
@@ -1627,7 +1634,7 @@
      "total": 473,
      "dagarMedRoster": 10,
      "storstaDag": 85,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Fjärås bibliotek",
@@ -1636,7 +1643,7 @@
      "total": 323,
      "dagarMedRoster": 4,
      "storstaDag": 117,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Älvsåkersskolan, Biblioteket",
@@ -1645,7 +1652,7 @@
      "total": 157,
      "dagarMedRoster": 4,
      "storstaDag": 57,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Gällinge",
@@ -1690,7 +1697,7 @@
      "total": 31,
      "dagarMedRoster": 1,
      "storstaDag": 31,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Aranäsgymnasiet",
@@ -1774,21 +1781,21 @@
      "andel": 0.1
     },
     {
+     "namn": "Elof Lindälvs gymnasium",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384004",
+     "total": 6,
+     "dagarMedRoster": 1,
+     "storstaDag": 6,
+     "andel": 0.0
+    },
+    {
      "namn": "Bedagårdens vård- och omsorgsboende",
      "kommun": "Kungsbacka",
      "lokalId": "1384007",
      "total": 5,
      "dagarMedRoster": 1,
      "storstaDag": 5,
-     "andel": 0.0
-    },
-    {
-     "namn": "Elof Lindälvs gymnasium",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
      "andel": 0.0
     },
     {

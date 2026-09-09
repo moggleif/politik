@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1827,11 +1827,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 8128,
-     "ack": 72293
+     "antal": 8139,
+     "ack": 72304
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 3660,
+     "ack": 75964
     }
    ],
-   "total": 72293,
+   "total": 75964,
    "rostberattigade": {
     "riksdag": 238704,
     "kommun": 245274,
@@ -1849,17 +1856,17 @@
      "namn": "Marieberg Galleria",
      "kommun": "Örebro",
      "lokalId": "1880012",
-     "total": 8258,
-     "dagarMedRoster": 14,
+     "total": 8600,
+     "dagarMedRoster": 15,
      "storstaDag": 850,
-     "andel": 11.4
+     "andel": 11.3
     },
     {
      "namn": "Vågen Gallerian",
      "kommun": "Örebro",
      "lokalId": "1880028",
-     "total": 6695,
-     "dagarMedRoster": 14,
+     "total": 7073,
+     "dagarMedRoster": 15,
      "storstaDag": 754,
      "andel": 9.3
     },
@@ -1867,71 +1874,71 @@
      "namn": "Eurostop, Best Western",
      "kommun": "Örebro",
      "lokalId": "1880026",
-     "total": 5099,
-     "dagarMedRoster": 14,
+     "total": 5354,
+     "dagarMedRoster": 15,
      "storstaDag": 557,
-     "andel": 7.1
+     "andel": 7.0
     },
     {
      "namn": "Haga centrum",
      "kommun": "Örebro",
      "lokalId": "1880014",
-     "total": 4823,
-     "dagarMedRoster": 14,
+     "total": 5024,
+     "dagarMedRoster": 15,
      "storstaDag": 528,
-     "andel": 6.7
+     "andel": 6.6
     },
     {
      "namn": "Kumla bibliotek",
      "kommun": "Kumla",
      "lokalId": "1881001",
-     "total": 4473,
-     "dagarMedRoster": 14,
-     "storstaDag": 603,
+     "total": 4696,
+     "dagarMedRoster": 15,
+     "storstaDag": 611,
      "andel": 6.2
     },
     {
      "namn": "Kulturkvarteret",
      "kommun": "Örebro",
      "lokalId": "1880008",
-     "total": 4183,
-     "dagarMedRoster": 14,
+     "total": 4461,
+     "dagarMedRoster": 15,
      "storstaDag": 521,
-     "andel": 5.8
-    },
-    {
-     "namn": "Karlskoga bibliotek",
-     "kommun": "Karlskoga",
-     "lokalId": "1883003",
-     "total": 3415,
-     "dagarMedRoster": 14,
-     "storstaDag": 461,
-     "andel": 4.7
+     "andel": 5.9
     },
     {
      "namn": "Universitetssjukhuset (USÖ), M-huset",
      "kommun": "Örebro",
      "lokalId": "1880003",
-     "total": 3403,
-     "dagarMedRoster": 10,
+     "total": 3701,
+     "dagarMedRoster": 11,
      "storstaDag": 517,
+     "andel": 4.9
+    },
+    {
+     "namn": "Karlskoga bibliotek",
+     "kommun": "Karlskoga",
+     "lokalId": "1883003",
+     "total": 3602,
+     "dagarMedRoster": 15,
+     "storstaDag": 461,
      "andel": 4.7
     },
     {
      "namn": "G:a Apoteket",
      "kommun": "Lindesberg",
      "lokalId": "1885004",
-     "total": 3245,
-     "dagarMedRoster": 14,
+     "total": 3497,
+     "dagarMedRoster": 15,
      "storstaDag": 397,
-     "andel": 4.5
+     "andel": 4.6
     },
     {
      "namn": "Karlskoga lasarett",
      "kommun": "Karlskoga",
      "lokalId": "1883006",
-     "total": 2470,
-     "dagarMedRoster": 10,
+     "total": 2619,
+     "dagarMedRoster": 11,
      "storstaDag": 353,
      "andel": 3.4
     },
@@ -1939,19 +1946,28 @@
      "namn": "Konsthallen",
      "kommun": "Nora",
      "lokalId": "1884002",
-     "total": 2343,
-     "dagarMedRoster": 14,
+     "total": 2484,
+     "dagarMedRoster": 15,
      "storstaDag": 269,
-     "andel": 3.2
+     "andel": 3.3
     },
     {
      "namn": "Universitetet, Långhuset",
      "kommun": "Örebro",
      "lokalId": "1880010",
-     "total": 2280,
-     "dagarMedRoster": 7,
+     "total": 2334,
+     "dagarMedRoster": 8,
      "storstaDag": 457,
-     "andel": 3.2
+     "andel": 3.1
+    },
+    {
+     "namn": "Dagcentralen Åsen, Hallsberg",
+     "kommun": "Hallsberg",
+     "lokalId": "1861003",
+     "total": 1806,
+     "dagarMedRoster": 15,
+     "storstaDag": 215,
+     "andel": 2.4
     },
     {
      "namn": "Sjöängen",
@@ -1960,32 +1976,23 @@
      "total": 1802,
      "dagarMedRoster": 14,
      "storstaDag": 194,
-     "andel": 2.5
-    },
-    {
-     "namn": "Dagcentralen Åsen, Hallsberg",
-     "kommun": "Hallsberg",
-     "lokalId": "1861003",
-     "total": 1731,
-     "dagarMedRoster": 14,
-     "storstaDag": 215,
      "andel": 2.4
     },
     {
      "namn": "Folkets Hus",
      "kommun": "Degerfors",
      "lokalId": "1862003",
-     "total": 1582,
-     "dagarMedRoster": 14,
-     "storstaDag": 206,
+     "total": 1704,
+     "dagarMedRoster": 15,
+     "storstaDag": 208,
      "andel": 2.2
     },
     {
      "namn": "Biblioteket, Kommunhuset",
      "kommun": "Lekeberg",
      "lokalId": "1814001",
-     "total": 1352,
-     "dagarMedRoster": 12,
+     "total": 1413,
+     "dagarMedRoster": 13,
      "storstaDag": 265,
      "andel": 1.9
     },
@@ -1993,8 +2000,8 @@
      "namn": "Kulturtorget",
      "kommun": "Laxå",
      "lokalId": "1860002",
-     "total": 1282,
-     "dagarMedRoster": 13,
+     "total": 1341,
+     "dagarMedRoster": 14,
      "storstaDag": 147,
      "andel": 1.8
     },
@@ -2002,8 +2009,8 @@
      "namn": "Tingshuset",
      "kommun": "Ljusnarsberg",
      "lokalId": "1864002",
-     "total": 1182,
-     "dagarMedRoster": 14,
+     "total": 1241,
+     "dagarMedRoster": 15,
      "storstaDag": 113,
      "andel": 1.6
     },
@@ -2011,27 +2018,27 @@
      "namn": "Brickegårdens vårdcentral",
      "kommun": "Karlskoga",
      "lokalId": "1883012",
-     "total": 1064,
-     "dagarMedRoster": 10,
+     "total": 1109,
+     "dagarMedRoster": 11,
      "storstaDag": 130,
      "andel": 1.5
-    },
-    {
-     "namn": "Kommunkontoret",
-     "kommun": "Hällefors",
-     "lokalId": "1863007",
-     "total": 931,
-     "dagarMedRoster": 10,
-     "storstaDag": 121,
-     "andel": 1.3
     },
     {
      "namn": "Järnvägsstationen",
      "kommun": "Lindesberg",
      "lokalId": "1885002",
-     "total": 928,
-     "dagarMedRoster": 7,
+     "total": 1012,
+     "dagarMedRoster": 8,
      "storstaDag": 170,
+     "andel": 1.3
+    },
+    {
+     "namn": "Kommunkontoret",
+     "kommun": "Hällefors",
+     "lokalId": "1863007",
+     "total": 961,
+     "dagarMedRoster": 11,
+     "storstaDag": 121,
      "andel": 1.3
     },
     {
@@ -2056,8 +2063,8 @@
      "namn": "Anstalten Kumla",
      "kommun": "Kumla",
      "lokalId": "1881002",
-     "total": 609,
-     "dagarMedRoster": 10,
+     "total": 642,
+     "dagarMedRoster": 11,
      "storstaDag": 171,
      "andel": 0.8
     },
@@ -2077,14 +2084,14 @@
      "total": 554,
      "dagarMedRoster": 4,
      "storstaDag": 164,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Ekbackens skola",
      "kommun": "Lindesberg",
      "lokalId": "1885001",
-     "total": 402,
-     "dagarMedRoster": 7,
+     "total": 438,
+     "dagarMedRoster": 8,
      "storstaDag": 106,
      "andel": 0.6
     },
@@ -2092,10 +2099,19 @@
      "namn": "Karlskoga konsthall",
      "kommun": "Karlskoga",
      "lokalId": "1883013",
-     "total": 399,
-     "dagarMedRoster": 7,
+     "total": 407,
+     "dagarMedRoster": 8,
      "storstaDag": 114,
-     "andel": 0.6
+     "andel": 0.5
+    },
+    {
+     "namn": "Tempo",
+     "kommun": "Hällefors",
+     "lokalId": "1863001",
+     "total": 403,
+     "dagarMedRoster": 15,
+     "storstaDag": 45,
+     "andel": 0.5
     },
     {
      "namn": "Glanshammars skola",
@@ -2104,15 +2120,6 @@
      "total": 398,
      "dagarMedRoster": 2,
      "storstaDag": 257,
-     "andel": 0.6
-    },
-    {
-     "namn": "Tempo",
-     "kommun": "Hällefors",
-     "lokalId": "1863001",
-     "total": 382,
-     "dagarMedRoster": 14,
-     "storstaDag": 45,
      "andel": 0.5
     }
    ],

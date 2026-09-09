@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1432,7 +1432,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1532,9 +1532,16 @@
      "kvar": 5,
      "antal": 1863,
      "ack": 11520
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 608,
+     "ack": 12128
     }
    ],
-   "total": 11520,
+   "total": 12128,
    "rostberattigade": {
     "riksdag": 44917,
     "kommun": 46151,
@@ -1552,28 +1559,28 @@
      "namn": "Arena Skövde",
      "kommun": "Skövde",
      "lokalId": "1496021",
-     "total": 7439,
-     "dagarMedRoster": 14,
+     "total": 7740,
+     "dagarMedRoster": 15,
      "storstaDag": 843,
-     "andel": 64.6
+     "andel": 63.8
     },
     {
      "namn": "Skövde kulturfabrik",
      "kommun": "Skövde",
      "lokalId": "1496017",
-     "total": 1937,
-     "dagarMedRoster": 12,
+     "total": 2023,
+     "dagarMedRoster": 13,
      "storstaDag": 208,
-     "andel": 16.8
+     "andel": 16.7
     },
     {
      "namn": "Skövde Kulturhus",
      "kommun": "Skövde",
      "lokalId": "1496018",
-     "total": 659,
-     "dagarMedRoster": 2,
+     "total": 767,
+     "dagarMedRoster": 3,
      "storstaDag": 342,
-     "andel": 5.7
+     "andel": 6.3
     },
     {
      "namn": "Biblioteket, Stöpen",
@@ -1582,7 +1589,7 @@
      "total": 326,
      "dagarMedRoster": 2,
      "storstaDag": 191,
-     "andel": 2.8
+     "andel": 2.7
     },
     {
      "namn": "Tidans församlingshem",
@@ -1591,7 +1598,7 @@
      "total": 309,
      "dagarMedRoster": 2,
      "storstaDag": 158,
-     "andel": 2.7
+     "andel": 2.5
     },
     {
      "namn": "Timmersdala församlingshem",
@@ -1600,7 +1607,16 @@
      "total": 257,
      "dagarMedRoster": 2,
      "storstaDag": 135,
-     "andel": 2.2
+     "andel": 2.1
+    },
+    {
+     "namn": "Skaraborgs Sjukhus",
+     "kommun": "Skövde",
+     "lokalId": "1496011",
+     "total": 187,
+     "dagarMedRoster": 2,
+     "storstaDag": 113,
+     "andel": 1.5
     },
     {
      "namn": "Värings skola",
@@ -1609,7 +1625,7 @@
      "total": 183,
      "dagarMedRoster": 2,
      "storstaDag": 104,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Soldathemmet",
@@ -1618,16 +1634,7 @@
      "total": 90,
      "dagarMedRoster": 2,
      "storstaDag": 48,
-     "andel": 0.8
-    },
-    {
-     "namn": "Skaraborgs Sjukhus",
-     "kommun": "Skövde",
-     "lokalId": "1496011",
-     "total": 74,
-     "dagarMedRoster": 1,
-     "storstaDag": 74,
-     "andel": 0.6
+     "andel": 0.7
     },
     {
      "namn": "Äldreboende Ekedal",

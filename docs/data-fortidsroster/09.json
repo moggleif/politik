@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1630,7 +1630,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1721,18 +1721,25 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1441,
-     "ack": 13061
+     "antal": 1456,
+     "ack": 13076
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 1841,
-     "ack": 14902
+     "ack": 14917
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 845,
+     "ack": 15762
     }
    ],
-   "total": 14902,
+   "total": 15762,
    "rostberattigade": {
     "riksdag": 48435,
     "kommun": 49469,
@@ -1750,26 +1757,26 @@
      "namn": "ICA Maxi Stormarknad",
      "kommun": "Gotland",
      "lokalId": "0980010",
-     "total": 5818,
-     "dagarMedRoster": 14,
+     "total": 6098,
+     "dagarMedRoster": 15,
      "storstaDag": 655,
-     "andel": 39.0
+     "andel": 38.7
     },
     {
      "namn": "Almedalsbiblioteket",
      "kommun": "Gotland",
      "lokalId": "0980005",
-     "total": 2423,
-     "dagarMedRoster": 14,
+     "total": 2529,
+     "dagarMedRoster": 15,
      "storstaDag": 254,
-     "andel": 16.3
+     "andel": 16.0
     },
     {
      "namn": "Coop Konsum, Hemse",
      "kommun": "Gotland",
      "lokalId": "0980017",
-     "total": 1581,
-     "dagarMedRoster": 14,
+     "total": 1667,
+     "dagarMedRoster": 15,
      "storstaDag": 172,
      "andel": 10.6
     },
@@ -1777,53 +1784,53 @@
      "namn": "Gårdsservice Roma",
      "kommun": "Gotland",
      "lokalId": "0980006",
-     "total": 1010,
-     "dagarMedRoster": 12,
+     "total": 1046,
+     "dagarMedRoster": 13,
      "storstaDag": 122,
-     "andel": 6.8
+     "andel": 6.6
     },
     {
      "namn": "Coop Konsum, Slite",
      "kommun": "Gotland",
      "lokalId": "0980002",
-     "total": 981,
-     "dagarMedRoster": 12,
+     "total": 1029,
+     "dagarMedRoster": 13,
      "storstaDag": 124,
-     "andel": 6.6
-    },
-    {
-     "namn": "Coop Konsum Klintehamn",
-     "kommun": "Gotland",
-     "lokalId": "0980016",
-     "total": 792,
-     "dagarMedRoster": 12,
-     "storstaDag": 104,
-     "andel": 5.3
+     "andel": 6.5
     },
     {
      "namn": "Region Gotland, Visborg",
      "kommun": "Gotland",
      "lokalId": "0980012",
-     "total": 767,
-     "dagarMedRoster": 10,
+     "total": 852,
+     "dagarMedRoster": 11,
      "storstaDag": 96,
-     "andel": 5.1
+     "andel": 5.4
+    },
+    {
+     "namn": "Coop Konsum Klintehamn",
+     "kommun": "Gotland",
+     "lokalId": "0980016",
+     "total": 836,
+     "dagarMedRoster": 13,
+     "storstaDag": 104,
+     "andel": 5.3
     },
     {
      "namn": "ICA Supermarket, Fårösund",
      "kommun": "Gotland",
      "lokalId": "0980015",
-     "total": 541,
-     "dagarMedRoster": 14,
+     "total": 577,
+     "dagarMedRoster": 15,
      "storstaDag": 57,
-     "andel": 3.6
+     "andel": 3.7
     },
     {
      "namn": "Statens servicecenter",
      "kommun": "Gotland",
      "lokalId": "0980023",
-     "total": 444,
-     "dagarMedRoster": 10,
+     "total": 472,
+     "dagarMedRoster": 11,
      "storstaDag": 70,
      "andel": 3.0
     },
@@ -1834,7 +1841,16 @@
      "total": 283,
      "dagarMedRoster": 4,
      "storstaDag": 76,
-     "andel": 1.9
+     "andel": 1.8
+    },
+    {
+     "namn": "Pjäsen",
+     "kommun": "Gotland",
+     "lokalId": "0980020",
+     "total": 54,
+     "dagarMedRoster": 1,
+     "storstaDag": 54,
+     "andel": 0.3
     },
     {
      "namn": "Stiftelsen Gotlands Sjukhem",
@@ -1864,6 +1880,15 @@
      "andel": 0.2
     },
     {
+     "namn": "Wisbygymnasiet",
+     "kommun": "Gotland",
+     "lokalId": "0980004",
+     "total": 34,
+     "dagarMedRoster": 1,
+     "storstaDag": 34,
+     "andel": 0.2
+    },
+    {
      "namn": "Roma äldreboende",
      "kommun": "Gotland",
      "lokalId": "0980014",
@@ -1871,6 +1896,15 @@
      "dagarMedRoster": 1,
      "storstaDag": 24,
      "andel": 0.2
+    },
+    {
+     "namn": "Terra Nova Äldreboende",
+     "kommun": "Gotland",
+     "lokalId": "0980021",
+     "total": 23,
+     "dagarMedRoster": 1,
+     "storstaDag": 23,
+     "andel": 0.1
     },
     {
      "namn": "Korttidsenheten, Visby",
@@ -1943,33 +1977,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 10,
      "andel": 0.1
-    },
-    {
-     "namn": "Pjäsen",
-     "kommun": "Gotland",
-     "lokalId": "0980020",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Terra Nova Äldreboende",
-     "kommun": "Gotland",
-     "lokalId": "0980021",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Wisbygymnasiet",
-     "kommun": "Gotland",
-     "lokalId": "0980004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 25,

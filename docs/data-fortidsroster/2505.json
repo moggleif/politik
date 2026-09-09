@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -983,9 +983,16 @@
      "kvar": 5,
      "antal": 326,
      "ack": 1966
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 181,
+     "ack": 2147
     }
    ],
-   "total": 1966,
+   "total": 2147,
    "rostberattigade": {
     "riksdag": 4718,
     "kommun": 4963,
@@ -1003,19 +1010,19 @@
      "namn": "Medborgarhuset",
      "kommun": "Arvidsjaur",
      "lokalId": "2505005",
-     "total": 1637,
-     "dagarMedRoster": 14,
+     "total": 1780,
+     "dagarMedRoster": 15,
      "storstaDag": 250,
-     "andel": 83.3
+     "andel": 82.9
     },
     {
      "namn": "Finnbergs Diversehandel",
      "kommun": "Arvidsjaur",
      "lokalId": "2505003",
-     "total": 118,
-     "dagarMedRoster": 3,
+     "total": 143,
+     "dagarMedRoster": 4,
      "storstaDag": 46,
-     "andel": 6.0
+     "andel": 6.7
     },
     {
      "namn": "Affär'n Abborrträsk",
@@ -1024,7 +1031,7 @@
      "total": 114,
      "dagarMedRoster": 4,
      "storstaDag": 32,
-     "andel": 5.8
+     "andel": 5.3
     },
     {
      "namn": "Café Navet i Moskosel",
@@ -1033,16 +1040,16 @@
      "total": 91,
      "dagarMedRoster": 2,
      "storstaDag": 49,
-     "andel": 4.6
+     "andel": 4.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Arvidsjaur",
      "lokalId": "2505006",
-     "total": 6,
-     "dagarMedRoster": 3,
-     "storstaDag": 3,
-     "andel": 0.3
+     "total": 19,
+     "dagarMedRoster": 4,
+     "storstaDag": 13,
+     "andel": 0.9
     }
    ],
    "antalLokaler": 5,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -974,18 +974,25 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 269,
-     "ack": 1942
+     "antal": 273,
+     "ack": 1946
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 269,
-     "ack": 2211
+     "antal": 278,
+     "ack": 2224
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 96,
+     "ack": 2320
     }
    ],
-   "total": 2211,
+   "total": 2320,
    "rostberattigade": {
     "riksdag": 6139,
     "kommun": 6243,
@@ -1003,19 +1010,19 @@
      "namn": "Valdemarsviks Folkets Hus",
      "kommun": "Valdemarsvik",
      "lokalId": "0563003",
-     "total": 1698,
-     "dagarMedRoster": 14,
-     "storstaDag": 183,
-     "andel": 76.8
+     "total": 1765,
+     "dagarMedRoster": 15,
+     "storstaDag": 184,
+     "andel": 76.1
     },
     {
      "namn": "Gusums Folket Hus",
      "kommun": "Valdemarsvik",
      "lokalId": "0563001",
-     "total": 265,
-     "dagarMedRoster": 7,
+     "total": 298,
+     "dagarMedRoster": 8,
      "storstaDag": 57,
-     "andel": 12.0
+     "andel": 12.8
     },
     {
      "namn": "Ringarums Stationshus",
@@ -1024,16 +1031,16 @@
      "total": 232,
      "dagarMedRoster": 7,
      "storstaDag": 59,
-     "andel": 10.5
+     "andel": 10.0
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Valdemarsvik",
      "lokalId": "0563004",
-     "total": 16,
-     "dagarMedRoster": 2,
+     "total": 25,
+     "dagarMedRoster": 3,
      "storstaDag": 13,
-     "andel": 0.7
+     "andel": 1.1
     }
    ],
    "antalLokaler": 4,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -730,7 +730,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -828,11 +828,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 620,
-     "ack": 3541
+     "antal": 623,
+     "ack": 3544
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 156,
+     "ack": 3700
     }
    ],
-   "total": 3541,
+   "total": 3700,
    "rostberattigade": {
     "riksdag": 11951,
     "kommun": 12328,
@@ -850,19 +857,19 @@
      "namn": "Plenisalen, Stadshuset",
      "kommun": "Vimmerby",
      "lokalId": "0884001",
-     "total": 3112,
-     "dagarMedRoster": 14,
-     "storstaDag": 517,
-     "andel": 87.9
+     "total": 3265,
+     "dagarMedRoster": 15,
+     "storstaDag": 519,
+     "andel": 88.2
     },
     {
      "namn": "Södra vi bibliotek",
      "kommun": "Vimmerby",
      "lokalId": "0884002",
-     "total": 208,
-     "dagarMedRoster": 3,
-     "storstaDag": 100,
-     "andel": 5.9
+     "total": 214,
+     "dagarMedRoster": 4,
+     "storstaDag": 101,
+     "andel": 5.8
     },
     {
      "namn": "Storebro bibliotek",
@@ -871,7 +878,7 @@
      "total": 164,
      "dagarMedRoster": 3,
      "storstaDag": 59,
-     "andel": 4.6
+     "andel": 4.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -880,7 +887,7 @@
      "total": 57,
      "dagarMedRoster": 8,
      "storstaDag": 24,
-     "andel": 1.6
+     "andel": 1.5
     }
    ],
    "antalLokaler": 4,

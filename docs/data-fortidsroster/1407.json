@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -965,9 +965,16 @@
      "kvar": 5,
      "antal": 361,
      "ack": 3007
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 154,
+     "ack": 3161
     }
    ],
-   "total": 3007,
+   "total": 3161,
    "rostberattigade": {
     "riksdag": 10488,
     "kommun": 10525,
@@ -985,19 +992,28 @@
      "namn": "Öckerö bibliotek, utställningshallen",
      "kommun": "Öckerö",
      "lokalId": "1407005",
-     "total": 3007,
-     "dagarMedRoster": 14,
+     "total": 3147,
+     "dagarMedRoster": 15,
      "storstaDag": 361,
-     "andel": 100.0
+     "andel": 99.6
+    },
+    {
+     "namn": "Solhöjdens äldreboende",
+     "kommun": "Öckerö",
+     "lokalId": "1407001",
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Öckerö",
      "lokalId": "1407008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 3,
+     "dagarMedRoster": 1,
+     "storstaDag": 3,
+     "andel": 0.1
     },
     {
      "namn": "Brandstationen",
@@ -1039,15 +1055,6 @@
      "namn": "Rörö församlingshem/bibliotek",
      "kommun": "Öckerö",
      "lokalId": "1407003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Solhöjdens äldreboende",
-     "kommun": "Öckerö",
-     "lokalId": "1407001",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

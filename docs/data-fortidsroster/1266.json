@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -891,11 +891,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 375,
-     "ack": 2927
+     "antal": 388,
+     "ack": 2940
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 135,
+     "ack": 3075
     }
    ],
-   "total": 2927,
+   "total": 3075,
    "rostberattigade": {
     "riksdag": 12058,
     "kommun": 12485,
@@ -913,8 +920,8 @@
      "namn": "Kommunhuset",
      "kommun": "Hörby",
      "lokalId": "1266001",
-     "total": 2694,
-     "dagarMedRoster": 14,
+     "total": 2829,
+     "dagarMedRoster": 15,
      "storstaDag": 375,
      "andel": 92.0
     },
@@ -925,16 +932,16 @@
      "total": 207,
      "dagarMedRoster": 2,
      "storstaDag": 109,
-     "andel": 7.1
+     "andel": 6.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Hörby",
      "lokalId": "1266004",
-     "total": 26,
-     "dagarMedRoster": 1,
+     "total": 39,
+     "dagarMedRoster": 2,
      "storstaDag": 26,
-     "andel": 0.9
+     "andel": 1.3
     }
    ],
    "antalLokaler": 3,

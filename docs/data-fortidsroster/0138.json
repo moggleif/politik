@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -981,11 +981,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1145,
-     "ack": 10587
+     "antal": 1172,
+     "ack": 10614
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 580,
+     "ack": 11194
     }
    ],
-   "total": 10587,
+   "total": 11194,
    "rostberattigade": {
     "riksdag": 36820,
     "kommun": 38355,
@@ -1003,17 +1010,17 @@
      "namn": "Huvudbiblioteket Tyresö Centrum",
      "kommun": "Tyresö",
      "lokalId": "0138003",
-     "total": 5720,
-     "dagarMedRoster": 14,
+     "total": 6007,
+     "dagarMedRoster": 15,
      "storstaDag": 619,
-     "andel": 54.0
+     "andel": 53.7
     },
     {
      "namn": "Biblioteket Trollbäcken",
      "kommun": "Tyresö",
      "lokalId": "0138001",
-     "total": 2199,
-     "dagarMedRoster": 12,
+     "total": 2333,
+     "dagarMedRoster": 13,
      "storstaDag": 333,
      "andel": 20.8
     },
@@ -1021,17 +1028,17 @@
      "namn": "Biblioteket Tyresö Strand",
      "kommun": "Tyresö",
      "lokalId": "0138002",
-     "total": 1345,
-     "dagarMedRoster": 12,
+     "total": 1450,
+     "dagarMedRoster": 13,
      "storstaDag": 172,
-     "andel": 12.7
+     "andel": 13.0
     },
     {
      "namn": "Servicecenter Tyresö kommun",
      "kommun": "Tyresö",
      "lokalId": "0138004",
-     "total": 863,
-     "dagarMedRoster": 14,
+     "total": 913,
+     "dagarMedRoster": 15,
      "storstaDag": 97,
      "andel": 8.2
     },
@@ -1042,16 +1049,16 @@
      "total": 406,
      "dagarMedRoster": 12,
      "storstaDag": 78,
-     "andel": 3.8
+     "andel": 3.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Tyresö",
      "lokalId": "0138005",
-     "total": 54,
-     "dagarMedRoster": 4,
+     "total": 85,
+     "dagarMedRoster": 6,
      "storstaDag": 37,
-     "andel": 0.5
+     "andel": 0.8
     }
    ],
    "antalLokaler": 6,

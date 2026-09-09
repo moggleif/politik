@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1278,11 +1278,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 124,
-     "ack": 1691
+     "antal": 155,
+     "ack": 1722
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 57,
+     "ack": 1779
     }
    ],
-   "total": 1691,
+   "total": 1779,
    "rostberattigade": {
     "riksdag": 5539,
     "kommun": 5708,
@@ -1300,10 +1307,10 @@
      "namn": "Biblioteket i Svenstavik",
      "kommun": "Berg",
      "lokalId": "2326002",
-     "total": 723,
-     "dagarMedRoster": 9,
+     "total": 744,
+     "dagarMedRoster": 10,
      "storstaDag": 124,
-     "andel": 42.8
+     "andel": 41.8
     },
     {
      "namn": "Biblioteket i Myrviken",
@@ -1312,7 +1319,7 @@
      "total": 310,
      "dagarMedRoster": 6,
      "storstaDag": 70,
-     "andel": 18.3
+     "andel": 17.4
     },
     {
      "namn": "Biblioteket i Rätan",
@@ -1321,7 +1328,7 @@
      "total": 154,
      "dagarMedRoster": 4,
      "storstaDag": 45,
-     "andel": 9.1
+     "andel": 8.7
     },
     {
      "namn": "Föreninga i Klövsjö",
@@ -1330,7 +1337,7 @@
      "total": 154,
      "dagarMedRoster": 2,
      "storstaDag": 93,
-     "andel": 9.1
+     "andel": 8.7
     },
     {
      "namn": "Biblioteket i Hackås",
@@ -1339,7 +1346,7 @@
      "total": 148,
      "dagarMedRoster": 5,
      "storstaDag": 56,
-     "andel": 8.8
+     "andel": 8.3
     },
     {
      "namn": "Ljungdalens skola",
@@ -1348,7 +1355,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 4.4
+     "andel": 4.2
     },
     {
      "namn": "Storsjö Bygdegård",
@@ -1357,7 +1364,16 @@
      "total": 64,
      "dagarMedRoster": 1,
      "storstaDag": 64,
-     "andel": 3.8
+     "andel": 3.6
+    },
+    {
+     "namn": "Åsarna skicenter",
+     "kommun": "Berg",
+     "lokalId": "2326013",
+     "total": 36,
+     "dagarMedRoster": 1,
+     "storstaDag": 36,
+     "andel": 2.0
     },
     {
      "namn": "Kommunkontoret",
@@ -1366,16 +1382,34 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 1.7
+     "andel": 1.6
+    },
+    {
+     "namn": "Dalsätra",
+     "kommun": "Berg",
+     "lokalId": "2326018",
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 1.1
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Berg",
      "lokalId": "2326011",
-     "total": 11,
-     "dagarMedRoster": 2,
+     "total": 13,
+     "dagarMedRoster": 3,
      "storstaDag": 6,
      "andel": 0.7
+    },
+    {
+     "namn": "Tallgläntan",
+     "kommun": "Berg",
+     "lokalId": "2326017",
+     "total": 10,
+     "dagarMedRoster": 1,
+     "storstaDag": 10,
+     "andel": 0.6
     },
     {
      "namn": "Vallmogården",
@@ -1393,7 +1427,7 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Treklövern",
@@ -1402,39 +1436,12 @@
      "total": 6,
      "dagarMedRoster": 1,
      "storstaDag": 6,
-     "andel": 0.4
-    },
-    {
-     "namn": "Dalsätra",
-     "kommun": "Berg",
-     "lokalId": "2326018",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 0.3
     },
     {
      "namn": "Gillhovs bygdegård",
      "kommun": "Berg",
      "lokalId": "2326008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Tallgläntan",
-     "kommun": "Berg",
-     "lokalId": "2326017",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Åsarna skicenter",
-     "kommun": "Berg",
-     "lokalId": "2326013",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

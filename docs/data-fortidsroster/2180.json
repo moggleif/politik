@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,7 +1108,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1157,60 +1157,67 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 2047,
-     "ack": 12194
+     "antal": 2054,
+     "ack": 12201
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 1627,
-     "ack": 13821
+     "ack": 13828
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 1515,
-     "ack": 15336
+     "ack": 15343
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 1507,
-     "ack": 16843
+     "ack": 16850
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 2647,
-     "ack": 19490
+     "ack": 19497
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 2711,
-     "ack": 22201
+     "ack": 22208
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 2689,
-     "ack": 24890
+     "ack": 24897
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 3048,
-     "ack": 27938
+     "antal": 3085,
+     "ack": 27982
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 963,
+     "ack": 28945
     }
    ],
-   "total": 27938,
+   "total": 28945,
    "rostberattigade": {
     "riksdag": 80595,
     "kommun": 83269,
@@ -1228,37 +1235,46 @@
      "namn": "Agnes kulturhus",
      "kommun": "Gävle",
      "lokalId": "2180005",
-     "total": 8591,
-     "dagarMedRoster": 14,
-     "storstaDag": 891,
-     "andel": 30.8
+     "total": 8981,
+     "dagarMedRoster": 15,
+     "storstaDag": 898,
+     "andel": 31.0
     },
     {
      "namn": "Silvanum",
      "kommun": "Gävle",
      "lokalId": "2180002",
-     "total": 3389,
-     "dagarMedRoster": 10,
-     "storstaDag": 503,
-     "andel": 12.1
+     "total": 3619,
+     "dagarMedRoster": 11,
+     "storstaDag": 504,
+     "andel": 12.5
     },
     {
      "namn": "Gävle sjukhus",
      "kommun": "Gävle",
      "lokalId": "2180009",
-     "total": 2597,
-     "dagarMedRoster": 10,
-     "storstaDag": 305,
-     "andel": 9.3
+     "total": 2814,
+     "dagarMedRoster": 11,
+     "storstaDag": 307,
+     "andel": 9.7
+    },
+    {
+     "namn": "Förvaltningshuset",
+     "kommun": "Gävle",
+     "lokalId": "2180006",
+     "total": 2401,
+     "dagarMedRoster": 15,
+     "storstaDag": 238,
+     "andel": 8.3
     },
     {
      "namn": "Bomhus centrum",
      "kommun": "Gävle",
      "lokalId": "2180004",
-     "total": 2342,
+     "total": 2344,
      "dagarMedRoster": 8,
      "storstaDag": 346,
-     "andel": 8.4
+     "andel": 8.1
     },
     {
      "namn": "Furugården i Valbo",
@@ -1267,16 +1283,7 @@
      "total": 2302,
      "dagarMedRoster": 8,
      "storstaDag": 367,
-     "andel": 8.2
-    },
-    {
-     "namn": "Förvaltningshuset",
-     "kommun": "Gävle",
-     "lokalId": "2180006",
-     "total": 2255,
-     "dagarMedRoster": 14,
-     "storstaDag": 235,
-     "andel": 8.1
+     "andel": 8.0
     },
     {
      "namn": "Stora Sätraskolan",
@@ -1285,7 +1292,7 @@
      "total": 1527,
      "dagarMedRoster": 8,
      "storstaDag": 281,
-     "andel": 5.5
+     "andel": 5.3
     },
     {
      "namn": "Andreassalen i Andersberg",
@@ -1294,7 +1301,7 @@
      "total": 1491,
      "dagarMedRoster": 9,
      "storstaDag": 271,
-     "andel": 5.3
+     "andel": 5.2
     },
     {
      "namn": "Milboskolan i Hille",
@@ -1303,7 +1310,7 @@
      "total": 1301,
      "dagarMedRoster": 4,
      "storstaDag": 451,
-     "andel": 4.7
+     "andel": 4.5
     },
     {
      "namn": "Bergby centralskola",
@@ -1312,7 +1319,7 @@
      "total": 723,
      "dagarMedRoster": 4,
      "storstaDag": 204,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Hedesunda skola - Biblioteket",
@@ -1321,7 +1328,7 @@
      "total": 545,
      "dagarMedRoster": 4,
      "storstaDag": 160,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Forsbacka bibliotek",
@@ -1336,8 +1343,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Gävle",
      "lokalId": "2180031",
-     "total": 302,
-     "dagarMedRoster": 7,
+     "total": 324,
+     "dagarMedRoster": 8,
      "storstaDag": 64,
      "andel": 1.1
     },

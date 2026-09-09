@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -964,7 +964,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1064,9 +1064,16 @@
      "kvar": 5,
      "antal": 298,
      "ack": 3003
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 192,
+     "ack": 3195
     }
    ],
-   "total": 3003,
+   "total": 3195,
    "rostberattigade": {
     "riksdag": 12094,
     "kommun": 12606,
@@ -1084,10 +1091,10 @@
      "namn": "Dagcentralen Åsen, Hallsberg",
      "kommun": "Hallsberg",
      "lokalId": "1861003",
-     "total": 1731,
-     "dagarMedRoster": 14,
+     "total": 1806,
+     "dagarMedRoster": 15,
      "storstaDag": 215,
-     "andel": 57.6
+     "andel": 56.5
     },
     {
      "namn": "Folkets Hus Pålsboda",
@@ -1096,25 +1103,25 @@
      "total": 354,
      "dagarMedRoster": 3,
      "storstaDag": 184,
-     "andel": 11.8
-    },
-    {
-     "namn": "Dagcentralen Esslatorp,Vretstorp",
-     "kommun": "Hallsberg",
-     "lokalId": "1861001",
-     "total": 230,
-     "dagarMedRoster": 3,
-     "storstaDag": 91,
-     "andel": 7.7
+     "andel": 11.1
     },
     {
      "namn": "Dagcentralen Knuten, Hallsberg",
      "kommun": "Hallsberg",
      "lokalId": "1861008",
-     "total": 211,
-     "dagarMedRoster": 2,
+     "total": 282,
+     "dagarMedRoster": 3,
      "storstaDag": 113,
-     "andel": 7.0
+     "andel": 8.8
+    },
+    {
+     "namn": "Dagcentralen Esslatorp,Vretstorp",
+     "kommun": "Hallsberg",
+     "lokalId": "1861001",
+     "total": 275,
+     "dagarMedRoster": 4,
+     "storstaDag": 91,
+     "andel": 8.6
     },
     {
      "namn": "Tingsgården",
@@ -1123,7 +1130,7 @@
      "total": 196,
      "dagarMedRoster": 3,
      "storstaDag": 94,
-     "andel": 6.5
+     "andel": 6.1
     },
     {
      "namn": "Folkets Hus, Östansjö",
@@ -1132,7 +1139,7 @@
      "total": 180,
      "dagarMedRoster": 3,
      "storstaDag": 76,
-     "andel": 6.0
+     "andel": 5.6
     },
     {
      "namn": "Hjortkvarns skola",
@@ -1141,14 +1148,14 @@
      "total": 83,
      "dagarMedRoster": 2,
      "storstaDag": 49,
-     "andel": 2.8
+     "andel": 2.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Hallsberg",
      "lokalId": "1861009",
-     "total": 18,
-     "dagarMedRoster": 4,
+     "total": 19,
+     "dagarMedRoster": 5,
      "storstaDag": 7,
      "andel": 0.6
     },

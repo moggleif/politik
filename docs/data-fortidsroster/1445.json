@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -730,7 +730,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -821,18 +821,25 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 148,
-     "ack": 1006
+     "antal": 150,
+     "ack": 1008
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 150,
-     "ack": 1156
+     "ack": 1158
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 67,
+     "ack": 1225
     }
    ],
-   "total": 1156,
+   "total": 1225,
    "rostberattigade": {
     "riksdag": 4267,
     "kommun": 4393,
@@ -850,19 +857,19 @@
      "namn": "Kerstinsås",
      "kommun": "Essunga",
      "lokalId": "1445001",
-     "total": 1155,
-     "dagarMedRoster": 14,
+     "total": 1222,
+     "dagarMedRoster": 15,
      "storstaDag": 159,
-     "andel": 99.9
+     "andel": 99.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Essunga",
      "lokalId": "1445004",
-     "total": 1,
-     "dagarMedRoster": 1,
-     "storstaDag": 1,
-     "andel": 0.1
+     "total": 3,
+     "dagarMedRoster": 2,
+     "storstaDag": 2,
+     "andel": 0.2
     },
     {
      "namn": "Nossebro skola, aulan",

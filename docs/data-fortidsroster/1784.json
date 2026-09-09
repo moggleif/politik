@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -892,7 +892,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -990,11 +990,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 686,
-     "ack": 5889
+     "antal": 689,
+     "ack": 5892
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 341,
+     "ack": 6233
     }
    ],
-   "total": 5889,
+   "total": 6233,
    "rostberattigade": {
     "riksdag": 19728,
     "kommun": 20572,
@@ -1012,10 +1019,19 @@
      "namn": "Biblioteket",
      "kommun": "Arvika",
      "lokalId": "1784003",
-     "total": 5731,
-     "dagarMedRoster": 14,
-     "storstaDag": 671,
-     "andel": 97.3
+     "total": 6052,
+     "dagarMedRoster": 15,
+     "storstaDag": 674,
+     "andel": 97.1
+    },
+    {
+     "namn": "Biblioteksbussen",
+     "kommun": "Arvika",
+     "lokalId": "1784001",
+     "total": 98,
+     "dagarMedRoster": 7,
+     "storstaDag": 23,
+     "andel": 1.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1024,15 +1040,6 @@
      "total": 83,
      "dagarMedRoster": 5,
      "storstaDag": 57,
-     "andel": 1.4
-    },
-    {
-     "namn": "Biblioteksbussen",
-     "kommun": "Arvika",
-     "lokalId": "1784001",
-     "total": 75,
-     "dagarMedRoster": 6,
-     "storstaDag": 19,
      "andel": 1.3
     },
     {

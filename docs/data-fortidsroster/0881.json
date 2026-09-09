@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -946,7 +946,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1044,11 +1044,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 620,
-     "ack": 4407
+     "antal": 625,
+     "ack": 4412
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 222,
+     "ack": 4634
     }
    ],
-   "total": 4407,
+   "total": 4634,
    "rostberattigade": {
     "riksdag": 15081,
     "kommun": 15774,
@@ -1066,19 +1073,19 @@
      "namn": "Biblioteket i Nybro",
      "kommun": "Nybro",
      "lokalId": "0881002",
-     "total": 4151,
-     "dagarMedRoster": 14,
+     "total": 4373,
+     "dagarMedRoster": 15,
      "storstaDag": 547,
-     "andel": 94.2
+     "andel": 94.4
     },
     {
      "namn": "Fryshuset Nybro",
      "kommun": "Nybro",
      "lokalId": "0881009",
-     "total": 122,
+     "total": 125,
      "dagarMedRoster": 2,
-     "storstaDag": 73,
-     "andel": 2.8
+     "storstaDag": 76,
+     "andel": 2.7
     },
     {
      "namn": "Vattugatan, äldreboende",
@@ -1087,14 +1094,14 @@
      "total": 39,
      "dagarMedRoster": 1,
      "storstaDag": 39,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nybro",
      "lokalId": "0881012",
-     "total": 34,
-     "dagarMedRoster": 9,
+     "total": 36,
+     "dagarMedRoster": 10,
      "storstaDag": 7,
      "andel": 0.8
     },
@@ -1105,7 +1112,7 @@
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Almen, äldreboende",

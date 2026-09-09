@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -866,9 +866,16 @@
      "kvar": 5,
      "antal": 335,
      "ack": 4112
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 19,
+     "ack": 4131
     }
    ],
-   "total": 4112,
+   "total": 4131,
    "rostberattigade": {
     "riksdag": 17107,
     "kommun": 17945,
@@ -889,7 +896,7 @@
      "total": 3816,
      "dagarMedRoster": 14,
      "storstaDag": 374,
-     "andel": 92.8
+     "andel": 92.4
     },
     {
      "namn": "Slottsskolans sporthall",
@@ -899,6 +906,15 @@
      "dagarMedRoster": 4,
      "storstaDag": 80,
      "andel": 6.6
+    },
+    {
+     "namn": "Parkgårdens äldreboende",
+     "kommun": "Håbo",
+     "lokalId": "0305005",
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 0.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -917,15 +933,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 10,
      "andel": 0.2
-    },
-    {
-     "namn": "Parkgårdens äldreboende",
-     "kommun": "Håbo",
-     "lokalId": "0305005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Solängens och Dalängens äldreboenden",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -891,11 +891,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1221,
-     "ack": 10974
+     "antal": 1234,
+     "ack": 10987
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 409,
+     "ack": 11396
     }
    ],
-   "total": 10974,
+   "total": 11396,
    "rostberattigade": {
     "riksdag": 35073,
     "kommun": 38780,
@@ -913,46 +920,46 @@
      "namn": "Väsby Centrum",
      "kommun": "Upplands Väsby",
      "lokalId": "0114001",
-     "total": 8228,
-     "dagarMedRoster": 14,
-     "storstaDag": 817,
-     "andel": 75.0
+     "total": 8508,
+     "dagarMedRoster": 15,
+     "storstaDag": 822,
+     "andel": 74.7
     },
     {
      "namn": "Centralvägen 3A tidigare Nordea",
      "kommun": "Upplands Väsby",
      "lokalId": "0114002",
-     "total": 2379,
-     "dagarMedRoster": 14,
+     "total": 2464,
+     "dagarMedRoster": 15,
      "storstaDag": 267,
-     "andel": 21.7
+     "andel": 21.6
     },
     {
      "namn": "Sigma Centrum",
      "kommun": "Upplands Väsby",
      "lokalId": "0114004",
-     "total": 302,
+     "total": 304,
      "dagarMedRoster": 2,
      "storstaDag": 155,
-     "andel": 2.8
+     "andel": 2.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Upplands Väsby",
      "lokalId": "0114005",
-     "total": 65,
-     "dagarMedRoster": 2,
+     "total": 87,
+     "dagarMedRoster": 3,
      "storstaDag": 51,
-     "andel": 0.6
+     "andel": 0.8
     },
     {
      "namn": "Löwenströmska sjukhuset",
      "kommun": "Upplands Väsby",
      "lokalId": "0114003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
+     "andel": 0.3
     }
    ],
    "antalLokaler": 5,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1162,7 +1162,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1262,9 +1262,16 @@
      "kvar": 5,
      "antal": 1239,
      "ack": 8637
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 291,
+     "ack": 8928
     }
    ],
-   "total": 8637,
+   "total": 8928,
    "rostberattigade": {
     "riksdag": 33696,
     "kommun": 34523,
@@ -1282,17 +1289,17 @@
      "namn": "Motala bibliotek",
      "kommun": "Motala",
      "lokalId": "0583011",
-     "total": 4774,
-     "dagarMedRoster": 12,
+     "total": 4810,
+     "dagarMedRoster": 13,
      "storstaDag": 589,
-     "andel": 55.3
+     "andel": 53.9
     },
     {
      "namn": "Bråstorp Räddningstjänst idrottshall",
      "kommun": "Motala",
      "lokalId": "0583024",
-     "total": 1297,
-     "dagarMedRoster": 7,
+     "total": 1340,
+     "dagarMedRoster": 8,
      "storstaDag": 419,
      "andel": 15.0
     },
@@ -1300,10 +1307,10 @@
      "namn": "Kommunhuset",
      "kommun": "Motala",
      "lokalId": "0583009",
-     "total": 1155,
-     "dagarMedRoster": 12,
+     "total": 1259,
+     "dagarMedRoster": 13,
      "storstaDag": 231,
-     "andel": 13.4
+     "andel": 14.1
     },
     {
      "namn": "Borensberg Svanen",
@@ -1312,7 +1319,7 @@
      "total": 769,
      "dagarMedRoster": 5,
      "storstaDag": 234,
-     "andel": 8.9
+     "andel": 8.6
     },
     {
      "namn": "Fornåsa bygdegård",
@@ -1321,7 +1328,7 @@
      "total": 363,
      "dagarMedRoster": 4,
      "storstaDag": 156,
-     "andel": 4.2
+     "andel": 4.1
     },
     {
      "namn": "Tjällmo bibliotek",
@@ -1333,6 +1340,15 @@
      "andel": 1.4
     },
     {
+     "namn": "Charlottenborg fritidsgård",
+     "kommun": "Motala",
+     "lokalId": "0583001",
+     "total": 81,
+     "dagarMedRoster": 1,
+     "storstaDag": 81,
+     "andel": 0.9
+    },
+    {
      "namn": "Väster Råssnäs fritidsgård",
      "kommun": "Motala",
      "lokalId": "0583004",
@@ -1340,6 +1356,15 @@
      "dagarMedRoster": 2,
      "storstaDag": 28,
      "andel": 0.6
+    },
+    {
+     "namn": "Björkbladet",
+     "kommun": "Motala",
+     "lokalId": "0583013",
+     "total": 41,
+     "dagarMedRoster": 2,
+     "storstaDag": 24,
+     "andel": 0.5
     },
     {
      "namn": "Bokbussen",
@@ -1351,18 +1376,18 @@
      "andel": 0.4
     },
     {
-     "namn": "Björkbladet",
-     "kommun": "Motala",
-     "lokalId": "0583013",
-     "total": 24,
-     "dagarMedRoster": 1,
-     "storstaDag": 24,
-     "andel": 0.3
-    },
-    {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Motala",
      "lokalId": "0583026",
+     "total": 10,
+     "dagarMedRoster": 1,
+     "storstaDag": 10,
+     "andel": 0.1
+    },
+    {
+     "namn": "Båtsmansgatan trygghetsboende",
+     "kommun": "Motala",
+     "lokalId": "0583023",
      "total": 10,
      "dagarMedRoster": 1,
      "storstaDag": 10,
@@ -1417,24 +1442,6 @@
      "namn": "Boregatans trygghetsboende",
      "kommun": "Motala",
      "lokalId": "0583021",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Båtsmansgatan trygghetsboende",
-     "kommun": "Motala",
-     "lokalId": "0583023",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Charlottenborg fritidsgård",
-     "kommun": "Motala",
-     "lokalId": "0583001",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

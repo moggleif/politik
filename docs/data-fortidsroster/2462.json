@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -963,11 +963,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 159,
-     "ack": 1673
+     "antal": 268,
+     "ack": 1782
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 141,
+     "ack": 1923
     }
    ],
-   "total": 1673,
+   "total": 1923,
    "rostberattigade": {
     "riksdag": 4943,
     "kommun": 5055,
@@ -985,10 +992,19 @@
      "namn": "Vilhelmina Folkets Hus",
      "kommun": "Vilhelmina",
      "lokalId": "2462002",
-     "total": 1663,
-     "dagarMedRoster": 14,
+     "total": 1804,
+     "dagarMedRoster": 15,
      "storstaDag": 176,
-     "andel": 99.4
+     "andel": 93.8
+    },
+    {
+     "namn": "Saxnäsgården",
+     "kommun": "Vilhelmina",
+     "lokalId": "2462005",
+     "total": 109,
+     "dagarMedRoster": 1,
+     "storstaDag": 109,
+     "andel": 5.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -997,7 +1013,7 @@
      "total": 10,
      "dagarMedRoster": 3,
      "storstaDag": 5,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Kommunhuset",
@@ -1012,15 +1028,6 @@
      "namn": "Sagagården",
      "kommun": "Vilhelmina",
      "lokalId": "2462001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Saxnäsgården",
-     "kommun": "Vilhelmina",
-     "lokalId": "2462005",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

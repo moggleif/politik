@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,7 +1054,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1154,9 +1154,16 @@
      "kvar": 5,
      "antal": 746,
      "ack": 6049
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 319,
+     "ack": 6368
     }
    ],
-   "total": 6049,
+   "total": 6368,
    "rostberattigade": {
     "riksdag": 18869,
     "kommun": 19367,
@@ -1174,8 +1181,8 @@
      "namn": "Hörsalen Nämndhuset (biblioteket)",
      "kommun": "Kristinehamn",
      "lokalId": "1781006",
-     "total": 3458,
-     "dagarMedRoster": 14,
+     "total": 3644,
+     "dagarMedRoster": 15,
      "storstaDag": 421,
      "andel": 57.2
     },
@@ -1183,19 +1190,19 @@
      "namn": "Merkuriushuset",
      "kommun": "Kristinehamn",
      "lokalId": "1781016",
-     "total": 2175,
-     "dagarMedRoster": 12,
+     "total": 2301,
+     "dagarMedRoster": 13,
      "storstaDag": 262,
-     "andel": 36.0
+     "andel": 36.1
     },
     {
      "namn": "Bokbussen",
      "kommun": "Kristinehamn",
      "lokalId": "1781011",
-     "total": 221,
-     "dagarMedRoster": 8,
+     "total": 224,
+     "dagarMedRoster": 9,
      "storstaDag": 68,
-     "andel": 3.7
+     "andel": 3.5
     },
     {
      "namn": "Uranus",
@@ -1234,6 +1241,15 @@
      "andel": 0.5
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Kristinehamn",
+     "lokalId": "1781018",
+     "total": 18,
+     "dagarMedRoster": 4,
+     "storstaDag": 7,
+     "andel": 0.3
+    },
+    {
      "namn": "Regnbågen",
      "kommun": "Kristinehamn",
      "lokalId": "1781010",
@@ -1241,15 +1257,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 17,
      "andel": 0.3
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Kristinehamn",
-     "lokalId": "1781018",
-     "total": 14,
-     "dagarMedRoster": 3,
-     "storstaDag": 7,
-     "andel": 0.2
     },
     {
      "namn": "Ölmegården",

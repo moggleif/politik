@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -856,7 +856,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -933,32 +933,39 @@
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 498,
-     "ack": 4309
+     "antal": 500,
+     "ack": 4311
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 319,
-     "ack": 4628
+     "antal": 321,
+     "ack": 4632
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 655,
-     "ack": 5283
+     "antal": 662,
+     "ack": 5294
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 591,
-     "ack": 5874
+     "antal": 604,
+     "ack": 5898
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 273,
+     "ack": 6171
     }
    ],
-   "total": 5874,
+   "total": 6171,
    "rostberattigade": {
     "riksdag": 20525,
     "kommun": 21154,
@@ -976,37 +983,37 @@
      "namn": "Mellby Center",
      "kommun": "Laholm",
      "lokalId": "1381001",
-     "total": 3445,
-     "dagarMedRoster": 14,
-     "storstaDag": 356,
-     "andel": 58.6
+     "total": 3609,
+     "dagarMedRoster": 15,
+     "storstaDag": 357,
+     "andel": 58.5
     },
     {
      "namn": "Stadsbiblioteket",
      "kommun": "Laholm",
      "lokalId": "1381003",
-     "total": 2067,
-     "dagarMedRoster": 12,
+     "total": 2186,
+     "dagarMedRoster": 13,
      "storstaDag": 235,
-     "andel": 35.2
+     "andel": 35.4
     },
     {
      "namn": "Knäreds bibliotek",
      "kommun": "Laholm",
      "lokalId": "1381002",
-     "total": 285,
+     "total": 287,
      "dagarMedRoster": 4,
-     "storstaDag": 107,
-     "andel": 4.9
+     "storstaDag": 109,
+     "andel": 4.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Laholm",
      "lokalId": "1381004",
-     "total": 77,
-     "dagarMedRoster": 7,
+     "total": 89,
+     "dagarMedRoster": 8,
      "storstaDag": 24,
-     "andel": 1.3
+     "andel": 1.4
     }
    ],
    "antalLokaler": 4,

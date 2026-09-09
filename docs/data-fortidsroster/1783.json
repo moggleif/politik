@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -924,95 +924,102 @@
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 0,
-     "ack": 0
+     "antal": 14,
+     "ack": 14
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 245,
-     "ack": 245
+     "ack": 259
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 56,
-     "ack": 301
+     "ack": 315
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 52,
-     "ack": 353
+     "ack": 367
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 236,
-     "ack": 589
+     "ack": 603
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 352,
-     "ack": 941
+     "ack": 955
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 311,
-     "ack": 1252
+     "ack": 1266
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 330,
-     "ack": 1582
+     "ack": 1596
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 138,
-     "ack": 1720
+     "ack": 1734
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 118,
-     "ack": 1838
+     "ack": 1852
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 111,
-     "ack": 1949
+     "ack": 1963
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 365,
-     "ack": 2314
+     "antal": 372,
+     "ack": 2335
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 324,
-     "ack": 2638
+     "ack": 2659
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 121,
+     "ack": 2780
     }
    ],
-   "total": 2638,
+   "total": 2780,
    "rostberattigade": {
     "riksdag": 8424,
     "kommun": 9454,
@@ -1030,19 +1037,19 @@
      "namn": "Stadshuset i Hagfors",
      "kommun": "Hagfors",
      "lokalId": "1783001",
-     "total": 1882,
-     "dagarMedRoster": 12,
+     "total": 2001,
+     "dagarMedRoster": 13,
      "storstaDag": 245,
-     "andel": 71.3
+     "andel": 72.0
     },
     {
      "namn": "Bågskytten, Ekshärad",
      "kommun": "Hagfors",
      "lokalId": "1783006",
-     "total": 404,
-     "dagarMedRoster": 4,
+     "total": 418,
+     "dagarMedRoster": 5,
      "storstaDag": 135,
-     "andel": 15.3
+     "andel": 15.0
     },
     {
      "namn": "Råda skola",
@@ -1051,7 +1058,7 @@
      "total": 177,
      "dagarMedRoster": 2,
      "storstaDag": 102,
-     "andel": 6.7
+     "andel": 6.4
     },
     {
      "namn": "Sunnemo skola",
@@ -1060,16 +1067,16 @@
      "total": 121,
      "dagarMedRoster": 1,
      "storstaDag": 121,
-     "andel": 4.6
+     "andel": 4.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Hagfors",
      "lokalId": "1783009",
-     "total": 54,
-     "dagarMedRoster": 3,
+     "total": 63,
+     "dagarMedRoster": 4,
      "storstaDag": 31,
-     "andel": 2.0
+     "andel": 2.3
     }
    ],
    "antalLokaler": 5,

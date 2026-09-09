@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,109 +811,109 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 85,
-     "ack": 85
+     "antal": 0,
+     "ack": 0
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 161,
-     "ack": 246
+     "antal": 0,
+     "ack": 0
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 162,
-     "ack": 408
+     "antal": 0,
+     "ack": 0
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
-     "antal": 97,
-     "ack": 505
+     "antal": 0,
+     "ack": 0
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 103,
-     "ack": 608
+     "antal": 0,
+     "ack": 0
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 119,
-     "ack": 727
+     "antal": 20,
+     "ack": 20
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 234,
-     "ack": 961
+     "antal": 94,
+     "ack": 114
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 126,
-     "ack": 1087
+     "antal": 0,
+     "ack": 114
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 313,
-     "ack": 1400
+     "antal": 49,
+     "ack": 163
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 179,
-     "ack": 1579
+     "antal": 0,
+     "ack": 163
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 118,
-     "ack": 1697
+     "antal": 0,
+     "ack": 163
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 117,
-     "ack": 1814
+     "antal": 0,
+     "ack": 163
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 130,
-     "ack": 1944
+     "antal": 0,
+     "ack": 163
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 166,
-     "ack": 2110
+     "antal": 0,
+     "ack": 163
     }
    ],
-   "total": 2110,
+   "total": 163,
    "rostberattigade": {
     "riksdag": 7069,
     "kommun": 7384,
@@ -928,22 +928,13 @@
    },
    "lokaler": [
     {
-     "namn": "Gjutaren",
-     "kommun": "Töreboda",
-     "lokalId": "1473001",
-     "total": 1947,
-     "dagarMedRoster": 14,
-     "storstaDag": 264,
-     "andel": 92.3
-    },
-    {
      "namn": "Moholms skolas gymnastiksal",
      "kommun": "Töreboda",
      "lokalId": "1473003",
      "total": 94,
      "dagarMedRoster": 1,
      "storstaDag": 94,
-     "andel": 4.5
+     "andel": 57.7
     },
     {
      "namn": "Älgarås skolas gymnastiksal",
@@ -952,7 +943,7 @@
      "total": 42,
      "dagarMedRoster": 1,
      "storstaDag": 42,
-     "andel": 2.0
+     "andel": 25.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -961,10 +952,10 @@
      "total": 27,
      "dagarMedRoster": 2,
      "storstaDag": 20,
-     "andel": 1.3
+     "andel": 16.6
     }
    ],
-   "antalLokaler": 4,
+   "antalLokaler": 3,
    "lokalerKapad": false
   }
  },

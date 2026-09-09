@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,7 +919,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1019,9 +1019,16 @@
      "kvar": 5,
      "antal": 257,
      "ack": 2712
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 89,
+     "ack": 2801
     }
    ],
-   "total": 2712,
+   "total": 2801,
    "rostberattigade": {
     "riksdag": 9957,
     "kommun": 10789,
@@ -1039,19 +1046,19 @@
      "namn": "Valhall",
      "kommun": "Hultsfred",
      "lokalId": "0860008",
-     "total": 1613,
-     "dagarMedRoster": 14,
+     "total": 1634,
+     "dagarMedRoster": 15,
      "storstaDag": 183,
-     "andel": 59.5
+     "andel": 58.3
     },
     {
      "namn": "Ringvägen",
      "kommun": "Hultsfred",
      "lokalId": "0860001",
-     "total": 462,
-     "dagarMedRoster": 6,
+     "total": 472,
+     "dagarMedRoster": 7,
      "storstaDag": 106,
-     "andel": 17.0
+     "andel": 16.9
     },
     {
      "namn": "Skeppet",
@@ -1060,7 +1067,7 @@
      "total": 346,
      "dagarMedRoster": 5,
      "storstaDag": 98,
-     "andel": 12.8
+     "andel": 12.4
     },
     {
      "namn": "Parkeringen vid LTV sparbank",
@@ -1069,16 +1076,16 @@
      "total": 88,
      "dagarMedRoster": 2,
      "storstaDag": 51,
-     "andel": 3.2
+     "andel": 3.1
     },
     {
      "namn": "Parkeringen vid ICA Sundbergs",
      "kommun": "Hultsfred",
      "lokalId": "0860002",
-     "total": 66,
-     "dagarMedRoster": 1,
+     "total": 71,
+     "dagarMedRoster": 2,
      "storstaDag": 66,
-     "andel": 2.4
+     "andel": 2.5
     },
     {
      "namn": "Parkeringen vid Q star",
@@ -1087,7 +1094,16 @@
      "total": 65,
      "dagarMedRoster": 2,
      "storstaDag": 41,
-     "andel": 2.4
+     "andel": 2.3
+    },
+    {
+     "namn": "Parkeringen vid Medborgarplatsen",
+     "kommun": "Hultsfred",
+     "lokalId": "0860003",
+     "total": 53,
+     "dagarMedRoster": 1,
+     "storstaDag": 53,
+     "andel": 1.9
     },
     {
      "namn": "Parkeringen vid Järnforsens livs",
@@ -1106,15 +1122,6 @@
      "dagarMedRoster": 2,
      "storstaDag": 16,
      "andel": 1.1
-    },
-    {
-     "namn": "Parkeringen vid Medborgarplatsen",
-     "kommun": "Hultsfred",
-     "lokalId": "0860003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 9,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1909,7 +1909,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -2007,11 +2007,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 2759,
-     "ack": 19372
+     "antal": 2772,
+     "ack": 19385
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 844,
+     "ack": 20229
     }
    ],
-   "total": 19372,
+   "total": 20229,
    "rostberattigade": {
     "riksdag": 74364,
     "kommun": 76996,
@@ -2029,46 +2036,46 @@
      "namn": "Stadsbiblioteket, Växjö",
      "kommun": "Växjö",
      "lokalId": "0780031",
-     "total": 8096,
-     "dagarMedRoster": 13,
-     "storstaDag": 904,
-     "andel": 41.8
+     "total": 8537,
+     "dagarMedRoster": 14,
+     "storstaDag": 909,
+     "andel": 42.2
     },
     {
      "namn": "Växjö kommunhus",
      "kommun": "Växjö",
      "lokalId": "0780001",
-     "total": 2148,
-     "dagarMedRoster": 12,
-     "storstaDag": 331,
-     "andel": 11.1
+     "total": 2280,
+     "dagarMedRoster": 13,
+     "storstaDag": 333,
+     "andel": 11.3
     },
     {
      "namn": "Konsthallen",
      "kommun": "Växjö",
      "lokalId": "0780040",
-     "total": 2085,
-     "dagarMedRoster": 14,
+     "total": 2154,
+     "dagarMedRoster": 15,
      "storstaDag": 320,
-     "andel": 10.8
+     "andel": 10.6
     },
     {
      "namn": "Mötesplats Framtidsvägen, Teleborg",
      "kommun": "Växjö",
      "lokalId": "0780029",
-     "total": 1441,
-     "dagarMedRoster": 10,
+     "total": 1474,
+     "dagarMedRoster": 11,
      "storstaDag": 322,
-     "andel": 7.4
+     "andel": 7.3
     },
     {
      "namn": "Tallgården, Araby",
      "kommun": "Växjö",
      "lokalId": "0780007",
-     "total": 813,
-     "dagarMedRoster": 10,
+     "total": 830,
+     "dagarMedRoster": 11,
      "storstaDag": 141,
-     "andel": 4.2
+     "andel": 4.1
     },
     {
      "namn": "Gustavslundskolan",
@@ -2077,14 +2084,14 @@
      "total": 718,
      "dagarMedRoster": 8,
      "storstaDag": 121,
-     "andel": 3.7
+     "andel": 3.5
     },
     {
      "namn": "Öjaby församlingshem",
      "kommun": "Växjö",
      "lokalId": "0780025",
-     "total": 659,
-     "dagarMedRoster": 10,
+     "total": 683,
+     "dagarMedRoster": 11,
      "storstaDag": 125,
      "andel": 3.4
     },
@@ -2092,17 +2099,17 @@
      "namn": "Näckrosen i Ingelstad",
      "kommun": "Växjö",
      "lokalId": "0780009",
-     "total": 630,
-     "dagarMedRoster": 10,
+     "total": 652,
+     "dagarMedRoster": 11,
      "storstaDag": 154,
-     "andel": 3.3
+     "andel": 3.2
     },
     {
      "namn": "Birkagården, Öster",
      "kommun": "Växjö",
      "lokalId": "0780012",
-     "total": 609,
-     "dagarMedRoster": 10,
+     "total": 634,
+     "dagarMedRoster": 11,
      "storstaDag": 155,
      "andel": 3.1
     },
@@ -2110,8 +2117,8 @@
      "namn": "Rottnegården",
      "kommun": "Växjö",
      "lokalId": "0780037",
-     "total": 556,
-     "dagarMedRoster": 10,
+     "total": 582,
+     "dagarMedRoster": 11,
      "storstaDag": 116,
      "andel": 2.9
     },
@@ -2119,17 +2126,17 @@
      "namn": "Lammhults bibliotek",
      "kommun": "Växjö",
      "lokalId": "0780011",
-     "total": 442,
-     "dagarMedRoster": 8,
+     "total": 453,
+     "dagarMedRoster": 9,
      "storstaDag": 129,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Sjöliden, Braås",
      "kommun": "Växjö",
      "lokalId": "0780010",
-     "total": 372,
-     "dagarMedRoster": 10,
+     "total": 381,
+     "dagarMedRoster": 11,
      "storstaDag": 73,
      "andel": 1.9
     },
@@ -2158,7 +2165,16 @@
      "total": 49,
      "dagarMedRoster": 1,
      "storstaDag": 49,
-     "andel": 0.3
+     "andel": 0.2
+    },
+    {
+     "namn": "Växjö Fria Gymnasium",
+     "kommun": "Växjö",
+     "lokalId": "0780045",
+     "total": 48,
+     "dagarMedRoster": 1,
+     "storstaDag": 48,
+     "andel": 0.2
     },
     {
      "namn": "Åryd skola",
@@ -2470,15 +2486,6 @@
      "namn": "Rättspsykiatriska regionkliniken",
      "kommun": "Växjö",
      "lokalId": "0780050",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Växjö Fria Gymnasium",
-     "kommun": "Växjö",
-     "lokalId": "0780045",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

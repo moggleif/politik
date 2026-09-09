@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T11:09+02:00",
+ "senastUppdaterad": "2026-09-09T18:53+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T11:09+02:00",
+   "hamtad": "2026-09-09T18:53+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1785,53 +1785,60 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 7141,
-     "ack": 44391
+     "antal": 7142,
+     "ack": 44392
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 8067,
-     "ack": 52458
+     "ack": 52459
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 6486,
-     "ack": 58944
+     "ack": 58945
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 6506,
-     "ack": 65450
+     "ack": 65451
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 5974,
-     "ack": 71424
+     "ack": 71425
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 9535,
-     "ack": 80959
+     "antal": 9536,
+     "ack": 80961
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 11191,
-     "ack": 92150
+     "antal": 11214,
+     "ack": 92175
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 4051,
+     "ack": 96226
     }
    ],
-   "total": 92150,
+   "total": 96226,
    "rostberattigade": {
     "riksdag": 309333,
     "kommun": 323850,
@@ -1849,17 +1856,17 @@
      "namn": "Gränbystaden Galleria",
      "kommun": "Uppsala",
      "lokalId": "0380025",
-     "total": 12405,
-     "dagarMedRoster": 14,
+     "total": 12869,
+     "dagarMedRoster": 15,
      "storstaDag": 1196,
-     "andel": 13.5
+     "andel": 13.4
     },
     {
      "namn": "Biblioteket",
      "kommun": "Enköping",
      "lokalId": "0381002",
-     "total": 7843,
-     "dagarMedRoster": 14,
+     "total": 8182,
+     "dagarMedRoster": 15,
      "storstaDag": 836,
      "andel": 8.5
     },
@@ -1867,26 +1874,26 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Uppsala",
      "lokalId": "0380007",
-     "total": 6373,
-     "dagarMedRoster": 13,
+     "total": 6694,
+     "dagarMedRoster": 14,
      "storstaDag": 796,
-     "andel": 6.9
+     "andel": 7.0
     },
     {
      "namn": "Stadshuset",
      "kommun": "Uppsala",
      "lokalId": "0380026",
-     "total": 5930,
-     "dagarMedRoster": 14,
+     "total": 6249,
+     "dagarMedRoster": 15,
      "storstaDag": 715,
-     "andel": 6.4
+     "andel": 6.5
     },
     {
      "namn": "Bolandcity",
      "kommun": "Uppsala",
      "lokalId": "0380001",
-     "total": 4901,
-     "dagarMedRoster": 14,
+     "total": 5140,
+     "dagarMedRoster": 15,
      "storstaDag": 537,
      "andel": 5.3
     },
@@ -1894,8 +1901,8 @@
      "namn": "Gottsundabiblioteket",
      "kommun": "Uppsala",
      "lokalId": "0380011",
-     "total": 4709,
-     "dagarMedRoster": 14,
+     "total": 4903,
+     "dagarMedRoster": 15,
      "storstaDag": 487,
      "andel": 5.1
     },
@@ -1906,68 +1913,68 @@
      "total": 3816,
      "dagarMedRoster": 14,
      "storstaDag": 374,
-     "andel": 4.1
-    },
-    {
-     "namn": "Fyrishov",
-     "kommun": "Uppsala",
-     "lokalId": "0380014",
-     "total": 3530,
-     "dagarMedRoster": 14,
-     "storstaDag": 439,
-     "andel": 3.8
+     "andel": 4.0
     },
     {
      "namn": "Knivsta kommunhus",
      "kommun": "Knivsta",
      "lokalId": "0330001",
-     "total": 3506,
-     "dagarMedRoster": 14,
-     "storstaDag": 431,
+     "total": 3702,
+     "dagarMedRoster": 15,
+     "storstaDag": 432,
+     "andel": 3.8
+    },
+    {
+     "namn": "Fyrishov",
+     "kommun": "Uppsala",
+     "lokalId": "0380014",
+     "total": 3661,
+     "dagarMedRoster": 15,
+     "storstaDag": 439,
      "andel": 3.8
     },
     {
      "namn": "Ekonomikum",
      "kommun": "Uppsala",
      "lokalId": "0380003",
-     "total": 2752,
-     "dagarMedRoster": 12,
+     "total": 2990,
+     "dagarMedRoster": 13,
      "storstaDag": 420,
-     "andel": 3.0
+     "andel": 3.1
     },
     {
      "namn": "Kulturhuset Möbeln",
      "kommun": "Tierp",
      "lokalId": "0360003",
-     "total": 2531,
-     "dagarMedRoster": 14,
+     "total": 2678,
+     "dagarMedRoster": 15,
      "storstaDag": 367,
-     "andel": 2.7
+     "andel": 2.8
     },
     {
      "namn": "Biblioteket Skutskär",
      "kommun": "Älvkarleby",
      "lokalId": "0319001",
-     "total": 2504,
-     "dagarMedRoster": 14,
-     "storstaDag": 270,
+     "total": 2610,
+     "dagarMedRoster": 15,
+     "storstaDag": 274,
      "andel": 2.7
     },
     {
      "namn": "Societetshuset Källör",
      "kommun": "Östhammar",
      "lokalId": "0382002",
-     "total": 2137,
-     "dagarMedRoster": 14,
+     "total": 2276,
+     "dagarMedRoster": 15,
      "storstaDag": 204,
-     "andel": 2.3
+     "andel": 2.4
     },
     {
      "namn": "Stenhagenbiblioteket",
      "kommun": "Uppsala",
      "lokalId": "0380002",
-     "total": 2041,
-     "dagarMedRoster": 11,
+     "total": 2137,
+     "dagarMedRoster": 12,
      "storstaDag": 273,
      "andel": 2.2
     },
@@ -1975,8 +1982,8 @@
      "namn": "Studenternas",
      "kommun": "Uppsala",
      "lokalId": "0380031",
-     "total": 1812,
-     "dagarMedRoster": 13,
+     "total": 1878,
+     "dagarMedRoster": 14,
      "storstaDag": 268,
      "andel": 2.0
     },
@@ -1984,10 +1991,19 @@
      "namn": "Akademiska sjukhuset (Ingång10)",
      "kommun": "Uppsala",
      "lokalId": "0380020",
-     "total": 1694,
-     "dagarMedRoster": 11,
+     "total": 1832,
+     "dagarMedRoster": 12,
      "storstaDag": 227,
-     "andel": 1.8
+     "andel": 1.9
+    },
+    {
+     "namn": "Ljunggården, Enköping",
+     "kommun": "Enköping",
+     "lokalId": "0381008",
+     "total": 1468,
+     "dagarMedRoster": 15,
+     "storstaDag": 174,
+     "andel": 1.5
     },
     {
      "namn": "Rosendalsbiblioteket",
@@ -1996,61 +2012,52 @@
      "total": 1462,
      "dagarMedRoster": 9,
      "storstaDag": 301,
-     "andel": 1.6
-    },
-    {
-     "namn": "Ljunggården, Enköping",
-     "kommun": "Enköping",
-     "lokalId": "0381008",
-     "total": 1400,
-     "dagarMedRoster": 14,
-     "storstaDag": 174,
-     "andel": 1.5
-    },
-    {
-     "namn": "Valbuss",
-     "kommun": "Uppsala",
-     "lokalId": "0380030",
-     "total": 1400,
-     "dagarMedRoster": 14,
-     "storstaDag": 164,
      "andel": 1.5
     },
     {
      "namn": "Storvretabiblioteket",
      "kommun": "Uppsala",
      "lokalId": "0380009",
-     "total": 1372,
-     "dagarMedRoster": 9,
+     "total": 1456,
+     "dagarMedRoster": 10,
      "storstaDag": 308,
      "andel": 1.5
     },
     {
-     "namn": "Heby Folkets Hus",
-     "kommun": "Heby",
-     "lokalId": "0331007",
-     "total": 1232,
-     "dagarMedRoster": 14,
-     "storstaDag": 235,
-     "andel": 1.3
-    },
-    {
-     "namn": "Sävja kulturcentrum",
+     "namn": "Valbuss",
      "kommun": "Uppsala",
-     "lokalId": "0380008",
-     "total": 1229,
-     "dagarMedRoster": 12,
-     "storstaDag": 223,
-     "andel": 1.3
+     "lokalId": "0380030",
+     "total": 1425,
+     "dagarMedRoster": 15,
+     "storstaDag": 164,
+     "andel": 1.5
     },
     {
      "namn": "Sveriges Lantbruksuniversitet, SLU",
      "kommun": "Uppsala",
      "lokalId": "0380013",
-     "total": 1189,
-     "dagarMedRoster": 10,
+     "total": 1377,
+     "dagarMedRoster": 11,
      "storstaDag": 188,
-     "andel": 1.3
+     "andel": 1.4
+    },
+    {
+     "namn": "Sävja kulturcentrum",
+     "kommun": "Uppsala",
+     "lokalId": "0380008",
+     "total": 1326,
+     "dagarMedRoster": 13,
+     "storstaDag": 223,
+     "andel": 1.4
+    },
+    {
+     "namn": "Heby Folkets Hus",
+     "kommun": "Heby",
+     "lokalId": "0331007",
+     "total": 1306,
+     "dagarMedRoster": 15,
+     "storstaDag": 235,
+     "andel": 1.4
     },
     {
      "namn": "Olandsskolans matsal",
@@ -2062,11 +2069,20 @@
      "andel": 1.1
     },
     {
+     "namn": "Folkets Hus, Österbybruk",
+     "kommun": "Östhammar",
+     "lokalId": "0382006",
+     "total": 1009,
+     "dagarMedRoster": 6,
+     "storstaDag": 286,
+     "andel": 1.0
+    },
+    {
      "namn": "Sven Persson hallen",
      "kommun": "Östhammar",
      "lokalId": "0382004",
-     "total": 912,
-     "dagarMedRoster": 6,
+     "total": 970,
+     "dagarMedRoster": 7,
      "storstaDag": 188,
      "andel": 1.0
     },
@@ -2077,23 +2093,14 @@
      "total": 883,
      "dagarMedRoster": 4,
      "storstaDag": 342,
-     "andel": 1.0
-    },
-    {
-     "namn": "Folkets Hus, Österbybruk",
-     "kommun": "Östhammar",
-     "lokalId": "0382006",
-     "total": 868,
-     "dagarMedRoster": 5,
-     "storstaDag": 286,
      "andel": 0.9
     },
     {
      "namn": "Björklingebiblioteket",
      "kommun": "Uppsala",
      "lokalId": "0380023",
-     "total": 794,
-     "dagarMedRoster": 6,
+     "total": 829,
+     "dagarMedRoster": 7,
      "storstaDag": 172,
      "andel": 0.9
     },
@@ -2101,18 +2108,18 @@
      "namn": "Bälingebiblioteket",
      "kommun": "Uppsala",
      "lokalId": "0380022",
-     "total": 767,
-     "dagarMedRoster": 7,
+     "total": 787,
+     "dagarMedRoster": 8,
      "storstaDag": 226,
      "andel": 0.8
     },
     {
-     "namn": "Brandstationen, Örsundsbro",
-     "kommun": "Enköping",
-     "lokalId": "0381003",
-     "total": 724,
-     "dagarMedRoster": 6,
-     "storstaDag": 171,
+     "namn": "Utbildnings- och jobbcenter",
+     "kommun": "Uppsala",
+     "lokalId": "0380019",
+     "total": 775,
+     "dagarMedRoster": 11,
+     "storstaDag": 118,
      "andel": 0.8
     }
    ],
