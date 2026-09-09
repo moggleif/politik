@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1261,7 +1261,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1352,18 +1352,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 2735,
-     "ack": 23210
+     "antal": 2783,
+     "ack": 23258
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1090,
-     "ack": 24300
+     "antal": 2931,
+     "ack": 26189
     }
    ],
-   "total": 24300,
+   "total": 26189,
    "rostberattigade": {
     "riksdag": 83715,
     "kommun": 87259,
@@ -1381,64 +1381,64 @@
      "namn": "Nacka Forum, plan 0",
      "kommun": "Nacka",
      "lokalId": "0182002",
-     "total": 8955,
+     "total": 9632,
      "dagarMedRoster": 14,
-     "storstaDag": 913,
-     "andel": 36.9
+     "storstaDag": 1018,
+     "andel": 36.8
     },
     {
      "namn": "Orminge bibliotek",
      "kommun": "Nacka",
      "lokalId": "0182001",
-     "total": 4787,
+     "total": 5163,
      "dagarMedRoster": 14,
-     "storstaDag": 609,
+     "storstaDag": 614,
      "andel": 19.7
     },
     {
      "namn": "Dieselverkstaden",
      "kommun": "Nacka",
      "lokalId": "0182003",
-     "total": 4490,
+     "total": 4836,
      "dagarMedRoster": 14,
-     "storstaDag": 533,
+     "storstaDag": 554,
      "andel": 18.5
     },
     {
      "namn": "Igelboda skola",
      "kommun": "Nacka",
      "lokalId": "0182005",
-     "total": 2057,
+     "total": 2239,
      "dagarMedRoster": 14,
-     "storstaDag": 237,
+     "storstaDag": 261,
      "andel": 8.5
     },
     {
      "namn": "Älta bibliotek",
      "kommun": "Nacka",
      "lokalId": "0182004",
-     "total": 1966,
+     "total": 2096,
      "dagarMedRoster": 14,
-     "storstaDag": 222,
-     "andel": 8.1
+     "storstaDag": 225,
+     "andel": 8.0
     },
     {
      "namn": "Fisksätra bibliotek",
      "kommun": "Nacka",
      "lokalId": "0182018",
-     "total": 1201,
+     "total": 1312,
      "dagarMedRoster": 14,
-     "storstaDag": 135,
-     "andel": 4.9
+     "storstaDag": 164,
+     "andel": 5.0
     },
     {
      "namn": "Nacka stadshus",
      "kommun": "Nacka",
      "lokalId": "0182020",
-     "total": 583,
+     "total": 604,
      "dagarMedRoster": 11,
-     "storstaDag": 78,
-     "andel": 2.4
+     "storstaDag": 89,
+     "andel": 2.3
     },
     {
      "namn": "Danvikshem",
@@ -1453,8 +1453,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nacka",
      "lokalId": "0182023",
-     "total": 43,
-     "dagarMedRoster": 5,
+     "total": 50,
+     "dagarMedRoster": 6,
      "storstaDag": 25,
      "andel": 0.2
     },
@@ -1486,6 +1486,15 @@
      "andel": 0.1
     },
     {
+     "namn": "NSC Sjötäppan",
+     "kommun": "Nacka",
+     "lokalId": "0182024",
+     "total": 24,
+     "dagarMedRoster": 1,
+     "storstaDag": 24,
+     "andel": 0.1
+    },
+    {
      "namn": "Vardaga Lillängen",
      "kommun": "Nacka",
      "lokalId": "0182016",
@@ -1504,6 +1513,15 @@
      "andel": 0.1
     },
     {
+     "namn": "Ersta Sarahemmet",
+     "kommun": "Nacka",
+     "lokalId": "0182009",
+     "total": 15,
+     "dagarMedRoster": 1,
+     "storstaDag": 15,
+     "andel": 0.1
+    },
+    {
      "namn": "Ednahemmet",
      "kommun": "Nacka",
      "lokalId": "0182026",
@@ -1513,27 +1531,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Ersta Sarahemmet",
-     "kommun": "Nacka",
-     "lokalId": "0182009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Graninge Strand",
      "kommun": "Nacka",
      "lokalId": "0182021",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "NSC Sjötäppan",
-     "kommun": "Nacka",
-     "lokalId": "0182024",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

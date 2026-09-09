@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1612,7 +1612,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1710,11 +1710,11 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1544,
-     "ack": 32474
+     "antal": 3634,
+     "ack": 34564
     }
    ],
-   "total": 32474,
+   "total": 34564,
    "rostberattigade": {
     "riksdag": 121747,
     "kommun": 126853,
@@ -1732,64 +1732,73 @@
      "namn": "Erikslund Shoppingcenter/Livli",
      "kommun": "Västerås",
      "lokalId": "1980007",
-     "total": 6028,
+     "total": 6437,
      "dagarMedRoster": 14,
-     "storstaDag": 625,
+     "storstaDag": 674,
      "andel": 18.6
     },
     {
      "namn": "Skiljeboporten",
      "kommun": "Västerås",
      "lokalId": "1980008",
-     "total": 3526,
+     "total": 3836,
      "dagarMedRoster": 10,
-     "storstaDag": 476,
-     "andel": 10.9
+     "storstaDag": 558,
+     "andel": 11.1
     },
     {
      "namn": "Västerås stadsbibliotek, Hörsalen",
      "kommun": "Västerås",
      "lokalId": "1980009",
-     "total": 3319,
+     "total": 3649,
      "dagarMedRoster": 10,
-     "storstaDag": 445,
-     "andel": 10.2
+     "storstaDag": 540,
+     "andel": 10.6
     },
     {
      "namn": "Västmanlands sjukhus Västerås",
      "kommun": "Västerås",
      "lokalId": "1980003",
-     "total": 2835,
+     "total": 3073,
      "dagarMedRoster": 10,
-     "storstaDag": 382,
-     "andel": 8.7
-    },
-    {
-     "namn": "Stadshuset, Munkgatan",
-     "kommun": "Västerås",
-     "lokalId": "1980010",
-     "total": 2519,
-     "dagarMedRoster": 10,
-     "storstaDag": 286,
-     "andel": 7.8
+     "storstaDag": 453,
+     "andel": 8.9
     },
     {
      "namn": "Växhuset",
      "kommun": "Västerås",
      "lokalId": "1980012",
-     "total": 2492,
+     "total": 2781,
      "dagarMedRoster": 14,
      "storstaDag": 376,
-     "andel": 7.7
+     "andel": 8.0
+    },
+    {
+     "namn": "Stadshuset, Munkgatan",
+     "kommun": "Västerås",
+     "lokalId": "1980010",
+     "total": 2604,
+     "dagarMedRoster": 10,
+     "storstaDag": 299,
+     "andel": 7.5
     },
     {
      "namn": "Bäckbyhuset",
      "kommun": "Västerås",
      "lokalId": "1980001",
-     "total": 2349,
+     "total": 2558,
      "dagarMedRoster": 14,
-     "storstaDag": 263,
-     "andel": 7.2
+     "storstaDag": 270,
+     "andel": 7.4
+    },
+    {
+     "namn": "Råby bibliotek",
+     "kommun": "Västerås",
+     "lokalId": "1980006",
+     "total": 1777,
+     "dagarMedRoster": 12,
+     "storstaDag": 199,
+     "andel": 5.1
     },
     {
      "namn": "Mälarparksskolan",
@@ -1798,25 +1807,16 @@
      "total": 1753,
      "dagarMedRoster": 4,
      "storstaDag": 568,
-     "andel": 5.4
-    },
-    {
-     "namn": "Råby bibliotek",
-     "kommun": "Västerås",
-     "lokalId": "1980006",
-     "total": 1702,
-     "dagarMedRoster": 12,
-     "storstaDag": 199,
-     "andel": 5.2
+     "andel": 5.1
     },
     {
      "namn": "Mälardalens universitetsbibliotek",
      "kommun": "Västerås",
      "lokalId": "1980004",
-     "total": 982,
+     "total": 1102,
      "dagarMedRoster": 9,
-     "storstaDag": 160,
-     "andel": 3.0
+     "storstaDag": 209,
+     "andel": 3.2
     },
     {
      "namn": "Irstaskolan",
@@ -1825,7 +1825,7 @@
      "total": 965,
      "dagarMedRoster": 4,
      "storstaDag": 336,
-     "andel": 3.0
+     "andel": 2.8
     },
     {
      "namn": "Piltorpsskolan",
@@ -1834,7 +1834,7 @@
      "total": 927,
      "dagarMedRoster": 4,
      "storstaDag": 307,
-     "andel": 2.9
+     "andel": 2.7
     },
     {
      "namn": "Tillbergaskolan",
@@ -1843,7 +1843,7 @@
      "total": 764,
      "dagarMedRoster": 4,
      "storstaDag": 236,
-     "andel": 2.4
+     "andel": 2.2
     },
     {
      "namn": "Persboskolan/Drömfabriken",
@@ -1852,7 +1852,7 @@
      "total": 731,
      "dagarMedRoster": 4,
      "storstaDag": 214,
-     "andel": 2.3
+     "andel": 2.1
     },
     {
      "namn": "Vallby Paletten",
@@ -1861,7 +1861,7 @@
      "total": 632,
      "dagarMedRoster": 4,
      "storstaDag": 218,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Pettersbergsskolan",
@@ -1870,15 +1870,15 @@
      "total": 523,
      "dagarMedRoster": 4,
      "storstaDag": 172,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Västerås",
      "lokalId": "1980017",
-     "total": 427,
+     "total": 452,
      "dagarMedRoster": 11,
-     "storstaDag": 76,
+     "storstaDag": 77,
      "andel": 1.3
     },
     {

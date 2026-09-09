@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -703,7 +703,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -717,95 +717,95 @@
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 165,
-     "ack": 339
+     "antal": 166,
+     "ack": 340
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 172,
-     "ack": 511
+     "ack": 512
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 59,
-     "ack": 570
+     "ack": 571
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 108,
-     "ack": 678
+     "ack": 679
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
      "antal": 166,
-     "ack": 844
+     "ack": 845
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 254,
-     "ack": 1098
+     "antal": 255,
+     "ack": 1100
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 297,
-     "ack": 1395
+     "ack": 1397
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 322,
-     "ack": 1717
+     "ack": 1719
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 236,
-     "ack": 1953
+     "ack": 1955
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 275,
-     "ack": 2228
+     "ack": 2230
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 132,
-     "ack": 2360
+     "ack": 2362
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 372,
-     "ack": 2732
+     "antal": 373,
+     "ack": 2735
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 131,
-     "ack": 2863
+     "antal": 422,
+     "ack": 3157
     }
    ],
-   "total": 2863,
+   "total": 3157,
    "rostberattigade": {
     "riksdag": 12348,
     "kommun": 13015,
@@ -823,19 +823,28 @@
      "namn": "Murgrönans foajé (Salems bibliotek)",
      "kommun": "Salem",
      "lokalId": "0128001",
-     "total": 2336,
+     "total": 2486,
      "dagarMedRoster": 14,
-     "storstaDag": 246,
-     "andel": 81.6
+     "storstaDag": 279,
+     "andel": 78.7
     },
     {
      "namn": "Villa Skönvik",
      "kommun": "Salem",
      "lokalId": "0128002",
-     "total": 470,
-     "dagarMedRoster": 6,
+     "total": 585,
+     "dagarMedRoster": 7,
      "storstaDag": 118,
-     "andel": 16.4
+     "andel": 18.5
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Salem",
+     "lokalId": "0128006",
+     "total": 40,
+     "dagarMedRoster": 2,
+     "storstaDag": 29,
+     "andel": 1.3
     },
     {
      "namn": "Salarps vård- och omsorgsboende",
@@ -853,7 +862,7 @@
      "total": 14,
      "dagarMedRoster": 1,
      "storstaDag": 14,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Söderby Park",
@@ -862,15 +871,6 @@
      "total": 14,
      "dagarMedRoster": 1,
      "storstaDag": 14,
-     "andel": 0.5
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Salem",
-     "lokalId": "0128006",
-     "total": 11,
-     "dagarMedRoster": 1,
-     "storstaDag": 11,
      "andel": 0.4
     }
    ],

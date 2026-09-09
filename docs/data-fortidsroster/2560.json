@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,7 +829,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -927,11 +927,11 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 165,
-     "ack": 1973
+     "antal": 380,
+     "ack": 2188
     }
    ],
-   "total": 1973,
+   "total": 2188,
    "rostberattigade": {
     "riksdag": 6010,
     "kommun": 6272,
@@ -949,10 +949,10 @@
      "namn": "Kommunförvaltningen",
      "kommun": "Älvsbyn",
      "lokalId": "2560001",
-     "total": 1597,
+     "total": 1805,
      "dagarMedRoster": 10,
-     "storstaDag": 326,
-     "andel": 80.9
+     "storstaDag": 361,
+     "andel": 82.5
     },
     {
      "namn": "Fluxen, servicehus",
@@ -961,7 +961,16 @@
      "total": 105,
      "dagarMedRoster": 1,
      "storstaDag": 105,
-     "andel": 5.3
+     "andel": 4.8
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Älvsbyn",
+     "lokalId": "2560005",
+     "total": 97,
+     "dagarMedRoster": 9,
+     "storstaDag": 27,
+     "andel": 4.4
     },
     {
      "namn": "Vidsels aktivitetshus",
@@ -970,16 +979,7 @@
      "total": 94,
      "dagarMedRoster": 2,
      "storstaDag": 48,
-     "andel": 4.8
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Älvsbyn",
-     "lokalId": "2560005",
-     "total": 90,
-     "dagarMedRoster": 9,
-     "storstaDag": 27,
-     "andel": 4.6
+     "andel": 4.3
     },
     {
      "namn": "Vistträskskolan",
@@ -988,7 +988,7 @@
      "total": 87,
      "dagarMedRoster": 1,
      "storstaDag": 87,
-     "andel": 4.4
+     "andel": 4.0
     }
    ],
    "antalLokaler": 5,

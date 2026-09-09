@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1071,11 +1071,11 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 51,
-     "ack": 1786
+     "antal": 250,
+     "ack": 1985
     }
    ],
-   "total": 1786,
+   "total": 1985,
    "rostberattigade": {
     "riksdag": 7328,
     "kommun": 7867,
@@ -1093,19 +1093,19 @@
      "namn": "Markaryds kulturhus",
      "kommun": "Markaryd",
      "lokalId": "0767002",
-     "total": 1332,
+     "total": 1458,
      "dagarMedRoster": 14,
-     "storstaDag": 147,
-     "andel": 74.6
+     "storstaDag": 177,
+     "andel": 73.5
     },
     {
      "namn": "Strömsnäsbruk Servicekontoret",
      "kommun": "Markaryd",
      "lokalId": "0767001",
-     "total": 208,
-     "dagarMedRoster": 5,
-     "storstaDag": 48,
-     "andel": 11.6
+     "total": 274,
+     "dagarMedRoster": 6,
+     "storstaDag": 66,
+     "andel": 13.8
     },
     {
      "namn": "Traryd Verdandi",
@@ -1114,7 +1114,16 @@
      "total": 113,
      "dagarMedRoster": 2,
      "storstaDag": 64,
-     "andel": 6.3
+     "andel": 5.7
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Markaryd",
+     "lokalId": "0767005",
+     "total": 72,
+     "dagarMedRoster": 6,
+     "storstaDag": 23,
+     "andel": 3.6
     },
     {
      "namn": "Hinneryds bygdegård",
@@ -1123,16 +1132,7 @@
      "total": 68,
      "dagarMedRoster": 2,
      "storstaDag": 37,
-     "andel": 3.8
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Markaryd",
-     "lokalId": "0767005",
-     "total": 65,
-     "dagarMedRoster": 5,
-     "storstaDag": 23,
-     "andel": 3.6
+     "andel": 3.4
     }
    ],
    "antalLokaler": 5,

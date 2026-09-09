@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1071,11 +1071,11 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 123,
-     "ack": 1988
+     "antal": 309,
+     "ack": 2174
     }
    ],
-   "total": 1988,
+   "total": 2174,
    "rostberattigade": {
     "riksdag": 11598,
     "kommun": 12542,
@@ -1093,10 +1093,19 @@
      "namn": "Medborgarkontoret",
      "kommun": "Åstorp",
      "lokalId": "1277005",
-     "total": 1580,
+     "total": 1652,
      "dagarMedRoster": 14,
-     "storstaDag": 167,
-     "andel": 79.5
+     "storstaDag": 195,
+     "andel": 76.0
+    },
+    {
+     "namn": "Kvidinge bibliotek",
+     "kommun": "Åstorp",
+     "lokalId": "1277011",
+     "total": 271,
+     "dagarMedRoster": 4,
+     "storstaDag": 114,
+     "andel": 12.5
     },
     {
      "namn": "Hyllinge bibliotek",
@@ -1105,16 +1114,7 @@
      "total": 186,
      "dagarMedRoster": 2,
      "storstaDag": 99,
-     "andel": 9.4
-    },
-    {
-     "namn": "Kvidinge bibliotek",
-     "kommun": "Åstorp",
-     "lokalId": "1277011",
-     "total": 157,
-     "dagarMedRoster": 3,
-     "storstaDag": 84,
-     "andel": 7.9
+     "andel": 8.6
     },
     {
      "namn": "Vidåsen",
@@ -1123,7 +1123,7 @@
      "total": 21,
      "dagarMedRoster": 1,
      "storstaDag": 21,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Nyvångs bibliotek",
@@ -1132,7 +1132,7 @@
      "total": 16,
      "dagarMedRoster": 1,
      "storstaDag": 16,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Rönnåsen",
@@ -1141,7 +1141,7 @@
      "total": 15,
      "dagarMedRoster": 1,
      "storstaDag": 15,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Bjärshögsskolan",
@@ -1150,7 +1150,7 @@
      "total": 7,
      "dagarMedRoster": 1,
      "storstaDag": 7,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1159,7 +1159,7 @@
      "total": 3,
      "dagarMedRoster": 2,
      "storstaDag": 2,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Astern",
@@ -1168,7 +1168,7 @@
      "total": 3,
      "dagarMedRoster": 1,
      "storstaDag": 3,
-     "andel": 0.2
+     "andel": 0.1
     }
    ],
    "antalLokaler": 9,

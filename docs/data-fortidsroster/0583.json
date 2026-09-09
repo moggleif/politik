@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1162,7 +1162,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1253,18 +1253,18 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1270,
-     "ack": 7384
+     "antal": 1284,
+     "ack": 7398
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 429,
-     "ack": 7813
+     "antal": 1239,
+     "ack": 8637
     }
    ],
-   "total": 7813,
+   "total": 8637,
    "rostberattigade": {
     "riksdag": 33696,
     "kommun": 34523,
@@ -1282,10 +1282,19 @@
      "namn": "Motala bibliotek",
      "kommun": "Motala",
      "lokalId": "0583011",
-     "total": 4420,
+     "total": 4774,
      "dagarMedRoster": 12,
-     "storstaDag": 547,
-     "andel": 56.6
+     "storstaDag": 589,
+     "andel": 55.3
+    },
+    {
+     "namn": "Bråstorp Räddningstjänst idrottshall",
+     "kommun": "Motala",
+     "lokalId": "0583024",
+     "total": 1297,
+     "dagarMedRoster": 7,
+     "storstaDag": 419,
+     "andel": 15.0
     },
     {
      "namn": "Kommunhuset",
@@ -1294,34 +1303,25 @@
      "total": 1155,
      "dagarMedRoster": 12,
      "storstaDag": 231,
-     "andel": 14.8
-    },
-    {
-     "namn": "Bråstorp Räddningstjänst idrottshall",
-     "kommun": "Motala",
-     "lokalId": "0583024",
-     "total": 1086,
-     "dagarMedRoster": 7,
-     "storstaDag": 419,
-     "andel": 13.9
+     "andel": 13.4
     },
     {
      "namn": "Borensberg Svanen",
      "kommun": "Motala",
      "lokalId": "0583015",
-     "total": 535,
-     "dagarMedRoster": 4,
-     "storstaDag": 176,
-     "andel": 6.8
+     "total": 769,
+     "dagarMedRoster": 5,
+     "storstaDag": 234,
+     "andel": 8.9
     },
     {
      "namn": "Fornåsa bygdegård",
      "kommun": "Motala",
      "lokalId": "0583010",
-     "total": 362,
+     "total": 363,
      "dagarMedRoster": 4,
      "storstaDag": 156,
-     "andel": 4.6
+     "andel": 4.2
     },
     {
      "namn": "Tjällmo bibliotek",
@@ -1330,7 +1330,7 @@
      "total": 124,
      "dagarMedRoster": 3,
      "storstaDag": 60,
-     "andel": 1.6
+     "andel": 1.4
     },
     {
      "namn": "Väster Råssnäs fritidsgård",
@@ -1339,7 +1339,7 @@
      "total": 54,
      "dagarMedRoster": 2,
      "storstaDag": 28,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Bokbussen",
@@ -1348,7 +1348,7 @@
      "total": 36,
      "dagarMedRoster": 2,
      "storstaDag": 26,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Björkbladet",
@@ -1372,9 +1372,36 @@
      "namn": "Husbygården Borensberg",
      "kommun": "Motala",
      "lokalId": "0583003",
-     "total": 4,
+     "total": 7,
      "dagarMedRoster": 1,
-     "storstaDag": 4,
+     "storstaDag": 7,
+     "andel": 0.1
+    },
+    {
+     "namn": "Skogsgården",
+     "kommun": "Motala",
+     "lokalId": "0583014",
+     "total": 7,
+     "dagarMedRoster": 1,
+     "storstaDag": 7,
+     "andel": 0.1
+    },
+    {
+     "namn": "Trygghetsboendet Väster",
+     "kommun": "Motala",
+     "lokalId": "0583018",
+     "total": 7,
+     "dagarMedRoster": 1,
+     "storstaDag": 7,
+     "andel": 0.1
+    },
+    {
+     "namn": "Vileborg",
+     "kommun": "Motala",
+     "lokalId": "0583012",
+     "total": 7,
+     "dagarMedRoster": 1,
+     "storstaDag": 7,
      "andel": 0.1
     },
     {
@@ -1432,15 +1459,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Skogsgården",
-     "kommun": "Motala",
-     "lokalId": "0583014",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Solbacken",
      "kommun": "Motala",
      "lokalId": "0583002",
@@ -1471,24 +1489,6 @@
      "namn": "Trygghetsboende Ekön",
      "kommun": "Motala",
      "lokalId": "0583008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Trygghetsboendet Väster",
-     "kommun": "Motala",
-     "lokalId": "0583018",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vileborg",
-     "kommun": "Motala",
-     "lokalId": "0583012",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

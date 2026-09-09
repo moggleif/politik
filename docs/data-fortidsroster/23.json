@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1813,25 +1813,25 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 1681,
-     "ack": 26330
+     "antal": 1682,
+     "ack": 26331
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 3480,
-     "ack": 29810
+     "ack": 29811
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1629,
-     "ack": 31439
+     "antal": 4338,
+     "ack": 34149
     }
    ],
-   "total": 31439,
+   "total": 34149,
    "rostberattigade": {
     "riksdag": 103291,
     "kommun": 106329,
@@ -1849,171 +1849,189 @@
      "namn": "Stora Coop, Lillänge",
      "kommun": "Östersund",
      "lokalId": "2380016",
-     "total": 5505,
+     "total": 5909,
      "dagarMedRoster": 14,
-     "storstaDag": 596,
-     "andel": 17.5
+     "storstaDag": 661,
+     "andel": 17.3
     },
     {
      "namn": "Storsjöteatern",
      "kommun": "Östersund",
      "lokalId": "2380029",
-     "total": 2532,
+     "total": 2710,
      "dagarMedRoster": 14,
-     "storstaDag": 249,
-     "andel": 8.1
+     "storstaDag": 313,
+     "andel": 7.9
     },
     {
      "namn": "Folkets hus - Strömsund",
      "kommun": "Strömsund",
      "lokalId": "2313019",
-     "total": 1968,
+     "total": 1998,
      "dagarMedRoster": 14,
      "storstaDag": 229,
-     "andel": 6.3
+     "andel": 5.9
     },
     {
      "namn": "Östersunds arena",
      "kommun": "Östersund",
      "lokalId": "2380001",
-     "total": 1718,
+     "total": 1877,
      "dagarMedRoster": 14,
-     "storstaDag": 171,
+     "storstaDag": 264,
      "andel": 5.5
     },
     {
      "namn": "Östersunds kommunhus",
      "kommun": "Östersund",
      "lokalId": "2380003",
-     "total": 1672,
+     "total": 1802,
      "dagarMedRoster": 14,
-     "storstaDag": 200,
+     "storstaDag": 224,
      "andel": 5.3
-    },
-    {
-     "namn": "Biblioteket Sveg",
-     "kommun": "Härjedalen",
-     "lokalId": "2361020",
-     "total": 1412,
-     "dagarMedRoster": 14,
-     "storstaDag": 183,
-     "andel": 4.5
     },
     {
      "namn": "Hornsbergskyrkan, Frösön",
      "kommun": "Östersund",
      "lokalId": "2380014",
-     "total": 1282,
-     "dagarMedRoster": 9,
-     "storstaDag": 220,
-     "andel": 4.1
+     "total": 1558,
+     "dagarMedRoster": 10,
+     "storstaDag": 276,
+     "andel": 4.6
+    },
+    {
+     "namn": "Biblioteket Sveg",
+     "kommun": "Härjedalen",
+     "lokalId": "2361020",
+     "total": 1516,
+     "dagarMedRoster": 14,
+     "storstaDag": 183,
+     "andel": 4.4
     },
     {
      "namn": "Krokoms kommunhus",
      "kommun": "Krokom",
      "lokalId": "2309011",
-     "total": 1230,
+     "total": 1239,
      "dagarMedRoster": 13,
      "storstaDag": 170,
-     "andel": 3.9
+     "andel": 3.6
     },
     {
      "namn": "Åre bibliotek",
      "kommun": "Åre",
      "lokalId": "2321001",
-     "total": 1209,
+     "total": 1218,
      "dagarMedRoster": 14,
      "storstaDag": 124,
-     "andel": 3.8
-    },
-    {
-     "namn": "Biblioteket Järpen",
-     "kommun": "Åre",
-     "lokalId": "2321005",
-     "total": 991,
-     "dagarMedRoster": 10,
-     "storstaDag": 194,
-     "andel": 3.2
+     "andel": 3.6
     },
     {
      "namn": "Mötesplats Brunflo",
      "kommun": "Östersund",
      "lokalId": "2380013",
-     "total": 969,
-     "dagarMedRoster": 9,
-     "storstaDag": 138,
-     "andel": 3.1
+     "total": 1136,
+     "dagarMedRoster": 10,
+     "storstaDag": 167,
+     "andel": 3.3
+    },
+    {
+     "namn": "Biblioteket Järpen",
+     "kommun": "Åre",
+     "lokalId": "2321005",
+     "total": 1110,
+     "dagarMedRoster": 10,
+     "storstaDag": 202,
+     "andel": 3.3
     },
     {
      "namn": "Torvalla Mötesplats",
      "kommun": "Östersund",
      "lokalId": "2380010",
-     "total": 638,
-     "dagarMedRoster": 6,
+     "total": 794,
+     "dagarMedRoster": 7,
      "storstaDag": 160,
-     "andel": 2.0
+     "andel": 2.3
     },
     {
      "namn": "Biblioteket i Svenstavik",
      "kommun": "Berg",
      "lokalId": "2326002",
-     "total": 632,
+     "total": 723,
      "dagarMedRoster": 9,
-     "storstaDag": 97,
-     "andel": 2.0
+     "storstaDag": 124,
+     "andel": 2.1
     },
     {
      "namn": "Åkervägen 1, Funäsdalen",
      "kommun": "Härjedalen",
      "lokalId": "2361016",
-     "total": 596,
+     "total": 635,
      "dagarMedRoster": 4,
-     "storstaDag": 200,
+     "storstaDag": 219,
      "andel": 1.9
     },
     {
      "namn": "Riksvägen 15",
      "kommun": "Bräcke",
      "lokalId": "2305010",
-     "total": 590,
+     "total": 603,
      "dagarMedRoster": 14,
      "storstaDag": 69,
-     "andel": 1.9
-    },
-    {
-     "namn": "Gamla lokalkontoret i Hammerdal",
-     "kommun": "Strömsund",
-     "lokalId": "2313010",
-     "total": 511,
-     "dagarMedRoster": 10,
-     "storstaDag": 75,
-     "andel": 1.6
-    },
-    {
-     "namn": "Bykontoret i Lit",
-     "kommun": "Östersund",
-     "lokalId": "2380015",
-     "total": 493,
-     "dagarMedRoster": 7,
-     "storstaDag": 121,
-     "andel": 1.6
+     "andel": 1.8
     },
     {
      "namn": "Gula Huset",
      "kommun": "Ragunda",
      "lokalId": "2303003",
-     "total": 488,
+     "total": 581,
+     "dagarMedRoster": 11,
+     "storstaDag": 93,
+     "andel": 1.7
+    },
+    {
+     "namn": "Gamla lokalkontoret i Hammerdal",
+     "kommun": "Strömsund",
+     "lokalId": "2313010",
+     "total": 527,
      "dagarMedRoster": 10,
-     "storstaDag": 69,
-     "andel": 1.6
+     "storstaDag": 75,
+     "andel": 1.5
+    },
+    {
+     "namn": "Bykontoret i Lit",
+     "kommun": "Östersund",
+     "lokalId": "2380015",
+     "total": 518,
+     "dagarMedRoster": 7,
+     "storstaDag": 121,
+     "andel": 1.5
     },
     {
      "namn": "Revsundsvägen 7 (Busstationen)",
      "kommun": "Bräcke",
      "lokalId": "2305011",
-     "total": 387,
-     "dagarMedRoster": 9,
-     "storstaDag": 66,
+     "total": 471,
+     "dagarMedRoster": 10,
+     "storstaDag": 84,
+     "andel": 1.4
+    },
+    {
+     "namn": "Ås församlingsgård",
+     "kommun": "Krokom",
+     "lokalId": "2309014",
+     "total": 415,
+     "dagarMedRoster": 4,
+     "storstaDag": 181,
+     "andel": 1.2
+    },
+    {
+     "namn": "Lugnvikskyrkan",
+     "kommun": "Östersund",
+     "lokalId": "2380035",
+     "total": 405,
+     "dagarMedRoster": 7,
+     "storstaDag": 85,
      "andel": 1.2
     },
     {
@@ -2023,7 +2041,7 @@
      "total": 379,
      "dagarMedRoster": 10,
      "storstaDag": 56,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Lövåsgården, Vemdalen",
@@ -2035,28 +2053,28 @@
      "andel": 1.0
     },
     {
-     "namn": "Lugnvikskyrkan",
-     "kommun": "Östersund",
-     "lokalId": "2380035",
-     "total": 320,
-     "dagarMedRoster": 6,
-     "storstaDag": 83,
-     "andel": 1.0
-    },
-    {
      "namn": "Biblioteket i Myrviken",
      "kommun": "Berg",
      "lokalId": "2326003",
      "total": 310,
      "dagarMedRoster": 6,
      "storstaDag": 70,
-     "andel": 1.0
+     "andel": 0.9
+    },
+    {
+     "namn": "Forshallen Bispgården",
+     "kommun": "Ragunda",
+     "lokalId": "2303004",
+     "total": 308,
+     "dagarMedRoster": 10,
+     "storstaDag": 64,
+     "andel": 0.9
     },
     {
      "namn": "Änge servicekontor",
      "kommun": "Krokom",
      "lokalId": "2309013",
-     "total": 298,
+     "total": 299,
      "dagarMedRoster": 8,
      "storstaDag": 65,
      "andel": 0.9
@@ -2068,33 +2086,24 @@
      "total": 287,
      "dagarMedRoster": 3,
      "storstaDag": 109,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Föreningshuset Hoting",
      "kommun": "Strömsund",
      "lokalId": "2313006",
-     "total": 248,
-     "dagarMedRoster": 6,
+     "total": 275,
+     "dagarMedRoster": 7,
      "storstaDag": 50,
      "andel": 0.8
     },
     {
-     "namn": "Forshallen Bispgården",
-     "kommun": "Ragunda",
-     "lokalId": "2303004",
-     "total": 244,
-     "dagarMedRoster": 9,
-     "storstaDag": 38,
-     "andel": 0.8
-    },
-    {
-     "namn": "Ås församlingsgård",
-     "kommun": "Krokom",
-     "lokalId": "2309014",
-     "total": 234,
-     "dagarMedRoster": 3,
-     "storstaDag": 91,
+     "namn": "Stationsvägen 8d",
+     "kommun": "Bräcke",
+     "lokalId": "2305012",
+     "total": 251,
+     "dagarMedRoster": 10,
+     "storstaDag": 54,
      "andel": 0.7
     },
     {
@@ -2104,15 +2113,6 @@
      "total": 217,
      "dagarMedRoster": 2,
      "storstaDag": 123,
-     "andel": 0.7
-    },
-    {
-     "namn": "Stationsvägen 8d",
-     "kommun": "Bräcke",
-     "lokalId": "2305012",
-     "total": 197,
-     "dagarMedRoster": 9,
-     "storstaDag": 31,
      "andel": 0.6
     }
    ],

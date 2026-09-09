@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1098,11 +1098,11 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 223,
-     "ack": 5841
+     "antal": 949,
+     "ack": 6567
     }
    ],
-   "total": 5841,
+   "total": 6567,
    "rostberattigade": {
     "riksdag": 25288,
     "kommun": 25851,
@@ -1120,10 +1120,10 @@
      "namn": "Hjelmarsrörsgatan 20",
      "kommun": "Falköping",
      "lokalId": "1499015",
-     "total": 4513,
+     "total": 4934,
      "dagarMedRoster": 14,
-     "storstaDag": 603,
-     "andel": 77.3
+     "storstaDag": 644,
+     "andel": 75.1
     },
     {
      "namn": "Kommunalhuset i Floby, nedervåningen",
@@ -1132,7 +1132,7 @@
      "total": 428,
      "dagarMedRoster": 5,
      "storstaDag": 110,
-     "andel": 7.3
+     "andel": 6.5
     },
     {
      "namn": "Gudhems församlingshem",
@@ -1141,7 +1141,16 @@
      "total": 321,
      "dagarMedRoster": 5,
      "storstaDag": 86,
-     "andel": 5.5
+     "andel": 4.9
+    },
+    {
+     "namn": "Stenstorps församlingshem",
+     "kommun": "Falköping",
+     "lokalId": "1499013",
+     "total": 319,
+     "dagarMedRoster": 2,
+     "storstaDag": 161,
+     "andel": 4.9
     },
     {
      "namn": "Elvagården, Vartofta",
@@ -1150,16 +1159,16 @@
      "total": 196,
      "dagarMedRoster": 5,
      "storstaDag": 45,
-     "andel": 3.4
+     "andel": 3.0
     },
     {
-     "namn": "Stenstorps församlingshem",
+     "namn": "Kinnarps bibliotek, Kinnarpsskolan",
      "kommun": "Falköping",
-     "lokalId": "1499013",
-     "total": 158,
-     "dagarMedRoster": 1,
-     "storstaDag": 158,
-     "andel": 2.7
+     "lokalId": "1499006",
+     "total": 154,
+     "dagarMedRoster": 2,
+     "storstaDag": 89,
+     "andel": 2.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1168,25 +1177,16 @@
      "total": 111,
      "dagarMedRoster": 6,
      "storstaDag": 30,
-     "andel": 1.9
-    },
-    {
-     "namn": "Kinnarps bibliotek, Kinnarpsskolan",
-     "kommun": "Falköping",
-     "lokalId": "1499006",
-     "total": 65,
-     "dagarMedRoster": 1,
-     "storstaDag": 65,
-     "andel": 1.1
+     "andel": 1.7
     },
     {
      "namn": "Alvershus, Åsarp",
      "kommun": "Falköping",
      "lokalId": "1499001",
-     "total": 49,
-     "dagarMedRoster": 1,
-     "storstaDag": 49,
-     "andel": 0.8
+     "total": 104,
+     "dagarMedRoster": 2,
+     "storstaDag": 55,
+     "andel": 1.6
     },
     {
      "namn": "Stadshuset, fullmäktiges sessionssal",

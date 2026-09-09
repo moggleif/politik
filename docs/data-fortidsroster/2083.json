@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -891,11 +891,11 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 183,
-     "ack": 2951
+     "antal": 1018,
+     "ack": 3786
     }
    ],
-   "total": 2951,
+   "total": 3786,
    "rostberattigade": {
     "riksdag": 11834,
     "kommun": 12185,
@@ -913,10 +913,37 @@
      "namn": "Tjädernhuset",
      "kommun": "Hedemora",
      "lokalId": "2083001",
-     "total": 2903,
+     "total": 3143,
      "dagarMedRoster": 14,
-     "storstaDag": 324,
-     "andel": 98.4
+     "storstaDag": 422,
+     "andel": 83.0
+    },
+    {
+     "namn": "Långshyttans Folket Hus",
+     "kommun": "Hedemora",
+     "lokalId": "2083003",
+     "total": 257,
+     "dagarMedRoster": 1,
+     "storstaDag": 257,
+     "andel": 6.8
+    },
+    {
+     "namn": "Garpenbergs församlingshem",
+     "kommun": "Hedemora",
+     "lokalId": "2083005",
+     "total": 211,
+     "dagarMedRoster": 1,
+     "storstaDag": 211,
+     "andel": 5.6
+    },
+    {
+     "namn": "Vikmanshyttans Kyrka",
+     "kommun": "Hedemora",
+     "lokalId": "2083002",
+     "total": 128,
+     "dagarMedRoster": 1,
+     "storstaDag": 128,
+     "andel": 3.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -925,34 +952,7 @@
      "total": 47,
      "dagarMedRoster": 4,
      "storstaDag": 24,
-     "andel": 1.6
-    },
-    {
-     "namn": "Garpenbergs församlingshem",
-     "kommun": "Hedemora",
-     "lokalId": "2083005",
-     "total": 1,
-     "dagarMedRoster": 1,
-     "storstaDag": 1,
-     "andel": 0.0
-    },
-    {
-     "namn": "Långshyttans Folket Hus",
-     "kommun": "Hedemora",
-     "lokalId": "2083003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vikmanshyttans Kyrka",
-     "kommun": "Hedemora",
-     "lokalId": "2083002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.2
     }
    ],
    "antalLokaler": 5,

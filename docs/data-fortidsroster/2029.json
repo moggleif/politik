@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,7 +829,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -892,46 +892,46 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 372,
-     "ack": 2157
+     "antal": 373,
+     "ack": 2158
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 275,
-     "ack": 2432
+     "ack": 2433
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 121,
-     "ack": 2553
+     "ack": 2554
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 110,
-     "ack": 2663
+     "ack": 2664
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 435,
-     "ack": 3098
+     "ack": 3099
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 216,
-     "ack": 3314
+     "antal": 518,
+     "ack": 3617
     }
    ],
-   "total": 3314,
+   "total": 3617,
    "rostberattigade": {
     "riksdag": 12901,
     "kommun": 13157,
@@ -949,19 +949,28 @@
      "namn": "Leksands bibliotek",
      "kommun": "Leksand",
      "lokalId": "2029005",
-     "total": 1822,
+     "total": 1980,
      "dagarMedRoster": 12,
-     "storstaDag": 233,
-     "andel": 55.0
+     "storstaDag": 240,
+     "andel": 54.7
     },
     {
      "namn": "Kommunhuset",
      "kommun": "Leksand",
      "lokalId": "2029002",
-     "total": 941,
+     "total": 975,
      "dagarMedRoster": 12,
-     "storstaDag": 110,
-     "andel": 28.4
+     "storstaDag": 143,
+     "andel": 27.0
+    },
+    {
+     "namn": "Fritidsgården Jippo",
+     "kommun": "Leksand",
+     "lokalId": "2029004",
+     "total": 343,
+     "dagarMedRoster": 4,
+     "storstaDag": 126,
+     "andel": 9.5
     },
     {
      "namn": "Björkbackens särskilda boende",
@@ -970,25 +979,16 @@
      "total": 249,
      "dagarMedRoster": 5,
      "storstaDag": 94,
-     "andel": 7.5
-    },
-    {
-     "namn": "Fritidsgården Jippo",
-     "kommun": "Leksand",
-     "lokalId": "2029004",
-     "total": 233,
-     "dagarMedRoster": 4,
-     "storstaDag": 86,
-     "andel": 7.0
+     "andel": 6.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Leksand",
      "lokalId": "2029006",
-     "total": 69,
+     "total": 70,
      "dagarMedRoster": 7,
      "storstaDag": 23,
-     "andel": 2.1
+     "andel": 1.9
     },
     {
      "namn": "Sockenstugan, Djura",

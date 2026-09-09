@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1063,7 +1063,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1140,32 +1140,32 @@
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 725,
-     "ack": 11367
+     "antal": 726,
+     "ack": 11368
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 664,
-     "ack": 12031
+     "antal": 667,
+     "ack": 12035
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 2046,
-     "ack": 14077
+     "antal": 2065,
+     "ack": 14100
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 837,
-     "ack": 14914
+     "antal": 1866,
+     "ack": 15966
     }
    ],
-   "total": 14914,
+   "total": 15966,
    "rostberattigade": {
     "riksdag": 54497,
     "kommun": 55592,
@@ -1183,28 +1183,37 @@
      "namn": "Varbergs stadsbibliotek, våning 1",
      "kommun": "Varberg",
      "lokalId": "1383002",
-     "total": 4501,
+     "total": 4793,
      "dagarMedRoster": 14,
-     "storstaDag": 512,
-     "andel": 30.2
+     "storstaDag": 516,
+     "andel": 30.0
     },
     {
      "namn": "Lorensberg",
      "kommun": "Varberg",
      "lokalId": "1383007",
-     "total": 3305,
+     "total": 3555,
      "dagarMedRoster": 14,
-     "storstaDag": 343,
-     "andel": 22.2
+     "storstaDag": 404,
+     "andel": 22.3
     },
     {
      "namn": "Varbergs stadsbibliotek, våning 2",
      "kommun": "Varberg",
      "lokalId": "1383014",
-     "total": 2720,
+     "total": 2915,
      "dagarMedRoster": 14,
-     "storstaDag": 305,
-     "andel": 18.2
+     "storstaDag": 325,
+     "andel": 18.3
+    },
+    {
+     "namn": "Tvååkers bibliotek",
+     "kommun": "Varberg",
+     "lokalId": "1383004",
+     "total": 1085,
+     "dagarMedRoster": 10,
+     "storstaDag": 187,
+     "andel": 6.8
     },
     {
      "namn": "Bua bibliotek",
@@ -1213,43 +1222,34 @@
      "total": 1083,
      "dagarMedRoster": 10,
      "storstaDag": 202,
-     "andel": 7.3
-    },
-    {
-     "namn": "Tvååkers bibliotek",
-     "kommun": "Varberg",
-     "lokalId": "1383004",
-     "total": 1008,
-     "dagarMedRoster": 10,
-     "storstaDag": 187,
      "andel": 6.8
     },
     {
      "namn": "Träslövsläge bibliotek",
      "kommun": "Varberg",
      "lokalId": "1383009",
-     "total": 866,
+     "total": 867,
      "dagarMedRoster": 10,
-     "storstaDag": 143,
-     "andel": 5.8
+     "storstaDag": 144,
+     "andel": 5.4
     },
     {
      "namn": "Veddige bibliotek",
      "kommun": "Varberg",
      "lokalId": "1383003",
-     "total": 643,
-     "dagarMedRoster": 9,
+     "total": 794,
+     "dagarMedRoster": 10,
      "storstaDag": 151,
-     "andel": 4.3
+     "andel": 5.0
     },
     {
      "namn": "Rolfstorps bibliotek",
      "kommun": "Varberg",
      "lokalId": "1383005",
-     "total": 421,
+     "total": 497,
      "dagarMedRoster": 8,
-     "storstaDag": 112,
-     "andel": 2.8
+     "storstaDag": 113,
+     "andel": 3.1
     },
     {
      "namn": "Kungsäters bibliotek",
@@ -1267,16 +1267,16 @@
      "total": 145,
      "dagarMedRoster": 8,
      "storstaDag": 41,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Peder Skrivares skola",
      "kommun": "Varberg",
      "lokalId": "1383008",
-     "total": 52,
+     "total": 62,
      "dagarMedRoster": 2,
-     "storstaDag": 28,
-     "andel": 0.3
+     "storstaDag": 33,
+     "andel": 0.4
     },
     {
      "namn": "Kommunkansliet i Stadshus A",

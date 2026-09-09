@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -976,9 +976,16 @@
      "kvar": 6,
      "antal": 142,
      "ack": 1640
+    },
+    {
+     "datum": "2026-09-08",
+     "veckodag": "tis",
+     "kvar": 5,
+     "antal": 326,
+     "ack": 1966
     }
    ],
-   "total": 1640,
+   "total": 1966,
    "rostberattigade": {
     "riksdag": 4718,
     "kommun": 4963,
@@ -996,10 +1003,28 @@
      "namn": "Medborgarhuset",
      "kommun": "Arvidsjaur",
      "lokalId": "2505005",
-     "total": 1387,
-     "dagarMedRoster": 13,
-     "storstaDag": 142,
-     "andel": 84.6
+     "total": 1637,
+     "dagarMedRoster": 14,
+     "storstaDag": 250,
+     "andel": 83.3
+    },
+    {
+     "namn": "Finnbergs Diversehandel",
+     "kommun": "Arvidsjaur",
+     "lokalId": "2505003",
+     "total": 118,
+     "dagarMedRoster": 3,
+     "storstaDag": 46,
+     "andel": 6.0
+    },
+    {
+     "namn": "Affär'n Abborrträsk",
+     "kommun": "Arvidsjaur",
+     "lokalId": "2505002",
+     "total": 114,
+     "dagarMedRoster": 4,
+     "storstaDag": 32,
+     "andel": 5.8
     },
     {
      "namn": "Café Navet i Moskosel",
@@ -1008,25 +1033,7 @@
      "total": 91,
      "dagarMedRoster": 2,
      "storstaDag": 49,
-     "andel": 5.5
-    },
-    {
-     "namn": "Affär'n Abborrträsk",
-     "kommun": "Arvidsjaur",
-     "lokalId": "2505002",
-     "total": 82,
-     "dagarMedRoster": 3,
-     "storstaDag": 29,
-     "andel": 5.0
-    },
-    {
-     "namn": "Finnbergs Diversehandel",
-     "kommun": "Arvidsjaur",
-     "lokalId": "2505003",
-     "total": 74,
-     "dagarMedRoster": 2,
-     "storstaDag": 46,
-     "andel": 4.5
+     "andel": 4.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1035,7 +1042,7 @@
      "total": 6,
      "dagarMedRoster": 3,
      "storstaDag": 3,
-     "andel": 0.4
+     "andel": 0.3
     }
    ],
    "antalLokaler": 5,

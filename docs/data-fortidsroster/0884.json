@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-08T18:50+02:00",
+ "senastUppdaterad": "2026-09-09T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -730,7 +730,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-08T18:50+02:00",
+   "hamtad": "2026-09-09T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -779,60 +779,60 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 263,
-     "ack": 1206
+     "antal": 264,
+     "ack": 1207
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 234,
-     "ack": 1440
+     "ack": 1441
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 272,
-     "ack": 1712
+     "ack": 1713
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 212,
-     "ack": 1924
+     "ack": 1925
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 226,
-     "ack": 2150
+     "ack": 2151
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 198,
-     "ack": 2348
+     "ack": 2349
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 571,
-     "ack": 2919
+     "antal": 572,
+     "ack": 2921
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 220,
-     "ack": 3139
+     "antal": 620,
+     "ack": 3541
     }
    ],
-   "total": 3139,
+   "total": 3541,
    "rostberattigade": {
     "riksdag": 11951,
     "kommun": 12328,
@@ -850,10 +850,19 @@
      "namn": "Plenisalen, Stadshuset",
      "kommun": "Vimmerby",
      "lokalId": "0884001",
-     "total": 2788,
+     "total": 3112,
      "dagarMedRoster": 14,
-     "storstaDag": 513,
-     "andel": 88.8
+     "storstaDag": 517,
+     "andel": 87.9
+    },
+    {
+     "namn": "Södra vi bibliotek",
+     "kommun": "Vimmerby",
+     "lokalId": "0884002",
+     "total": 208,
+     "dagarMedRoster": 3,
+     "storstaDag": 100,
+     "andel": 5.9
     },
     {
      "namn": "Storebro bibliotek",
@@ -862,25 +871,16 @@
      "total": 164,
      "dagarMedRoster": 3,
      "storstaDag": 59,
-     "andel": 5.2
-    },
-    {
-     "namn": "Södra vi bibliotek",
-     "kommun": "Vimmerby",
-     "lokalId": "0884002",
-     "total": 133,
-     "dagarMedRoster": 3,
-     "storstaDag": 58,
-     "andel": 4.2
+     "andel": 4.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Vimmerby",
      "lokalId": "0884004",
-     "total": 54,
-     "dagarMedRoster": 7,
+     "total": 57,
+     "dagarMedRoster": 8,
      "storstaDag": 24,
-     "andel": 1.7
+     "andel": 1.6
     }
    ],
    "antalLokaler": 4,
