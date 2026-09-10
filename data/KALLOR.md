@@ -765,7 +765,7 @@ Hämtas med `scripts/hamta_kolada.py --del resurser` och byggs med
 |---|---|---|---|
 | N15001 | Avvikelse från referenskostnaden, % | 1998–2025 | – |
 | N15045 | Samma avvikelse i miljoner kronor | 2010–2025 | – |
-| N15027 | Kommunens kostnad per elev, F–9, hemkommun | 1999–2025 | 2016–2025 |
+| U15011 | Kommunens **nettokostnad** per elev, F–9 | 2013–2025 | 2016–2025 |
 | N15058 | Referenskostnad per elev, samma avgränsning | 2016–2025 | – |
 | N10103 | Grundskolans andel av kommunens driftkostnad, % | 2010–2025 | 2010–2025 |
 
@@ -829,6 +829,25 @@ står kvar.
 i kommunens redovisning. Måtten här skiljer inte de två åt, så en nationell
 satsning kan se ut som ett lokalt beslut. Sidan säger det i stället för att
 låtsas att den mäter enbart kommunfullmäktige.
+
+**Netto, inte brutto – och det gick fel en gång.** Avvikelsen är definierad
+mot *nettokostnaden*, alltså efter intäkter, avgifter och riktade statsbidrag.
+Först ritades bruttokostnaden per elev (N15027) bredvid referenskostnaden,
+och då motsade sidan sig själv: staplarna visade en kostnad under
+referensen medan linjen låg över den. Kungsbackas bruttokostnad per elev
+ligger nämligen över referenskostnaden samtidigt som nettokostnaden ligger
+under den. Rätt serie är U15011. Ett test räknar av att nettokostnad delad
+med referenskostnad ger avvikelsen, år för år.
+
+**Källans serier hänger inte ihop för 2016 och 2017.** För de åren ger
+nettokostnad delad med referenskostnad inte den avvikelse Kolada redovisar –
+skillnaden är flera procentenheter, och referenskostnaden per elev verkar
+räknad på en annan grund. De åren utelämnas därför ur linjediagrammet, men
+ingår i avvikelsediagrammet, som bygger på ett publicerat tal. Åren är inte
+hårdkodade: bygget prövar kvoten mot avvikelsen år för år med en tolerans på
+0,1 procentenheter, så de kommer tillbaka av sig själva om källan rättas.
+Ett test kontrollerar både att de godkända åren håller och att de utelämnade
+verkligen inte gör det.
 
 **Ändpunkter är inte en trend.** Budgetandelen och barnandelen står 2025
 nästan exakt lika, men de har gått isär och mötts igen under vägen. Sidan

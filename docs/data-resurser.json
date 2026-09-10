@@ -6,7 +6,7 @@
  "prisomrakning": "Ingen. Varje mått är en jämförelse inom samma år, så inflationen finns i båda leden och tar ut sig själv.",
  "kalla": "Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag",
  "kallaUrl": "https://www.kolada.se/",
- "apiUrl": "https://api.kolada.se/v3/data/kpi/N15001,N15045,N15027,N15058,N10103/municipality/1384,0000",
+ "apiUrl": "https://api.kolada.se/v3/data/kpi/N15001,N15045,U15011,N15058,N10103/municipality/1384,0000",
  "hamtad": "2026-09-10",
  "befolkningKalla": "SCB, Befolkningsstatistik (BE0101), Folkmängden efter region, civilstånd, ålder och kön",
  "befolkningKallaUrl": "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101A/BefolkningNy/",
@@ -159,71 +159,57 @@
   },
   {
    "nyckel": "faktisk",
-   "etikett": "Kommunens kostnad per elev",
+   "etikett": "Kommunens nettokostnad per elev",
    "enhet": "kronor per elev",
-   "kolada": "N15027",
-   "koladaTitel": "Kostnad grundskola F-9, hemkommun, kr/elev",
-   "definition": "Bruttokostnad - interna intäkter + kostnad för skolskjuts - försäljning av verksamhet till andra kommuner för förskoleklass och grundskola dividerat med medelvärde av antal elever folkbokförda i kommunen (hemkommun). Uppgiften avser kalenderår. Inklusive integrerade elever (from 2020) samt elever i internationella skolor. Källa: SCB",
+   "kolada": "U15011",
+   "koladaTitel": "Nettokostnad grundskola F-9, kr/elev",
+   "definition": "Kommunens samtliga kostnader för grundskola F-9 minus intäkter dividerat med genomsnittligt antal inskrivna elever år t-1 och år t som var folkbokförd i kommunen 15/10. Inklusive integrerade elever (from 2020) samt elever i internationella skolor. Källa: SCB och SKR.",
    "omraden": {
     "1384": {
      "varden": {
-      "1999": 49769.0,
-      "2000": 57717.0,
-      "2001": 59261.0,
-      "2002": 57837.0,
-      "2003": 62624.0,
-      "2004": 64105.0,
-      "2005": 66048.0,
-      "2006": 65694.0,
-      "2007": 69551.0,
-      "2008": 74791.0,
-      "2009": 76825.0,
-      "2010": 76933.0,
-      "2011": 81568.0,
-      "2012": 80824.0,
-      "2013": 82885.0,
-      "2014": 83265.0,
-      "2015": 87549.0,
-      "2016": 93456.0,
-      "2017": 98282.0,
-      "2018": 99806.0,
-      "2019": 102151.0,
-      "2020": 106440.0,
-      "2021": 109204.0,
-      "2022": 114444.0,
-      "2023": 122628.0,
-      "2024": 128521.0,
-      "2025": 130207.0
+      "2013": 82754.0,
+      "2014": 82931.0,
+      "2015": 86906.0,
+      "2016": 88984.0,
+      "2017": 92412.0,
+      "2018": 93670.0,
+      "2019": 95830.0,
+      "2020": 98576.0,
+      "2021": 102455.0,
+      "2022": 106801.0,
+      "2023": 114829.0,
+      "2024": 120649.0,
+      "2025": 122531.0
      },
-     "forstaAr": 1999,
+     "forstaAr": 2013,
      "sistaAr": 2025,
-     "forsta": 49769.0,
-     "sista": 130207.0,
-     "hogsta": 130207.0,
+     "forsta": 82754.0,
+     "sista": 122531.0,
+     "hogsta": 122531.0,
      "hogstaAr": 2025,
-     "lagsta": 49769.0,
-     "lagstaAr": 1999
+     "lagsta": 82754.0,
+     "lagstaAr": 2013
     },
     "0000": {
      "varden": {
-      "2016": 100710.0,
-      "2017": 104820.0,
-      "2018": 108634.0,
-      "2019": 111737.0,
-      "2020": 113050.0,
-      "2021": 116252.0,
-      "2022": 120781.0,
-      "2023": 128798.0,
-      "2024": 136042.0,
-      "2025": 138691.0
+      "2016": 93966.0,
+      "2017": 96799.0,
+      "2018": 99783.0,
+      "2019": 102645.0,
+      "2020": 103418.0,
+      "2021": 106720.0,
+      "2022": 111016.0,
+      "2023": 118869.0,
+      "2024": 125416.0,
+      "2025": 127229.0
      },
      "forstaAr": 2016,
      "sistaAr": 2025,
-     "forsta": 100710.0,
-     "sista": 138691.0,
-     "hogsta": 138691.0,
+     "forsta": 93966.0,
+     "sista": 127229.0,
+     "hogsta": 127229.0,
      "hogstaAr": 2025,
-     "lagsta": 100710.0,
+     "lagsta": 93966.0,
      "lagstaAr": 2016
     }
    }
@@ -487,5 +473,22 @@
    "2024": 101.0,
    "2025": 98.9
   }
+ },
+ "referensJamforelse": {
+  "ar": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "utelamnade": [
+   2016,
+   2017
+  ],
+  "tolerans": 0.1
  }
 }

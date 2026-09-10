@@ -51,8 +51,17 @@ hämtar de mått som ligger närmare beslutet:
   avvikelseMkr (N15045)      Samma avvikelse i pengar i stället för
                              procent. Procenten ger riktningen, kronorna
                              storleken.
-  faktisk (N15027)           Kommunens kostnad per elev, F–9, hemkommun.
+  faktisk (U15011)           Kommunens *nettokostnad* per elev, F–9 – alltså
+                             efter intäkter, avgifter och riktade
+                             statsbidrag. Det är kommunens egna pengar.
   referens (N15058)          Referenskostnaden per elev, samma avgränsning.
+
+Att det ska vara nettokostnaden och inte bruttokostnaden är avgörande, och
+lätt att få om bakfoten: avvikelsen är definierad mot nettokostnaden, och
+Kungsbackas bruttokostnad per elev ligger *över* referenskostnaden samtidigt
+som nettokostnaden ligger under den. Ritas fel serie motsäger sidan sig
+själv. Kvoten nettokostnad/referenskostnad − 1 ska ge exakt avvikelsen; ett
+test räknar av det mot alla år.
   andelDrift (N10103)        Grundskolans andel av kommunens totala
                              driftkostnad. Inom kommunens budget är det
                              nollsummespel: mer till skolan är mindre till
@@ -146,8 +155,8 @@ RESURSER = [
      "etikett": "Avvikelse från referenskostnaden, i pengar",
      "enhet": "miljoner kronor",
      "tecken": "Negativt tal = kommunen lägger mindre än strukturen motiverar"},
-    {"nyckel": "faktisk", "kolada": "N15027",
-     "etikett": "Kommunens kostnad per elev",
+    {"nyckel": "faktisk", "kolada": "U15011",
+     "etikett": "Kommunens nettokostnad per elev",
      "enhet": "kronor per elev"},
     {"nyckel": "referens", "kolada": "N15058",
      "etikett": "Referenskostnad per elev",

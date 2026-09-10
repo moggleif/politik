@@ -121,18 +121,29 @@
   </section>
 
   <section id="sektion-referens" hidden>
-    <h2>Faktisk kostnad mot referenskostnad</h2>
+    <h2>Nettokostnad mot referenskostnad</h2>
     <p class="forklaring">
-      De två talen som avvikelsen är skillnaden mellan, var för sig: vad
-      kommunen faktiskt lade per elev, och vad referenskostnaden var samma
-      år. Båda avser grundskolan F&ndash;9 och de elever som bor i kommunen.
-      Ingen prisomräkning behövs &ndash; linjerna jämförs år för år, aldrig
-      mellan år.
+      De två talen som avvikelsen är kvoten mellan, var för sig:
+      kommunens <em>nettokostnad</em> per elev och referenskostnaden samma
+      år. Båda avser grundskolan F&ndash;9. Ingen prisomräkning behövs
+      &ndash; linjerna jämförs år för år, aldrig mellan år.
+    </p>
+    <p class="forklaring">
+      <strong>Nettokostnad, inte bruttokostnad.</strong> Nettokostnaden är
+      vad som återstår sedan intäkter, avgifter och riktade statsbidrag
+      dragits ifrån &ndash; alltså kommunens egna pengar. Det är den
+      avvikelsen är definierad mot, och skillnaden är inte kosmetisk:
+      Kungsbackas <em>brutto</em>kostnad per elev ligger över
+      referenskostnaden samtidigt som nettokostnaden ligger under den.
+      Sidan om <a href="kostnad-per-elev.html">kostnad per elev</a> visar
+      bruttokostnaden, vilket är rätt för den frågan &ndash; men de två
+      talen är inte utbytbara.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-referens" aria-label="Diagram: kommunens faktiska kostnad per elev jämförd med referenskostnaden" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-referens"></p>
     </div>
+    <div id="not-referens" hidden></div>
     <div class="slutsats" id="slutsats-referens"></div>
     <details>
       <summary>Visa siffrorna som tabell</summary>

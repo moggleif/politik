@@ -145,6 +145,37 @@ def indexerad(varden: dict, bas: int) -> dict:
     return {a: round(100.0 * v / basvarde, 1) for a, v in varden.items()}
 
 
+# Nettokostnad delad med referenskostnad ska ge avvikelsen. Så är det
+# från 2018, men för 2016 och 2017 går Koladas två serier isär med flera
+# procentenheter – referenskostnaden per elev verkar räknad på en annan
+# grund de åren. Att ändå rita dem bredvid varandra skulle sätta en synlig
+# motsägelse på sidan: läsaren kan räkna kvoten ur tabellen och få ett
+# annat tal än stapeln visar. Åren utelämnas därför ur just den bilden –
+# men hårdkodas inte, utan prövas mot avvikelsen år för år, så att de
+# kommer tillbaka av sig själva om källan rättas.
+TOLERANS = 0.1          # procentenheter
+
+
+def referensaren(per_nyckel: dict) -> dict:
+    """Vilka år nettokostnad, referenskostnad och avvikelse hänger ihop."""
+    def varden(nyckel, kod="1384"):
+        s = per_nyckel.get(nyckel, {}).get("omraden", {}).get(kod)
+        return s["varden"] if s else {}
+
+    netto = varden("faktisk")
+    referens = varden("referens")
+    avvikelse = varden("avvikelseProcent")
+
+    stammer, utelamnade = [], []
+    for ar in sorted(referens):
+        if ar not in netto or ar not in avvikelse or not referens[ar]:
+            continue
+        kvot = 100.0 * (netto[ar] / referens[ar] - 1)
+        (stammer if abs(kvot - avvikelse[ar]) <= TOLERANS
+         else utelamnade).append(ar)
+    return {"ar": stammer, "utelamnade": utelamnade, "tolerans": TOLERANS}
+
+
 def bygg(kolada: dict, scb: dict) -> dict:
     """Hela utdatan som en ren funktion av indatafilerna, så att den går
     att kontrollräkna i testerna utan att skriva någon fil."""
@@ -170,6 +201,8 @@ def bygg(kolada: dict, scb: dict) -> dict:
                 "budgetandel": indexerad(budget, bas),
                 "barnandel": indexerad(barn, bas),
             }
+
+    referens = referensaren(per_nyckel)
 
     ar = sorted({a
                  for s in serier
@@ -199,6 +232,7 @@ def bygg(kolada: dict, scb: dict) -> dict:
         "serier": serier,
         "befolkning": befolkning,
         "jamforelse": jamforelse,
+        "referensJamforelse": referens,
     }
 
 
@@ -218,6 +252,10 @@ def main() -> None:
             namn = next(x["namn"] for x in ut["omraden"] if x["kod"] == kod)
             print(f"  {s['nyckel']:17s} {namn:11s} {o['forstaAr']}–{o['sistaAr']}: "
                   f"{o['forsta']} → {o['sista']} ({s['enhet']})")
+    r = ut["referensJamforelse"]
+    print(f"  referensjämförelse: {len(r['ar'])} år hänger ihop"
+          + (f", {len(r['utelamnade'])} utelämnade ({', '.join(map(str, r['utelamnade']))})"
+             if r["utelamnade"] else ""))
     j = ut["jamforelse"]
     if j:
         sista = j["ar"][-1]

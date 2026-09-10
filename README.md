@@ -107,7 +107,7 @@ kommun med Kungsbackas demografi och struktur förväntas lägga &ndash; och mot
 kommunens övriga verksamhet.
 
 - [Resurser jämfört med referenskostnaden](https://moggleif.github.io/politik/resurser-till-skolan.html)
-  &ndash; avvikelsen i procent och i kronor, faktisk kostnad mot
+  &ndash; avvikelsen i procent och i kronor, nettokostnad mot
   referenskostnad, grundskolans andel av kommunens driftkostnad, och den
   andelen ställd mot skolålderns andel av befolkningen, ur Kolada och SCB,
   1998&ndash;2025

@@ -252,11 +252,13 @@
     var faktisk = omrade("faktisk", KUNGSBACKA);
     var referens = omrade("referens", KUNGSBACKA);
     if (!faktisk || !referens) { el("sektion-referens").hidden = true; return; }
-    /* Bara de år båda finns: en ensam faktisk-linje utan sin
-       referenskostnad visar inte det sektionen handlar om. */
-    var ar = aren(referens).filter(function (a) {
-      return cell(faktisk, a) !== null;
-    });
+    /* Bara de år där kvoten mellan linjerna faktiskt ger avvikelsen i
+       diagrammet ovanför. Bygget prövar det år för år; källans två serier
+       går isär för ett par tidiga år, och att rita dem ändå skulle låta
+       läsaren räkna fram ett annat tal ur tabellen än stapeln visar. */
+    var jf = data.referensJamforelse || { ar: [], utelamnade: [] };
+    var ar = jf.ar.slice();
+    if (!ar.length) { el("sektion-referens").hidden = true; return; }
 
     var opt = basOptions("Kronor per elev", function (it) {
       return it.dataset.label + ": " + talSv(it.parsed.y) + " kr";
@@ -268,7 +270,7 @@
       data: {
         labels: ar.map(String),
         datasets: [
-          linjeSerie("Kommunens kostnad", FARG_OMRADE[KUNGSBACKA],
+          linjeSerie("Kommunens nettokostnad", FARG_OMRADE[KUNGSBACKA],
             ar.map(function (a) { return cell(faktisk, a); })),
           linjeSerie("Referenskostnad", FARG.gra,
             ar.map(function (a) { return cell(referens, a); }), [7, 4])
@@ -279,18 +281,19 @@
     K.aktiveraToning(chart, true);
 
     el("kalla-referens").textContent =
-      "Källa: " + data.kalla + ". Grundskolan F–9, elever som bor i " +
-      "kommunen. Linjerna jämförs år för år – aldrig mellan år, och " +
-      "därför behövs ingen prisomräkning.";
+      "Källa: " + data.kalla + ". Grundskolan F–9. Nettokostnad = efter " +
+      "intäkter, avgifter och riktade statsbidrag. Linjerna jämförs år för " +
+      "år – aldrig mellan år, och därför behövs ingen prisomräkning.";
 
     var sista = ar[ar.length - 1];
     var diff = cell(faktisk, sista) - cell(referens, sista);
     el("slutsats-referens").innerHTML =
-      "<p>År " + esc(sista) + " lade kommunen <strong>" +
+      "<p>År " + esc(sista) + " var kommunens nettokostnad <strong>" +
       talSv(cell(faktisk, sista)) + " kr</strong> per elev, mot en " +
       "referenskostnad på " + talSv(cell(referens, sista)) + " kr &ndash; " +
-      "en skillnad på " + talSv(Math.abs(diff)) + " kr per elev. " +
-      "Referenskostnaden finns från " + esc(ar[0]) + ".</p>";
+      talSv(Math.abs(diff)) + " kr per elev " +
+      (diff < 0 ? "under" : "över") + " den. Bilden visar " + ar.length +
+      " år, " + esc(ar[0]) + "&ndash;" + esc(ar[ar.length - 1]) + ".</p>";
 
     var rader = ar.map(function (a) {
       var d = cell(faktisk, a) - cell(referens, a);
@@ -298,9 +301,18 @@
         visa(cell(faktisk, a)) + "</td><td>" + visa(cell(referens, a)) +
         "</td><td>" + medTecken(d, 0) + "</td></tr>";
     }).join("");
+    if (jf.utelamnade && jf.utelamnade.length) {
+      K.sattDataNot("not-referens",
+        "Åren " + jf.utelamnade.map(esc).join(" och ") + " utelämnas här. " +
+        "För dem ger källans nettokostnad delad med källans referenskostnad " +
+        "inte den avvikelse som redovisas i diagrammet ovanför &ndash; de två " +
+        "serierna verkar räknade på olika grund de åren. De ingår i " +
+        "avvikelsediagrammet, som bygger på ett publicerat tal.");
+    }
+
     el("tabell-referens").innerHTML =
       "<thead><tr><th scope=\"col\">År</th>" +
-      "<th scope=\"col\">Kommunens kostnad (kr/elev)</th>" +
+      "<th scope=\"col\">Nettokostnad (kr/elev)</th>" +
       "<th scope=\"col\">Referenskostnad (kr/elev)</th>" +
       "<th scope=\"col\">Skillnad</th></tr></thead><tbody>" + rader + "</tbody>";
   }

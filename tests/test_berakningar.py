@@ -1267,6 +1267,39 @@ class TestResurser(unittest.TestCase):
         self.assertNotIn("kpi.json", kod)
         self.assertNotIn("prisniva", kod)
 
+    def test_natverket_mellan_serierna_haller(self):
+        """Nettokostnad delad med referenskostnad ska ge avvikelsen.
+
+        Det här är sidans inre sammanhang, och det gick sönder en gång:
+        avvikelsen är definierad mot *nettokostnaden*, men bruttokostnaden
+        per elev ritades först. Kungsbackas bruttokostnad ligger över
+        referenskostnaden samtidigt som nettokostnaden ligger under den,
+        så sidan visade staplar under noll bredvid en linje över
+        referensen. Går kvoten isär igen har fel serie hämtats.
+        """
+        kolada = json.loads(
+            (ROT / "data" / "kolada" / "resurser_grundskola.json")
+            .read_text(encoding="utf-8"))
+        per = {p["nyckel"]: p["omraden"]["1384"] for p in kolada["nyckeltal"]}
+        scb = json.loads(
+            (ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+            .read_text(encoding="utf-8"))
+        jf = build_resurser.bygg(kolada, scb)["referensJamforelse"]
+
+        # De år bygget släpper igenom ska hålla kvoten exakt …
+        for ar in jf["ar"]:
+            self.assertAlmostEqual(
+                100.0 * (per["faktisk"][str(ar)] / per["referens"][str(ar)] - 1),
+                per["avvikelseProcent"][str(ar)], places=1, msg=str(ar))
+        self.assertGreater(len(jf["ar"]), 5, "för få år kunde stämmas av")
+
+        # … och de utelämnade ska verkligen inte hålla den, annars sållar
+        # bygget bort år i onödan.
+        for ar in jf["utelamnade"]:
+            kvot = 100.0 * (per["faktisk"][str(ar)] / per["referens"][str(ar)] - 1)
+            self.assertGreater(abs(kvot - per["avvikelseProcent"][str(ar)]),
+                               jf["tolerans"], str(ar))
+
     def test_reformaren_har_kalla(self):
         """Ett utmärkt brott är ett påstående om verkligheten och ska
         kunna slås upp."""
