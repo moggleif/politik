@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1153,7 +1153,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1251,18 +1251,18 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 598,
-     "ack": 6694
+     "antal": 599,
+     "ack": 6695
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 279,
-     "ack": 6973
+     "antal": 935,
+     "ack": 7630
     }
    ],
-   "total": 6973,
+   "total": 7630,
    "rostberattigade": {
     "riksdag": 25779,
     "kommun": 27143,
@@ -1280,19 +1280,28 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Eslöv",
      "lokalId": "1285007",
-     "total": 3538,
+     "total": 3868,
      "dagarMedRoster": 13,
-     "storstaDag": 418,
+     "storstaDag": 447,
      "andel": 50.7
     },
     {
      "namn": "Stadshuset",
      "kommun": "Eslöv",
      "lokalId": "1285006",
-     "total": 516,
+     "total": 523,
      "dagarMedRoster": 11,
-     "storstaDag": 64,
-     "andel": 7.4
+     "storstaDag": 71,
+     "andel": 6.9
+    },
+    {
+     "namn": "Hantverksgården i Löberöd",
+     "kommun": "Eslöv",
+     "lokalId": "1285003",
+     "total": 517,
+     "dagarMedRoster": 7,
+     "storstaDag": 105,
+     "andel": 6.8
     },
     {
      "namn": "Hyresgästföreningen Snäckan Sallerup",
@@ -1301,31 +1310,22 @@
      "total": 505,
      "dagarMedRoster": 8,
      "storstaDag": 152,
-     "andel": 7.2
-    },
-    {
-     "namn": "Hantverksgården i Löberöd",
-     "kommun": "Eslöv",
-     "lokalId": "1285003",
-     "total": 419,
-     "dagarMedRoster": 6,
-     "storstaDag": 105,
-     "andel": 6.0
+     "andel": 6.6
     },
     {
      "namn": "Kärråkra vårdcentral",
      "kommun": "Eslöv",
      "lokalId": "1285012",
-     "total": 363,
+     "total": 412,
      "dagarMedRoster": 7,
      "storstaDag": 70,
-     "andel": 5.2
+     "andel": 5.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Eslöv",
      "lokalId": "1285013",
-     "total": 344,
+     "total": 375,
      "dagarMedRoster": 10,
      "storstaDag": 117,
      "andel": 4.9
@@ -1337,7 +1337,16 @@
      "total": 329,
      "dagarMedRoster": 4,
      "storstaDag": 103,
-     "andel": 4.7
+     "andel": 4.3
+    },
+    {
+     "namn": "Flyinge församlingshem",
+     "kommun": "Eslöv",
+     "lokalId": "1285008",
+     "total": 318,
+     "dagarMedRoster": 5,
+     "storstaDag": 95,
+     "andel": 4.2
     },
     {
      "namn": "Stehags bibliotek",
@@ -1346,25 +1355,16 @@
      "total": 294,
      "dagarMedRoster": 4,
      "storstaDag": 84,
-     "andel": 4.2
+     "andel": 3.9
     },
     {
      "namn": "Harlösa Byahus",
      "kommun": "Eslöv",
      "lokalId": "1285002",
-     "total": 228,
-     "dagarMedRoster": 6,
+     "total": 275,
+     "dagarMedRoster": 7,
      "storstaDag": 56,
-     "andel": 3.3
-    },
-    {
-     "namn": "Flyinge församlingshem",
-     "kommun": "Eslöv",
-     "lokalId": "1285008",
-     "total": 223,
-     "dagarMedRoster": 4,
-     "storstaDag": 73,
-     "andel": 3.2
+     "andel": 3.6
     },
     {
      "namn": "Rönningen",
@@ -1373,7 +1373,7 @@
      "total": 214,
      "dagarMedRoster": 6,
      "storstaDag": 60,
-     "andel": 3.1
+     "andel": 2.8
     }
    ],
    "antalLokaler": 11,

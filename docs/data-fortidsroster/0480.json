@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1036,7 +1036,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1141,11 +1141,11 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 751,
-     "ack": 14721
+     "antal": 1846,
+     "ack": 15816
     }
    ],
-   "total": 14721,
+   "total": 15816,
    "rostberattigade": {
     "riksdag": 45075,
     "kommun": 46256,
@@ -1163,64 +1163,73 @@
      "namn": "Stadshuset Nyköping",
      "kommun": "Nyköping",
      "lokalId": "0480003",
-     "total": 6353,
+     "total": 6722,
      "dagarMedRoster": 15,
-     "storstaDag": 645,
-     "andel": 43.2
+     "storstaDag": 697,
+     "andel": 42.5
     },
     {
      "namn": "Träffen Nyköping",
      "kommun": "Nyköping",
      "lokalId": "0480008",
-     "total": 4545,
+     "total": 4853,
      "dagarMedRoster": 15,
-     "storstaDag": 470,
-     "andel": 30.9
+     "storstaDag": 518,
+     "andel": 30.7
     },
     {
      "namn": "S:ta Katarina kyrka Arnö",
      "kommun": "Nyköping",
      "lokalId": "0480006",
-     "total": 895,
+     "total": 1016,
      "dagarMedRoster": 8,
      "storstaDag": 169,
-     "andel": 6.1
-    },
-    {
-     "namn": "S:t Botvidsgården Tystberga",
-     "kommun": "Nyköping",
-     "lokalId": "0480001",
-     "total": 552,
-     "dagarMedRoster": 8,
-     "storstaDag": 104,
-     "andel": 3.7
+     "andel": 6.4
     },
     {
      "namn": "IOGT-NTO-lokalen",
      "kommun": "Nyköping",
      "lokalId": "0480007",
-     "total": 537,
+     "total": 617,
      "dagarMedRoster": 8,
      "storstaDag": 111,
-     "andel": 3.6
+     "andel": 3.9
+    },
+    {
+     "namn": "S:t Botvidsgården Tystberga",
+     "kommun": "Nyköping",
+     "lokalId": "0480001",
+     "total": 607,
+     "dagarMedRoster": 8,
+     "storstaDag": 104,
+     "andel": 3.8
     },
     {
      "namn": "Betelkyrkan Jönåker",
      "kommun": "Nyköping",
      "lokalId": "0480005",
-     "total": 486,
+     "total": 555,
      "dagarMedRoster": 8,
      "storstaDag": 97,
-     "andel": 3.3
+     "andel": 3.5
     },
     {
      "namn": "Brukslokalen Nävekvarn",
      "kommun": "Nyköping",
      "lokalId": "0480004",
-     "total": 453,
+     "total": 503,
      "dagarMedRoster": 8,
      "storstaDag": 77,
-     "andel": 3.1
+     "andel": 3.2
+    },
+    {
+     "namn": "Vrena församlingshem",
+     "kommun": "Nyköping",
+     "lokalId": "0480002",
+     "total": 317,
+     "dagarMedRoster": 8,
+     "storstaDag": 53,
+     "andel": 2.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1229,25 +1238,16 @@
      "total": 314,
      "dagarMedRoster": 10,
      "storstaDag": 71,
-     "andel": 2.1
-    },
-    {
-     "namn": "Vrena församlingshem",
-     "kommun": "Nyköping",
-     "lokalId": "0480002",
-     "total": 298,
-     "dagarMedRoster": 8,
-     "storstaDag": 53,
      "andel": 2.0
     },
     {
      "namn": "Nyköpings lasarett",
      "kommun": "Nyköping",
      "lokalId": "0480012",
-     "total": 178,
+     "total": 202,
      "dagarMedRoster": 2,
      "storstaDag": 110,
-     "andel": 1.2
+     "andel": 1.3
     },
     {
      "namn": "Arnöanstalten Nyköping",
@@ -1256,7 +1256,7 @@
      "total": 70,
      "dagarMedRoster": 2,
      "storstaDag": 69,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Häktet Nyköping",

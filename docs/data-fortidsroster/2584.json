@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1486,7 +1486,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1577,25 +1577,25 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 582,
-     "ack": 5102
+     "antal": 585,
+     "ack": 5105
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 716,
-     "ack": 5818
+     "antal": 718,
+     "ack": 5823
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 368,
-     "ack": 6186
+     "antal": 904,
+     "ack": 6727
     }
    ],
-   "total": 6186,
+   "total": 6727,
    "rostberattigade": {
     "riksdag": 16717,
     "kommun": 17963,
@@ -1613,10 +1613,10 @@
      "namn": "Stadshuset Kristallen",
      "kommun": "Kiruna",
      "lokalId": "2584014",
-     "total": 5027,
+     "total": 5501,
      "dagarMedRoster": 15,
-     "storstaDag": 545,
-     "andel": 81.3
+     "storstaDag": 766,
+     "andel": 81.8
     },
     {
      "namn": "Vittangi Folkets Hus",
@@ -1625,16 +1625,16 @@
      "total": 255,
      "dagarMedRoster": 4,
      "storstaDag": 76,
-     "andel": 4.1
+     "andel": 3.8
     },
     {
      "namn": "Karesuando Eurosuandohuset",
      "kommun": "Kiruna",
      "lokalId": "2584008",
-     "total": 215,
+     "total": 217,
      "dagarMedRoster": 5,
      "storstaDag": 58,
-     "andel": 3.5
+     "andel": 3.2
     },
     {
      "namn": "Malmfältens Folkhögskola",
@@ -1643,7 +1643,7 @@
      "total": 177,
      "dagarMedRoster": 2,
      "storstaDag": 104,
-     "andel": 2.9
+     "andel": 2.6
     },
     {
      "namn": "Abisko skola",
@@ -1652,7 +1652,7 @@
      "total": 157,
      "dagarMedRoster": 1,
      "storstaDag": 157,
-     "andel": 2.5
+     "andel": 2.3
     },
     {
      "namn": "Svappavaara Fritidsgård",
@@ -1661,7 +1661,7 @@
      "total": 74,
      "dagarMedRoster": 1,
      "storstaDag": 74,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Övre Soppero skola",
@@ -1670,7 +1670,7 @@
      "total": 55,
      "dagarMedRoster": 1,
      "storstaDag": 55,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Kuttainen sporthall",
@@ -1679,7 +1679,7 @@
      "total": 47,
      "dagarMedRoster": 1,
      "storstaDag": 47,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Hjalmar Lundbohmsskolan",
@@ -1689,6 +1689,24 @@
      "dagarMedRoster": 1,
      "storstaDag": 46,
      "andel": 0.7
+    },
+    {
+     "namn": "Bokbuss Lannavaara",
+     "kommun": "Kiruna",
+     "lokalId": "2584012",
+     "total": 43,
+     "dagarMedRoster": 1,
+     "storstaDag": 43,
+     "andel": 0.6
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Kiruna",
+     "lokalId": "2584019",
+     "total": 39,
+     "dagarMedRoster": 5,
+     "storstaDag": 19,
+     "andel": 0.6
     },
     {
      "namn": "Bokbuss Parakka",
@@ -1715,7 +1733,7 @@
      "total": 22,
      "dagarMedRoster": 2,
      "storstaDag": 21,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Bokbuss Jukkasjärvi",
@@ -1727,31 +1745,13 @@
      "andel": 0.3
     },
     {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Kiruna",
-     "lokalId": "2584019",
-     "total": 17,
-     "dagarMedRoster": 3,
-     "storstaDag": 7,
-     "andel": 0.3
-    },
-    {
      "namn": "Daglig verksamhet Rymdhuset",
      "kommun": "Kiruna",
      "lokalId": "2584018",
      "total": 16,
      "dagarMedRoster": 1,
      "storstaDag": 16,
-     "andel": 0.3
-    },
-    {
-     "namn": "Bokbuss Lannavaara",
-     "kommun": "Kiruna",
-     "lokalId": "2584012",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 0.2
     },
     {
      "namn": "Bokbuss Övre Soppero",

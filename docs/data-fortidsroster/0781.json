@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,7 +1108,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1213,11 +1213,11 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 187,
-     "ack": 4540
+     "antal": 693,
+     "ack": 5046
     }
    ],
-   "total": 4540,
+   "total": 5046,
    "rostberattigade": {
     "riksdag": 21376,
     "kommun": 22704,
@@ -1235,10 +1235,10 @@
      "namn": "Garvaren",
      "kommun": "Ljungby",
      "lokalId": "0781001",
-     "total": 3899,
+     "total": 4275,
      "dagarMedRoster": 15,
-     "storstaDag": 549,
-     "andel": 85.9
+     "storstaDag": 563,
+     "andel": 84.7
     },
     {
      "namn": "Biblioteket",
@@ -1247,7 +1247,16 @@
      "total": 268,
      "dagarMedRoster": 3,
      "storstaDag": 114,
-     "andel": 5.9
+     "andel": 5.3
+    },
+    {
+     "namn": "Biblioteket (Ica)",
+     "kommun": "Ljungby",
+     "lokalId": "0781002",
+     "total": 216,
+     "dagarMedRoster": 5,
+     "storstaDag": 67,
+     "andel": 4.3
     },
     {
      "namn": "Västanå",
@@ -1256,25 +1265,16 @@
      "total": 188,
      "dagarMedRoster": 2,
      "storstaDag": 103,
-     "andel": 4.1
-    },
-    {
-     "namn": "Biblioteket (Ica)",
-     "kommun": "Ljungby",
-     "lokalId": "0781002",
-     "total": 149,
-     "dagarMedRoster": 4,
-     "storstaDag": 58,
-     "andel": 3.3
+     "andel": 3.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Ljungby",
      "lokalId": "0781009",
-     "total": 36,
-     "dagarMedRoster": 4,
-     "storstaDag": 18,
-     "andel": 0.8
+     "total": 99,
+     "dagarMedRoster": 5,
+     "storstaDag": 63,
+     "andel": 2.0
     },
     {
      "namn": "Bolmsöskolan",

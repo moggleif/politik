@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -802,7 +802,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -907,11 +907,11 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 141,
-     "ack": 2486
+     "antal": 443,
+     "ack": 2788
     }
    ],
-   "total": 2486,
+   "total": 2788,
    "rostberattigade": {
     "riksdag": 8339,
     "kommun": 8521,
@@ -929,10 +929,19 @@
      "namn": "Konsthallen",
      "kommun": "Nora",
      "lokalId": "1884002",
-     "total": 2484,
+     "total": 2756,
      "dagarMedRoster": 15,
-     "storstaDag": 269,
-     "andel": 99.9
+     "storstaDag": 413,
+     "andel": 98.9
+    },
+    {
+     "namn": "Mobil förtidsröstningslokal",
+     "kommun": "Nora",
+     "lokalId": "1884001",
+     "total": 30,
+     "dagarMedRoster": 1,
+     "storstaDag": 30,
+     "andel": 1.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -942,15 +951,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 2,
      "andel": 0.1
-    },
-    {
-     "namn": "Mobil förtidsröstningslokal",
-     "kommun": "Nora",
-     "lokalId": "1884001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 3,

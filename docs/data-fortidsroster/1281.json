@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1414,7 +1414,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1470,60 +1470,60 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 2333,
-     "ack": 15566
+     "antal": 2334,
+     "ack": 15567
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 2092,
-     "ack": 17658
+     "ack": 17659
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 1780,
-     "ack": 19438
+     "antal": 1802,
+     "ack": 19461
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 1460,
-     "ack": 20898
+     "antal": 1471,
+     "ack": 20932
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 1384,
-     "ack": 22282
+     "antal": 1388,
+     "ack": 22320
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 3306,
-     "ack": 25588
+     "antal": 3327,
+     "ack": 25647
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 3602,
-     "ack": 29190
+     "antal": 3616,
+     "ack": 29263
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 1616,
-     "ack": 30806
+     "antal": 3890,
+     "ack": 33153
     }
    ],
-   "total": 30806,
+   "total": 33153,
    "rostberattigade": {
     "riksdag": 99892,
     "kommun": 105382,
@@ -1538,46 +1538,46 @@
    },
    "lokaler": [
     {
-     "namn": "Nova Lund",
-     "kommun": "Lund",
-     "lokalId": "1281020",
-     "total": 5257,
-     "dagarMedRoster": 15,
-     "storstaDag": 413,
-     "andel": 17.1
-    },
-    {
      "namn": "Stadsbiblioteket",
      "kommun": "Lund",
      "lokalId": "1281010",
-     "total": 5250,
+     "total": 5682,
      "dagarMedRoster": 14,
-     "storstaDag": 706,
-     "andel": 17.0
+     "storstaDag": 714,
+     "andel": 17.1
+    },
+    {
+     "namn": "Nova Lund",
+     "kommun": "Lund",
+     "lokalId": "1281020",
+     "total": 5570,
+     "dagarMedRoster": 15,
+     "storstaDag": 462,
+     "andel": 16.8
     },
     {
      "namn": "Stadshallen",
      "kommun": "Lund",
      "lokalId": "1281002",
-     "total": 3696,
+     "total": 4026,
      "dagarMedRoster": 13,
-     "storstaDag": 477,
-     "andel": 12.0
+     "storstaDag": 515,
+     "andel": 12.1
     },
     {
      "namn": "Bibliotek Norra Fäladen",
      "kommun": "Lund",
      "lokalId": "1281013",
-     "total": 1983,
+     "total": 2120,
      "dagarMedRoster": 14,
-     "storstaDag": 278,
+     "storstaDag": 280,
      "andel": 6.4
     },
     {
      "namn": "Linero bibliotek",
      "kommun": "Lund",
      "lokalId": "1281007",
-     "total": 1768,
+     "total": 1878,
      "dagarMedRoster": 10,
      "storstaDag": 257,
      "andel": 5.7
@@ -1586,115 +1586,115 @@
      "namn": "Dalby bibliotek",
      "kommun": "Lund",
      "lokalId": "1281006",
-     "total": 1632,
+     "total": 1849,
      "dagarMedRoster": 10,
-     "storstaDag": 286,
-     "andel": 5.3
+     "storstaDag": 289,
+     "andel": 5.6
     },
     {
      "namn": "Bibliotek Södra Sandby",
      "kommun": "Lund",
      "lokalId": "1281004",
-     "total": 1482,
+     "total": 1483,
      "dagarMedRoster": 9,
-     "storstaDag": 203,
-     "andel": 4.8
+     "storstaDag": 204,
+     "andel": 4.5
     },
     {
      "namn": "Bibliotek Veberöd",
      "kommun": "Lund",
      "lokalId": "1281003",
-     "total": 1347,
+     "total": 1429,
      "dagarMedRoster": 10,
      "storstaDag": 274,
-     "andel": 4.4
-    },
-    {
-     "namn": "Navet, LTH",
-     "kommun": "Lund",
-     "lokalId": "1281008",
-     "total": 1146,
-     "dagarMedRoster": 11,
-     "storstaDag": 182,
-     "andel": 3.7
+     "andel": 4.3
     },
     {
      "namn": "Klostergårdens bibliotek",
      "kommun": "Lund",
      "lokalId": "1281012",
-     "total": 1127,
+     "total": 1345,
      "dagarMedRoster": 10,
-     "storstaDag": 169,
-     "andel": 3.7
+     "storstaDag": 248,
+     "andel": 4.1
     },
     {
      "namn": "Kristallen",
      "kommun": "Lund",
      "lokalId": "1281014",
-     "total": 1114,
+     "total": 1186,
      "dagarMedRoster": 11,
-     "storstaDag": 165,
+     "storstaDag": 176,
      "andel": 3.6
+    },
+    {
+     "namn": "Navet, LTH",
+     "kommun": "Lund",
+     "lokalId": "1281008",
+     "total": 1160,
+     "dagarMedRoster": 11,
+     "storstaDag": 182,
+     "andel": 3.5
     },
     {
      "namn": "Brunnshög",
      "kommun": "Lund",
      "lokalId": "1281015",
-     "total": 995,
+     "total": 1023,
      "dagarMedRoster": 11,
-     "storstaDag": 118,
-     "andel": 3.2
-    },
-    {
-     "namn": "Bibliotek Folkparken",
-     "kommun": "Lund",
-     "lokalId": "1281001",
-     "total": 862,
-     "dagarMedRoster": 8,
-     "storstaDag": 181,
-     "andel": 2.8
+     "storstaDag": 131,
+     "andel": 3.1
     },
     {
      "namn": "Genarps bibliotek",
      "kommun": "Lund",
      "lokalId": "1281005",
-     "total": 793,
+     "total": 977,
      "dagarMedRoster": 7,
-     "storstaDag": 192,
-     "andel": 2.6
+     "storstaDag": 209,
+     "andel": 2.9
+    },
+    {
+     "namn": "Bibliotek Folkparken",
+     "kommun": "Lund",
+     "lokalId": "1281001",
+     "total": 896,
+     "dagarMedRoster": 8,
+     "storstaDag": 181,
+     "andel": 2.7
     },
     {
      "namn": "Skånes universitetssjukhus, Lund",
      "kommun": "Lund",
      "lokalId": "1281009",
-     "total": 787,
+     "total": 832,
      "dagarMedRoster": 11,
-     "storstaDag": 116,
-     "andel": 2.6
+     "storstaDag": 134,
+     "andel": 2.5
     },
     {
      "namn": "Holger Crafoords Ekonomicentrum",
      "kommun": "Lund",
      "lokalId": "1281019",
-     "total": 608,
+     "total": 624,
      "dagarMedRoster": 8,
      "storstaDag": 178,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Lund",
      "lokalId": "1281018",
-     "total": 464,
+     "total": 540,
      "dagarMedRoster": 15,
-     "storstaDag": 56,
-     "andel": 1.5
+     "storstaDag": 105,
+     "andel": 1.6
     },
     {
      "namn": "Bibliotek Stångby",
      "kommun": "Lund",
      "lokalId": "1281011",
-     "total": 390,
+     "total": 428,
      "dagarMedRoster": 6,
      "storstaDag": 94,
      "andel": 1.3

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -901,7 +901,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1006,11 +1006,11 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 407,
-     "ack": 11165
+     "antal": 1196,
+     "ack": 11954
     }
    ],
-   "total": 11165,
+   "total": 11954,
    "rostberattigade": {
     "riksdag": 36816,
     "kommun": 38195,
@@ -1028,19 +1028,19 @@
      "namn": "Biblioteket",
      "kommun": "Enköping",
      "lokalId": "0381002",
-     "total": 8182,
+     "total": 8665,
      "dagarMedRoster": 15,
      "storstaDag": 836,
-     "andel": 73.3
+     "andel": 72.5
     },
     {
      "namn": "Ljunggården, Enköping",
      "kommun": "Enköping",
      "lokalId": "0381008",
-     "total": 1468,
+     "total": 1645,
      "dagarMedRoster": 15,
-     "storstaDag": 174,
-     "andel": 13.1
+     "storstaDag": 245,
+     "andel": 13.8
     },
     {
      "namn": "Brandstationen, Örsundsbro",
@@ -1049,7 +1049,16 @@
      "total": 724,
      "dagarMedRoster": 6,
      "storstaDag": 171,
-     "andel": 6.5
+     "andel": 6.1
+    },
+    {
+     "namn": "Brandstationen Fjärdhundra",
+     "kommun": "Enköping",
+     "lokalId": "0381001",
+     "total": 450,
+     "dagarMedRoster": 5,
+     "storstaDag": 131,
+     "andel": 3.8
     },
     {
      "namn": "Tallgården, Grillby",
@@ -1058,16 +1067,7 @@
      "total": 393,
      "dagarMedRoster": 4,
      "storstaDag": 126,
-     "andel": 3.5
-    },
-    {
-     "namn": "Brandstationen Fjärdhundra",
-     "kommun": "Enköping",
-     "lokalId": "0381001",
-     "total": 321,
-     "dagarMedRoster": 4,
-     "storstaDag": 131,
-     "andel": 2.9
+     "andel": 3.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1076,7 +1076,7 @@
      "total": 77,
      "dagarMedRoster": 4,
      "storstaDag": 23,
-     "andel": 0.7
+     "andel": 0.6
     }
    ],
    "antalLokaler": 6,

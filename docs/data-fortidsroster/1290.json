@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1429,11 +1429,11 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 786,
-     "ack": 20751
+     "antal": 2760,
+     "ack": 22725
     }
    ],
-   "total": 20751,
+   "total": 22725,
    "rostberattigade": {
     "riksdag": 66643,
     "kommun": 68266,
@@ -1451,34 +1451,34 @@
      "namn": "Rådhus Skåne",
      "kommun": "Kristianstad",
      "lokalId": "1290007",
-     "total": 6450,
+     "total": 6786,
      "dagarMedRoster": 15,
-     "storstaDag": 534,
-     "andel": 31.1
+     "storstaDag": 547,
+     "andel": 29.9
     },
     {
      "namn": "Åhus IF - Klubbstuga",
      "kommun": "Kristianstad",
      "lokalId": "1290006",
-     "total": 3391,
+     "total": 3687,
      "dagarMedRoster": 13,
-     "storstaDag": 389,
-     "andel": 16.3
+     "storstaDag": 416,
+     "andel": 16.2
     },
     {
      "namn": "C4 Shopping",
      "kommun": "Kristianstad",
      "lokalId": "1290043",
-     "total": 2150,
-     "dagarMedRoster": 7,
-     "storstaDag": 364,
-     "andel": 10.4
+     "total": 2527,
+     "dagarMedRoster": 8,
+     "storstaDag": 377,
+     "andel": 11.1
     },
     {
      "namn": "Galleria Boulevard",
      "kommun": "Kristianstad",
      "lokalId": "1290011",
-     "total": 1932,
+     "total": 2112,
      "dagarMedRoster": 10,
      "storstaDag": 244,
      "andel": 9.3
@@ -1487,17 +1487,17 @@
      "namn": "Tollarps bibliotek",
      "kommun": "Kristianstad",
      "lokalId": "1290009",
-     "total": 1183,
+     "total": 1340,
      "dagarMedRoster": 7,
-     "storstaDag": 230,
-     "andel": 5.7
+     "storstaDag": 247,
+     "andel": 5.9
     },
     {
      "namn": "Gamlegårdens bibliotek",
      "kommun": "Kristianstad",
      "lokalId": "1290005",
-     "total": 1141,
-     "dagarMedRoster": 6,
+     "total": 1254,
+     "dagarMedRoster": 7,
      "storstaDag": 237,
      "andel": 5.5
     },
@@ -1505,19 +1505,28 @@
      "namn": "Wä IF Klubbstugan",
      "kommun": "Kristianstad",
      "lokalId": "1290008",
-     "total": 833,
+     "total": 1002,
      "dagarMedRoster": 5,
-     "storstaDag": 218,
-     "andel": 4.0
+     "storstaDag": 261,
+     "andel": 4.4
     },
     {
      "namn": "Degeberga bibliotek",
      "kommun": "Kristianstad",
      "lokalId": "1290003",
-     "total": 776,
+     "total": 905,
      "dagarMedRoster": 5,
      "storstaDag": 254,
-     "andel": 3.7
+     "andel": 4.0
+    },
+    {
+     "namn": "Önnestads bibliotek",
+     "kommun": "Kristianstad",
+     "lokalId": "1290001",
+     "total": 611,
+     "dagarMedRoster": 4,
+     "storstaDag": 178,
+     "andel": 2.7
     },
     {
      "namn": "Fjälkinge IF Klubbstuga",
@@ -1526,22 +1535,13 @@
      "total": 589,
      "dagarMedRoster": 5,
      "storstaDag": 143,
-     "andel": 2.8
-    },
-    {
-     "namn": "Önnestads bibliotek",
-     "kommun": "Kristianstad",
-     "lokalId": "1290001",
-     "total": 492,
-     "dagarMedRoster": 4,
-     "storstaDag": 178,
-     "andel": 2.4
+     "andel": 2.6
     },
     {
      "namn": "Arkelstorp folkets hus",
      "kommun": "Kristianstad",
      "lokalId": "1290002",
-     "total": 435,
+     "total": 485,
      "dagarMedRoster": 4,
      "storstaDag": 171,
      "andel": 2.1
@@ -1550,7 +1550,7 @@
      "namn": "Österängs församlingshem",
      "kommun": "Kristianstad",
      "lokalId": "1290010",
-     "total": 386,
+     "total": 425,
      "dagarMedRoster": 5,
      "storstaDag": 131,
      "andel": 1.9
@@ -1559,10 +1559,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kristianstad",
      "lokalId": "1290042",
-     "total": 329,
+     "total": 338,
      "dagarMedRoster": 10,
      "storstaDag": 72,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Furuboda Folkhögskola",
@@ -1571,7 +1571,7 @@
      "total": 223,
      "dagarMedRoster": 2,
      "storstaDag": 115,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Huaröds församlingshem",
@@ -1580,7 +1580,7 @@
      "total": 164,
      "dagarMedRoster": 1,
      "storstaDag": 164,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Mötesplats Åhus",
@@ -1589,7 +1589,7 @@
      "total": 124,
      "dagarMedRoster": 1,
      "storstaDag": 124,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Anstalten Kristianstad",
@@ -1598,7 +1598,7 @@
      "total": 119,
      "dagarMedRoster": 1,
      "storstaDag": 119,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Anstalten Lindåsa",
@@ -1607,7 +1607,7 @@
      "total": 34,
      "dagarMedRoster": 1,
      "storstaDag": 34,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Häktet Kristianstad",

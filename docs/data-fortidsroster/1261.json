@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -874,7 +874,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -979,11 +979,11 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 219,
-     "ack": 7600
+     "antal": 1059,
+     "ack": 8440
     }
    ],
-   "total": 7600,
+   "total": 8440,
    "rostberattigade": {
     "riksdag": 24348,
     "kommun": 24940,
@@ -1001,19 +1001,19 @@
      "namn": "Galleria Center Syd",
      "kommun": "Kävlinge",
      "lokalId": "1261005",
-     "total": 4922,
+     "total": 5314,
      "dagarMedRoster": 13,
      "storstaDag": 619,
-     "andel": 64.8
+     "andel": 63.0
     },
     {
      "namn": "Kommunhuset, Kävlinge",
      "kommun": "Kävlinge",
      "lokalId": "1261004",
-     "total": 2416,
-     "dagarMedRoster": 12,
-     "storstaDag": 286,
-     "andel": 31.8
+     "total": 2773,
+     "dagarMedRoster": 13,
+     "storstaDag": 357,
+     "andel": 32.9
     },
     {
      "namn": "Ljungenskolans matsal Furulund",
@@ -1022,7 +1022,16 @@
      "total": 169,
      "dagarMedRoster": 1,
      "storstaDag": 169,
-     "andel": 2.2
+     "andel": 2.0
+    },
+    {
+     "namn": "Skönadalsskolan, Hofterup",
+     "kommun": "Kävlinge",
+     "lokalId": "1261001",
+     "total": 91,
+     "dagarMedRoster": 1,
+     "storstaDag": 91,
+     "andel": 1.1
     },
     {
      "namn": "Dösjebroskolan, Dösjebro",
@@ -1031,7 +1040,7 @@
      "total": 66,
      "dagarMedRoster": 1,
      "storstaDag": 66,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1040,16 +1049,7 @@
      "total": 27,
      "dagarMedRoster": 5,
      "storstaDag": 18,
-     "andel": 0.4
-    },
-    {
-     "namn": "Skönadalsskolan, Hofterup",
-     "kommun": "Kävlinge",
-     "lokalId": "1261001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 0.3
     }
    ],
    "antalLokaler": 6,

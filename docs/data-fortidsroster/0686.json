@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1096,11 +1096,11 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 145,
-     "ack": 3695
+     "antal": 471,
+     "ack": 4021
     }
    ],
-   "total": 3695,
+   "total": 4021,
    "rostberattigade": {
     "riksdag": 13647,
     "kommun": 14080,
@@ -1118,10 +1118,10 @@
      "namn": "Olsbergs Arena",
      "kommun": "Eksjö",
      "lokalId": "0686001",
-     "total": 2927,
+     "total": 3194,
      "dagarMedRoster": 15,
-     "storstaDag": 337,
-     "andel": 79.2
+     "storstaDag": 377,
+     "andel": 79.4
     },
     {
      "namn": "Emilkraften, Mariannelund",
@@ -1130,16 +1130,25 @@
      "total": 363,
      "dagarMedRoster": 6,
      "storstaDag": 95,
-     "andel": 9.8
+     "andel": 9.0
     },
     {
      "namn": "Solgården, Ingatorp",
      "kommun": "Eksjö",
      "lokalId": "0686003",
-     "total": 85,
-     "dagarMedRoster": 4,
-     "storstaDag": 33,
-     "andel": 2.3
+     "total": 125,
+     "dagarMedRoster": 5,
+     "storstaDag": 40,
+     "andel": 3.1
+    },
+    {
+     "namn": "Hjältevad Tallgården (Gamla skolan)",
+     "kommun": "Eksjö",
+     "lokalId": "0686007",
+     "total": 101,
+     "dagarMedRoster": 5,
+     "storstaDag": 27,
+     "andel": 2.5
     },
     {
      "namn": "Folkets Hus, Bruzaholm",
@@ -1148,16 +1157,7 @@
      "total": 84,
      "dagarMedRoster": 4,
      "storstaDag": 25,
-     "andel": 2.3
-    },
-    {
-     "namn": "Hjältevad Tallgården (Gamla skolan)",
-     "kommun": "Eksjö",
-     "lokalId": "0686007",
-     "total": 82,
-     "dagarMedRoster": 4,
-     "storstaDag": 27,
-     "andel": 2.2
+     "andel": 2.1
     },
     {
      "namn": "Almgården - Särskilt boende",
@@ -1166,7 +1166,7 @@
      "total": 44,
      "dagarMedRoster": 2,
      "storstaDag": 22,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Snickaren - Trygghetsboende",
@@ -1193,7 +1193,7 @@
      "total": 25,
      "dagarMedRoster": 1,
      "storstaDag": 25,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Bobinen - Trygghetsboende",
@@ -1202,7 +1202,7 @@
      "total": 13,
      "dagarMedRoster": 1,
      "storstaDag": 13,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Tuvan - Trygghetsboende",
@@ -1211,7 +1211,7 @@
      "total": 10,
      "dagarMedRoster": 1,
      "storstaDag": 10,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Marieberg - Särskilt boende",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -775,7 +775,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -875,9 +875,16 @@
      "kvar": 5,
      "antal": 265,
      "ack": 2140
+    },
+    {
+     "datum": "2026-09-09",
+     "veckodag": "ons",
+     "kvar": 4,
+     "antal": 210,
+     "ack": 2350
     }
    ],
-   "total": 2140,
+   "total": 2350,
    "rostberattigade": {
     "riksdag": 9168,
     "kommun": 9355,
@@ -895,10 +902,10 @@
      "namn": "Sjöängen",
      "kommun": "Askersund",
      "lokalId": "1882003",
-     "total": 1802,
-     "dagarMedRoster": 14,
-     "storstaDag": 194,
-     "andel": 84.2
+     "total": 2012,
+     "dagarMedRoster": 15,
+     "storstaDag": 210,
+     "andel": 85.6
     },
     {
      "namn": "Åsbro skola",
@@ -907,7 +914,7 @@
      "total": 180,
      "dagarMedRoster": 2,
      "storstaDag": 110,
-     "andel": 8.4
+     "andel": 7.7
     },
     {
      "namn": "Zinkgruvan",
@@ -916,7 +923,7 @@
      "total": 90,
      "dagarMedRoster": 1,
      "storstaDag": 90,
-     "andel": 4.2
+     "andel": 3.8
     },
     {
      "namn": "Olshammar",
@@ -925,7 +932,7 @@
      "total": 35,
      "dagarMedRoster": 1,
      "storstaDag": 35,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -943,7 +950,7 @@
      "total": 10,
      "dagarMedRoster": 1,
      "storstaDag": 10,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Västergården",
@@ -952,7 +959,7 @@
      "total": 10,
      "dagarMedRoster": 1,
      "storstaDag": 10,
-     "andel": 0.5
+     "andel": 0.4
     }
    ],
    "antalLokaler": 7,

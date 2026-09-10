@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1078,11 +1078,11 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 306,
-     "ack": 6489
+     "antal": 915,
+     "ack": 7098
     }
    ],
-   "total": 6489,
+   "total": 7098,
    "rostberattigade": {
     "riksdag": 18984,
     "kommun": 19478,
@@ -1100,10 +1100,28 @@
      "namn": "Sambiblioteket plan 4 övre ingång",
      "kommun": "Härnösand",
      "lokalId": "2280001",
-     "total": 5775,
+     "total": 6219,
      "dagarMedRoster": 13,
-     "storstaDag": 675,
-     "andel": 89.0
+     "storstaDag": 750,
+     "andel": 87.6
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Härnösand",
+     "lokalId": "2280010",
+     "total": 160,
+     "dagarMedRoster": 10,
+     "storstaDag": 62,
+     "andel": 2.3
+    },
+    {
+     "namn": "Kriminalvårdsanstalten Saltvik",
+     "kommun": "Härnösand",
+     "lokalId": "2280007",
+     "total": 160,
+     "dagarMedRoster": 1,
+     "storstaDag": 160,
+     "andel": 2.3
     },
     {
      "namn": "Älandsbro Folketshus",
@@ -1112,16 +1130,7 @@
      "total": 156,
      "dagarMedRoster": 2,
      "storstaDag": 95,
-     "andel": 2.4
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Härnösand",
-     "lokalId": "2280010",
-     "total": 155,
-     "dagarMedRoster": 9,
-     "storstaDag": 62,
-     "andel": 2.4
+     "andel": 2.2
     },
     {
      "namn": "Högsjögården",
@@ -1130,7 +1139,7 @@
      "total": 123,
      "dagarMedRoster": 2,
      "storstaDag": 62,
-     "andel": 1.9
+     "andel": 1.7
     },
     {
      "namn": "Utansjögården",
@@ -1139,7 +1148,7 @@
      "total": 92,
      "dagarMedRoster": 2,
      "storstaDag": 50,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Anstalt Härnösand",
@@ -1148,7 +1157,7 @@
      "total": 73,
      "dagarMedRoster": 1,
      "storstaDag": 73,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Viksjö Folkets Hus",
@@ -1176,15 +1185,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 33,
      "andel": 0.5
-    },
-    {
-     "namn": "Kriminalvårdsanstalten Saltvik",
-     "kommun": "Härnösand",
-     "lokalId": "2280007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 10,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-09T18:53+02:00",
+ "senastUppdaterad": "2026-09-10T11:09+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1432,7 +1432,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-09T18:53+02:00",
+   "hamtad": "2026-09-10T11:09+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1523,25 +1523,25 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1915,
-     "ack": 9657
+     "antal": 1916,
+     "ack": 9658
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1863,
-     "ack": 11520
+     "antal": 1872,
+     "ack": 11530
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 608,
-     "ack": 12128
+     "antal": 2184,
+     "ack": 13714
     }
    ],
-   "total": 12128,
+   "total": 13714,
    "rostberattigade": {
     "riksdag": 44917,
     "kommun": 46151,
@@ -1559,28 +1559,28 @@
      "namn": "Arena Skövde",
      "kommun": "Skövde",
      "lokalId": "1496021",
-     "total": 7740,
+     "total": 8337,
      "dagarMedRoster": 15,
-     "storstaDag": 843,
-     "andel": 63.8
+     "storstaDag": 894,
+     "andel": 60.8
     },
     {
      "namn": "Skövde kulturfabrik",
      "kommun": "Skövde",
      "lokalId": "1496017",
-     "total": 2023,
+     "total": 2111,
      "dagarMedRoster": 13,
      "storstaDag": 208,
-     "andel": 16.7
+     "andel": 15.4
     },
     {
      "namn": "Skövde Kulturhus",
      "kommun": "Skövde",
      "lokalId": "1496018",
-     "total": 767,
+     "total": 1022,
      "dagarMedRoster": 3,
-     "storstaDag": 342,
-     "andel": 6.3
+     "storstaDag": 357,
+     "andel": 7.5
     },
     {
      "namn": "Biblioteket, Stöpen",
@@ -1589,7 +1589,7 @@
      "total": 326,
      "dagarMedRoster": 2,
      "storstaDag": 191,
-     "andel": 2.7
+     "andel": 2.4
     },
     {
      "namn": "Tidans församlingshem",
@@ -1598,7 +1598,7 @@
      "total": 309,
      "dagarMedRoster": 2,
      "storstaDag": 158,
-     "andel": 2.5
+     "andel": 2.3
     },
     {
      "namn": "Timmersdala församlingshem",
@@ -1607,7 +1607,25 @@
      "total": 257,
      "dagarMedRoster": 2,
      "storstaDag": 135,
-     "andel": 2.1
+     "andel": 1.9
+    },
+    {
+     "namn": "Biblioteket, Södra Ryd",
+     "kommun": "Skövde",
+     "lokalId": "1496013",
+     "total": 247,
+     "dagarMedRoster": 1,
+     "storstaDag": 247,
+     "andel": 1.8
+    },
+    {
+     "namn": "Kommunalhuset, Skultorp",
+     "kommun": "Skövde",
+     "lokalId": "1496014",
+     "total": 238,
+     "dagarMedRoster": 1,
+     "storstaDag": 238,
+     "andel": 1.7
     },
     {
      "namn": "Skaraborgs Sjukhus",
@@ -1616,7 +1634,7 @@
      "total": 187,
      "dagarMedRoster": 2,
      "storstaDag": 113,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Värings skola",
@@ -1625,7 +1643,7 @@
      "total": 183,
      "dagarMedRoster": 2,
      "storstaDag": 104,
-     "andel": 1.5
+     "andel": 1.3
     },
     {
      "namn": "Soldathemmet",
@@ -1637,21 +1655,39 @@
      "andel": 0.7
     },
     {
+     "namn": "Kyrkans Hus Värsås",
+     "kommun": "Skövde",
+     "lokalId": "1496012",
+     "total": 86,
+     "dagarMedRoster": 1,
+     "storstaDag": 86,
+     "andel": 0.6
+    },
+    {
+     "namn": "Sventorps församlingshem",
+     "kommun": "Skövde",
+     "lokalId": "1496006",
+     "total": 66,
+     "dagarMedRoster": 1,
+     "storstaDag": 66,
+     "andel": 0.5
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Skövde",
+     "lokalId": "1496020",
+     "total": 48,
+     "dagarMedRoster": 7,
+     "storstaDag": 11,
+     "andel": 0.4
+    },
+    {
      "namn": "Äldreboende Ekedal",
      "kommun": "Skövde",
      "lokalId": "1496001",
      "total": 46,
      "dagarMedRoster": 1,
      "storstaDag": 46,
-     "andel": 0.4
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Skövde",
-     "lokalId": "1496020",
-     "total": 39,
-     "dagarMedRoster": 6,
-     "storstaDag": 11,
      "andel": 0.3
     },
     {
@@ -1661,7 +1697,7 @@
      "total": 33,
      "dagarMedRoster": 1,
      "storstaDag": 33,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Äldreboende Tomtegården",
@@ -1670,7 +1706,7 @@
      "total": 33,
      "dagarMedRoster": 1,
      "storstaDag": 33,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Äldreboende Boken",
@@ -1697,7 +1733,7 @@
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Äldreboende Billingsdal",
@@ -1716,42 +1752,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 12,
      "andel": 0.1
-    },
-    {
-     "namn": "Biblioteket, Södra Ryd",
-     "kommun": "Skövde",
-     "lokalId": "1496013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Kommunalhuset, Skultorp",
-     "kommun": "Skövde",
-     "lokalId": "1496014",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Kyrkans Hus Värsås",
-     "kommun": "Skövde",
-     "lokalId": "1496012",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Sventorps församlingshem",
-     "kommun": "Skövde",
-     "lokalId": "1496006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 22,
