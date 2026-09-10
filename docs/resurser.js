@@ -446,6 +446,83 @@
       rader + "</tbody>";
   }
 
+  /* ---------- 6. Rikets nivå: andel av BNP ---------- */
+
+  function ritaBnp() {
+    var b = data.andelAvBnp;
+    if (!b || !Object.keys(b).length) { el("sektion-bnp").hidden = true; return; }
+    var ar = Object.keys(b).map(Number).sort(function (x, y) { return x - y; });
+
+    var opt = basOptions("Andel av BNP (%)", function (it) {
+      return talSv(it.parsed.y, 2) + " % av BNP";
+    });
+    opt.plugins.legend.display = false;
+    /* Rörelsen ligger i ett smalt band; en nollskalad axel skulle trycka
+       ihop den till en rak linje. Att skalan är beskuren står i bildtexten. */
+    opt.scales.y.beginAtZero = false;
+    opt.scales.y.ticks.callback = function (v) { return talSv(v, 2) + " %"; };
+
+    /* Serien har luckor i källan. spanGaps är false i linjeSerie, så de
+       syns som avbrott i stället för att överbryggas med en rak linje. */
+    var alla = K.arsskala(ar);
+    K.rita("diagram-bnp", {
+      type: "line",
+      data: {
+        labels: alla.map(String),
+        datasets: [linjeSerie("Grundskolan i riket, andel av BNP", FARG.bla,
+          alla.map(function (a) { return b[String(a)] ? b[String(a)].andel : null; }))]
+      },
+      options: opt
+    }, 360);
+
+    el("kalla-bnp").textContent =
+      "Källor: " + data.kalla + " (kostnaden) och " + data.bnpKalla +
+      ". Kostnad per invånare gånger folkmängd, delat med BNP – allt i " +
+      "löpande priser, samma år. Y-axeln börjar inte vid noll.";
+
+    /* saknadeArText ger en färdig mening; här behövs bara årtalen, så
+       att de kan sättas in i en egen formulering om varför luckan finns. */
+    var saknas = K.saknadeAr(ar);
+    K.sattDataNot("not-bnp", saknas.length
+      ? "Kolada saknar rikstal för " +
+        (saknas.length === 1
+          ? esc(saknas[0])
+          : saknas.slice(0, -1).map(esc).join(", ") + " och " +
+            esc(saknas[saknas.length - 1])) +
+        ". De åren ritas som avbrott i linjen, inte som en rak sträcka " +
+        "mellan de år som finns."
+      : "");
+
+    var forsta = ar[0], sista = ar[ar.length - 1];
+    var lagst = ar.reduce(function (a, x) {
+      return b[String(x)].andel < b[String(a)].andel ? x : a;
+    }, forsta);
+    var hogst = ar.reduce(function (a, x) {
+      return b[String(x)].andel > b[String(a)].andel ? x : a;
+    }, forsta);
+    el("slutsats-bnp").innerHTML =
+      "<p>Grundskolan tog <strong>" + talSv(b[String(sista)].andel, 2) +
+      "&nbsp;%</strong> av BNP år " + esc(sista) + ", mot " +
+      talSv(b[String(forsta)].andel, 2) + "&nbsp;% år " + esc(forsta) +
+      ". Lägst var andelen " + esc(lagst) + " (" +
+      talSv(b[String(lagst)].andel, 2) + "&nbsp;%) och högst " + esc(hogst) +
+      " (" + talSv(b[String(hogst)].andel, 2) + "&nbsp;%). Den nationella " +
+      "nivån har alltså inte legat stilla under perioden.</p>";
+
+    var rader = ar.map(function (a) {
+      var r = b[String(a)];
+      return "<tr><th scope=\"row\">" + esc(a) + "</th><td>" +
+        talSv(r.perInvanare) + "</td><td>" + talSv(r.totalMnkr) +
+        "</td><td>" + talSv(r.andel, 2) + "&nbsp;%</td></tr>";
+    }).join("");
+    el("tabell-bnp").innerHTML =
+      "<thead><tr><th scope=\"col\">År</th>" +
+      "<th scope=\"col\">Kronor per invånare</th>" +
+      "<th scope=\"col\">Totalt (mnkr)</th>" +
+      "<th scope=\"col\">Andel av BNP</th></tr></thead><tbody>" +
+      rader + "</tbody>";
+  }
+
   /* ---------- Kort sagt, källor och metadata ---------- */
 
   function kortSagt() {
@@ -491,6 +568,16 @@
         "vilket syns i diagrammet.");
     }
 
+    var b = data.andelAvBnp;
+    if (b && Object.keys(b).length) {
+      var bar = Object.keys(b).map(Number).sort(function (x, y) { return x - y; });
+      punkter.push("I hela riket tog grundskolan <strong>" +
+        talSv(b[String(bar[bar.length - 1])].andel, 2) + "&nbsp;%</strong> av " +
+        "BNP år " + esc(bar[bar.length - 1]) + ". Den nivån är avvikelsen " +
+        "blind för – referenskostnaden räknas fram ur kommunernas egna " +
+        "utgifter.");
+    }
+
     punkter.push("Inga belopp på sidan är inflationsjusterade – varje mått " +
       "jämför inom samma år, så frågan uppstår aldrig.");
 
@@ -511,6 +598,13 @@
       ? '<a href="' + scb + '">' + esc(data.befolkningKalla) + "</a>"
       : esc(data.befolkningKalla)) + " &ndash; " + esc(data.befolkningMatt) +
       ", hämtat " + esc(data.befolkningHamtad) + ".</li>");
+    if (data.bnpKalla) {
+      var bnpUrl = sakerUrl(data.bnpKallaUrl);
+      rader.push("<li>" + (bnpUrl
+        ? '<a href="' + bnpUrl + '">' + esc(data.bnpKalla) + "</a>"
+        : esc(data.bnpKalla)) + " &ndash; BNP i löpande priser och rikets " +
+        "folkmängd, hämtat " + esc(data.bnpHamtad) + ".</li>");
+    }
     (data.reformer || []).forEach(function (r) {
       var u = sakerUrl(r.kallaUrl);
       rader.push("<li>" + (u
@@ -536,7 +630,7 @@
        underlag stänger sin egen sektion igen – ordningen spelar roll, en
        öppning efteråt skulle visa tomma rutor. */
     ["ingen-prisomrakning", "avvikelse", "kronor", "referens", "andel",
-     "demografi", "kallor", "om"].forEach(function (id) {
+     "demografi", "bnp", "kallor", "om"].forEach(function (id) {
       var s = el("sektion-" + id);
       if (s) s.hidden = false;
     });
@@ -547,6 +641,7 @@
     ritaReferens();
     ritaAndel();
     ritaDemografi();
+    ritaBnp();
     visaKallor();
 
     var upp = el("om-uppdaterad");

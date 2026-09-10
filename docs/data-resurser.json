@@ -6,7 +6,7 @@
  "prisomrakning": "Ingen. Varje mått är en jämförelse inom samma år, så inflationen finns i båda leden och tar ut sig själv.",
  "kalla": "Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag",
  "kallaUrl": "https://www.kolada.se/",
- "apiUrl": "https://api.kolada.se/v3/data/kpi/N15001,N15045,U15011,N15058,N10103/municipality/1384,0000",
+ "apiUrl": "https://api.kolada.se/v3/data/kpi/N15001,N15045,U15011,N15058,N10103,N15025/municipality/1384,0000",
  "hamtad": "2026-09-10",
  "befolkningKalla": "SCB, Befolkningsstatistik (BE0101), Folkmängden efter region, civilstånd, ålder och kön",
  "befolkningKallaUrl": "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101A/BefolkningNy/",
@@ -309,6 +309,84 @@
      "lagstaAr": 2015
     }
    }
+  },
+  {
+   "nyckel": "perInvanare",
+   "etikett": "Grundskolans kostnad per invånare",
+   "enhet": "kronor per invånare",
+   "kolada": "N15025",
+   "koladaTitel": "Kostnad grundskola F-9, hemkommun, kr/inv",
+   "definition": "Bruttokostnad - interna intäkter + kostnad för skolskjuts - försäljning av verksamhet till andra kommuner för förskoleklass och grundskola dividerat med antal invånare i kommunen 31/12 (hemkommun). Uppgiften avser kalenderår. Källa: SCB.",
+   "omraden": {
+    "1384": {
+     "varden": {
+      "1999": 7479.4,
+      "2000": 8936.4,
+      "2001": 9399.6,
+      "2002": 9165.1,
+      "2003": 9832.5,
+      "2004": 9902.8,
+      "2005": 9999.4,
+      "2006": 9695.4,
+      "2007": 9929.1,
+      "2008": 10376.0,
+      "2009": 10407.1,
+      "2010": 10262.0,
+      "2011": 10846.0,
+      "2012": 10820.6,
+      "2013": 11263.2,
+      "2014": 11483.9,
+      "2015": 12227.9,
+      "2016": 13223.3,
+      "2017": 13956.0,
+      "2018": 14131.3,
+      "2019": 14378.2,
+      "2020": 14984.1,
+      "2021": 15398.5,
+      "2022": 16006.0,
+      "2023": 16805.1,
+      "2024": 17290.6,
+      "2025": 17214.7
+     },
+     "forstaAr": 1999,
+     "sistaAr": 2025,
+     "forsta": 7479.4,
+     "sista": 17214.7,
+     "hogsta": 17290.6,
+     "hogstaAr": 2024,
+     "lagsta": 7479.4,
+     "lagstaAr": 1999
+    },
+    "0000": {
+     "varden": {
+      "2004": 8352.9,
+      "2005": 8542.8,
+      "2009": 8777.3,
+      "2010": 8829.4,
+      "2011": 8958.0,
+      "2014": 9929.0,
+      "2015": 10458.9,
+      "2016": 11306.3,
+      "2017": 11953.9,
+      "2018": 12482.4,
+      "2019": 12945.6,
+      "2020": 13241.6,
+      "2021": 13634.1,
+      "2022": 14161.4,
+      "2023": 15059.8,
+      "2024": 15772.0,
+      "2025": 15928.6
+     },
+     "forstaAr": 2004,
+     "sistaAr": 2025,
+     "forsta": 8352.9,
+     "sista": 15928.6,
+     "hogsta": 15928.6,
+     "hogstaAr": 2025,
+     "lagsta": 8352.9,
+     "lagstaAr": 2004
+    }
+   }
   }
  ],
  "befolkning": {
@@ -490,5 +568,90 @@
    2017
   ],
   "tolerans": 0.1
+ },
+ "bnpKalla": "SCB, Nationalräkenskaperna (NR0103), BNP från användningssidan, samt Befolkningsstatistik (BE0101)",
+ "bnpKallaUrl": "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__NR__NR0103__NR0103A/NR0103ENS2010T01A/",
+ "bnpHamtad": "2026-09-10",
+ "andelAvBnp": {
+  "2004": {
+   "perInvanare": 8353,
+   "totalMnkr": 75271,
+   "andel": 2.66
+  },
+  "2005": {
+   "perInvanare": 8543,
+   "totalMnkr": 77293,
+   "andel": 2.64
+  },
+  "2009": {
+   "perInvanare": 8777,
+   "totalMnkr": 81986,
+   "andel": 2.47
+  },
+  "2010": {
+   "perInvanare": 8829,
+   "totalMnkr": 83134,
+   "andel": 2.34
+  },
+  "2011": {
+   "perInvanare": 8958,
+   "totalMnkr": 84947,
+   "andel": 2.29
+  },
+  "2014": {
+   "perInvanare": 9929,
+   "totalMnkr": 96781,
+   "andel": 2.44
+  },
+  "2015": {
+   "perInvanare": 10459,
+   "totalMnkr": 103031,
+   "andel": 2.44
+  },
+  "2016": {
+   "perInvanare": 11306,
+   "totalMnkr": 113008,
+   "andel": 2.57
+  },
+  "2017": {
+   "perInvanare": 11954,
+   "totalMnkr": 120976,
+   "andel": 2.64
+  },
+  "2018": {
+   "perInvanare": 12482,
+   "totalMnkr": 127697,
+   "andel": 2.67
+  },
+  "2019": {
+   "perInvanare": 12946,
+   "totalMnkr": 133697,
+   "andel": 2.66
+  },
+  "2020": {
+   "perInvanare": 13242,
+   "totalMnkr": 137438,
+   "andel": 2.74
+  },
+  "2021": {
+   "perInvanare": 13634,
+   "totalMnkr": 142508,
+   "andel": 2.63
+  },
+  "2022": {
+   "perInvanare": 14161,
+   "totalMnkr": 149000,
+   "andel": 2.56
+  },
+  "2023": {
+   "perInvanare": 15060,
+   "totalMnkr": 158907,
+   "andel": 2.59
+  },
+  "2024": {
+   "perInvanare": 15772,
+   "totalMnkr": 166989,
+   "andel": 2.59
+  }
  }
 }

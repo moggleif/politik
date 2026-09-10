@@ -66,6 +66,12 @@ test räknar av det mot alla år.
                              driftkostnad. Inom kommunens budget är det
                              nollsummespel: mer till skolan är mindre till
                              något annat.
+  perInvanare (N15025)       Grundskolans kostnad per invånare, F–9. För
+                             riket blir det, ställt mot BNP, ett mått på
+                             om måttstocken själv rört sig: avvikelsen
+                             mäts mot en referenskostnad som räknas fram
+                             ur vad kommunerna lägger, så drar alla ner
+                             samtidigt sjunker referensen med dem.
 
 **Inget av resursmåtten ska prisomräknas.** Varje tal är en jämförelse
 inom samma år – en kvot eller en differens där inflationen finns i båda
@@ -164,6 +170,13 @@ RESURSER = [
     {"nyckel": "andelDrift", "kolada": "N10103",
      "etikett": "Grundskolans andel av kommunens driftkostnad",
      "enhet": "procent"},
+    # Rikets kostnad per invånare. Behövs för att se om måttstocken
+    # själv rört sig: referenskostnaden räknas fram ur vad kommunerna
+    # lägger, så sjunker alla samtidigt sjunker referensen med dem.
+    # Ställd mot BNP syns den nationella nivån.
+    {"nyckel": "perInvanare", "kolada": "N15025",
+     "etikett": "Grundskolans kostnad per invånare",
+     "enhet": "kronor per invånare"},
 ]
 
 # Vilken fil varje del skrivs till, och vad filen säger sig innehålla.

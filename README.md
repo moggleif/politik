@@ -108,13 +108,17 @@ kommunens övriga verksamhet.
 
 - [Resurser jämfört med referenskostnaden](https://moggleif.github.io/politik/resurser-till-skolan.html)
   &ndash; avvikelsen i procent och i kronor, nettokostnad mot
-  referenskostnad, grundskolans andel av kommunens driftkostnad, och den
-  andelen ställd mot skolålderns andel av befolkningen, ur Kolada och SCB,
-  1998&ndash;2025
+  referenskostnad, grundskolans andel av kommunens driftkostnad, den
+  andelen ställd mot skolålderns andel av befolkningen, och grundskolans
+  andel av BNP i riket, ur Kolada och SCB, 1998&ndash;2025
 
 **Ingenting på den sidan prisomräknas**, och det är hela poängen: varje mått
 är en jämförelse inom samma år, så inflationen finns i båda leden och tar ut
-sig själv. Två förbehåll står utskrivna på sidan &ndash; avvikelsen mäter inte
+sig själv. Sidan visar också grundskolans andel av BNP i riket, eftersom
+referenskostnaden är en *relativ* måttstock &ndash; den räknas fram ur vad
+kommunerna faktiskt lägger, så en minskad avvikelse kan betyda antingen att
+kommunen höjt sig eller att riket sänkt sig mot kommunen. Bara en nämnare
+utanför kommunsektorn skiljer de två åt. Två förbehåll står utskrivna på sidan &ndash; avvikelsen mäter inte
 bara politisk vilja (den fångar också effektivitet och redovisningspraxis),
 och kostnadsutjämningen byggdes om 2014 och 2020, vilket flyttar avvikelsen
 utan att kommunen gjort något. De åren markeras i diagrammen men räknas
@@ -172,6 +176,8 @@ data/
                                 Kungsbacka, kontrollkälla till Kolada
   scb/kpi.json                  Fastställda KPI-årsmedeltal, för
                                 omräkningen till fasta priser
+  scb/bnp.json                  BNP i löpande priser och rikets folkmängd,
+                                nämnare till den nationella nivån
   scb/folkmangd_kungsbacka.json Faktisk folkmängd, hämtad från SCB:s öppna API
   fortidsroster/mottagna_<år>.csv  Valmyndighetens filer med mottagna
                                 förtidsröster per lokal och dag i hela
@@ -200,6 +206,7 @@ scripts/
   hamta_kostnader.py            Hämtar Skolverkets kostnadsstatistik för
                                 Kungsbacka (rapport 32), som kontrollkälla
   hamta_kpi.py                  Hämtar SCB:s fastställda KPI-årsmedeltal
+  hamta_bnp.py                  Hämtar BNP och rikets folkmängd från SCB
   hamta_slutbetyg.py            Hämtar avgångselevernas slutbetyg ur
                                 Skolverkets exporttjänst, ett läsår per fil
   hamta_amnesbetyg.py           Hämtar niondeklassarnas betyg per ämne ur
@@ -384,6 +391,7 @@ Kostnaden per elev i grundskolan:
 ```bash
 python3 scripts/hamta_kolada.py       # båda delarna, Kungsbacka och riket
 python3 scripts/hamta_kpi.py          # SCB:s fastställda KPI-årsmedeltal
+python3 scripts/hamta_bnp.py          # BNP och rikets folkmängd
 python3 scripts/hamta_kostnader.py    # Skolverkets tal, kontrollkälla
 python3 scripts/build_kostnader.py    # bygger om docs/data-kostnader.json
 python3 scripts/build_resurser.py     # bygger om docs/data-resurser.json

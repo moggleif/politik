@@ -4,6 +4,7 @@
 Läser:
   data/kolada/resurser_grundskola.json   (från hamta_kolada.py --del resurser)
   data/scb/folkmangd_kungsbacka.json     (från hamta_scb.py)
+  data/scb/bnp.json                      (från hamta_bnp.py)
 
 Skriver:
   docs/data-resurser.json
@@ -32,6 +33,19 @@ De två andelarna mäter olika saker – andel av en budget och andel av en
 befolkning – och får därför inte läsas mot samma axel. De ställs i stället
 mot varandra som index med ett gemensamt basår, där bara *rörelsen*
 jämförs.
+
+Dessutom räknas **grundskolans andel av BNP i riket** fram. Den fyller en
+blind fläck i resten av sidan: referenskostnaden är en relativ måttstock,
+framräknad ur vad kommunerna faktiskt lägger. Drar alla kommuner ner
+samtidigt sjunker referensen med dem, och en kommun kan närma sig noll
+utan att ha lagt en krona mer. Avvikelsen mäter avstånd till genomsnittet,
+aldrig genomsnittets nivå. BNP är en nämnare utanför kommunsektorn och
+visar därmed om måttstocken själv rört sig.
+
+    andel av BNP = kostnad per invånare × folkmängd / BNP
+
+Alla tre talen avser samma år och löpande priser. Fasta priser i täljaren
+eller nämnaren, men inte båda, vore ett räknefel.
 
 Körs:  python3 scripts/build_resurser.py
 """
@@ -176,7 +190,33 @@ def referensaren(per_nyckel: dict) -> dict:
     return {"ar": stammer, "utelamnade": utelamnade, "tolerans": TOLERANS}
 
 
-def bygg(kolada: dict, scb: dict) -> dict:
+def andel_av_bnp(per_nyckel: dict, bnpfil: dict) -> dict:
+    """Grundskolans kostnad i riket som andel av BNP, per år.
+
+    Koladas tal är kronor per invånare, BNP är miljoner kronor, så
+    folkmängden behövs för att få dem i samma enhet. Ett år utan alla tre
+    talen utelämnas – serien har luckor i källan, och de ska synas som
+    luckor och inte överbryggas."""
+    serie = per_nyckel.get("perInvanare", {}).get("omraden", {}).get(RIKET)
+    if not serie:
+        return {}
+    bnp = bnpfil.get("bnpLopandePriser", {})
+    folk = bnpfil.get("folkmangd", {})
+    ut = {}
+    for ar, per_inv in serie["varden"].items():
+        nyckel = str(ar)
+        if nyckel not in bnp or nyckel not in folk or not bnp[nyckel]:
+            continue
+        total_mnkr = per_inv * int(folk[nyckel]) / 1_000_000
+        ut[int(ar)] = {
+            "perInvanare": round(per_inv),
+            "totalMnkr": round(total_mnkr),
+            "andel": round(100.0 * total_mnkr / float(bnp[nyckel]), 2),
+        }
+    return dict(sorted(ut.items()))
+
+
+def bygg(kolada: dict, scb: dict, bnpfil: dict) -> dict:
     """Hela utdatan som en ren funktion av indatafilerna, så att den går
     att kontrollräkna i testerna utan att skriva någon fil."""
     serier = [bygg_post(p) for p in kolada["nyckeltal"]]
@@ -203,6 +243,7 @@ def bygg(kolada: dict, scb: dict) -> dict:
             }
 
     referens = referensaren(per_nyckel)
+    bnp = andel_av_bnp(per_nyckel, bnpfil)
 
     ar = sorted({a
                  for s in serier
@@ -233,14 +274,19 @@ def bygg(kolada: dict, scb: dict) -> dict:
         "befolkning": befolkning,
         "jamforelse": jamforelse,
         "referensJamforelse": referens,
+        "bnpKalla": bnpfil.get("kalla"),
+        "bnpKallaUrl": bnpfil.get("kallaUrl"),
+        "bnpHamtad": bnpfil.get("hamtad"),
+        "andelAvBnp": bnp,
     }
 
 
 def main() -> None:
     kolada = lasa_json(ROT / "data" / "kolada" / "resurser_grundskola.json")
     scb = lasa_json(ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+    bnpfil = lasa_json(ROT / "data" / "scb" / "bnp.json")
 
-    ut = json.loads(json.dumps(bygg(kolada, scb)))
+    ut = json.loads(json.dumps(bygg(kolada, scb, bnpfil)))
     utfil = ROT / "docs" / "data-resurser.json"
     utfil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n",
                      encoding="utf-8")
@@ -252,6 +298,11 @@ def main() -> None:
             namn = next(x["namn"] for x in ut["omraden"] if x["kod"] == kod)
             print(f"  {s['nyckel']:17s} {namn:11s} {o['forstaAr']}–{o['sistaAr']}: "
                   f"{o['forsta']} → {o['sista']} ({s['enhet']})")
+    b = ut["andelAvBnp"]
+    if b:
+        bar = sorted(b, key=int)
+        print(f"  grundskolan i riket som andel av BNP: {bar[0]}–{bar[-1]}, "
+              f"{b[bar[0]]['andel']} % → {b[bar[-1]]['andel']} %")
     r = ut["referensJamforelse"]
     print(f"  referensjämförelse: {len(r['ar'])} år hänger ihop"
           + (f", {len(r['utelamnade'])} utelämnade ({', '.join(map(str, r['utelamnade']))})"
