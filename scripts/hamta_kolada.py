@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Hämtar grundskolans kostnader per elev ur Kolada, för Kungsbacka och riket.
+"""Hämtar grundskolans nyckeltal ur Kolada, för Kungsbacka och riket.
+
+Två delar, som svarar på olika frågor och därför skrivs till var sin fil:
+
+  --del kostnader   Vad grundskolan kostar per elev (kostnadssidan)
+  --del resurser    Vad kommunen valt att lägga, jämfört med vad
+                    strukturen motiverar (resurssidan)
+
+Gemensamt för båda: samma API, samma två områden, och talen oavrundade.
 
 Kolada drivs av Rådet för främjande av kommunala analyser (RKA) och
 samlar kommunernas nyckeltal. Kostnadsnyckeltalen bygger på kommunernas
@@ -23,20 +31,60 @@ Två sätt att räkna kostnaden hämtas, för att de svarar på olika frågor:
 Kostnadsslagen (undervisning, lokaler, måltider, lärverktyg, elevhälsa,
 övrigt) hör till det senare måttet och summerar till det.
 
+Kostnadstalen är i löpande priser; omräkningen till fasta priser görs i
+bygget, med KPI från hamta_kpi.py.
+
+RESURSDELEN
+
+Kostnad per elev svarar på vad skolan kostade, inte på vad kommunen
+valde. Talet rör sig när elevantalet ändras, när avtalen höjer lönerna
+och när priserna stiger – ingenting av det är ett beslut. Resursdelen
+hämtar de mått som ligger närmare beslutet:
+
+  avvikelseProcent (N15001)  Hur mycket kommunen lägger över eller under
+                             sin referenskostnad – det utjämningssystemet
+                             räknar fram att en kommun med den här
+                             demografin och strukturen förväntas lägga.
+                             Det som återstår när omständigheterna räknats
+                             bort är ungefär det utrymme där kommunen
+                             bestämmer själv.
+  avvikelseMkr (N15045)      Samma avvikelse i pengar i stället för
+                             procent. Procenten ger riktningen, kronorna
+                             storleken.
+  faktisk (N15027)           Kommunens kostnad per elev, F–9, hemkommun.
+  referens (N15058)          Referenskostnaden per elev, samma avgränsning.
+  andelDrift (N10103)        Grundskolans andel av kommunens totala
+                             driftkostnad. Inom kommunens budget är det
+                             nollsummespel: mer till skolan är mindre till
+                             något annat.
+
+**Inget av resursmåtten ska prisomräknas.** Varje tal är en jämförelse
+inom samma år – en kvot eller en differens där inflationen finns i båda
+leden och tar ut sig själv. Det är därför de är robustare än kronor per
+elev när frågan gäller vad politiken beslutat, och därför resurssidan
+inte läser KPI-filen alls.
+
+Två varningar som hör till avvikelsen och som sidan skriver ut: den mäter
+inte bara politisk vilja (också effektivitet, kostnadsstruktur som
+modellen inte träffar och redovisningspraxis), och referenskostnads-
+modellen har byggts om under periodens gång – 2014 och 2020 – vilket
+flyttar avvikelsen utan att kommunen gjort något.
+
+Riket saknas för avvikelsemåtten, och det är riktigt: rikets avvikelse är
+noll per konstruktion. Nollinjen *är* riket.
+
 API:t (v3; v2 är avvecklat):
 
   https://api.kolada.se/v3/data/kpi/<nyckeltal>/municipality/<kommuner>
 
-Talen är i löpande priser. Omräkningen till fasta priser görs i bygget,
-med KPI från hamta_kpi.py.
+Resultatet sparas till data/kolada/<del>_grundskola.json, med nyckeltalens
+egna definitioner så att sidorna kan visa vad varje serie faktiskt mäter.
 
-Resultatet sparas till data/kolada/kostnader_grundskola.json, med
-nyckeltalens egna definitioner så att sidan kan visa vad varje serie
-faktiskt mäter.
-
-Körs:  python3 scripts/hamta_kolada.py
+Körs:  python3 scripts/hamta_kolada.py                  (båda delarna)
+       python3 scripts/hamta_kolada.py --del resurser   (en av dem)
 """
 
+import argparse
 import json
 import ssl
 import urllib.request
@@ -81,7 +129,48 @@ OVRIGA = [
      "etikett": "Skolskjuts, reseersättning och inackordering"},
 ]
 
-ALLA = MATT + KOSTNADSSLAG + OVRIGA
+KOSTNADER = MATT + KOSTNADSSLAG + OVRIGA
+
+# ---------------------------------------------------------------------------
+# Resursdelen: vad kommunen valt att lägga, jämfört med vad strukturen
+# motiverar. Inget av de här måtten behöver prisomräknas – varje tal är en
+# jämförelse inom samma år, så inflationen finns i både täljare och nämnare
+# och tar ut sig själv. Det är hela skälet till att de är robustare än
+# kronor per elev när frågan gäller vad politiken beslutat.
+RESURSER = [
+    {"nyckel": "avvikelseProcent", "kolada": "N15001",
+     "etikett": "Avvikelse från referenskostnaden",
+     "enhet": "procent",
+     "tecken": "Negativt tal = kommunen lägger mindre än strukturen motiverar"},
+    {"nyckel": "avvikelseMkr", "kolada": "N15045",
+     "etikett": "Avvikelse från referenskostnaden, i pengar",
+     "enhet": "miljoner kronor",
+     "tecken": "Negativt tal = kommunen lägger mindre än strukturen motiverar"},
+    {"nyckel": "faktisk", "kolada": "N15027",
+     "etikett": "Kommunens kostnad per elev",
+     "enhet": "kronor per elev"},
+    {"nyckel": "referens", "kolada": "N15058",
+     "etikett": "Referenskostnad per elev",
+     "enhet": "kronor per elev"},
+    {"nyckel": "andelDrift", "kolada": "N10103",
+     "etikett": "Grundskolans andel av kommunens driftkostnad",
+     "enhet": "procent"},
+]
+
+# Vilken fil varje del skrivs till, och vad filen säger sig innehålla.
+DELAR = {
+    "kostnader": {
+        "nyckeltal": KOSTNADER,
+        "fil": "kostnader_grundskola.json",
+        "matt": "Kostnad för grundskolan per elev, kalenderår, löpande priser",
+    },
+    "resurser": {
+        "nyckeltal": RESURSER,
+        "fil": "resurser_grundskola.json",
+        "matt": "Grundskolans resurser jämförda med referenskostnad och "
+                "med kommunens övriga verksamhet, kalenderår",
+    },
+}
 
 
 def hamta(url: str) -> dict:
@@ -126,8 +215,9 @@ def hamta_serier(nyckeltal: list, omraden: list) -> dict:
     return ut
 
 
-def main() -> None:
-    nyckeltal = [m["kolada"] for m in ALLA]
+def bygg_del(namn: str, del_: dict) -> tuple:
+    """Hämtar en del och returnerar (utdata, sökväg)."""
+    nyckeltal = [m["kolada"] for m in del_["nyckeltal"]]
     koder = [o["kod"] for o in OMRADEN]
 
     definitioner = hamta_definitioner(nyckeltal)
@@ -139,7 +229,7 @@ def main() -> None:
                          "nyckeltalen kan ha bytt beteckning.")
 
     poster = []
-    for m in ALLA:
+    for m in del_["nyckeltal"]:
         rad = dict(m)
         rad["definition"] = definitioner.get(m["kolada"], {}).get("definition")
         rad["koladaTitel"] = definitioner.get(m["kolada"], {}).get("titel")
@@ -151,7 +241,7 @@ def main() -> None:
 
     ut = {
         "omraden": OMRADEN,
-        "matt": "Kostnad för grundskolan per elev, kalenderår, löpande priser",
+        "matt": del_["matt"],
         "kalla": "Kolada (Rådet för främjande av kommunala analyser, RKA), "
                  "nyckeltal ur kommunernas räkenskapssammandrag",
         "kallaUrl": KOLADA_URL,
@@ -160,22 +250,34 @@ def main() -> None:
         "hamtad": date.today().isoformat(),
         "nyckeltal": poster,
     }
+    return ut, ROT / "data" / "kolada" / del_["fil"]
 
-    utfil = ROT / "data" / "kolada" / "kostnader_grundskola.json"
-    utfil.parent.mkdir(parents=True, exist_ok=True)
-    utfil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n",
-                     encoding="utf-8")
 
-    print(f"Skrev {len(poster)} nyckeltal till {utfil}")
-    for rad in poster:
-        for kod, varden in rad["omraden"].items():
-            if not varden:
-                print(f"  {rad['kolada']} {rad['nyckel']:13s} {kod}: inga år")
-                continue
-            ar = sorted(varden)
-            print(f"  {rad['kolada']} {rad['nyckel']:13s} {kod}: "
-                  f"{ar[0]}–{ar[-1]} ({len(ar)} år), "
-                  f"senast {varden[ar[-1]]:.0f} kr")
+def main() -> None:
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--del", dest="delen", choices=sorted(DELAR),
+                   help="hämta bara den här delen (standard: båda)")
+    args = p.parse_args()
+
+    valda = [args.delen] if args.delen else sorted(DELAR)
+    for namn in valda:
+        ut, utfil = bygg_del(namn, DELAR[namn])
+        utfil.parent.mkdir(parents=True, exist_ok=True)
+        utfil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n",
+                         encoding="utf-8")
+
+        print(f"Skrev {len(ut['nyckeltal'])} nyckeltal till {utfil}")
+        for rad in ut["nyckeltal"]:
+            for kod, varden in rad["omraden"].items():
+                if not varden:
+                    # Saknad riketserie är riktigt för avvikelsemåtten:
+                    # rikets avvikelse är noll per konstruktion.
+                    print(f"  {rad['kolada']} {rad['nyckel']:17s} {kod}: inga år")
+                    continue
+                ar = sorted(varden)
+                print(f"  {rad['kolada']} {rad['nyckel']:17s} {kod}: "
+                      f"{ar[0]}–{ar[-1]} ({len(ar)} år), "
+                      f"senast {varden[ar[-1]]:.1f}")
 
 
 if __name__ == "__main__":

@@ -25,6 +25,7 @@
       <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
         <a href="amnesbetyg.html">Betyg per ämne</a>
         <a href="kostnad-per-elev.html">Kostnad per elev</a>
+        <a href="resurser-till-skolan.html">Resurser</a>
       </span>
       <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
         <a href="meritvarden.html">Antagning</a>
@@ -143,7 +144,14 @@
         ett test stämmer av att de två källorna säger samma sak om
         Kungsbacka, år för år. Kostnadsstatistiken omfattar bara kommunala
         skolor &ndash; de fristående skolornas kostnader hålls inne med
-        hänvisning till ekonomisk statistisksekretess.</dd>
+        hänvisning till ekonomisk statistisksekretess.
+        Ur samma källa hämtas också måtten till sidan
+        <a href="resurser-till-skolan.html">Resurser</a>: avvikelsen från
+        referenskostnaden (N15001 och N15045), referenskostnaden per elev
+        (N15058) och grundskolans andel av kommunens driftkostnad (N10103).
+        De ligger i en egen fil,
+        <a href="https://github.com/moggleif/politik/blob/main/data/kolada/resurser_grundskola.json">data/kolada/resurser_grundskola.json</a>,
+        eftersom de svarar på en annan fråga än kostnaderna.</dd>
       <dt>SCB:s konsumentprisindex (prisomräkningen)</dt>
       <dd>Fastställda KPI-årsmedeltal, totalt, 1980 = 100 (tabell TAB4352,
         statistikprodukt PR0101), hämtade ur SCB:s öppna API med
@@ -182,7 +190,7 @@
   <section id="sektion-transformationer">
     <h2>Vad som görs med rådatat</h2>
     <p class="forklaring">
-      Nio byggskript sätter ihop rådatat till de datafiler diagrammen
+      Tio byggskript sätter ihop rådatat till de datafiler diagrammen
       läser. De gör ingenting mer än det som står här:
     </p>
     <dl class="metod-lista">
@@ -353,6 +361,21 @@
         bygget. Omräkningen är den enda beräkning på den sidan som inte
         kommer färdig ur en källa. Skriver
         <a href="data-kostnader.json">data-kostnader.json</a>.</dd>
+      <dt>Resurserna ställs mot referenskostnaden &ndash; utan prisomräkning</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_resurser.py">build_resurser.py</a>
+        gör medvetet <strong>ingen</strong> omräkning till fasta priser.
+        Varje mått på den sidan är en jämförelse inom samma år &ndash; en
+        avvikelse mot en referenskostnad för samma år, eller en andel av
+        samma års driftkostnad &ndash; så inflationen finns i båda leden och
+        tar ut sig själv. Det enda som räknas fram är skolålderns andel av
+        folkmängden: antalet 6&ndash;15-åringar, summerade ur SCB:s
+        ettårsklasser, delat med folkmängden. Den behövs för att skolans
+        andel av budgeten ska gå att läsa &ndash; faller budgetandelen i takt
+        med att barnen blir färre är det demografi, faller den snabbare är
+        det ett val. De två andelarna mäter olika saker och delar därför
+        aldrig axel; de ställs mot varandra som index med ett gemensamt
+        basår, där bara rörelsen jämförs. Skriver
+        <a href="data-resurser.json">data-resurser.json</a>.</dd>
     </dl>
   </section>
 
@@ -368,6 +391,16 @@
         köpt lika mycket skola. Basåret i indexserien (1980 = 100) spelar
         ingen roll: bara kvoten mellan två år används, och den är densamma
         oavsett bas.</dd>
+      <dt>Referenskostnaden är en förväntan, inte en norm</dt>
+      <dd>Utjämningssystemets referenskostnad säger vad en kommun med en
+        viss demografi och struktur typiskt lägger &ndash; inte vad den borde
+        lägga. Avvikelsen från den ligger närmare ett politiskt beslut än
+        kronor per elev gör, eftersom omständigheterna räknats bort, men
+        den fångar också effektivitet, kostnadsstruktur som modellen inte
+        träffar och skillnader i redovisningspraxis. Den är alltså inget
+        rent mått på ambition. Modellen har dessutom byggts om under
+        periodens gång, med verkan från 1 januari 2014 och 1 januari 2020;
+        de åren markeras i diagrammen men räknas aldrig bort.</dd>
       <dt>Kostnad per elev är en kvot, och rör sig åt båda håll</dt>
       <dd>Talet ändras både när kostnaden ändras och när elevantalet gör
         det. Ett år med färre elever ger en högre kostnad per elev även om
@@ -524,6 +557,7 @@ python3 scripts/build_amnesbetyg.py   # ämnesbetygen i årskurs 9
 python3 scripts/build_befolkning.py   # barn och unga 0–15 år
 python3 scripts/build_nian_gymnasiet.py  # från nian till gymnasiet
 python3 scripts/build_kostnader.py    # kostnaden per elev i grundskolan
+python3 scripts/build_resurser.py     # resurserna mot referenskostnaden
 python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pre></div>
     <p class="forklaring">
       Skripten kräver bara Python 3 (utan paket). Att även hämta om

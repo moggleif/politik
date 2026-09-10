@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Hur mycket lägger Kungsbacka på skolan – jämfört med vad?</title>
+<meta name="description" content="Grundskolans resurser i Kungsbacka jämförda med kommunens referenskostnad och med kommunens övriga verksamhet, år för år. Inga belopp behöver inflationsjusteras.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+  <div class="sidhuvud-inre">
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="barn-och-unga.html">0–15 år</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
+        <a href="amnesbetyg.html">Betyg per ämne</a>
+        <a href="kostnad-per-elev.html">Kostnad per elev</a>
+        <a href="resurser-till-skolan.html" aria-current="page">Resurser</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html">Antagning</a>
+        <a href="slutbetyg.html">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+        <a href="nian-till-gymnasiet.html">Nian till gymnasiet</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Val:</span>
+        <a href="fortidsrostning.html">Förtidsröstning</a>
+      </span>
+      <a href="metod.html">Metod</a>
+    </nav>
+    <h1>Hur mycket lägger Kungsbacka på skolan &ndash; jämfört med vad?</h1>
+    <p class="ingress">
+      Sidan om <a href="kostnad-per-elev.html">kostnad per elev</a> svarar på
+      vad grundskolan kostade. Den här sidan ställer en annan fråga: vad
+      kommunen <em>valde</em>. Kostnaden per elev rör sig när elevantalet
+      ändras, när avtalen höjer lönerna och när priserna stiger &ndash; och
+      inget av det är ett beslut. Här jämförs kommunens utgifter i stället
+      med två saker som håller omständigheterna någorlunda stilla:
+      <strong>referenskostnaden</strong>, alltså vad en kommun med
+      Kungsbackas demografi och struktur förväntas lägga, och
+      <strong>kommunens övriga verksamhet</strong>.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <section id="sektion-ingen-prisomrakning" hidden>
+    <h2>Varför inga belopp räknas om här</h2>
+    <p class="forklaring">
+      Kostnadssidan måste räkna om varje krona till en gemensam prisnivå,
+      och därmed välja ett prisindex &ndash; ett val som i sig påverkar
+      svaret. <strong>På den här sidan uppstår aldrig den frågan.</strong>
+      Varje mått är en jämförelse inom samma år: en avvikelse mot en
+      referenskostnad för samma år, eller en andel av samma års
+      driftkostnad. Inflationen finns i båda leden och tar ut sig själv.
+      Det är det främsta skälet till att de här måtten är stabilare än
+      kronor per elev när frågan gäller vad politiken beslutat.
+    </p>
+  </section>
+
+  <section id="sektion-avvikelse" hidden>
+    <h2>Lägger kommunen mer eller mindre än strukturen motiverar?</h2>
+    <p class="forklaring">
+      Utjämningssystemet räknar varje år fram en <em>referenskostnad</em>:
+      vad en kommun förväntas lägga på grundskolan givet sin demografi,
+      socioekonomi och struktur. Staplarna visar hur långt Kungsbacka
+      ligger från den. Noll betyder att kommunen lägger precis vad
+      strukturen motiverar &ndash; det är också rikets värde, eftersom
+      rikets avvikelse är noll per konstruktion. Därför finns ingen
+      riketlinje att rita: <strong>nollinjen är riket</strong>.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-avvikelse" aria-label="Diagram: Kungsbackas avvikelse från referenskostnaden för grundskolan, procent per år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-avvikelse"></p>
+    </div>
+    <div id="not-avvikelse" hidden></div>
+    <div class="slutsats" id="slutsats-avvikelse"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-avvikelse"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kronor" hidden>
+    <h2>Vad avvikelsen motsvarar i pengar</h2>
+    <p class="forklaring">
+      Samma avvikelse i miljoner kronor i stället för procent. Procenten
+      ger riktningen, kronorna storleken &ndash; och det är kronorna som går
+      att ställa mot något annat i kommunen.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kronor" aria-label="Diagram: avvikelsen från referenskostnaden i miljoner kronor per år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kronor"></p>
+    </div>
+    <div class="slutsats" id="slutsats-kronor"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kronor"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-referens" hidden>
+    <h2>Faktisk kostnad mot referenskostnad</h2>
+    <p class="forklaring">
+      De två talen som avvikelsen är skillnaden mellan, var för sig: vad
+      kommunen faktiskt lade per elev, och vad referenskostnaden var samma
+      år. Båda avser grundskolan F&ndash;9 och de elever som bor i kommunen.
+      Ingen prisomräkning behövs &ndash; linjerna jämförs år för år, aldrig
+      mellan år.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-referens" aria-label="Diagram: kommunens faktiska kostnad per elev jämförd med referenskostnaden" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-referens"></p>
+    </div>
+    <div class="slutsats" id="slutsats-referens"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-referens"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-andel" hidden>
+    <h2>Hur stor del av kommunens pengar går till skolan?</h2>
+    <p class="forklaring">
+      Inom kommunens budget är det nollsummespel: mer till skolan är
+      mindre till något annat. Andelen är grundskolans kostnad delad med
+      kommunens hela driftkostnad samma år, för Kungsbacka och för riket.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-andel" aria-label="Diagram: grundskolans andel av kommunens driftkostnad, Kungsbacka och riket" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-andel"></p>
+    </div>
+    <div class="slutsats" id="slutsats-andel"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-andel"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-demografi" hidden>
+    <h2>Är det ett val, eller är det demografin?</h2>
+    <p class="forklaring">
+      En budgetandel kan falla utan att någon nedprioriterat skolan &ndash;
+      det räcker att barnen blir färre, eller att en annan verksamhet
+      växer. Därför ligger skolans andel av budgeten här bredvid
+      skolålderns andel av befolkningen. Rör de sig i takt är det
+      demografi. Faller budgetandelen snabbare än barnandelen är det ett
+      val.
+    </p>
+    <p class="forklaring">
+      De två andelarna mäter olika saker &ndash; andel av en budget och andel
+      av en befolkning &ndash; och deras nivåer säger därför ingenting om
+      varandra. Här jämförs bara <em>rörelsen</em>: båda är satta till 100
+      det första år som båda finns.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-demografi" aria-label="Diagram: skolans andel av budgeten och skolålderns andel av befolkningen, indexerade" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-demografi"></p>
+    </div>
+    <div class="slutsats" id="slutsats-demografi"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-demografi"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Avvikelsen, referenskostnaden och andelarna kommer från Kolada.
+      Befolkningen i skolåldern kommer från SCB. Reformåren i diagrammet
+      är hämtade ur riksdagens handlingar.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Avvikelsen mäter inte bara politisk vilja.</strong> Den fångar
+      också effektivitet, kostnadsstruktur som utjämningsmodellen inte
+      träffar, och skillnader i redovisningspraxis mellan kommuner. En
+      kommun som driver skola billigt får en negativ avvikelse utan att ha
+      valt bort något. Måttet ligger närmare ett beslut än kronor per elev
+      gör &ndash; men det är inte ett rent mått på ambition, och ska inte
+      läsas som ett.
+    </p>
+    <p class="forklaring">
+      <strong>Modellen har byggts om.</strong> Kostnadsutjämningen ändrades
+      med verkan från 1 januari 2014 och 1 januari 2020. En ändrad modell
+      flyttar avvikelsen utan att kommunen gjort något, och åren är därför
+      markerade i diagrammet. De är markerade, inte borträknade &ndash; att
+      märka ut ett brott och att justera för det är två olika saker, och
+      det senare kräver antaganden sidan inte gör.
+    </p>
+    <p class="forklaring">
+      <strong>Referenskostnaden är inte en norm.</strong> Den säger vad en
+      kommun med den här strukturen typiskt lägger, inte vad den borde
+      lägga. Sidan tar inte ställning till om avvikelsen är för stor, för
+      liten eller lagom.
+    </p>
+    <p class="forklaring">
+      <strong>Riksdagen och kommunfullmäktige drar i olika spakar.</strong>
+      Riktade statsbidrag beslutas nationellt men syns i kommunens
+      redovisning. Måtten här skiljer inte de två åt, så en nationell
+      satsning kan se ut som ett lokalt beslut.
+    </p>
+    <p class="forklaring">
+      Vad pengarna räckte till i form av lärare och behöriga lärare
+      redovisas inte här. Det är ett annat mått, och det hör inte hemma i
+      samma bild som kronor &ndash; pengar och bemanning i ett diagram läses
+      som orsak och verkan, och det bär inte datat.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
+      beräkningar är öppna: källkoden och alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sidfot-inre">
+    <p>Data: Kolada (RKA) och SCB:s befolkningsstatistik.
+    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="resurser.js"></script>
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

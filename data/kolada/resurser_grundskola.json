@@ -1,0 +1,209 @@
+{
+ "omraden": [
+  {
+   "kod": "1384",
+   "namn": "Kungsbacka"
+  },
+  {
+   "kod": "0000",
+   "namn": "Riket"
+  }
+ ],
+ "matt": "Grundskolans resurser jämförda med referenskostnad och med kommunens övriga verksamhet, kalenderår",
+ "kalla": "Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag",
+ "kallaUrl": "https://www.kolada.se/",
+ "apiUrl": "https://api.kolada.se/v3/data/kpi/N15001,N15045,N15027,N15058,N10103/municipality/1384,0000",
+ "hamtad": "2026-09-10",
+ "nyckeltal": [
+  {
+   "nyckel": "avvikelseProcent",
+   "kolada": "N15001",
+   "etikett": "Avvikelse från referenskostnaden",
+   "enhet": "procent",
+   "tecken": "Negativt tal = kommunen lägger mindre än strukturen motiverar",
+   "definition": "Avvikelse i procent mellan nettokostnad och referenskostnad för grundskola inkl. förskoleklass, kr/inv. Nettokostnad är bruttokostnad minus bruttointäkt. Referenskostnaden bygger på nettokostnaden för grundskola och förskoleklass i riket, andel 6-15-åringar i kommunen, barn med utländsk bakgrund samt antaganden om merkostnader för små skolor och skolskjuts. Därutöver tillkommer del av standardkostnaderna från delmodellerna löner, bebyggelsestruktur och befolkningsutveckling. Positiva värden indikerar högre kostnadsläge än statistiskt förväntat och negativa värden ett lägre kostnadsläge än statistiskt förväntat. Från och med 2019 beräknas nettokostnadsavvikelse på ett nytt sätt pga förändringar i kostnadsutjämningen. Detta påverkar jämförbarheten med tidigare år. Källa: SKR.",
+   "koladaTitel": "Nettokostnadsavvikelse grundskola F-9, (%)",
+   "omraden": {
+    "1384": {
+     "1998": -9.2708464,
+     "1999": -2.23277752,
+     "2000": 9.72429491,
+     "2001": 0.88327592,
+     "2002": -11.45047096,
+     "2003": -8.44092171,
+     "2004": -9.23850988,
+     "2005": -8.09411557,
+     "2006": -8.93596442,
+     "2007": -6.9,
+     "2008": -5.48,
+     "2009": -5.88,
+     "2010": -7.0661,
+     "2011": -4.4315,
+     "2012": -8.2105,
+     "2013": -4.7414,
+     "2014": -6.8033,
+     "2015": -4.8535,
+     "2016": -3.888,
+     "2017": -3.5236,
+     "2018": -4.4556,
+     "2019": -5.8312,
+     "2020": -3.8523,
+     "2021": -2.4689,
+     "2022": -2.1192,
+     "2023": -2.4134,
+     "2024": -3.0424,
+     "2025": -2.7256
+    },
+    "0000": {}
+   }
+  },
+  {
+   "nyckel": "avvikelseMkr",
+   "kolada": "N15045",
+   "etikett": "Avvikelse från referenskostnaden, i pengar",
+   "enhet": "miljoner kronor",
+   "tecken": "Negativt tal = kommunen lägger mindre än strukturen motiverar",
+   "definition": "Nettokostnadsavvikelsen är nettokostnaden minus referenskostnad för grundskola inkl. förskoleklass, här visat i miljoner kronor. Nettokostnad är bruttokostnad minus bruttointäkt. Referenskostnaden bygger på nettokostnaden för grundskola och förskoleklass i riket, andel 6-15-åringar i kommunen, barn med utländsk bakgrund samt antaganden om merkostnader för små skolor och skolskjuts. Därutöver tillkommer del av standardkostnaderna från delmodellerna löner, bebyggelsestruktur och befolkningsutveckling. Positiva värden indikerar högre kostnadsläge än statistiskt förväntat och negativa värden ett lägre kostnadsläge än statistiskt förväntat. Från och med 2019 beräknas nettokostnadsavvikelse på ett nytt sätt pga förändringar i kostnadsutjämningen. Detta påverkar jämförbarheten med tidigare år. Källa: SKR.",
+   "koladaTitel": "Nettokostnadsavvikelse grundskola F-9, miljoner kronor",
+   "omraden": {
+    "1384": {
+     "2010": -58.215783,
+     "2011": -37.850208,
+     "2012": -73.828957,
+     "2013": -43.317509,
+     "2014": -65.309697,
+     "2015": -49.003467,
+     "2016": -40.9712,
+     "2017": -39.293222,
+     "2018": -51.548104,
+     "2019": -70.490304,
+     "2020": -47.221196,
+     "2021": -31.194739,
+     "2022": -27.747169,
+     "2023": -33.332809,
+     "2024": -43.695398,
+     "2025": -39.186732
+    },
+    "0000": {}
+   }
+  },
+  {
+   "nyckel": "faktisk",
+   "kolada": "N15027",
+   "etikett": "Kommunens kostnad per elev",
+   "enhet": "kronor per elev",
+   "definition": "Bruttokostnad - interna intäkter + kostnad för skolskjuts - försäljning av verksamhet till andra kommuner för förskoleklass och grundskola dividerat med medelvärde av antal elever folkbokförda i kommunen (hemkommun). Uppgiften avser kalenderår. Inklusive integrerade elever (from 2020) samt elever i internationella skolor. Källa: SCB",
+   "koladaTitel": "Kostnad grundskola F-9, hemkommun, kr/elev",
+   "omraden": {
+    "1384": {
+     "1999": 49769.2914612,
+     "2000": 57717.27223131,
+     "2001": 59261.21542731,
+     "2002": 57836.90791033,
+     "2003": 62624.3099228,
+     "2004": 64105.18752356,
+     "2005": 66048.35761589,
+     "2006": 65694.11158798,
+     "2007": 69550.87512779,
+     "2008": 74791.2293578,
+     "2009": 76824.87420128,
+     "2010": 76932.989557,
+     "2011": 81568.385365,
+     "2012": 80823.749124,
+     "2013": 82884.881471,
+     "2014": 83264.923989,
+     "2015": 87548.941559,
+     "2016": 93455.631699,
+     "2017": 98281.652637,
+     "2018": 99806.457079,
+     "2019": 102150.854449,
+     "2020": 106440.44831,
+     "2021": 109204.273362,
+     "2022": 114444.5,
+     "2023": 122628.21605,
+     "2024": 128521.486744,
+     "2025": 130207.026458
+    },
+    "0000": {
+     "2016": 100710.159057,
+     "2017": 104820.117785,
+     "2018": 108633.6078,
+     "2019": 111736.93241,
+     "2020": 113049.635939,
+     "2021": 116251.62335,
+     "2022": 120780.866734,
+     "2023": 128798.374723,
+     "2024": 136042.361448,
+     "2025": 138690.733473
+    }
+   }
+  },
+  {
+   "nyckel": "referens",
+   "kolada": "N15058",
+   "etikett": "Referenskostnad per elev",
+   "enhet": "kronor per elev",
+   "definition": "Referenskostnaden för grundskola redovisas i kronor per elev som snitt av 15/10 år T och T-1 och bygger på nettokostnaden för grundskola och förskoleklass i riket, andel 6-15-åringar i kommunen, barn med utländsk bakgrund samt antaganden om merkostnader för små skolor och skolskjuts. Därutöver tillkommer del av standardkostnaderna från delmodellerna löner, bebyggelsestruktur och befolkningsutveckling. Dataunderlaget avser som regel det aktuella året. Inklusive integrerade elever (from 2020) samt elever i internationella skolor. Källa: SKR och SCB",
+   "koladaTitel": "Referenskostnad grundskola F-9, kr/elev",
+   "omraden": {
+    "1384": {
+     "2016": 97176.2414,
+     "2017": 100893.3287,
+     "2018": 98037.802276,
+     "2019": 101763.978869,
+     "2020": 102525.944869,
+     "2021": 105048.864234,
+     "2022": 109113.597456,
+     "2023": 117668.666647,
+     "2024": 124435.22775,
+     "2025": 125964.669042
+    },
+    "0000": {}
+   }
+  },
+  {
+   "nyckel": "andelDrift",
+   "kolada": "N10103",
+   "etikett": "Grundskolans andel av kommunens driftkostnad",
+   "enhet": "procent",
+   "definition": "Bruttokostnad - interna intäkter + kostnad för skolskjuts - försäljning av verksamhet till andra kommuner avseende förskoleklass och grundskola hemkommun, dividerat med totala driftkostnaden för kommunen multiplicerat med 100. Källa: SCB:s Räkenskapssammandrag",
+   "koladaTitel": "Kostnad grundskola F-9, hemkommun, andel av total driftskostnad (%)",
+   "omraden": {
+    "1384": {
+     "2010": 21.377394,
+     "2011": 21.737723,
+     "2012": 20.892758,
+     "2013": 21.280225,
+     "2014": 21.133875,
+     "2015": 20.077308,
+     "2016": 20.2776,
+     "2017": 21.233922,
+     "2018": 21.459539,
+     "2019": 20.98787,
+     "2020": 21.883276,
+     "2021": 22.008845,
+     "2022": 21.900292,
+     "2023": 21.391318,
+     "2024": 21.721444,
+     "2025": 21.20606
+    },
+    "0000": {
+     "2010": 17.658643,
+     "2011": 17.437677,
+     "2014": 17.915872,
+     "2015": 17.284782,
+     "2016": 17.666114,
+     "2017": 18.275449,
+     "2018": 18.638748,
+     "2019": 19.053864,
+     "2020": 19.214643,
+     "2021": 19.303817,
+     "2022": 19.240122,
+     "2023": 19.303169,
+     "2024": 19.205713,
+     "2025": 19.09617
+    }
+   }
+  }
+ ]
+}

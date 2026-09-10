@@ -99,6 +99,27 @@ medelvärde räknat här. Skolverkets egen kostnadsstatistik hämtas som
 kontrollkälla, och ett test stämmer av att de två källorna säger samma
 sak om Kungsbacka.
 
+**Resurserna till skolan** &ndash; vad kommunen *valde*, till skillnad från
+vad skolan kostade. Kostnaden per elev rör sig när elevantalet ändras, när
+avtalen höjer lönerna och när priserna stiger, och inget av det är ett
+beslut. Här ställs utgifterna i stället mot referenskostnaden &ndash; vad en
+kommun med Kungsbackas demografi och struktur förväntas lägga &ndash; och mot
+kommunens övriga verksamhet.
+
+- [Resurser jämfört med referenskostnaden](https://moggleif.github.io/politik/resurser-till-skolan.html)
+  &ndash; avvikelsen i procent och i kronor, faktisk kostnad mot
+  referenskostnad, grundskolans andel av kommunens driftkostnad, och den
+  andelen ställd mot skolålderns andel av befolkningen, ur Kolada och SCB,
+  1998&ndash;2025
+
+**Ingenting på den sidan prisomräknas**, och det är hela poängen: varje mått
+är en jämförelse inom samma år, så inflationen finns i båda leden och tar ut
+sig själv. Två förbehåll står utskrivna på sidan &ndash; avvikelsen mäter inte
+bara politisk vilja (den fångar också effektivitet och redovisningspraxis),
+och kostnadsutjämningen byggdes om 2014 och 2020, vilket flyttar avvikelsen
+utan att kommunen gjort något. De åren markeras i diagrammen men räknas
+aldrig bort.
+
 **Barn och unga** &ndash; hur många 0&ndash;15-åringar kommunen faktiskt har
 haft. Till skillnad från prognossidorna innehåller den inga prognoser alls.
 
@@ -145,6 +166,8 @@ data/
                                 gymnasiet och grundskolan
   kolada/kostnader_grundskola.json  Grundskolans kostnader per elev för
                                 Kungsbacka och riket, ur Koladas API
+  kolada/resurser_grundskola.json   Avvikelse från referenskostnaden,
+                                referenskostnad och budgetandel
   kostnader/kostnader_<år>.json Skolverkets egna kostnadstal för
                                 Kungsbacka, kontrollkälla till Kolada
   scb/kpi.json                  Fastställda KPI-årsmedeltal, för
@@ -172,8 +195,8 @@ scripts/
   extrahera_budget.py           Läser prognostabellen ur en kommunbudget
   extrahera_antagning.py        Läser meritvärdena för Kungsbackas
                                 gymnasieskolor ur GR:s antagningsrapport
-  hamta_kolada.py               Hämtar grundskolans kostnader per elev för
-                                Kungsbacka och riket ur Koladas API
+  hamta_kolada.py               Hämtar grundskolans nyckeltal ur Koladas
+                                API, i två delar (--del kostnader|resurser)
   hamta_kostnader.py            Hämtar Skolverkets kostnadsstatistik för
                                 Kungsbacka (rapport 32), som kontrollkälla
   hamta_kpi.py                  Hämtar SCB:s fastställda KPI-årsmedeltal
@@ -201,6 +224,11 @@ scripts/
   build_kostnader.py            Bygger docs/data-kostnader.json: kostnaden
                                 per elev i löpande och fasta priser, med
                                 förändringen år för år och mot riket
+  build_resurser.py             Bygger docs/data-resurser.json: avvikelsen
+                                från referenskostnaden, budgetandelen och
+                                skolålderns andel av befolkningen. Gör
+                                ingen prisomräkning – varje mått jämför
+                                inom samma år
   build_nian_gymnasiet.py       Bygger docs/data-nian-gymnasiet.json: nian
                                 år X mot gymnasiet år X…X+3, plus pendlingen
   build_fortidsroster.py        Bygger docs/data-fortidsroster/<kod>.json, en
@@ -225,6 +253,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   barn-och-unga.html            Barn och unga 0–15 år, enbart faktiskt utfall
   amnesbetyg.html               Slutbetyg per ämne i årskurs 9
   kostnad-per-elev.html         Kostnaden per elev i grundskolan, fasta priser
+  resurser-till-skolan.html     Resurserna mot referenskostnaden
   nian-till-gymnasiet.html      Från nian till gymnasiet, tre mätpunkter
   meritvarden.html              Meritvärden vid antagningen till gymnasiet
   slutbetyg.html                Slutbetyg från gymnasiet, program för program
@@ -247,6 +276,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   amnen.js                      Driver ämnesbetygssidan
   kostnader.js                  Driver kostnadssidan; måttet ligger i
                                 adressen (?matt=)
+  resurser.js                   Driver resurssidan
   nian.js                       Driver sidan om nian och gymnasiet
   befolkning.js                 Driver sidan om barn och unga 0–15 år
   fortidsrostning.js            Driver förtidsröstningssidan; ritar också
@@ -261,6 +291,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   data-nian-gymnasiet.json      Data till sidan om nian och gymnasiet (genereras)
   data-befolkning.json          Data till sidan om barn och unga (genereras)
   data-kostnader.json           Data till kostnadssidan (genereras)
+  data-resurser.json            Data till resurssidan (genereras)
   data-fortidsroster/<kod>.json Data till förtidsröstningssidan, en fil per
                                 område, plus index.json (genereras, två gånger
                                 om dagen under förtidsröstningen)
@@ -351,10 +382,11 @@ python3 scripts/build_befolkning.py   # bygger om docs/data-befolkning.json
 Kostnaden per elev i grundskolan:
 
 ```bash
-python3 scripts/hamta_kolada.py       # kostnaderna, Kungsbacka och riket
+python3 scripts/hamta_kolada.py       # båda delarna, Kungsbacka och riket
 python3 scripts/hamta_kpi.py          # SCB:s fastställda KPI-årsmedeltal
 python3 scripts/hamta_kostnader.py    # Skolverkets tal, kontrollkälla
 python3 scripts/build_kostnader.py    # bygger om docs/data-kostnader.json
+python3 scripts/build_resurser.py     # bygger om docs/data-resurser.json
 ```
 
 Kolada publicerar ett kostnadsår i slutet av augusti året efter, och
