@@ -196,12 +196,41 @@
     </details>
   </section>
 
+  <section id="sektion-bnp" hidden>
+    <h2>Har måttstocken själv rört sig?</h2>
+    <p class="forklaring">
+      Referenskostnaden är en <strong>relativ</strong> måttstock: den
+      räknas fram ur vad kommunerna faktiskt lägger. Drar alla kommuner ner
+      samtidigt sjunker referensen med dem &ndash; och en kommun kan närma
+      sig nollan utan att ha lagt en krona mer. Avvikelsen mäter avstånd
+      till genomsnittet, aldrig genomsnittets nivå.
+    </p>
+    <p class="forklaring">
+      Det går bara att avgöra med en nämnare utanför kommunsektorn. Här är
+      grundskolans kostnad i <em>hela riket</em> som andel av BNP: hur stor
+      del av det samhället producerar som går till grundskolan. Som allt
+      annat på sidan är det en kvot inom samma år, så ingen prisomräkning
+      behövs &ndash; men både kostnaden och BNP måste då vara i löpande
+      priser, vilket de är.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-bnp" aria-label="Diagram: grundskolans kostnad i riket som andel av BNP, per år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-bnp"></p>
+    </div>
+    <div id="not-bnp" hidden></div>
+    <div class="slutsats" id="slutsats-bnp"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-bnp"></table></div>
+    </details>
+  </section>
+
   <section id="sektion-kallor" hidden>
     <h2>Källor</h2>
     <p class="forklaring">
       Avvikelsen, referenskostnaden och andelarna kommer från Kolada.
-      Befolkningen i skolåldern kommer från SCB. Reformåren i diagrammet
-      är hämtade ur riksdagens handlingar.
+      Befolkningen i skolåldern, BNP och rikets folkmängd kommer från SCB.
+      Reformåren i diagrammet är hämtade ur riksdagens handlingar.
     </p>
     <ul class="kallista" id="lista-kallor"></ul>
   </section>
@@ -230,6 +259,14 @@
       kommun med den här strukturen typiskt lägger, inte vad den borde
       lägga. Sidan tar inte ställning till om avvikelsen är för stor, för
       liten eller lagom.
+    </p>
+    <p class="forklaring">
+      <strong>Och den är relativ.</strong> Eftersom referenskostnaden
+      räknas fram ur kommunernas egna utgifter kan en minskad avvikelse
+      betyda antingen att kommunen höjt sig eller att riket sänkt sig mot
+      kommunen. Avvikelsediagrammen kan inte skilja de två åt. Därför
+      finns sektionen om andelen av BNP: den visar den nationella nivån,
+      som avvikelsen är blind för.
     </p>
     <p class="forklaring">
       <strong>Riksdagen och kommunfullmäktige drar i olika spakar.</strong>

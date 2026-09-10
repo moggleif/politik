@@ -1183,6 +1183,14 @@ class TestResurser(unittest.TestCase):
     """build_resurser: skolålderns andel, indexjämförelsen och att
     ingenting prisomräknas."""
 
+    BNP = {
+        "kalla": "SCB NR", "kallaUrl": "https://example.org",
+        "hamtad": "2026-01-01",
+        # 1000 invånare, BNP 1000 mnkr => 1 mnkr per invånare
+        "bnpLopandePriser": {"2020": 1000.0, "2021": 2000.0},
+        "folkmangd": {"2020": 1000, "2021": 1000},
+    }
+
     SCB = {
         "kalla": "SCB", "kallaUrl": "https://example.org", "hamtad": "2026-01-01",
         "folkmangd": {"2020": 1000, "2021": 1000},
@@ -1212,13 +1220,16 @@ class TestResurser(unittest.TestCase):
                      andel if andel is not None else {"2020": 20.0, "2021": 22.0}),
                 post("faktisk", "N15027", "kronor per elev",
                      {"2020": 100000.4, "2021": 110000.6}),
+                post("perInvanare", "N15025", "kronor per invånare",
+                     {"2020": 9000.0},
+                     riket={"2020": 10000.0, "2021": 10000.0}),
             ],
         }
 
     def test_skolaldern_ar_6_till_15(self):
         """Åldersgruppen 0–15 i SCB-filen duger inte – den innehåller
         förskolebarnen, och referenskostnaden avser F–9."""
-        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        ut = build_resurser.bygg(self.kolada(), self.SCB, self.BNP)
         self.assertEqual(ut["befolkning"][2020]["antal"], 100)   # 10 åldrar × 10
         self.assertEqual(ut["befolkning"][2020]["andel"], 10.0)  # av 1000
         self.assertEqual(ut["befolkning"][2021]["antal"], 120)
@@ -1226,13 +1237,13 @@ class TestResurser(unittest.TestCase):
     def test_ofullstandigt_ar_raknas_inte(self):
         scb = json.loads(json.dumps(self.SCB))
         del scb["perAlder"]["2021"]["9"]
-        ut = build_resurser.bygg(self.kolada(), scb)
+        ut = build_resurser.bygg(self.kolada(), scb, self.BNP)
         self.assertIn(2020, ut["befolkning"])
         self.assertNotIn(2021, ut["befolkning"])
 
     def test_decimaler_foljer_matten(self):
         """Kronor per elev redovisas i hela kronor, procent med en decimal."""
-        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        ut = build_resurser.bygg(self.kolada(), self.SCB, self.BNP)
         per = {s["nyckel"]: s for s in ut["serier"]}
         self.assertEqual(per["faktisk"]["omraden"]["1384"]["varden"][2020], 100000)
         self.assertEqual(per["avvikelseProcent"]["omraden"]["1384"]["varden"][2020], -5.0)
@@ -1240,14 +1251,14 @@ class TestResurser(unittest.TestCase):
     def test_tom_riketserie_utelamnas(self):
         """Rikets avvikelse är noll per konstruktion och saknas i Kolada.
         Den ska inte bli en tom serie som sidan försöker rita."""
-        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        ut = build_resurser.bygg(self.kolada(), self.SCB, self.BNP)
         per = {s["nyckel"]: s for s in ut["serier"]}
         self.assertNotIn("0000", per["avvikelseProcent"]["omraden"])
         self.assertIn("1384", per["avvikelseProcent"]["omraden"])
 
     def test_jamforelsen_har_gemensamt_basar(self):
         """Två index med var sitt basår mäter inte samma period."""
-        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        ut = build_resurser.bygg(self.kolada(), self.SCB, self.BNP)
         j = ut["jamforelse"]
         self.assertEqual(j["basAr"], 2020)
         self.assertEqual(j["budgetandel"][2020], 100.0)
@@ -1257,8 +1268,32 @@ class TestResurser(unittest.TestCase):
         self.assertEqual(j["barnandel"][2021], 120.0)
 
     def test_jamforelsen_bara_over_gemensamma_ar(self):
-        ut = build_resurser.bygg(self.kolada(andel={"2021": 22.0}), self.SCB)
+        ut = build_resurser.bygg(self.kolada(andel={"2021": 22.0}), self.SCB, self.BNP)
         self.assertEqual(ut["jamforelse"]["ar"], [2021])
+
+    def test_andel_av_bnp_raknas_pa_riket(self):
+        """10 000 kr/inv × 1000 invånare = 10 mnkr, av 1000 mnkr BNP = 1 %."""
+        ut = build_resurser.bygg(self.kolada(), self.SCB, self.BNP)
+        b = ut["andelAvBnp"]
+        self.assertEqual(b[2020]["totalMnkr"], 10)
+        self.assertEqual(b[2020]["andel"], 1.0)
+        # 2021: samma kostnad, dubbel BNP -> halva andelen
+        self.assertEqual(b[2021]["andel"], 0.5)
+
+    def test_ar_utan_bnp_utelamnas(self):
+        """En lucka ska förbli en lucka, inte överbryggas."""
+        bnp = json.loads(json.dumps(self.BNP))
+        del bnp["bnpLopandePriser"]["2021"]
+        b = build_resurser.bygg(self.kolada(), self.SCB, bnp)["andelAvBnp"]
+        self.assertIn(2020, b)
+        self.assertNotIn(2021, b)
+
+    def test_andelen_avser_riket_inte_kommunen(self):
+        """Måttet finns för att se den nationella nivån. Räknas det på
+        Kungsbacka svarar det på fel fråga."""
+        ut = build_resurser.bygg(self.kolada(), self.SCB, self.BNP)
+        # Kungsbacka har 9000 kr/inv, riket 10000 – andelen ska följa riket
+        self.assertEqual(ut["andelAvBnp"][2020]["perInvanare"], 10000)
 
     def test_ingen_kpi_i_bygget(self):
         """Sidans poäng är att inget prisindex behövs. Smyger sig en
@@ -1284,7 +1319,9 @@ class TestResurser(unittest.TestCase):
         scb = json.loads(
             (ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
             .read_text(encoding="utf-8"))
-        jf = build_resurser.bygg(kolada, scb)["referensJamforelse"]
+        bnp = json.loads((ROT / "data" / "scb" / "bnp.json")
+                         .read_text(encoding="utf-8"))
+        jf = build_resurser.bygg(kolada, scb, bnp)["referensJamforelse"]
 
         # De år bygget släpper igenom ska hålla kvoten exakt …
         for ar in jf["ar"]:
@@ -1303,7 +1340,7 @@ class TestResurser(unittest.TestCase):
     def test_reformaren_har_kalla(self):
         """Ett utmärkt brott är ett påstående om verkligheten och ska
         kunna slås upp."""
-        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        ut = build_resurser.bygg(self.kolada(), self.SCB, self.BNP)
         self.assertTrue(ut["reformer"])
         for r in ut["reformer"]:
             self.assertIn(r["ar"], (2014, 2020))
@@ -1417,7 +1454,9 @@ class TestGenereradeFiler(unittest.TestCase):
         scb = json.loads(
             (ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
             .read_text(encoding="utf-8"))
-        ombyggd = json.loads(json.dumps(build_resurser.bygg(kolada, scb)))
+        bnp = json.loads((ROT / "data" / "scb" / "bnp.json")
+                         .read_text(encoding="utf-8"))
+        ombyggd = json.loads(json.dumps(build_resurser.bygg(kolada, scb, bnp)))
         self.assertEqual(ombyggd, self.las("data-resurser.json"))
 
     def test_data_fortidsroster_ar_reproducerbar(self):

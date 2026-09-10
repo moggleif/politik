@@ -18,6 +18,7 @@ och vad som återstår.
 | Grundskolans kostnader 2002–2024, Kungsbacka (Skolverket, kontrollkälla) | Klara |
 | Konsumentprisindex 1980–2025, fastställda årsmedeltal (SCB) | Klart |
 | Avvikelse från referenskostnaden 1998–2025, budgetandel 2010–2025 (Kolada) | Klara |
+| BNP 2000–2024 och rikets folkmängd (SCB) | Klart |
 | Förtidsröster 2010, 2014, 2018 och 2022 (Valmyndigheten) | Klara, historiska |
 | Ångerröster 2018 och 2022, riket (Valmyndigheten) | Klara, avskrivna |
 | Förtidsröster 2026 (Valmyndigheten) | Hämtas automatiskt två gånger om dagen t.o.m. 16 september 2026 |
@@ -768,6 +769,7 @@ Hämtas med `scripts/hamta_kolada.py --del resurser` och byggs med
 | U15011 | Kommunens **nettokostnad** per elev, F–9 | 2013–2025 | 2016–2025 |
 | N15058 | Referenskostnad per elev, samma avgränsning | 2016–2025 | – |
 | N10103 | Grundskolans andel av kommunens driftkostnad, % | 2010–2025 | 2010–2025 |
+| N15025 | Grundskolans kostnad per invånare, F–9 | 1999–2025 | 2004–2025 |
 
 **Referenskostnaden** är vad utjämningssystemet räknar fram att en kommun
 med en viss demografi, socioekonomi och struktur förväntas lägga. Avvikelsen
@@ -788,6 +790,32 @@ sig själv.
 Det gör måtten oberoende av valet av prisindex – ett val som på
 kostnadssidan i sig påverkar svaret, och som inte har något självklart
 facit. Ett test vaktar att `build_resurser.py` inte börjar läsa KPI-filen.
+
+### Den nationella nivån: andel av BNP
+
+Referenskostnaden är en **relativ** måttstock. Den räknas fram ur vad
+kommunerna faktiskt lägger, så drar alla kommuner ner samtidigt sjunker
+referensen med dem – och en kommun kan närma sig noll utan att ha lagt en
+krona mer. Avvikelsen mäter avstånd till genomsnittet, aldrig genomsnittets
+nivå. Det är en blind fläck som bara går att fylla med en nämnare utanför
+kommunsektorn.
+
+BNP är den naturliga. Grundskolans kostnad i riket som andel av BNP räknas
+som:
+
+```
+andel av BNP = kostnad per invånare (N15025, riket) × folkmängd / BNP
+```
+
+Alla tre talen avser samma år och **löpande priser**. Fasta priser i
+täljaren eller nämnaren, men inte båda, vore ett räknefel. BNP och rikets
+folkmängd hämtas med `scripts/hamta_bnp.py` ur SCB:s nationalräkenskaper
+(TAB5621, BNP till marknadspris) respektive befolkningsstatistik.
+
+Serien går 2004–2024 och har **luckor**: Kolada saknar rikstal för 2006,
+2007, 2008, 2012 och 2013. De åren ritas som avbrott i linjen, inte som en
+rak sträcka mellan de år som finns. Slutåret är 2024 eftersom BNP-serien
+slutar där; kostnadstalet finns för 2025.
 
 ### Skolålderns andel av befolkningen
 

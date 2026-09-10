@@ -12,7 +12,7 @@
  "matt": "Grundskolans resurser jämförda med referenskostnad och med kommunens övriga verksamhet, kalenderår",
  "kalla": "Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag",
  "kallaUrl": "https://www.kolada.se/",
- "apiUrl": "https://api.kolada.se/v3/data/kpi/N15001,N15045,U15011,N15058,N10103/municipality/1384,0000",
+ "apiUrl": "https://api.kolada.se/v3/data/kpi/N15001,N15045,U15011,N15058,N10103,N15025/municipality/1384,0000",
  "hamtad": "2026-09-10",
  "nyckeltal": [
   {
@@ -188,6 +188,64 @@
      "2023": 19.303169,
      "2024": 19.205713,
      "2025": 19.09617
+    }
+   }
+  },
+  {
+   "nyckel": "perInvanare",
+   "kolada": "N15025",
+   "etikett": "Grundskolans kostnad per invånare",
+   "enhet": "kronor per invånare",
+   "definition": "Bruttokostnad - interna intäkter + kostnad för skolskjuts - försäljning av verksamhet till andra kommuner för förskoleklass och grundskola dividerat med antal invånare i kommunen 31/12 (hemkommun). Uppgiften avser kalenderår. Källa: SCB.",
+   "koladaTitel": "Kostnad grundskola F-9, hemkommun, kr/inv",
+   "omraden": {
+    "1384": {
+     "1999": 7479.44801548,
+     "2000": 8936.41331224,
+     "2001": 9399.64539976,
+     "2002": 9165.13391315,
+     "2003": 9832.46005351,
+     "2004": 9902.8218528,
+     "2005": 9999.44340204,
+     "2006": 9695.43888295,
+     "2007": 9929.14101637,
+     "2008": 10375.95038252,
+     "2009": 10407.06997755,
+     "2010": 10262.004571,
+     "2011": 10846.03718,
+     "2012": 10820.568085,
+     "2013": 11263.197519,
+     "2014": 11483.936128,
+     "2015": 12227.913676,
+     "2016": 13223.34104,
+     "2017": 13955.980289,
+     "2018": 14131.30489,
+     "2019": 14378.221458,
+     "2020": 14984.128105,
+     "2021": 15398.518188,
+     "2022": 16006.037225,
+     "2023": 16805.132336,
+     "2024": 17290.59819,
+     "2025": 17214.740768
+    },
+    "0000": {
+     "2004": 8352.9061306,
+     "2005": 8542.80575838,
+     "2009": 8777.27218184,
+     "2010": 8829.366218,
+     "2011": 8958.005371,
+     "2014": 9928.964729,
+     "2015": 10458.941853,
+     "2016": 11306.287957,
+     "2017": 11953.89962,
+     "2018": 12482.434188,
+     "2019": 12945.565513,
+     "2020": 13241.56024,
+     "2021": 13634.115028,
+     "2022": 14161.436768,
+     "2023": 15059.758008,
+     "2024": 15772.043435,
+     "2025": 15928.565279
     }
    }
   }

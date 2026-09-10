@@ -156,6 +156,19 @@
         De ligger i en egen fil,
         <a href="https://github.com/moggleif/politik/blob/main/data/kolada/resurser_grundskola.json">data/kolada/resurser_grundskola.json</a>,
         eftersom de svarar på en annan fråga än kostnaderna.</dd>
+      <dt>SCB:s BNP och rikets folkmängd (nämnaren till nationella nivån)</dt>
+      <dd>BNP till marknadspris i löpande priser (tabell TAB5621,
+        Nationalräkenskaperna NR0103) och folkmängden i riket, hämtade med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_bnp.py">scripts/hamta_bnp.py</a>
+        till
+        <a href="https://github.com/moggleif/politik/blob/main/data/scb/bnp.json">data/scb/bnp.json</a>.
+        De behövs för sektionen om grundskolans andel av BNP på
+        <a href="resurser-till-skolan.html">resurssidan</a>, som fyller en
+        blind fläck: referenskostnaden räknas fram ur kommunernas egna
+        utgifter och kan därför inte visa om den nationella nivån rört sig.
+        Att BNP tas i <em>löpande</em> priser är nödvändigt &ndash; kvoten
+        ställer samma års kronor mot samma års kronor, och fasta priser i
+        bara det ena ledet vore ett räknefel.</dd>
       <dt>SCB:s konsumentprisindex (prisomräkningen)</dt>
       <dd>Fastställda KPI-årsmedeltal, totalt, 1980 = 100 (tabell TAB4352,
         statistikprodukt PR0101), hämtade ur SCB:s öppna API med
@@ -378,7 +391,11 @@
         med att barnen blir färre är det demografi, faller den snabbare är
         det ett val. De två andelarna mäter olika saker och delar därför
         aldrig axel; de ställs mot varandra som index med ett gemensamt
-        basår, där bara rörelsen jämförs. Skriver
+        basår, där bara rörelsen jämförs. Dessutom räknas grundskolans
+        andel av BNP i riket fram, som kostnad per invånare gånger
+        folkmängd delat med BNP &ndash; allt i löpande priser och samma år.
+        Den behövs för att avvikelsen mäter avstånd till genomsnittet men
+        aldrig genomsnittets nivå. Skriver
         <a href="data-resurser.json">data-resurser.json</a>.</dd>
     </dl>
   </section>
@@ -404,7 +421,12 @@
         träffar och skillnader i redovisningspraxis. Den är alltså inget
         rent mått på ambition. Modellen har dessutom byggts om under
         periodens gång, med verkan från 1 januari 2014 och 1 januari 2020;
-        de åren markeras i diagrammen men räknas aldrig bort.</dd>
+        de åren markeras i diagrammen men räknas aldrig bort. Och eftersom
+        referenskostnaden räknas fram ur kommunernas egna utgifter är den
+        <strong>relativ</strong>: en minskad avvikelse kan betyda antingen
+        att kommunen höjt sig eller att riket sänkt sig mot kommunen. Den
+        skillnaden syns bara mot en nämnare utanför kommunsektorn, och
+        därför redovisas grundskolans andel av BNP bredvid.</dd>
       <dt>Kostnad per elev är en kvot, och rör sig åt båda håll</dt>
       <dd>Talet ändras både när kostnaden ändras och när elevantalet gör
         det. Ett år med färre elever ger en högre kostnad per elev även om
@@ -567,7 +589,8 @@ python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pr
       Skripten kräver bara Python 3 (utan paket). Att även hämta om
       rådatat &ndash; <code>hamta_scb.py</code>,
       <code>hamta_slutbetyg.py</code>, <code>hamta_kullkedjan.py</code>,
-      <code>hamta_kolada.py</code>, <code>hamta_kpi.py</code>
+      <code>hamta_kolada.py</code>, <code>hamta_kpi.py</code>,
+      <code>hamta_bnp.py</code>
       och <code>extrahera_antagning.py</code> &ndash; kräver nätverk och för
       PDF-läsningen paketet <code>pdfplumber</code>; se
       <a href="https://github.com/moggleif/politik#uppdatera-datat">README</a>.
