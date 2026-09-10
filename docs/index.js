@@ -302,6 +302,30 @@
       "omräknat till " + data.prisniva + " års prisnivå.";
   }
 
+  /* ---------- Resurserna till skolan ---------- */
+
+  function visaResurser(data) {
+    if (!data || !data.serier) return;
+    var avv = null, andel = null;
+    data.serier.forEach(function (s) {
+      if (s.nyckel === "avvikelseProcent") avv = s.omraden["1384"];
+      if (s.nyckel === "andelDrift") andel = s.omraden["1384"];
+    });
+    if (!avv) return;
+
+    var rader = [rad("Avvikelse från referenskostnaden " + esc(avv.sistaAr),
+      (avv.sista > 0 ? "+" : "") + talSv(avv.sista, 1) + " %")];
+    if (andel) {
+      rader.push(rad("Grundskolans andel av kommunens driftkostnad",
+        talSv(andel.sista, 1) + " %"));
+    }
+    fyll("fakta-resurser", rader);
+
+    el("undertext-resurser").textContent =
+      "Avvikelse och budgetandel " + avv.forstaAr + "–" + avv.sistaAr +
+      "; inga belopp inflationsjusteras.";
+  }
+
   /* ---------- Valet 2026: förtidsröstningen ---------- */
 
   function visaVal(data) {
@@ -343,6 +367,7 @@
   hamta("data-befolkning.json").then(visaBarn).catch(function () {});
   hamta("data-nian-gymnasiet.json").then(visaNian).catch(function () {});
   hamta("data-kostnader.json").then(visaKostnader).catch(function () {});
+  hamta("data-resurser.json").then(visaResurser).catch(function () {});
   hamta("data-fortidsroster/" + (el("fakta-val").getAttribute("data-omrade") || "1384") + ".json")
     .then(visaVal).catch(function () {});
 

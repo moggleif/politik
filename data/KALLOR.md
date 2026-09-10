@@ -17,6 +17,7 @@ och vad som återstår.
 | Grundskolans kostnader 1998–2025, Kungsbacka och riket (Kolada) | Klara |
 | Grundskolans kostnader 2002–2024, Kungsbacka (Skolverket, kontrollkälla) | Klara |
 | Konsumentprisindex 1980–2025, fastställda årsmedeltal (SCB) | Klart |
+| Avvikelse från referenskostnaden 1998–2025, budgetandel 2010–2025 (Kolada) | Klara |
 | Förtidsröster 2010, 2014, 2018 och 2022 (Valmyndigheten) | Klara, historiska |
 | Ångerröster 2018 och 2022, riket (Valmyndigheten) | Klara, avskrivna |
 | Förtidsröster 2026 (Valmyndigheten) | Hämtas automatiskt två gånger om dagen t.o.m. 16 september 2026 |
@@ -747,3 +748,109 @@ summerar exakt.
 av augusti 2026; Skolverkets export svarade då fortfarande med tom tabell
 för samma år. Kontrollkällan ligger alltså normalt ett år efter, och
 avstämningen görs på de år båda har.
+
+## Resurserna till skolan (Kolada och SCB)
+
+Kostnadssidan svarar på vad grundskolan kostade. Den här delen svarar på en
+annan fråga: vad kommunen *valde*. Skillnaden är inte akademisk – kostnaden
+per elev rör sig när elevantalet ändras, när avtalen höjer lönerna och när
+priserna stiger, och inget av det är ett beslut.
+
+Hämtas med `scripts/hamta_kolada.py --del resurser` och byggs med
+`scripts/build_resurser.py`.
+
+### Varför de här måtten
+
+| Nyckeltal | Vad det är | Kungsbacka | Riket |
+|---|---|---|---|
+| N15001 | Avvikelse från referenskostnaden, % | 1998–2025 | – |
+| N15045 | Samma avvikelse i miljoner kronor | 2010–2025 | – |
+| U15011 | Kommunens **nettokostnad** per elev, F–9 | 2013–2025 | 2016–2025 |
+| N15058 | Referenskostnad per elev, samma avgränsning | 2016–2025 | – |
+| N10103 | Grundskolans andel av kommunens driftkostnad, % | 2010–2025 | 2010–2025 |
+
+**Referenskostnaden** är vad utjämningssystemet räknar fram att en kommun
+med en viss demografi, socioekonomi och struktur förväntas lägga. Avvikelsen
+från den är det som återstår när omständigheterna räknats bort – alltså
+ungefär det utrymme där kommunen bestämmer själv.
+
+**Riket saknas för avvikelsemåtten, och det är riktigt.** Rikets avvikelse är
+noll per konstruktion. Nollinjen i diagrammet *är* riket, och sidan skriver
+ut det – annars ser det ut som att data fattas.
+
+### Ingen prisomräkning, och det är poängen
+
+Inget mått på sidan räknas om till fasta priser. Varje tal är en jämförelse
+inom samma år: en avvikelse mot en referenskostnad för samma år, eller en
+andel av samma års driftkostnad. Inflationen finns i båda leden och tar ut
+sig själv.
+
+Det gör måtten oberoende av valet av prisindex – ett val som på
+kostnadssidan i sig påverkar svaret, och som inte har något självklart
+facit. Ett test vaktar att `build_resurser.py` inte börjar läsa KPI-filen.
+
+### Skolålderns andel av befolkningen
+
+Det enda som räknas fram i bygget: antalet 6–15-åringar, summerade ur SCB:s
+ettårsklasser, delat med folkmängden. Åldersgruppen 0–15 som redan finns i
+SCB-filen duger inte – den innehåller förskolebarnen, och referenskostnaden
+avser F–9.
+
+Den behövs för att skolans andel av budgeten ska gå att läsa. En budgetandel
+kan falla utan att någon nedprioriterat skolan: det räcker att barnen blir
+färre. Faller budgetandelen i takt med barnandelen är det demografi; faller
+den snabbare är det ett val.
+
+De två andelarna mäter olika saker – andel av en budget och andel av en
+befolkning – och deras nivåer säger ingenting om varandra. De delar därför
+aldrig axel, utan ställs mot varandra som index med ett gemensamt basår, där
+bara rörelsen jämförs. Basåret måste vara gemensamt; två index med var sitt
+basår mäter inte samma period.
+
+### Vad som behövde hanteras
+
+**Modellen har byggts om.** Kostnadsutjämningen ändrades med verkan från
+1 januari 2014 ([bet. 2019/20:FiU18 anger att den föregående större
+ändringen trädde i kraft då](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/betankande/andringar-i-kostnadsutjamningen-for-kommuner-och_H701FiU18/html/))
+och från 1 januari 2020 ([prop. 2019/20:11](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/andringar-i-kostnadsutjamningen-for-kommuner-och_H70311/html/)).
+En ändrad modell flyttar avvikelsen utan att kommunen gjort något. Åren
+markeras i diagrammen med `regimmarkering` – samma mekanism som betygssidorna
+använder för läroplansbyten – men räknas aldrig bort. Att märka ut ett brott
+och att justera för det är två olika saker, och det senare kräver antaganden
+sidan inte gör.
+
+**Avvikelsen är inget rent mått på ambition.** Den fångar också effektivitet,
+kostnadsstruktur som modellen inte träffar och skillnader i redovisningspraxis
+mellan kommuner. En kommun som driver skola billigt får negativ avvikelse
+utan att ha valt bort något. Det står på sidan, och ett test vaktar att det
+står kvar.
+
+**Två nivåer av politik.** Riktade statsbidrag beslutas av riksdagen men syns
+i kommunens redovisning. Måtten här skiljer inte de två åt, så en nationell
+satsning kan se ut som ett lokalt beslut. Sidan säger det i stället för att
+låtsas att den mäter enbart kommunfullmäktige.
+
+**Netto, inte brutto – och det gick fel en gång.** Avvikelsen är definierad
+mot *nettokostnaden*, alltså efter intäkter, avgifter och riktade statsbidrag.
+Först ritades bruttokostnaden per elev (N15027) bredvid referenskostnaden,
+och då motsade sidan sig själv: staplarna visade en kostnad under
+referensen medan linjen låg över den. Kungsbackas bruttokostnad per elev
+ligger nämligen över referenskostnaden samtidigt som nettokostnaden ligger
+under den. Rätt serie är U15011. Ett test räknar av att nettokostnad delad
+med referenskostnad ger avvikelsen, år för år.
+
+**Källans serier hänger inte ihop för 2016 och 2017.** För de åren ger
+nettokostnad delad med referenskostnad inte den avvikelse Kolada redovisar –
+skillnaden är flera procentenheter, och referenskostnaden per elev verkar
+räknad på en annan grund. De åren utelämnas därför ur linjediagrammet, men
+ingår i avvikelsediagrammet, som bygger på ett publicerat tal. Åren är inte
+hårdkodade: bygget prövar kvoten mot avvikelsen år för år med en tolerans på
+0,1 procentenheter, så de kommer tillbaka av sig själva om källan rättas.
+Ett test kontrollerar både att de godkända åren håller och att de utelämnade
+verkligen inte gör det.
+
+**Ändpunkter är inte en trend.** Budgetandelen och barnandelen står 2025
+nästan exakt lika, men de har gått isär och mötts igen under vägen. Sidan
+räknar därför fram det största avståndet under perioden och skriver ut det
+bredvid ändpunkterna; ett test vaktar att den inte går tillbaka till att
+bara jämföra början och slutet.

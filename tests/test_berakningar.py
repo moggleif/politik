@@ -40,6 +40,7 @@ build_meritvarden = ladda("build_meritvarden")
 build_slutbetyg = ladda("build_slutbetyg")
 build_fortidsroster = ladda("build_fortidsroster")
 build_kostnader = ladda("build_kostnader")
+build_resurser = ladda("build_resurser")
 hamta_fortidsroster = ladda("hamta_fortidsroster")
 skolverket = ladda("skolverket")
 
@@ -1178,6 +1179,138 @@ class TestKostnaderKallorna(unittest.TestCase):
             build_kostnader.kontrollera_kostnadsslag(self.kolada), [])
 
 
+class TestResurser(unittest.TestCase):
+    """build_resurser: skolålderns andel, indexjämförelsen och att
+    ingenting prisomräknas."""
+
+    SCB = {
+        "kalla": "SCB", "kallaUrl": "https://example.org", "hamtad": "2026-01-01",
+        "folkmangd": {"2020": 1000, "2021": 1000},
+        # Bara 6–15 ska räknas: 5-åringen och 16-åringen ligger utanför
+        "perAlder": {
+            "2020": dict({str(a): 10 for a in range(6, 16)}, **{"5": 99, "16": 99}),
+            "2021": dict({str(a): 12 for a in range(6, 16)}, **{"5": 99, "16": 99}),
+        },
+    }
+
+    def kolada(self, andel=None):
+        def post(nyckel, kod, enhet, varden, riket=None):
+            return {"nyckel": nyckel, "kolada": kod, "etikett": nyckel,
+                    "enhet": enhet, "koladaTitel": nyckel,
+                    "definition": "påhittad",
+                    "omraden": {"1384": varden, "0000": riket or {}}}
+        return {
+            "omraden": [{"kod": "1384", "namn": "Kungsbacka"},
+                        {"kod": "0000", "namn": "Riket"}],
+            "matt": "Resurser", "kalla": "Kolada",
+            "kallaUrl": "https://example.org",
+            "apiUrl": "https://example.org/api", "hamtad": "2026-01-01",
+            "nyckeltal": [
+                post("avvikelseProcent", "N15001", "procent",
+                     {"2020": -5.04, "2021": -2.96}),
+                post("andelDrift", "N10103", "procent",
+                     andel if andel is not None else {"2020": 20.0, "2021": 22.0}),
+                post("faktisk", "N15027", "kronor per elev",
+                     {"2020": 100000.4, "2021": 110000.6}),
+            ],
+        }
+
+    def test_skolaldern_ar_6_till_15(self):
+        """Åldersgruppen 0–15 i SCB-filen duger inte – den innehåller
+        förskolebarnen, och referenskostnaden avser F–9."""
+        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        self.assertEqual(ut["befolkning"][2020]["antal"], 100)   # 10 åldrar × 10
+        self.assertEqual(ut["befolkning"][2020]["andel"], 10.0)  # av 1000
+        self.assertEqual(ut["befolkning"][2021]["antal"], 120)
+
+    def test_ofullstandigt_ar_raknas_inte(self):
+        scb = json.loads(json.dumps(self.SCB))
+        del scb["perAlder"]["2021"]["9"]
+        ut = build_resurser.bygg(self.kolada(), scb)
+        self.assertIn(2020, ut["befolkning"])
+        self.assertNotIn(2021, ut["befolkning"])
+
+    def test_decimaler_foljer_matten(self):
+        """Kronor per elev redovisas i hela kronor, procent med en decimal."""
+        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        per = {s["nyckel"]: s for s in ut["serier"]}
+        self.assertEqual(per["faktisk"]["omraden"]["1384"]["varden"][2020], 100000)
+        self.assertEqual(per["avvikelseProcent"]["omraden"]["1384"]["varden"][2020], -5.0)
+
+    def test_tom_riketserie_utelamnas(self):
+        """Rikets avvikelse är noll per konstruktion och saknas i Kolada.
+        Den ska inte bli en tom serie som sidan försöker rita."""
+        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        per = {s["nyckel"]: s for s in ut["serier"]}
+        self.assertNotIn("0000", per["avvikelseProcent"]["omraden"])
+        self.assertIn("1384", per["avvikelseProcent"]["omraden"])
+
+    def test_jamforelsen_har_gemensamt_basar(self):
+        """Två index med var sitt basår mäter inte samma period."""
+        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        j = ut["jamforelse"]
+        self.assertEqual(j["basAr"], 2020)
+        self.assertEqual(j["budgetandel"][2020], 100.0)
+        self.assertEqual(j["barnandel"][2020], 100.0)
+        # 20 -> 22 procent är +10 %, 10 -> 12 procent av folkmängden är +20 %
+        self.assertEqual(j["budgetandel"][2021], 110.0)
+        self.assertEqual(j["barnandel"][2021], 120.0)
+
+    def test_jamforelsen_bara_over_gemensamma_ar(self):
+        ut = build_resurser.bygg(self.kolada(andel={"2021": 22.0}), self.SCB)
+        self.assertEqual(ut["jamforelse"]["ar"], [2021])
+
+    def test_ingen_kpi_i_bygget(self):
+        """Sidans poäng är att inget prisindex behövs. Smyger sig en
+        KPI-omräkning in är måtten inte längre samma-år-jämförelser."""
+        kod = (ROT / "scripts" / "build_resurser.py").read_text(encoding="utf-8")
+        self.assertNotIn("kpi.json", kod)
+        self.assertNotIn("prisniva", kod)
+
+    def test_natverket_mellan_serierna_haller(self):
+        """Nettokostnad delad med referenskostnad ska ge avvikelsen.
+
+        Det här är sidans inre sammanhang, och det gick sönder en gång:
+        avvikelsen är definierad mot *nettokostnaden*, men bruttokostnaden
+        per elev ritades först. Kungsbackas bruttokostnad ligger över
+        referenskostnaden samtidigt som nettokostnaden ligger under den,
+        så sidan visade staplar under noll bredvid en linje över
+        referensen. Går kvoten isär igen har fel serie hämtats.
+        """
+        kolada = json.loads(
+            (ROT / "data" / "kolada" / "resurser_grundskola.json")
+            .read_text(encoding="utf-8"))
+        per = {p["nyckel"]: p["omraden"]["1384"] for p in kolada["nyckeltal"]}
+        scb = json.loads(
+            (ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+            .read_text(encoding="utf-8"))
+        jf = build_resurser.bygg(kolada, scb)["referensJamforelse"]
+
+        # De år bygget släpper igenom ska hålla kvoten exakt …
+        for ar in jf["ar"]:
+            self.assertAlmostEqual(
+                100.0 * (per["faktisk"][str(ar)] / per["referens"][str(ar)] - 1),
+                per["avvikelseProcent"][str(ar)], places=1, msg=str(ar))
+        self.assertGreater(len(jf["ar"]), 5, "för få år kunde stämmas av")
+
+        # … och de utelämnade ska verkligen inte hålla den, annars sållar
+        # bygget bort år i onödan.
+        for ar in jf["utelamnade"]:
+            kvot = 100.0 * (per["faktisk"][str(ar)] / per["referens"][str(ar)] - 1)
+            self.assertGreater(abs(kvot - per["avvikelseProcent"][str(ar)]),
+                               jf["tolerans"], str(ar))
+
+    def test_reformaren_har_kalla(self):
+        """Ett utmärkt brott är ett påstående om verkligheten och ska
+        kunna slås upp."""
+        ut = build_resurser.bygg(self.kolada(), self.SCB)
+        self.assertTrue(ut["reformer"])
+        for r in ut["reformer"]:
+            self.assertIn(r["ar"], (2014, 2020))
+            self.assertTrue(r["kalla"])
+            self.assertTrue(r["kallaUrl"].startswith("https://"))
+
+
 class TestGenereradeFiler(unittest.TestCase):
     """Datafilerna i docs/ ska vara exakt vad byggskripten ger av data/.
 
@@ -1276,6 +1409,16 @@ class TestGenereradeFiler(unittest.TestCase):
         # Åren är heltalsnycklar i bygget men strängar i JSON-filen
         ombyggd = json.loads(json.dumps(build_kostnader.bygg(kolada, kpi)))
         self.assertEqual(ombyggd, self.las("data-kostnader.json"))
+
+    def test_data_resurser_ar_reproducerbar(self):
+        kolada = json.loads(
+            (ROT / "data" / "kolada" / "resurser_grundskola.json")
+            .read_text(encoding="utf-8"))
+        scb = json.loads(
+            (ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+            .read_text(encoding="utf-8"))
+        ombyggd = json.loads(json.dumps(build_resurser.bygg(kolada, scb)))
+        self.assertEqual(ombyggd, self.las("data-resurser.json"))
 
     def test_data_fortidsroster_ar_reproducerbar(self):
         """Alla områdesfiler, och inga andra, ska vara vad bygget ger."""
@@ -1515,6 +1658,26 @@ class TestTolkningsregler(unittest.TestCase):
         for vag in ("docs/kostnad-per-elev.html", "docs/metod.html"):
             self.assertIn("kostnad per elev är en kvot",
                           self.las(vag).lower(), vag)
+
+    def test_avvikelsen_utges_inte_for_ren_politisk_vilja(self):
+        """Avvikelsen fångar också effektivitet, kostnadsstruktur som
+        modellen inte träffar och redovisningspraxis. Kallas den ett mått
+        på ambition påstår sidan mer än talet bär."""
+        text = self.las("docs/resurser-till-skolan.html").lower()
+        self.assertIn("mäter inte bara politisk vilja", text)
+        self.assertIn("referenskostnaden är inte en norm", text)
+
+    def test_modellbrotten_markeras_men_raknas_inte_bort(self):
+        """Att märka ut ett brott och att justera för det är olika saker."""
+        self.assertIn("markerade, inte borträknade",
+                      self.las("docs/resurser-till-skolan.html"))
+
+    def test_resurssidan_jamfor_inte_bara_andpunkter(self):
+        """Två linjer som råkar mötas på slutet kan ha gått isär hela
+        vägen. Sidan räknar därför fram det största avståndet också."""
+        js = self.las("docs/resurser.js")
+        self.assertNotIn("följts åt tämligen nära", js)
+        self.assertIn("Vägen dit var inte rak", js)
 
     def test_prognoserna_avgor_ingenting(self):
         """Sidan visar prognoser och utfall, inte vad de styr.
