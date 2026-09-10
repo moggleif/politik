@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -928,7 +928,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -991,53 +991,60 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 421,
-     "ack": 2683
+     "antal": 462,
+     "ack": 2724
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 473,
-     "ack": 3156
+     "antal": 476,
+     "ack": 3200
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 197,
-     "ack": 3353
+     "antal": 198,
+     "ack": 3398
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 222,
-     "ack": 3575
+     "antal": 223,
+     "ack": 3621
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 726,
-     "ack": 4301
+     "antal": 729,
+     "ack": 4350
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 784,
-     "ack": 5085
+     "antal": 792,
+     "ack": 5142
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 572,
-     "ack": 5657
+     "ack": 5714
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 494,
+     "ack": 6208
     }
    ],
-   "total": 5657,
+   "total": 6208,
    "rostberattigade": {
     "riksdag": 17996,
     "kommun": 18485,
@@ -1055,37 +1062,37 @@
      "namn": "G:a Apoteket",
      "kommun": "Lindesberg",
      "lokalId": "1885004",
-     "total": 3579,
-     "dagarMedRoster": 15,
-     "storstaDag": 397,
-     "andel": 63.3
+     "total": 3861,
+     "dagarMedRoster": 16,
+     "storstaDag": 401,
+     "andel": 62.2
     },
     {
      "namn": "Järnvägsstationen",
      "kommun": "Lindesberg",
      "lokalId": "1885002",
-     "total": 1021,
-     "dagarMedRoster": 8,
+     "total": 1125,
+     "dagarMedRoster": 9,
      "storstaDag": 170,
-     "andel": 18.0
+     "andel": 18.1
     },
     {
      "namn": "Ekbackens skola",
      "kommun": "Lindesberg",
      "lokalId": "1885001",
-     "total": 439,
-     "dagarMedRoster": 8,
-     "storstaDag": 106,
-     "andel": 7.8
+     "total": 491,
+     "dagarMedRoster": 9,
+     "storstaDag": 108,
+     "andel": 7.9
     },
     {
      "namn": "Råsshallen",
      "kommun": "Lindesberg",
      "lokalId": "1885003",
-     "total": 373,
-     "dagarMedRoster": 3,
+     "total": 444,
+     "dagarMedRoster": 4,
      "storstaDag": 154,
-     "andel": 6.6
+     "andel": 7.2
     },
     {
      "namn": "Lindeskolan",
@@ -1094,7 +1101,7 @@
      "total": 72,
      "dagarMedRoster": 1,
      "storstaDag": 72,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Grönboda",
@@ -1103,7 +1110,16 @@
      "total": 60,
      "dagarMedRoster": 1,
      "storstaDag": 60,
-     "andel": 1.1
+     "andel": 1.0
+    },
+    {
+     "namn": "Anstalten Hinseberg",
+     "kommun": "Lindesberg",
+     "lokalId": "1885005",
+     "total": 40,
+     "dagarMedRoster": 1,
+     "storstaDag": 40,
+     "andel": 0.6
     },
     {
      "namn": "Tallåsen",
@@ -1130,7 +1146,7 @@
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Ekgården",
@@ -1154,19 +1170,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Lindesberg",
      "lokalId": "1885006",
-     "total": 2,
-     "dagarMedRoster": 2,
-     "storstaDag": 1,
-     "andel": 0.0
-    },
-    {
-     "namn": "Anstalten Hinseberg",
-     "kommun": "Lindesberg",
-     "lokalId": "1885005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 4,
+     "dagarMedRoster": 3,
+     "storstaDag": 2,
+     "andel": 0.1
     }
    ],
    "antalLokaler": 13,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1567,7 +1567,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1674,9 +1674,16 @@
      "kvar": 4,
      "antal": 5372,
      "ack": 44037
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 1595,
+     "ack": 45632
     }
    ],
-   "total": 44037,
+   "total": 45632,
    "rostberattigade": {
     "riksdag": 130874,
     "kommun": 134854,
@@ -1694,8 +1701,8 @@
      "namn": "Huvudbiblioteket",
      "kommun": "Linköping",
      "lokalId": "0580025",
-     "total": 7876,
-     "dagarMedRoster": 15,
+     "total": 8181,
+     "dagarMedRoster": 16,
      "storstaDag": 889,
      "andel": 17.9
     },
@@ -1703,35 +1710,35 @@
      "namn": "Ekholmens centrum",
      "kommun": "Linköping",
      "lokalId": "0580015",
-     "total": 5705,
-     "dagarMedRoster": 15,
+     "total": 5877,
+     "dagarMedRoster": 16,
      "storstaDag": 573,
-     "andel": 13.0
+     "andel": 12.9
     },
     {
      "namn": "Lilla torget (Gyllentorget)",
      "kommun": "Linköping",
      "lokalId": "0580052",
-     "total": 4913,
-     "dagarMedRoster": 13,
+     "total": 5073,
+     "dagarMedRoster": 14,
      "storstaDag": 631,
-     "andel": 11.2
+     "andel": 11.1
     },
     {
      "namn": "Valbod vid Livli/IKEA",
      "kommun": "Linköping",
      "lokalId": "0580032",
-     "total": 4067,
-     "dagarMedRoster": 15,
+     "total": 4230,
+     "dagarMedRoster": 16,
      "storstaDag": 436,
-     "andel": 9.2
+     "andel": 9.3
     },
     {
      "namn": "Berga Centrum",
      "kommun": "Linköping",
      "lokalId": "0580013",
-     "total": 3995,
-     "dagarMedRoster": 15,
+     "total": 4151,
+     "dagarMedRoster": 16,
      "storstaDag": 425,
      "andel": 9.1
     },
@@ -1739,28 +1746,28 @@
      "namn": "Valbod Djurgårdens centrum",
      "kommun": "Linköping",
      "lokalId": "0580050",
-     "total": 3334,
-     "dagarMedRoster": 15,
+     "total": 3472,
+     "dagarMedRoster": 16,
      "storstaDag": 397,
      "andel": 7.6
-    },
-    {
-     "namn": "Skäggetorp centrum, lokal WILL-MEET",
-     "kommun": "Linköping",
-     "lokalId": "0580012",
-     "total": 2185,
-     "dagarMedRoster": 15,
-     "storstaDag": 231,
-     "andel": 5.0
     },
     {
      "namn": "Linköpings universitet",
      "kommun": "Linköping",
      "lokalId": "0580001",
-     "total": 2110,
-     "dagarMedRoster": 11,
+     "total": 2301,
+     "dagarMedRoster": 12,
      "storstaDag": 421,
-     "andel": 4.8
+     "andel": 5.0
+    },
+    {
+     "namn": "Skäggetorp centrum, lokal WILL-MEET",
+     "kommun": "Linköping",
+     "lokalId": "0580012",
+     "total": 2274,
+     "dagarMedRoster": 16,
+     "storstaDag": 231,
+     "andel": 5.0
     },
     {
      "namn": "Ljungsbro bibliotek",
@@ -1769,14 +1776,14 @@
      "total": 1953,
      "dagarMedRoster": 10,
      "storstaDag": 386,
-     "andel": 4.4
+     "andel": 4.3
     },
     {
      "namn": "UngZon Ryd",
      "kommun": "Linköping",
      "lokalId": "0580030",
-     "total": 1529,
-     "dagarMedRoster": 15,
+     "total": 1601,
+     "dagarMedRoster": 16,
      "storstaDag": 185,
      "andel": 3.5
     },
@@ -1787,7 +1794,7 @@
      "total": 1357,
      "dagarMedRoster": 7,
      "storstaDag": 278,
-     "andel": 3.1
+     "andel": 3.0
     },
     {
      "namn": "Valbod Tallboda centrum",
@@ -1796,7 +1803,7 @@
      "total": 1282,
      "dagarMedRoster": 15,
      "storstaDag": 169,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Åkerbogården Linghem",
@@ -1805,7 +1812,7 @@
      "total": 829,
      "dagarMedRoster": 10,
      "storstaDag": 173,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Resecentrum, stationshuset",
@@ -1814,7 +1821,7 @@
      "total": 788,
      "dagarMedRoster": 15,
      "storstaDag": 107,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Vikingstad skolas skolrestaurang",
@@ -1829,10 +1836,10 @@
      "namn": "Universitetssjukhuset",
      "kommun": "Linköping",
      "lokalId": "0580019",
-     "total": 514,
-     "dagarMedRoster": 3,
+     "total": 622,
+     "dagarMedRoster": 4,
      "storstaDag": 206,
-     "andel": 1.2
+     "andel": 1.4
     },
     {
      "namn": "Norrberga skola gymnastiksal",
@@ -1847,10 +1854,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Linköping",
      "lokalId": "0580040",
-     "total": 90,
-     "dagarMedRoster": 2,
+     "total": 131,
+     "dagarMedRoster": 3,
      "storstaDag": 84,
-     "andel": 0.2
+     "andel": 0.3
     },
     {
      "namn": "Ramstorps trygghetsboende",

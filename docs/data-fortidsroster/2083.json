@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -891,18 +891,25 @@
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1018,
-     "ack": 3787
+     "antal": 1020,
+     "ack": 3789
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 621,
-     "ack": 4408
+     "antal": 623,
+     "ack": 4412
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 217,
+     "ack": 4629
     }
    ],
-   "total": 4408,
+   "total": 4629,
    "rostberattigade": {
     "riksdag": 11834,
     "kommun": 12185,
@@ -920,19 +927,19 @@
      "namn": "Tjädernhuset",
      "kommun": "Hedemora",
      "lokalId": "2083001",
-     "total": 3458,
-     "dagarMedRoster": 15,
-     "storstaDag": 422,
-     "andel": 78.4
+     "total": 3659,
+     "dagarMedRoster": 16,
+     "storstaDag": 423,
+     "andel": 79.0
     },
     {
      "namn": "Långshyttans Folket Hus",
      "kommun": "Hedemora",
      "lokalId": "2083003",
-     "total": 425,
+     "total": 427,
      "dagarMedRoster": 2,
-     "storstaDag": 257,
-     "andel": 9.6
+     "storstaDag": 258,
+     "andel": 9.2
     },
     {
      "namn": "Garpenbergs församlingshem",
@@ -941,7 +948,7 @@
      "total": 293,
      "dagarMedRoster": 2,
      "storstaDag": 211,
-     "andel": 6.6
+     "andel": 6.3
     },
     {
      "namn": "Vikmanshyttans Kyrka",
@@ -950,16 +957,16 @@
      "total": 168,
      "dagarMedRoster": 2,
      "storstaDag": 128,
-     "andel": 3.8
+     "andel": 3.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Hedemora",
      "lokalId": "2083004",
-     "total": 64,
-     "dagarMedRoster": 5,
+     "total": 82,
+     "dagarMedRoster": 6,
      "storstaDag": 24,
-     "andel": 1.5
+     "andel": 1.8
     }
    ],
    "antalLokaler": 5,

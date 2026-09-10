@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -935,46 +935,53 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 136,
-     "ack": 1404
+     "antal": 138,
+     "ack": 1406
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 146,
-     "ack": 1550
+     "ack": 1552
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 68,
-     "ack": 1618
+     "ack": 1620
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 327,
-     "ack": 1945
+     "ack": 1947
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 173,
-     "ack": 2118
+     "antal": 176,
+     "ack": 2123
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 354,
-     "ack": 2472
+     "ack": 2477
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 63,
+     "ack": 2540
     }
    ],
-   "total": 2472,
+   "total": 2540,
    "rostberattigade": {
     "riksdag": 11430,
     "kommun": 12418,
@@ -992,10 +999,10 @@
      "namn": "Kommunhuset",
      "kommun": "Bjuv",
      "lokalId": "1260002",
-     "total": 1370,
-     "dagarMedRoster": 15,
+     "total": 1420,
+     "dagarMedRoster": 16,
      "storstaDag": 193,
-     "andel": 55.4
+     "andel": 55.9
     },
     {
      "namn": "Skeneholmssalen, Billesholm",
@@ -1004,16 +1011,16 @@
      "total": 590,
      "dagarMedRoster": 6,
      "storstaDag": 161,
-     "andel": 23.9
+     "andel": 23.2
     },
     {
      "namn": "Ekebyskolan, cafeteria",
      "kommun": "Bjuv",
      "lokalId": "1260006",
-     "total": 419,
-     "dagarMedRoster": 6,
+     "total": 437,
+     "dagarMedRoster": 7,
      "storstaDag": 131,
-     "andel": 16.9
+     "andel": 17.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1022,7 +1029,7 @@
      "total": 93,
      "dagarMedRoster": 5,
      "storstaDag": 35,
-     "andel": 3.8
+     "andel": 3.7
     }
    ],
    "antalLokaler": 4,

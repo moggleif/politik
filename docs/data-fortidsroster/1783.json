@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -994,32 +994,39 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 111,
-     "ack": 1963
+     "antal": 112,
+     "ack": 1964
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 372,
-     "ack": 2335
+     "ack": 2336
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 324,
-     "ack": 2659
+     "antal": 326,
+     "ack": 2662
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 499,
-     "ack": 3158
+     "antal": 504,
+     "ack": 3166
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 125,
+     "ack": 3291
     }
    ],
-   "total": 3158,
+   "total": 3291,
    "rostberattigade": {
     "riksdag": 8424,
     "kommun": 9454,
@@ -1037,19 +1044,19 @@
      "namn": "Stadshuset i Hagfors",
      "kommun": "Hagfors",
      "lokalId": "1783001",
-     "total": 2096,
-     "dagarMedRoster": 13,
+     "total": 2223,
+     "dagarMedRoster": 14,
      "storstaDag": 245,
-     "andel": 66.4
+     "andel": 67.5
     },
     {
      "namn": "Bågskytten, Ekshärad",
      "kommun": "Hagfors",
      "lokalId": "1783006",
-     "total": 701,
+     "total": 705,
      "dagarMedRoster": 6,
-     "storstaDag": 283,
-     "andel": 22.2
+     "storstaDag": 287,
+     "andel": 21.4
     },
     {
      "namn": "Råda skola",
@@ -1058,7 +1065,7 @@
      "total": 177,
      "dagarMedRoster": 2,
      "storstaDag": 102,
-     "andel": 5.6
+     "andel": 5.4
     },
     {
      "namn": "Sunnemo skola",
@@ -1067,14 +1074,14 @@
      "total": 121,
      "dagarMedRoster": 1,
      "storstaDag": 121,
-     "andel": 3.8
+     "andel": 3.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Hagfors",
      "lokalId": "1783009",
-     "total": 63,
-     "dagarMedRoster": 4,
+     "total": 65,
+     "dagarMedRoster": 5,
      "storstaDag": 31,
      "andel": 2.0
     }

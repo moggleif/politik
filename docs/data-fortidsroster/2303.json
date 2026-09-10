@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -972,9 +972,16 @@
      "kvar": 4,
      "antal": 12,
      "ack": 1325
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 47,
+     "ack": 1372
     }
    ],
-   "total": 1325,
+   "total": 1372,
    "rostberattigade": {
     "riksdag": 3949,
     "kommun": 4173,
@@ -995,16 +1002,16 @@
      "total": 581,
      "dagarMedRoster": 11,
      "storstaDag": 93,
-     "andel": 43.8
+     "andel": 42.3
     },
     {
      "namn": "Nornan",
      "kommun": "Ragunda",
      "lokalId": "2303002",
-     "total": 379,
-     "dagarMedRoster": 10,
+     "total": 426,
+     "dagarMedRoster": 11,
      "storstaDag": 56,
-     "andel": 28.6
+     "andel": 31.0
     },
     {
      "namn": "Forshallen Bispgården",
@@ -1013,7 +1020,7 @@
      "total": 308,
      "dagarMedRoster": 10,
      "storstaDag": 64,
-     "andel": 23.2
+     "andel": 22.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1022,7 +1029,7 @@
      "total": 57,
      "dagarMedRoster": 3,
      "storstaDag": 30,
-     "andel": 4.3
+     "andel": 4.2
     },
     {
      "namn": "Blå huset (Moderna)",

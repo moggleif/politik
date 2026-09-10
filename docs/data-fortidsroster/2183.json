@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -988,11 +988,18 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 840,
-     "ack": 7058
+     "antal": 844,
+     "ack": 7062
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 252,
+     "ack": 7314
     }
    ],
-   "total": 7058,
+   "total": 7314,
    "rostberattigade": {
     "riksdag": 20571,
     "kommun": 20987,
@@ -1010,10 +1017,10 @@
      "namn": "Kulturhuset Bollnäs",
      "kommun": "Bollnäs",
      "lokalId": "2183005",
-     "total": 5444,
-     "dagarMedRoster": 15,
-     "storstaDag": 567,
-     "andel": 77.1
+     "total": 5699,
+     "dagarMedRoster": 16,
+     "storstaDag": 571,
+     "andel": 77.9
     },
     {
      "namn": "Ängslunda",
@@ -1022,7 +1029,7 @@
      "total": 735,
      "dagarMedRoster": 8,
      "storstaDag": 130,
-     "andel": 10.4
+     "andel": 10.0
     },
     {
      "namn": "Lövlundsskolan",
@@ -1031,7 +1038,7 @@
      "total": 649,
      "dagarMedRoster": 8,
      "storstaDag": 113,
-     "andel": 9.2
+     "andel": 8.9
     },
     {
      "namn": "Församlingshuset",
@@ -1040,7 +1047,7 @@
      "total": 154,
      "dagarMedRoster": 3,
      "storstaDag": 56,
-     "andel": 2.2
+     "andel": 2.1
     },
     {
      "namn": "Karlslund Särskilt boende",
@@ -1049,14 +1056,14 @@
      "total": 46,
      "dagarMedRoster": 1,
      "storstaDag": 46,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Bollnäs",
      "lokalId": "2183006",
-     "total": 30,
-     "dagarMedRoster": 7,
+     "total": 31,
+     "dagarMedRoster": 8,
      "storstaDag": 13,
      "andel": 0.4
     }

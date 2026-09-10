@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1431,9 +1431,16 @@
      "kvar": 4,
      "antal": 2760,
      "ack": 22725
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 706,
+     "ack": 23431
     }
    ],
-   "total": 22725,
+   "total": 23431,
    "rostberattigade": {
     "riksdag": 66643,
     "kommun": 68266,
@@ -1451,19 +1458,19 @@
      "namn": "Rådhus Skåne",
      "kommun": "Kristianstad",
      "lokalId": "1290007",
-     "total": 6786,
-     "dagarMedRoster": 15,
+     "total": 7044,
+     "dagarMedRoster": 16,
      "storstaDag": 547,
-     "andel": 29.9
+     "andel": 30.1
     },
     {
      "namn": "Åhus IF - Klubbstuga",
      "kommun": "Kristianstad",
      "lokalId": "1290006",
-     "total": 3687,
-     "dagarMedRoster": 13,
+     "total": 3817,
+     "dagarMedRoster": 14,
      "storstaDag": 416,
-     "andel": 16.2
+     "andel": 16.3
     },
     {
      "namn": "C4 Shopping",
@@ -1472,14 +1479,14 @@
      "total": 2527,
      "dagarMedRoster": 8,
      "storstaDag": 377,
-     "andel": 11.1
+     "andel": 10.8
     },
     {
      "namn": "Galleria Boulevard",
      "kommun": "Kristianstad",
      "lokalId": "1290011",
-     "total": 2112,
-     "dagarMedRoster": 10,
+     "total": 2177,
+     "dagarMedRoster": 11,
      "storstaDag": 244,
      "andel": 9.3
     },
@@ -1490,25 +1497,25 @@
      "total": 1340,
      "dagarMedRoster": 7,
      "storstaDag": 247,
-     "andel": 5.9
+     "andel": 5.7
     },
     {
      "namn": "Gamlegårdens bibliotek",
      "kommun": "Kristianstad",
      "lokalId": "1290005",
-     "total": 1254,
-     "dagarMedRoster": 7,
+     "total": 1327,
+     "dagarMedRoster": 8,
      "storstaDag": 237,
-     "andel": 5.5
+     "andel": 5.7
     },
     {
      "namn": "Wä IF Klubbstugan",
      "kommun": "Kristianstad",
      "lokalId": "1290008",
-     "total": 1002,
-     "dagarMedRoster": 5,
+     "total": 1073,
+     "dagarMedRoster": 6,
      "storstaDag": 261,
-     "andel": 4.4
+     "andel": 4.6
     },
     {
      "namn": "Degeberga bibliotek",
@@ -1517,7 +1524,16 @@
      "total": 905,
      "dagarMedRoster": 5,
      "storstaDag": 254,
-     "andel": 4.0
+     "andel": 3.9
+    },
+    {
+     "namn": "Fjälkinge IF Klubbstuga",
+     "kommun": "Kristianstad",
+     "lokalId": "1290004",
+     "total": 614,
+     "dagarMedRoster": 6,
+     "storstaDag": 143,
+     "andel": 2.6
     },
     {
      "namn": "Önnestads bibliotek",
@@ -1526,34 +1542,25 @@
      "total": 611,
      "dagarMedRoster": 4,
      "storstaDag": 178,
-     "andel": 2.7
-    },
-    {
-     "namn": "Fjälkinge IF Klubbstuga",
-     "kommun": "Kristianstad",
-     "lokalId": "1290004",
-     "total": 589,
-     "dagarMedRoster": 5,
-     "storstaDag": 143,
      "andel": 2.6
     },
     {
      "namn": "Arkelstorp folkets hus",
      "kommun": "Kristianstad",
      "lokalId": "1290002",
-     "total": 485,
-     "dagarMedRoster": 4,
+     "total": 536,
+     "dagarMedRoster": 5,
      "storstaDag": 171,
-     "andel": 2.1
+     "andel": 2.3
     },
     {
      "namn": "Österängs församlingshem",
      "kommun": "Kristianstad",
      "lokalId": "1290010",
-     "total": 425,
-     "dagarMedRoster": 5,
+     "total": 458,
+     "dagarMedRoster": 6,
      "storstaDag": 131,
-     "andel": 1.9
+     "andel": 2.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1562,7 +1569,7 @@
      "total": 338,
      "dagarMedRoster": 10,
      "storstaDag": 72,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Furuboda Folkhögskola",

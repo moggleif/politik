@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1036,7 +1036,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1141,11 +1141,18 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 174,
-     "ack": 1219
+     "antal": 186,
+     "ack": 1231
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 42,
+     "ack": 1273
     }
    ],
-   "total": 1219,
+   "total": 1273,
    "rostberattigade": {
     "riksdag": 2886,
     "kommun": 3052,
@@ -1163,10 +1170,10 @@
      "namn": "Norsjö Folkets Hus",
      "kommun": "Norsjö",
      "lokalId": "2417002",
-     "total": 1016,
-     "dagarMedRoster": 15,
-     "storstaDag": 134,
-     "andel": 83.3
+     "total": 1067,
+     "dagarMedRoster": 16,
+     "storstaDag": 146,
+     "andel": 83.8
     },
     {
      "namn": "Folkets Hus, Bastuträsk",
@@ -1175,7 +1182,7 @@
      "total": 66,
      "dagarMedRoster": 1,
      "storstaDag": 66,
-     "andel": 5.4
+     "andel": 5.2
     },
     {
      "namn": "Bjurträsk",
@@ -1184,7 +1191,7 @@
      "total": 36,
      "dagarMedRoster": 1,
      "storstaDag": 36,
-     "andel": 3.0
+     "andel": 2.8
     },
     {
      "namn": "Kusfors",
@@ -1193,7 +1200,7 @@
      "total": 33,
      "dagarMedRoster": 1,
      "storstaDag": 33,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Åmliden",
@@ -1229,7 +1236,16 @@
      "total": 7,
      "dagarMedRoster": 1,
      "storstaDag": 7,
-     "andel": 0.6
+     "andel": 0.5
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Norsjö",
+     "lokalId": "2417004",
+     "total": 6,
+     "dagarMedRoster": 3,
+     "storstaDag": 3,
+     "andel": 0.5
     },
     {
      "namn": "Solbacka",
@@ -1257,15 +1273,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 4,
      "andel": 0.3
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Norsjö",
-     "lokalId": "2417004",
-     "total": 3,
-     "dagarMedRoster": 2,
-     "storstaDag": 2,
-     "andel": 0.2
     }
    ],
    "antalLokaler": 12,

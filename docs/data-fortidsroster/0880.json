@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1567,7 +1567,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1672,11 +1672,18 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 2005,
-     "ack": 15653
+     "antal": 2006,
+     "ack": 15654
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 429,
+     "ack": 16083
     }
    ],
-   "total": 15653,
+   "total": 16083,
    "rostberattigade": {
     "riksdag": 56257,
     "kommun": 57789,
@@ -1694,10 +1701,10 @@
      "namn": "Kulturhuset Strömmen",
      "kommun": "Kalmar",
      "lokalId": "0880023",
-     "total": 8721,
-     "dagarMedRoster": 15,
+     "total": 9093,
+     "dagarMedRoster": 16,
      "storstaDag": 970,
-     "andel": 55.7
+     "andel": 56.5
     },
     {
      "namn": "Biblioteket Lindsdal",
@@ -1706,7 +1713,7 @@
      "total": 1261,
      "dagarMedRoster": 7,
      "storstaDag": 254,
-     "andel": 8.1
+     "andel": 7.8
     },
     {
      "namn": "Biblioteket Bergavik",
@@ -1715,7 +1722,7 @@
      "total": 1130,
      "dagarMedRoster": 7,
      "storstaDag": 252,
-     "andel": 7.2
+     "andel": 7.0
     },
     {
      "namn": "Allaktivitetshuset Rockneby",
@@ -1724,7 +1731,7 @@
      "total": 745,
      "dagarMedRoster": 5,
      "storstaDag": 197,
-     "andel": 4.8
+     "andel": 4.6
     },
     {
      "namn": "Biblioteket Ljungbyholm",
@@ -1733,16 +1740,16 @@
      "total": 668,
      "dagarMedRoster": 5,
      "storstaDag": 193,
-     "andel": 4.3
+     "andel": 4.2
     },
     {
      "namn": "Träffpunkt Skogsrået",
      "kommun": "Kalmar",
      "lokalId": "0880021",
-     "total": 591,
-     "dagarMedRoster": 6,
+     "total": 624,
+     "dagarMedRoster": 7,
      "storstaDag": 109,
-     "andel": 3.8
+     "andel": 3.9
     },
     {
      "namn": "Träffpunkt Stensberg",
@@ -1751,7 +1758,7 @@
      "total": 553,
      "dagarMedRoster": 4,
      "storstaDag": 151,
-     "andel": 3.5
+     "andel": 3.4
     },
     {
      "namn": "Biblioteket Rinkabyholm",
@@ -1760,7 +1767,7 @@
      "total": 449,
      "dagarMedRoster": 4,
      "storstaDag": 150,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Träffpunkt Ingelstorpsvägen 1",
@@ -1769,7 +1776,7 @@
      "total": 416,
      "dagarMedRoster": 4,
      "storstaDag": 147,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Biblioteket Trekanten",
@@ -1787,7 +1794,7 @@
      "total": 292,
      "dagarMedRoster": 2,
      "storstaDag": 179,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Biblioteket Påryd",
@@ -1844,13 +1851,22 @@
      "andel": 0.2
     },
     {
+     "namn": "Möregården",
+     "kommun": "Kalmar",
+     "lokalId": "0880012",
+     "total": 13,
+     "dagarMedRoster": 1,
+     "storstaDag": 13,
+     "andel": 0.1
+    },
+    {
      "namn": "Backsippvägen 13 (fd Ljungbyhemmet)",
      "kommun": "Kalmar",
      "lokalId": "0880013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 12,
+     "dagarMedRoster": 1,
+     "storstaDag": 12,
+     "andel": 0.1
     },
     {
      "namn": "Berga Backe",
@@ -1883,15 +1899,6 @@
      "namn": "Länssjukhuset Kalmar",
      "kommun": "Kalmar",
      "lokalId": "0880001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Möregården",
-     "kommun": "Kalmar",
-     "lokalId": "0880012",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

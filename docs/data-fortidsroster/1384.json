@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1450,7 +1450,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1534,32 +1534,39 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 1168,
-     "ack": 15615
+     "antal": 1172,
+     "ack": 15619
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 2553,
-     "ack": 18168
+     "ack": 18172
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 2329,
-     "ack": 20497
+     "ack": 20501
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 2607,
-     "ack": 23104
+     "antal": 2618,
+     "ack": 23119
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 676,
+     "ack": 23795
     }
    ],
-   "total": 23104,
+   "total": 23795,
    "rostberattigade": {
     "riksdag": 66505,
     "kommun": 67149,
@@ -1577,10 +1584,10 @@
      "namn": "Kungsmässan",
      "kommun": "Kungsbacka",
      "lokalId": "1384008",
-     "total": 14284,
-     "dagarMedRoster": 15,
-     "storstaDag": 1459,
-     "andel": 61.8
+     "total": 14815,
+     "dagarMedRoster": 16,
+     "storstaDag": 1465,
+     "andel": 62.3
     },
     {
      "namn": "Kullaviks bibliotek",
@@ -1589,7 +1596,16 @@
      "total": 2074,
      "dagarMedRoster": 11,
      "storstaDag": 352,
-     "andel": 9.0
+     "andel": 8.7
+    },
+    {
+     "namn": "Kungsbacka, Stadshuset",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384013",
+     "total": 1621,
+     "dagarMedRoster": 14,
+     "storstaDag": 180,
+     "andel": 6.8
     },
     {
      "namn": "Onsala Båt och Sjöfartsmuseum",
@@ -1598,16 +1614,7 @@
      "total": 1595,
      "dagarMedRoster": 11,
      "storstaDag": 243,
-     "andel": 6.9
-    },
-    {
-     "namn": "Kungsbacka, Stadshuset",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384013",
-     "total": 1505,
-     "dagarMedRoster": 13,
-     "storstaDag": 180,
-     "andel": 6.5
+     "andel": 6.7
     },
     {
      "namn": "Åsa Bibliotek",
@@ -1616,7 +1623,7 @@
      "total": 1281,
      "dagarMedRoster": 11,
      "storstaDag": 228,
-     "andel": 5.5
+     "andel": 5.4
     },
     {
      "namn": "Frillesåsskolan",
@@ -1625,7 +1632,7 @@
      "total": 747,
      "dagarMedRoster": 11,
      "storstaDag": 126,
-     "andel": 3.2
+     "andel": 3.1
     },
     {
      "namn": "Toråsskolan, biblioteket",
@@ -1640,8 +1647,8 @@
      "namn": "Fjärås bibliotek",
      "kommun": "Kungsbacka",
      "lokalId": "1384012",
-     "total": 323,
-     "dagarMedRoster": 4,
+     "total": 344,
+     "dagarMedRoster": 5,
      "storstaDag": 117,
      "andel": 1.4
     },
@@ -1649,9 +1656,9 @@
      "namn": "Älvsåkersskolan, Biblioteket",
      "kommun": "Kungsbacka",
      "lokalId": "1384019",
-     "total": 250,
+     "total": 259,
      "dagarMedRoster": 5,
-     "storstaDag": 93,
+     "storstaDag": 98,
      "andel": 1.1
     },
     {
@@ -1661,7 +1668,7 @@
      "total": 107,
      "dagarMedRoster": 3,
      "storstaDag": 51,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1736,6 +1743,15 @@
      "andel": 0.1
     },
     {
+     "namn": "Elof Lindälvs gymnasium",
+     "kommun": "Kungsbacka",
+     "lokalId": "1384004",
+     "total": 20,
+     "dagarMedRoster": 2,
+     "storstaDag": 14,
+     "andel": 0.1
+    },
+    {
      "namn": "Löftagårdens vård- och omsorgsboende",
      "kommun": "Kungsbacka",
      "lokalId": "1384009",
@@ -1779,15 +1795,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 14,
      "andel": 0.1
-    },
-    {
-     "namn": "Elof Lindälvs gymnasium",
-     "kommun": "Kungsbacka",
-     "lokalId": "1384004",
-     "total": 6,
-     "dagarMedRoster": 1,
-     "storstaDag": 6,
-     "andel": 0.0
     },
     {
      "namn": "Bedagårdens vård- och omsorgsboende",

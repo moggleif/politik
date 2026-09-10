@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -901,7 +901,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1006,11 +1006,18 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 341,
-     "ack": 3090
+     "antal": 343,
+     "ack": 3092
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 188,
+     "ack": 3280
     }
    ],
-   "total": 3090,
+   "total": 3280,
    "rostberattigade": {
     "riksdag": 8613,
     "kommun": 9336,
@@ -1028,28 +1035,28 @@
      "namn": "Biblioteket Torsby",
      "kommun": "Torsby",
      "lokalId": "1737003",
-     "total": 1948,
-     "dagarMedRoster": 13,
+     "total": 2087,
+     "dagarMedRoster": 14,
      "storstaDag": 276,
-     "andel": 63.0
+     "andel": 63.6
     },
     {
      "namn": "Kommunhuset Torsby",
      "kommun": "Torsby",
      "lokalId": "1737001",
-     "total": 552,
-     "dagarMedRoster": 11,
+     "total": 582,
+     "dagarMedRoster": 12,
      "storstaDag": 73,
-     "andel": 17.9
+     "andel": 17.7
     },
     {
      "namn": "Lokalkontorets reception",
      "kommun": "Torsby",
      "lokalId": "1737002",
-     "total": 306,
-     "dagarMedRoster": 11,
+     "total": 327,
+     "dagarMedRoster": 12,
      "storstaDag": 38,
-     "andel": 9.9
+     "andel": 10.0
     },
     {
      "namn": "Bokbussen",
@@ -1058,7 +1065,7 @@
      "total": 261,
      "dagarMedRoster": 10,
      "storstaDag": 61,
-     "andel": 8.4
+     "andel": 8.0
     },
     {
      "namn": "Ambulerande röstmottagning",

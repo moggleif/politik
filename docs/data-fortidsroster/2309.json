@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1153,7 +1153,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1237,32 +1237,39 @@
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 356,
-     "ack": 2199
+     "antal": 360,
+     "ack": 2203
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 141,
-     "ack": 2340
+     "ack": 2344
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 414,
-     "ack": 2754
+     "ack": 2758
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 462,
-     "ack": 3216
+     "antal": 463,
+     "ack": 3221
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 132,
+     "ack": 3353
     }
    ],
-   "total": 3216,
+   "total": 3353,
    "rostberattigade": {
     "riksdag": 11848,
     "kommun": 12109,
@@ -1280,10 +1287,10 @@
      "namn": "Krokoms kommunhus",
      "kommun": "Krokom",
      "lokalId": "2309011",
-     "total": 1508,
-     "dagarMedRoster": 14,
-     "storstaDag": 267,
-     "andel": 46.9
+     "total": 1641,
+     "dagarMedRoster": 15,
+     "storstaDag": 268,
+     "andel": 48.9
     },
     {
      "namn": "Ås församlingsgård",
@@ -1292,7 +1299,7 @@
      "total": 415,
      "dagarMedRoster": 4,
      "storstaDag": 181,
-     "andel": 12.9
+     "andel": 12.4
     },
     {
      "namn": "Änge servicekontor",
@@ -1301,7 +1308,7 @@
      "total": 299,
      "dagarMedRoster": 8,
      "storstaDag": 65,
-     "andel": 9.3
+     "andel": 8.9
     },
     {
      "namn": "Näldens bygdegård",
@@ -1310,7 +1317,7 @@
      "total": 254,
      "dagarMedRoster": 3,
      "storstaDag": 146,
-     "andel": 7.9
+     "andel": 7.6
     },
     {
      "namn": "Edevallen",
@@ -1319,7 +1326,7 @@
      "total": 247,
      "dagarMedRoster": 7,
      "storstaDag": 52,
-     "andel": 7.7
+     "andel": 7.4
     },
     {
      "namn": "Trångsvikens bygdegård",
@@ -1328,15 +1335,15 @@
      "total": 117,
      "dagarMedRoster": 2,
      "storstaDag": 82,
-     "andel": 3.6
+     "andel": 3.5
     },
     {
      "namn": "Laxsjö bygdegård",
      "kommun": "Krokom",
      "lokalId": "2309001",
-     "total": 96,
+     "total": 100,
      "dagarMedRoster": 1,
-     "storstaDag": 96,
+     "storstaDag": 100,
      "andel": 3.0
     },
     {
@@ -1346,7 +1353,7 @@
      "total": 86,
      "dagarMedRoster": 1,
      "storstaDag": 86,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Bredbyns föreningshus",
@@ -1364,7 +1371,7 @@
      "total": 34,
      "dagarMedRoster": 1,
      "storstaDag": 34,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Kaxås bygdegård",
@@ -1373,7 +1380,7 @@
      "total": 34,
      "dagarMedRoster": 1,
      "storstaDag": 34,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Tångeråsens bygdegård",
@@ -1400,7 +1407,7 @@
      "total": 18,
      "dagarMedRoster": 1,
      "storstaDag": 18,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Solbacka, Föllinge",
@@ -1409,7 +1416,7 @@
      "total": 15,
      "dagarMedRoster": 1,
      "storstaDag": 15,
-     "andel": 0.5
+     "andel": 0.4
     }
    ],
    "antalLokaler": 15,

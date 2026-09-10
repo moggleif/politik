@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1099,7 +1099,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1204,11 +1204,18 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 696,
-     "ack": 7051
+     "antal": 697,
+     "ack": 7052
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 387,
+     "ack": 7439
     }
    ],
-   "total": 7051,
+   "total": 7439,
    "rostberattigade": {
     "riksdag": 22032,
     "kommun": 22635,
@@ -1226,37 +1233,37 @@
      "namn": "Gallerian",
      "kommun": "Mjölby",
      "lokalId": "0586010",
-     "total": 3920,
-     "dagarMedRoster": 13,
+     "total": 4167,
+     "dagarMedRoster": 14,
      "storstaDag": 509,
-     "andel": 55.6
+     "andel": 56.0
     },
     {
      "namn": "Häradsvallens förskola",
      "kommun": "Mjölby",
      "lokalId": "0586005",
-     "total": 1301,
-     "dagarMedRoster": 12,
-     "storstaDag": 168,
+     "total": 1377,
+     "dagarMedRoster": 13,
+     "storstaDag": 169,
      "andel": 18.5
     },
     {
      "namn": "Hatten gemenskapslokal",
      "kommun": "Mjölby",
      "lokalId": "0586007",
-     "total": 936,
-     "dagarMedRoster": 9,
+     "total": 971,
+     "dagarMedRoster": 10,
      "storstaDag": 184,
-     "andel": 13.3
+     "andel": 13.1
     },
     {
      "namn": "Folkungasalen",
      "kommun": "Mjölby",
      "lokalId": "0586009",
-     "total": 374,
-     "dagarMedRoster": 9,
+     "total": 404,
+     "dagarMedRoster": 10,
      "storstaDag": 66,
-     "andel": 5.3
+     "andel": 5.4
     },
     {
      "namn": "Kriminalvårdsanstalten",
@@ -1265,7 +1272,7 @@
      "total": 282,
      "dagarMedRoster": 3,
      "storstaDag": 143,
-     "andel": 4.0
+     "andel": 3.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1274,7 +1281,7 @@
      "total": 130,
      "dagarMedRoster": 4,
      "storstaDag": 83,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Vifolkagårdens vårdboende",
@@ -1283,7 +1290,7 @@
      "total": 39,
      "dagarMedRoster": 1,
      "storstaDag": 39,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Folkungagården",
@@ -1292,7 +1299,7 @@
      "total": 18,
      "dagarMedRoster": 1,
      "storstaDag": 18,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Slomarps demensboende",
@@ -1301,7 +1308,7 @@
      "total": 18,
      "dagarMedRoster": 1,
      "storstaDag": 18,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Änggårdens vårdboende",
@@ -1310,7 +1317,7 @@
      "total": 18,
      "dagarMedRoster": 1,
      "storstaDag": 18,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Dacke korttidsboende",

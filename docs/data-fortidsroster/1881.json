@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -937,7 +937,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1042,11 +1042,18 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 646,
-     "ack": 5864
+     "antal": 652,
+     "ack": 5870
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 294,
+     "ack": 6164
     }
    ],
-   "total": 5864,
+   "total": 6164,
    "rostberattigade": {
     "riksdag": 16987,
     "kommun": 17432,
@@ -1064,35 +1071,35 @@
      "namn": "Kumla bibliotek",
      "kommun": "Kumla",
      "lokalId": "1881001",
-     "total": 5025,
-     "dagarMedRoster": 15,
+     "total": 5269,
+     "dagarMedRoster": 16,
      "storstaDag": 611,
-     "andel": 85.7
+     "andel": 85.5
     },
     {
      "namn": "Anstalten Kumla",
      "kommun": "Kumla",
      "lokalId": "1881002",
-     "total": 658,
-     "dagarMedRoster": 11,
+     "total": 678,
+     "dagarMedRoster": 12,
      "storstaDag": 171,
-     "andel": 11.2
+     "andel": 11.0
     },
     {
      "namn": "Kumla Skofabrik",
      "kommun": "Kumla",
      "lokalId": "1881005",
-     "total": 140,
-     "dagarMedRoster": 4,
+     "total": 171,
+     "dagarMedRoster": 5,
      "storstaDag": 46,
-     "andel": 2.4
+     "andel": 2.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kumla",
      "lokalId": "1881004",
-     "total": 41,
-     "dagarMedRoster": 4,
+     "total": 46,
+     "dagarMedRoster": 5,
      "storstaDag": 28,
      "andel": 0.7
     }

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,7 +973,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1036,53 +1036,60 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 531,
-     "ack": 4389
+     "antal": 532,
+     "ack": 4390
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 641,
-     "ack": 5030
+     "ack": 5031
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 352,
-     "ack": 5382
+     "ack": 5383
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 380,
-     "ack": 5762
+     "ack": 5763
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 840,
-     "ack": 6602
+     "ack": 6603
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 826,
-     "ack": 7428
+     "ack": 7429
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 1029,
-     "ack": 8457
+     "antal": 1086,
+     "ack": 8515
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 355,
+     "ack": 8870
     }
    ],
-   "total": 8457,
+   "total": 8870,
    "rostberattigade": {
     "riksdag": 24943,
     "kommun": 25528,
@@ -1100,19 +1107,19 @@
      "namn": "Rådhuset, Rådhussalen",
      "kommun": "Karlshamn",
      "lokalId": "1082001",
-     "total": 4219,
-     "dagarMedRoster": 15,
-     "storstaDag": 437,
-     "andel": 49.9
+     "total": 4451,
+     "dagarMedRoster": 16,
+     "storstaDag": 441,
+     "andel": 50.2
     },
     {
      "namn": "Bellevueparken, Karlshamn",
      "kommun": "Karlshamn",
      "lokalId": "1082006",
-     "total": 2611,
-     "dagarMedRoster": 15,
+     "total": 2721,
+     "dagarMedRoster": 16,
      "storstaDag": 292,
-     "andel": 30.9
+     "andel": 30.7
     },
     {
      "namn": "Mörrumsparken",
@@ -1121,16 +1128,16 @@
      "total": 859,
      "dagarMedRoster": 7,
      "storstaDag": 205,
-     "andel": 10.2
+     "andel": 9.7
     },
     {
      "namn": "Svängsta fritidsgård",
      "kommun": "Karlshamn",
      "lokalId": "1082002",
-     "total": 403,
+     "total": 404,
      "dagarMedRoster": 5,
      "storstaDag": 117,
-     "andel": 4.8
+     "andel": 4.6
     },
     {
      "namn": "Hällaryds skola",
@@ -1139,25 +1146,25 @@
      "total": 246,
      "dagarMedRoster": 4,
      "storstaDag": 104,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Karlshamn",
      "lokalId": "1082007",
-     "total": 80,
-     "dagarMedRoster": 3,
+     "total": 128,
+     "dagarMedRoster": 4,
      "storstaDag": 48,
-     "andel": 0.9
+     "andel": 1.4
     },
     {
      "namn": "Väggaskolan",
      "kommun": "Karlshamn",
      "lokalId": "1082004",
-     "total": 39,
-     "dagarMedRoster": 3,
-     "storstaDag": 17,
-     "andel": 0.5
+     "total": 61,
+     "dagarMedRoster": 4,
+     "storstaDag": 19,
+     "andel": 0.7
     }
    ],
    "antalLokaler": 7,

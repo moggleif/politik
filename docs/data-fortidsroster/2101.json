@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -970,11 +970,18 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 349,
-     "ack": 2293
+     "antal": 354,
+     "ack": 2298
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 95,
+     "ack": 2393
     }
    ],
-   "total": 2293,
+   "total": 2393,
    "rostberattigade": {
     "riksdag": 4611,
     "kommun": 4726,
@@ -992,19 +999,19 @@
      "namn": "Södra Åsgatan 32B",
      "kommun": "Ockelbo",
      "lokalId": "2101004",
-     "total": 1963,
-     "dagarMedRoster": 15,
-     "storstaDag": 224,
-     "andel": 85.6
+     "total": 2034,
+     "dagarMedRoster": 16,
+     "storstaDag": 225,
+     "andel": 85.0
     },
     {
      "namn": "Lingbogården",
      "kommun": "Ockelbo",
      "lokalId": "2101003",
-     "total": 237,
+     "total": 240,
      "dagarMedRoster": 2,
-     "storstaDag": 125,
-     "andel": 10.3
+     "storstaDag": 128,
+     "andel": 10.0
     },
     {
      "namn": "Åmots fd skola, gymnastiksalen",
@@ -1013,25 +1020,25 @@
      "total": 92,
      "dagarMedRoster": 1,
      "storstaDag": 92,
-     "andel": 4.0
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Ockelbo",
-     "lokalId": "2101007",
-     "total": 1,
-     "dagarMedRoster": 1,
-     "storstaDag": 1,
-     "andel": 0.0
+     "andel": 3.8
     },
     {
      "namn": "Bysjöstrand Äldreboende",
      "kommun": "Ockelbo",
      "lokalId": "2101005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 25,
+     "dagarMedRoster": 1,
+     "storstaDag": 25,
+     "andel": 1.0
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Ockelbo",
+     "lokalId": "2101007",
+     "total": 2,
+     "dagarMedRoster": 2,
+     "storstaDag": 1,
+     "andel": 0.1
     },
     {
      "namn": "Jädraås Folkets Hus",

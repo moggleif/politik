@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1594,7 +1594,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1685,25 +1685,32 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 3006,
-     "ack": 18314
+     "antal": 3009,
+     "ack": 18317
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 2639,
-     "ack": 20953
+     "antal": 2647,
+     "ack": 20964
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 3117,
-     "ack": 24070
+     "ack": 24081
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 1385,
+     "ack": 25466
     }
    ],
-   "total": 24070,
+   "total": 25466,
    "rostberattigade": {
     "riksdag": 78124,
     "kommun": 79857,
@@ -1721,37 +1728,46 @@
      "namn": "Sundsvalls stadsbibliotek",
      "kommun": "Sundsvall",
      "lokalId": "2281011",
-     "total": 7458,
-     "dagarMedRoster": 15,
+     "total": 7876,
+     "dagarMedRoster": 16,
      "storstaDag": 947,
-     "andel": 31.0
+     "andel": 30.9
     },
     {
      "namn": "Kvissleby bibliotek",
      "kommun": "Sundsvall",
      "lokalId": "2281009",
-     "total": 2492,
-     "dagarMedRoster": 13,
+     "total": 2624,
+     "dagarMedRoster": 14,
      "storstaDag": 341,
-     "andel": 10.4
+     "andel": 10.3
     },
     {
      "namn": "Alnö bibliotek, Vibackeskolan",
      "kommun": "Sundsvall",
      "lokalId": "2281012",
-     "total": 2182,
-     "dagarMedRoster": 13,
+     "total": 2290,
+     "dagarMedRoster": 14,
      "storstaDag": 431,
-     "andel": 9.1
+     "andel": 9.0
     },
     {
      "namn": "EQ-House",
      "kommun": "Sundsvall",
      "lokalId": "2281002",
-     "total": 1929,
-     "dagarMedRoster": 11,
+     "total": 2102,
+     "dagarMedRoster": 12,
      "storstaDag": 225,
-     "andel": 8.0
+     "andel": 8.3
+    },
+    {
+     "namn": "Kommunhuset",
+     "kommun": "Sundsvall",
+     "lokalId": "2281006",
+     "total": 1696,
+     "dagarMedRoster": 12,
+     "storstaDag": 238,
+     "andel": 6.7
     },
     {
      "namn": "Matfors bibliotek",
@@ -1760,16 +1776,7 @@
      "total": 1673,
      "dagarMedRoster": 13,
      "storstaDag": 211,
-     "andel": 7.0
-    },
-    {
-     "namn": "Kommunhuset",
-     "kommun": "Sundsvall",
-     "lokalId": "2281006",
-     "total": 1547,
-     "dagarMedRoster": 11,
-     "storstaDag": 238,
-     "andel": 6.4
+     "andel": 6.6
     },
     {
      "namn": "Selånger Folketshus",
@@ -1778,25 +1785,34 @@
      "total": 1339,
      "dagarMedRoster": 12,
      "storstaDag": 193,
-     "andel": 5.6
+     "andel": 5.3
     },
     {
      "namn": "Mittuniversitetets bibliotek, Hus N",
      "kommun": "Sundsvall",
      "lokalId": "2281007",
-     "total": 1011,
-     "dagarMedRoster": 11,
+     "total": 1118,
+     "dagarMedRoster": 12,
      "storstaDag": 169,
-     "andel": 4.2
+     "andel": 4.4
     },
     {
      "namn": "Nacksta bibliotek",
      "kommun": "Sundsvall",
      "lokalId": "2281008",
-     "total": 812,
-     "dagarMedRoster": 7,
+     "total": 894,
+     "dagarMedRoster": 8,
      "storstaDag": 173,
-     "andel": 3.4
+     "andel": 3.5
+    },
+    {
+     "namn": "Stöde bibliotek",
+     "kommun": "Sundsvall",
+     "lokalId": "2281015",
+     "total": 672,
+     "dagarMedRoster": 12,
+     "storstaDag": 154,
+     "andel": 2.6
     },
     {
      "namn": "Länssjukhuset i Sundsvall",
@@ -1805,15 +1821,6 @@
      "total": 654,
      "dagarMedRoster": 5,
      "storstaDag": 140,
-     "andel": 2.7
-    },
-    {
-     "namn": "Stöde bibliotek",
-     "kommun": "Sundsvall",
-     "lokalId": "2281015",
-     "total": 632,
-     "dagarMedRoster": 11,
-     "storstaDag": 154,
      "andel": 2.6
     },
     {
@@ -1823,7 +1830,7 @@
      "total": 600,
      "dagarMedRoster": 3,
      "storstaDag": 266,
-     "andel": 2.5
+     "andel": 2.4
     },
     {
      "namn": "Ljustadalens bibliotek",
@@ -1832,25 +1839,25 @@
      "total": 543,
      "dagarMedRoster": 7,
      "storstaDag": 91,
-     "andel": 2.3
-    },
-    {
-     "namn": "Indals bibliotek",
-     "kommun": "Sundsvall",
-     "lokalId": "2281013",
-     "total": 383,
-     "dagarMedRoster": 7,
-     "storstaDag": 117,
-     "andel": 1.6
+     "andel": 2.1
     },
     {
      "namn": "Finska Föreningen",
      "kommun": "Sundsvall",
      "lokalId": "2281018",
-     "total": 308,
-     "dagarMedRoster": 4,
-     "storstaDag": 116,
-     "andel": 1.3
+     "total": 439,
+     "dagarMedRoster": 5,
+     "storstaDag": 131,
+     "andel": 1.7
+    },
+    {
+     "namn": "Indals bibliotek",
+     "kommun": "Sundsvall",
+     "lokalId": "2281013",
+     "total": 439,
+     "dagarMedRoster": 8,
+     "storstaDag": 117,
+     "andel": 1.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1859,7 +1866,7 @@
      "total": 284,
      "dagarMedRoster": 9,
      "storstaDag": 113,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Bredsands fritidsgård",

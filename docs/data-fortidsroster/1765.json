@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -959,67 +959,74 @@
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 99,
-     "ack": 864
+     "antal": 102,
+     "ack": 867
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 113,
-     "ack": 977
+     "ack": 980
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 233,
-     "ack": 1210
+     "ack": 1213
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 151,
-     "ack": 1361
+     "ack": 1364
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 60,
-     "ack": 1421
+     "antal": 61,
+     "ack": 1425
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 92,
-     "ack": 1513
+     "ack": 1517
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 287,
-     "ack": 1800
+     "ack": 1804
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 263,
-     "ack": 2063
+     "ack": 2067
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 197,
-     "ack": 2260
+     "ack": 2264
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 192,
+     "ack": 2456
     }
    ],
-   "total": 2260,
+   "total": 2456,
    "rostberattigade": {
     "riksdag": 6906,
     "kommun": 7911,
@@ -1037,19 +1044,19 @@
      "namn": "Biblioteket Årjäng",
      "kommun": "Årjäng",
      "lokalId": "1765002",
-     "total": 1681,
-     "dagarMedRoster": 13,
+     "total": 1807,
+     "dagarMedRoster": 14,
      "storstaDag": 230,
-     "andel": 74.4
+     "andel": 73.6
     },
     {
      "namn": "Biblioteket Töcksfors",
      "kommun": "Årjäng",
      "lokalId": "1765001",
-     "total": 545,
-     "dagarMedRoster": 6,
+     "total": 615,
+     "dagarMedRoster": 7,
      "storstaDag": 121,
-     "andel": 24.1
+     "andel": 25.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1058,7 +1065,7 @@
      "total": 34,
      "dagarMedRoster": 2,
      "storstaDag": 33,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Böns föredetta skola, Östervallskog",

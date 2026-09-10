@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T11:09+02:00",
+ "senastUppdaterad": "2026-09-10T18:39+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,7 +1054,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T11:09+02:00",
+   "hamtad": "2026-09-10T18:39+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1161,9 +1161,16 @@
      "kvar": 4,
      "antal": 1129,
      "ack": 10526
+    },
+    {
+     "datum": "2026-09-10",
+     "veckodag": "tor",
+     "kvar": 3,
+     "antal": 353,
+     "ack": 10879
     }
    ],
-   "total": 10526,
+   "total": 10879,
    "rostberattigade": {
     "riksdag": 31205,
     "kommun": 31920,
@@ -1181,10 +1188,10 @@
      "namn": "Arena Vänersborg",
      "kommun": "Vänersborg",
      "lokalId": "1487001",
-     "total": 5545,
-     "dagarMedRoster": 15,
+     "total": 5773,
+     "dagarMedRoster": 16,
      "storstaDag": 605,
-     "andel": 52.7
+     "andel": 53.1
     },
     {
      "namn": "Vänersborgs Huvudbibliotek",
@@ -1193,16 +1200,16 @@
      "total": 2341,
      "dagarMedRoster": 6,
      "storstaDag": 518,
-     "andel": 22.2
+     "andel": 21.5
     },
     {
      "namn": "Vargöns bibliotek",
      "kommun": "Vänersborg",
      "lokalId": "1487007",
-     "total": 1343,
-     "dagarMedRoster": 6,
+     "total": 1465,
+     "dagarMedRoster": 7,
      "storstaDag": 385,
-     "andel": 12.8
+     "andel": 13.5
     },
     {
      "namn": "Brålanda bibliotek",
@@ -1211,7 +1218,7 @@
      "total": 882,
      "dagarMedRoster": 4,
      "storstaDag": 353,
-     "andel": 8.4
+     "andel": 8.1
     },
     {
      "namn": "Kriminalvårdsanstalten Östragård",
@@ -1226,8 +1233,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Vänersborg",
      "lokalId": "1487009",
-     "total": 139,
-     "dagarMedRoster": 7,
+     "total": 142,
+     "dagarMedRoster": 8,
      "storstaDag": 37,
      "andel": 1.3
     },
