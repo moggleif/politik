@@ -24,6 +24,7 @@
       </span>
       <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
         <a href="amnesbetyg.html">Betyg per ämne</a>
+        <a href="kostnad-per-elev.html">Kostnad per elev</a>
       </span>
       <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
         <a href="meritvarden.html">Antagning</a>
@@ -116,6 +117,42 @@
         Rapport 89 är kommunnivåversionen av rapport 88 och räknar därför
         med de fristående gymnasieskolorna, som slutbetygssidan inte
         följer.</dd>
+      <dt>Koladas kommunala nyckeltal (kostnaderna)</dt>
+      <dd>Sidan <a href="kostnad-per-elev.html">Kostnad per elev</a> bygger
+        på Kolada, som drivs av Rådet för främjande av kommunala analyser
+        (RKA) och samlar kommunernas nyckeltal ur räkenskaps&shy;sammandragen.
+        Kolada används för att det är den källa som redovisar
+        <strong>riket</strong> som ett publicerat tal &ndash; alternativet
+        vore att själv väga ihop 290 kommuner &ndash; och för att talen
+        finns oavrundade. Hämtas med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_kolada.py">scripts/hamta_kolada.py</a>
+        till
+        <a href="https://github.com/moggleif/politik/blob/main/data/kolada/kostnader_grundskola.json">data/kolada/kostnader_grundskola.json</a>,
+        med nyckeltalens egna definitioner. Två mått hämtas: kostnaden för
+        de elever som <em>bor</em> i kommunen (N15006, inklusive ersättning
+        till fristående skolor och andra kommuner samt skolskjuts) och
+        kostnaden för kommunens <em>egna</em> skolor (N15008, utan
+        skolskjuts). Kostnadsslagen &ndash; undervisning, lokaler, måltider,
+        lärverktyg, elevhälsa, övrigt &ndash; hör till det senare måttet och
+        summerar till det.
+        <strong>Skolverkets egen kostnadsstatistik</strong> hämtas som
+        kontrollkälla med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_kostnader.py">scripts/hamta_kostnader.py</a>
+        (rapport 32 i samma exporttjänst) till
+        <a href="https://github.com/moggleif/politik/tree/main/data/kostnader">data/kostnader/</a>;
+        ett test stämmer av att de två källorna säger samma sak om
+        Kungsbacka, år för år. Kostnadsstatistiken omfattar bara kommunala
+        skolor &ndash; de fristående skolornas kostnader hålls inne med
+        hänvisning till ekonomisk statistisksekretess.</dd>
+      <dt>SCB:s konsumentprisindex (prisomräkningen)</dt>
+      <dd>Fastställda KPI-årsmedeltal, totalt, 1980 = 100 (tabell TAB4352,
+        statistikprodukt PR0101), hämtade ur SCB:s öppna API med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_kpi.py">scripts/hamta_kpi.py</a>
+        till
+        <a href="https://github.com/moggleif/politik/blob/main/data/scb/kpi.json">data/scb/kpi.json</a>.
+        Fastställda årsmedeltal är den serie SCB anvisar för omräkning
+        mellan år: den är slutgiltig och revideras inte. Årsmedeltalet
+        passar kostnadsstatistiken, som avser hela kalenderår.</dd>
       <dt>Valmyndighetens statistik över förtidsröster</dt>
       <dd>Sidan <a href="fortidsrostning.html">Förtidsröstning</a> bygger
         på Valmyndighetens öppna fil &rdquo;Mottagna förtidsröster&rdquo;
@@ -145,7 +182,7 @@
   <section id="sektion-transformationer">
     <h2>Vad som görs med rådatat</h2>
     <p class="forklaring">
-      Åtta byggskript sätter ihop rådatat till de datafiler diagrammen
+      Nio byggskript sätter ihop rådatat till de datafiler diagrammen
       läser. De gör ingenting mer än det som står här:
     </p>
     <dl class="metod-lista">
@@ -297,12 +334,45 @@
         åren; talet är ungefärligt, eftersom förtidsröster får lämnas i
         vilken kommun som helst. Sidan tolkar ingenting om utfallet: den
         redovisar hur många som röstat, inte vad de röstat på.</dd>
+      <dt>Kostnaderna räknas om till fasta priser</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_kostnader.py">build_kostnader.py</a>
+        multiplicerar varje års kostnad med kvoten mellan konsument&shy;prisindex
+        för prisnivåret och för året självt, så att alla belopp uttrycks i
+        samma års pengar. Prisnivåret är det senaste år som har både
+        kostnadstal och ett fastställt KPI-årsmedeltal; ett kostnadsår utan
+        KPI-tal får inget fast pris alls i stället för ett tal räknat på fel
+        nivå. Ur de fasta priserna följer tre tal till: förändringen mot
+        föregående år, Kungsbacka jämfört med riket samma år, och ett
+        indextal med ett <strong>gemensamt basår</strong> &ndash; det första
+        år båda områdena redovisas. Basåret måste vara gemensamt: två
+        serier med var sitt basår mäter inte samma sak. Indexet finns för
+        att kommunen och riket ligger på nästan samma kostnadsnivå, så att
+        kronlinjerna löper parallellt och inte visar vilken som stigit
+        snabbast. Att
+        kostnadsslagen summerar till kostnaden per elev kontrolleras vid
+        bygget. Omräkningen är den enda beräkning på den sidan som inte
+        kommer färdig ur en källa. Skriver
+        <a href="data-kostnader.json">data-kostnader.json</a>.</dd>
     </dl>
   </section>
 
   <section id="sektion-regler">
     <h2>Återkommande regler</h2>
     <dl class="metod-lista">
+      <dt>Fasta priser: KPI mäter hushållens priser, inte kommunens</dt>
+      <dd>Omräkningen till fasta priser tar bort den allmänna
+        prisutvecklingen &ndash; inte kostnadsutvecklingen för just skola.
+        Lönerna, som är den största posten i en skola, följer inte
+        konsumentpriserna. En kostnad som ligger stilla i fasta priser
+        betyder därför att den följt konsumentpriserna, inte att kommunen
+        köpt lika mycket skola. Basåret i indexserien (1980 = 100) spelar
+        ingen roll: bara kvoten mellan två år används, och den är densamma
+        oavsett bas.</dd>
+      <dt>Kostnad per elev är en kvot, och rör sig åt båda håll</dt>
+      <dd>Talet ändras både när kostnaden ändras och när elevantalet gör
+        det. Ett år med färre elever ger en högre kostnad per elev även om
+        kommunen lagt lika mycket pengar. Sidan delar inte upp den
+        rörelsen på de två orsakerna.</dd>
       <dt>Namnbyte: raderna förs ihop till en normaliserad programserie</dt>
       <dd>Handels- och administrationsprogrammet ersattes 2021 av
         Försäljnings- och serviceprogrammet, och reformen gjorde om
@@ -453,11 +523,13 @@ python3 scripts/build_kull.py         # antagning till examen
 python3 scripts/build_amnesbetyg.py   # ämnesbetygen i årskurs 9
 python3 scripts/build_befolkning.py   # barn och unga 0–15 år
 python3 scripts/build_nian_gymnasiet.py  # från nian till gymnasiet
+python3 scripts/build_kostnader.py    # kostnaden per elev i grundskolan
 python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pre></div>
     <p class="forklaring">
       Skripten kräver bara Python 3 (utan paket). Att även hämta om
       rådatat &ndash; <code>hamta_scb.py</code>,
-      <code>hamta_slutbetyg.py</code>, <code>hamta_kullkedjan.py</code>
+      <code>hamta_slutbetyg.py</code>, <code>hamta_kullkedjan.py</code>,
+      <code>hamta_kolada.py</code>, <code>hamta_kpi.py</code>
       och <code>extrahera_antagning.py</code> &ndash; kräver nätverk och för
       PDF-läsningen paketet <code>pdfplumber</code>; se
       <a href="https://github.com/moggleif/politik#uppdatera-datat">README</a>.

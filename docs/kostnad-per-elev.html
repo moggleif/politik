@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Vad kostar en elev i grundskolan i Kungsbacka?</title>
+<meta name="description" content="Kostnaden per elev i grundskolan i Kungsbacka och i riket, år för år och omräknad till fasta priser med konsumentprisindex. Siffrorna kommer ur Kolada och SCB.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+  <div class="sidhuvud-inre">
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="barn-och-unga.html">0–15 år</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
+        <a href="amnesbetyg.html">Betyg per ämne</a>
+        <a href="kostnad-per-elev.html" aria-current="page">Kostnad per elev</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html">Antagning</a>
+        <a href="slutbetyg.html">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+        <a href="nian-till-gymnasiet.html">Nian till gymnasiet</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Val:</span>
+        <a href="fortidsrostning.html">Förtidsröstning</a>
+      </span>
+      <a href="metod.html">Metod</a>
+    </nav>
+    <h1>Vad kostar en elev i grundskolan?</h1>
+    <p class="ingress">
+      Den här sidan visar vad grundskolan kostar per elev i Kungsbacka och
+      i riket, år för år. Kostnaderna är <strong>omräknade till fasta
+      priser</strong> med konsumentprisindex, så att en krona betyder
+      lika mycket alla år. Siffrorna kommer ur kommunernas
+      räkenskapssammandrag, samlade i Kolada, och prisomräkningen görs med
+      SCB:s fastställda KPI-årsmedeltal.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <section id="sektion-matt" hidden>
+    <h2>Två sätt att räkna kostnaden</h2>
+    <p class="forklaring">
+      Det finns två mått, och de svarar på olika frågor. Valet gäller de
+      tre diagram som följer.
+    </p>
+    <ul class="kallista" id="lista-matt"></ul>
+    <div class="valj-ar">
+      <label for="matt-valjare">Visa måttet:</label>
+      <select id="matt-valjare"></select>
+    </div>
+    <div id="not-matt" hidden></div>
+  </section>
+
+  <section id="sektion-fast" hidden>
+    <h2>Vad har kostnaden varit, i pengar som är jämförbara?</h2>
+    <p class="forklaring">
+      Kungsbackas kostnad per elev, dels som den stod i redovisningen det
+      året (<em>löpande priser</em>), dels omräknad till dagens prisnivå
+      (<em>fasta priser</em>). Skillnaden mellan linjerna är inflationen:
+      den övre linjen visar hur mycket ett äldre års kostnad motsvarar i
+      dagens pengar. Det är den övre linjen som går att jämföra mellan år.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-fast" aria-label="Diagram: kostnad per elev i Kungsbacka i löpande och i fasta priser" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-fast"></p>
+    </div>
+    <div class="slutsats" id="slutsats-fast"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-fast"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-riket" hidden>
+    <h2>Hur ligger Kungsbacka mot riket?</h2>
+    <p class="forklaring">
+      Samma mått för Kungsbacka och för hela riket, båda i fasta priser.
+      Rikssiffran är Kolada:s publicerade rikstal, inte ett medelvärde
+      räknat här. Rikets serie börjar senare än Kungsbackas &ndash; åren
+      före den finns bara för kommunen.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-riket" aria-label="Diagram: kostnad per elev i fasta priser, Kungsbacka jämfört med riket" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-riket"></p>
+    </div>
+    <div class="slutsats" id="slutsats-riket"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-riket"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-index" hidden>
+    <h2>Vem har ökat mest?</h2>
+    <p class="forklaring">
+      Kungsbacka och riket ligger på nästan samma kostnadsnivå, så
+      kronlinjerna ovanför löper parallellt och det syns inte vilken som
+      stigit snabbast. Här är båda satta till 100 det första år som
+      <em>båda</em> redovisas, och visar därmed <em>utvecklingen i
+      procent</em> sedan dess &ndash; fortfarande i fasta priser, så det är
+      den reala ökningen som jämförs. Åren före basåret finns bara för
+      kommunen; de räknas mot samma bas och ligger därför under 100.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-index" aria-label="Diagram: indexerad real utveckling av kostnaden per elev, Kungsbacka och riket" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-index"></p>
+    </div>
+    <div class="slutsats" id="slutsats-index"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-index"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-forandring" hidden>
+    <h2>Vilka år steg kostnaden, och vilka år föll den?</h2>
+    <p class="forklaring">
+      Förändringen mot föregående år, räknad på de fasta priserna. En
+      stapel under nollinjen betyder att kostnaden per elev var lägre än
+      året innan <em>sedan inflationen räknats bort</em> &ndash; i löpande
+      priser kan samma år ha stigit.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-forandring" aria-label="Diagram: årlig förändring av kostnaden per elev i fasta priser" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-forandring"></p>
+    </div>
+    <div class="slutsats" id="slutsats-forandring"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-forandring"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-slag" hidden>
+    <h2>Vad går pengarna till?</h2>
+    <p class="forklaring">
+      Kostnaden för kommunens egna skolor uppdelad på kostnadsslag, i
+      fasta priser. Uppdelningen finns bara för det måttet &ndash; ersättningen
+      till fristående skolor och andra kommuner går inte att bryta ned på
+      samma sätt. Slagen summerar till hela kostnaden per elev.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-slag" aria-label="Diagram: kostnad per elev och kostnadsslag i fasta priser" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-slag"></p>
+    </div>
+    <div class="slutsats" id="slutsats-slag"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-slag"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Kostnaderna kommer från Kolada, som drivs av Rådet för främjande av
+      kommunala analyser (RKA) och samlar kommunernas nyckeltal ur
+      räkenskapssammandragen. Prisomräkningen görs med SCB:s
+      konsumentprisindex. Skolverkets egen kostnadsstatistik hämtas också,
+      som kontroll: den ska säga samma sak om Kungsbacka.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Omräkningen till fasta priser</strong> är den enda beräkning
+      på sidan som inte kommer färdig ur en källa. Varje års kostnad
+      multipliceras med kvoten mellan konsumentprisindex för prisnivåret
+      och för året självt. Serien som används är SCB:s fastställda
+      KPI-årsmedeltal, det tal SCB anvisar för omräkning mellan år.
+      Basåret i indexserien spelar ingen roll &ndash; bara kvoten mellan två
+      år används.
+    </p>
+    <p class="forklaring">
+      <strong>KPI mäter hushållens priser, inte kommunens.</strong> Det som
+      räknas bort är alltså den allmänna prisutvecklingen, inte
+      kostnadsutvecklingen för just skola. Lönerna, som är den största
+      posten i en skola, följer inte KPI. En kostnad som ligger stilla i
+      fasta priser betyder att den följt konsumentpriserna &ndash; inte att
+      kommunen köpt lika mycket skola.
+    </p>
+    <p class="forklaring">
+      <strong>Kostnad per elev är en kvot.</strong> Den ändras både när
+      kostnaden ändras och när elevantalet gör det. Ett år med färre
+      elever ger en högre kostnad per elev även om kommunen lagt lika
+      mycket pengar. Hur många barn och unga kommunen har finns på sidan
+      om <a href="barn-och-unga.html">0&ndash;15-åringarna</a>.
+    </p>
+    <p class="forklaring">
+      <strong>Redovisningen har ändrats genom åren.</strong> Vad som räknas
+      in i ett kostnadsslag är inte identiskt hela perioden &ndash; posten
+      <em>elevvård</em> heter till exempel <em>elevhälsa</em> från och med
+      2013 i Skolverkets redovisning. Sidan ritar serierna som källorna
+      redovisar dem och räknar inte om äldre år.
+    </p>
+    <p class="forklaring">
+      Sidan säger ingenting om vad kostnaden borde vara, och ställer den
+      inte mot resultaten. Betygen i grundskolan finns för sig, på sidan om
+      <a href="amnesbetyg.html">slutbetygen per ämne i årskurs 9</a>.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
+      beräkningar är öppna: källkoden och alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sidfot-inre">
+    <p>Data: Kolada (RKA) och SCB:s konsumentprisindex, med Skolverkets
+    kostnadsstatistik som kontroll.
+    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="kostnader.js"></script>
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

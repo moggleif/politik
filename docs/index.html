@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Kungsbacka i siffror</title>
-<meta name="description" content="Öppna sammanställningar av Kungsbacka kommuns befolkningsprognoser, av betygen i kommunens skolor och av förtidsröstningen inför valet 2026.">
+<meta name="description" content="Öppna sammanställningar av Kungsbacka kommuns befolkningsprognoser, av betygen i kommunens skolor, av vad grundskolan kostar per elev och av förtidsröstningen inför valet 2026.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -18,8 +18,9 @@
     <h1>Kungsbacka i siffror</h1>
     <p class="ingress">
       Fristående sammanställningar av offentliga siffror om Kungsbacka
-      &ndash; från kommunen, SCB, Skolverket och Göteborgsregionen &ndash; med alla
-      källor länkade och alla beräkningar öppna. Välj vad du vill titta på.
+      &ndash; från kommunen, SCB, Skolverket, Kolada och Göteborgsregionen
+      &ndash; med alla källor länkade och alla beräkningar öppna. Välj vad du
+      vill titta på.
     </p>
   </div>
 </header>
@@ -61,6 +62,22 @@
       <ul class="undersidor">
         <li><a href="amnesbetyg.html">Slutbetyg per ämne i årskurs 9</a>
           <span class="undertext" id="undertext-amnesbetyg">Hela kommunen, kommunala och fristående skolor</span></li>
+      </ul>
+    </div>
+
+    <div class="meny-kort">
+      <h3><a href="kostnad-per-elev.html">Vad grundskolan kostar</a></h3>
+      <p class="forklaring">
+        Hur mycket pengar går det åt per elev i grundskolan, och hur har
+        det ändrat sig? Beloppen är omräknade till dagens prisnivå med
+        konsumentprisindex, så att åren går att jämföra, och ställs mot
+        riket. Sidan visar vad det kostar &ndash; inte vad man får för
+        pengarna.
+      </p>
+      <ul class="kort-fakta" id="fakta-kostnader" hidden></ul>
+      <ul class="undersidor">
+        <li><a href="kostnad-per-elev.html">Kostnad per elev i grundskolan</a>
+          <span class="undertext" id="undertext-kostnader">Kungsbacka och riket, i fasta priser</span></li>
       </ul>
     </div>
 
@@ -137,9 +154,10 @@
 
 <footer>
   <div class="sidfot-inre">
-    <p>Data: Kungsbacka kommuns befolkningsprognoser, SCB:s befolkningsstatistik,
-    Göteborgsregionens antagningsstatistik, Skolverkets utbildningsstatistik
-    och Valmyndighetens statistik över förtidsröster.
+    <p>Data: Kungsbacka kommuns befolkningsprognoser, SCB:s befolkningsstatistik
+    och konsumentprisindex, Göteborgsregionens antagningsstatistik, Skolverkets
+    utbildningsstatistik, Koladas kommunala nyckeltal och Valmyndighetens
+    statistik över förtidsröster.
     Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
   </div>
 </footer>
