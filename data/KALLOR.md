@@ -14,6 +14,9 @@ och vad som återstår.
 | Meritvärden 2017 och 2019–2026 (GR) | Klara, 2018 saknas |
 | Slutbetyg 2014–2025 (Skolverket) | Klara, samtliga läsår |
 | Ämnesbetyg åk 9, 2013–2025 (Skolverket) | Klara, samtliga läsår |
+| Grundskolans kostnader 1998–2025, Kungsbacka och riket (Kolada) | Klara |
+| Grundskolans kostnader 2002–2024, Kungsbacka (Skolverket, kontrollkälla) | Klara |
+| Konsumentprisindex 1980–2025, fastställda årsmedeltal (SCB) | Klart |
 | Förtidsröster 2010, 2014, 2018 och 2022 (Valmyndigheten) | Klara, historiska |
 | Ångerröster 2018 och 2022, riket (Valmyndigheten) | Klara, avskrivna |
 | Förtidsröster 2026 (Valmyndigheten) | Hämtas automatiskt två gånger om dagen t.o.m. 16 september 2026 |
@@ -593,3 +596,154 @@ ovägda snittet ligger mycket nära ett elevviktat.
 
 **Två mått, två skalor.** Betygspoäng (0–20) och andel med A–E (0–100 %)
 visas aldrig i samma diagram.
+
+## Kostnaden per elev i grundskolan (Kolada, SCB och Skolverket)
+
+Vad grundskolan kostar per elev, år för år, för Kungsbacka och för riket
+– omräknat till fasta priser så att åren går att jämföra.
+
+Hämtas med `scripts/hamta_kolada.py` (kostnaderna), `scripts/hamta_kpi.py`
+(prisomräkningen) och `scripts/hamta_kostnader.py` (kontrollkällan), och
+sätts ihop med `scripts/build_kostnader.py`.
+
+### Varför Kolada och inte Skolverket
+
+Skolverket är den myndighet som publicerar kostnadsstatistiken för
+kommunala skolor, och deras export (rapport 32) hade räckt för
+Kungsbacka. Men den redovisar **en rad per kommun och inget rikstal**.
+Ett riksgenomsnitt hade då fått vägas ihop här, ur 290 kommuners
+kostnader och elevantal – en beräkning som inte kommer ur någon källa och
+som ingen kan stämma av mot en publicerad siffra.
+
+Kolada, som drivs av Rådet för främjande av kommunala analyser (RKA),
+publicerar samma underlag – kommunernas räkenskapssammandrag – och har
+**riket som ett eget område** (kommunkod `0000`). Dessutom är talen
+oavrundade och serierna längre: Kungsbacka finns från 1998, mot 2002 i
+Skolverkets export.
+
+Skolverkets tal hämtas ändå, som **kontrollkälla**. Ett test i
+`tests/test_berakningar.py` stämmer av att de två källorna säger samma sak
+om Kungsbacka, år för år: Koladas oavrundade tal ska bli Skolverkets när
+det avrundas till hundratal kronor. Det gör de för samtliga 23 gemensamma
+år. Skulle någondera räkna om en serie utan att det syns, faller testet.
+
+### Hämtningen
+
+```
+https://api.kolada.se/v3/data/kpi/<nyckeltal>/municipality/1384,0000
+```
+
+API-version 3; version 2 är avvecklad och svarar med ett felmeddelande.
+Svaret sidbryts vid 5000 poster och `next_url` följs tills den tar slut.
+Poster med status `Missing` saknar värde och hoppas över i stället för att
+bli nollor.
+
+Nio nyckeltal hämtas:
+
+| Nyckeltal | Vad det är | Kungsbacka | Riket |
+|---|---|---|---|
+| N15006 | Kostnad, hemkommun, kr/elev | 1998–2025 | 2016–2025 |
+| N15008 | Kostnad, kommunens egna skolor, kr/elev | 1998–2025 | 2010–2025 |
+| N15011 | därav undervisning | 1998–2025 | 2010–2025 |
+| N15009 | därav lokaler och inventarier | 1998–2025 | 2010–2025 |
+| N15010 | därav övrigt | 1998–2025 | 2010–2025 |
+| N15013 | därav måltider | 1998–2025 | 2010–2025 |
+| N15012 | därav lärverktyg och skolbibliotek | 1998–2025 | 2010–2025 |
+| N15014 | därav elevhälsa | 1998–2025 | 2010–2025 |
+| U15015 | skolskjuts och inackordering, kr/elev | 2013–2025 | 2018–2025 |
+
+Rikets serier börjar senare än kommunens. Sidan ritar Kungsbackas hela
+span och låter rikets linje börja där den börjar, med en not om vilka år
+som inte går att jämföra.
+
+### Två mått, för att de svarar på olika frågor
+
+**Hemkommun (N15006)** är vad kommunen lägger på de elever som *bor* i
+kommunen, oavsett var de går i skolan: ersättningen till fristående
+skolor och till andra kommuner ingår, liksom skolskjutsen.
+
+**Kommunal huvudman (N15008)** är vad kommunens *egna* skolor kostar, per
+elev i dem. Skolskjuts ingår inte. Det är det mått Skolverket publicerar,
+och det enda som går att bryta ned på kostnadsslag.
+
+De två får aldrig ritas som samma linje. Sidan har en väljare, och valet
+ligger i adressen (`?matt=`).
+
+**Kostnadsslagen summerar exakt till N15008** – undervisning, lokaler,
+övrigt, måltider, lärverktyg och elevhälsa. Bygget kontrollerar det för
+varje år och område, och ett test gör det mot de riktiga filerna. Går de
+isär har något nyckeltal bytt innebörd, och då är den staplade bilden fel.
+
+**Bara kommunala skolor har kostnadsredovisning.** De fristående skolornas
+kostnader hålls inne med hänvisning till ekonomisk statistisksekretess.
+Det som syns i hemkommunmåttet är alltså vad kommunen *betalar* de
+fristående skolorna, inte vad de gör av med pengarna.
+
+### Prisomräkningen (SCB:s konsumentprisindex)
+
+```
+https://api.scb.se/OV0104/v2beta/api/v2/tables/TAB4352/data
+```
+
+Tabell TAB4352, "Konsumentprisindex (KPI) fastställda årsmedeltal,
+totalt, 1980=100", statistikprodukt PR0101. **Fastställda årsmedeltal** är
+den serie SCB anvisar för omräkning mellan år: den är slutgiltig och
+revideras inte, till skillnad från månadstalen. Årsmedeltalet passar
+kostnadsstatistiken, som avser hela kalenderår och inte en tidpunkt i
+dem.
+
+Omräkningen:
+
+```
+fast pris = nominell kostnad × KPI(prisnivåår) / KPI(året)
+```
+
+Prisnivåret är det senaste år som har både kostnadstal och ett fastställt
+KPI-årsmedeltal – 2025 i skrivande stund. Ett kostnadsår utan KPI-tal får
+**inget** fast pris, i stället för ett tal räknat på fel nivå. Det
+inträffar mellan Koladas publicering i augusti och SCB:s fastställande i
+januari, om ett kostnadsår hunnit komma men inte sitt indextal.
+
+Basåret 1980 spelar ingen roll: bara kvoten mellan två år används, och
+den är densamma oavsett bas.
+
+**Indexet är något annat.** Utöver kronorna räknas ett indextal fram med
+det första år *båda* områdena redovisas som 100 (2010 för kommunens egna
+skolor, 2016 för hemkommunmåttet). Det behövs för att Kungsbacka och
+riket ligger på nästan samma kostnadsnivå: kronlinjerna löper parallellt
+och visar inte vilken som stigit snabbast. Basåret är gemensamt för båda
+serierna – två serier med var sitt basår mäter inte samma sak. Indexet
+räknas på de fasta priserna; ett index på löpande priser hade mätt
+inflationen.
+
+**Vad omräkningen inte gör.** KPI mäter hushållens priser, inte kommunens
+kostnader. Lönerna, som är den största posten i en skola, följer inte
+KPI. En kostnad som ligger stilla i fasta priser betyder att den följt
+konsumentpriserna – inte att kommunen köpt lika mycket skola. Sidan säger
+det i klartext i stället för att låta "fasta priser" läsas som
+"volymjusterat".
+
+### Vad som behövde hanteras
+
+**Kostnad per elev är en kvot.** Den ändras både när kostnaden ändras och
+när elevantalet gör det. Sidan delar inte upp rörelsen på de två
+orsakerna; den säger att kvoten är en kvot.
+
+**Elevvård blev elevhälsa 2013.** Kolumnen heter *Elevvård per elev* till
+och med 2012 och *Elevhälsa per elev* därefter i Skolverkets export.
+Kolumnerna letas därför upp på sina rubriker och aldrig på position, och
+båda namnen godtas. Serien ritas som källorna redovisar den; äldre år
+räknas inte om.
+
+**Skolverket avrundar, Kolada inte.** Skolverket skriver ut kostnaden per
+elev i hela hundratal kronor (133 700), elevhälsan i tiotal. Avstämningen
+mellan källorna jämför därför totalen på hundratalet. Kostnadsslagen
+stäms inte av mot Skolverket: där ligger enstaka år någon promille
+utanför avrundningen, eftersom talen räknats fram vid olika tillfällen.
+Att slagen hänger ihop kontrolleras i stället inom Kolada, där de
+summerar exakt.
+
+**Publiceringstakten skiljer.** Kolada la ut 2025 års kostnader i slutet
+av augusti 2026; Skolverkets export svarade då fortfarande med tom tabell
+för samma år. Kontrollkällan ligger alltså normalt ett år efter, och
+avstämningen görs på de år båda har.

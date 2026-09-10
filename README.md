@@ -3,14 +3,15 @@
 **Hemsidan:** <https://moggleif.github.io/politik/>
 
 Fristående, helt statiska sammanställningar av offentliga siffror om
-Kungsbacka &ndash; från kommunen, SCB, Skolverket och Göteborgsregionen
-&ndash; med alla källor länkade.
+Kungsbacka &ndash; från kommunen, SCB, Skolverket, Kolada och
+Göteborgsregionen &ndash; med alla källor länkade.
 
 Sidorna visar vad siffrorna är, var de kommer ifrån och hur de är
 framräknade. De drar inga slutsatser, väger inte samman till omdömen och
-säger ingenting om framtiden. Den enda beräkning som inte kommer ur en
-källa är kohortframskrivningen på 16&ndash;19-sidan, och den är utmärkt
-som sådan.
+säger ingenting om framtiden. Två beräkningar kommer inte färdiga ur en
+källa: kohortframskrivningen på 16&ndash;19-sidan och omräkningen till
+fasta priser på kostnadssidan. Båda är utmärkta som sådana, och båda
+beskrivs där de används.
 
 **Befolkningsprognoser** &ndash; hur träffsäkra kommunens prognoser har varit,
 inklusive långtidsprognoserna. Prognossiffrorna kommer ur kommunens egna
@@ -76,6 +77,28 @@ finns per ämne.
   &ndash; betygspoäng och andel godkända per ämne, hela kommunen,
   läsåren 2012/13&ndash;2024/25, ur Skolverkets statistik
 
+**Vad grundskolan kostar** &ndash; hur mycket pengar som går åt per elev,
+år för år, i pengar som går att jämföra mellan åren. Beloppen räknas om
+till senaste årets prisnivå med SCB:s fastställda KPI-årsmedeltal, och
+ställs mot riket.
+
+- [Kostnad per elev i grundskolan](https://moggleif.github.io/politik/kostnad-per-elev.html)
+  &ndash; Kungsbacka och riket, i löpande och fasta priser, med den
+  indexerade utvecklingen från ett gemensamt basår, förändringen år för
+  år och uppdelningen på kostnadsslag, ur Kolada (RKA), 1998&ndash;2025
+
+Två mått redovisas, för att de svarar på olika frågor: kostnaden för de
+elever som *bor* i kommunen (inklusive ersättningen till fristående
+skolor och andra kommuner) och kostnaden för kommunens *egna* skolor.
+Kostnadsslagen &ndash; undervisning, lokaler, måltider, lärverktyg,
+elevhälsa, övrigt &ndash; hör till det senare och summerar till det.
+Kostnadsstatistiken omfattar bara kommunala skolor; de fristående
+skolornas kostnader hålls inne med hänvisning till ekonomisk
+statistisksekretess. Riket är Koladas publicerade rikstal, inte ett
+medelvärde räknat här. Skolverkets egen kostnadsstatistik hämtas som
+kontrollkälla, och ett test stämmer av att de två källorna säger samma
+sak om Kungsbacka.
+
 **Barn och unga** &ndash; hur många 0&ndash;15-åringar kommunen faktiskt har
 haft. Till skillnad från prognossidorna innehåller den inga prognoser alls.
 
@@ -120,6 +143,12 @@ data/
                                 alltså inklusive de fristående skolorna
   pendling/pendling_<år>.json   Pendling mellan hem- och skolkommun,
                                 gymnasiet och grundskolan
+  kolada/kostnader_grundskola.json  Grundskolans kostnader per elev för
+                                Kungsbacka och riket, ur Koladas API
+  kostnader/kostnader_<år>.json Skolverkets egna kostnadstal för
+                                Kungsbacka, kontrollkälla till Kolada
+  scb/kpi.json                  Fastställda KPI-årsmedeltal, för
+                                omräkningen till fasta priser
   scb/folkmangd_kungsbacka.json Faktisk folkmängd, hämtad från SCB:s öppna API
   fortidsroster/mottagna_<år>.csv  Valmyndighetens filer med mottagna
                                 förtidsröster per lokal och dag i hela
@@ -143,6 +172,11 @@ scripts/
   extrahera_budget.py           Läser prognostabellen ur en kommunbudget
   extrahera_antagning.py        Läser meritvärdena för Kungsbackas
                                 gymnasieskolor ur GR:s antagningsrapport
+  hamta_kolada.py               Hämtar grundskolans kostnader per elev för
+                                Kungsbacka och riket ur Koladas API
+  hamta_kostnader.py            Hämtar Skolverkets kostnadsstatistik för
+                                Kungsbacka (rapport 32), som kontrollkälla
+  hamta_kpi.py                  Hämtar SCB:s fastställda KPI-årsmedeltal
   hamta_slutbetyg.py            Hämtar avgångselevernas slutbetyg ur
                                 Skolverkets exporttjänst, ett läsår per fil
   hamta_amnesbetyg.py           Hämtar niondeklassarnas betyg per ämne ur
@@ -164,6 +198,9 @@ scripts/
                                 ämne i årskurs 9
   build_befolkning.py           Bygger docs/data-befolkning.json: folkmängden
                                 efter ålder, enbart faktiskt utfall
+  build_kostnader.py            Bygger docs/data-kostnader.json: kostnaden
+                                per elev i löpande och fasta priser, med
+                                förändringen år för år och mot riket
   build_nian_gymnasiet.py       Bygger docs/data-nian-gymnasiet.json: nian
                                 år X mot gymnasiet år X…X+3, plus pendlingen
   build_fortidsroster.py        Bygger docs/data-fortidsroster/<kod>.json, en
@@ -187,6 +224,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   gymnasiealdern.html           Befolkningsprognoser, åldersgruppen 16–19 år
   barn-och-unga.html            Barn och unga 0–15 år, enbart faktiskt utfall
   amnesbetyg.html               Slutbetyg per ämne i årskurs 9
+  kostnad-per-elev.html         Kostnaden per elev i grundskolan, fasta priser
   nian-till-gymnasiet.html      Från nian till gymnasiet, tre mätpunkter
   meritvarden.html              Meritvärden vid antagningen till gymnasiet
   slutbetyg.html                Slutbetyg från gymnasiet, program för program
@@ -207,6 +245,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   slutbetyg.js                  Driver slutbetygssidan
   kull.js                       Driver antagning-till-examen-sidan
   amnen.js                      Driver ämnesbetygssidan
+  kostnader.js                  Driver kostnadssidan; måttet ligger i
+                                adressen (?matt=)
   nian.js                       Driver sidan om nian och gymnasiet
   befolkning.js                 Driver sidan om barn och unga 0–15 år
   fortidsrostning.js            Driver förtidsröstningssidan; ritar också
@@ -220,6 +260,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   data-amnesbetyg.json          Data till ämnesbetygssidan (genereras)
   data-nian-gymnasiet.json      Data till sidan om nian och gymnasiet (genereras)
   data-befolkning.json          Data till sidan om barn och unga (genereras)
+  data-kostnader.json           Data till kostnadssidan (genereras)
   data-fortidsroster/<kod>.json Data till förtidsröstningssidan, en fil per
                                 område, plus index.json (genereras, två gånger
                                 om dagen under förtidsröstningen)
@@ -306,6 +347,24 @@ Barn och unga 0&ndash;15 år (enbart utfall, inga prognoser):
 python3 scripts/hamta_scb.py          # hämtar 0–15 och 16–19 samtidigt
 python3 scripts/build_befolkning.py   # bygger om docs/data-befolkning.json
 ```
+
+Kostnaden per elev i grundskolan:
+
+```bash
+python3 scripts/hamta_kolada.py       # kostnaderna, Kungsbacka och riket
+python3 scripts/hamta_kpi.py          # SCB:s fastställda KPI-årsmedeltal
+python3 scripts/hamta_kostnader.py    # Skolverkets tal, kontrollkälla
+python3 scripts/build_kostnader.py    # bygger om docs/data-kostnader.json
+```
+
+Kolada publicerar ett kostnadsår i slutet av augusti året efter, och
+Skolverket något senare; båda hämtskripten stannar av sig själva på ett
+år som inte finns ännu. KPI-hämtningen behövs bara när ett nytt
+årsmedeltal fastställts (mitten av januari) &ndash; utan det får det
+senaste kostnadsåret inget fast pris, och prisnivån stannar på året
+innan. Att Kolada och Skolverket säger samma sak om Kungsbacka
+kontrolleras av testsviten, liksom att kostnadsslagen summerar till
+kostnaden per elev.
 
 Förtidsröstningen (inget extra beroende; Excel-filerna läses med
 standardbiblioteket):

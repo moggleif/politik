@@ -39,6 +39,7 @@ build_nian_gymnasiet = ladda("build_nian_gymnasiet")
 build_meritvarden = ladda("build_meritvarden")
 build_slutbetyg = ladda("build_slutbetyg")
 build_fortidsroster = ladda("build_fortidsroster")
+build_kostnader = ladda("build_kostnader")
 hamta_fortidsroster = ladda("hamta_fortidsroster")
 skolverket = ladda("skolverket")
 
@@ -989,6 +990,194 @@ class TestFortidsrosterCsv(unittest.TestCase):
             hamta_fortidsroster.tolka_csv(text.encode("utf-8"))
 
 
+class TestKostnaderFastaPriser(unittest.TestCase):
+    """build_kostnader: KPI-omräkningen och det som följer ur den.
+
+    Facit går att räkna för hand: med KPI 100 -> 200 är prisnivån
+    dubbelt så hög, och ett belopp från det första året motsvarar det
+    dubbla i det sista årets pengar.
+    """
+
+    KPI = {"kalla": "SCB", "kallaUrl": "https://example.org",
+           "hamtad": "2026-01-01", "matt": "KPI",
+           "kpi": {"2020": 100.0, "2021": 125.0, "2022": 200.0}}
+
+    def kolada(self, kommunal=None, riket=None, slag=None):
+        def post(nyckel, etikett, kod, varden, riksvarden=None):
+            return {"nyckel": nyckel, "etikett": etikett, "kolada": kod,
+                    "koladaTitel": etikett, "definition": "påhittad",
+                    "omraden": {"1384": varden or {},
+                                "0000": riksvarden or {}}}
+        nyckeltal = [
+            post("hemkommun", "Bor i kommunen", "N15006", {"2020": 1000.0}),
+            post("kommunal", "Egna skolor", "N15008",
+                 kommunal if kommunal is not None else
+                 {"2020": 1000.0, "2021": 1500.0, "2022": 2400.0},
+                 riket),
+        ]
+        for i, (n, v) in enumerate(slag or []):
+            nyckeltal.append(post(n, n.title(), f"N1501{i}", v))
+        return {"omraden": [{"kod": "1384", "namn": "Kungsbacka"},
+                            {"kod": "0000", "namn": "Riket"}],
+                "matt": "Kostnad per elev", "kalla": "Kolada",
+                "kallaUrl": "https://example.org",
+                "apiUrl": "https://example.org/api",
+                "hamtad": "2026-01-01",
+                "nyckeltal": nyckeltal}
+
+    def kommunal(self, ut):
+        for post in ut["kostnadPerElev"]:
+            if post["nyckel"] == "kommunal":
+                return post
+        raise AssertionError("måttet saknas i utdatan")
+
+    def test_prisnivan_ar_senaste_aret_med_bade_kostnad_och_kpi(self):
+        ut = build_kostnader.bygg(self.kolada(), self.KPI)
+        self.assertEqual(ut["prisniva"], 2022)
+
+    def test_beloppen_raknas_om_med_kvoten_mellan_arens_kpi(self):
+        """1000 kr år 2020 (KPI 100) är 2000 kr i 2022 års pengar (KPI 200)."""
+        ut = build_kostnader.bygg(self.kolada(), self.KPI)
+        v = self.kommunal(ut)["omraden"]["1384"]["varden"]
+        self.assertEqual(v[2020]["nominell"], 1000)
+        self.assertEqual(v[2020]["fast"], 2000)
+        self.assertEqual(v[2021]["fast"], 2400)      # 1500 * 200/125
+        # Prisnivåårets eget belopp rörs inte
+        self.assertEqual(v[2022]["fast"], 2400)
+
+    def test_forandringen_raknas_pa_fasta_priser(self):
+        """Nominellt steg 2022 med 60 %, realt med 0 %: hela ökningen var
+        prisnivån. Det är just den skillnaden sidan finns för."""
+        v = self.kommunal(build_kostnader.bygg(self.kolada(), self.KPI)
+                          )["omraden"]["1384"]["varden"]
+        self.assertIsNone(v[2020]["forandring"])
+        self.assertEqual(v[2021]["forandring"], 20.0)   # 2000 -> 2400
+        self.assertEqual(v[2022]["forandring"], 0.0)    # 2400 -> 2400
+
+    def test_ar_utan_kpi_far_inget_fast_pris(self):
+        """Hellre inget tal än ett tal räknat på fel prisnivå.
+
+        KPI-serien börjar 2020 här, så 2019 saknar omräkningstal. Sista
+        året med både kostnad och KPI är då 2020, och det blir prisnivån."""
+        kolada = self.kolada(kommunal={"2019": 900.0, "2020": 1000.0})
+        ut = build_kostnader.bygg(kolada, self.KPI)
+        self.assertEqual(ut["prisniva"], 2020)
+        v = self.kommunal(ut)["omraden"]["1384"]["varden"]
+        self.assertEqual(v[2019]["nominell"], 900)
+        self.assertIsNone(v[2019]["fast"])
+        self.assertEqual(v[2020]["fast"], 1000)     # redan i prisnivåårets pengar
+        # Det första året med fast pris har inget föregående att jämföras med
+        self.assertIsNone(v[2020]["forandring"])
+
+    def test_jamforelsen_mot_riket_bara_dar_riket_finns(self):
+        kolada = self.kolada(riket={"2022": 3000.0})
+        v = self.kommunal(build_kostnader.bygg(kolada, self.KPI)
+                          )["omraden"]["1384"]["varden"]
+        self.assertIsNone(v[2020]["motRiket"])
+        self.assertIsNone(v[2021]["motRiket"])
+        self.assertEqual(v[2022]["motRiket"], -20.0)    # 2400 mot 3000
+
+    def test_riket_jamfors_inte_med_sig_sjalvt(self):
+        kolada = self.kolada(riket={"2022": 3000.0})
+        riket = self.kommunal(build_kostnader.bygg(kolada, self.KPI)
+                              )["omraden"]["0000"]["varden"]
+        self.assertIsNone(riket[2022]["motRiket"])
+
+    def test_realTotal_ar_forandringen_over_hela_serien(self):
+        o = self.kommunal(build_kostnader.bygg(self.kolada(), self.KPI)
+                          )["omraden"]["1384"]
+        self.assertEqual(o["forstaFast"], 2000)
+        self.assertEqual(o["sistaFast"], 2400)
+        self.assertEqual(o["realTotal"], 20.0)
+
+    def test_indexets_basar_ar_det_forsta_bada_omradena_har(self):
+        """Två serier med var sitt basår mäter inte samma sak.
+
+        Kungsbacka börjar 2020 och riket 2021 här, så basåret måste bli
+        2021 – annars jämförs kommunens utveckling från 2020 med rikets
+        från 2021, och den bilden är fel."""
+        kolada = self.kolada(riket={"2021": 3000.0, "2022": 3300.0})
+        post = self.kommunal(build_kostnader.bygg(kolada, self.KPI))
+        self.assertEqual(post["indexBasAr"], 2021)
+        self.assertEqual(post["omraden"]["1384"]["varden"][2021]["index"], 100.0)
+        self.assertEqual(post["omraden"]["0000"]["varden"][2021]["index"], 100.0)
+
+    def test_index_raknas_pa_fasta_priser(self):
+        """Ett index på löpande priser hade mätt inflationen, inte
+        kostnaden: nominellt steg 2022 med 60 %, realt med ingenting."""
+        kolada = self.kolada(riket={"2020": 1000.0, "2022": 2000.0})
+        post = self.kommunal(build_kostnader.bygg(kolada, self.KPI))
+        v = post["omraden"]["1384"]["varden"]
+        self.assertEqual(post["indexBasAr"], 2020)
+        self.assertEqual(v[2020]["index"], 100.0)      # 2000 kr fast
+        self.assertEqual(v[2021]["index"], 120.0)      # 2400 kr fast
+        self.assertEqual(v[2022]["index"], 120.0)      # 2400 kr fast
+
+    def test_ar_fore_basaret_far_index_mot_samma_bas(self):
+        """Kommunens längre historia ska inte tappas bort – de åren
+        räknas mot samma bas och hamnar under 100."""
+        kolada = self.kolada(riket={"2022": 3000.0})
+        post = self.kommunal(build_kostnader.bygg(kolada, self.KPI))
+        v = post["omraden"]["1384"]["varden"]
+        self.assertEqual(post["indexBasAr"], 2022)
+        self.assertEqual(v[2022]["index"], 100.0)
+        self.assertLess(v[2020]["index"], 100.0)
+
+    def test_kostnadsslag_som_inte_summerar_ger_varning(self):
+        """Går slagen isär från totalen är den staplade bilden fel, och
+        det ska synas vid bygget."""
+        kolada = self.kolada(slag=[("undervisning", {"2020": 400.0}),
+                                   ("lokaler", {"2020": 400.0})])
+        self.assertTrue(build_kostnader.kontrollera_kostnadsslag(kolada))
+        kolada = self.kolada(slag=[("undervisning", {"2020": 600.0}),
+                                   ("lokaler", {"2020": 400.0})])
+        self.assertEqual(build_kostnader.kontrollera_kostnadsslag(kolada), [])
+
+    def test_utan_kpi_gar_bygget_inte_att_gora(self):
+        with self.assertRaises(SystemExit):
+            build_kostnader.bygg(self.kolada(), dict(self.KPI, kpi={"1999": 100.0}))
+
+
+class TestKostnaderKallorna(unittest.TestCase):
+    """Kolada och Skolverket ska säga samma sak om Kungsbacka.
+
+    Kolada är sidans källa, Skolverket kontrollkällan. De publicerar
+    samma underlag (kommunernas räkenskapssammandrag), så totalen ska
+    stämma – Skolverket avrundat till hundratal kronor, Kolada oavrundat.
+    Räknar någon av dem om en serie utan att det syns faller det här.
+    """
+
+    def setUp(self):
+        self.kolada = json.loads(
+            (ROT / "data" / "kolada" / "kostnader_grundskola.json")
+            .read_text(encoding="utf-8"))
+        self.skolverket = [
+            json.loads(f.read_text(encoding="utf-8"))
+            for f in sorted((ROT / "data" / "kostnader").glob("kostnader_*.json"))
+        ]
+
+    def test_totalen_stammer_ar_for_ar(self):
+        per = {p["nyckel"]: p for p in self.kolada["nyckeltal"]}
+        kommunal = per["kommunal"]["omraden"]["1384"]
+        jamforda = 0
+        for arsfil in self.skolverket:
+            ar = str(arsfil["ar"])
+            facit = arsfil["kostnader"]["totaltPerElev"]
+            if ar not in kommunal or facit is None:
+                continue
+            jamforda += 1
+            self.assertEqual(round(kommunal[ar] / 100) * 100, facit,
+                             f"{ar}: Kolada {kommunal[ar]}, "
+                             f"Skolverket {facit}")
+        self.assertGreater(jamforda, 20, "för få år stämdes av")
+
+    def test_kostnadsslagen_summerar_till_totalen(self):
+        """Inom Kolada ska slagen summera exakt till kostnaden per elev –
+        annars går den staplade bilden inte ihop med linjen ovanför."""
+        self.assertEqual(
+            build_kostnader.kontrollera_kostnadsslag(self.kolada), [])
+
+
 class TestGenereradeFiler(unittest.TestCase):
     """Datafilerna i docs/ ska vara exakt vad byggskripten ger av data/.
 
@@ -1078,6 +1267,16 @@ class TestGenereradeFiler(unittest.TestCase):
         ombyggd = json.loads(json.dumps(build_amnesbetyg.bygg(arsfiler)))
         self.assertEqual(ombyggd, self.las("data-amnesbetyg.json"))
 
+    def test_data_kostnader_ar_reproducerbar(self):
+        kolada = json.loads(
+            (ROT / "data" / "kolada" / "kostnader_grundskola.json")
+            .read_text(encoding="utf-8"))
+        kpi = json.loads((ROT / "data" / "scb" / "kpi.json")
+                         .read_text(encoding="utf-8"))
+        # Åren är heltalsnycklar i bygget men strängar i JSON-filen
+        ombyggd = json.loads(json.dumps(build_kostnader.bygg(kolada, kpi)))
+        self.assertEqual(ombyggd, self.las("data-kostnader.json"))
+
     def test_data_fortidsroster_ar_reproducerbar(self):
         """Alla områdesfiler, och inga andra, ska vara vad bygget ger."""
         filer, index = build_fortidsroster.bygg(*build_fortidsroster.las_indata())
@@ -1121,7 +1320,8 @@ class TestExaktSummering(unittest.TestCase):
     def test_byggskripten_summerar_floats_exakt(self):
         """Ingen ny round(sum(...)/len(...)) får smyga sig in."""
         for namn in ("build_data", "build_amnesbetyg", "build_meritvarden",
-                     "build_slutbetyg", "build_nian_gymnasiet"):
+                     "build_slutbetyg", "build_nian_gymnasiet",
+                     "build_kostnader"):
             kod = (ROT / "scripts" / f"{namn}.py").read_text(encoding="utf-8")
             self.assertNotIn("round(sum(", kod, namn)
 
@@ -1217,9 +1417,10 @@ class TestTolkningsregler(unittest.TestCase):
                                  f"{Path(vag).name}: {forbjudet!r}")
 
     def test_inga_egna_analysmodeller_kvar(self):
-        """Sidan visar källdata; den enda beräkning som inte kommer ur en
-        källa är kohortframskrivningen. Korrelationer, kompenserad
-        framskrivning och modellvarianter är borttagna."""
+        """Sidan visar källdata; de enda beräkningar som inte kommer ur en
+        källa är kohortframskrivningen och KPI-omräkningen till fasta
+        priser. Korrelationer, kompenserad framskrivning och
+        modellvarianter är borttagna."""
         for namn in ("data-nian-gymnasiet.json",):
             d = json.loads((ROT / "docs" / namn).read_text(encoding="utf-8"))
             self.assertNotIn("samband", d, namn)
@@ -1294,6 +1495,26 @@ class TestTolkningsregler(unittest.TestCase):
                            if int(a) >= 2025 and v.get("utanPlatser") is False
                            and v.get("poang") is not None]
         self.assertTrue(utan_konkurrens)
+
+    def test_fasta_priser_utges_inte_for_volymjusterade(self):
+        """KPI mäter hushållens priser, inte kommunens kostnader.
+
+        Lönerna är den största posten i en skola och följer inte KPI. En
+        kostnad som ligger stilla i fasta priser har följt
+        konsumentpriserna – den säger inte att kommunen köpt lika mycket
+        skola. Står inte den skillnaden utskriven läses "fasta priser"
+        som "volymjusterat", och sidan påstår mer än talen bär.
+        """
+        for vag in ("docs/kostnad-per-elev.html", "docs/metod.html"):
+            self.assertIn("kpi mäter hushållens priser, inte kommunens",
+                          self.las(vag).lower(), vag)
+
+    def test_kostnaden_per_elev_beskrivs_som_kvot(self):
+        """Kvoten rör sig också när elevantalet gör det, och sidan delar
+        inte upp rörelsen på de två orsakerna."""
+        for vag in ("docs/kostnad-per-elev.html", "docs/metod.html"):
+            self.assertIn("kostnad per elev är en kvot",
+                          self.las(vag).lower(), vag)
 
     def test_prognoserna_avgor_ingenting(self):
         """Sidan visar prognoser och utfall, inte vad de styr.

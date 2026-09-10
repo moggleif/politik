@@ -23,7 +23,8 @@ const AXE = require.resolve("axe-core/axe.min.js");
 
 const SIDOR = [
   "index.html", "befolkningsprognos.html", "gymnasiealdern.html",
-  "barn-och-unga.html", "amnesbetyg.html", "nian-till-gymnasiet.html",
+  "barn-och-unga.html", "amnesbetyg.html", "kostnad-per-elev.html",
+  "nian-till-gymnasiet.html",
   "meritvarden.html", "slutbetyg.html", "antagning-till-examen.html",
   "fortidsrostning.html", "metod.html",
 ];

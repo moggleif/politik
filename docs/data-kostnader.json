@@ -1,0 +1,2974 @@
+{
+ "kommun": "Kungsbacka",
+ "kommunkod": "1384",
+ "serie": "Kostnad per elev i grundskolan, Kungsbacka och riket",
+ "matt": "Kostnad för grundskolan per elev, kalenderår, löpande priser",
+ "prisniva": 2025,
+ "prisnivaText": "fasta priser, 2025 års prisnivå",
+ "kalla": "Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag",
+ "kallaUrl": "https://www.kolada.se/",
+ "apiUrl": "https://api.kolada.se/v3/data/kpi/N15006,N15008,N15011,N15009,N15010,N15013,N15012,N15014,U15015/municipality/1384,0000",
+ "hamtad": "2026-09-10",
+ "kpiKalla": "SCB, Konsumentprisindex (PR0101), fastställda årsmedeltal",
+ "kpiKallaUrl": "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__PR__PR0101__PR0101A/KPIFastAr/",
+ "kpiHamtad": "2026-09-10",
+ "kpiMatt": "Konsumentprisindex (KPI), fastställda årsmedeltal, totalt, 1980=100",
+ "kpi": {
+  "1998": 257.0,
+  "1999": 258.1,
+  "2000": 260.7,
+  "2001": 267.1,
+  "2002": 272.8,
+  "2003": 278.1,
+  "2004": 279.2,
+  "2005": 280.4,
+  "2006": 284.22,
+  "2007": 290.51,
+  "2008": 300.61,
+  "2009": 299.66,
+  "2010": 303.46,
+  "2011": 311.43,
+  "2012": 314.2,
+  "2013": 314.06,
+  "2014": 313.49,
+  "2015": 313.35,
+  "2016": 316.43,
+  "2017": 322.11,
+  "2018": 328.4,
+  "2019": 334.26,
+  "2020": 335.92,
+  "2021": 343.19,
+  "2022": 371.91,
+  "2023": 403.7,
+  "2024": 415.15,
+  "2025": 417.98
+ },
+ "omraden": [
+  {
+   "kod": "1384",
+   "namn": "Kungsbacka"
+  },
+  {
+   "kod": "0000",
+   "namn": "Riket"
+  }
+ ],
+ "ar": [
+  1998,
+  1999,
+  2000,
+  2001,
+  2002,
+  2003,
+  2004,
+  2005,
+  2006,
+  2007,
+  2008,
+  2009,
+  2010,
+  2011,
+  2012,
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "kostnadPerElev": [
+  {
+   "nyckel": "hemkommun",
+   "etikett": "Elever som bor i kommunen",
+   "kolada": "N15006",
+   "koladaTitel": "Kostnad grundskola åk 1-9, hemkommun, kr/elev",
+   "definition": "Bruttokostnad - interna intäkter + kostnad för skolskjuts - försäljning av verksamhet till andra kommuner för grundskola dividerat med medelvärde av antal elever i grundskola som är folkbokförda i kommunen. Avser grundskola åk 1-9 (motsvarande). Uppgiften avser kalenderår, mätt 31 december. Avser samtlig regi. Inklusive integrerade elever (from 2020) samt elever i internationella skolor. Källa: SCB",
+   "indexBasAr": 2016,
+   "omraden": {
+    "1384": {
+     "varden": {
+      "1998": {
+       "nominell": 45997,
+       "fast": 74809,
+       "forandring": null,
+       "motRiket": null,
+       "index": 57.7
+      },
+      "1999": {
+       "nominell": 51808,
+       "fast": 83900,
+       "forandring": 12.2,
+       "motRiket": null,
+       "index": 64.7
+      },
+      "2000": {
+       "nominell": 61726,
+       "fast": 98965,
+       "forandring": 18.0,
+       "motRiket": null,
+       "index": 76.3
+      },
+      "2001": {
+       "nominell": 60253,
+       "fast": 94289,
+       "forandring": -4.7,
+       "motRiket": null,
+       "index": 72.7
+      },
+      "2002": {
+       "nominell": 56938,
+       "fast": 87240,
+       "forandring": -7.5,
+       "motRiket": null,
+       "index": 67.3
+      },
+      "2003": {
+       "nominell": 62801,
+       "fast": 94389,
+       "forandring": 8.2,
+       "motRiket": null,
+       "index": 72.8
+      },
+      "2004": {
+       "nominell": 64658,
+       "fast": 96797,
+       "forandring": 2.6,
+       "motRiket": null,
+       "index": 74.6
+      },
+      "2005": {
+       "nominell": 66748,
+       "fast": 99498,
+       "forandring": 2.8,
+       "motRiket": null,
+       "index": 76.7
+      },
+      "2006": {
+       "nominell": 66840,
+       "fast": 98296,
+       "forandring": -1.2,
+       "motRiket": null,
+       "index": 75.8
+      },
+      "2007": {
+       "nominell": 71274,
+       "fast": 102548,
+       "forandring": 4.3,
+       "motRiket": null,
+       "index": 79.1
+      },
+      "2008": {
+       "nominell": 76850,
+       "fast": 106855,
+       "forandring": 4.2,
+       "motRiket": null,
+       "index": 82.4
+      },
+      "2009": {
+       "nominell": 79067,
+       "fast": 110286,
+       "forandring": 3.2,
+       "motRiket": null,
+       "index": 85.1
+      },
+      "2010": {
+       "nominell": 78663,
+       "fast": 108349,
+       "forandring": -1.8,
+       "motRiket": null,
+       "index": 83.6
+      },
+      "2011": {
+       "nominell": 83364,
+       "fast": 111885,
+       "forandring": 3.3,
+       "motRiket": null,
+       "index": 86.3
+      },
+      "2012": {
+       "nominell": 82092,
+       "fast": 109207,
+       "forandring": -2.4,
+       "motRiket": null,
+       "index": 84.2
+      },
+      "2013": {
+       "nominell": 84974,
+       "fast": 113091,
+       "forandring": 3.6,
+       "motRiket": null,
+       "index": 87.2
+      },
+      "2014": {
+       "nominell": 86810,
+       "fast": 115745,
+       "forandring": 2.3,
+       "motRiket": null,
+       "index": 89.3
+      },
+      "2015": {
+       "nominell": 91474,
+       "fast": 122018,
+       "forandring": 5.4,
+       "motRiket": null,
+       "index": 94.1
+      },
+      "2016": {
+       "nominell": 98167,
+       "fast": 129671,
+       "forandring": 6.3,
+       "motRiket": -7.4,
+       "index": 100.0
+      },
+      "2017": {
+       "nominell": 102949,
+       "fast": 133590,
+       "forandring": 3.0,
+       "motRiket": -6.6,
+       "index": 103.0
+      },
+      "2018": {
+       "nominell": 104015,
+       "fast": 132388,
+       "forandring": -0.9,
+       "motRiket": -8.9,
+       "index": 102.1
+      },
+      "2019": {
+       "nominell": 106118,
+       "fast": 132696,
+       "forandring": 0.2,
+       "motRiket": -9.5,
+       "index": 102.3
+      },
+      "2020": {
+       "nominell": 110252,
+       "fast": 137185,
+       "forandring": 3.4,
+       "motRiket": -6.8,
+       "index": 105.8
+      },
+      "2021": {
+       "nominell": 112806,
+       "fast": 137389,
+       "forandring": 0.1,
+       "motRiket": -7.4,
+       "index": 106.0
+      },
+      "2022": {
+       "nominell": 118029,
+       "fast": 132649,
+       "forandring": -3.4,
+       "motRiket": -6.7,
+       "index": 102.3
+      },
+      "2023": {
+       "nominell": 126570,
+       "fast": 131047,
+       "forandring": -1.2,
+       "motRiket": -6.1,
+       "index": 101.1
+      },
+      "2024": {
+       "nominell": 131979,
+       "fast": 132878,
+       "forandring": 1.4,
+       "motRiket": -7.2,
+       "index": 102.5
+      },
+      "2025": {
+       "nominell": 134283,
+       "fast": 134283,
+       "forandring": 1.1,
+       "motRiket": -7.3,
+       "index": 103.6
+      }
+     },
+     "forstaAr": 1998,
+     "sistaAr": 2025,
+     "forsta": 45997,
+     "sista": 134283,
+     "forstaFast": 74809,
+     "sistaFast": 134283,
+     "hogsta": 137389,
+     "hogstaAr": 2021,
+     "lagsta": 74809,
+     "lagstaAr": 1998,
+     "realTotal": 79.5
+    },
+    "0000": {
+     "varden": {
+      "2016": {
+       "nominell": 106043,
+       "fast": 140075,
+       "forandring": null,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2017": {
+       "nominell": 110282,
+       "fast": 143105,
+       "forandring": 2.2,
+       "motRiket": null,
+       "index": 102.2
+      },
+      "2018": {
+       "nominell": 114145,
+       "fast": 145281,
+       "forandring": 1.5,
+       "motRiket": null,
+       "index": 103.7
+      },
+      "2019": {
+       "nominell": 117279,
+       "fast": 146653,
+       "forandring": 0.9,
+       "motRiket": null,
+       "index": 104.7
+      },
+      "2020": {
+       "nominell": 118273,
+       "fast": 147165,
+       "forandring": 0.3,
+       "motRiket": null,
+       "index": 105.1
+      },
+      "2021": {
+       "nominell": 121761,
+       "fast": 148296,
+       "forandring": 0.8,
+       "motRiket": null,
+       "index": 105.9
+      },
+      "2022": {
+       "nominell": 126498,
+       "fast": 142168,
+       "forandring": -4.1,
+       "motRiket": null,
+       "index": 101.5
+      },
+      "2023": {
+       "nominell": 134788,
+       "fast": 139556,
+       "forandring": -1.8,
+       "motRiket": null,
+       "index": 99.6
+      },
+      "2024": {
+       "nominell": 142155,
+       "fast": 143124,
+       "forandring": 2.6,
+       "motRiket": null,
+       "index": 102.2
+      },
+      "2025": {
+       "nominell": 144800,
+       "fast": 144800,
+       "forandring": 1.2,
+       "motRiket": null,
+       "index": 103.4
+      }
+     },
+     "forstaAr": 2016,
+     "sistaAr": 2025,
+     "forsta": 106043,
+     "sista": 144800,
+     "forstaFast": 140075,
+     "sistaFast": 144800,
+     "hogsta": 148296,
+     "hogstaAr": 2021,
+     "lagsta": 139556,
+     "lagstaAr": 2023,
+     "realTotal": 3.4
+    }
+   },
+   "kort": "hemkommun"
+  },
+  {
+   "nyckel": "kommunal",
+   "etikett": "Kommunens egna skolor",
+   "kolada": "N15008",
+   "koladaTitel": "Kostnad för kommunal grundskola åk 1-9, kr/elev",
+   "definition": "Kostnad totalt för grundskola åk 1-9 i kommunens egen regi delat på ett medelvärde av antal elever i kommunal grundskola för innevarande samt föregående år. I statistiken ingår kostnader för: lokaler och inventarier, måltider, elevhälsa, undervisning, lärverktyg, utrustning och skolbibliotek, övriga kostnader, till exempel SYV-verksamhet. Skolskjuts ingår inte. Elever i internationella skolor samt integrerade elever från anpassad grundskola är inkluderade nämnaren. Källa: SCB.",
+   "indexBasAr": 2010,
+   "omraden": {
+    "1384": {
+     "varden": {
+      "1998": {
+       "nominell": 44800,
+       "fast": 72862,
+       "forandring": null,
+       "motRiket": null,
+       "index": 69.1
+      },
+      "1999": {
+       "nominell": 51700,
+       "fast": 83726,
+       "forandring": 14.9,
+       "motRiket": null,
+       "index": 79.4
+      },
+      "2000": {
+       "nominell": 61400,
+       "fast": 98443,
+       "forandring": 17.6,
+       "motRiket": null,
+       "index": 93.3
+      },
+      "2001": {
+       "nominell": 59400,
+       "fast": 92954,
+       "forandring": -5.6,
+       "motRiket": null,
+       "index": 88.1
+      },
+      "2002": {
+       "nominell": 55900,
+       "fast": 85649,
+       "forandring": -7.9,
+       "motRiket": null,
+       "index": 81.2
+      },
+      "2003": {
+       "nominell": 62800,
+       "fast": 94387,
+       "forandring": 10.2,
+       "motRiket": null,
+       "index": 89.5
+      },
+      "2004": {
+       "nominell": 64700,
+       "fast": 96860,
+       "forandring": 2.6,
+       "motRiket": null,
+       "index": 91.8
+      },
+      "2005": {
+       "nominell": 66600,
+       "fast": 99278,
+       "forandring": 2.5,
+       "motRiket": null,
+       "index": 94.1
+      },
+      "2006": {
+       "nominell": 66400,
+       "fast": 97649,
+       "forandring": -1.6,
+       "motRiket": null,
+       "index": 92.6
+      },
+      "2007": {
+       "nominell": 71300,
+       "fast": 102585,
+       "forandring": 5.1,
+       "motRiket": null,
+       "index": 97.2
+      },
+      "2008": {
+       "nominell": 77500,
+       "fast": 107759,
+       "forandring": 5.0,
+       "motRiket": null,
+       "index": 102.1
+      },
+      "2009": {
+       "nominell": 77739,
+       "fast": 108434,
+       "forandring": 0.6,
+       "motRiket": null,
+       "index": 102.8
+      },
+      "2010": {
+       "nominell": 76601,
+       "fast": 105509,
+       "forandring": -2.7,
+       "motRiket": -10.8,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 82710,
+       "fast": 111007,
+       "forandring": 5.2,
+       "motRiket": -6.0,
+       "index": 105.2
+      },
+      "2012": {
+       "nominell": 81511,
+       "fast": 108434,
+       "forandring": -2.3,
+       "motRiket": null,
+       "index": 102.8
+      },
+      "2013": {
+       "nominell": 83864,
+       "fast": 111614,
+       "forandring": 2.9,
+       "motRiket": -9.4,
+       "index": 105.8
+      },
+      "2014": {
+       "nominell": 86101,
+       "fast": 114799,
+       "forandring": 2.9,
+       "motRiket": -9.4,
+       "index": 108.8
+      },
+      "2015": {
+       "nominell": 90511,
+       "fast": 120734,
+       "forandring": 5.2,
+       "motRiket": -8.0,
+       "index": 114.4
+      },
+      "2016": {
+       "nominell": 97589,
+       "fast": 128907,
+       "forandring": 6.8,
+       "motRiket": -6.9,
+       "index": 122.2
+      },
+      "2017": {
+       "nominell": 102697,
+       "fast": 133263,
+       "forandring": 3.4,
+       "motRiket": -6.2,
+       "index": 126.3
+      },
+      "2018": {
+       "nominell": 102727,
+       "fast": 130748,
+       "forandring": -1.9,
+       "motRiket": -9.5,
+       "index": 123.9
+      },
+      "2019": {
+       "nominell": 105495,
+       "fast": 131918,
+       "forandring": 0.9,
+       "motRiket": -9.5,
+       "index": 125.0
+      },
+      "2020": {
+       "nominell": 110361,
+       "fast": 137321,
+       "forandring": 4.1,
+       "motRiket": -6.6,
+       "index": 130.2
+      },
+      "2021": {
+       "nominell": 112827,
+       "fast": 137415,
+       "forandring": 0.1,
+       "motRiket": -7.4,
+       "index": 130.2
+      },
+      "2022": {
+       "nominell": 119110,
+       "fast": 133864,
+       "forandring": -2.6,
+       "motRiket": -6.0,
+       "index": 126.9
+      },
+      "2023": {
+       "nominell": 128512,
+       "fast": 133058,
+       "forandring": -0.6,
+       "motRiket": -5.1,
+       "index": 126.1
+      },
+      "2024": {
+       "nominell": 133720,
+       "fast": 134632,
+       "forandring": 1.2,
+       "motRiket": -6.4,
+       "index": 127.6
+      },
+      "2025": {
+       "nominell": 135993,
+       "fast": 135993,
+       "forandring": 1.0,
+       "motRiket": -6.5,
+       "index": 128.9
+      }
+     },
+     "forstaAr": 1998,
+     "sistaAr": 2025,
+     "forsta": 44800,
+     "sista": 135993,
+     "forstaFast": 72862,
+     "sistaFast": 135993,
+     "hogsta": 137415,
+     "hogstaAr": 2021,
+     "lagsta": 72862,
+     "lagstaAr": 1998,
+     "realTotal": 86.6
+    },
+    "0000": {
+     "varden": {
+      "2010": {
+       "nominell": 85870,
+       "fast": 118275,
+       "forandring": null,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 88004,
+       "fast": 118112,
+       "forandring": -0.1,
+       "motRiket": null,
+       "index": 99.9
+      },
+      "2013": {
+       "nominell": 92575,
+       "fast": 123207,
+       "forandring": 4.3,
+       "motRiket": null,
+       "index": 104.2
+      },
+      "2014": {
+       "nominell": 94999,
+       "fast": 126663,
+       "forandring": 2.8,
+       "motRiket": null,
+       "index": 107.1
+      },
+      "2015": {
+       "nominell": 98334,
+       "fast": 131168,
+       "forandring": 3.6,
+       "motRiket": null,
+       "index": 110.9
+      },
+      "2016": {
+       "nominell": 104843,
+       "fast": 138490,
+       "forandring": 5.6,
+       "motRiket": null,
+       "index": 117.1
+      },
+      "2017": {
+       "nominell": 109462,
+       "fast": 142042,
+       "forandring": 2.6,
+       "motRiket": null,
+       "index": 120.1
+      },
+      "2018": {
+       "nominell": 113525,
+       "fast": 144492,
+       "forandring": 1.7,
+       "motRiket": null,
+       "index": 122.2
+      },
+      "2019": {
+       "nominell": 116553,
+       "fast": 145746,
+       "forandring": 0.9,
+       "motRiket": null,
+       "index": 123.2
+      },
+      "2020": {
+       "nominell": 118209,
+       "fast": 147085,
+       "forandring": 0.9,
+       "motRiket": null,
+       "index": 124.4
+      },
+      "2021": {
+       "nominell": 121830,
+       "fast": 148380,
+       "forandring": 0.9,
+       "motRiket": null,
+       "index": 125.5
+      },
+      "2022": {
+       "nominell": 126721,
+       "fast": 142418,
+       "forandring": -4.0,
+       "motRiket": null,
+       "index": 120.4
+      },
+      "2023": {
+       "nominell": 135415,
+       "fast": 140205,
+       "forandring": -1.6,
+       "motRiket": null,
+       "index": 118.5
+      },
+      "2024": {
+       "nominell": 142927,
+       "fast": 143901,
+       "forandring": 2.6,
+       "motRiket": null,
+       "index": 121.7
+      },
+      "2025": {
+       "nominell": 145505,
+       "fast": 145505,
+       "forandring": 1.1,
+       "motRiket": null,
+       "index": 123.0
+      }
+     },
+     "forstaAr": 2010,
+     "sistaAr": 2025,
+     "forsta": 85870,
+     "sista": 145505,
+     "forstaFast": 118275,
+     "sistaFast": 145505,
+     "hogsta": 148380,
+     "hogstaAr": 2021,
+     "lagsta": 118112,
+     "lagstaAr": 2011,
+     "realTotal": 23.0
+    }
+   },
+   "kort": "kommunal huvudman"
+  }
+ ],
+ "kostnadsslag": [
+  {
+   "nyckel": "undervisning",
+   "etikett": "Undervisning",
+   "kolada": "N15011",
+   "koladaTitel": "Kostnad för undervisning i kommunal grundskola åk 1-9, kr/elev",
+   "definition": "Undervisningskostnad grundskola åk 1-9 skolkommun, dividerat med medelvärde av antal elever i kommunens grundskola. Kostnader avseende samtliga förekommande läro- och timplan bundna aktiviteter, d.v.s. i huvudsak lärarnas och annan pedagogisk personals (t.ex. fritidspedagogers, förskollärares och specialpedagogers) löner för det pedagogiska arbetet med eleverna. Exempel på läro- och timplanebundna aktiviteter är förutom reguljär undervisning särskilda stödinsatser, prov och arbetslivsorientering. Lön för skolledningen, exempelvis lön för rektor samt övrig personals arbete med ledningsfunktion ingår. Om läraren till en del av sin tid har andra arbetsuppgifter än det pedagogiska arbetet med elever redovisas den delen av lönen under Övrigt. Lönekostnader för lärare och annan pedagogisk personal under tid för kompetensutveckling ska ingå, liksom lönekostnader för eventuell vikarie. Kostnader och ersättning för handledning av lärarkandidater redovisas här. Kostnader för lärarfortbildning bruttoredovisas som kostnad för undervisning och statsbidraget som erhålls som kompensation för ökade lönekostnader redovisas som intäkt under Övrigt. Kostnad avser kalenderår, mätt 31 december. Avser egen regi. Elever i internationella skolor samt integrerade elever från anpassad grundskola är inkluderade nämnaren. Källa: SCB.",
+   "indexBasAr": 2010,
+   "omraden": {
+    "1384": {
+     "varden": {
+      "1998": {
+       "nominell": 25200,
+       "fast": 40985,
+       "forandring": null,
+       "motRiket": null,
+       "index": 76.5
+      },
+      "1999": {
+       "nominell": 27900,
+       "fast": 45183,
+       "forandring": 10.2,
+       "motRiket": null,
+       "index": 84.4
+      },
+      "2000": {
+       "nominell": 29400,
+       "fast": 47137,
+       "forandring": 4.3,
+       "motRiket": null,
+       "index": 88.0
+      },
+      "2001": {
+       "nominell": 29000,
+       "fast": 45382,
+       "forandring": -3.7,
+       "motRiket": null,
+       "index": 84.7
+      },
+      "2002": {
+       "nominell": 27900,
+       "fast": 42748,
+       "forandring": -5.8,
+       "motRiket": null,
+       "index": 79.8
+      },
+      "2003": {
+       "nominell": 31200,
+       "fast": 46893,
+       "forandring": 9.7,
+       "motRiket": null,
+       "index": 87.6
+      },
+      "2004": {
+       "nominell": 32400,
+       "fast": 48505,
+       "forandring": 3.4,
+       "motRiket": null,
+       "index": 90.6
+      },
+      "2005": {
+       "nominell": 34000,
+       "fast": 50682,
+       "forandring": 4.5,
+       "motRiket": null,
+       "index": 94.6
+      },
+      "2006": {
+       "nominell": 35300,
+       "fast": 51913,
+       "forandring": 2.4,
+       "motRiket": null,
+       "index": 96.9
+      },
+      "2007": {
+       "nominell": 36900,
+       "fast": 53091,
+       "forandring": 2.3,
+       "motRiket": null,
+       "index": 99.1
+      },
+      "2008": {
+       "nominell": 38400,
+       "fast": 53393,
+       "forandring": 0.6,
+       "motRiket": null,
+       "index": 99.7
+      },
+      "2009": {
+       "nominell": 40196,
+       "fast": 56067,
+       "forandring": 5.0,
+       "motRiket": null,
+       "index": 104.7
+      },
+      "2010": {
+       "nominell": 38884,
+       "fast": 53558,
+       "forandring": -4.5,
+       "motRiket": -11.0,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 40811,
+       "fast": 54774,
+       "forandring": 2.3,
+       "motRiket": -10.4,
+       "index": 102.3
+      },
+      "2012": {
+       "nominell": 42046,
+       "fast": 55934,
+       "forandring": 2.1,
+       "motRiket": null,
+       "index": 104.4
+      },
+      "2013": {
+       "nominell": 45687,
+       "fast": 60805,
+       "forandring": 8.7,
+       "motRiket": -5.5,
+       "index": 113.5
+      },
+      "2014": {
+       "nominell": 47445,
+       "fast": 63260,
+       "forandring": 4.0,
+       "motRiket": -4.7,
+       "index": 118.1
+      },
+      "2015": {
+       "nominell": 49617,
+       "fast": 66185,
+       "forandring": 4.6,
+       "motRiket": -5.4,
+       "index": 123.6
+      },
+      "2016": {
+       "nominell": 54133,
+       "fast": 71505,
+       "forandring": 8.0,
+       "motRiket": -5.4,
+       "index": 133.5
+      },
+      "2017": {
+       "nominell": 55904,
+       "fast": 72542,
+       "forandring": 1.5,
+       "motRiket": -7.8,
+       "index": 135.4
+      },
+      "2018": {
+       "nominell": 56455,
+       "fast": 71854,
+       "forandring": -0.9,
+       "motRiket": -10.6,
+       "index": 134.2
+      },
+      "2019": {
+       "nominell": 59686,
+       "fast": 74635,
+       "forandring": 3.9,
+       "motRiket": -9.9,
+       "index": 139.4
+      },
+      "2020": {
+       "nominell": 62502,
+       "fast": 77770,
+       "forandring": 4.2,
+       "motRiket": -6.5,
+       "index": 145.2
+      },
+      "2021": {
+       "nominell": 65198,
+       "fast": 79406,
+       "forandring": 2.1,
+       "motRiket": -4.7,
+       "index": 148.3
+      },
+      "2022": {
+       "nominell": 68215,
+       "fast": 76665,
+       "forandring": -3.5,
+       "motRiket": -3.1,
+       "index": 143.1
+      },
+      "2023": {
+       "nominell": 71163,
+       "fast": 73680,
+       "forandring": -3.9,
+       "motRiket": -6.0,
+       "index": 137.6
+      },
+      "2024": {
+       "nominell": 71458,
+       "fast": 71945,
+       "forandring": -2.4,
+       "motRiket": -9.7,
+       "index": 134.3
+      },
+      "2025": {
+       "nominell": 73779,
+       "fast": 73779,
+       "forandring": 2.5,
+       "motRiket": -7.9,
+       "index": 137.8
+      }
+     },
+     "forstaAr": 1998,
+     "sistaAr": 2025,
+     "forsta": 25200,
+     "sista": 73779,
+     "forstaFast": 40985,
+     "sistaFast": 73779,
+     "hogsta": 79406,
+     "hogstaAr": 2021,
+     "lagsta": 40985,
+     "lagstaAr": 1998,
+     "realTotal": 80.0
+    },
+    "0000": {
+     "varden": {
+      "2010": {
+       "nominell": 43668,
+       "fast": 60147,
+       "forandring": null,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 45564,
+       "fast": 61153,
+       "forandring": 1.7,
+       "motRiket": null,
+       "index": 101.7
+      },
+      "2013": {
+       "nominell": 48360,
+       "fast": 64361,
+       "forandring": 5.2,
+       "motRiket": null,
+       "index": 107.0
+      },
+      "2014": {
+       "nominell": 49790,
+       "fast": 66386,
+       "forandring": 3.1,
+       "motRiket": null,
+       "index": 110.4
+      },
+      "2015": {
+       "nominell": 52460,
+       "fast": 69977,
+       "forandring": 5.4,
+       "motRiket": null,
+       "index": 116.3
+      },
+      "2016": {
+       "nominell": 57251,
+       "fast": 75624,
+       "forandring": 8.1,
+       "motRiket": null,
+       "index": 125.7
+      },
+      "2017": {
+       "nominell": 60662,
+       "fast": 78716,
+       "forandring": 4.1,
+       "motRiket": null,
+       "index": 130.9
+      },
+      "2018": {
+       "nominell": 63114,
+       "fast": 80331,
+       "forandring": 2.1,
+       "motRiket": null,
+       "index": 133.6
+      },
+      "2019": {
+       "nominell": 66228,
+       "fast": 82816,
+       "forandring": 3.1,
+       "motRiket": null,
+       "index": 137.7
+      },
+      "2020": {
+       "nominell": 66846,
+       "fast": 83175,
+       "forandring": 0.4,
+       "motRiket": null,
+       "index": 138.3
+      },
+      "2021": {
+       "nominell": 68378,
+       "fast": 83279,
+       "forandring": 0.1,
+       "motRiket": null,
+       "index": 138.5
+      },
+      "2022": {
+       "nominell": 70410,
+       "fast": 79132,
+       "forandring": -5.0,
+       "motRiket": null,
+       "index": 131.6
+      },
+      "2023": {
+       "nominell": 75727,
+       "fast": 78406,
+       "forandring": -0.9,
+       "motRiket": null,
+       "index": 130.4
+      },
+      "2024": {
+       "nominell": 79115,
+       "fast": 79655,
+       "forandring": 1.6,
+       "motRiket": null,
+       "index": 132.4
+      },
+      "2025": {
+       "nominell": 80073,
+       "fast": 80073,
+       "forandring": 0.5,
+       "motRiket": null,
+       "index": 133.1
+      }
+     },
+     "forstaAr": 2010,
+     "sistaAr": 2025,
+     "forsta": 43668,
+     "sista": 80073,
+     "forstaFast": 60147,
+     "sistaFast": 80073,
+     "hogsta": 83279,
+     "hogstaAr": 2021,
+     "lagsta": 60147,
+     "lagstaAr": 2010,
+     "realTotal": 33.1
+    }
+   }
+  },
+  {
+   "nyckel": "lokaler",
+   "etikett": "Lokaler och inventarier",
+   "kolada": "N15009",
+   "koladaTitel": "Kostnad för lokaler i kommunal grundskola åk 1-9, kr/elev",
+   "definition": "Lokalkostnad grundskola skolkommun dividerat med medelvärde av antal elever i kommunens grundskola åk 1-9. Kostnader för såväl egna som hyrda lokaler, inklusive kostnader för inventarier. Med lokalkostnader avses kostnader för lokaler och inventarier i form av direkta kostnader, fördelade lokalkostnader, externa och interna hyror, driftkostnader för värme, underhåll, städning m.m. samt kapitalkostnader för lokaler och de inventarier som inte räknas som lärverktyg. Kostnad för vaktmästare avseende fastighetsskötsel redovisas här. Om lokalerna utnyttjas även för annan verksamhet än skolverksamhet, ska endast de kostnader som avser skolverksamheten redovisas. Kostnader för skolbänkar, möbler, textilier etc. redovisas som lokal- och inventariekostnad medan kostnader för t.ex. symaskiner och hyvelbänkar m.m. anses vara lärverktygskostnader. Elevhemsboende redovisas under Bostadsverksamhet. Kostnadsuppgiften avser kalenderår, mätt 31 december. Avser egen regi. Elever i internationella skolor samt integrerade elever från anpassad grundskola är inkluderade nämnaren. Källa: SCB.",
+   "indexBasAr": 2010,
+   "omraden": {
+    "1384": {
+     "varden": {
+      "1998": {
+       "nominell": 5700,
+       "fast": 9270,
+       "forandring": null,
+       "motRiket": null,
+       "index": 44.7
+      },
+      "1999": {
+       "nominell": 9700,
+       "fast": 15709,
+       "forandring": 69.5,
+       "motRiket": null,
+       "index": 75.8
+      },
+      "2000": {
+       "nominell": 10300,
+       "fast": 16514,
+       "forandring": 5.1,
+       "motRiket": null,
+       "index": 79.6
+      },
+      "2001": {
+       "nominell": 11300,
+       "fast": 17683,
+       "forandring": 7.1,
+       "motRiket": null,
+       "index": 85.3
+      },
+      "2002": {
+       "nominell": 11900,
+       "fast": 18233,
+       "forandring": 3.1,
+       "motRiket": null,
+       "index": 87.9
+      },
+      "2003": {
+       "nominell": 12300,
+       "fast": 18487,
+       "forandring": 1.4,
+       "motRiket": null,
+       "index": 89.2
+      },
+      "2004": {
+       "nominell": 13900,
+       "fast": 20809,
+       "forandring": 12.6,
+       "motRiket": null,
+       "index": 100.4
+      },
+      "2005": {
+       "nominell": 13300,
+       "fast": 19826,
+       "forandring": -4.7,
+       "motRiket": null,
+       "index": 95.6
+      },
+      "2006": {
+       "nominell": 13800,
+       "fast": 20295,
+       "forandring": 2.4,
+       "motRiket": null,
+       "index": 97.9
+      },
+      "2007": {
+       "nominell": 14800,
+       "fast": 21294,
+       "forandring": 4.9,
+       "motRiket": null,
+       "index": 102.7
+      },
+      "2008": {
+       "nominell": 14100,
+       "fast": 19605,
+       "forandring": -7.9,
+       "motRiket": null,
+       "index": 94.6
+      },
+      "2009": {
+       "nominell": 15111,
+       "fast": 21078,
+       "forandring": 7.5,
+       "motRiket": null,
+       "index": 101.7
+      },
+      "2010": {
+       "nominell": 15054,
+       "fast": 20735,
+       "forandring": -1.6,
+       "motRiket": -13.6,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 15677,
+       "fast": 21041,
+       "forandring": 1.5,
+       "motRiket": -11.2,
+       "index": 101.5
+      },
+      "2012": {
+       "nominell": 15605,
+       "fast": 20759,
+       "forandring": -1.3,
+       "motRiket": null,
+       "index": 100.1
+      },
+      "2013": {
+       "nominell": 18144,
+       "fast": 24148,
+       "forandring": 16.3,
+       "motRiket": 1.4,
+       "index": 116.5
+      },
+      "2014": {
+       "nominell": 15603,
+       "fast": 20804,
+       "forandring": -13.8,
+       "motRiket": -13.2,
+       "index": 100.3
+      },
+      "2015": {
+       "nominell": 17235,
+       "fast": 22990,
+       "forandring": 10.5,
+       "motRiket": -3.6,
+       "index": 110.9
+      },
+      "2016": {
+       "nominell": 16101,
+       "fast": 21268,
+       "forandring": -7.5,
+       "motRiket": -10.3,
+       "index": 102.6
+      },
+      "2017": {
+       "nominell": 16471,
+       "fast": 21373,
+       "forandring": 0.5,
+       "motRiket": -8.4,
+       "index": 103.1
+      },
+      "2018": {
+       "nominell": 16842,
+       "fast": 21436,
+       "forandring": 0.3,
+       "motRiket": -8.2,
+       "index": 103.4
+      },
+      "2019": {
+       "nominell": 17414,
+       "fast": 21775,
+       "forandring": 1.6,
+       "motRiket": -7.3,
+       "index": 105.0
+      },
+      "2020": {
+       "nominell": 18783,
+       "fast": 23371,
+       "forandring": 7.3,
+       "motRiket": -4.2,
+       "index": 112.7
+      },
+      "2021": {
+       "nominell": 19039,
+       "fast": 23188,
+       "forandring": -0.8,
+       "motRiket": -6.0,
+       "index": 111.8
+      },
+      "2022": {
+       "nominell": 21239,
+       "fast": 23869,
+       "forandring": 2.9,
+       "motRiket": 0.1,
+       "index": 115.1
+      },
+      "2023": {
+       "nominell": 23130,
+       "fast": 23948,
+       "forandring": 0.3,
+       "motRiket": 1.5,
+       "index": 115.5
+      },
+      "2024": {
+       "nominell": 27849,
+       "fast": 28039,
+       "forandring": 17.1,
+       "motRiket": 11.8,
+       "index": 135.2
+      },
+      "2025": {
+       "nominell": 27050,
+       "fast": 27050,
+       "forandring": -3.5,
+       "motRiket": 3.3,
+       "index": 130.5
+      }
+     },
+     "forstaAr": 1998,
+     "sistaAr": 2025,
+     "forsta": 5700,
+     "sista": 27050,
+     "forstaFast": 9270,
+     "sistaFast": 27050,
+     "hogsta": 28039,
+     "hogstaAr": 2024,
+     "lagsta": 9270,
+     "lagstaAr": 1998,
+     "realTotal": 191.8
+    },
+    "0000": {
+     "varden": {
+      "2010": {
+       "nominell": 17415,
+       "fast": 23987,
+       "forandring": null,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 17653,
+       "fast": 23693,
+       "forandring": -1.2,
+       "motRiket": null,
+       "index": 98.8
+      },
+      "2013": {
+       "nominell": 17895,
+       "fast": 23816,
+       "forandring": 0.5,
+       "motRiket": null,
+       "index": 99.3
+      },
+      "2014": {
+       "nominell": 17980,
+       "fast": 23974,
+       "forandring": 0.7,
+       "motRiket": null,
+       "index": 99.9
+      },
+      "2015": {
+       "nominell": 17882,
+       "fast": 23853,
+       "forandring": -0.5,
+       "motRiket": null,
+       "index": 99.4
+      },
+      "2016": {
+       "nominell": 17953,
+       "fast": 23715,
+       "forandring": -0.6,
+       "motRiket": null,
+       "index": 98.9
+      },
+      "2017": {
+       "nominell": 17988,
+       "fast": 23342,
+       "forandring": -1.6,
+       "motRiket": null,
+       "index": 97.3
+      },
+      "2018": {
+       "nominell": 18344,
+       "fast": 23348,
+       "forandring": 0.0,
+       "motRiket": null,
+       "index": 97.3
+      },
+      "2019": {
+       "nominell": 18794,
+       "fast": 23501,
+       "forandring": 0.7,
+       "motRiket": null,
+       "index": 98.0
+      },
+      "2020": {
+       "nominell": 19601,
+       "fast": 24389,
+       "forandring": 3.8,
+       "motRiket": null,
+       "index": 101.7
+      },
+      "2021": {
+       "nominell": 20260,
+       "fast": 24675,
+       "forandring": 1.2,
+       "motRiket": null,
+       "index": 102.9
+      },
+      "2022": {
+       "nominell": 21212,
+       "fast": 23839,
+       "forandring": -3.4,
+       "motRiket": null,
+       "index": 99.4
+      },
+      "2023": {
+       "nominell": 22786,
+       "fast": 23592,
+       "forandring": -1.0,
+       "motRiket": null,
+       "index": 98.4
+      },
+      "2024": {
+       "nominell": 24913,
+       "fast": 25083,
+       "forandring": 6.3,
+       "motRiket": null,
+       "index": 104.6
+      },
+      "2025": {
+       "nominell": 26180,
+       "fast": 26180,
+       "forandring": 4.4,
+       "motRiket": null,
+       "index": 109.1
+      }
+     },
+     "forstaAr": 2010,
+     "sistaAr": 2025,
+     "forsta": 17415,
+     "sista": 26180,
+     "forstaFast": 23987,
+     "sistaFast": 26180,
+     "hogsta": 26180,
+     "hogstaAr": 2025,
+     "lagsta": 23342,
+     "lagstaAr": 2017,
+     "realTotal": 9.1
+    }
+   }
+  },
+  {
+   "nyckel": "ovrigt",
+   "etikett": "Övrigt",
+   "kolada": "N15010",
+   "koladaTitel": "Övriga kostnader i kommunal grundskola åk 1-9, kr/elev",
+   "definition": "Övriga kostnader grundskola åk 1-9 skolkommun dividerat med medelvärde av antal elever i kommunens grundskola. Under övrigt ingår t.ex. barn- och utbildningsförvaltningen eller motsvarande OH-kostnader som ska fördelas ut på de olika skolformerna, administration, kostnader för kompetensutveckling utom lönekostnader för personal under tid för kompetensutveckling, t.ex. kursavgifter, konferenser etc., kostnader för utvecklingsarbete, stipendier, fackligt arbete, kostnader för elevförsäkringar, elevassistenter, talpedagoger, skolvärdar, tolkar och fritidspersonal (t.ex. fritidsledare), kostnader för SYV (studie- och yrkesvägledare), intäkter av statsbidrag inklusive bidrag från Migrationsverket som avser asylsökande. Uppgiften avser kalenderår, mätt 31 december. Avser egen regi. Elever i internationella skolor samt integrerade elever från anpassad grundskola är inkluderade nämnaren. Källa: SCB.",
+   "indexBasAr": 2010,
+   "omraden": {
+    "1384": {
+     "varden": {
+      "1998": {
+       "nominell": 8410,
+       "fast": 13678,
+       "forandring": null,
+       "motRiket": null,
+       "index": 79.6
+      },
+      "1999": {
+       "nominell": 7740,
+       "fast": 12535,
+       "forandring": -8.4,
+       "motRiket": null,
+       "index": 73.0
+      },
+      "2000": {
+       "nominell": 14810,
+       "fast": 23745,
+       "forandring": 89.4,
+       "motRiket": null,
+       "index": 138.2
+      },
+      "2001": {
+       "nominell": 11900,
+       "fast": 18622,
+       "forandring": -21.6,
+       "motRiket": null,
+       "index": 108.4
+      },
+      "2002": {
+       "nominell": 7940,
+       "fast": 12166,
+       "forandring": -34.7,
+       "motRiket": null,
+       "index": 70.8
+      },
+      "2003": {
+       "nominell": 11150,
+       "fast": 16758,
+       "forandring": 37.8,
+       "motRiket": null,
+       "index": 97.6
+      },
+      "2004": {
+       "nominell": 9760,
+       "fast": 14611,
+       "forandring": -12.8,
+       "motRiket": null,
+       "index": 85.1
+      },
+      "2005": {
+       "nominell": 11280,
+       "fast": 16815,
+       "forandring": 15.1,
+       "motRiket": null,
+       "index": 97.9
+      },
+      "2006": {
+       "nominell": 9150,
+       "fast": 13456,
+       "forandring": -20.0,
+       "motRiket": null,
+       "index": 78.3
+      },
+      "2007": {
+       "nominell": 10950,
+       "fast": 15755,
+       "forandring": 17.1,
+       "motRiket": null,
+       "index": 91.7
+      },
+      "2008": {
+       "nominell": 16040,
+       "fast": 22303,
+       "forandring": 41.6,
+       "motRiket": null,
+       "index": 129.8
+      },
+      "2009": {
+       "nominell": 12949,
+       "fast": 18062,
+       "forandring": -19.0,
+       "motRiket": null,
+       "index": 105.2
+      },
+      "2010": {
+       "nominell": 12470,
+       "fast": 17176,
+       "forandring": -4.9,
+       "motRiket": -9.3,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 15484,
+       "fast": 20782,
+       "forandring": 21.0,
+       "motRiket": 15.0,
+       "index": 121.0
+      },
+      "2012": {
+       "nominell": 12148,
+       "fast": 16161,
+       "forandring": -22.2,
+       "motRiket": null,
+       "index": 94.1
+      },
+      "2013": {
+       "nominell": 8675,
+       "fast": 11546,
+       "forandring": -28.6,
+       "motRiket": -38.5,
+       "index": 67.2
+      },
+      "2014": {
+       "nominell": 10536,
+       "fast": 14048,
+       "forandring": 21.7,
+       "motRiket": -27.6,
+       "index": 81.8
+      },
+      "2015": {
+       "nominell": 10182,
+       "fast": 13582,
+       "forandring": -3.3,
+       "motRiket": -31.9,
+       "index": 79.1
+      },
+      "2016": {
+       "nominell": 15766,
+       "fast": 20825,
+       "forandring": 53.3,
+       "motRiket": -0.6,
+       "index": 121.2
+      },
+      "2017": {
+       "nominell": 15053,
+       "fast": 19533,
+       "forandring": -6.2,
+       "motRiket": -9.9,
+       "index": 113.7
+      },
+      "2018": {
+       "nominell": 15305,
+       "fast": 19480,
+       "forandring": -0.3,
+       "motRiket": -12.7,
+       "index": 113.4
+      },
+      "2019": {
+       "nominell": 13038,
+       "fast": 16303,
+       "forandring": -16.3,
+       "motRiket": -19.5,
+       "index": 94.9
+      },
+      "2020": {
+       "nominell": 13410,
+       "fast": 16685,
+       "forandring": 2.3,
+       "motRiket": -17.6,
+       "index": 97.1
+      },
+      "2021": {
+       "nominell": 12881,
+       "fast": 15688,
+       "forandring": -6.0,
+       "motRiket": -24.1,
+       "index": 91.3
+      },
+      "2022": {
+       "nominell": 13653,
+       "fast": 15345,
+       "forandring": -2.2,
+       "motRiket": -23.8,
+       "index": 89.3
+      },
+      "2023": {
+       "nominell": 16390,
+       "fast": 16970,
+       "forandring": 10.6,
+       "motRiket": -13.0,
+       "index": 98.8
+      },
+      "2024": {
+       "nominell": 17350,
+       "fast": 17468,
+       "forandring": 2.9,
+       "motRiket": -12.7,
+       "index": 101.7
+      },
+      "2025": {
+       "nominell": 17204,
+       "fast": 17204,
+       "forandring": -1.5,
+       "motRiket": -12.0,
+       "index": 100.2
+      }
+     },
+     "forstaAr": 1998,
+     "sistaAr": 2025,
+     "forsta": 8410,
+     "sista": 17204,
+     "forstaFast": 13678,
+     "sistaFast": 17204,
+     "hogsta": 23745,
+     "hogstaAr": 2000,
+     "lagsta": 11546,
+     "lagstaAr": 2013,
+     "realTotal": 25.8
+    },
+    "0000": {
+     "varden": {
+      "2010": {
+       "nominell": 13752,
+       "fast": 18941,
+       "forandring": null,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 13470,
+       "fast": 18078,
+       "forandring": -4.6,
+       "motRiket": null,
+       "index": 95.4
+      },
+      "2013": {
+       "nominell": 14113,
+       "fast": 18783,
+       "forandring": 3.9,
+       "motRiket": null,
+       "index": 99.2
+      },
+      "2014": {
+       "nominell": 14549,
+       "fast": 19398,
+       "forandring": 3.3,
+       "motRiket": null,
+       "index": 102.4
+      },
+      "2015": {
+       "nominell": 14951,
+       "fast": 19943,
+       "forandring": 2.8,
+       "motRiket": null,
+       "index": 105.3
+      },
+      "2016": {
+       "nominell": 15863,
+       "fast": 20954,
+       "forandring": 5.1,
+       "motRiket": null,
+       "index": 110.6
+      },
+      "2017": {
+       "nominell": 16710,
+       "fast": 21684,
+       "forandring": 3.5,
+       "motRiket": null,
+       "index": 114.5
+      },
+      "2018": {
+       "nominell": 17533,
+       "fast": 22316,
+       "forandring": 2.9,
+       "motRiket": null,
+       "index": 117.8
+      },
+      "2019": {
+       "nominell": 16195,
+       "fast": 20252,
+       "forandring": -9.3,
+       "motRiket": null,
+       "index": 106.9
+      },
+      "2020": {
+       "nominell": 16283,
+       "fast": 20260,
+       "forandring": 0.0,
+       "motRiket": null,
+       "index": 107.0
+      },
+      "2021": {
+       "nominell": 16960,
+       "fast": 20657,
+       "forandring": 2.0,
+       "motRiket": null,
+       "index": 109.1
+      },
+      "2022": {
+       "nominell": 17909,
+       "fast": 20128,
+       "forandring": -2.6,
+       "motRiket": null,
+       "index": 106.3
+      },
+      "2023": {
+       "nominell": 18848,
+       "fast": 19515,
+       "forandring": -3.0,
+       "motRiket": null,
+       "index": 103.0
+      },
+      "2024": {
+       "nominell": 19883,
+       "fast": 20019,
+       "forandring": 2.6,
+       "motRiket": null,
+       "index": 105.7
+      },
+      "2025": {
+       "nominell": 19542,
+       "fast": 19542,
+       "forandring": -2.4,
+       "motRiket": null,
+       "index": 103.2
+      }
+     },
+     "forstaAr": 2010,
+     "sistaAr": 2025,
+     "forsta": 13752,
+     "sista": 19542,
+     "forstaFast": 18941,
+     "sistaFast": 19542,
+     "hogsta": 22316,
+     "hogstaAr": 2018,
+     "lagsta": 18078,
+     "lagstaAr": 2011,
+     "realTotal": 3.2
+    }
+   }
+  },
+  {
+   "nyckel": "maltider",
+   "etikett": "Måltider",
+   "kolada": "N15013",
+   "koladaTitel": "Kostnad för måltider i kommunal grundskola åk 1-9, kr/elev",
+   "definition": "Kostnad för måltider i grundskola skolkommun, tkr dividerat med medelvärde av antal elever i kommunens grundskola. Avser åk 1-9 motsvarande. Avser skolmåltidsverksamhet (inklusive personal, livsmedel, transporter och material), cafeteria, administrativa kostnader (t.ex. lönekostnader för skolmåltidskonsulent och kostkonsulent), köp av tillagning eller servering av en från kommunen fristående entreprenör. Även intäkter från leveranser av mat till annan verksamhet redovisas om kostnader för denna verksamhet ingår i skolmåltidskostnaderna. Lokalkostnader för skolmåltider redovisas inte här utan under lokaler. De skolor som köper sin sina skolmåltider från storkök och betalar ett portionspris ska exkludera kostnaden för lokaler om de ingår i portionspriset. Kostnad avser kalenderår, mätt 31 december. Avser egen regi. Elever i internationella skolor samt integrerade elever från anpassad grundskola är inkluderade nämnaren. Källa: SCB.",
+   "indexBasAr": 2010,
+   "omraden": {
+    "1384": {
+     "varden": {
+      "1998": {
+       "nominell": 3100,
+       "fast": 5042,
+       "forandring": null,
+       "motRiket": null,
+       "index": 77.3
+      },
+      "1999": {
+       "nominell": 3800,
+       "fast": 6154,
+       "forandring": 22.1,
+       "motRiket": null,
+       "index": 94.4
+      },
+      "2000": {
+       "nominell": 4100,
+       "fast": 6574,
+       "forandring": 6.8,
+       "motRiket": null,
+       "index": 100.8
+      },
+      "2001": {
+       "nominell": 4400,
+       "fast": 6885,
+       "forandring": 4.7,
+       "motRiket": null,
+       "index": 105.6
+      },
+      "2002": {
+       "nominell": 4800,
+       "fast": 7354,
+       "forandring": 6.8,
+       "motRiket": null,
+       "index": 112.8
+      },
+      "2003": {
+       "nominell": 4500,
+       "fast": 6763,
+       "forandring": -8.0,
+       "motRiket": null,
+       "index": 103.7
+      },
+      "2004": {
+       "nominell": 4700,
+       "fast": 7036,
+       "forandring": 4.0,
+       "motRiket": null,
+       "index": 107.9
+      },
+      "2005": {
+       "nominell": 4100,
+       "fast": 6112,
+       "forandring": -13.1,
+       "motRiket": null,
+       "index": 93.7
+      },
+      "2006": {
+       "nominell": 4200,
+       "fast": 6177,
+       "forandring": 1.1,
+       "motRiket": null,
+       "index": 94.7
+      },
+      "2007": {
+       "nominell": 4300,
+       "fast": 6187,
+       "forandring": 0.2,
+       "motRiket": null,
+       "index": 94.9
+      },
+      "2008": {
+       "nominell": 4600,
+       "fast": 6396,
+       "forandring": 3.4,
+       "motRiket": null,
+       "index": 98.1
+      },
+      "2009": {
+       "nominell": 4828,
+       "fast": 6734,
+       "forandring": 5.3,
+       "motRiket": null,
+       "index": 103.3
+      },
+      "2010": {
+       "nominell": 4734,
+       "fast": 6521,
+       "forandring": -3.2,
+       "motRiket": -11.0,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 4759,
+       "fast": 6387,
+       "forandring": -2.1,
+       "motRiket": -13.7,
+       "index": 97.9
+      },
+      "2012": {
+       "nominell": 4851,
+       "fast": 6453,
+       "forandring": 1.0,
+       "motRiket": null,
+       "index": 99.0
+      },
+      "2013": {
+       "nominell": 4938,
+       "fast": 6572,
+       "forandring": 1.8,
+       "motRiket": -14.7,
+       "index": 100.8
+      },
+      "2014": {
+       "nominell": 6100,
+       "fast": 8133,
+       "forandring": 23.8,
+       "motRiket": 2.6,
+       "index": 124.7
+      },
+      "2015": {
+       "nominell": 6368,
+       "fast": 8495,
+       "forandring": 4.4,
+       "motRiket": 6.1,
+       "index": 130.3
+      },
+      "2016": {
+       "nominell": 5938,
+       "fast": 7844,
+       "forandring": -7.7,
+       "motRiket": -2.6,
+       "index": 120.3
+      },
+      "2017": {
+       "nominell": 6869,
+       "fast": 8914,
+       "forandring": 13.6,
+       "motRiket": 8.7,
+       "index": 136.7
+      },
+      "2018": {
+       "nominell": 7013,
+       "fast": 8926,
+       "forandring": 0.1,
+       "motRiket": 8.8,
+       "index": 136.9
+      },
+      "2019": {
+       "nominell": 7501,
+       "fast": 9379,
+       "forandring": 5.1,
+       "motRiket": 15.2,
+       "index": 143.8
+      },
+      "2020": {
+       "nominell": 7376,
+       "fast": 9178,
+       "forandring": -2.1,
+       "motRiket": 12.1,
+       "index": 140.8
+      },
+      "2021": {
+       "nominell": 7504,
+       "fast": 9139,
+       "forandring": -0.4,
+       "motRiket": 11.8,
+       "index": 140.2
+      },
+      "2022": {
+       "nominell": 6721,
+       "fast": 7553,
+       "forandring": -17.3,
+       "motRiket": -5.1,
+       "index": 115.8
+      },
+      "2023": {
+       "nominell": 6995,
+       "fast": 7242,
+       "forandring": -4.1,
+       "motRiket": -7.7,
+       "index": 111.1
+      },
+      "2024": {
+       "nominell": 7605,
+       "fast": 7656,
+       "forandring": 5.7,
+       "motRiket": -4.5,
+       "index": 117.4
+      },
+      "2025": {
+       "nominell": 7906,
+       "fast": 7906,
+       "forandring": 3.3,
+       "motRiket": -3.1,
+       "index": 121.3
+      }
+     },
+     "forstaAr": 1998,
+     "sistaAr": 2025,
+     "forsta": 3100,
+     "sista": 7906,
+     "forstaFast": 5042,
+     "sistaFast": 7906,
+     "hogsta": 9379,
+     "hogstaAr": 2019,
+     "lagsta": 5042,
+     "lagstaAr": 1998,
+     "realTotal": 56.8
+    },
+    "0000": {
+     "varden": {
+      "2010": {
+       "nominell": 5320,
+       "fast": 7328,
+       "forandring": null,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 5513,
+       "fast": 7400,
+       "forandring": 1.0,
+       "motRiket": null,
+       "index": 101.0
+      },
+      "2013": {
+       "nominell": 5790,
+       "fast": 7706,
+       "forandring": 4.1,
+       "motRiket": null,
+       "index": 105.2
+      },
+      "2014": {
+       "nominell": 5946,
+       "fast": 7928,
+       "forandring": 2.9,
+       "motRiket": null,
+       "index": 108.2
+      },
+      "2015": {
+       "nominell": 6002,
+       "fast": 8005,
+       "forandring": 1.0,
+       "motRiket": null,
+       "index": 109.2
+      },
+      "2016": {
+       "nominell": 6094,
+       "fast": 8050,
+       "forandring": 0.6,
+       "motRiket": null,
+       "index": 109.8
+      },
+      "2017": {
+       "nominell": 6319,
+       "fast": 8200,
+       "forandring": 1.9,
+       "motRiket": null,
+       "index": 111.9
+      },
+      "2018": {
+       "nominell": 6448,
+       "fast": 8207,
+       "forandring": 0.1,
+       "motRiket": null,
+       "index": 112.0
+      },
+      "2019": {
+       "nominell": 6513,
+       "fast": 8145,
+       "forandring": -0.8,
+       "motRiket": null,
+       "index": 111.1
+      },
+      "2020": {
+       "nominell": 6581,
+       "fast": 8188,
+       "forandring": 0.5,
+       "motRiket": null,
+       "index": 111.7
+      },
+      "2021": {
+       "nominell": 6714,
+       "fast": 8177,
+       "forandring": -0.1,
+       "motRiket": null,
+       "index": 111.6
+      },
+      "2022": {
+       "nominell": 7085,
+       "fast": 7962,
+       "forandring": -2.6,
+       "motRiket": null,
+       "index": 108.7
+      },
+      "2023": {
+       "nominell": 7582,
+       "fast": 7850,
+       "forandring": -1.4,
+       "motRiket": null,
+       "index": 107.1
+      },
+      "2024": {
+       "nominell": 7963,
+       "fast": 8017,
+       "forandring": 2.1,
+       "motRiket": null,
+       "index": 109.4
+      },
+      "2025": {
+       "nominell": 8156,
+       "fast": 8156,
+       "forandring": 1.7,
+       "motRiket": null,
+       "index": 111.3
+      }
+     },
+     "forstaAr": 2010,
+     "sistaAr": 2025,
+     "forsta": 5320,
+     "sista": 8156,
+     "forstaFast": 7328,
+     "sistaFast": 8156,
+     "hogsta": 8207,
+     "hogstaAr": 2018,
+     "lagsta": 7328,
+     "lagstaAr": 2010,
+     "realTotal": 11.3
+    }
+   }
+  },
+  {
+   "nyckel": "larverktyg",
+   "etikett": "Lärverktyg och skolbibliotek",
+   "kolada": "N15012",
+   "koladaTitel": "Kostnad för lärverktyg i kommunal grundskola åk 1-9, kr/elev",
+   "definition": "Kostnad för lärverktyg i grundskola åk 1-9 skolkommun, tkr dividerat med medelvärde av antal elever i kommunens grundskola. Avser läroböcker, inklusive skön- och facklitteratur, tidningar, tidskrifter, broschyrer och annat tryckt material, för undervisning framtagna kopior samt för böcker inköpta till skolbiblioteket, lönekostnader för skolbibliotekarie samt kostnader för övrig skolbiblioteksservice. Även kostnader för utrustning som maskiner, verktyg, symaskiner, hyvelbänkar, datorer som används för undervisning i skolan, bild- och ljudmedier, AV-centraler, förbrukningsmaterial, programvara för undervisning, studiebesök, kulturaktiviteter, lägerskolor, kostnader för resor i samband med studiebesök, kulturaktiviteter och lägerskolor m.m. Kostnader för internetanslutning och e-postadresser i skolan till elever och lärare, service och underhåll t.ex. av datorutrustning eller annan utrustning som används i undervisningen och kalkylerade kapitalkostnader för denna utrustning inkluderas. Som intäkt redovisas t.ex. försäljningsintäkter för elevarbeten och kopieringskort. Kostnader för utrustning som används för annat ändamål än undervisning redovisas under den verksamhet inom vilken utrustningen ska användas. Om AV-centralen är gemensam för flera kommuner redovisas endast den egna kommunens kostnader. Kostnad avser kalenderår, mätt 31 december. Avser egen regi. Elever i internationella skolor samt integrerade elever från anpassad grundskola är inkluderade nämnaren. Källa: SCB.",
+   "indexBasAr": 2010,
+   "omraden": {
+    "1384": {
+     "varden": {
+      "1998": {
+       "nominell": 1700,
+       "fast": 2765,
+       "forandring": null,
+       "motRiket": null,
+       "index": 57.2
+      },
+      "1999": {
+       "nominell": 1700,
+       "fast": 2753,
+       "forandring": -0.4,
+       "motRiket": null,
+       "index": 56.9
+      },
+      "2000": {
+       "nominell": 1700,
+       "fast": 2726,
+       "forandring": -1.0,
+       "motRiket": null,
+       "index": 56.4
+      },
+      "2001": {
+       "nominell": 1700,
+       "fast": 2660,
+       "forandring": -2.4,
+       "motRiket": null,
+       "index": 55.0
+      },
+      "2002": {
+       "nominell": 2100,
+       "fast": 3218,
+       "forandring": 20.9,
+       "motRiket": null,
+       "index": 66.5
+      },
+      "2003": {
+       "nominell": 2200,
+       "fast": 3307,
+       "forandring": 2.8,
+       "motRiket": null,
+       "index": 68.4
+      },
+      "2004": {
+       "nominell": 2400,
+       "fast": 3593,
+       "forandring": 8.7,
+       "motRiket": null,
+       "index": 74.3
+      },
+      "2005": {
+       "nominell": 2400,
+       "fast": 3578,
+       "forandring": -0.4,
+       "motRiket": null,
+       "index": 74.0
+      },
+      "2006": {
+       "nominell": 2500,
+       "fast": 3677,
+       "forandring": 2.8,
+       "motRiket": null,
+       "index": 76.0
+      },
+      "2007": {
+       "nominell": 2800,
+       "fast": 4029,
+       "forandring": 9.6,
+       "motRiket": null,
+       "index": 83.3
+      },
+      "2008": {
+       "nominell": 2600,
+       "fast": 3615,
+       "forandring": -10.3,
+       "motRiket": null,
+       "index": 74.8
+      },
+      "2009": {
+       "nominell": 2868,
+       "fast": 4000,
+       "forandring": 10.7,
+       "motRiket": null,
+       "index": 82.7
+      },
+      "2010": {
+       "nominell": 3511,
+       "fast": 4836,
+       "forandring": 20.9,
+       "motRiket": 3.7,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 3787,
+       "fast": 5082,
+       "forandring": 5.1,
+       "motRiket": 11.0,
+       "index": 105.1
+      },
+      "2012": {
+       "nominell": 5040,
+       "fast": 6704,
+       "forandring": 31.9,
+       "motRiket": null,
+       "index": 138.6
+      },
+      "2013": {
+       "nominell": 4614,
+       "fast": 6140,
+       "forandring": -8.4,
+       "motRiket": 20.7,
+       "index": 127.0
+      },
+      "2014": {
+       "nominell": 4671,
+       "fast": 6227,
+       "forandring": 1.4,
+       "motRiket": 16.1,
+       "index": 128.8
+      },
+      "2015": {
+       "nominell": 4697,
+       "fast": 6265,
+       "forandring": 0.6,
+       "motRiket": 11.8,
+       "index": 129.6
+      },
+      "2016": {
+       "nominell": 3505,
+       "fast": 4630,
+       "forandring": -26.1,
+       "motRiket": -24.2,
+       "index": 95.7
+      },
+      "2017": {
+       "nominell": 5542,
+       "fast": 7191,
+       "forandring": 55.3,
+       "motRiket": 24.1,
+       "index": 148.7
+      },
+      "2018": {
+       "nominell": 4451,
+       "fast": 5666,
+       "forandring": -21.2,
+       "motRiket": -2.7,
+       "index": 117.2
+      },
+      "2019": {
+       "nominell": 4750,
+       "fast": 5940,
+       "forandring": 4.8,
+       "motRiket": -6.6,
+       "index": 122.8
+      },
+      "2020": {
+       "nominell": 5167,
+       "fast": 6430,
+       "forandring": 8.2,
+       "motRiket": 4.0,
+       "index": 133.0
+      },
+      "2021": {
+       "nominell": 4818,
+       "fast": 5868,
+       "forandring": -8.7,
+       "motRiket": -9.5,
+       "index": 121.3
+      },
+      "2022": {
+       "nominell": 5840,
+       "fast": 6563,
+       "forandring": 11.8,
+       "motRiket": 2.9,
+       "index": 135.7
+      },
+      "2023": {
+       "nominell": 6694,
+       "fast": 6931,
+       "forandring": 5.6,
+       "motRiket": 17.5,
+       "index": 143.3
+      },
+      "2024": {
+       "nominell": 5417,
+       "fast": 5454,
+       "forandring": -21.3,
+       "motRiket": -9.7,
+       "index": 112.8
+      },
+      "2025": {
+       "nominell": 4784,
+       "fast": 4784,
+       "forandring": -12.3,
+       "motRiket": -23.8,
+       "index": 98.9
+      }
+     },
+     "forstaAr": 1998,
+     "sistaAr": 2025,
+     "forsta": 1700,
+     "sista": 4784,
+     "forstaFast": 2765,
+     "sistaFast": 4784,
+     "hogsta": 7191,
+     "hogstaAr": 2017,
+     "lagsta": 2660,
+     "lagstaAr": 2001,
+     "realTotal": 73.0
+    },
+    "0000": {
+     "varden": {
+      "2010": {
+       "nominell": 3386,
+       "fast": 4664,
+       "forandring": null,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 3412,
+       "fast": 4580,
+       "forandring": -1.8,
+       "motRiket": null,
+       "index": 98.2
+      },
+      "2013": {
+       "nominell": 3824,
+       "fast": 5089,
+       "forandring": 11.1,
+       "motRiket": null,
+       "index": 109.1
+      },
+      "2014": {
+       "nominell": 4022,
+       "fast": 5363,
+       "forandring": 5.4,
+       "motRiket": null,
+       "index": 115.0
+      },
+      "2015": {
+       "nominell": 4201,
+       "fast": 5604,
+       "forandring": 4.5,
+       "motRiket": null,
+       "index": 120.2
+      },
+      "2016": {
+       "nominell": 4625,
+       "fast": 6110,
+       "forandring": 9.0,
+       "motRiket": null,
+       "index": 131.0
+      },
+      "2017": {
+       "nominell": 4465,
+       "fast": 5794,
+       "forandring": -5.2,
+       "motRiket": null,
+       "index": 124.2
+      },
+      "2018": {
+       "nominell": 4573,
+       "fast": 5821,
+       "forandring": 0.5,
+       "motRiket": null,
+       "index": 124.8
+      },
+      "2019": {
+       "nominell": 5087,
+       "fast": 6361,
+       "forandring": 9.3,
+       "motRiket": null,
+       "index": 136.4
+      },
+      "2020": {
+       "nominell": 4967,
+       "fast": 6180,
+       "forandring": -2.9,
+       "motRiket": null,
+       "index": 132.5
+      },
+      "2021": {
+       "nominell": 5325,
+       "fast": 6485,
+       "forandring": 4.9,
+       "motRiket": null,
+       "index": 139.1
+      },
+      "2022": {
+       "nominell": 5673,
+       "fast": 6376,
+       "forandring": -1.7,
+       "motRiket": null,
+       "index": 136.7
+      },
+      "2023": {
+       "nominell": 5697,
+       "fast": 5898,
+       "forandring": -7.5,
+       "motRiket": null,
+       "index": 126.5
+      },
+      "2024": {
+       "nominell": 5999,
+       "fast": 6040,
+       "forandring": 2.4,
+       "motRiket": null,
+       "index": 129.5
+      },
+      "2025": {
+       "nominell": 6279,
+       "fast": 6279,
+       "forandring": 4.0,
+       "motRiket": null,
+       "index": 134.6
+      }
+     },
+     "forstaAr": 2010,
+     "sistaAr": 2025,
+     "forsta": 3386,
+     "sista": 6279,
+     "forstaFast": 4664,
+     "sistaFast": 6279,
+     "hogsta": 6485,
+     "hogstaAr": 2021,
+     "lagsta": 4580,
+     "lagstaAr": 2011,
+     "realTotal": 34.6
+    }
+   }
+  },
+  {
+   "nyckel": "elevhalsa",
+   "etikett": "Elevhälsa",
+   "kolada": "N15014",
+   "koladaTitel": "Kostnad elevhälsa i kommunal grundskola åk 1-9, kr/elev",
+   "definition": "Kostnad elevhälsa i grundskola skolkommun åk 1-9, tkr dividerat med medelvärde av antal elever i kommunens grundskola. Avser enbart intäkter och kostnader för skolsköterska, skolläkare, skolpsykolog och skolkurator, inklusive eventuella köpta tjänster från exempelvis region. Lokalkostnader för dessa verksamheter redovisas inte här utan under lokalkostnader. Kostnader för elevassistenter, skolvärdar och elevförsäkringar ingår inte, dessa kostnader ingår under Övrigt. Likasom kostnader för ev. fritidspersonal som arbetar i skolan med annat än pedagogisk verksamhet. Kostnader för personliga assistenter enligt LSS ska redovisas under avdelningen Vård och omsorg. Kostnadsppgiften avser kalenderår, mätt 31 december. Avser egen regi. Elever i internationella skolor samt integrerade elever från anpassad grundskola är inkluderade nämnaren. Källa: SCB.",
+   "indexBasAr": 2010,
+   "omraden": {
+    "1384": {
+     "varden": {
+      "1998": {
+       "nominell": 690,
+       "fast": 1122,
+       "forandring": null,
+       "motRiket": null,
+       "index": 41.8
+      },
+      "1999": {
+       "nominell": 860,
+       "fast": 1393,
+       "forandring": 24.1,
+       "motRiket": null,
+       "index": 51.9
+      },
+      "2000": {
+       "nominell": 1090,
+       "fast": 1748,
+       "forandring": 25.5,
+       "motRiket": null,
+       "index": 65.1
+      },
+      "2001": {
+       "nominell": 1100,
+       "fast": 1721,
+       "forandring": -1.5,
+       "motRiket": null,
+       "index": 64.2
+      },
+      "2002": {
+       "nominell": 1260,
+       "fast": 1931,
+       "forandring": 12.2,
+       "motRiket": null,
+       "index": 72.0
+      },
+      "2003": {
+       "nominell": 1450,
+       "fast": 2179,
+       "forandring": 12.9,
+       "motRiket": null,
+       "index": 81.2
+      },
+      "2004": {
+       "nominell": 1540,
+       "fast": 2305,
+       "forandring": 5.8,
+       "motRiket": null,
+       "index": 85.9
+      },
+      "2005": {
+       "nominell": 1520,
+       "fast": 2266,
+       "forandring": -1.7,
+       "motRiket": null,
+       "index": 84.4
+      },
+      "2006": {
+       "nominell": 1450,
+       "fast": 2132,
+       "forandring": -5.9,
+       "motRiket": null,
+       "index": 79.5
+      },
+      "2007": {
+       "nominell": 1550,
+       "fast": 2230,
+       "forandring": 4.6,
+       "motRiket": null,
+       "index": 83.1
+      },
+      "2008": {
+       "nominell": 1760,
+       "fast": 2447,
+       "forandring": 9.7,
+       "motRiket": null,
+       "index": 91.2
+      },
+      "2009": {
+       "nominell": 1787,
+       "fast": 2493,
+       "forandring": 1.9,
+       "motRiket": null,
+       "index": 92.9
+      },
+      "2010": {
+       "nominell": 1948,
+       "fast": 2683,
+       "forandring": 7.6,
+       "motRiket": -16.3,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 2192,
+       "fast": 2942,
+       "forandring": 9.6,
+       "motRiket": -8.3,
+       "index": 109.6
+      },
+      "2012": {
+       "nominell": 1821,
+       "fast": 2422,
+       "forandring": -17.7,
+       "motRiket": null,
+       "index": 90.3
+      },
+      "2013": {
+       "nominell": 1806,
+       "fast": 2403,
+       "forandring": -0.8,
+       "motRiket": -30.4,
+       "index": 89.6
+      },
+      "2014": {
+       "nominell": 1746,
+       "fast": 2328,
+       "forandring": -3.2,
+       "motRiket": -35.6,
+       "index": 86.8
+      },
+      "2015": {
+       "nominell": 2412,
+       "fast": 3218,
+       "forandring": 38.2,
+       "motRiket": -15.0,
+       "index": 119.9
+      },
+      "2016": {
+       "nominell": 2146,
+       "fast": 2834,
+       "forandring": -11.9,
+       "motRiket": -29.8,
+       "index": 105.6
+      },
+      "2017": {
+       "nominell": 2859,
+       "fast": 3710,
+       "forandring": 30.9,
+       "motRiket": -13.8,
+       "index": 138.3
+      },
+      "2018": {
+       "nominell": 2661,
+       "fast": 3387,
+       "forandring": -8.7,
+       "motRiket": -24.2,
+       "index": 126.2
+      },
+      "2019": {
+       "nominell": 3107,
+       "fast": 3886,
+       "forandring": 14.7,
+       "motRiket": -16.8,
+       "index": 144.8
+      },
+      "2020": {
+       "nominell": 3123,
+       "fast": 3886,
+       "forandring": 0.0,
+       "motRiket": -20.6,
+       "index": 144.8
+      },
+      "2021": {
+       "nominell": 3387,
+       "fast": 4125,
+       "forandring": 6.1,
+       "motRiket": -19.2,
+       "index": 153.7
+      },
+      "2022": {
+       "nominell": 3443,
+       "fast": 3869,
+       "forandring": -6.2,
+       "motRiket": -22.3,
+       "index": 144.2
+      },
+      "2023": {
+       "nominell": 4140,
+       "fast": 4287,
+       "forandring": 10.8,
+       "motRiket": -13.3,
+       "index": 159.8
+      },
+      "2024": {
+       "nominell": 4042,
+       "fast": 4069,
+       "forandring": -5.1,
+       "motRiket": -20.0,
+       "index": 151.7
+      },
+      "2025": {
+       "nominell": 5270,
+       "fast": 5270,
+       "forandring": 29.5,
+       "motRiket": -0.1,
+       "index": 196.4
+      }
+     },
+     "forstaAr": 1998,
+     "sistaAr": 2025,
+     "forsta": 690,
+     "sista": 5270,
+     "forstaFast": 1122,
+     "sistaFast": 5270,
+     "hogsta": 5270,
+     "hogstaAr": 2025,
+     "lagsta": 1122,
+     "lagstaAr": 1998,
+     "realTotal": 369.7
+    },
+    "0000": {
+     "varden": {
+      "2010": {
+       "nominell": 2329,
+       "fast": 3207,
+       "forandring": null,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2011": {
+       "nominell": 2390,
+       "fast": 3208,
+       "forandring": 0.0,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2013": {
+       "nominell": 2594,
+       "fast": 3452,
+       "forandring": 7.6,
+       "motRiket": null,
+       "index": 107.6
+      },
+      "2014": {
+       "nominell": 2712,
+       "fast": 3615,
+       "forandring": 4.7,
+       "motRiket": null,
+       "index": 112.7
+      },
+      "2015": {
+       "nominell": 2838,
+       "fast": 3786,
+       "forandring": 4.7,
+       "motRiket": null,
+       "index": 118.0
+      },
+      "2016": {
+       "nominell": 3057,
+       "fast": 4037,
+       "forandring": 6.6,
+       "motRiket": null,
+       "index": 125.9
+      },
+      "2017": {
+       "nominell": 3318,
+       "fast": 4306,
+       "forandring": 6.7,
+       "motRiket": null,
+       "index": 134.3
+      },
+      "2018": {
+       "nominell": 3512,
+       "fast": 4469,
+       "forandring": 3.8,
+       "motRiket": null,
+       "index": 139.3
+      },
+      "2019": {
+       "nominell": 3735,
+       "fast": 4671,
+       "forandring": 4.5,
+       "motRiket": null,
+       "index": 145.6
+      },
+      "2020": {
+       "nominell": 3932,
+       "fast": 4893,
+       "forandring": 4.8,
+       "motRiket": null,
+       "index": 152.5
+      },
+      "2021": {
+       "nominell": 4193,
+       "fast": 5107,
+       "forandring": 4.4,
+       "motRiket": null,
+       "index": 159.2
+      },
+      "2022": {
+       "nominell": 4433,
+       "fast": 4982,
+       "forandring": -2.5,
+       "motRiket": null,
+       "index": 155.3
+      },
+      "2023": {
+       "nominell": 4775,
+       "fast": 4944,
+       "forandring": -0.8,
+       "motRiket": null,
+       "index": 154.1
+      },
+      "2024": {
+       "nominell": 5053,
+       "fast": 5088,
+       "forandring": 2.9,
+       "motRiket": null,
+       "index": 158.6
+      },
+      "2025": {
+       "nominell": 5275,
+       "fast": 5275,
+       "forandring": 3.7,
+       "motRiket": null,
+       "index": 164.5
+      }
+     },
+     "forstaAr": 2010,
+     "sistaAr": 2025,
+     "forsta": 2329,
+     "sista": 5275,
+     "forstaFast": 3207,
+     "sistaFast": 5275,
+     "hogsta": 5275,
+     "hogstaAr": 2025,
+     "lagsta": 3207,
+     "lagstaAr": 2010,
+     "realTotal": 64.5
+    }
+   }
+  }
+ ],
+ "ovriga": [
+  {
+   "nyckel": "skolskjuts",
+   "etikett": "Skolskjuts, reseersättning och inackordering",
+   "kolada": "U15015",
+   "koladaTitel": "Kostnad för skolskjuts, reseersättning och inackordering, grundskola åk 1-9, kr/elev",
+   "definition": "Kommunens totalkostnad för skolskjutsar, reseersättning och inackordering, dividerat med genomsnittligt antal inskrivna elever årkurs 1-9 år T-1 och år T som var folkbokförda i kommunen 15/8. Här inkluderas även kostnad för busskort till elever som uppfyller krav uppsatta av kommunen för sådana. Busskort som ges till samtliga elever, tex lov-kort. faller under affärsverksamhet och är således exkluderade. Inklusive integrerade elever (from 2020) samt elever i internationella skolor. Källa: SCB",
+   "indexBasAr": 2018,
+   "omraden": {
+    "1384": {
+     "varden": {
+      "2013": {
+       "nominell": 2854,
+       "fast": 3798,
+       "forandring": null,
+       "motRiket": null,
+       "index": 86.3
+      },
+      "2014": {
+       "nominell": 2722,
+       "fast": 3630,
+       "forandring": -4.4,
+       "motRiket": null,
+       "index": 82.4
+      },
+      "2015": {
+       "nominell": 3146,
+       "fast": 4197,
+       "forandring": 15.6,
+       "motRiket": null,
+       "index": 95.3
+      },
+      "2016": {
+       "nominell": 2715,
+       "fast": 3586,
+       "forandring": -14.5,
+       "motRiket": null,
+       "index": 81.4
+      },
+      "2017": {
+       "nominell": 2886,
+       "fast": 3745,
+       "forandring": 4.4,
+       "motRiket": null,
+       "index": 85.0
+      },
+      "2018": {
+       "nominell": 3460,
+       "fast": 4403,
+       "forandring": 17.6,
+       "motRiket": 12.2,
+       "index": 100.0
+      },
+      "2019": {
+       "nominell": 3076,
+       "fast": 3847,
+       "forandring": -12.6,
+       "motRiket": -7.4,
+       "index": 87.4
+      },
+      "2020": {
+       "nominell": 2924,
+       "fast": 3638,
+       "forandring": -5.4,
+       "motRiket": -10.2,
+       "index": 82.6
+      },
+      "2021": {
+       "nominell": 3236,
+       "fast": 3941,
+       "forandring": 8.3,
+       "motRiket": -1.8,
+       "index": 89.5
+      },
+      "2022": {
+       "nominell": 3332,
+       "fast": 3745,
+       "forandring": -5.0,
+       "motRiket": -6.5,
+       "index": 85.1
+      },
+      "2023": {
+       "nominell": 3678,
+       "fast": 3808,
+       "forandring": 1.7,
+       "motRiket": -1.2,
+       "index": 86.5
+      },
+      "2024": {
+       "nominell": 3797,
+       "fast": 3823,
+       "forandring": 0.4,
+       "motRiket": -1.1,
+       "index": 86.8
+      },
+      "2025": {
+       "nominell": 3746,
+       "fast": 3746,
+       "forandring": -2.0,
+       "motRiket": -3.2,
+       "index": 85.1
+      }
+     },
+     "forstaAr": 2013,
+     "sistaAr": 2025,
+     "forsta": 2854,
+     "sista": 3746,
+     "forstaFast": 3798,
+     "sistaFast": 3746,
+     "hogsta": 4403,
+     "hogstaAr": 2018,
+     "lagsta": 3586,
+     "lagstaAr": 2016,
+     "realTotal": -1.4
+    },
+    "0000": {
+     "varden": {
+      "2018": {
+       "nominell": 3082,
+       "fast": 3923,
+       "forandring": null,
+       "motRiket": null,
+       "index": 100.0
+      },
+      "2019": {
+       "nominell": 3323,
+       "fast": 4155,
+       "forandring": 5.9,
+       "motRiket": null,
+       "index": 105.9
+      },
+      "2020": {
+       "nominell": 3258,
+       "fast": 4053,
+       "forandring": -2.4,
+       "motRiket": null,
+       "index": 103.3
+      },
+      "2021": {
+       "nominell": 3294,
+       "fast": 4012,
+       "forandring": -1.0,
+       "motRiket": null,
+       "index": 102.3
+      },
+      "2022": {
+       "nominell": 3564,
+       "fast": 4005,
+       "forandring": -0.2,
+       "motRiket": null,
+       "index": 102.1
+      },
+      "2023": {
+       "nominell": 3723,
+       "fast": 3855,
+       "forandring": -3.7,
+       "motRiket": null,
+       "index": 98.3
+      },
+      "2024": {
+       "nominell": 3840,
+       "fast": 3866,
+       "forandring": 0.3,
+       "motRiket": null,
+       "index": 98.5
+      },
+      "2025": {
+       "nominell": 3869,
+       "fast": 3869,
+       "forandring": 0.1,
+       "motRiket": null,
+       "index": 98.6
+      }
+     },
+     "forstaAr": 2018,
+     "sistaAr": 2025,
+     "forsta": 3082,
+     "sista": 3869,
+     "forstaFast": 3923,
+     "sistaFast": 3869,
+     "hogsta": 4155,
+     "hogstaAr": 2019,
+     "lagsta": 3855,
+     "lagstaAr": 2023,
+     "realTotal": -1.4
+    }
+   }
+  }
+ ]
+}

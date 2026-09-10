@@ -261,6 +261,47 @@
       s.hogstaAr + " (" + talSv(s.hogsta) + ").";
   }
 
+  /* ---------- Vad grundskolan kostar ---------- */
+
+  function visaKostnader(data) {
+    if (!data || !data.kostnadPerElev) return;
+    var matt = null;
+    data.kostnadPerElev.forEach(function (m) {
+      if (m.nyckel === "kommunal") matt = m;
+    });
+    if (!matt) return;
+    var kb = matt.omraden["1384"], ri = matt.omraden["0000"];
+    if (!kb) return;
+
+    var rader = [rad("Kostnad per elev " + esc(kb.sistaAr) +
+      ", kommunens egna skolor", talSv(kb.sista) + " kr")];
+
+    /* Utvecklingen mäts från rikets första år, så att kommunens och
+       rikets förändring avser samma period. */
+    if (ri) {
+      var from = String(ri.forstaAr);
+      var kbFran = kb.varden[from] && kb.varden[from].fast;
+      var riFran = ri.varden[from] && ri.varden[from].fast;
+      if (kbFran && riFran) {
+        rader.push(rad("Real förändring sedan " + esc(from) +
+          ", Kungsbacka mot riket",
+          talSv(100 * (kb.sistaFast / kbFran - 1), 1) + " % mot " +
+          talSv(100 * (ri.sistaFast / riFran - 1), 1) + " %"));
+      }
+      var diff = kb.varden[String(kb.sistaAr)] &&
+        kb.varden[String(kb.sistaAr)].motRiket;
+      if (diff !== null && diff !== undefined) {
+        rader.push(rad("Kungsbacka mot riket " + esc(kb.sistaAr),
+          (diff > 0 ? "+" : "") + talSv(diff, 1) + " %"));
+      }
+    }
+    fyll("fakta-kostnader", rader);
+
+    el("undertext-kostnader").textContent =
+      "Kungsbacka " + kb.forstaAr + "–" + kb.sistaAr + " och riket, " +
+      "omräknat till " + data.prisniva + " års prisnivå.";
+  }
+
   /* ---------- Valet 2026: förtidsröstningen ---------- */
 
   function visaVal(data) {
@@ -301,6 +342,7 @@
   hamta("data-amnesbetyg.json").then(visaAmnesbetyg).catch(function () {});
   hamta("data-befolkning.json").then(visaBarn).catch(function () {});
   hamta("data-nian-gymnasiet.json").then(visaNian).catch(function () {});
+  hamta("data-kostnader.json").then(visaKostnader).catch(function () {});
   hamta("data-fortidsroster/" + (el("fakta-val").getAttribute("data-omrade") || "1384") + ".json")
     .then(visaVal).catch(function () {});
 

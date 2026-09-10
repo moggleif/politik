@@ -29,15 +29,17 @@ KOMMUN = "1384"          # skolkommun Kungsbacka
 KOMMUNNAMN = "Kungsbacka"
 
 
-def export_url(export: int, ar: int) -> str:
-    return EXPORT_URL.format(export=export, ar=ar, kommun=KOMMUN)
+def export_url(export: int, ar: int, kommun: str = KOMMUN) -> str:
+    """Tom `kommun` ger hela riket, en rad per kommun – det behövs för
+    rapporter som bara går att jämföra mot de andra kommunerna."""
+    return EXPORT_URL.format(export=export, ar=ar, kommun=kommun)
 
 
-def hamta_csv(export: int, ar: int) -> str:
+def hamta_csv(export: int, ar: int, kommun: str = KOMMUN) -> str:
     """CSV:en för ett år. Exporttjänsten bryter då och då kopplingen mitt
     i ett svar; det är övergående och ska inte stoppa hela hämtningen."""
     req = urllib.request.Request(
-        export_url(export, ar),
+        export_url(export, ar, kommun),
         headers={"User-Agent": "kungsbacka-i-siffror/1.0"})
     sista = None
     for forsok in range(4):
