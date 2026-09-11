@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1429,18 +1429,25 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 3102,
-     "ack": 24699
+     "antal": 3130,
+     "ack": 24727
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 3437,
-     "ack": 28136
+     "antal": 3442,
+     "ack": 28169
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 886,
+     "ack": 29055
     }
    ],
-   "total": 28136,
+   "total": 29055,
    "rostberattigade": {
     "riksdag": 78861,
     "kommun": 80401,
@@ -1458,19 +1465,19 @@
      "namn": "Bibliotekshuset",
      "kommun": "Karlstad",
      "lokalId": "1780010",
-     "total": 11810,
-     "dagarMedRoster": 16,
-     "storstaDag": 1328,
-     "andel": 42.0
+     "total": 12574,
+     "dagarMedRoster": 17,
+     "storstaDag": 1333,
+     "andel": 43.3
     },
     {
      "namn": "Stadsträdgården, Köpmannagatan 2",
      "kommun": "Karlstad",
      "lokalId": "1780005",
-     "total": 3229,
-     "dagarMedRoster": 12,
+     "total": 3357,
+     "dagarMedRoster": 13,
      "storstaDag": 365,
-     "andel": 11.5
+     "andel": 11.6
     },
     {
      "namn": "Våxnäs bibliotek, entréhall",
@@ -1479,25 +1486,25 @@
      "total": 3057,
      "dagarMedRoster": 12,
      "storstaDag": 357,
-     "andel": 10.9
+     "andel": 10.5
     },
     {
      "namn": "Älvkullegymnasiets huvudentré",
      "kommun": "Karlstad",
      "lokalId": "1780004",
-     "total": 2530,
+     "total": 2531,
      "dagarMedRoster": 10,
      "storstaDag": 404,
-     "andel": 9.0
+     "andel": 8.7
     },
     {
      "namn": "Fröding Arena",
      "kommun": "Karlstad",
      "lokalId": "1780001",
-     "total": 2364,
+     "total": 2365,
      "dagarMedRoster": 12,
      "storstaDag": 334,
-     "andel": 8.4
+     "andel": 8.1
     },
     {
      "namn": "Ilandahallen",
@@ -1506,7 +1513,7 @@
      "total": 1408,
      "dagarMedRoster": 12,
      "storstaDag": 178,
-     "andel": 5.0
+     "andel": 4.8
     },
     {
      "namn": "Vårt hus",
@@ -1515,7 +1522,7 @@
      "total": 1220,
      "dagarMedRoster": 13,
      "storstaDag": 152,
-     "andel": 4.3
+     "andel": 4.2
     },
     {
      "namn": "Molkoms bibliotek",
@@ -1524,7 +1531,7 @@
      "total": 1206,
      "dagarMedRoster": 11,
      "storstaDag": 207,
-     "andel": 4.3
+     "andel": 4.2
     },
     {
      "namn": "Älvenäs bygdegård",
@@ -1533,7 +1540,7 @@
      "total": 751,
      "dagarMedRoster": 8,
      "storstaDag": 130,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Edsvalla Folkets hus",
@@ -1548,10 +1555,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Karlstad",
      "lokalId": "1780013",
-     "total": 114,
-     "dagarMedRoster": 8,
+     "total": 139,
+     "dagarMedRoster": 9,
      "storstaDag": 32,
-     "andel": 0.4
+     "andel": 0.5
     },
     {
      "namn": "Häktet Karlstad",
@@ -1560,7 +1567,7 @@
      "total": 71,
      "dagarMedRoster": 2,
      "storstaDag": 49,
-     "andel": 0.3
+     "andel": 0.2
     }
    ],
    "antalLokaler": 12,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1252,7 +1252,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1364,11 +1364,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 2925,
-     "ack": 22886
+     "antal": 2928,
+     "ack": 22889
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 1518,
+     "ack": 24407
     }
    ],
-   "total": 22886,
+   "total": 24407,
    "rostberattigade": {
     "riksdag": 62903,
     "kommun": 65233,
@@ -1386,55 +1393,64 @@
      "namn": "Luleå Energi Arena",
      "kommun": "Luleå",
      "lokalId": "2580016",
-     "total": 13844,
-     "dagarMedRoster": 16,
+     "total": 14602,
+     "dagarMedRoster": 17,
      "storstaDag": 1710,
-     "andel": 60.5
+     "andel": 59.8
     },
     {
      "namn": "Samlingslokal i Porsö sporthall",
      "kommun": "Luleå",
      "lokalId": "2580012",
-     "total": 2000,
-     "dagarMedRoster": 12,
+     "total": 2163,
+     "dagarMedRoster": 13,
      "storstaDag": 301,
-     "andel": 8.7
+     "andel": 8.9
     },
     {
      "namn": "Aktivitetshuset Kubben",
      "kommun": "Luleå",
      "lokalId": "2580004",
-     "total": 1495,
-     "dagarMedRoster": 12,
+     "total": 1602,
+     "dagarMedRoster": 13,
      "storstaDag": 180,
-     "andel": 6.5
-    },
-    {
-     "namn": "Konferenslokal Pärlan",
-     "kommun": "Luleå",
-     "lokalId": "2580018",
-     "total": 1390,
-     "dagarMedRoster": 16,
-     "storstaDag": 125,
-     "andel": 6.1
-    },
-    {
-     "namn": "Hyresgästlokal Lulebo",
-     "kommun": "Luleå",
-     "lokalId": "2580013",
-     "total": 1341,
-     "dagarMedRoster": 12,
-     "storstaDag": 180,
-     "andel": 5.9
+     "andel": 6.6
     },
     {
      "namn": "Gymnasiebiblioteket",
      "kommun": "Luleå",
      "lokalId": "2580011",
-     "total": 1296,
-     "dagarMedRoster": 12,
-     "storstaDag": 158,
-     "andel": 5.7
+     "total": 1503,
+     "dagarMedRoster": 13,
+     "storstaDag": 207,
+     "andel": 6.2
+    },
+    {
+     "namn": "Hyresgästlokal Lulebo",
+     "kommun": "Luleå",
+     "lokalId": "2580013",
+     "total": 1472,
+     "dagarMedRoster": 13,
+     "storstaDag": 180,
+     "andel": 6.0
+    },
+    {
+     "namn": "Konferenslokal Pärlan",
+     "kommun": "Luleå",
+     "lokalId": "2580018",
+     "total": 1462,
+     "dagarMedRoster": 17,
+     "storstaDag": 125,
+     "andel": 6.0
+    },
+    {
+     "namn": "Sörbygården",
+     "kommun": "Luleå",
+     "lokalId": "2580007",
+     "total": 645,
+     "dagarMedRoster": 7,
+     "storstaDag": 118,
+     "andel": 2.6
     },
     {
      "namn": "Sunderby sjukhus",
@@ -1443,23 +1459,14 @@
      "total": 619,
      "dagarMedRoster": 4,
      "storstaDag": 180,
-     "andel": 2.7
-    },
-    {
-     "namn": "Sörbygården",
-     "kommun": "Luleå",
-     "lokalId": "2580007",
-     "total": 592,
-     "dagarMedRoster": 6,
-     "storstaDag": 118,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Luleå",
      "lokalId": "2580017",
-     "total": 197,
-     "dagarMedRoster": 9,
+     "total": 227,
+     "dagarMedRoster": 10,
      "storstaDag": 65,
      "andel": 0.9
     },

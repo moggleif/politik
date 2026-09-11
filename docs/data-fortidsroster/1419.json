@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1103,11 +1103,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 350,
-     "ack": 4157
+     "antal": 583,
+     "ack": 4390
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 194,
+     "ack": 4584
     }
    ],
-   "total": 4157,
+   "total": 4584,
    "rostberattigade": {
     "riksdag": 12760,
     "kommun": 12975,
@@ -1125,19 +1132,28 @@
      "namn": "Kommunkontoret",
      "kommun": "Tjörn",
      "lokalId": "1419009",
-     "total": 3927,
-     "dagarMedRoster": 16,
+     "total": 4120,
+     "dagarMedRoster": 17,
      "storstaDag": 417,
-     "andel": 94.5
+     "andel": 89.9
+    },
+    {
+     "namn": "Myggenäs skola, matsalen",
+     "kommun": "Tjörn",
+     "lokalId": "1419001",
+     "total": 123,
+     "dagarMedRoster": 1,
+     "storstaDag": 123,
+     "andel": 2.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Tjörn",
      "lokalId": "1419010",
-     "total": 120,
-     "dagarMedRoster": 3,
+     "total": 121,
+     "dagarMedRoster": 4,
      "storstaDag": 45,
-     "andel": 2.9
+     "andel": 2.6
     },
     {
      "namn": "Åstols café",
@@ -1146,7 +1162,25 @@
      "total": 68,
      "dagarMedRoster": 1,
      "storstaDag": 68,
-     "andel": 1.6
+     "andel": 1.5
+    },
+    {
+     "namn": "Klädesholmens församlingshem",
+     "kommun": "Tjörn",
+     "lokalId": "1419006",
+     "total": 55,
+     "dagarMedRoster": 1,
+     "storstaDag": 55,
+     "andel": 1.2
+    },
+    {
+     "namn": "Rönnäng skola, matsalen",
+     "kommun": "Tjörn",
+     "lokalId": "1419007",
+     "total": 55,
+     "dagarMedRoster": 1,
+     "storstaDag": 55,
+     "andel": 1.2
     },
     {
      "namn": "Dyröns EFS",
@@ -1155,21 +1189,12 @@
      "total": 42,
      "dagarMedRoster": 1,
      "storstaDag": 42,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Häggvallskolan, aulan",
      "kommun": "Tjörn",
      "lokalId": "1419002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Klädesholmens församlingshem",
-     "kommun": "Tjörn",
-     "lokalId": "1419006",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
@@ -1188,24 +1213,6 @@
      "namn": "Kållekärrs skola, matsalen",
      "kommun": "Tjörn",
      "lokalId": "1419008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Myggenäs skola, matsalen",
-     "kommun": "Tjörn",
-     "lokalId": "1419001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Rönnäng skola, matsalen",
-     "kommun": "Tjörn",
-     "lokalId": "1419007",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

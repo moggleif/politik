@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -835,9 +835,16 @@
      "kvar": 3,
      "antal": 111,
      "ack": 831
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 69,
+     "ack": 900
     }
    ],
-   "total": 831,
+   "total": 900,
    "rostberattigade": {
     "riksdag": 2879,
     "kommun": 2967,
@@ -855,10 +862,10 @@
      "namn": "Kommunkontoret i Österbymo",
      "kommun": "Ydre",
      "lokalId": "0512001",
-     "total": 800,
-     "dagarMedRoster": 15,
+     "total": 869,
+     "dagarMedRoster": 16,
      "storstaDag": 111,
-     "andel": 96.3
+     "andel": 96.6
     },
     {
      "namn": "Solängen Österbymo",
@@ -867,7 +874,7 @@
      "total": 31,
      "dagarMedRoster": 1,
      "storstaDag": 31,
-     "andel": 3.7
+     "andel": 3.4
     },
     {
      "namn": "Ambulerande röstmottagning",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -730,7 +730,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -842,11 +842,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 555,
-     "ack": 4619
+     "antal": 556,
+     "ack": 4620
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 218,
+     "ack": 4838
     }
    ],
-   "total": 4619,
+   "total": 4838,
    "rostberattigade": {
     "riksdag": 11951,
     "kommun": 12328,
@@ -864,10 +871,10 @@
      "namn": "Plenisalen, Stadshuset",
      "kommun": "Vimmerby",
      "lokalId": "0884001",
-     "total": 4068,
-     "dagarMedRoster": 16,
+     "total": 4284,
+     "dagarMedRoster": 17,
      "storstaDag": 519,
-     "andel": 88.1
+     "andel": 88.5
     },
     {
      "namn": "Södra vi bibliotek",
@@ -876,7 +883,7 @@
      "total": 268,
      "dagarMedRoster": 4,
      "storstaDag": 101,
-     "andel": 5.8
+     "andel": 5.5
     },
     {
      "namn": "Storebro bibliotek",
@@ -885,14 +892,14 @@
      "total": 221,
      "dagarMedRoster": 4,
      "storstaDag": 59,
-     "andel": 4.8
+     "andel": 4.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Vimmerby",
      "lokalId": "0884004",
-     "total": 62,
-     "dagarMedRoster": 10,
+     "total": 65,
+     "dagarMedRoster": 11,
      "storstaDag": 24,
      "andel": 1.3
     }

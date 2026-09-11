@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -784,7 +784,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -889,18 +889,25 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 386,
-     "ack": 4902
+     "antal": 401,
+     "ack": 4917
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
      "antal": 433,
-     "ack": 5335
+     "ack": 5350
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 370,
+     "ack": 5720
     }
    ],
-   "total": 5335,
+   "total": 5720,
    "rostberattigade": {
     "riksdag": 12792,
     "kommun": 12951,
@@ -918,19 +925,19 @@
      "namn": "Biblioteket, Färjestaden",
      "kommun": "Mörbylånga",
      "lokalId": "0840001",
-     "total": 3936,
-     "dagarMedRoster": 14,
+     "total": 4205,
+     "dagarMedRoster": 15,
      "storstaDag": 430,
-     "andel": 73.8
+     "andel": 73.5
     },
     {
      "namn": "Biblioteket, Mörbylånga",
      "kommun": "Mörbylånga",
      "lokalId": "0840003",
-     "total": 884,
-     "dagarMedRoster": 10,
+     "total": 985,
+     "dagarMedRoster": 11,
      "storstaDag": 122,
-     "andel": 16.6
+     "andel": 17.2
     },
     {
      "namn": "Biblioteket, Degerhamn",
@@ -939,7 +946,16 @@
      "total": 372,
      "dagarMedRoster": 5,
      "storstaDag": 86,
-     "andel": 7.0
+     "andel": 6.5
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Mörbylånga",
+     "lokalId": "0840005",
+     "total": 80,
+     "dagarMedRoster": 7,
+     "storstaDag": 22,
+     "andel": 1.4
     },
     {
      "namn": "Kommunkontoret, Mörbylånga",
@@ -948,16 +964,7 @@
      "total": 78,
      "dagarMedRoster": 2,
      "storstaDag": 61,
-     "andel": 1.5
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Mörbylånga",
-     "lokalId": "0840005",
-     "total": 65,
-     "dagarMedRoster": 6,
-     "storstaDag": 22,
-     "andel": 1.2
+     "andel": 1.4
     }
    ],
    "antalLokaler": 5,

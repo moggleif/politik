@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -775,7 +775,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -889,9 +889,16 @@
      "kvar": 3,
      "antal": 892,
      "ack": 8343
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 456,
+     "ack": 8799
     }
    ],
-   "total": 8343,
+   "total": 8799,
    "rostberattigade": {
     "riksdag": 21373,
     "kommun": 21812,
@@ -909,19 +916,19 @@
      "namn": "Kulturhuset Fregatten",
      "kommun": "Stenungsund",
      "lokalId": "1415002",
-     "total": 7013,
-     "dagarMedRoster": 16,
+     "total": 7358,
+     "dagarMedRoster": 17,
      "storstaDag": 647,
-     "andel": 84.1
+     "andel": 83.6
     },
     {
      "namn": "Stenungsunds Arena",
      "kommun": "Stenungsund",
      "lokalId": "1415001",
-     "total": 1242,
-     "dagarMedRoster": 6,
+     "total": 1353,
+     "dagarMedRoster": 7,
      "storstaDag": 274,
-     "andel": 14.9
+     "andel": 15.4
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -930,7 +937,7 @@
      "total": 88,
      "dagarMedRoster": 7,
      "storstaDag": 44,
-     "andel": 1.1
+     "andel": 1.0
     }
    ],
    "antalLokaler": 3,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1567,7 +1567,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1681,9 +1681,16 @@
      "kvar": 3,
      "antal": 2412,
      "ack": 18242
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 409,
+     "ack": 18651
     }
    ],
-   "total": 18242,
+   "total": 18651,
    "rostberattigade": {
     "riksdag": 56257,
     "kommun": 57789,
@@ -1701,10 +1708,10 @@
      "namn": "Kulturhuset Strömmen",
      "kommun": "Kalmar",
      "lokalId": "0880023",
-     "total": 9711,
-     "dagarMedRoster": 16,
+     "total": 10076,
+     "dagarMedRoster": 17,
      "storstaDag": 985,
-     "andel": 53.2
+     "andel": 54.0
     },
     {
      "namn": "Biblioteket Lindsdal",
@@ -1713,7 +1720,7 @@
      "total": 1549,
      "dagarMedRoster": 8,
      "storstaDag": 288,
-     "andel": 8.5
+     "andel": 8.3
     },
     {
      "namn": "Biblioteket Bergavik",
@@ -1722,7 +1729,7 @@
      "total": 1395,
      "dagarMedRoster": 8,
      "storstaDag": 265,
-     "andel": 7.6
+     "andel": 7.5
     },
     {
      "namn": "Allaktivitetshuset Rockneby",
@@ -1731,7 +1738,7 @@
      "total": 745,
      "dagarMedRoster": 5,
      "storstaDag": 197,
-     "andel": 4.1
+     "andel": 4.0
     },
     {
      "namn": "Träffpunkt Skogsrået",
@@ -1740,7 +1747,7 @@
      "total": 739,
      "dagarMedRoster": 7,
      "storstaDag": 148,
-     "andel": 4.1
+     "andel": 4.0
     },
     {
      "namn": "Biblioteket Ljungbyholm",
@@ -1749,7 +1756,7 @@
      "total": 668,
      "dagarMedRoster": 5,
      "storstaDag": 193,
-     "andel": 3.7
+     "andel": 3.6
     },
     {
      "namn": "Biblioteket Rinkabyholm",
@@ -1761,6 +1768,15 @@
      "andel": 3.6
     },
     {
+     "namn": "Träffpunkt Stensberg",
+     "kommun": "Kalmar",
+     "lokalId": "0880022",
+     "total": 597,
+     "dagarMedRoster": 5,
+     "storstaDag": 151,
+     "andel": 3.2
+    },
+    {
      "namn": "Träffpunkt Ingelstorpsvägen 1",
      "kommun": "Kalmar",
      "lokalId": "0880018",
@@ -1770,22 +1786,13 @@
      "andel": 3.0
     },
     {
-     "namn": "Träffpunkt Stensberg",
-     "kommun": "Kalmar",
-     "lokalId": "0880022",
-     "total": 553,
-     "dagarMedRoster": 4,
-     "storstaDag": 151,
-     "andel": 3.0
-    },
-    {
      "namn": "Biblioteket Hagby",
      "kommun": "Kalmar",
      "lokalId": "0880011",
      "total": 523,
      "dagarMedRoster": 3,
      "storstaDag": 231,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Biblioteket Trekanten",
@@ -1794,7 +1801,7 @@
      "total": 453,
      "dagarMedRoster": 5,
      "storstaDag": 118,
-     "andel": 2.5
+     "andel": 2.4
     },
     {
      "namn": "Biblioteket Påryd",

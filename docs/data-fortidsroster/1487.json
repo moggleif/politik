@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,7 +1054,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1166,11 +1166,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 1193,
-     "ack": 11719
+     "antal": 1244,
+     "ack": 11770
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 727,
+     "ack": 12497
     }
    ],
-   "total": 11719,
+   "total": 12497,
    "rostberattigade": {
     "riksdag": 31205,
     "kommun": 31920,
@@ -1188,28 +1195,28 @@
      "namn": "Arena Vänersborg",
      "kommun": "Vänersborg",
      "lokalId": "1487001",
-     "total": 6183,
-     "dagarMedRoster": 16,
+     "total": 6470,
+     "dagarMedRoster": 17,
      "storstaDag": 638,
-     "andel": 52.8
+     "andel": 51.8
     },
     {
      "namn": "Vänersborgs Huvudbibliotek",
      "kommun": "Vänersborg",
      "lokalId": "1487006",
-     "total": 2341,
-     "dagarMedRoster": 6,
+     "total": 2652,
+     "dagarMedRoster": 7,
      "storstaDag": 518,
-     "andel": 20.0
+     "andel": 21.2
     },
     {
      "namn": "Vargöns bibliotek",
      "kommun": "Vänersborg",
      "lokalId": "1487007",
-     "total": 1677,
-     "dagarMedRoster": 7,
+     "total": 1806,
+     "dagarMedRoster": 8,
      "storstaDag": 385,
-     "andel": 14.3
+     "andel": 14.5
     },
     {
      "namn": "Brålanda bibliotek",
@@ -1218,7 +1225,7 @@
      "total": 1100,
      "dagarMedRoster": 5,
      "storstaDag": 353,
-     "andel": 9.4
+     "andel": 8.8
     },
     {
      "namn": "Kriminalvårdsanstalten Östragård",
@@ -1227,13 +1234,13 @@
      "total": 148,
      "dagarMedRoster": 2,
      "storstaDag": 81,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Vänersborg",
      "lokalId": "1487009",
-     "total": 142,
+     "total": 145,
      "dagarMedRoster": 8,
      "storstaDag": 37,
      "andel": 1.2
@@ -1248,6 +1255,15 @@
      "andel": 0.9
     },
     {
+     "namn": "Brinkåsen",
+     "kommun": "Vänersborg",
+     "lokalId": "1487005",
+     "total": 48,
+     "dagarMedRoster": 1,
+     "storstaDag": 48,
+     "andel": 0.4
+    },
+    {
      "namn": "SiS ungdomshem Brättegården",
      "kommun": "Vänersborg",
      "lokalId": "1487008",
@@ -1255,15 +1271,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 19,
      "andel": 0.2
-    },
-    {
-     "namn": "Brinkåsen",
-     "kommun": "Vänersborg",
-     "lokalId": "1487005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 9,

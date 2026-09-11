@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -835,81 +835,88 @@
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 655,
-     "ack": 2649
+     "antal": 657,
+     "ack": 2651
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 587,
-     "ack": 3236
+     "ack": 3238
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
      "antal": 718,
-     "ack": 3954
+     "ack": 3956
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 656,
-     "ack": 4610
+     "ack": 4612
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 613,
-     "ack": 5223
+     "ack": 5225
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 331,
-     "ack": 5554
+     "ack": 5556
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 235,
-     "ack": 5789
+     "ack": 5791
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 1120,
-     "ack": 6909
+     "ack": 6911
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1182,
-     "ack": 8091
+     "antal": 1218,
+     "ack": 8129
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 1264,
-     "ack": 9355
+     "ack": 9393
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 1368,
-     "ack": 10723
+     "antal": 1382,
+     "ack": 10775
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 482,
+     "ack": 11257
     }
    ],
-   "total": 10723,
+   "total": 11257,
    "rostberattigade": {
     "riksdag": 29840,
     "kommun": 30386,
@@ -927,10 +934,10 @@
      "namn": "Hudiksvall - Kulturhuset",
      "kommun": "Hudiksvall",
      "lokalId": "2184003",
-     "total": 7448,
-     "dagarMedRoster": 16,
+     "total": 7916,
+     "dagarMedRoster": 17,
      "storstaDag": 953,
-     "andel": 69.5
+     "andel": 70.3
     },
     {
      "namn": "Delsbo - Servicecenter",
@@ -939,7 +946,7 @@
      "total": 1462,
      "dagarMedRoster": 14,
      "storstaDag": 206,
-     "andel": 13.6
+     "andel": 13.0
     },
     {
      "namn": "Iggesund - Folkets Hus",
@@ -948,7 +955,7 @@
      "total": 1235,
      "dagarMedRoster": 14,
      "storstaDag": 172,
-     "andel": 11.5
+     "andel": 11.0
     },
     {
      "namn": "Sörforsa bibliotek",
@@ -957,16 +964,25 @@
      "total": 262,
      "dagarMedRoster": 2,
      "storstaDag": 133,
-     "andel": 2.4
+     "andel": 2.3
     },
     {
      "namn": "Mobila biblioteket",
      "kommun": "Hudiksvall",
      "lokalId": "2184004",
-     "total": 180,
-     "dagarMedRoster": 4,
+     "total": 191,
+     "dagarMedRoster": 5,
      "storstaDag": 51,
      "andel": 1.7
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Hudiksvall",
+     "lokalId": "2184010",
+     "total": 104,
+     "dagarMedRoster": 8,
+     "storstaDag": 33,
+     "andel": 0.9
     },
     {
      "namn": "Bromangymnasiet",
@@ -975,16 +991,7 @@
      "total": 50,
      "dagarMedRoster": 1,
      "storstaDag": 50,
-     "andel": 0.5
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Hudiksvall",
-     "lokalId": "2184010",
-     "total": 49,
-     "dagarMedRoster": 5,
-     "storstaDag": 28,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Centrum för utveckling/lärande, Cul",

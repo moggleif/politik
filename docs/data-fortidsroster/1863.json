@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -838,7 +838,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -952,9 +952,16 @@
      "kvar": 3,
      "antal": 225,
      "ack": 1834
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 75,
+     "ack": 1909
     }
    ],
-   "total": 1834,
+   "total": 1909,
    "rostberattigade": {
     "riksdag": 4832,
     "kommun": 5124,
@@ -972,19 +979,19 @@
      "namn": "Kommunkontoret",
      "kommun": "Hällefors",
      "lokalId": "1863007",
-     "total": 1210,
-     "dagarMedRoster": 12,
+     "total": 1250,
+     "dagarMedRoster": 13,
      "storstaDag": 143,
-     "andel": 66.0
+     "andel": 65.5
     },
     {
      "namn": "Tempo",
      "kommun": "Hällefors",
      "lokalId": "1863001",
-     "total": 504,
-     "dagarMedRoster": 16,
+     "total": 539,
+     "dagarMedRoster": 17,
      "storstaDag": 70,
-     "andel": 27.5
+     "andel": 28.2
     },
     {
      "namn": "Hjulsjö gamla skolan",
@@ -993,7 +1000,7 @@
      "total": 66,
      "dagarMedRoster": 1,
      "storstaDag": 66,
-     "andel": 3.6
+     "andel": 3.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1011,7 +1018,7 @@
      "total": 16,
      "dagarMedRoster": 1,
      "storstaDag": 16,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Björkhaga (entren)",
@@ -1020,7 +1027,7 @@
      "total": 14,
      "dagarMedRoster": 1,
      "storstaDag": 14,
-     "andel": 0.8
+     "andel": 0.7
     }
    ],
    "antalLokaler": 6,

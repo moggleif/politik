@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,7 +919,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1031,11 +1031,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 702,
-     "ack": 7951
+     "antal": 705,
+     "ack": 7954
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 356,
+     "ack": 8310
     }
    ],
-   "total": 7951,
+   "total": 8310,
    "rostberattigade": {
     "riksdag": 20938,
     "kommun": 21448,
@@ -1053,10 +1060,10 @@
      "namn": "Kulturhuset, Oskarshamn",
      "kommun": "Oskarshamn",
      "lokalId": "0882006",
-     "total": 6589,
-     "dagarMedRoster": 16,
-     "storstaDag": 667,
-     "andel": 82.9
+     "total": 6948,
+     "dagarMedRoster": 17,
+     "storstaDag": 670,
+     "andel": 83.6
     },
     {
      "namn": "Figeholms bibliotek",
@@ -1065,7 +1072,7 @@
      "total": 375,
      "dagarMedRoster": 6,
      "storstaDag": 141,
-     "andel": 4.7
+     "andel": 4.5
     },
     {
      "namn": "Kristdala bibliotek",
@@ -1074,7 +1081,7 @@
      "total": 357,
      "dagarMedRoster": 5,
      "storstaDag": 113,
-     "andel": 4.5
+     "andel": 4.3
     },
     {
      "namn": "Strandagården",
@@ -1083,7 +1090,7 @@
      "total": 332,
      "dagarMedRoster": 5,
      "storstaDag": 101,
-     "andel": 4.2
+     "andel": 4.0
     },
     {
      "namn": "Bockara församlingshem",
@@ -1110,7 +1117,7 @@
      "total": 60,
      "dagarMedRoster": 1,
      "storstaDag": 60,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1119,7 +1126,7 @@
      "total": 45,
      "dagarMedRoster": 5,
      "storstaDag": 26,
-     "andel": 0.6
+     "andel": 0.5
     }
    ],
    "antalLokaler": 8,

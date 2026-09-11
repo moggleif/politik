@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,7 +1324,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1436,11 +1436,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 272,
-     "ack": 2449
+     "antal": 274,
+     "ack": 2451
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 132,
+     "ack": 2583
     }
    ],
-   "total": 2449,
+   "total": 2583,
    "rostberattigade": {
     "riksdag": 4441,
     "kommun": 4660,
@@ -1458,10 +1465,10 @@
      "namn": "Pajala G:a Sporthallen",
      "kommun": "Pajala",
      "lokalId": "2521011",
-     "total": 1225,
-     "dagarMedRoster": 14,
+     "total": 1294,
+     "dagarMedRoster": 15,
      "storstaDag": 125,
-     "andel": 50.0
+     "andel": 50.1
     },
     {
      "namn": "Tärendö Sporthall",
@@ -1470,7 +1477,7 @@
      "total": 265,
      "dagarMedRoster": 3,
      "storstaDag": 140,
-     "andel": 10.8
+     "andel": 10.3
     },
     {
      "namn": "Korpilombolo, Gårdsbyskolan matsal",
@@ -1479,7 +1486,7 @@
      "total": 204,
      "dagarMedRoster": 3,
      "storstaDag": 71,
-     "andel": 8.3
+     "andel": 7.9
     },
     {
      "namn": "Junosuando, fd centralskolan",
@@ -1488,7 +1495,7 @@
      "total": 186,
      "dagarMedRoster": 3,
      "storstaDag": 73,
-     "andel": 7.6
+     "andel": 7.2
     },
     {
      "namn": "Sattajärvi skola",
@@ -1497,16 +1504,25 @@
      "total": 164,
      "dagarMedRoster": 1,
      "storstaDag": 164,
-     "andel": 6.7
+     "andel": 6.3
     },
     {
      "namn": "Kainulasjärvi Fd Skolan",
      "kommun": "Pajala",
      "lokalId": "2521010",
-     "total": 67,
+     "total": 69,
      "dagarMedRoster": 1,
-     "storstaDag": 67,
+     "storstaDag": 69,
      "andel": 2.7
+    },
+    {
+     "namn": "Kangos Allhus",
+     "kommun": "Pajala",
+     "lokalId": "2521001",
+     "total": 63,
+     "dagarMedRoster": 1,
+     "storstaDag": 63,
+     "andel": 2.4
     },
     {
      "namn": "Kaunisvaara Folkets hus",
@@ -1515,7 +1531,7 @@
      "total": 50,
      "dagarMedRoster": 1,
      "storstaDag": 50,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Narken  Skolan",
@@ -1524,7 +1540,7 @@
      "total": 45,
      "dagarMedRoster": 1,
      "storstaDag": 45,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Erkheikki Folkets Hus",
@@ -1533,7 +1549,7 @@
      "total": 44,
      "dagarMedRoster": 1,
      "storstaDag": 44,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Saittarova, Tre Tallar",
@@ -1542,7 +1558,7 @@
      "total": 44,
      "dagarMedRoster": 1,
      "storstaDag": 44,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Kardis Bygdegård",
@@ -1551,7 +1567,7 @@
      "total": 43,
      "dagarMedRoster": 1,
      "storstaDag": 43,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Kihlangi Byalokal",
@@ -1560,7 +1576,7 @@
      "total": 39,
      "dagarMedRoster": 1,
      "storstaDag": 39,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Muodoslompolo, Våra byars hus",
@@ -1569,7 +1585,7 @@
      "total": 38,
      "dagarMedRoster": 1,
      "storstaDag": 38,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Kitkiöjärvi Skolan",
@@ -1588,15 +1604,6 @@
      "dagarMedRoster": 3,
      "storstaDag": 3,
      "andel": 0.3
-    },
-    {
-     "namn": "Kangos Allhus",
-     "kommun": "Pajala",
-     "lokalId": "2521001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Pajala Kommunhuset",

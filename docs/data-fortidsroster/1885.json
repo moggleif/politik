@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -928,7 +928,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -991,60 +991,67 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 546,
-     "ack": 2808
+     "antal": 558,
+     "ack": 2820
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 476,
-     "ack": 3284
+     "ack": 3296
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 198,
-     "ack": 3482
+     "ack": 3494
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 223,
-     "ack": 3705
+     "ack": 3717
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 731,
-     "ack": 4436
+     "ack": 4448
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 792,
-     "ack": 5228
+     "ack": 5240
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 577,
-     "ack": 5805
+     "ack": 5817
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 626,
-     "ack": 6431
+     "antal": 627,
+     "ack": 6444
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 573,
+     "ack": 7017
     }
    ],
-   "total": 6431,
+   "total": 7017,
    "rostberattigade": {
     "riksdag": 17996,
     "kommun": 18485,
@@ -1062,45 +1069,45 @@
      "namn": "G:a Apoteket",
      "kommun": "Lindesberg",
      "lokalId": "1885004",
-     "total": 3957,
-     "dagarMedRoster": 16,
+     "total": 4264,
+     "dagarMedRoster": 17,
      "storstaDag": 401,
-     "andel": 61.5
+     "andel": 60.8
     },
     {
      "namn": "Järnvägsstationen",
      "kommun": "Lindesberg",
      "lokalId": "1885002",
-     "total": 1135,
-     "dagarMedRoster": 9,
+     "total": 1274,
+     "dagarMedRoster": 10,
      "storstaDag": 170,
-     "andel": 17.6
+     "andel": 18.2
     },
     {
      "namn": "Ekbackens skola",
      "kommun": "Lindesberg",
      "lokalId": "1885001",
-     "total": 493,
-     "dagarMedRoster": 9,
+     "total": 559,
+     "dagarMedRoster": 10,
      "storstaDag": 108,
-     "andel": 7.7
+     "andel": 8.0
     },
     {
      "namn": "Råsshallen",
      "kommun": "Lindesberg",
      "lokalId": "1885003",
-     "total": 470,
-     "dagarMedRoster": 4,
+     "total": 531,
+     "dagarMedRoster": 5,
      "storstaDag": 154,
-     "andel": 7.3
+     "andel": 7.6
     },
     {
      "namn": "Anstalten Hinseberg",
      "kommun": "Lindesberg",
      "lokalId": "1885005",
-     "total": 122,
+     "total": 133,
      "dagarMedRoster": 1,
-     "storstaDag": 122,
+     "storstaDag": 133,
      "andel": 1.9
     },
     {
@@ -1110,7 +1117,7 @@
      "total": 72,
      "dagarMedRoster": 1,
      "storstaDag": 72,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Grönboda",
@@ -1128,7 +1135,7 @@
      "total": 30,
      "dagarMedRoster": 1,
      "storstaDag": 30,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Ågården",
@@ -1137,7 +1144,7 @@
      "total": 29,
      "dagarMedRoster": 1,
      "storstaDag": 29,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Källgården",
@@ -1170,8 +1177,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Lindesberg",
      "lokalId": "1885006",
-     "total": 11,
-     "dagarMedRoster": 6,
+     "total": 13,
+     "dagarMedRoster": 7,
      "storstaDag": 3,
      "andel": 0.2
     }

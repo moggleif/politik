@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -869,11 +869,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 534,
-     "ack": 4244
+     "antal": 547,
+     "ack": 4257
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 166,
+     "ack": 4423
     }
    ],
-   "total": 4244,
+   "total": 4423,
    "rostberattigade": {
     "riksdag": 9283,
     "kommun": 9615,
@@ -891,19 +898,19 @@
      "namn": "Lycksele stadshus, entréplan",
      "kommun": "Lycksele",
      "lokalId": "2481003",
-     "total": 4215,
-     "dagarMedRoster": 16,
+     "total": 4379,
+     "dagarMedRoster": 17,
      "storstaDag": 534,
-     "andel": 99.3
+     "andel": 99.0
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Lycksele",
      "lokalId": "2481004",
-     "total": 29,
-     "dagarMedRoster": 2,
+     "total": 44,
+     "dagarMedRoster": 4,
      "storstaDag": 27,
-     "andel": 0.7
+     "andel": 1.0
     },
     {
      "namn": "Rusksele skola",

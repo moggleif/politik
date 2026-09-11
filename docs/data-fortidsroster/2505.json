@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -988,18 +988,25 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 264,
-     "ack": 2231
+     "antal": 265,
+     "ack": 2232
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 289,
-     "ack": 2520
+     "antal": 291,
+     "ack": 2523
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 206,
+     "ack": 2729
     }
    ],
-   "total": 2520,
+   "total": 2729,
    "rostberattigade": {
     "riksdag": 4718,
     "kommun": 4963,
@@ -1017,19 +1024,19 @@
      "namn": "Medborgarhuset",
      "kommun": "Arvidsjaur",
      "lokalId": "2505005",
-     "total": 2069,
-     "dagarMedRoster": 16,
-     "storstaDag": 287,
-     "andel": 82.1
+     "total": 2255,
+     "dagarMedRoster": 17,
+     "storstaDag": 289,
+     "andel": 82.6
     },
     {
      "namn": "Finnbergs Diversehandel",
      "kommun": "Arvidsjaur",
      "lokalId": "2505003",
-     "total": 143,
-     "dagarMedRoster": 4,
+     "total": 166,
+     "dagarMedRoster": 5,
      "storstaDag": 46,
-     "andel": 5.7
+     "andel": 6.1
     },
     {
      "namn": "Café Navet i Moskosel",
@@ -1038,7 +1045,7 @@
      "total": 140,
      "dagarMedRoster": 3,
      "storstaDag": 49,
-     "andel": 5.6
+     "andel": 5.1
     },
     {
      "namn": "Affär'n Abborrträsk",
@@ -1047,7 +1054,7 @@
      "total": 114,
      "dagarMedRoster": 4,
      "storstaDag": 32,
-     "andel": 4.5
+     "andel": 4.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1056,7 +1063,7 @@
      "total": 54,
      "dagarMedRoster": 5,
      "storstaDag": 46,
-     "andel": 2.1
+     "andel": 2.0
     }
    ],
    "antalLokaler": 5,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1261,7 +1261,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1373,11 +1373,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 3272,
-     "ack": 32833
+     "antal": 3329,
+     "ack": 32890
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 1688,
+     "ack": 34578
     }
    ],
-   "total": 32833,
+   "total": 34578,
    "rostberattigade": {
     "riksdag": 83715,
     "kommun": 87259,
@@ -1395,53 +1402,53 @@
      "namn": "Nacka Forum, plan 0",
      "kommun": "Nacka",
      "lokalId": "0182002",
-     "total": 12006,
-     "dagarMedRoster": 16,
-     "storstaDag": 1254,
-     "andel": 36.6
+     "total": 12572,
+     "dagarMedRoster": 17,
+     "storstaDag": 1258,
+     "andel": 36.4
     },
     {
      "namn": "Orminge bibliotek",
      "kommun": "Nacka",
      "lokalId": "0182001",
-     "total": 6314,
-     "dagarMedRoster": 16,
+     "total": 6575,
+     "dagarMedRoster": 17,
      "storstaDag": 617,
-     "andel": 19.2
+     "andel": 19.0
     },
     {
      "namn": "Dieselverkstaden",
      "kommun": "Nacka",
      "lokalId": "0182003",
-     "total": 6078,
-     "dagarMedRoster": 16,
+     "total": 6360,
+     "dagarMedRoster": 17,
      "storstaDag": 638,
-     "andel": 18.5
+     "andel": 18.4
     },
     {
      "namn": "Igelboda skola",
      "kommun": "Nacka",
      "lokalId": "0182005",
-     "total": 2878,
-     "dagarMedRoster": 16,
+     "total": 3073,
+     "dagarMedRoster": 17,
      "storstaDag": 324,
-     "andel": 8.8
+     "andel": 8.9
     },
     {
      "namn": "Älta bibliotek",
      "kommun": "Nacka",
      "lokalId": "0182004",
-     "total": 2599,
-     "dagarMedRoster": 16,
+     "total": 2780,
+     "dagarMedRoster": 17,
      "storstaDag": 255,
-     "andel": 7.9
+     "andel": 8.0
     },
     {
      "namn": "Fisksätra bibliotek",
      "kommun": "Nacka",
      "lokalId": "0182018",
-     "total": 1655,
-     "dagarMedRoster": 16,
+     "total": 1740,
+     "dagarMedRoster": 17,
      "storstaDag": 186,
      "andel": 5.0
     },
@@ -1449,18 +1456,18 @@
      "namn": "Nacka stadshus",
      "kommun": "Nacka",
      "lokalId": "0182020",
-     "total": 803,
-     "dagarMedRoster": 13,
-     "storstaDag": 101,
-     "andel": 2.4
+     "total": 937,
+     "dagarMedRoster": 14,
+     "storstaDag": 132,
+     "andel": 2.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nacka",
      "lokalId": "0182023",
-     "total": 111,
+     "total": 119,
      "dagarMedRoster": 8,
-     "storstaDag": 28,
+     "storstaDag": 36,
      "andel": 0.3
     },
     {
@@ -1470,7 +1477,7 @@
      "total": 84,
      "dagarMedRoster": 1,
      "storstaDag": 84,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Nacka Seniorcenter Ektorp",
@@ -1506,6 +1513,15 @@
      "total": 34,
      "dagarMedRoster": 1,
      "storstaDag": 34,
+     "andel": 0.1
+    },
+    {
+     "namn": "Ednahemmet",
+     "kommun": "Nacka",
+     "lokalId": "0182026",
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
      "andel": 0.1
     },
     {
@@ -1551,15 +1567,6 @@
      "total": 15,
      "dagarMedRoster": 1,
      "storstaDag": 15,
-     "andel": 0.0
-    },
-    {
-     "namn": "Ednahemmet",
-     "kommun": "Nacka",
-     "lokalId": "0182026",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
      "andel": 0.0
     },
     {

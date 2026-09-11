@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,7 +1108,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1222,9 +1222,16 @@
      "kvar": 3,
      "antal": 770,
      "ack": 5818
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 331,
+     "ack": 6149
     }
    ],
-   "total": 5818,
+   "total": 6149,
    "rostberattigade": {
     "riksdag": 21376,
     "kommun": 22704,
@@ -1242,19 +1249,19 @@
      "namn": "Garvaren",
      "kommun": "Ljungby",
      "lokalId": "0781001",
-     "total": 4843,
-     "dagarMedRoster": 16,
+     "total": 5072,
+     "dagarMedRoster": 17,
      "storstaDag": 566,
-     "andel": 83.2
+     "andel": 82.5
     },
     {
      "namn": "Biblioteket",
      "kommun": "Ljungby",
      "lokalId": "0781005",
-     "total": 387,
-     "dagarMedRoster": 4,
+     "total": 431,
+     "dagarMedRoster": 5,
      "storstaDag": 119,
-     "andel": 6.7
+     "andel": 7.0
     },
     {
      "namn": "Biblioteket (Ica)",
@@ -1263,7 +1270,7 @@
      "total": 216,
      "dagarMedRoster": 5,
      "storstaDag": 67,
-     "andel": 3.7
+     "andel": 3.5
     },
     {
      "namn": "Västanå",
@@ -1272,7 +1279,16 @@
      "total": 188,
      "dagarMedRoster": 2,
      "storstaDag": 103,
-     "andel": 3.2
+     "andel": 3.1
+    },
+    {
+     "namn": "Sunnerbogymnasiet",
+     "kommun": "Ljungby",
+     "lokalId": "0781010",
+     "total": 125,
+     "dagarMedRoster": 2,
+     "storstaDag": 67,
+     "andel": 2.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1281,16 +1297,7 @@
      "total": 117,
      "dagarMedRoster": 6,
      "storstaDag": 63,
-     "andel": 2.0
-    },
-    {
-     "namn": "Sunnerbogymnasiet",
-     "kommun": "Ljungby",
-     "lokalId": "0781010",
-     "total": 67,
-     "dagarMedRoster": 1,
-     "storstaDag": 67,
-     "andel": 1.2
+     "andel": 1.9
     },
     {
      "namn": "Bolmsöskolan",

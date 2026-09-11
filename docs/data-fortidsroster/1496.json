@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1432,7 +1432,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1523,32 +1523,39 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1916,
-     "ack": 9658
+     "antal": 1918,
+     "ack": 9660
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 1872,
-     "ack": 11530
+     "ack": 11532
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 2188,
-     "ack": 13718
+     "ack": 13720
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 2314,
-     "ack": 16032
+     "antal": 2326,
+     "ack": 16046
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 680,
+     "ack": 16726
     }
    ],
-   "total": 16032,
+   "total": 16726,
    "rostberattigade": {
     "riksdag": 44917,
     "kommun": 46151,
@@ -1566,46 +1573,46 @@
      "namn": "Arena Skövde",
      "kommun": "Skövde",
      "lokalId": "1496021",
-     "total": 9353,
-     "dagarMedRoster": 16,
-     "storstaDag": 1012,
-     "andel": 58.3
+     "total": 9781,
+     "dagarMedRoster": 17,
+     "storstaDag": 1015,
+     "andel": 58.5
     },
     {
      "namn": "Skövde kulturfabrik",
      "kommun": "Skövde",
      "lokalId": "1496017",
-     "total": 2306,
-     "dagarMedRoster": 14,
+     "total": 2430,
+     "dagarMedRoster": 15,
      "storstaDag": 208,
-     "andel": 14.4
+     "andel": 14.5
     },
     {
      "namn": "Skövde Kulturhus",
      "kommun": "Skövde",
      "lokalId": "1496018",
-     "total": 1392,
-     "dagarMedRoster": 4,
-     "storstaDag": 370,
-     "andel": 8.7
+     "total": 1526,
+     "dagarMedRoster": 5,
+     "storstaDag": 371,
+     "andel": 9.1
     },
     {
      "namn": "Biblioteket, Södra Ryd",
      "kommun": "Skövde",
      "lokalId": "1496013",
-     "total": 557,
+     "total": 561,
      "dagarMedRoster": 2,
-     "storstaDag": 310,
-     "andel": 3.5
+     "storstaDag": 314,
+     "andel": 3.4
     },
     {
      "namn": "Kommunalhuset, Skultorp",
      "kommun": "Skövde",
      "lokalId": "1496014",
-     "total": 529,
+     "total": 532,
      "dagarMedRoster": 2,
-     "storstaDag": 291,
-     "andel": 3.3
+     "storstaDag": 294,
+     "andel": 3.2
     },
     {
      "namn": "Biblioteket, Stöpen",
@@ -1614,7 +1621,7 @@
      "total": 326,
      "dagarMedRoster": 2,
      "storstaDag": 191,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Tidans församlingshem",
@@ -1623,7 +1630,7 @@
      "total": 309,
      "dagarMedRoster": 2,
      "storstaDag": 158,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Timmersdala församlingshem",
@@ -1632,7 +1639,7 @@
      "total": 257,
      "dagarMedRoster": 2,
      "storstaDag": 135,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Skaraborgs Sjukhus",
@@ -1641,7 +1648,7 @@
      "total": 187,
      "dagarMedRoster": 2,
      "storstaDag": 113,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Värings skola",
@@ -1656,7 +1663,7 @@
      "namn": "Kyrkans Hus Värsås",
      "kommun": "Skövde",
      "lokalId": "1496012",
-     "total": 167,
+     "total": 168,
      "dagarMedRoster": 2,
      "storstaDag": 86,
      "andel": 1.0
@@ -1668,7 +1675,7 @@
      "total": 105,
      "dagarMedRoster": 2,
      "storstaDag": 66,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Soldathemmet",
@@ -1677,7 +1684,7 @@
      "total": 90,
      "dagarMedRoster": 2,
      "storstaDag": 48,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1731,7 +1738,7 @@
      "total": 25,
      "dagarMedRoster": 1,
      "storstaDag": 25,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Skaraborgs läns sjukhem",

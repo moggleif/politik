@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1540,7 +1540,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1654,9 +1654,16 @@
      "kvar": 3,
      "antal": 1872,
      "ack": 14418
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 548,
+     "ack": 14966
     }
    ],
-   "total": 14418,
+   "total": 14966,
    "rostberattigade": {
     "riksdag": 33532,
     "kommun": 34123,
@@ -1674,19 +1681,28 @@
      "namn": "Småstaden",
      "kommun": "Piteå",
      "lokalId": "2581014",
-     "total": 7202,
-     "dagarMedRoster": 16,
+     "total": 7552,
+     "dagarMedRoster": 17,
      "storstaDag": 585,
-     "andel": 50.0
+     "andel": 50.5
     },
     {
      "namn": "Christina Kultur",
      "kommun": "Piteå",
      "lokalId": "2581012",
-     "total": 2506,
-     "dagarMedRoster": 11,
+     "total": 2643,
+     "dagarMedRoster": 12,
      "storstaDag": 321,
-     "andel": 17.4
+     "andel": 17.7
+    },
+    {
+     "namn": "Linnéparkens kvartersgård",
+     "kommun": "Piteå",
+     "lokalId": "2581019",
+     "total": 663,
+     "dagarMedRoster": 5,
+     "storstaDag": 185,
+     "andel": 4.4
     },
     {
      "namn": "Norrfjärdens Folkets Hus",
@@ -1695,15 +1711,6 @@
      "total": 624,
      "dagarMedRoster": 3,
      "storstaDag": 294,
-     "andel": 4.3
-    },
-    {
-     "namn": "Linnéparkens kvartersgård",
-     "kommun": "Piteå",
-     "lokalId": "2581019",
-     "total": 602,
-     "dagarMedRoster": 4,
-     "storstaDag": 185,
      "andel": 4.2
     },
     {
@@ -1713,7 +1720,7 @@
      "total": 556,
      "dagarMedRoster": 3,
      "storstaDag": 228,
-     "andel": 3.9
+     "andel": 3.7
     },
     {
      "namn": "Malmgården",
@@ -1722,7 +1729,7 @@
      "total": 470,
      "dagarMedRoster": 3,
      "storstaDag": 184,
-     "andel": 3.3
+     "andel": 3.1
     },
     {
      "namn": "Rosviks Folkets Hus",
@@ -1731,7 +1738,7 @@
      "total": 451,
      "dagarMedRoster": 3,
      "storstaDag": 176,
-     "andel": 3.1
+     "andel": 3.0
     },
     {
      "namn": "Storfors Folkets Hus",
@@ -1740,7 +1747,7 @@
      "total": 431,
      "dagarMedRoster": 3,
      "storstaDag": 170,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Infjärdens kyrka",
@@ -1749,7 +1756,7 @@
      "total": 383,
      "dagarMedRoster": 3,
      "storstaDag": 162,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Sikfors folkets hus",
@@ -1758,7 +1765,7 @@
      "total": 214,
      "dagarMedRoster": 1,
      "storstaDag": 214,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Lillpite förskola",
@@ -1785,7 +1792,7 @@
      "total": 139,
      "dagarMedRoster": 1,
      "storstaDag": 139,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Strömbackaskolan",
@@ -1794,7 +1801,7 @@
      "total": 139,
      "dagarMedRoster": 3,
      "storstaDag": 61,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Hifton",
@@ -1803,7 +1810,7 @@
      "total": 123,
      "dagarMedRoster": 1,
      "storstaDag": 123,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Holmträsk fd skola",

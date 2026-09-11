@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -833,11 +833,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 701,
-     "ack": 6760
+     "antal": 702,
+     "ack": 6761
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 385,
+     "ack": 7146
     }
    ],
-   "total": 6760,
+   "total": 7146,
    "rostberattigade": {
     "riksdag": 18630,
     "kommun": 18696,
@@ -855,26 +862,26 @@
      "namn": "Stationshuset i Lomma",
      "kommun": "Lomma",
      "lokalId": "1262002",
-     "total": 4154,
-     "dagarMedRoster": 16,
-     "storstaDag": 455,
-     "andel": 61.4
+     "total": 4393,
+     "dagarMedRoster": 17,
+     "storstaDag": 456,
+     "andel": 61.5
     },
     {
      "namn": "Bjärreds bibliotek",
      "kommun": "Lomma",
      "lokalId": "1262001",
-     "total": 2560,
-     "dagarMedRoster": 16,
+     "total": 2704,
+     "dagarMedRoster": 17,
      "storstaDag": 283,
-     "andel": 37.9
+     "andel": 37.8
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Lomma",
      "lokalId": "1262004",
-     "total": 46,
-     "dagarMedRoster": 3,
+     "total": 49,
+     "dagarMedRoster": 4,
      "storstaDag": 31,
      "andel": 0.7
     }

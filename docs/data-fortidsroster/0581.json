@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1297,7 +1297,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1411,9 +1411,16 @@
      "kvar": 3,
      "antal": 4056,
      "ack": 39465
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 2178,
+     "ack": 41643
     }
    ],
-   "total": 39465,
+   "total": 41643,
    "rostberattigade": {
     "riksdag": 111962,
     "kommun": 114922,
@@ -1431,28 +1438,37 @@
      "namn": "Mirum Galleria",
      "kommun": "Norrköping",
      "lokalId": "0581011",
-     "total": 9743,
-     "dagarMedRoster": 16,
+     "total": 10168,
+     "dagarMedRoster": 17,
      "storstaDag": 943,
-     "andel": 24.7
+     "andel": 24.4
     },
     {
      "namn": "Norrköpings stadsbibliotek",
      "kommun": "Norrköping",
      "lokalId": "0581001",
-     "total": 6812,
-     "dagarMedRoster": 16,
+     "total": 7158,
+     "dagarMedRoster": 17,
      "storstaDag": 699,
-     "andel": 17.3
+     "andel": 17.2
     },
     {
      "namn": "Linden Köpcentrum",
      "kommun": "Norrköping",
      "lokalId": "0581005",
-     "total": 4721,
-     "dagarMedRoster": 16,
+     "total": 4938,
+     "dagarMedRoster": 17,
      "storstaDag": 471,
-     "andel": 12.0
+     "andel": 11.9
+    },
+    {
+     "namn": "Vilbergens bibliotek",
+     "kommun": "Norrköping",
+     "lokalId": "0581009",
+     "total": 3472,
+     "dagarMedRoster": 11,
+     "storstaDag": 535,
+     "andel": 8.3
     },
     {
      "namn": "Eneby bibliotek",
@@ -1461,61 +1477,52 @@
      "total": 3244,
      "dagarMedRoster": 8,
      "storstaDag": 710,
-     "andel": 8.2
-    },
-    {
-     "namn": "Vilbergens bibliotek",
-     "kommun": "Norrköping",
-     "lokalId": "0581009",
-     "total": 3234,
-     "dagarMedRoster": 10,
-     "storstaDag": 535,
-     "andel": 8.2
+     "andel": 7.8
     },
     {
      "namn": "Träffpunkt Nyköpingsvägen 28",
      "kommun": "Norrköping",
      "lokalId": "0581013",
-     "total": 2361,
-     "dagarMedRoster": 13,
+     "total": 2574,
+     "dagarMedRoster": 14,
      "storstaDag": 326,
-     "andel": 6.0
+     "andel": 6.2
     },
     {
      "namn": "Arbetets museum, Strykjärnet",
      "kommun": "Norrköping",
      "lokalId": "0581006",
-     "total": 2325,
-     "dagarMedRoster": 16,
+     "total": 2500,
+     "dagarMedRoster": 17,
      "storstaDag": 274,
-     "andel": 5.9
+     "andel": 6.0
     },
     {
      "namn": "Skärblacka bibliotek",
      "kommun": "Norrköping",
      "lokalId": "0581008",
-     "total": 1744,
-     "dagarMedRoster": 9,
+     "total": 1936,
+     "dagarMedRoster": 10,
      "storstaDag": 288,
-     "andel": 4.4
+     "andel": 4.6
     },
     {
      "namn": "Träffpunkt Valhallavägen 1C",
      "kommun": "Norrköping",
      "lokalId": "0581007",
-     "total": 1478,
-     "dagarMedRoster": 12,
+     "total": 1611,
+     "dagarMedRoster": 13,
      "storstaDag": 177,
-     "andel": 3.7
+     "andel": 3.9
     },
     {
      "namn": "Förvaltningshuset Rosen",
      "kommun": "Norrköping",
      "lokalId": "0581002",
-     "total": 1387,
-     "dagarMedRoster": 12,
-     "storstaDag": 166,
-     "andel": 3.5
+     "total": 1609,
+     "dagarMedRoster": 13,
+     "storstaDag": 222,
+     "andel": 3.9
     },
     {
      "namn": "Östra Husby bygdegård",
@@ -1524,7 +1531,16 @@
      "total": 1035,
      "dagarMedRoster": 6,
      "storstaDag": 235,
-     "andel": 2.6
+     "andel": 2.5
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Norrköping",
+     "lokalId": "0581014",
+     "total": 582,
+     "dagarMedRoster": 13,
+     "storstaDag": 95,
+     "andel": 1.4
     },
     {
      "namn": "Billbäcks arena",
@@ -1533,15 +1549,6 @@
      "total": 576,
      "dagarMedRoster": 4,
      "storstaDag": 184,
-     "andel": 1.5
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Norrköping",
-     "lokalId": "0581014",
-     "total": 565,
-     "dagarMedRoster": 12,
-     "storstaDag": 95,
      "andel": 1.4
     },
     {

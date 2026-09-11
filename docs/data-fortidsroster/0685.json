@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1261,7 +1261,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1373,11 +1373,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 752,
-     "ack": 6841
+     "antal": 772,
+     "ack": 6861
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 316,
+     "ack": 7177
     }
    ],
-   "total": 6841,
+   "total": 7177,
    "rostberattigade": {
     "riksdag": 20758,
     "kommun": 21545,
@@ -1395,8 +1402,8 @@
      "namn": "Stadshuset",
      "kommun": "Vetlanda",
      "lokalId": "0685010",
-     "total": 6278,
-     "dagarMedRoster": 16,
+     "total": 6592,
+     "dagarMedRoster": 17,
      "storstaDag": 591,
      "andel": 91.8
     },
@@ -1404,19 +1411,19 @@
      "namn": "Ramkvilla skola",
      "kommun": "Vetlanda",
      "lokalId": "0685006",
-     "total": 184,
+     "total": 185,
      "dagarMedRoster": 2,
-     "storstaDag": 108,
-     "andel": 2.7
+     "storstaDag": 109,
+     "andel": 2.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Vetlanda",
      "lokalId": "0685011",
-     "total": 165,
-     "dagarMedRoster": 10,
+     "total": 177,
+     "dagarMedRoster": 11,
      "storstaDag": 47,
-     "andel": 2.4
+     "andel": 2.5
     },
     {
      "namn": "Näshults bygdegård",
@@ -1425,13 +1432,13 @@
      "total": 114,
      "dagarMedRoster": 2,
      "storstaDag": 70,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Råsagården",
      "kommun": "Vetlanda",
      "lokalId": "0685004",
-     "total": 70,
+     "total": 71,
      "dagarMedRoster": 2,
      "storstaDag": 41,
      "andel": 1.0
@@ -1440,10 +1447,10 @@
      "namn": "Bokbussen",
      "kommun": "Vetlanda",
      "lokalId": "0685002",
-     "total": 30,
-     "dagarMedRoster": 7,
-     "storstaDag": 7,
-     "andel": 0.4
+     "total": 38,
+     "dagarMedRoster": 8,
+     "storstaDag": 8,
+     "andel": 0.5
     }
    ],
    "antalLokaler": 6,

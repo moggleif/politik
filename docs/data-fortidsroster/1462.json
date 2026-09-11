@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -833,11 +833,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 566,
-     "ack": 3194
+     "antal": 569,
+     "ack": 3197
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 173,
+     "ack": 3370
     }
    ],
-   "total": 3194,
+   "total": 3370,
    "rostberattigade": {
     "riksdag": 10608,
     "kommun": 11174,
@@ -855,10 +862,10 @@
      "namn": "Kommunhuset Lilla Edet",
      "kommun": "Lilla Edet",
      "lokalId": "1462002",
-     "total": 2385,
-     "dagarMedRoster": 16,
+     "total": 2558,
+     "dagarMedRoster": 17,
      "storstaDag": 309,
-     "andel": 74.7
+     "andel": 75.9
     },
     {
      "namn": "Lödöse Museum",
@@ -867,14 +874,14 @@
      "total": 747,
      "dagarMedRoster": 7,
      "storstaDag": 257,
-     "andel": 23.4
+     "andel": 22.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Lilla Edet",
      "lokalId": "1462003",
-     "total": 62,
-     "dagarMedRoster": 5,
+     "total": 65,
+     "dagarMedRoster": 6,
      "storstaDag": 51,
      "andel": 1.9
     }

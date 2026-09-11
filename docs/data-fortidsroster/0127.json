@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1090,7 +1090,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1204,9 +1204,16 @@
      "kvar": 3,
      "antal": 2265,
      "ack": 25051
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 1093,
+     "ack": 26144
     }
    ],
-   "total": 25051,
+   "total": 26144,
    "rostberattigade": {
     "riksdag": 64900,
     "kommun": 73467,
@@ -1224,8 +1231,8 @@
      "namn": "Tullinge centrum",
      "kommun": "Botkyrka",
      "lokalId": "0127005",
-     "total": 4611,
-     "dagarMedRoster": 16,
+     "total": 4818,
+     "dagarMedRoster": 17,
      "storstaDag": 468,
      "andel": 18.4
     },
@@ -1233,35 +1240,35 @@
      "namn": "Hallunda medborgarkontor",
      "kommun": "Botkyrka",
      "lokalId": "0127006",
-     "total": 3854,
-     "dagarMedRoster": 16,
+     "total": 3998,
+     "dagarMedRoster": 17,
      "storstaDag": 350,
-     "andel": 15.4
+     "andel": 15.3
     },
     {
      "namn": "Tumba centrum",
      "kommun": "Botkyrka",
      "lokalId": "0127008",
-     "total": 3433,
-     "dagarMedRoster": 16,
+     "total": 3617,
+     "dagarMedRoster": 17,
      "storstaDag": 380,
-     "andel": 13.7
+     "andel": 13.8
     },
     {
      "namn": "Tumba bibliotek",
      "kommun": "Botkyrka",
      "lokalId": "0127002",
-     "total": 3016,
-     "dagarMedRoster": 16,
+     "total": 3154,
+     "dagarMedRoster": 17,
      "storstaDag": 302,
-     "andel": 12.0
+     "andel": 12.1
     },
     {
      "namn": "Alby medborgarkontor",
      "kommun": "Botkyrka",
      "lokalId": "0127003",
-     "total": 2891,
-     "dagarMedRoster": 16,
+     "total": 3015,
+     "dagarMedRoster": 17,
      "storstaDag": 260,
      "andel": 11.5
     },
@@ -1269,46 +1276,46 @@
      "namn": "Ica Maxi Botkyrka",
      "kommun": "Botkyrka",
      "lokalId": "0127007",
-     "total": 2869,
-     "dagarMedRoster": 16,
+     "total": 2891,
+     "dagarMedRoster": 17,
      "storstaDag": 280,
-     "andel": 11.5
+     "andel": 11.1
     },
     {
      "namn": "Fittja medborgarkontor",
      "kommun": "Botkyrka",
      "lokalId": "0127004",
-     "total": 2202,
-     "dagarMedRoster": 16,
+     "total": 2285,
+     "dagarMedRoster": 17,
      "storstaDag": 190,
-     "andel": 8.8
+     "andel": 8.7
     },
     {
      "namn": "Mötesplats Grödinge",
      "kommun": "Botkyrka",
      "lokalId": "0127001",
-     "total": 1396,
-     "dagarMedRoster": 16,
+     "total": 1478,
+     "dagarMedRoster": 17,
      "storstaDag": 140,
-     "andel": 5.6
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Botkyrka",
-     "lokalId": "0127035",
-     "total": 227,
-     "dagarMedRoster": 12,
-     "storstaDag": 43,
-     "andel": 0.9
+     "andel": 5.7
     },
     {
      "namn": "Hallunda Centrum",
      "kommun": "Botkyrka",
      "lokalId": "0127026",
-     "total": 204,
-     "dagarMedRoster": 3,
+     "total": 303,
+     "dagarMedRoster": 4,
      "storstaDag": 104,
-     "andel": 0.8
+     "andel": 1.2
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Botkyrka",
+     "lokalId": "0127035",
+     "total": 237,
+     "dagarMedRoster": 13,
+     "storstaDag": 43,
+     "andel": 0.9
     },
     {
      "namn": "Anstalten Asptuna",
@@ -1335,7 +1342,7 @@
      "total": 63,
      "dagarMedRoster": 1,
      "storstaDag": 63,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Campus Botkyrka (SFI)",

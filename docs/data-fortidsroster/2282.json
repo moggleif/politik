@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,7 +1108,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1213,18 +1213,25 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 521,
-     "ack": 5096
+     "antal": 535,
+     "ack": 5110
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
      "antal": 596,
-     "ack": 5692
+     "ack": 5706
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 246,
+     "ack": 5952
     }
    ],
-   "total": 5692,
+   "total": 5952,
    "rostberattigade": {
     "riksdag": 13670,
     "kommun": 14351,
@@ -1242,10 +1249,10 @@
      "namn": "Kramfors Fritidsgård",
      "kommun": "Kramfors",
      "lokalId": "2282002",
-     "total": 2904,
-     "dagarMedRoster": 14,
+     "total": 3066,
+     "dagarMedRoster": 15,
      "storstaDag": 357,
-     "andel": 51.0
+     "andel": 51.5
     },
     {
      "namn": "Nylands Folkets Hus",
@@ -1254,16 +1261,16 @@
      "total": 1157,
      "dagarMedRoster": 13,
      "storstaDag": 196,
-     "andel": 20.3
+     "andel": 19.4
     },
     {
      "namn": "Generationernas hus",
      "kommun": "Kramfors",
      "lokalId": "2282005",
-     "total": 758,
-     "dagarMedRoster": 11,
+     "total": 844,
+     "dagarMedRoster": 12,
      "storstaDag": 92,
-     "andel": 13.3
+     "andel": 14.2
     },
     {
      "namn": "Bollstakyrkan",
@@ -1272,7 +1279,7 @@
      "total": 454,
      "dagarMedRoster": 7,
      "storstaDag": 79,
-     "andel": 8.0
+     "andel": 7.6
     },
     {
      "namn": "Gula Huset Docksta",
@@ -1281,16 +1288,16 @@
      "total": 355,
      "dagarMedRoster": 14,
      "storstaDag": 44,
-     "andel": 6.2
+     "andel": 6.0
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kramfors",
      "lokalId": "2282006",
-     "total": 64,
-     "dagarMedRoster": 7,
+     "total": 76,
+     "dagarMedRoster": 8,
      "storstaDag": 27,
-     "andel": 1.1
+     "andel": 1.3
     }
    ],
    "antalLokaler": 6,

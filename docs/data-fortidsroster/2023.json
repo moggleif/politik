@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1072,7 +1072,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1177,18 +1177,25 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 400,
-     "ack": 3404
+     "antal": 402,
+     "ack": 3406
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
      "antal": 468,
-     "ack": 3872
+     "ack": 3874
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 220,
+     "ack": 4094
     }
    ],
-   "total": 3872,
+   "total": 4094,
    "rostberattigade": {
     "riksdag": 7996,
     "kommun": 8410,
@@ -1206,8 +1213,8 @@
      "namn": "Malungs bibliotek",
      "kommun": "Malung-Sälen",
      "lokalId": "2023001",
-     "total": 2560,
-     "dagarMedRoster": 16,
+     "total": 2706,
+     "dagarMedRoster": 17,
      "storstaDag": 277,
      "andel": 66.1
     },
@@ -1215,8 +1222,8 @@
      "namn": "Sälens bibliotek",
      "kommun": "Malung-Sälen",
      "lokalId": "2023003",
-     "total": 1220,
-     "dagarMedRoster": 16,
+     "total": 1290,
+     "dagarMedRoster": 17,
      "storstaDag": 179,
      "andel": 31.5
     },
@@ -1224,8 +1231,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Malung-Sälen",
      "lokalId": "2023007",
-     "total": 92,
-     "dagarMedRoster": 7,
+     "total": 98,
+     "dagarMedRoster": 8,
      "storstaDag": 19,
      "andel": 2.4
     },

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1720,7 +1720,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1834,9 +1834,16 @@
      "kvar": 3,
      "antal": 2019,
      "ack": 19819
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 916,
+     "ack": 20735
     }
    ],
-   "total": 19819,
+   "total": 20735,
    "rostberattigade": {
     "riksdag": 52189,
     "kommun": 53183,
@@ -1854,37 +1861,46 @@
      "namn": "Amiralens parkering",
      "kommun": "Karlskrona",
      "lokalId": "1080001",
-     "total": 4654,
-     "dagarMedRoster": 16,
+     "total": 4768,
+     "dagarMedRoster": 17,
      "storstaDag": 459,
-     "andel": 23.5
+     "andel": 23.0
     },
     {
      "namn": "Militärhemmet",
      "kommun": "Karlskrona",
      "lokalId": "1080008",
-     "total": 4176,
-     "dagarMedRoster": 16,
+     "total": 4349,
+     "dagarMedRoster": 17,
      "storstaDag": 471,
-     "andel": 21.1
+     "andel": 21.0
     },
     {
      "namn": "Citygross parkering",
      "kommun": "Karlskrona",
      "lokalId": "1080021",
-     "total": 3599,
-     "dagarMedRoster": 16,
+     "total": 3729,
+     "dagarMedRoster": 17,
      "storstaDag": 431,
-     "andel": 18.2
+     "andel": 18.0
     },
     {
      "namn": "Blekinge Tekniska Högskola",
      "kommun": "Karlskrona",
      "lokalId": "1080012",
-     "total": 1331,
-     "dagarMedRoster": 12,
+     "total": 1484,
+     "dagarMedRoster": 13,
      "storstaDag": 162,
-     "andel": 6.7
+     "andel": 7.2
+    },
+    {
+     "namn": "Blekingesjukhuset Karlskrona",
+     "kommun": "Karlskrona",
+     "lokalId": "1080019",
+     "total": 949,
+     "dagarMedRoster": 13,
+     "storstaDag": 161,
+     "andel": 4.6
     },
     {
      "namn": "Rödeby Centrumhus fd Kommunhus",
@@ -1893,7 +1909,7 @@
      "total": 857,
      "dagarMedRoster": 6,
      "storstaDag": 230,
-     "andel": 4.3
+     "andel": 4.1
     },
     {
      "namn": "Jämjö bibliotek",
@@ -1902,16 +1918,16 @@
      "total": 803,
      "dagarMedRoster": 6,
      "storstaDag": 209,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
-     "namn": "Blekingesjukhuset Karlskrona",
+     "namn": "Ruthensparre, Kommunhuset",
      "kommun": "Karlskrona",
-     "lokalId": "1080019",
-     "total": 788,
-     "dagarMedRoster": 12,
-     "storstaDag": 132,
-     "andel": 4.0
+     "lokalId": "1080005",
+     "total": 550,
+     "dagarMedRoster": 14,
+     "storstaDag": 76,
+     "andel": 2.7
     },
     {
      "namn": "Nättraby kunskapscentrum",
@@ -1920,16 +1936,7 @@
      "total": 538,
      "dagarMedRoster": 7,
      "storstaDag": 181,
-     "andel": 2.7
-    },
-    {
-     "namn": "Ruthensparre, Kommunhuset",
-     "kommun": "Karlskrona",
-     "lokalId": "1080005",
-     "total": 499,
-     "dagarMedRoster": 13,
-     "storstaDag": 76,
-     "andel": 2.5
+     "andel": 2.6
     },
     {
      "namn": "Sturkö skola",
@@ -1938,16 +1945,16 @@
      "total": 427,
      "dagarMedRoster": 5,
      "storstaDag": 203,
-     "andel": 2.2
+     "andel": 2.1
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Karlskrona",
      "lokalId": "1080020",
-     "total": 385,
-     "dagarMedRoster": 12,
+     "total": 421,
+     "dagarMedRoster": 13,
      "storstaDag": 65,
-     "andel": 1.9
+     "andel": 2.0
     },
     {
      "namn": "Hasslö PRO",
@@ -1956,7 +1963,16 @@
      "total": 359,
      "dagarMedRoster": 5,
      "storstaDag": 167,
-     "andel": 1.8
+     "andel": 1.7
+    },
+    {
+     "namn": "Torhamnsgården",
+     "kommun": "Karlskrona",
+     "lokalId": "1080004",
+     "total": 312,
+     "dagarMedRoster": 8,
+     "storstaDag": 64,
+     "andel": 1.5
     },
     {
      "namn": "Fågelmara Missionskyrka",
@@ -1974,16 +1990,16 @@
      "total": 256,
      "dagarMedRoster": 4,
      "storstaDag": 119,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
-     "namn": "Torhamnsgården",
+     "namn": "Kungsmarksplans bibliotek",
      "kommun": "Karlskrona",
-     "lokalId": "1080004",
+     "lokalId": "1080002",
      "total": 252,
-     "dagarMedRoster": 7,
-     "storstaDag": 64,
-     "andel": 1.3
+     "dagarMedRoster": 11,
+     "storstaDag": 39,
+     "andel": 1.2
     },
     {
      "namn": "Fridlevstads skola",
@@ -1992,15 +2008,6 @@
      "total": 228,
      "dagarMedRoster": 6,
      "storstaDag": 69,
-     "andel": 1.2
-    },
-    {
-     "namn": "Kungsmarksplans bibliotek",
-     "kommun": "Karlskrona",
-     "lokalId": "1080002",
-     "total": 214,
-     "dagarMedRoster": 10,
-     "storstaDag": 39,
      "andel": 1.1
     },
     {

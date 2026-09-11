@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1648,7 +1648,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1760,11 +1760,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 2441,
-     "ack": 29656
+     "antal": 2568,
+     "ack": 29783
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 1256,
+     "ack": 31039
     }
    ],
-   "total": 29656,
+   "total": 31039,
    "rostberattigade": {
     "riksdag": 80320,
     "kommun": 83612,
@@ -1782,37 +1789,37 @@
      "namn": "Tuna Park",
      "kommun": "Eskilstuna",
      "lokalId": "0484017",
-     "total": 9297,
-     "dagarMedRoster": 16,
-     "storstaDag": 801,
-     "andel": 31.3
+     "total": 9586,
+     "dagarMedRoster": 17,
+     "storstaDag": 803,
+     "andel": 30.9
     },
     {
      "namn": "Sveaplan",
      "kommun": "Eskilstuna",
      "lokalId": "0484019",
-     "total": 7698,
-     "dagarMedRoster": 16,
-     "storstaDag": 743,
-     "andel": 26.0
+     "total": 8114,
+     "dagarMedRoster": 17,
+     "storstaDag": 747,
+     "andel": 26.1
     },
     {
      "namn": "Gallerian",
      "kommun": "Eskilstuna",
      "lokalId": "0484020",
-     "total": 7145,
-     "dagarMedRoster": 16,
+     "total": 7557,
+     "dagarMedRoster": 17,
      "storstaDag": 695,
-     "andel": 24.1
+     "andel": 24.3
     },
     {
      "namn": "PRO Torshälla",
      "kommun": "Eskilstuna",
      "lokalId": "0484014",
-     "total": 2653,
-     "dagarMedRoster": 12,
+     "total": 2803,
+     "dagarMedRoster": 13,
      "storstaDag": 343,
-     "andel": 8.9
+     "andel": 9.0
     },
     {
      "namn": "Skogstorpsskolan",
@@ -1830,7 +1837,7 @@
      "total": 441,
      "dagarMedRoster": 4,
      "storstaDag": 130,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Engelska skolan",
@@ -1860,6 +1867,15 @@
      "andel": 0.7
     },
     {
+     "namn": "Mälarsjukhuset",
+     "kommun": "Eskilstuna",
+     "lokalId": "0484010",
+     "total": 215,
+     "dagarMedRoster": 2,
+     "storstaDag": 124,
+     "andel": 0.7
+    },
+    {
      "namn": "Åsborgen",
      "kommun": "Eskilstuna",
      "lokalId": "0484004",
@@ -1884,23 +1900,14 @@
      "total": 168,
      "dagarMedRoster": 2,
      "storstaDag": 90,
-     "andel": 0.6
-    },
-    {
-     "namn": "Mälarsjukhuset",
-     "kommun": "Eskilstuna",
-     "lokalId": "0484010",
-     "total": 124,
-     "dagarMedRoster": 1,
-     "storstaDag": 124,
-     "andel": 0.4
+     "andel": 0.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Eskilstuna",
      "lokalId": "0484018",
-     "total": 78,
-     "dagarMedRoster": 4,
+     "total": 103,
+     "dagarMedRoster": 5,
      "storstaDag": 29,
      "andel": 0.3
     },
@@ -1938,7 +1945,7 @@
      "total": 45,
      "dagarMedRoster": 1,
      "storstaDag": 45,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Odlarbäckens vård- och omsorgsboende",

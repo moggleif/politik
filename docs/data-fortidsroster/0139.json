@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,7 +766,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -880,9 +880,16 @@
      "kvar": 3,
      "antal": 805,
      "ack": 7355
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 400,
+     "ack": 7755
     }
    ],
-   "total": 7355,
+   "total": 7755,
    "rostberattigade": {
     "riksdag": 22330,
     "kommun": 25081,
@@ -900,19 +907,28 @@
      "namn": "Kommunhuset",
      "kommun": "Upplands-Bro",
      "lokalId": "0139001",
-     "total": 4203,
-     "dagarMedRoster": 16,
+     "total": 4368,
+     "dagarMedRoster": 17,
      "storstaDag": 469,
-     "andel": 57.1
+     "andel": 56.3
     },
     {
      "namn": "Brohuset",
      "kommun": "Upplands-Bro",
      "lokalId": "0139002",
-     "total": 3014,
-     "dagarMedRoster": 16,
+     "total": 3147,
+     "dagarMedRoster": 17,
      "storstaDag": 334,
-     "andel": 41.0
+     "andel": 40.6
+    },
+    {
+     "namn": "Soldathemmet",
+     "kommun": "Upplands-Bro",
+     "lokalId": "0139005",
+     "total": 102,
+     "dagarMedRoster": 1,
+     "storstaDag": 102,
+     "andel": 1.3
     },
     {
      "namn": "Norrgården äldreboende",
@@ -967,15 +983,6 @@
      "dagarMedRoster": 4,
      "storstaDag": 5,
      "andel": 0.2
-    },
-    {
-     "namn": "Soldathemmet",
-     "kommun": "Upplands-Bro",
-     "lokalId": "0139005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 9,

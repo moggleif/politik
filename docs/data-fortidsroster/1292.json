@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -874,7 +874,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -944,53 +944,60 @@
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 646,
-     "ack": 6538
+     "antal": 647,
+     "ack": 6539
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 554,
-     "ack": 7092
+     "ack": 7093
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 303,
-     "ack": 7395
+     "ack": 7396
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1343,
-     "ack": 8738
+     "antal": 1344,
+     "ack": 8740
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 1002,
-     "ack": 9740
+     "ack": 9742
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 1071,
-     "ack": 10811
+     "ack": 10813
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 1525,
-     "ack": 12336
+     "antal": 1534,
+     "ack": 12347
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 782,
+     "ack": 13129
     }
    ],
-   "total": 12336,
+   "total": 13129,
    "rostberattigade": {
     "riksdag": 35385,
     "kommun": 36119,
@@ -1008,17 +1015,17 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Ängelholm",
      "lokalId": "1292003",
-     "total": 5919,
-     "dagarMedRoster": 14,
+     "total": 6262,
+     "dagarMedRoster": 15,
      "storstaDag": 725,
-     "andel": 48.0
+     "andel": 47.7
     },
     {
      "namn": "Stadshuset",
      "kommun": "Ängelholm",
      "lokalId": "1292001",
-     "total": 2342,
-     "dagarMedRoster": 14,
+     "total": 2494,
+     "dagarMedRoster": 15,
      "storstaDag": 302,
      "andel": 19.0
     },
@@ -1026,28 +1033,28 @@
      "namn": "Avenboken samlingslokal",
      "kommun": "Ängelholm",
      "lokalId": "1292002",
-     "total": 1349,
-     "dagarMedRoster": 12,
+     "total": 1448,
+     "dagarMedRoster": 13,
      "storstaDag": 243,
-     "andel": 10.9
+     "andel": 11.0
     },
     {
      "namn": "Vejbystrands bibliotek",
      "kommun": "Ängelholm",
      "lokalId": "1292005",
-     "total": 1304,
-     "dagarMedRoster": 9,
+     "total": 1408,
+     "dagarMedRoster": 10,
      "storstaDag": 227,
-     "andel": 10.6
+     "andel": 10.7
     },
     {
      "namn": "Hjärnarps bibliotek",
      "kommun": "Ängelholm",
      "lokalId": "1292004",
-     "total": 711,
-     "dagarMedRoster": 7,
+     "total": 806,
+     "dagarMedRoster": 8,
      "storstaDag": 176,
-     "andel": 5.8
+     "andel": 6.1
     },
     {
      "namn": "Strövelstorps bibliotek",
@@ -1056,7 +1063,7 @@
      "total": 385,
      "dagarMedRoster": 5,
      "storstaDag": 118,
-     "andel": 3.1
+     "andel": 2.9
     },
     {
      "namn": "Rönnegymnasiet",
@@ -1065,7 +1072,7 @@
      "total": 83,
      "dagarMedRoster": 1,
      "storstaDag": 83,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Willan SÄBO",
@@ -1074,7 +1081,7 @@
      "total": 44,
      "dagarMedRoster": 1,
      "storstaDag": 44,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Fridhemslund SÄBO",

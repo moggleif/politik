@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -955,7 +955,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1060,18 +1060,25 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 895,
-     "ack": 7380
+     "antal": 896,
+     "ack": 7381
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 916,
-     "ack": 8296
+     "antal": 921,
+     "ack": 8302
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 447,
+     "ack": 8749
     }
    ],
-   "total": 8296,
+   "total": 8749,
    "rostberattigade": {
     "riksdag": 19683,
     "kommun": 20952,
@@ -1089,37 +1096,37 @@
      "namn": "Ludvika Folkets Hus",
      "kommun": "Ludvika",
      "lokalId": "2085004",
-     "total": 4857,
-     "dagarMedRoster": 16,
+     "total": 5113,
+     "dagarMedRoster": 17,
      "storstaDag": 541,
-     "andel": 58.5
+     "andel": 58.4
     },
     {
      "namn": "Grängesbergs bibliotek",
      "kommun": "Ludvika",
      "lokalId": "2085005",
-     "total": 1145,
-     "dagarMedRoster": 12,
+     "total": 1225,
+     "dagarMedRoster": 13,
      "storstaDag": 145,
-     "andel": 13.8
+     "andel": 14.0
     },
     {
      "namn": "Ludvika lasarett",
      "kommun": "Ludvika",
      "lokalId": "2085014",
-     "total": 762,
-     "dagarMedRoster": 12,
+     "total": 831,
+     "dagarMedRoster": 13,
      "storstaDag": 79,
-     "andel": 9.2
+     "andel": 9.5
     },
     {
      "namn": "Solgärde",
      "kommun": "Ludvika",
      "lokalId": "2085009",
-     "total": 624,
-     "dagarMedRoster": 12,
+     "total": 669,
+     "dagarMedRoster": 13,
      "storstaDag": 82,
-     "andel": 7.5
+     "andel": 7.6
     },
     {
      "namn": "Lingongården",
@@ -1128,7 +1135,7 @@
      "total": 481,
      "dagarMedRoster": 12,
      "storstaDag": 57,
-     "andel": 5.8
+     "andel": 5.5
     },
     {
      "namn": "Fredriksbergs bibliotek",
@@ -1137,7 +1144,7 @@
      "total": 289,
      "dagarMedRoster": 8,
      "storstaDag": 66,
-     "andel": 3.5
+     "andel": 3.3
     },
     {
      "namn": "Biskopsgården",
@@ -1146,7 +1153,7 @@
      "total": 54,
      "dagarMedRoster": 1,
      "storstaDag": 54,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Ängsgården",
@@ -1161,8 +1168,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Ludvika",
      "lokalId": "2085012",
-     "total": 23,
-     "dagarMedRoster": 10,
+     "total": 26,
+     "dagarMedRoster": 11,
      "storstaDag": 4,
      "andel": 0.3
     },

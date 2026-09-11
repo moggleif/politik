@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -833,11 +833,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 128,
-     "ack": 886
+     "antal": 129,
+     "ack": 887
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 87,
+     "ack": 974
     }
    ],
-   "total": 886,
+   "total": 974,
    "rostberattigade": {
     "riksdag": 2135,
     "kommun": 2313,
@@ -855,10 +862,10 @@
      "namn": "Malå kommun",
      "kommun": "Malå",
      "lokalId": "2418004",
-     "total": 874,
-     "dagarMedRoster": 16,
-     "storstaDag": 128,
-     "andel": 98.6
+     "total": 962,
+     "dagarMedRoster": 17,
+     "storstaDag": 129,
+     "andel": 98.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -867,7 +874,7 @@
      "total": 12,
      "dagarMedRoster": 3,
      "storstaDag": 9,
-     "andel": 1.4
+     "andel": 1.2
     },
     {
      "namn": "Nilaköket",

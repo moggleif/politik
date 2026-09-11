@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T11:06+02:00",
+ "senastUppdaterad": "2026-09-11T18:45+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -712,7 +712,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T11:06+02:00",
+   "hamtad": "2026-09-11T18:45+02:00",
    "klart": false,
    "dagar": [
     {
@@ -824,11 +824,18 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 448,
-     "ack": 3290
+     "antal": 459,
+     "ack": 3301
+    },
+    {
+     "datum": "2026-09-11",
+     "veckodag": "fre",
+     "kvar": 2,
+     "antal": 162,
+     "ack": 3463
     }
    ],
-   "total": 3290,
+   "total": 3463,
    "rostberattigade": {
     "riksdag": 8766,
     "kommun": 8988,
@@ -846,28 +853,28 @@
      "namn": "Allégården, lokal Galaxen",
      "kommun": "Tibro",
      "lokalId": "1472001",
-     "total": 2674,
-     "dagarMedRoster": 16,
+     "total": 2775,
+     "dagarMedRoster": 17,
      "storstaDag": 232,
-     "andel": 81.3
+     "andel": 80.1
     },
     {
      "namn": "Biblioteket",
      "kommun": "Tibro",
      "lokalId": "1472002",
-     "total": 609,
-     "dagarMedRoster": 4,
+     "total": 670,
+     "dagarMedRoster": 5,
      "storstaDag": 226,
-     "andel": 18.5
+     "andel": 19.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Tibro",
      "lokalId": "1472003",
-     "total": 7,
-     "dagarMedRoster": 1,
-     "storstaDag": 7,
-     "andel": 0.2
+     "total": 18,
+     "dagarMedRoster": 2,
+     "storstaDag": 11,
+     "andel": 0.5
     }
    ],
    "antalLokaler": 3,
