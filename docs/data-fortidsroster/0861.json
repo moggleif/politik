@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,7 +883,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -995,11 +995,11 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 154,
-     "ack": 4177
+     "antal": 681,
+     "ack": 4704
     }
    ],
-   "total": 4177,
+   "total": 4704,
    "rostberattigade": {
     "riksdag": 10103,
     "kommun": 10463,
@@ -1017,10 +1017,37 @@
      "namn": "Biblioteket",
      "kommun": "Mönsterås",
      "lokalId": "0861003",
-     "total": 2947,
+     "total": 3158,
      "dagarMedRoster": 16,
-     "storstaDag": 327,
-     "andel": 70.6
+     "storstaDag": 365,
+     "andel": 67.1
+    },
+    {
+     "namn": "Biblioteket Timmernabben",
+     "kommun": "Mönsterås",
+     "lokalId": "0861004",
+     "total": 390,
+     "dagarMedRoster": 7,
+     "storstaDag": 106,
+     "andel": 8.3
+    },
+    {
+     "namn": "Biblioteket Ålem",
+     "kommun": "Mönsterås",
+     "lokalId": "0861001",
+     "total": 390,
+     "dagarMedRoster": 7,
+     "storstaDag": 121,
+     "andel": 8.3
+    },
+    {
+     "namn": "Blomstermåla Bibliotek",
+     "kommun": "Mönsterås",
+     "lokalId": "0861005",
+     "total": 384,
+     "dagarMedRoster": 8,
+     "storstaDag": 89,
+     "andel": 8.2
     },
     {
      "namn": "Biblioteket Fliseryd",
@@ -1029,34 +1056,7 @@
      "total": 308,
      "dagarMedRoster": 5,
      "storstaDag": 89,
-     "andel": 7.4
-    },
-    {
-     "namn": "Blomstermåla Bibliotek",
-     "kommun": "Mönsterås",
-     "lokalId": "0861005",
-     "total": 295,
-     "dagarMedRoster": 7,
-     "storstaDag": 70,
-     "andel": 7.1
-    },
-    {
-     "namn": "Biblioteket Timmernabben",
-     "kommun": "Mönsterås",
-     "lokalId": "0861004",
-     "total": 284,
-     "dagarMedRoster": 6,
-     "storstaDag": 77,
-     "andel": 6.8
-    },
-    {
-     "namn": "Biblioteket Ålem",
-     "kommun": "Mönsterås",
-     "lokalId": "0861001",
-     "total": 269,
-     "dagarMedRoster": 6,
-     "storstaDag": 83,
-     "andel": 6.4
+     "andel": 6.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1065,7 +1065,7 @@
      "total": 74,
      "dagarMedRoster": 5,
      "storstaDag": 27,
-     "andel": 1.8
+     "andel": 1.6
     }
    ],
    "antalLokaler": 6,

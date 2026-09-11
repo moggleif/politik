@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1567,7 +1567,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1658,32 +1658,32 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 2100,
-     "ack": 12287
+     "antal": 2131,
+     "ack": 12318
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1361,
-     "ack": 13648
+     "antal": 1412,
+     "ack": 13730
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 2006,
-     "ack": 15654
+     "antal": 2100,
+     "ack": 15830
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 429,
-     "ack": 16083
+     "antal": 2412,
+     "ack": 18242
     }
    ],
-   "total": 16083,
+   "total": 18242,
    "rostberattigade": {
     "riksdag": 56257,
     "kommun": 57789,
@@ -1701,28 +1701,28 @@
      "namn": "Kulturhuset Strömmen",
      "kommun": "Kalmar",
      "lokalId": "0880023",
-     "total": 9093,
+     "total": 9711,
      "dagarMedRoster": 16,
-     "storstaDag": 970,
-     "andel": 56.5
+     "storstaDag": 985,
+     "andel": 53.2
     },
     {
      "namn": "Biblioteket Lindsdal",
      "kommun": "Kalmar",
      "lokalId": "0880019",
-     "total": 1261,
-     "dagarMedRoster": 7,
-     "storstaDag": 254,
-     "andel": 7.8
+     "total": 1549,
+     "dagarMedRoster": 8,
+     "storstaDag": 288,
+     "andel": 8.5
     },
     {
      "namn": "Biblioteket Bergavik",
      "kommun": "Kalmar",
      "lokalId": "0880005",
-     "total": 1130,
-     "dagarMedRoster": 7,
-     "storstaDag": 252,
-     "andel": 7.0
+     "total": 1395,
+     "dagarMedRoster": 8,
+     "storstaDag": 265,
+     "andel": 7.6
     },
     {
      "namn": "Allaktivitetshuset Rockneby",
@@ -1731,7 +1731,16 @@
      "total": 745,
      "dagarMedRoster": 5,
      "storstaDag": 197,
-     "andel": 4.6
+     "andel": 4.1
+    },
+    {
+     "namn": "Träffpunkt Skogsrået",
+     "kommun": "Kalmar",
+     "lokalId": "0880021",
+     "total": 739,
+     "dagarMedRoster": 7,
+     "storstaDag": 148,
+     "andel": 4.1
     },
     {
      "namn": "Biblioteket Ljungbyholm",
@@ -1740,16 +1749,25 @@
      "total": 668,
      "dagarMedRoster": 5,
      "storstaDag": 193,
-     "andel": 4.2
+     "andel": 3.7
     },
     {
-     "namn": "Träffpunkt Skogsrået",
+     "namn": "Biblioteket Rinkabyholm",
      "kommun": "Kalmar",
-     "lokalId": "0880021",
-     "total": 624,
-     "dagarMedRoster": 7,
-     "storstaDag": 109,
-     "andel": 3.9
+     "lokalId": "0880017",
+     "total": 663,
+     "dagarMedRoster": 5,
+     "storstaDag": 214,
+     "andel": 3.6
+    },
+    {
+     "namn": "Träffpunkt Ingelstorpsvägen 1",
+     "kommun": "Kalmar",
+     "lokalId": "0880018",
+     "total": 554,
+     "dagarMedRoster": 5,
+     "storstaDag": 147,
+     "andel": 3.0
     },
     {
      "namn": "Träffpunkt Stensberg",
@@ -1758,43 +1776,25 @@
      "total": 553,
      "dagarMedRoster": 4,
      "storstaDag": 151,
-     "andel": 3.4
-    },
-    {
-     "namn": "Biblioteket Rinkabyholm",
-     "kommun": "Kalmar",
-     "lokalId": "0880017",
-     "total": 449,
-     "dagarMedRoster": 4,
-     "storstaDag": 150,
-     "andel": 2.8
-    },
-    {
-     "namn": "Träffpunkt Ingelstorpsvägen 1",
-     "kommun": "Kalmar",
-     "lokalId": "0880018",
-     "total": 416,
-     "dagarMedRoster": 4,
-     "storstaDag": 147,
-     "andel": 2.6
-    },
-    {
-     "namn": "Biblioteket Trekanten",
-     "kommun": "Kalmar",
-     "lokalId": "0880008",
-     "total": 335,
-     "dagarMedRoster": 4,
-     "storstaDag": 105,
-     "andel": 2.1
+     "andel": 3.0
     },
     {
      "namn": "Biblioteket Hagby",
      "kommun": "Kalmar",
      "lokalId": "0880011",
-     "total": 292,
-     "dagarMedRoster": 2,
-     "storstaDag": 179,
-     "andel": 1.8
+     "total": 523,
+     "dagarMedRoster": 3,
+     "storstaDag": 231,
+     "andel": 2.9
+    },
+    {
+     "namn": "Biblioteket Trekanten",
+     "kommun": "Kalmar",
+     "lokalId": "0880008",
+     "total": 453,
+     "dagarMedRoster": 5,
+     "storstaDag": 118,
+     "andel": 2.5
     },
     {
      "namn": "Biblioteket Påryd",
@@ -1803,7 +1803,7 @@
      "total": 226,
      "dagarMedRoster": 3,
      "storstaDag": 117,
-     "andel": 1.4
+     "andel": 1.2
     },
     {
      "namn": "Träffpunkt Äringen",
@@ -1812,7 +1812,16 @@
      "total": 109,
      "dagarMedRoster": 3,
      "storstaDag": 47,
-     "andel": 0.7
+     "andel": 0.6
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Kalmar",
+     "lokalId": "0880029",
+     "total": 61,
+     "dagarMedRoster": 7,
+     "storstaDag": 13,
+     "andel": 0.3
     },
     {
      "namn": "Kriminalvårdsanstalten",
@@ -1821,16 +1830,7 @@
      "total": 59,
      "dagarMedRoster": 1,
      "storstaDag": 59,
-     "andel": 0.4
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Kalmar",
-     "lokalId": "0880029",
-     "total": 38,
-     "dagarMedRoster": 5,
-     "storstaDag": 9,
-     "andel": 0.2
+     "andel": 0.3
     },
     {
      "namn": "S:t Kristoffers väg 3",
@@ -1842,13 +1842,76 @@
      "andel": 0.2
     },
     {
+     "namn": "Villa Linné",
+     "kommun": "Kalmar",
+     "lokalId": "0880028",
+     "total": 32,
+     "dagarMedRoster": 1,
+     "storstaDag": 32,
+     "andel": 0.2
+    },
+    {
+     "namn": "Vänskapens väg",
+     "kommun": "Kalmar",
+     "lokalId": "0880015",
+     "total": 28,
+     "dagarMedRoster": 1,
+     "storstaDag": 28,
+     "andel": 0.2
+    },
+    {
+     "namn": "Varvet",
+     "kommun": "Kalmar",
+     "lokalId": "0880020",
+     "total": 27,
+     "dagarMedRoster": 1,
+     "storstaDag": 27,
+     "andel": 0.1
+    },
+    {
      "namn": "Atlasvägen 2",
      "kommun": "Kalmar",
      "lokalId": "0880026",
      "total": 25,
      "dagarMedRoster": 1,
      "storstaDag": 25,
-     "andel": 0.2
+     "andel": 0.1
+    },
+    {
+     "namn": "Vasallparken",
+     "kommun": "Kalmar",
+     "lokalId": "0880016",
+     "total": 21,
+     "dagarMedRoster": 1,
+     "storstaDag": 21,
+     "andel": 0.1
+    },
+    {
+     "namn": "Jungmansgården",
+     "kommun": "Kalmar",
+     "lokalId": "0880027",
+     "total": 15,
+     "dagarMedRoster": 1,
+     "storstaDag": 15,
+     "andel": 0.1
+    },
+    {
+     "namn": "Berga Backe",
+     "kommun": "Kalmar",
+     "lokalId": "0880003",
+     "total": 13,
+     "dagarMedRoster": 1,
+     "storstaDag": 13,
+     "andel": 0.1
+    },
+    {
+     "namn": "Björkhaga",
+     "kommun": "Kalmar",
+     "lokalId": "0880014",
+     "total": 13,
+     "dagarMedRoster": 1,
+     "storstaDag": 13,
+     "andel": 0.1
     },
     {
      "namn": "Möregården",
@@ -1869,33 +1932,6 @@
      "andel": 0.1
     },
     {
-     "namn": "Berga Backe",
-     "kommun": "Kalmar",
-     "lokalId": "0880003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Björkhaga",
-     "kommun": "Kalmar",
-     "lokalId": "0880014",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Jungmansgården",
-     "kommun": "Kalmar",
-     "lokalId": "0880027",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Länssjukhuset Kalmar",
      "kommun": "Kalmar",
      "lokalId": "0880001",
@@ -1908,42 +1944,6 @@
      "namn": "Stadshuset",
      "kommun": "Kalmar",
      "lokalId": "0880004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Varvet",
-     "kommun": "Kalmar",
-     "lokalId": "0880020",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vasallparken",
-     "kommun": "Kalmar",
-     "lokalId": "0880016",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Villa Linné",
-     "kommun": "Kalmar",
-     "lokalId": "0880028",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vänskapens väg",
-     "kommun": "Kalmar",
-     "lokalId": "0880015",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

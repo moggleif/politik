@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -2188,7 +2188,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -2300,11 +2300,11 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 1643,
-     "ack": 43463
+     "antal": 4320,
+     "ack": 46140
     }
    ],
-   "total": 43463,
+   "total": 46140,
    "rostberattigade": {
     "riksdag": 115538,
     "kommun": 119936,
@@ -2322,34 +2322,34 @@
      "namn": "Väla Centrum",
      "kommun": "Helsingborg",
      "lokalId": "1283005",
-     "total": 8337,
+     "total": 8780,
      "dagarMedRoster": 16,
-     "storstaDag": 675,
-     "andel": 19.2
+     "storstaDag": 685,
+     "andel": 19.0
     },
     {
      "namn": "Helsingborg C",
      "kommun": "Helsingborg",
      "lokalId": "1283014",
-     "total": 8098,
+     "total": 8467,
      "dagarMedRoster": 16,
-     "storstaDag": 713,
-     "andel": 18.6
+     "storstaDag": 758,
+     "andel": 18.4
     },
     {
      "namn": "Råå Center",
      "kommun": "Helsingborg",
      "lokalId": "1283009",
-     "total": 7271,
+     "total": 7666,
      "dagarMedRoster": 16,
-     "storstaDag": 622,
-     "andel": 16.7
+     "storstaDag": 641,
+     "andel": 16.6
     },
     {
      "namn": "IKEA Helsingborg",
      "kommun": "Helsingborg",
      "lokalId": "1283012",
-     "total": 4595,
+     "total": 4893,
      "dagarMedRoster": 16,
      "storstaDag": 473,
      "andel": 10.6
@@ -2358,19 +2358,19 @@
      "namn": "Södergallerian",
      "kommun": "Helsingborg",
      "lokalId": "1283047",
-     "total": 3733,
+     "total": 3963,
      "dagarMedRoster": 16,
-     "storstaDag": 309,
+     "storstaDag": 385,
      "andel": 8.6
     },
     {
      "namn": "Ringstorps centrum",
      "kommun": "Helsingborg",
      "lokalId": "1283006",
-     "total": 2984,
+     "total": 3309,
      "dagarMedRoster": 16,
-     "storstaDag": 322,
-     "andel": 6.9
+     "storstaDag": 370,
+     "andel": 7.2
     },
     {
      "namn": "Helsingborgs lasarett",
@@ -2379,13 +2379,13 @@
      "total": 2014,
      "dagarMedRoster": 12,
      "storstaDag": 204,
-     "andel": 4.6
+     "andel": 4.4
     },
     {
      "namn": "Idé A Drottninghög",
      "kommun": "Helsingborg",
      "lokalId": "1283045",
-     "total": 1252,
+     "total": 1361,
      "dagarMedRoster": 14,
      "storstaDag": 141,
      "andel": 2.9
@@ -2397,7 +2397,16 @@
      "total": 890,
      "dagarMedRoster": 7,
      "storstaDag": 204,
-     "andel": 2.0
+     "andel": 1.9
+    },
+    {
+     "namn": "Elinebergs bibliotek",
+     "kommun": "Helsingborg",
+     "lokalId": "1283007",
+     "total": 726,
+     "dagarMedRoster": 7,
+     "storstaDag": 152,
+     "andel": 1.6
     },
     {
      "namn": "Rosengårdens bibliotek",
@@ -2406,34 +2415,25 @@
      "total": 634,
      "dagarMedRoster": 7,
      "storstaDag": 121,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
-     "namn": "Elinebergs bibliotek",
+     "namn": "Laröd",
      "kommun": "Helsingborg",
-     "lokalId": "1283007",
-     "total": 614,
+     "lokalId": "1283015",
+     "total": 630,
      "dagarMedRoster": 7,
-     "storstaDag": 152,
+     "storstaDag": 157,
      "andel": 1.4
     },
     {
      "namn": "Mariastadens bibliotek",
      "kommun": "Helsingborg",
      "lokalId": "1283037",
-     "total": 536,
+     "total": 626,
      "dagarMedRoster": 7,
-     "storstaDag": 101,
-     "andel": 1.2
-    },
-    {
-     "namn": "Laröd",
-     "kommun": "Helsingborg",
-     "lokalId": "1283015",
-     "total": 473,
-     "dagarMedRoster": 6,
-     "storstaDag": 110,
-     "andel": 1.1
+     "storstaDag": 166,
+     "andel": 1.4
     },
     {
      "namn": "Adolfsberg, valbuss",
@@ -2445,21 +2445,30 @@
      "andel": 0.6
     },
     {
+     "namn": "Mörarp, valbuss",
+     "kommun": "Helsingborg",
+     "lokalId": "1283038",
+     "total": 261,
+     "dagarMedRoster": 3,
+     "storstaDag": 111,
+     "andel": 0.6
+    },
+    {
+     "namn": "Kriminalvården, häktet",
+     "kommun": "Helsingborg",
+     "lokalId": "1283020",
+     "total": 223,
+     "dagarMedRoster": 3,
+     "storstaDag": 127,
+     "andel": 0.5
+    },
+    {
      "namn": "Påarp, valbuss",
      "kommun": "Helsingborg",
      "lokalId": "1283039",
      "total": 216,
      "dagarMedRoster": 3,
      "storstaDag": 79,
-     "andel": 0.5
-    },
-    {
-     "namn": "Kriminalvården, häktet",
-     "kommun": "Helsingborg",
-     "lokalId": "1283020",
-     "total": 210,
-     "dagarMedRoster": 3,
-     "storstaDag": 127,
      "andel": 0.5
     },
     {
@@ -2472,30 +2481,21 @@
      "andel": 0.3
     },
     {
-     "namn": "Mörarp, valbuss",
+     "namn": "Kattarp, valbuss",
      "kommun": "Helsingborg",
-     "lokalId": "1283038",
-     "total": 150,
-     "dagarMedRoster": 2,
-     "storstaDag": 92,
+     "lokalId": "1283036",
+     "total": 143,
+     "dagarMedRoster": 3,
+     "storstaDag": 69,
      "andel": 0.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Helsingborg",
      "lokalId": "1283049",
-     "total": 133,
+     "total": 136,
      "dagarMedRoster": 14,
      "storstaDag": 48,
-     "andel": 0.3
-    },
-    {
-     "namn": "Kattarp, valbuss",
-     "kommun": "Helsingborg",
-     "lokalId": "1283036",
-     "total": 121,
-     "dagarMedRoster": 3,
-     "storstaDag": 69,
      "andel": 0.3
     },
     {
@@ -2658,7 +2658,7 @@
      "total": 22,
      "dagarMedRoster": 1,
      "storstaDag": 22,
-     "andel": 0.1
+     "andel": 0.0
     },
     {
      "namn": "Dunkerska huset",

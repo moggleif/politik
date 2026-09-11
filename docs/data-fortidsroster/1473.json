@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,123 +811,123 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
      "datum": "2026-08-26",
      "veckodag": "ons",
      "kvar": 18,
-     "antal": 0,
-     "ack": 0
+     "antal": 85,
+     "ack": 85
     },
     {
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 0,
-     "ack": 0
+     "antal": 161,
+     "ack": 246
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
-     "antal": 0,
-     "ack": 0
+     "antal": 162,
+     "ack": 408
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
-     "antal": 0,
-     "ack": 0
+     "antal": 97,
+     "ack": 505
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
-     "antal": 0,
-     "ack": 0
+     "antal": 103,
+     "ack": 608
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 20,
-     "ack": 20
+     "antal": 119,
+     "ack": 727
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
-     "antal": 94,
-     "ack": 114
+     "antal": 234,
+     "ack": 961
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 0,
-     "ack": 114
+     "antal": 126,
+     "ack": 1087
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 49,
-     "ack": 163
+     "antal": 313,
+     "ack": 1400
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
-     "antal": 0,
-     "ack": 163
+     "antal": 179,
+     "ack": 1579
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
-     "antal": 0,
-     "ack": 163
+     "antal": 118,
+     "ack": 1697
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 0,
-     "ack": 163
+     "antal": 117,
+     "ack": 1814
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 0,
-     "ack": 163
+     "antal": 130,
+     "ack": 1944
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 0,
-     "ack": 163
+     "antal": 166,
+     "ack": 2110
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 5,
-     "ack": 168
+     "antal": 159,
+     "ack": 2269
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 4,
-     "ack": 172
+     "antal": 379,
+     "ack": 2648
     }
    ],
-   "total": 172,
+   "total": 2648,
    "rostberattigade": {
     "riksdag": 7069,
     "kommun": 7384,
@@ -942,13 +942,22 @@
    },
    "lokaler": [
     {
+     "namn": "Gjutaren",
+     "kommun": "Töreboda",
+     "lokalId": "1473001",
+     "total": 2476,
+     "dagarMedRoster": 16,
+     "storstaDag": 375,
+     "andel": 93.5
+    },
+    {
      "namn": "Moholms skolas gymnastiksal",
      "kommun": "Töreboda",
      "lokalId": "1473003",
      "total": 94,
      "dagarMedRoster": 1,
      "storstaDag": 94,
-     "andel": 54.7
+     "andel": 3.5
     },
     {
      "namn": "Älgarås skolas gymnastiksal",
@@ -957,7 +966,7 @@
      "total": 42,
      "dagarMedRoster": 1,
      "storstaDag": 42,
-     "andel": 24.4
+     "andel": 1.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -966,10 +975,10 @@
      "total": 36,
      "dagarMedRoster": 4,
      "storstaDag": 20,
-     "andel": 20.9
+     "andel": 1.4
     }
    ],
-   "antalLokaler": 3,
+   "antalLokaler": 4,
    "lokalerKapad": false
   }
  },

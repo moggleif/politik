@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -838,7 +838,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -950,11 +950,11 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 381,
-     "ack": 9141
+     "antal": 1252,
+     "ack": 10012
     }
    ],
-   "total": 9141,
+   "total": 10012,
    "rostberattigade": {
     "riksdag": 32324,
     "kommun": 32757,
@@ -972,10 +972,19 @@
      "namn": "Lerum - Solkatten",
      "kommun": "Lerum",
      "lokalId": "1441005",
-     "total": 5325,
+     "total": 5704,
      "dagarMedRoster": 16,
-     "storstaDag": 536,
-     "andel": 58.3
+     "storstaDag": 598,
+     "andel": 57.0
+    },
+    {
+     "namn": "Floda bibliotek",
+     "kommun": "Lerum",
+     "lokalId": "1441001",
+     "total": 1949,
+     "dagarMedRoster": 9,
+     "storstaDag": 475,
+     "andel": 19.5
     },
     {
      "namn": "Grå huset Lundbyvägen 16",
@@ -984,16 +993,16 @@
      "total": 1858,
      "dagarMedRoster": 10,
      "storstaDag": 410,
-     "andel": 20.3
+     "andel": 18.6
     },
     {
-     "namn": "Floda bibliotek",
+     "namn": "Sjöviks bibliotek",
      "kommun": "Lerum",
-     "lokalId": "1441001",
-     "total": 1634,
-     "dagarMedRoster": 9,
-     "storstaDag": 366,
-     "andel": 17.9
+     "lokalId": "1441003",
+     "total": 177,
+     "dagarMedRoster": 1,
+     "storstaDag": 177,
+     "andel": 1.8
     },
     {
      "namn": "Tollereds bibliotek",
@@ -1002,7 +1011,7 @@
      "total": 169,
      "dagarMedRoster": 2,
      "storstaDag": 100,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1011,16 +1020,7 @@
      "total": 155,
      "dagarMedRoster": 12,
      "storstaDag": 33,
-     "andel": 1.7
-    },
-    {
-     "namn": "Sjöviks bibliotek",
-     "kommun": "Lerum",
-     "lokalId": "1441003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.5
     }
    ],
    "antalLokaler": 6,

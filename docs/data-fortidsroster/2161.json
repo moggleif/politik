@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -838,7 +838,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -950,11 +950,11 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 355,
-     "ack": 5962
+     "antal": 764,
+     "ack": 6371
     }
    ],
-   "total": 5962,
+   "total": 6371,
    "rostberattigade": {
     "riksdag": 14728,
     "kommun": 15018,
@@ -972,10 +972,19 @@
      "namn": "Ljusdals kommunhus",
      "kommun": "Ljusdal",
      "lokalId": "2161001",
-     "total": 3799,
+     "total": 4087,
      "dagarMedRoster": 16,
-     "storstaDag": 403,
-     "andel": 63.7
+     "storstaDag": 500,
+     "andel": 64.2
+    },
+    {
+     "namn": "Färila Bibliotek",
+     "kommun": "Ljusdal",
+     "lokalId": "2161002",
+     "total": 880,
+     "dagarMedRoster": 10,
+     "storstaDag": 211,
+     "andel": 13.8
     },
     {
      "namn": "Träteatern Stenegård",
@@ -984,34 +993,25 @@
      "total": 834,
      "dagarMedRoster": 10,
      "storstaDag": 176,
-     "andel": 14.0
-    },
-    {
-     "namn": "Färila Bibliotek",
-     "kommun": "Ljusdal",
-     "lokalId": "2161002",
-     "total": 827,
-     "dagarMedRoster": 10,
-     "storstaDag": 211,
-     "andel": 13.9
+     "andel": 13.1
     },
     {
      "namn": "Los Bibliotek",
      "kommun": "Ljusdal",
      "lokalId": "2161003",
-     "total": 177,
-     "dagarMedRoster": 4,
+     "total": 243,
+     "dagarMedRoster": 5,
      "storstaDag": 78,
-     "andel": 3.0
+     "andel": 3.8
     },
     {
      "namn": "Ramsjö Bibliotek",
      "kommun": "Ljusdal",
      "lokalId": "2161004",
-     "total": 148,
+     "total": 149,
      "dagarMedRoster": 5,
      "storstaDag": 36,
-     "andel": 2.5
+     "andel": 2.3
     },
     {
      "namn": "Valbuss",
@@ -1020,16 +1020,16 @@
      "total": 100,
      "dagarMedRoster": 2,
      "storstaDag": 52,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Ljusdal",
      "lokalId": "2161007",
-     "total": 77,
-     "dagarMedRoster": 5,
+     "total": 78,
+     "dagarMedRoster": 6,
      "storstaDag": 44,
-     "andel": 1.3
+     "andel": 1.2
     }
    ],
    "antalLokaler": 7,

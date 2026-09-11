@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1820,32 +1820,32 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 7100,
-     "ack": 62696
+     "antal": 7132,
+     "ack": 62728
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 7909,
-     "ack": 70605
+     "antal": 7967,
+     "ack": 70695
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 8267,
-     "ack": 78872
+     "antal": 8292,
+     "ack": 78987
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 3067,
-     "ack": 81939
+     "antal": 8333,
+     "ack": 87320
     }
    ],
-   "total": 81939,
+   "total": 87320,
    "rostberattigade": {
     "riksdag": 229568,
     "kommun": 237379,
@@ -1863,25 +1863,25 @@
      "namn": "Tuna Park",
      "kommun": "Eskilstuna",
      "lokalId": "0484017",
-     "total": 8777,
+     "total": 9297,
      "dagarMedRoster": 16,
-     "storstaDag": 743,
-     "andel": 10.7
+     "storstaDag": 801,
+     "andel": 10.6
     },
     {
      "namn": "Sveaplan",
      "kommun": "Eskilstuna",
      "lokalId": "0484019",
-     "total": 7220,
+     "total": 7698,
      "dagarMedRoster": 16,
-     "storstaDag": 705,
+     "storstaDag": 743,
      "andel": 8.8
     },
     {
      "namn": "Bibliotek/kulturhuset Ängeln",
      "kommun": "Katrineholm",
      "lokalId": "0483004",
-     "total": 7085,
+     "total": 7480,
      "dagarMedRoster": 16,
      "storstaDag": 712,
      "andel": 8.6
@@ -1890,55 +1890,64 @@
      "namn": "Stadshuset Nyköping",
      "kommun": "Nyköping",
      "lokalId": "0480003",
-     "total": 7037,
+     "total": 7399,
      "dagarMedRoster": 16,
      "storstaDag": 703,
-     "andel": 8.6
+     "andel": 8.5
     },
     {
      "namn": "Gallerian",
      "kommun": "Eskilstuna",
      "lokalId": "0484020",
-     "total": 6789,
+     "total": 7145,
      "dagarMedRoster": 16,
      "storstaDag": 695,
-     "andel": 8.3
+     "andel": 8.2
     },
     {
      "namn": "Kulturhuset Multeum",
      "kommun": "Strängnäs",
      "lokalId": "0486008",
-     "total": 5709,
+     "total": 6143,
      "dagarMedRoster": 13,
-     "storstaDag": 594,
+     "storstaDag": 614,
      "andel": 7.0
     },
     {
      "namn": "Träffen Nyköping",
      "kommun": "Nyköping",
      "lokalId": "0480008",
-     "total": 5102,
+     "total": 5424,
      "dagarMedRoster": 16,
-     "storstaDag": 522,
+     "storstaDag": 567,
      "andel": 6.2
     },
     {
      "namn": "D-skolans matsal",
      "kommun": "Oxelösund",
      "lokalId": "0481003",
-     "total": 3655,
+     "total": 3863,
      "dagarMedRoster": 16,
      "storstaDag": 361,
-     "andel": 4.5
+     "andel": 4.4
     },
     {
      "namn": "Skärborgarnas hus",
      "kommun": "Trosa",
      "lokalId": "0488004",
-     "total": 3371,
+     "total": 3673,
      "dagarMedRoster": 15,
-     "storstaDag": 391,
-     "andel": 4.1
+     "storstaDag": 436,
+     "andel": 4.2
+    },
+    {
+     "namn": "Servicecenter",
+     "kommun": "Gnesta",
+     "lokalId": "0461001",
+     "total": 3312,
+     "dagarMedRoster": 16,
+     "storstaDag": 394,
+     "andel": 3.8
     },
     {
      "namn": "Järnvägshotellet, Flen",
@@ -1947,31 +1956,22 @@
      "total": 3205,
      "dagarMedRoster": 16,
      "storstaDag": 304,
-     "andel": 3.9
-    },
-    {
-     "namn": "Servicecenter",
-     "kommun": "Gnesta",
-     "lokalId": "0461001",
-     "total": 3039,
-     "dagarMedRoster": 16,
-     "storstaDag": 295,
      "andel": 3.7
     },
     {
      "namn": "Vingåkers Bibliotek",
      "kommun": "Vingåker",
      "lokalId": "0428003",
-     "total": 2628,
+     "total": 2802,
      "dagarMedRoster": 16,
-     "storstaDag": 281,
+     "storstaDag": 309,
      "andel": 3.2
     },
     {
      "namn": "PRO Torshälla",
      "kommun": "Eskilstuna",
      "lokalId": "0484014",
-     "total": 2441,
+     "total": 2653,
      "dagarMedRoster": 12,
      "storstaDag": 343,
      "andel": 3.0
@@ -1980,7 +1980,7 @@
      "namn": "Medborgarkontoret Mariefred",
      "kommun": "Strängnäs",
      "lokalId": "0486011",
-     "total": 2008,
+     "total": 2163,
      "dagarMedRoster": 14,
      "storstaDag": 238,
      "andel": 2.5
@@ -1992,31 +1992,31 @@
      "total": 1476,
      "dagarMedRoster": 10,
      "storstaDag": 291,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Medborgarkontoret Stallarholmen",
      "kommun": "Strängnäs",
      "lokalId": "0486010",
-     "total": 1197,
+     "total": 1310,
      "dagarMedRoster": 14,
-     "storstaDag": 144,
+     "storstaDag": 158,
      "andel": 1.5
     },
     {
      "namn": "S:ta Katarina kyrka Arnö",
      "kommun": "Nyköping",
      "lokalId": "0480006",
-     "total": 1089,
+     "total": 1232,
      "dagarMedRoster": 9,
-     "storstaDag": 169,
-     "andel": 1.3
+     "storstaDag": 216,
+     "andel": 1.4
     },
     {
      "namn": "Medborgarkontoret Åker",
      "kommun": "Strängnäs",
      "lokalId": "0486012",
-     "total": 798,
+     "total": 879,
      "dagarMedRoster": 14,
      "storstaDag": 103,
      "andel": 1.0
@@ -2025,7 +2025,7 @@
      "namn": "IOGT-NTO-lokalen",
      "kommun": "Nyköping",
      "lokalId": "0480007",
-     "total": 643,
+     "total": 704,
      "dagarMedRoster": 9,
      "storstaDag": 111,
      "andel": 0.8
@@ -2034,10 +2034,19 @@
      "namn": "S:t Botvidsgården Tystberga",
      "kommun": "Nyköping",
      "lokalId": "0480001",
-     "total": 643,
+     "total": 698,
      "dagarMedRoster": 9,
      "storstaDag": 104,
      "andel": 0.8
+    },
+    {
+     "namn": "Betelkyrkan Jönåker",
+     "kommun": "Nyköping",
+     "lokalId": "0480005",
+     "total": 635,
+     "dagarMedRoster": 9,
+     "storstaDag": 98,
+     "andel": 0.7
     },
     {
      "namn": "Paulinska salen",
@@ -2049,19 +2058,10 @@
      "andel": 0.7
     },
     {
-     "namn": "Betelkyrkan Jönåker",
-     "kommun": "Nyköping",
-     "lokalId": "0480005",
-     "total": 585,
-     "dagarMedRoster": 9,
-     "storstaDag": 98,
-     "andel": 0.7
-    },
-    {
      "namn": "Brukslokalen Nävekvarn",
      "kommun": "Nyköping",
      "lokalId": "0480004",
-     "total": 530,
+     "total": 567,
      "dagarMedRoster": 9,
      "storstaDag": 77,
      "andel": 0.6
@@ -2070,9 +2070,9 @@
      "namn": "Bokbuss",
      "kommun": "Flen",
      "lokalId": "0482002",
-     "total": 497,
+     "total": 555,
      "dagarMedRoster": 7,
-     "storstaDag": 88,
+     "storstaDag": 99,
      "andel": 0.6
     },
     {
@@ -2082,7 +2082,7 @@
      "total": 458,
      "dagarMedRoster": 4,
      "storstaDag": 160,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Gökstensskolans aula",
@@ -2097,36 +2097,36 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Katrineholm",
      "lokalId": "0483011",
-     "total": 383,
+     "total": 439,
      "dagarMedRoster": 12,
      "storstaDag": 62,
      "andel": 0.5
     },
     {
+     "namn": "Valla skola",
+     "kommun": "Katrineholm",
+     "lokalId": "0483009",
+     "total": 390,
+     "dagarMedRoster": 4,
+     "storstaDag": 110,
+     "andel": 0.4
+    },
+    {
      "namn": "Vrena församlingshem",
      "kommun": "Nyköping",
      "lokalId": "0480002",
-     "total": 329,
+     "total": 385,
      "dagarMedRoster": 9,
-     "storstaDag": 53,
+     "storstaDag": 68,
      "andel": 0.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nyköping",
      "lokalId": "0480011",
-     "total": 314,
-     "dagarMedRoster": 10,
+     "total": 336,
+     "dagarMedRoster": 11,
      "storstaDag": 71,
-     "andel": 0.4
-    },
-    {
-     "namn": "Nyköpings lasarett",
-     "kommun": "Nyköping",
-     "lokalId": "0480012",
-     "total": 292,
-     "dagarMedRoster": 3,
-     "storstaDag": 110,
      "andel": 0.4
     }
    ],

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1009,7 +1009,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1121,11 +1121,11 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 299,
-     "ack": 7140
+     "antal": 925,
+     "ack": 7766
     }
    ],
-   "total": 7140,
+   "total": 7766,
    "rostberattigade": {
     "riksdag": 22176,
     "kommun": 22747,
@@ -1143,19 +1143,28 @@
      "namn": "Stadshuset",
      "kommun": "Ronneby",
      "lokalId": "1081003",
-     "total": 3452,
+     "total": 3718,
      "dagarMedRoster": 16,
-     "storstaDag": 361,
-     "andel": 48.3
+     "storstaDag": 444,
+     "andel": 47.9
     },
     {
      "namn": "Stadsbiblioteket Ronneby",
      "kommun": "Ronneby",
      "lokalId": "1081001",
-     "total": 1650,
+     "total": 1781,
      "dagarMedRoster": 12,
      "storstaDag": 214,
-     "andel": 23.1
+     "andel": 22.9
+    },
+    {
+     "namn": "PRO-lokalen Bräkne-Hoby",
+     "kommun": "Ronneby",
+     "lokalId": "1081006",
+     "total": 639,
+     "dagarMedRoster": 8,
+     "storstaDag": 124,
+     "andel": 8.2
     },
     {
      "namn": "Kallinge bibliotek",
@@ -1164,43 +1173,34 @@
      "total": 637,
      "dagarMedRoster": 5,
      "storstaDag": 168,
-     "andel": 8.9
-    },
-    {
-     "namn": "PRO-lokalen Bräkne-Hoby",
-     "kommun": "Ronneby",
-     "lokalId": "1081006",
-     "total": 564,
-     "dagarMedRoster": 8,
-     "storstaDag": 124,
-     "andel": 7.9
+     "andel": 8.2
     },
     {
      "namn": "Listerby bibliotek",
      "kommun": "Ronneby",
      "lokalId": "1081007",
-     "total": 423,
+     "total": 501,
      "dagarMedRoster": 5,
      "storstaDag": 143,
-     "andel": 5.9
+     "andel": 6.5
     },
     {
      "namn": "Hallabro bibliotek",
      "kommun": "Ronneby",
      "lokalId": "1081005",
-     "total": 241,
+     "total": 289,
      "dagarMedRoster": 5,
      "storstaDag": 77,
-     "andel": 3.4
+     "andel": 3.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Ronneby",
      "lokalId": "1081009",
-     "total": 173,
-     "dagarMedRoster": 11,
-     "storstaDag": 27,
-     "andel": 2.4
+     "total": 201,
+     "dagarMedRoster": 12,
+     "storstaDag": 28,
+     "andel": 2.6
     },
     {
      "namn": "Bräknegården - endast valdagen",

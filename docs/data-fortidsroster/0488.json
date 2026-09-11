@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -977,11 +977,11 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 134,
-     "ack": 4966
+     "antal": 440,
+     "ack": 5272
     }
    ],
-   "total": 4966,
+   "total": 5272,
    "rostberattigade": {
     "riksdag": 11404,
     "kommun": 11804,
@@ -999,10 +999,10 @@
      "namn": "Skärborgarnas hus",
      "kommun": "Trosa",
      "lokalId": "0488004",
-     "total": 3371,
+     "total": 3673,
      "dagarMedRoster": 15,
-     "storstaDag": 391,
-     "andel": 67.9
+     "storstaDag": 436,
+     "andel": 69.7
     },
     {
      "namn": "Ungdomens hus",
@@ -1011,7 +1011,7 @@
      "total": 1476,
      "dagarMedRoster": 10,
      "storstaDag": 291,
-     "andel": 29.7
+     "andel": 28.0
     },
     {
      "namn": "Sockenstugan, Västerljung",
@@ -1020,7 +1020,7 @@
      "total": 74,
      "dagarMedRoster": 2,
      "storstaDag": 49,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Trosagården",
@@ -1032,6 +1032,15 @@
      "andel": 0.3
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Trosa",
+     "lokalId": "0488008",
+     "total": 16,
+     "dagarMedRoster": 3,
+     "storstaDag": 6,
+     "andel": 0.3
+    },
+    {
      "namn": "Häradsgården",
      "kommun": "Trosa",
      "lokalId": "0488003",
@@ -1039,15 +1048,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 16,
      "andel": 0.3
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Trosa",
-     "lokalId": "0488008",
-     "total": 12,
-     "dagarMedRoster": 2,
-     "storstaDag": 6,
-     "andel": 0.2
     }
    ],
    "antalLokaler": 6,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -946,7 +946,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1037,32 +1037,32 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 818,
-     "ack": 6268
+     "antal": 819,
+     "ack": 6269
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 776,
-     "ack": 7044
+     "ack": 7045
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 864,
-     "ack": 7908
+     "ack": 7909
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 374,
-     "ack": 8282
+     "antal": 1053,
+     "ack": 8962
     }
    ],
-   "total": 8282,
+   "total": 8962,
    "rostberattigade": {
     "riksdag": 21758,
     "kommun": 22777,
@@ -1080,10 +1080,10 @@
      "namn": "Stadshuset",
      "kommun": "Boden",
      "lokalId": "2582001",
-     "total": 7546,
+     "total": 8102,
      "dagarMedRoster": 16,
-     "storstaDag": 864,
-     "andel": 91.1
+     "storstaDag": 930,
+     "andel": 90.4
     },
     {
      "namn": "Servicepunkten Unbyn",
@@ -1092,16 +1092,25 @@
      "total": 212,
      "dagarMedRoster": 1,
      "storstaDag": 212,
-     "andel": 2.6
+     "andel": 2.4
     },
     {
      "namn": "Byagården Bredåker",
      "kommun": "Boden",
      "lokalId": "2582006",
-     "total": 151,
+     "total": 152,
      "dagarMedRoster": 1,
-     "storstaDag": 151,
-     "andel": 1.8
+     "storstaDag": 152,
+     "andel": 1.7
+    },
+    {
+     "namn": "Brönjaskolan Sävast",
+     "kommun": "Boden",
+     "lokalId": "2582011",
+     "total": 123,
+     "dagarMedRoster": 1,
+     "storstaDag": 123,
+     "andel": 1.4
     },
     {
      "namn": "Servicepunkten Harads",
@@ -1110,7 +1119,7 @@
      "total": 120,
      "dagarMedRoster": 1,
      "storstaDag": 120,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Servicepunkten Gunnarsbyn",
@@ -1119,7 +1128,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Olympia Heden",
@@ -1165,15 +1174,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 7,
      "andel": 0.1
-    },
-    {
-     "namn": "Brönjaskolan Sävast",
-     "kommun": "Boden",
-     "lokalId": "2582011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 11,

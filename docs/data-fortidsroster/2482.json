@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -2467,7 +2467,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -2579,11 +2579,11 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 1401,
-     "ack": 21247
+     "antal": 3139,
+     "ack": 22985
     }
    ],
-   "total": 21247,
+   "total": 22985,
    "rostberattigade": {
     "riksdag": 57274,
     "kommun": 59715,
@@ -2601,28 +2601,37 @@
      "namn": "Sara Kulturhus",
      "kommun": "Skellefteå",
      "lokalId": "2482037",
-     "total": 10850,
+     "total": 11807,
      "dagarMedRoster": 16,
-     "storstaDag": 1141,
-     "andel": 51.1
+     "storstaDag": 1616,
+     "andel": 51.4
     },
     {
      "namn": "Campus, bibliotek",
      "kommun": "Skellefteå",
      "lokalId": "2482005",
-     "total": 1137,
+     "total": 1145,
      "dagarMedRoster": 12,
      "storstaDag": 267,
-     "andel": 5.4
+     "andel": 5.0
+    },
+    {
+     "namn": "Morö backe, Fritidsgården Loftet",
+     "kommun": "Skellefteå",
+     "lokalId": "2482038",
+     "total": 1000,
+     "dagarMedRoster": 7,
+     "storstaDag": 261,
+     "andel": 4.4
     },
     {
      "namn": "Skellefteå sjukhus",
      "kommun": "Skellefteå",
      "lokalId": "2482031",
-     "total": 965,
+     "total": 973,
      "dagarMedRoster": 12,
      "storstaDag": 189,
-     "andel": 4.5
+     "andel": 4.2
     },
     {
      "namn": "Kåge bibliotek",
@@ -2631,25 +2640,43 @@
      "total": 908,
      "dagarMedRoster": 7,
      "storstaDag": 304,
-     "andel": 4.3
+     "andel": 4.0
+    },
+    {
+     "namn": "Ursvikens bibliotek",
+     "kommun": "Skellefteå",
+     "lokalId": "2482039",
+     "total": 870,
+     "dagarMedRoster": 9,
+     "storstaDag": 254,
+     "andel": 3.8
+    },
+    {
+     "namn": "Edelvik folkhögskola",
+     "kommun": "Skellefteå",
+     "lokalId": "2482032",
+     "total": 838,
+     "dagarMedRoster": 7,
+     "storstaDag": 242,
+     "andel": 3.6
     },
     {
      "namn": "Bureå bibliotek",
      "kommun": "Skellefteå",
      "lokalId": "2482002",
-     "total": 827,
+     "total": 831,
      "dagarMedRoster": 7,
      "storstaDag": 270,
-     "andel": 3.9
+     "andel": 3.6
     },
     {
-     "namn": "Morö backe, Fritidsgården Loftet",
+     "namn": "Skelleftehamn, Folkets Hus, Rotan",
      "kommun": "Skellefteå",
-     "lokalId": "2482038",
-     "total": 824,
-     "dagarMedRoster": 7,
-     "storstaDag": 201,
-     "andel": 3.9
+     "lokalId": "2482040",
+     "total": 770,
+     "dagarMedRoster": 9,
+     "storstaDag": 241,
+     "andel": 3.4
     },
     {
      "namn": "Byske bibliotek",
@@ -2658,42 +2685,15 @@
      "total": 767,
      "dagarMedRoster": 7,
      "storstaDag": 282,
-     "andel": 3.6
-    },
-    {
-     "namn": "Ursvikens bibliotek",
-     "kommun": "Skellefteå",
-     "lokalId": "2482039",
-     "total": 695,
-     "dagarMedRoster": 9,
-     "storstaDag": 141,
      "andel": 3.3
-    },
-    {
-     "namn": "Edelvik folkhögskola",
-     "kommun": "Skellefteå",
-     "lokalId": "2482032",
-     "total": 683,
-     "dagarMedRoster": 7,
-     "storstaDag": 156,
-     "andel": 3.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Skellefteå",
      "lokalId": "2482042",
-     "total": 646,
+     "total": 674,
      "dagarMedRoster": 11,
      "storstaDag": 124,
-     "andel": 3.0
-    },
-    {
-     "namn": "Skelleftehamn, Folkets Hus, Rotan",
-     "kommun": "Skellefteå",
-     "lokalId": "2482040",
-     "total": 619,
-     "dagarMedRoster": 9,
-     "storstaDag": 119,
      "andel": 2.9
     },
     {
@@ -2703,7 +2703,7 @@
      "total": 520,
      "dagarMedRoster": 3,
      "storstaDag": 175,
-     "andel": 2.4
+     "andel": 2.3
     },
     {
      "namn": "Boliden, bibliotek",
@@ -2712,16 +2712,16 @@
      "total": 506,
      "dagarMedRoster": 7,
      "storstaDag": 171,
-     "andel": 2.4
+     "andel": 2.2
     },
     {
      "namn": "Lövångers bibliotek",
      "kommun": "Skellefteå",
      "lokalId": "2482025",
-     "total": 335,
+     "total": 342,
      "dagarMedRoster": 8,
-     "storstaDag": 73,
-     "andel": 1.6
+     "storstaDag": 76,
+     "andel": 1.5
     },
     {
      "namn": "Jörn, JESS-lokalen",
@@ -2730,7 +2730,7 @@
      "total": 240,
      "dagarMedRoster": 6,
      "storstaDag": 96,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Ålund, Bygdegården",
@@ -2739,7 +2739,7 @@
      "total": 96,
      "dagarMedRoster": 1,
      "storstaDag": 96,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Boviken, Hembygdsgården",
@@ -2757,6 +2757,15 @@
      "total": 70,
      "dagarMedRoster": 1,
      "storstaDag": 70,
+     "andel": 0.3
+    },
+    {
+     "namn": "Vallen, Kapellet",
+     "kommun": "Skellefteå",
+     "lokalId": "2482023",
+     "total": 69,
+     "dagarMedRoster": 1,
+     "storstaDag": 69,
      "andel": 0.3
     },
     {
@@ -2784,7 +2793,7 @@
      "total": 55,
      "dagarMedRoster": 1,
      "storstaDag": 55,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Vebomark, Lundbergska gården",
@@ -2793,7 +2802,7 @@
      "total": 54,
      "dagarMedRoster": 1,
      "storstaDag": 54,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Klutmark byagård",
@@ -3231,15 +3240,6 @@
      "namn": "Urkraft",
      "kommun": "Skellefteå",
      "lokalId": "2482061",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Vallen, Kapellet",
-     "kommun": "Skellefteå",
-     "lokalId": "2482023",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-10T18:39+02:00",
+ "senastUppdaterad": "2026-09-11T11:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,7 +1108,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-10T18:39+02:00",
+   "hamtad": "2026-09-11T11:06+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1220,11 +1220,11 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 107,
-     "ack": 1951
+     "antal": 307,
+     "ack": 2151
     }
    ],
-   "total": 1951,
+   "total": 2151,
    "rostberattigade": {
     "riksdag": 6527,
     "kommun": 7091,
@@ -1242,10 +1242,10 @@
      "namn": "Kommunhuset, Åseda",
      "kommun": "Uppvidinge",
      "lokalId": "0760002",
-     "total": 867,
+     "total": 949,
      "dagarMedRoster": 13,
-     "storstaDag": 122,
-     "andel": 44.4
+     "storstaDag": 130,
+     "andel": 44.1
     },
     {
      "namn": "Fritidslokalen Borgen",
@@ -1254,7 +1254,16 @@
      "total": 611,
      "dagarMedRoster": 3,
      "storstaDag": 275,
-     "andel": 31.3
+     "andel": 28.4
+    },
+    {
+     "namn": "Alstermo Folkets hus",
+     "kommun": "Uppvidinge",
+     "lokalId": "0760013",
+     "total": 267,
+     "dagarMedRoster": 2,
+     "storstaDag": 170,
+     "andel": 12.4
     },
     {
      "namn": "PRO-lokalen Nottebäck",
@@ -1263,16 +1272,7 @@
      "total": 210,
      "dagarMedRoster": 2,
      "storstaDag": 132,
-     "andel": 10.8
-    },
-    {
-     "namn": "Alstermo Folkets hus",
-     "kommun": "Uppvidinge",
-     "lokalId": "0760013",
-     "total": 156,
-     "dagarMedRoster": 2,
-     "storstaDag": 97,
-     "andel": 8.0
+     "andel": 9.8
     },
     {
      "namn": "Matsalen Älghultskolan, Älghult",
@@ -1281,7 +1281,16 @@
      "total": 80,
      "dagarMedRoster": 1,
      "storstaDag": 80,
-     "andel": 4.1
+     "andel": 3.7
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Uppvidinge",
+     "lokalId": "0760012",
+     "total": 15,
+     "dagarMedRoster": 3,
+     "storstaDag": 7,
+     "andel": 0.7
     },
     {
      "namn": "Lingården",
@@ -1290,16 +1299,7 @@
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
-     "andel": 0.6
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Uppvidinge",
-     "lokalId": "0760012",
-     "total": 8,
-     "dagarMedRoster": 2,
-     "storstaDag": 6,
-     "andel": 0.4
+     "andel": 0.5
     },
     {
      "namn": "Olofsgården",
