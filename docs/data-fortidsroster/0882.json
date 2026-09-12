@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,7 +919,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -982,67 +982,74 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 493,
-     "ack": 3818
+     "antal": 499,
+     "ack": 3824
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 600,
-     "ack": 4418
+     "ack": 4424
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 471,
-     "ack": 4889
+     "ack": 4895
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 253,
-     "ack": 5142
+     "ack": 5148
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 516,
-     "ack": 5658
+     "ack": 5664
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 606,
-     "ack": 6264
+     "ack": 6270
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 985,
-     "ack": 7249
+     "ack": 7255
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 705,
-     "ack": 7954
+     "antal": 715,
+     "ack": 7970
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
      "antal": 891,
-     "ack": 8845
+     "ack": 8861
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 480,
+     "ack": 9341
     }
    ],
-   "total": 8845,
+   "total": 9341,
    "rostberattigade": {
     "riksdag": 20938,
     "kommun": 21448,
@@ -1060,10 +1067,10 @@
      "namn": "Kulturhuset, Oskarshamn",
      "kommun": "Oskarshamn",
      "lokalId": "0882006",
-     "total": 7483,
-     "dagarMedRoster": 17,
+     "total": 7962,
+     "dagarMedRoster": 18,
      "storstaDag": 891,
-     "andel": 84.6
+     "andel": 85.2
     },
     {
      "namn": "Figeholms bibliotek",
@@ -1072,7 +1079,7 @@
      "total": 375,
      "dagarMedRoster": 6,
      "storstaDag": 141,
-     "andel": 4.2
+     "andel": 4.0
     },
     {
      "namn": "Kristdala bibliotek",
@@ -1081,7 +1088,7 @@
      "total": 357,
      "dagarMedRoster": 5,
      "storstaDag": 113,
-     "andel": 4.0
+     "andel": 3.8
     },
     {
      "namn": "Strandagården",
@@ -1090,7 +1097,7 @@
      "total": 332,
      "dagarMedRoster": 5,
      "storstaDag": 101,
-     "andel": 3.8
+     "andel": 3.6
     },
     {
      "namn": "Bockara församlingshem",
@@ -1099,7 +1106,7 @@
      "total": 113,
      "dagarMedRoster": 1,
      "storstaDag": 113,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Oscarsgymnasiet",
@@ -1111,22 +1118,22 @@
      "andel": 0.9
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Oskarshamn",
+     "lokalId": "0882009",
+     "total": 62,
+     "dagarMedRoster": 7,
+     "storstaDag": 26,
+     "andel": 0.7
+    },
+    {
      "namn": "Misterhults skola",
      "kommun": "Oskarshamn",
      "lokalId": "0882004",
      "total": 60,
      "dagarMedRoster": 1,
      "storstaDag": 60,
-     "andel": 0.7
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Oskarshamn",
-     "lokalId": "0882009",
-     "total": 45,
-     "dagarMedRoster": 5,
-     "storstaDag": 26,
-     "andel": 0.5
+     "andel": 0.6
     }
    ],
    "antalLokaler": 8,

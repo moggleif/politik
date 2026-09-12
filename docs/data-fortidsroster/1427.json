@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1112,18 +1112,25 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 422,
-     "ack": 4287
+     "antal": 423,
+     "ack": 4288
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
      "antal": 471,
-     "ack": 4758
+     "ack": 4759
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 345,
+     "ack": 5104
     }
    ],
-   "total": 4758,
+   "total": 5104,
    "rostberattigade": {
     "riksdag": 7584,
     "kommun": 7756,
@@ -1141,37 +1148,37 @@
      "namn": "Folkets Hus Kungshamn",
      "kommun": "Sotenäs",
      "lokalId": "1427006",
-     "total": 2148,
-     "dagarMedRoster": 17,
+     "total": 2294,
+     "dagarMedRoster": 18,
      "storstaDag": 204,
-     "andel": 45.1
+     "andel": 44.9
     },
     {
      "namn": "Kulturhuset Hav & Land",
      "kommun": "Sotenäs",
      "lokalId": "1427005",
-     "total": 1838,
-     "dagarMedRoster": 17,
+     "total": 1967,
+     "dagarMedRoster": 18,
      "storstaDag": 202,
-     "andel": 38.6
+     "andel": 38.5
     },
     {
      "namn": "Fd. förskolan Hasselösund Smögen",
      "kommun": "Sotenäs",
      "lokalId": "1427002",
-     "total": 700,
-     "dagarMedRoster": 17,
-     "storstaDag": 64,
-     "andel": 14.7
+     "total": 769,
+     "dagarMedRoster": 18,
+     "storstaDag": 68,
+     "andel": 15.1
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Sotenäs",
      "lokalId": "1427007",
-     "total": 31,
-     "dagarMedRoster": 7,
+     "total": 33,
+     "dagarMedRoster": 8,
      "storstaDag": 10,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Kvarnbergshemmet",
@@ -1180,7 +1187,7 @@
      "total": 27,
      "dagarMedRoster": 1,
      "storstaDag": 27,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Hunnebohemmet",

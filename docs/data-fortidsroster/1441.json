@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -838,7 +838,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -959,9 +959,16 @@
      "kvar": 2,
      "antal": 1149,
      "ack": 11161
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 363,
+     "ack": 11524
     }
    ],
-   "total": 11161,
+   "total": 11524,
    "rostberattigade": {
     "riksdag": 32324,
     "kommun": 32757,
@@ -979,10 +986,19 @@
      "namn": "Lerum - Solkatten",
      "kommun": "Lerum",
      "lokalId": "1441005",
-     "total": 6300,
-     "dagarMedRoster": 17,
+     "total": 6487,
+     "dagarMedRoster": 18,
      "storstaDag": 598,
-     "andel": 56.4
+     "andel": 56.3
+    },
+    {
+     "namn": "Grå huset Lundbyvägen 16",
+     "kommun": "Lerum",
+     "lokalId": "1441004",
+     "total": 2322,
+     "dagarMedRoster": 12,
+     "storstaDag": 410,
+     "andel": 20.1
     },
     {
      "namn": "Floda bibliotek",
@@ -991,15 +1007,6 @@
      "total": 2214,
      "dagarMedRoster": 10,
      "storstaDag": 475,
-     "andel": 19.8
-    },
-    {
-     "namn": "Grå huset Lundbyvägen 16",
-     "kommun": "Lerum",
-     "lokalId": "1441004",
-     "total": 2146,
-     "dagarMedRoster": 11,
-     "storstaDag": 410,
      "andel": 19.2
     },
     {
@@ -1009,7 +1016,7 @@
      "total": 177,
      "dagarMedRoster": 1,
      "storstaDag": 177,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Tollereds bibliotek",
@@ -1027,7 +1034,7 @@
      "total": 155,
      "dagarMedRoster": 12,
      "storstaDag": 33,
-     "andel": 1.4
+     "andel": 1.3
     }
    ],
    "antalLokaler": 6,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -685,7 +685,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -806,9 +806,16 @@
      "kvar": 2,
      "antal": 84,
      "ack": 969
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 121,
+     "ack": 1090
     }
    ],
-   "total": 969,
+   "total": 1090,
    "rostberattigade": {
     "riksdag": 2984,
     "kommun": 3133,
@@ -826,10 +833,10 @@
      "namn": "Kommunhuset",
      "kommun": "Storfors",
      "lokalId": "1760001",
-     "total": 957,
-     "dagarMedRoster": 17,
+     "total": 1078,
+     "dagarMedRoster": 18,
      "storstaDag": 126,
-     "andel": 98.8
+     "andel": 98.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -838,7 +845,7 @@
      "total": 12,
      "dagarMedRoster": 2,
      "storstaDag": 9,
-     "andel": 1.2
+     "andel": 1.1
     }
    ],
    "antalLokaler": 2,

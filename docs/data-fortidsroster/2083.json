@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -912,11 +912,18 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 490,
-     "ack": 5482
+     "antal": 498,
+     "ack": 5490
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 321,
+     "ack": 5811
     }
    ],
-   "total": 5482,
+   "total": 5811,
    "rostberattigade": {
     "riksdag": 11834,
     "kommun": 12185,
@@ -934,10 +941,10 @@
      "namn": "Tjädernhuset",
      "kommun": "Hedemora",
      "lokalId": "2083001",
-     "total": 4483,
-     "dagarMedRoster": 17,
+     "total": 4672,
+     "dagarMedRoster": 18,
      "storstaDag": 541,
-     "andel": 81.8
+     "andel": 80.4
     },
     {
      "namn": "Långshyttans Folket Hus",
@@ -946,7 +953,7 @@
      "total": 427,
      "dagarMedRoster": 2,
      "storstaDag": 258,
-     "andel": 7.8
+     "andel": 7.3
     },
     {
      "namn": "Garpenbergs församlingshem",
@@ -955,7 +962,16 @@
      "total": 293,
      "dagarMedRoster": 2,
      "storstaDag": 211,
-     "andel": 5.3
+     "andel": 5.0
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Hedemora",
+     "lokalId": "2083004",
+     "total": 251,
+     "dagarMedRoster": 8,
+     "storstaDag": 140,
+     "andel": 4.3
     },
     {
      "namn": "Vikmanshyttans Kyrka",
@@ -964,16 +980,7 @@
      "total": 168,
      "dagarMedRoster": 2,
      "storstaDag": 128,
-     "andel": 3.1
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Hedemora",
-     "lokalId": "2083004",
-     "total": 111,
-     "dagarMedRoster": 7,
-     "storstaDag": 39,
-     "andel": 2.0
+     "andel": 2.9
     }
    ],
    "antalLokaler": 5,

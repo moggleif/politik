@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1029,11 +1029,18 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 505,
-     "ack": 4516
+     "antal": 508,
+     "ack": 4519
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 288,
+     "ack": 4807
     }
    ],
-   "total": 4516,
+   "total": 4807,
    "rostberattigade": {
     "riksdag": 9273,
     "kommun": 9461,
@@ -1051,10 +1058,10 @@
      "namn": "Konsthallen",
      "kommun": "Åmål",
      "lokalId": "1492005",
-     "total": 4187,
-     "dagarMedRoster": 17,
-     "storstaDag": 505,
-     "andel": 92.7
+     "total": 4475,
+     "dagarMedRoster": 18,
+     "storstaDag": 507,
+     "andel": 93.1
     },
     {
      "namn": "Fengersfors Folkets hus",
@@ -1063,7 +1070,7 @@
      "total": 101,
      "dagarMedRoster": 1,
      "storstaDag": 101,
-     "andel": 2.2
+     "andel": 2.1
     },
     {
      "namn": "Edsleskogs prästgård",
@@ -1072,7 +1079,7 @@
      "total": 55,
      "dagarMedRoster": 1,
      "storstaDag": 55,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Ånimskogs Bygdegård",
@@ -1081,7 +1088,7 @@
      "total": 48,
      "dagarMedRoster": 1,
      "storstaDag": 48,
-     "andel": 1.1
+     "andel": 1.0
     },
     {
      "namn": "Mo-Berga Bygdegård",
@@ -1090,7 +1097,7 @@
      "total": 43,
      "dagarMedRoster": 1,
      "storstaDag": 43,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Åmålsgården Särskilt boende",
@@ -1099,7 +1106,7 @@
      "total": 31,
      "dagarMedRoster": 1,
      "storstaDag": 31,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Tjuke Särskilt boende",
@@ -1108,7 +1115,7 @@
      "total": 12,
      "dagarMedRoster": 1,
      "storstaDag": 12,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Adolfsberg Särskilt boende",
@@ -1120,6 +1127,15 @@
      "andel": 0.2
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Åmål",
+     "lokalId": "1492008",
+     "total": 9,
+     "dagarMedRoster": 5,
+     "storstaDag": 2,
+     "andel": 0.2
+    },
+    {
      "namn": "Solsäter Särskilt boende",
      "kommun": "Åmål",
      "lokalId": "1492009",
@@ -1127,15 +1143,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 9,
      "andel": 0.2
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Åmål",
-     "lokalId": "1492008",
-     "total": 6,
-     "dagarMedRoster": 3,
-     "storstaDag": 2,
-     "andel": 0.1
     },
     {
      "namn": "Opus/Nova Daglig verksamhet",

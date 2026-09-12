@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -802,7 +802,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -923,9 +923,16 @@
      "kvar": 2,
      "antal": 280,
      "ack": 1883
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 160,
+     "ack": 2043
     }
    ],
-   "total": 1883,
+   "total": 2043,
    "rostberattigade": {
     "riksdag": 5331,
     "kommun": 5516,
@@ -943,10 +950,10 @@
      "namn": "Finnmarksrummet, Medborgarhuset",
      "kommun": "Vansbro",
      "lokalId": "2021003",
-     "total": 1221,
-     "dagarMedRoster": 12,
+     "total": 1381,
+     "dagarMedRoster": 13,
      "storstaDag": 280,
-     "andel": 64.8
+     "andel": 67.6
     },
     {
      "namn": "Fd. biblioteket",
@@ -955,7 +962,7 @@
      "total": 633,
      "dagarMedRoster": 5,
      "storstaDag": 164,
-     "andel": 33.6
+     "andel": 31.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -964,7 +971,7 @@
      "total": 29,
      "dagarMedRoster": 4,
      "storstaDag": 17,
-     "andel": 1.5
+     "andel": 1.4
     }
    ],
    "antalLokaler": 3,

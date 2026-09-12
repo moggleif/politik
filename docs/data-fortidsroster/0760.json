@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,7 +1108,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1229,9 +1229,16 @@
      "kvar": 2,
      "antal": 125,
      "ack": 2276
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 112,
+     "ack": 2388
     }
    ],
-   "total": 2276,
+   "total": 2388,
    "rostberattigade": {
     "riksdag": 6527,
     "kommun": 7091,
@@ -1249,8 +1256,8 @@
      "namn": "Kommunhuset, Åseda",
      "kommun": "Uppvidinge",
      "lokalId": "0760002",
-     "total": 1074,
-     "dagarMedRoster": 14,
+     "total": 1126,
+     "dagarMedRoster": 15,
      "storstaDag": 130,
      "andel": 47.2
     },
@@ -1261,7 +1268,7 @@
      "total": 611,
      "dagarMedRoster": 3,
      "storstaDag": 275,
-     "andel": 26.8
+     "andel": 25.6
     },
     {
      "namn": "Alstermo Folkets hus",
@@ -1270,7 +1277,7 @@
      "total": 267,
      "dagarMedRoster": 2,
      "storstaDag": 170,
-     "andel": 11.7
+     "andel": 11.2
     },
     {
      "namn": "PRO-lokalen Nottebäck",
@@ -1279,7 +1286,7 @@
      "total": 210,
      "dagarMedRoster": 2,
      "storstaDag": 132,
-     "andel": 9.2
+     "andel": 8.8
     },
     {
      "namn": "Matsalen Älghultskolan, Älghult",
@@ -1288,7 +1295,16 @@
      "total": 80,
      "dagarMedRoster": 1,
      "storstaDag": 80,
-     "andel": 3.5
+     "andel": 3.4
+    },
+    {
+     "namn": "Folkets hus, Fröseke",
+     "kommun": "Uppvidinge",
+     "lokalId": "0760003",
+     "total": 60,
+     "dagarMedRoster": 1,
+     "storstaDag": 60,
+     "andel": 2.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1297,7 +1313,7 @@
      "total": 15,
      "dagarMedRoster": 3,
      "storstaDag": 7,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Lingården",
@@ -1315,16 +1331,7 @@
      "total": 8,
      "dagarMedRoster": 1,
      "storstaDag": 8,
-     "andel": 0.4
-    },
-    {
-     "namn": "Folkets hus, Fröseke",
-     "kommun": "Uppvidinge",
-     "lokalId": "0760003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 0.3
     },
     {
      "namn": "Smedsgård",

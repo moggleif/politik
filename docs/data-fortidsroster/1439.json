@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -739,7 +739,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -860,9 +860,16 @@
      "kvar": 2,
      "antal": 241,
      "ack": 1981
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 164,
+     "ack": 2145
     }
    ],
-   "total": 1981,
+   "total": 2145,
    "rostberattigade": {
     "riksdag": 4931,
     "kommun": 5064,
@@ -880,10 +887,10 @@
      "namn": "Centrumhuset",
      "kommun": "Färgelanda",
      "lokalId": "1439001",
-     "total": 1954,
-     "dagarMedRoster": 17,
+     "total": 2118,
+     "dagarMedRoster": 18,
      "storstaDag": 241,
-     "andel": 98.6
+     "andel": 98.7
     },
     {
      "namn": "Håvestensgården",
@@ -892,7 +899,7 @@
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Solgården",
@@ -910,7 +917,7 @@
      "total": 5,
      "dagarMedRoster": 1,
      "storstaDag": 5,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -919,7 +926,7 @@
      "total": 1,
      "dagarMedRoster": 1,
      "storstaDag": 1,
-     "andel": 0.1
+     "andel": 0.0
     }
    ],
    "antalLokaler": 5,

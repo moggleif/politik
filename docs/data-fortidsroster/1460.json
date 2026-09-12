@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1110,11 +1110,18 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 453,
-     "ack": 3400
+     "antal": 456,
+     "ack": 3403
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 150,
+     "ack": 3553
     }
    ],
-   "total": 3400,
+   "total": 3553,
    "rostberattigade": {
     "riksdag": 6855,
     "kommun": 7394,
@@ -1132,19 +1139,19 @@
      "namn": "Biblioteket Bengtsfors",
      "kommun": "Bengtsfors",
      "lokalId": "1460006",
-     "total": 2131,
-     "dagarMedRoster": 17,
-     "storstaDag": 311,
-     "andel": 62.7
+     "total": 2283,
+     "dagarMedRoster": 18,
+     "storstaDag": 313,
+     "andel": 64.3
     },
     {
      "namn": "Nybygget Stenebyskolan",
      "kommun": "Bengtsfors",
      "lokalId": "1460007",
-     "total": 557,
+     "total": 558,
      "dagarMedRoster": 5,
      "storstaDag": 160,
-     "andel": 16.4
+     "andel": 15.7
     },
     {
      "namn": "Bäckegården Bäckefors",
@@ -1153,7 +1160,7 @@
      "total": 275,
      "dagarMedRoster": 5,
      "storstaDag": 89,
-     "andel": 8.1
+     "andel": 7.7
     },
     {
      "namn": "Lövåsenskolan Billingsfors",
@@ -1162,7 +1169,7 @@
      "total": 231,
      "dagarMedRoster": 5,
      "storstaDag": 69,
-     "andel": 6.8
+     "andel": 6.5
     },
     {
      "namn": "Folkets hus Gustavsfors",
@@ -1171,7 +1178,7 @@
      "total": 75,
      "dagarMedRoster": 1,
      "storstaDag": 75,
-     "andel": 2.2
+     "andel": 2.1
     },
     {
      "namn": "Torrskogs stom bygdegård",
@@ -1189,7 +1196,7 @@
      "total": 65,
      "dagarMedRoster": 5,
      "storstaDag": 34,
-     "andel": 1.9
+     "andel": 1.8
     }
    ],
    "antalLokaler": 7,

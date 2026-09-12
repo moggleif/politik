@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1252,7 +1252,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1364,18 +1364,25 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 2928,
-     "ack": 22889
+     "antal": 2933,
+     "ack": 22894
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 3104,
-     "ack": 25993
+     "antal": 3122,
+     "ack": 26016
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 1671,
+     "ack": 27687
     }
    ],
-   "total": 25993,
+   "total": 27687,
    "rostberattigade": {
     "riksdag": 62903,
     "kommun": 65233,
@@ -1393,37 +1400,37 @@
      "namn": "Luleå Energi Arena",
      "kommun": "Luleå",
      "lokalId": "2580016",
-     "total": 15362,
-     "dagarMedRoster": 17,
-     "storstaDag": 1710,
+     "total": 16371,
+     "dagarMedRoster": 18,
+     "storstaDag": 1713,
      "andel": 59.1
     },
     {
      "namn": "Samlingslokal i Porsö sporthall",
      "kommun": "Luleå",
      "lokalId": "2580012",
-     "total": 2290,
+     "total": 2292,
      "dagarMedRoster": 13,
      "storstaDag": 301,
-     "andel": 8.8
+     "andel": 8.3
     },
     {
      "namn": "Aktivitetshuset Kubben",
      "kommun": "Luleå",
      "lokalId": "2580004",
-     "total": 1744,
+     "total": 1749,
      "dagarMedRoster": 13,
-     "storstaDag": 249,
-     "andel": 6.7
+     "storstaDag": 253,
+     "andel": 6.3
     },
     {
      "namn": "Hyresgästlokal Lulebo",
      "kommun": "Luleå",
      "lokalId": "2580013",
-     "total": 1631,
+     "total": 1633,
      "dagarMedRoster": 13,
-     "storstaDag": 290,
-     "andel": 6.3
+     "storstaDag": 291,
+     "andel": 5.9
     },
     {
      "namn": "Konferenslokal Pärlan",
@@ -1432,7 +1439,7 @@
      "total": 1562,
      "dagarMedRoster": 17,
      "storstaDag": 172,
-     "andel": 6.0
+     "andel": 5.6
     },
     {
      "namn": "Gymnasiebiblioteket",
@@ -1441,34 +1448,52 @@
      "total": 1523,
      "dagarMedRoster": 13,
      "storstaDag": 227,
-     "andel": 5.9
+     "andel": 5.5
     },
     {
      "namn": "Sunderby sjukhus",
      "kommun": "Luleå",
      "lokalId": "2580001",
-     "total": 806,
-     "dagarMedRoster": 5,
-     "storstaDag": 187,
-     "andel": 3.1
+     "total": 997,
+     "dagarMedRoster": 6,
+     "storstaDag": 191,
+     "andel": 3.6
     },
     {
      "namn": "Sörbygården",
      "kommun": "Luleå",
      "lokalId": "2580007",
-     "total": 708,
+     "total": 710,
      "dagarMedRoster": 7,
      "storstaDag": 118,
-     "andel": 2.7
+     "andel": 2.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Luleå",
      "lokalId": "2580017",
-     "total": 255,
-     "dagarMedRoster": 10,
+     "total": 301,
+     "dagarMedRoster": 11,
      "storstaDag": 65,
-     "andel": 1.0
+     "andel": 1.1
+    },
+    {
+     "namn": "Brändöns byahus",
+     "kommun": "Luleå",
+     "lokalId": "2580010",
+     "total": 186,
+     "dagarMedRoster": 1,
+     "storstaDag": 186,
+     "andel": 0.7
+    },
+    {
+     "namn": "Klöverträsk bygdegård",
+     "kommun": "Luleå",
+     "lokalId": "2580009",
+     "total": 170,
+     "dagarMedRoster": 1,
+     "storstaDag": 170,
+     "andel": 0.6
     },
     {
      "namn": "Häktet/fängelset",
@@ -1480,31 +1505,13 @@
      "andel": 0.4
     },
     {
-     "namn": "Brändöns byahus",
-     "kommun": "Luleå",
-     "lokalId": "2580010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Jämtögården",
      "kommun": "Luleå",
      "lokalId": "2580008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Klöverträsk bygdegård",
-     "kommun": "Luleå",
-     "lokalId": "2580009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 81,
+     "dagarMedRoster": 1,
+     "storstaDag": 81,
+     "andel": 0.3
     },
     {
      "namn": "Stadshuset",

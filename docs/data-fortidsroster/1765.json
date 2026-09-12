@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1031,9 +1031,16 @@
      "kvar": 2,
      "antal": 387,
      "ack": 3159
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 190,
+     "ack": 3349
     }
    ],
-   "total": 3159,
+   "total": 3349,
    "rostberattigade": {
     "riksdag": 6906,
     "kommun": 7911,
@@ -1051,10 +1058,10 @@
      "namn": "Biblioteket Årjäng",
      "kommun": "Årjäng",
      "lokalId": "1765002",
-     "total": 2261,
-     "dagarMedRoster": 15,
+     "total": 2413,
+     "dagarMedRoster": 16,
      "storstaDag": 325,
-     "andel": 71.6
+     "andel": 72.1
     },
     {
      "namn": "Biblioteket Töcksfors",
@@ -1063,7 +1070,7 @@
      "total": 862,
      "dagarMedRoster": 8,
      "storstaDag": 256,
-     "andel": 27.3
+     "andel": 25.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1073,6 +1080,24 @@
      "dagarMedRoster": 4,
      "storstaDag": 33,
      "andel": 1.1
+    },
+    {
+     "namn": "Torget, Töcksfors",
+     "kommun": "Årjäng",
+     "lokalId": "1765009",
+     "total": 28,
+     "dagarMedRoster": 1,
+     "storstaDag": 28,
+     "andel": 0.8
+    },
+    {
+     "namn": "Stommens skola, Västra Fågelvik",
+     "kommun": "Årjäng",
+     "lokalId": "1765007",
+     "total": 10,
+     "dagarMedRoster": 1,
+     "storstaDag": 10,
+     "andel": 0.3
     },
     {
      "namn": "Böns föredetta skola, Östervallskog",
@@ -1102,27 +1127,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Stommens skola, Västra Fågelvik",
-     "kommun": "Årjäng",
-     "lokalId": "1765007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Strömsborg, Lennartsfors",
      "kommun": "Årjäng",
      "lokalId": "1765008",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Torget, Töcksfors",
-     "kommun": "Årjäng",
-     "lokalId": "1765009",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,7 +811,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -916,25 +916,32 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 373,
-     "ack": 2046
+     "antal": 375,
+     "ack": 2048
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
      "antal": 363,
-     "ack": 2409
+     "ack": 2411
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 384,
-     "ack": 2793
+     "antal": 387,
+     "ack": 2798
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 112,
+     "ack": 2910
     }
    ],
-   "total": 2793,
+   "total": 2910,
    "rostberattigade": {
     "riksdag": 5491,
     "kommun": 6597,
@@ -952,28 +959,28 @@
      "namn": "Charlottenbergs Folkets Hus",
      "kommun": "Eda",
      "lokalId": "1730004",
-     "total": 1907,
-     "dagarMedRoster": 17,
-     "storstaDag": 220,
-     "andel": 68.3
+     "total": 1975,
+     "dagarMedRoster": 18,
+     "storstaDag": 223,
+     "andel": 67.9
     },
     {
      "namn": "Älvgården",
      "kommun": "Eda",
      "lokalId": "1730005",
-     "total": 447,
-     "dagarMedRoster": 4,
+     "total": 478,
+     "dagarMedRoster": 5,
      "storstaDag": 184,
-     "andel": 16.0
+     "andel": 16.4
     },
     {
      "namn": "Gillevihallen",
      "kommun": "Eda",
      "lokalId": "1730006",
-     "total": 296,
-     "dagarMedRoster": 3,
-     "storstaDag": 154,
-     "andel": 10.6
+     "total": 314,
+     "dagarMedRoster": 4,
+     "storstaDag": 156,
+     "andel": 10.8
     },
     {
      "namn": "Bruksgården",
@@ -982,7 +989,7 @@
      "total": 110,
      "dagarMedRoster": 2,
      "storstaDag": 65,
-     "andel": 3.9
+     "andel": 3.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -991,7 +998,7 @@
      "total": 33,
      "dagarMedRoster": 9,
      "storstaDag": 13,
-     "andel": 1.2
+     "andel": 1.1
     }
    ],
    "antalLokaler": 5,

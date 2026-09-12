@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -874,7 +874,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -993,11 +993,18 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 1016,
-     "ack": 10406
+     "antal": 1022,
+     "ack": 10412
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 497,
+     "ack": 10909
     }
    ],
-   "total": 10406,
+   "total": 10909,
    "rostberattigade": {
     "riksdag": 24348,
     "kommun": 24940,
@@ -1015,19 +1022,19 @@
      "namn": "Galleria Center Syd",
      "kommun": "Kävlinge",
      "lokalId": "1261005",
-     "total": 6649,
-     "dagarMedRoster": 15,
-     "storstaDag": 721,
-     "andel": 63.9
+     "total": 6947,
+     "dagarMedRoster": 16,
+     "storstaDag": 725,
+     "andel": 63.7
     },
     {
      "namn": "Kommunhuset, Kävlinge",
      "kommun": "Kävlinge",
      "lokalId": "1261004",
-     "total": 3394,
-     "dagarMedRoster": 15,
+     "total": 3598,
+     "dagarMedRoster": 16,
      "storstaDag": 357,
-     "andel": 32.6
+     "andel": 33.0
     },
     {
      "namn": "Ljungenskolans matsal Furulund",
@@ -1036,7 +1043,7 @@
      "total": 169,
      "dagarMedRoster": 1,
      "storstaDag": 169,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Skönadalsskolan, Hofterup",
@@ -1045,7 +1052,7 @@
      "total": 91,
      "dagarMedRoster": 1,
      "storstaDag": 91,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Dösjebroskolan, Dösjebro",
@@ -1060,10 +1067,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kävlinge",
      "lokalId": "1261006",
-     "total": 37,
+     "total": 38,
      "dagarMedRoster": 7,
      "storstaDag": 18,
-     "andel": 0.4
+     "andel": 0.3
     }
    ],
    "antalLokaler": 6,

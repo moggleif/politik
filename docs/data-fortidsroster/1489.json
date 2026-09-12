@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1121,9 +1121,16 @@
      "kvar": 2,
      "antal": 1090,
      "ack": 12930
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 458,
+     "ack": 13388
     }
    ],
-   "total": 12930,
+   "total": 13388,
    "rostberattigade": {
     "riksdag": 33154,
     "kommun": 33688,
@@ -1138,31 +1145,31 @@
    },
    "lokaler": [
     {
+     "namn": "Kommunhuset",
+     "kommun": "Alingsås",
+     "lokalId": "1489003",
+     "total": 5886,
+     "dagarMedRoster": 18,
+     "storstaDag": 764,
+     "andel": 44.0
+    },
+    {
      "namn": "Alingsås kulturhus",
      "kommun": "Alingsås",
      "lokalId": "1489002",
      "total": 5642,
      "dagarMedRoster": 10,
      "storstaDag": 765,
-     "andel": 43.6
-    },
-    {
-     "namn": "Kommunhuset",
-     "kommun": "Alingsås",
-     "lokalId": "1489003",
-     "total": 5566,
-     "dagarMedRoster": 17,
-     "storstaDag": 764,
-     "andel": 43.0
+     "andel": 42.1
     },
     {
      "namn": "Servicekontoret i Sollebrunn",
      "kommun": "Alingsås",
      "lokalId": "1489001",
-     "total": 1495,
-     "dagarMedRoster": 9,
+     "total": 1633,
+     "dagarMedRoster": 10,
      "storstaDag": 317,
-     "andel": 11.6
+     "andel": 12.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1171,7 +1178,7 @@
      "total": 227,
      "dagarMedRoster": 13,
      "storstaDag": 50,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Polisstation Alingsås",

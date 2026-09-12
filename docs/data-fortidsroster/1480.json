@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -3682,7 +3682,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -3787,25 +3787,32 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 14961,
-     "ack": 143431
+     "antal": 14962,
+     "ack": 143432
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 18405,
-     "ack": 161836
+     "antal": 18423,
+     "ack": 161855
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 17183,
-     "ack": 179019
+     "antal": 17238,
+     "ack": 179093
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 7366,
+     "ack": 186459
     }
    ],
-   "total": 179019,
+   "total": 186459,
    "rostberattigade": {
     "riksdag": 462708,
     "kommun": 490179,
@@ -3823,89 +3830,89 @@
      "namn": "Nordstan",
      "kommun": "Göteborg",
      "lokalId": "1480080",
-     "total": 24805,
-     "dagarMedRoster": 17,
-     "storstaDag": 2174,
-     "andel": 13.9
+     "total": 25469,
+     "dagarMedRoster": 18,
+     "storstaDag": 2188,
+     "andel": 13.7
     },
     {
      "namn": "Frölunda Torg köpcenter",
      "kommun": "Göteborg",
      "lokalId": "1480081",
-     "total": 17847,
-     "dagarMedRoster": 17,
-     "storstaDag": 1674,
-     "andel": 10.0
+     "total": 18541,
+     "dagarMedRoster": 18,
+     "storstaDag": 1680,
+     "andel": 9.9
     },
     {
      "namn": "Stadsbiblioteket",
      "kommun": "Göteborg",
      "lokalId": "1480073",
-     "total": 16600,
-     "dagarMedRoster": 17,
-     "storstaDag": 1662,
+     "total": 17273,
+     "dagarMedRoster": 18,
+     "storstaDag": 1670,
      "andel": 9.3
     },
     {
      "namn": "Järntorget",
      "kommun": "Göteborg",
      "lokalId": "1480057",
-     "total": 11455,
-     "dagarMedRoster": 17,
+     "total": 11801,
+     "dagarMedRoster": 18,
      "storstaDag": 1075,
-     "andel": 6.4
-    },
-    {
-     "namn": "Olskrokstorget",
-     "kommun": "Göteborg",
-     "lokalId": "1480008",
-     "total": 7855,
-     "dagarMedRoster": 17,
-     "storstaDag": 871,
-     "andel": 4.4
+     "andel": 6.3
     },
     {
      "namn": "Kulturhuset Kåken",
      "kommun": "Göteborg",
      "lokalId": "1480014",
-     "total": 7841,
-     "dagarMedRoster": 17,
-     "storstaDag": 973,
+     "total": 8155,
+     "dagarMedRoster": 18,
+     "storstaDag": 976,
+     "andel": 4.4
+    },
+    {
+     "namn": "Olskrokstorget",
+     "kommun": "Göteborg",
+     "lokalId": "1480008",
+     "total": 8131,
+     "dagarMedRoster": 18,
+     "storstaDag": 871,
      "andel": 4.4
     },
     {
      "namn": "Torslanda bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480034",
-     "total": 7165,
-     "dagarMedRoster": 15,
+     "total": 7569,
+     "dagarMedRoster": 16,
      "storstaDag": 834,
-     "andel": 4.0
+     "andel": 4.1
     },
     {
      "namn": "Hjalmar Brantingsplatsen",
      "kommun": "Göteborg",
      "lokalId": "1480036",
-     "total": 7092,
-     "dagarMedRoster": 17,
+     "total": 7292,
+     "dagarMedRoster": 18,
      "storstaDag": 731,
-     "andel": 4.0
+     "andel": 3.9
     },
     {
      "namn": "Majornas bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480001",
-     "total": 6520,
-     "dagarMedRoster": 15,
-     "storstaDag": 668,
+     "total": 6728,
+     "dagarMedRoster": 16,
+     "storstaDag": 671,
      "andel": 3.6
     },
     {
      "namn": "Kulturhuset Blå Stället",
      "kommun": "Göteborg",
      "lokalId": "1480071",
-     "total": 6281,
-     "dagarMedRoster": 17,
+     "total": 6594,
+     "dagarMedRoster": 18,
      "storstaDag": 562,
      "andel": 3.5
     },
@@ -3913,8 +3920,8 @@
      "namn": "Axelhuset",
      "kommun": "Göteborg",
      "lokalId": "1480002",
-     "total": 5211,
-     "dagarMedRoster": 17,
+     "total": 5425,
+     "dagarMedRoster": 18,
      "storstaDag": 543,
      "andel": 2.9
     },
@@ -3922,17 +3929,17 @@
      "namn": "Selma Lagerlöfs Center",
      "kommun": "Göteborg",
      "lokalId": "1480064",
-     "total": 5107,
-     "dagarMedRoster": 15,
-     "storstaDag": 580,
+     "total": 5330,
+     "dagarMedRoster": 16,
+     "storstaDag": 581,
      "andel": 2.9
     },
     {
      "namn": "Lundby bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480031",
-     "total": 4457,
-     "dagarMedRoster": 15,
+     "total": 4611,
+     "dagarMedRoster": 16,
      "storstaDag": 494,
      "andel": 2.5
     },
@@ -3940,44 +3947,44 @@
      "namn": "Kortedala bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480072",
-     "total": 4221,
-     "dagarMedRoster": 15,
-     "storstaDag": 482,
+     "total": 4404,
+     "dagarMedRoster": 16,
+     "storstaDag": 483,
      "andel": 2.4
     },
     {
      "namn": "Nya Hovås",
      "kommun": "Göteborg",
      "lokalId": "1480060",
-     "total": 3753,
-     "dagarMedRoster": 15,
-     "storstaDag": 528,
+     "total": 3957,
+     "dagarMedRoster": 16,
+     "storstaDag": 531,
      "andel": 2.1
     },
     {
      "namn": "Guldhedens bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480075",
-     "total": 3659,
-     "dagarMedRoster": 15,
+     "total": 3892,
+     "dagarMedRoster": 16,
      "storstaDag": 517,
-     "andel": 2.0
+     "andel": 2.1
     },
     {
      "namn": "Frölunda Kulturhus",
      "kommun": "Göteborg",
      "lokalId": "1480003",
-     "total": 3468,
-     "dagarMedRoster": 13,
+     "total": 3725,
+     "dagarMedRoster": 14,
      "storstaDag": 419,
-     "andel": 1.9
+     "andel": 2.0
     },
     {
      "namn": "Askims bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480004",
-     "total": 3407,
-     "dagarMedRoster": 13,
+     "total": 3569,
+     "dagarMedRoster": 14,
      "storstaDag": 387,
      "andel": 1.9
     },
@@ -3985,26 +3992,26 @@
      "namn": "Biskopsgårdens bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480025",
-     "total": 3196,
-     "dagarMedRoster": 15,
+     "total": 3470,
+     "dagarMedRoster": 16,
      "storstaDag": 356,
-     "andel": 1.8
+     "andel": 1.9
     },
     {
      "namn": "Mötesplats Vintergatan",
      "kommun": "Göteborg",
      "lokalId": "1480012",
-     "total": 3069,
-     "dagarMedRoster": 13,
+     "total": 3293,
+     "dagarMedRoster": 14,
      "storstaDag": 422,
-     "andel": 1.7
+     "andel": 1.8
     },
     {
      "namn": "Kulturpunkten Tuve",
      "kommun": "Göteborg",
      "lokalId": "1480066",
-     "total": 3024,
-     "dagarMedRoster": 13,
+     "total": 3178,
+     "dagarMedRoster": 14,
      "storstaDag": 456,
      "andel": 1.7
     },
@@ -4012,35 +4019,35 @@
      "namn": "Gamlestadens bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480065",
-     "total": 2931,
-     "dagarMedRoster": 15,
+     "total": 3141,
+     "dagarMedRoster": 16,
      "storstaDag": 386,
-     "andel": 1.6
+     "andel": 1.7
     },
     {
      "namn": "Lagerhusets bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480105",
-     "total": 2850,
-     "dagarMedRoster": 15,
+     "total": 3108,
+     "dagarMedRoster": 16,
      "storstaDag": 500,
-     "andel": 1.6
+     "andel": 1.7
     },
     {
      "namn": "Kulturhuset Bergsjön",
      "kommun": "Göteborg",
      "lokalId": "1480028",
-     "total": 2765,
-     "dagarMedRoster": 17,
-     "storstaDag": 321,
-     "andel": 1.5
+     "total": 2911,
+     "dagarMedRoster": 18,
+     "storstaDag": 323,
+     "andel": 1.6
     },
     {
      "namn": "Kyrkbyns bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480024",
-     "total": 2618,
-     "dagarMedRoster": 10,
+     "total": 2792,
+     "dagarMedRoster": 11,
      "storstaDag": 471,
      "andel": 1.5
     },
@@ -4048,8 +4055,8 @@
      "namn": "Hjällbo bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480027",
-     "total": 2341,
-     "dagarMedRoster": 15,
+     "total": 2470,
+     "dagarMedRoster": 16,
      "storstaDag": 243,
      "andel": 1.3
     },
@@ -4057,17 +4064,17 @@
      "namn": "Kärra sim- och sporthall",
      "kommun": "Göteborg",
      "lokalId": "1480104",
-     "total": 2163,
+     "total": 2165,
      "dagarMedRoster": 8,
-     "storstaDag": 428,
+     "storstaDag": 430,
      "andel": 1.2
     },
     {
      "namn": "Hammarkullens bibliotek",
      "kommun": "Göteborg",
      "lokalId": "1480026",
-     "total": 1762,
-     "dagarMedRoster": 15,
+     "total": 1899,
+     "dagarMedRoster": 16,
      "storstaDag": 222,
      "andel": 1.0
     },
@@ -4075,8 +4082,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Göteborg",
      "lokalId": "1480095",
-     "total": 799,
-     "dagarMedRoster": 12,
+     "total": 809,
+     "dagarMedRoster": 13,
      "storstaDag": 187,
      "andel": 0.4
     },

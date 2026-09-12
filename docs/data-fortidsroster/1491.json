@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,7 +721,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -842,9 +842,16 @@
      "kvar": 2,
      "antal": 831,
      "ack": 7602
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 426,
+     "ack": 8028
     }
    ],
-   "total": 7602,
+   "total": 8028,
    "rostberattigade": {
     "riksdag": 19144,
     "kommun": 19799,
@@ -862,17 +869,17 @@
      "namn": "Förtidsröstning, centrala Ulricehamn",
      "kommun": "Ulricehamn",
      "lokalId": "1491002",
-     "total": 5857,
-     "dagarMedRoster": 17,
+     "total": 6197,
+     "dagarMedRoster": 18,
      "storstaDag": 756,
-     "andel": 77.0
+     "andel": 77.2
     },
     {
      "namn": "Valbussen",
      "kommun": "Ulricehamn",
      "lokalId": "1491001",
-     "total": 1543,
-     "dagarMedRoster": 16,
+     "total": 1629,
+     "dagarMedRoster": 17,
      "storstaDag": 187,
      "andel": 20.3
     },
@@ -883,7 +890,7 @@
      "total": 202,
      "dagarMedRoster": 8,
      "storstaDag": 80,
-     "andel": 2.7
+     "andel": 2.5
     }
    ],
    "antalLokaler": 3,

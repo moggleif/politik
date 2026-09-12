@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,7 +757,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -876,11 +876,18 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 380,
-     "ack": 2961
+     "antal": 382,
+     "ack": 2963
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 204,
+     "ack": 3167
     }
    ],
-   "total": 2961,
+   "total": 3167,
    "rostberattigade": {
     "riksdag": 7425,
     "kommun": 7604,
@@ -898,10 +905,10 @@
      "namn": "Förtidsröstningslokal Tingshuset",
      "kommun": "Bollebygd",
      "lokalId": "1443003",
-     "total": 2780,
-     "dagarMedRoster": 16,
+     "total": 2984,
+     "dagarMedRoster": 17,
      "storstaDag": 380,
-     "andel": 93.9
+     "andel": 94.2
     },
     {
      "namn": "Förtidsröstningslokal Bollegården",
@@ -910,14 +917,14 @@
      "total": 173,
      "dagarMedRoster": 1,
      "storstaDag": 173,
-     "andel": 5.8
+     "andel": 5.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Bollebygd",
      "lokalId": "1443005",
-     "total": 8,
-     "dagarMedRoster": 3,
+     "total": 10,
+     "dagarMedRoster": 4,
      "storstaDag": 4,
      "andel": 0.3
     },

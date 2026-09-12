@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1063,7 +1063,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1175,18 +1175,25 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 2125,
-     "ack": 20231
+     "antal": 2126,
+     "ack": 20232
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 2215,
-     "ack": 22446
+     "antal": 2231,
+     "ack": 22463
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 839,
+     "ack": 23302
     }
    ],
-   "total": 22446,
+   "total": 23302,
    "rostberattigade": {
     "riksdag": 54497,
     "kommun": 55592,
@@ -1204,37 +1211,37 @@
      "namn": "Varbergs stadsbibliotek, våning 1",
      "kommun": "Varberg",
      "lokalId": "1383002",
-     "total": 6505,
-     "dagarMedRoster": 17,
+     "total": 6792,
+     "dagarMedRoster": 18,
      "storstaDag": 591,
-     "andel": 29.0
+     "andel": 29.1
     },
     {
      "namn": "Lorensberg",
      "kommun": "Varberg",
      "lokalId": "1383007",
-     "total": 4862,
-     "dagarMedRoster": 17,
+     "total": 5121,
+     "dagarMedRoster": 18,
      "storstaDag": 491,
-     "andel": 21.7
+     "andel": 22.0
     },
     {
      "namn": "Varbergs stadsbibliotek, våning 2",
      "kommun": "Varberg",
      "lokalId": "1383014",
-     "total": 4336,
-     "dagarMedRoster": 17,
-     "storstaDag": 574,
-     "andel": 19.3
+     "total": 4637,
+     "dagarMedRoster": 18,
+     "storstaDag": 580,
+     "andel": 19.9
     },
     {
      "namn": "Bua bibliotek",
      "kommun": "Varberg",
      "lokalId": "1383006",
-     "total": 1542,
+     "total": 1543,
      "dagarMedRoster": 13,
      "storstaDag": 219,
-     "andel": 6.9
+     "andel": 6.6
     },
     {
      "namn": "Tvååkers bibliotek",
@@ -1243,7 +1250,7 @@
      "total": 1479,
      "dagarMedRoster": 13,
      "storstaDag": 187,
-     "andel": 6.6
+     "andel": 6.3
     },
     {
      "namn": "Träslövsläge bibliotek",
@@ -1252,7 +1259,7 @@
      "total": 1231,
      "dagarMedRoster": 13,
      "storstaDag": 152,
-     "andel": 5.5
+     "andel": 5.3
     },
     {
      "namn": "Veddige bibliotek",
@@ -1261,7 +1268,7 @@
      "total": 1106,
      "dagarMedRoster": 13,
      "storstaDag": 160,
-     "andel": 4.9
+     "andel": 4.7
     },
     {
      "namn": "Rolfstorps bibliotek",
@@ -1270,7 +1277,7 @@
      "total": 672,
      "dagarMedRoster": 10,
      "storstaDag": 113,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Kungsäters bibliotek",
@@ -1285,7 +1292,7 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Varberg",
      "lokalId": "1383013",
-     "total": 262,
+     "total": 270,
      "dagarMedRoster": 12,
      "storstaDag": 73,
      "andel": 1.2
@@ -1297,7 +1304,7 @@
      "total": 148,
      "dagarMedRoster": 5,
      "storstaDag": 34,
-     "andel": 0.7
+     "andel": 0.6
     },
     {
      "namn": "Kommunkansliet i Stadshus A",

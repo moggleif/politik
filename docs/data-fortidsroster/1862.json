@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,7 +793,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -912,11 +912,18 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 252,
-     "ack": 2582
+     "antal": 253,
+     "ack": 2583
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 189,
+     "ack": 2772
     }
    ],
-   "total": 2582,
+   "total": 2772,
    "rostberattigade": {
     "riksdag": 7334,
     "kommun": 7544,
@@ -934,10 +941,10 @@
      "namn": "Folkets Hus",
      "kommun": "Degerfors",
      "lokalId": "1862003",
-     "total": 2145,
-     "dagarMedRoster": 17,
+     "total": 2335,
+     "dagarMedRoster": 18,
      "storstaDag": 234,
-     "andel": 83.1
+     "andel": 84.2
     },
     {
      "namn": "Åtorps utvecklingsgrupps lokal",
@@ -946,7 +953,7 @@
      "total": 203,
      "dagarMedRoster": 10,
      "storstaDag": 28,
-     "andel": 7.9
+     "andel": 7.3
     },
     {
      "namn": "Folkets Hus Svartå",
@@ -955,7 +962,7 @@
      "total": 176,
      "dagarMedRoster": 10,
      "storstaDag": 25,
-     "andel": 6.8
+     "andel": 6.3
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -964,7 +971,7 @@
      "total": 58,
      "dagarMedRoster": 7,
      "storstaDag": 33,
-     "andel": 2.2
+     "andel": 2.1
     }
    ],
    "antalLokaler": 4,

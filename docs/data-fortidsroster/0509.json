@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T10:49+02:00",
+ "senastUppdaterad": "2026-09-12T17:48+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -712,7 +712,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T10:49+02:00",
+   "hamtad": "2026-09-12T17:48+02:00",
    "klart": false,
    "dagar": [
     {
@@ -833,9 +833,16 @@
      "kvar": 2,
      "antal": 173,
      "ack": 1656
+    },
+    {
+     "datum": "2026-09-12",
+     "veckodag": "lör",
+     "kvar": 1,
+     "antal": 148,
+     "ack": 1804
     }
    ],
-   "total": 1656,
+   "total": 1804,
    "rostberattigade": {
     "riksdag": 4117,
     "kommun": 4258,
@@ -853,10 +860,10 @@
      "namn": "Ödeshögs bibliotek",
      "kommun": "Ödeshög",
      "lokalId": "0509001",
-     "total": 1624,
-     "dagarMedRoster": 17,
+     "total": 1772,
+     "dagarMedRoster": 18,
      "storstaDag": 173,
-     "andel": 98.1
+     "andel": 98.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -865,7 +872,7 @@
      "total": 32,
      "dagarMedRoster": 4,
      "storstaDag": 15,
-     "andel": 1.9
+     "andel": 1.8
     }
    ],
    "antalLokaler": 2,
