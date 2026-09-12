@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T18:45+02:00",
+ "senastUppdaterad": "2026-09-12T10:49+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1135,7 +1135,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T18:45+02:00",
+   "hamtad": "2026-09-12T10:49+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1254,11 +1254,11 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 449,
-     "ack": 9226
+     "antal": 804,
+     "ack": 9581
     }
    ],
-   "total": 9226,
+   "total": 9581,
    "rostberattigade": {
     "riksdag": 23547,
     "kommun": 24548,
@@ -1276,10 +1276,19 @@
      "namn": "Stadsbiblioteket Nässjö",
      "kommun": "Nässjö",
      "lokalId": "0682005",
-     "total": 6928,
+     "total": 7201,
      "dagarMedRoster": 17,
      "storstaDag": 693,
-     "andel": 75.1
+     "andel": 75.2
+    },
+    {
+     "namn": "Biblioteket Bodafors",
+     "kommun": "Nässjö",
+     "lokalId": "0682002",
+     "total": 727,
+     "dagarMedRoster": 5,
+     "storstaDag": 185,
+     "andel": 7.6
     },
     {
      "namn": "Biblioteket Forserum",
@@ -1288,16 +1297,7 @@
      "total": 670,
      "dagarMedRoster": 5,
      "storstaDag": 178,
-     "andel": 7.3
-    },
-    {
-     "namn": "Biblioteket Bodafors",
-     "kommun": "Nässjö",
-     "lokalId": "0682002",
-     "total": 656,
-     "dagarMedRoster": 5,
-     "storstaDag": 185,
-     "andel": 7.1
+     "andel": 7.0
     },
     {
      "namn": "Annebergs bibliotek",
@@ -1306,7 +1306,7 @@
      "total": 341,
      "dagarMedRoster": 5,
      "storstaDag": 94,
-     "andel": 3.7
+     "andel": 3.6
     },
     {
      "namn": "Biblioteket Malmbäck",
@@ -1315,14 +1315,14 @@
      "total": 337,
      "dagarMedRoster": 5,
      "storstaDag": 97,
-     "andel": 3.7
+     "andel": 3.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Nässjö",
      "lokalId": "0682007",
-     "total": 237,
-     "dagarMedRoster": 12,
+     "total": 248,
+     "dagarMedRoster": 13,
      "storstaDag": 65,
      "andel": 2.6
     },

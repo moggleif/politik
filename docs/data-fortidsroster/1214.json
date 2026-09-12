@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T18:45+02:00",
+ "senastUppdaterad": "2026-09-12T10:49+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1063,7 +1063,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T18:45+02:00",
+   "hamtad": "2026-09-12T10:49+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1182,11 +1182,11 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 94,
-     "ack": 3116
+     "antal": 631,
+     "ack": 3653
     }
    ],
-   "total": 3116,
+   "total": 3653,
    "rostberattigade": {
     "riksdag": 10415,
     "kommun": 11090,
@@ -1204,10 +1204,37 @@
      "namn": "Fullmäktigesalen, kommunhuset",
      "kommun": "Svalöv",
      "lokalId": "1214004",
-     "total": 1894,
+     "total": 2074,
      "dagarMedRoster": 15,
-     "storstaDag": 246,
-     "andel": 60.8
+     "storstaDag": 265,
+     "andel": 56.8
+    },
+    {
+     "namn": "Kågerödslund",
+     "kommun": "Svalöv",
+     "lokalId": "1214008",
+     "total": 413,
+     "dagarMedRoster": 3,
+     "storstaDag": 145,
+     "andel": 11.3
+    },
+    {
+     "namn": "Teckomatorps församlingshem",
+     "kommun": "Svalöv",
+     "lokalId": "1214005",
+     "total": 339,
+     "dagarMedRoster": 3,
+     "storstaDag": 154,
+     "andel": 9.3
+    },
+    {
+     "namn": "Röstånga turistinformation",
+     "kommun": "Svalöv",
+     "lokalId": "1214002",
+     "total": 314,
+     "dagarMedRoster": 4,
+     "storstaDag": 92,
+     "andel": 8.6
     },
     {
      "namn": "Billeberga scoutstuga",
@@ -1216,34 +1243,7 @@
      "total": 306,
      "dagarMedRoster": 4,
      "storstaDag": 102,
-     "andel": 9.8
-    },
-    {
-     "namn": "Kågerödslund",
-     "kommun": "Svalöv",
-     "lokalId": "1214008",
-     "total": 273,
-     "dagarMedRoster": 2,
-     "storstaDag": 145,
-     "andel": 8.8
-    },
-    {
-     "namn": "Röstånga turistinformation",
-     "kommun": "Svalöv",
-     "lokalId": "1214002",
-     "total": 251,
-     "dagarMedRoster": 4,
-     "storstaDag": 92,
-     "andel": 8.1
-    },
-    {
-     "namn": "Teckomatorps församlingshem",
-     "kommun": "Svalöv",
-     "lokalId": "1214005",
-     "total": 185,
-     "dagarMedRoster": 2,
-     "storstaDag": 110,
-     "andel": 5.9
+     "andel": 8.4
     },
     {
      "namn": "Tågarps klubbstuga",
@@ -1252,7 +1252,7 @@
      "total": 101,
      "dagarMedRoster": 2,
      "storstaDag": 56,
-     "andel": 3.2
+     "andel": 2.8
     },
     {
      "namn": "Aktivitetshuset Kvarnen",
@@ -1261,7 +1261,7 @@
      "total": 74,
      "dagarMedRoster": 2,
      "storstaDag": 41,
-     "andel": 2.4
+     "andel": 2.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1270,7 +1270,7 @@
      "total": 32,
      "dagarMedRoster": 7,
      "storstaDag": 9,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Heleneborgshallen, Sal A1",

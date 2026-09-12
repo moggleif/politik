@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T18:45+02:00",
+ "senastUppdaterad": "2026-09-12T10:49+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1567,7 +1567,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T18:45+02:00",
+   "hamtad": "2026-09-12T10:49+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1686,11 +1686,11 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 409,
-     "ack": 18651
+     "antal": 1565,
+     "ack": 19807
     }
    ],
-   "total": 18651,
+   "total": 19807,
    "rostberattigade": {
     "riksdag": 56257,
     "kommun": 57789,
@@ -1708,10 +1708,10 @@
      "namn": "Kulturhuset Strömmen",
      "kommun": "Kalmar",
      "lokalId": "0880023",
-     "total": 10076,
+     "total": 10753,
      "dagarMedRoster": 17,
-     "storstaDag": 985,
-     "andel": 54.0
+     "storstaDag": 1042,
+     "andel": 54.3
     },
     {
      "namn": "Biblioteket Lindsdal",
@@ -1720,7 +1720,7 @@
      "total": 1549,
      "dagarMedRoster": 8,
      "storstaDag": 288,
-     "andel": 8.3
+     "andel": 7.8
     },
     {
      "namn": "Biblioteket Bergavik",
@@ -1729,7 +1729,25 @@
      "total": 1395,
      "dagarMedRoster": 8,
      "storstaDag": 265,
-     "andel": 7.5
+     "andel": 7.0
+    },
+    {
+     "namn": "Träffpunkt Skogsrået",
+     "kommun": "Kalmar",
+     "lokalId": "0880021",
+     "total": 936,
+     "dagarMedRoster": 8,
+     "storstaDag": 197,
+     "andel": 4.7
+    },
+    {
+     "namn": "Träffpunkt Stensberg",
+     "kommun": "Kalmar",
+     "lokalId": "0880022",
+     "total": 787,
+     "dagarMedRoster": 5,
+     "storstaDag": 234,
+     "andel": 4.0
     },
     {
      "namn": "Allaktivitetshuset Rockneby",
@@ -1738,16 +1756,7 @@
      "total": 745,
      "dagarMedRoster": 5,
      "storstaDag": 197,
-     "andel": 4.0
-    },
-    {
-     "namn": "Träffpunkt Skogsrået",
-     "kommun": "Kalmar",
-     "lokalId": "0880021",
-     "total": 739,
-     "dagarMedRoster": 7,
-     "storstaDag": 148,
-     "andel": 4.0
+     "andel": 3.8
     },
     {
      "namn": "Biblioteket Ljungbyholm",
@@ -1756,7 +1765,7 @@
      "total": 668,
      "dagarMedRoster": 5,
      "storstaDag": 193,
-     "andel": 3.6
+     "andel": 3.4
     },
     {
      "namn": "Biblioteket Rinkabyholm",
@@ -1765,16 +1774,7 @@
      "total": 663,
      "dagarMedRoster": 5,
      "storstaDag": 214,
-     "andel": 3.6
-    },
-    {
-     "namn": "Träffpunkt Stensberg",
-     "kommun": "Kalmar",
-     "lokalId": "0880022",
-     "total": 597,
-     "dagarMedRoster": 5,
-     "storstaDag": 151,
-     "andel": 3.2
+     "andel": 3.3
     },
     {
      "namn": "Träffpunkt Ingelstorpsvägen 1",
@@ -1783,7 +1783,7 @@
      "total": 554,
      "dagarMedRoster": 5,
      "storstaDag": 147,
-     "andel": 3.0
+     "andel": 2.8
     },
     {
      "namn": "Biblioteket Hagby",
@@ -1792,7 +1792,7 @@
      "total": 523,
      "dagarMedRoster": 3,
      "storstaDag": 231,
-     "andel": 2.8
+     "andel": 2.6
     },
     {
      "namn": "Biblioteket Trekanten",
@@ -1801,7 +1801,7 @@
      "total": 453,
      "dagarMedRoster": 5,
      "storstaDag": 118,
-     "andel": 2.4
+     "andel": 2.3
     },
     {
      "namn": "Biblioteket Påryd",
@@ -1810,7 +1810,7 @@
      "total": 226,
      "dagarMedRoster": 3,
      "storstaDag": 117,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Träffpunkt Äringen",
@@ -1822,13 +1822,22 @@
      "andel": 0.6
     },
     {
+     "namn": "Länssjukhuset Kalmar",
+     "kommun": "Kalmar",
+     "lokalId": "0880001",
+     "total": 79,
+     "dagarMedRoster": 1,
+     "storstaDag": 79,
+     "andel": 0.4
+    },
+    {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kalmar",
      "lokalId": "0880029",
-     "total": 61,
-     "dagarMedRoster": 7,
+     "total": 74,
+     "dagarMedRoster": 8,
      "storstaDag": 13,
-     "andel": 0.3
+     "andel": 0.4
     },
     {
      "namn": "Kriminalvårdsanstalten",
@@ -1864,7 +1873,7 @@
      "total": 28,
      "dagarMedRoster": 1,
      "storstaDag": 28,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Varvet",
@@ -1937,15 +1946,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 12,
      "andel": 0.1
-    },
-    {
-     "namn": "Länssjukhuset Kalmar",
-     "kommun": "Kalmar",
-     "lokalId": "0880001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Stadshuset",

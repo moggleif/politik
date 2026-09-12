@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-11T18:45+02:00",
+ "senastUppdaterad": "2026-09-12T10:49+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,7 +919,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-11T18:45+02:00",
+   "hamtad": "2026-09-12T10:49+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1038,11 +1038,11 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 46,
-     "ack": 3140
+     "antal": 270,
+     "ack": 3364
     }
    ],
-   "total": 3140,
+   "total": 3364,
    "rostberattigade": {
     "riksdag": 10408,
     "kommun": 10783,
@@ -1057,22 +1057,22 @@
    },
    "lokaler": [
     {
+     "namn": "Broby Bibliotek",
+     "kommun": "Östra Göinge",
+     "lokalId": "1256001",
+     "total": 1167,
+     "dagarMedRoster": 8,
+     "storstaDag": 260,
+     "andel": 34.7
+    },
+    {
      "namn": "Knislinge Bibliotek",
      "kommun": "Östra Göinge",
      "lokalId": "1256005",
      "total": 1006,
      "dagarMedRoster": 9,
      "storstaDag": 205,
-     "andel": 32.0
-    },
-    {
-     "namn": "Broby Bibliotek",
-     "kommun": "Östra Göinge",
-     "lokalId": "1256001",
-     "total": 953,
-     "dagarMedRoster": 8,
-     "storstaDag": 197,
-     "andel": 30.4
+     "andel": 29.9
     },
     {
      "namn": "Glimåkra Bibliotek",
@@ -1081,7 +1081,7 @@
      "total": 444,
      "dagarMedRoster": 6,
      "storstaDag": 135,
-     "andel": 14.1
+     "andel": 13.2
     },
     {
      "namn": "Sibbhults Bibliotek",
@@ -1090,7 +1090,7 @@
      "total": 370,
      "dagarMedRoster": 5,
      "storstaDag": 108,
-     "andel": 11.8
+     "andel": 11.0
     },
     {
      "namn": "Hanaskogs Bibliotek",
@@ -1099,16 +1099,16 @@
      "total": 291,
      "dagarMedRoster": 5,
      "storstaDag": 97,
-     "andel": 9.3
+     "andel": 8.7
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Östra Göinge",
      "lokalId": "1256007",
-     "total": 76,
-     "dagarMedRoster": 6,
+     "total": 86,
+     "dagarMedRoster": 7,
      "storstaDag": 25,
-     "andel": 2.4
+     "andel": 2.6
     },
     {
      "namn": "Kommunhuset",
