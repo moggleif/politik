@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -937,8 +937,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1065,9 +1065,16 @@
      "kvar": 1,
      "antal": 148,
      "ack": 1879
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 19,
+     "ack": 1898
     }
    ],
-   "total": 1879,
+   "total": 1898,
    "rostberattigade": {
     "riksdag": 4208,
     "kommun": 4410,
@@ -1088,7 +1095,7 @@
      "total": 1789,
      "dagarMedRoster": 17,
      "storstaDag": 148,
-     "andel": 95.2
+     "andel": 94.3
     },
     {
      "namn": "Församlingshemmet Tived",
@@ -1097,7 +1104,16 @@
      "total": 78,
      "dagarMedRoster": 1,
      "storstaDag": 78,
-     "andel": 4.2
+     "andel": 4.1
+    },
+    {
+     "namn": "Centralskolans matsal",
+     "kommun": "Laxå",
+     "lokalId": "1860003",
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 1.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1107,15 +1123,6 @@
      "dagarMedRoster": 4,
      "storstaDag": 5,
      "andel": 0.6
-    },
-    {
-     "namn": "Centralskolans matsal",
-     "kommun": "Laxå",
-     "lokalId": "1860003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 4,

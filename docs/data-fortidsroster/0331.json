@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,8 +973,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1101,9 +1101,16 @@
      "kvar": 1,
      "antal": 402,
      "ack": 4743
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 224,
+     "ack": 4967
     }
    ],
-   "total": 4743,
+   "total": 4967,
    "rostberattigade": {
     "riksdag": 11040,
     "kommun": 11452,
@@ -1124,7 +1131,7 @@
      "total": 2050,
      "dagarMedRoster": 18,
      "storstaDag": 310,
-     "andel": 43.2
+     "andel": 41.3
     },
     {
      "namn": "Fokus, Östervåla",
@@ -1133,7 +1140,7 @@
      "total": 1432,
      "dagarMedRoster": 6,
      "storstaDag": 344,
-     "andel": 30.2
+     "andel": 28.8
     },
     {
      "namn": "Kyrkans allrum, Morgongåva",
@@ -1142,7 +1149,7 @@
      "total": 492,
      "dagarMedRoster": 3,
      "storstaDag": 206,
-     "andel": 10.4
+     "andel": 9.9
     },
     {
      "namn": "Folkets hus, Tärnsjö",
@@ -1151,7 +1158,7 @@
      "total": 472,
      "dagarMedRoster": 4,
      "storstaDag": 259,
-     "andel": 10.0
+     "andel": 9.5
     },
     {
      "namn": "Birgittagården, Harbo",
@@ -1160,43 +1167,43 @@
      "total": 194,
      "dagarMedRoster": 2,
      "storstaDag": 148,
-     "andel": 4.1
+     "andel": 3.9
     },
     {
      "namn": "Församlingshemmet, Huddunge",
      "kommun": "Heby",
      "lokalId": "0331005",
-     "total": 44,
-     "dagarMedRoster": 1,
-     "storstaDag": 44,
-     "andel": 0.9
+     "total": 144,
+     "dagarMedRoster": 2,
+     "storstaDag": 100,
+     "andel": 2.9
     },
     {
      "namn": "Enåkers Bygdegård",
      "kommun": "Heby",
      "lokalId": "0331004",
-     "total": 43,
-     "dagarMedRoster": 1,
-     "storstaDag": 43,
-     "andel": 0.9
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Heby",
-     "lokalId": "0331008",
-     "total": 16,
+     "total": 138,
      "dagarMedRoster": 2,
-     "storstaDag": 13,
-     "andel": 0.3
+     "storstaDag": 95,
+     "andel": 2.8
     },
     {
      "namn": "Kommunhuset, Heby",
      "kommun": "Heby",
      "lokalId": "0331009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 28,
+     "dagarMedRoster": 1,
+     "storstaDag": 28,
+     "andel": 0.6
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Heby",
+     "lokalId": "0331008",
+     "total": 17,
+     "dagarMedRoster": 3,
+     "storstaDag": 13,
+     "andel": 0.3
     }
    ],
    "antalLokaler": 9,

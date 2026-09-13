@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -2467,8 +2467,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -2595,9 +2595,16 @@
      "kvar": 1,
      "antal": 2071,
      "ack": 27042
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 764,
+     "ack": 27806
     }
    ],
-   "total": 27042,
+   "total": 27806,
    "rostberattigade": {
     "riksdag": 57274,
     "kommun": 59715,
@@ -2615,10 +2622,10 @@
      "namn": "Sara Kulturhus",
      "kommun": "Skellefteå",
      "lokalId": "2482037",
-     "total": 14233,
-     "dagarMedRoster": 18,
+     "total": 14375,
+     "dagarMedRoster": 19,
      "storstaDag": 1632,
-     "andel": 52.6
+     "andel": 51.7
     },
     {
      "namn": "Campus, bibliotek",
@@ -2627,7 +2634,7 @@
      "total": 1323,
      "dagarMedRoster": 13,
      "storstaDag": 267,
-     "andel": 4.9
+     "andel": 4.8
     },
     {
      "namn": "Morö backe, Fritidsgården Loftet",
@@ -2636,7 +2643,7 @@
      "total": 1143,
      "dagarMedRoster": 8,
      "storstaDag": 261,
-     "andel": 4.2
+     "andel": 4.1
     },
     {
      "namn": "Skellefteå sjukhus",
@@ -2645,7 +2652,7 @@
      "total": 1108,
      "dagarMedRoster": 13,
      "storstaDag": 189,
-     "andel": 4.1
+     "andel": 4.0
     },
     {
      "namn": "Kåge bibliotek",
@@ -2654,7 +2661,7 @@
      "total": 1068,
      "dagarMedRoster": 8,
      "storstaDag": 304,
-     "andel": 3.9
+     "andel": 3.8
     },
     {
      "namn": "Ursvikens bibliotek",
@@ -2663,7 +2670,7 @@
      "total": 1055,
      "dagarMedRoster": 10,
      "storstaDag": 254,
-     "andel": 3.9
+     "andel": 3.8
     },
     {
      "namn": "Bureå bibliotek",
@@ -2672,7 +2679,7 @@
      "total": 968,
      "dagarMedRoster": 8,
      "storstaDag": 270,
-     "andel": 3.6
+     "andel": 3.5
     },
     {
      "namn": "Edelvik folkhögskola",
@@ -2681,7 +2688,7 @@
      "total": 929,
      "dagarMedRoster": 8,
      "storstaDag": 242,
-     "andel": 3.4
+     "andel": 3.3
     },
     {
      "namn": "Byske bibliotek",
@@ -2708,7 +2715,7 @@
      "total": 786,
      "dagarMedRoster": 13,
      "storstaDag": 124,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Boliden, bibliotek",
@@ -2717,7 +2724,7 @@
      "total": 570,
      "dagarMedRoster": 8,
      "storstaDag": 171,
-     "andel": 2.1
+     "andel": 2.0
     },
     {
      "namn": "Solbacken",
@@ -2744,7 +2751,7 @@
      "total": 346,
      "dagarMedRoster": 8,
      "storstaDag": 96,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Ålund, Bygdegården",
@@ -2753,7 +2760,43 @@
      "total": 96,
      "dagarMedRoster": 1,
      "storstaDag": 96,
-     "andel": 0.4
+     "andel": 0.3
+    },
+    {
+     "namn": "Drängsmark, Drängsmarkskolan",
+     "kommun": "Skellefteå",
+     "lokalId": "2482007",
+     "total": 89,
+     "dagarMedRoster": 1,
+     "storstaDag": 89,
+     "andel": 0.3
+    },
+    {
+     "namn": "Ersmark, Ersmarksskolan",
+     "kommun": "Skellefteå",
+     "lokalId": "2482010",
+     "total": 85,
+     "dagarMedRoster": 1,
+     "storstaDag": 85,
+     "andel": 0.3
+    },
+    {
+     "namn": "Sandfors, Bönhuset",
+     "kommun": "Skellefteå",
+     "lokalId": "2482012",
+     "total": 82,
+     "dagarMedRoster": 1,
+     "storstaDag": 82,
+     "andel": 0.3
+    },
+    {
+     "namn": "Bygdsiljum, Siljegården",
+     "kommun": "Skellefteå",
+     "lokalId": "2482006",
+     "total": 80,
+     "dagarMedRoster": 1,
+     "storstaDag": 80,
+     "andel": 0.3
     },
     {
      "namn": "Boviken, Hembygdsgården",
@@ -2762,6 +2805,15 @@
      "total": 71,
      "dagarMedRoster": 1,
      "storstaDag": 71,
+     "andel": 0.3
+    },
+    {
+     "namn": "Fällfors, Aktivitetshuset Älvan",
+     "kommun": "Skellefteå",
+     "lokalId": "2482034",
+     "total": 70,
+     "dagarMedRoster": 1,
+     "storstaDag": 70,
      "andel": 0.3
     },
     {
@@ -2780,7 +2832,7 @@
      "total": 69,
      "dagarMedRoster": 1,
      "storstaDag": 69,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Ljusvattnet, Kapellet",
@@ -2789,7 +2841,25 @@
      "total": 68,
      "dagarMedRoster": 1,
      "storstaDag": 68,
-     "andel": 0.3
+     "andel": 0.2
+    },
+    {
+     "namn": "Åbyn (Byske), Brännfors byggnadsför.",
+     "kommun": "Skellefteå",
+     "lokalId": "2482024",
+     "total": 65,
+     "dagarMedRoster": 1,
+     "storstaDag": 65,
+     "andel": 0.2
+    },
+    {
+     "namn": "Gummarksskolan",
+     "kommun": "Skellefteå",
+     "lokalId": "2482009",
+     "total": 60,
+     "dagarMedRoster": 1,
+     "storstaDag": 60,
+     "andel": 0.2
     },
     {
      "namn": "Norrlångträsk, Byagården",
@@ -2804,6 +2874,15 @@
      "namn": "Bygdeträsk, Allégården",
      "kommun": "Skellefteå",
      "lokalId": "2482011",
+     "total": 55,
+     "dagarMedRoster": 1,
+     "storstaDag": 55,
+     "andel": 0.2
+    },
+    {
+     "namn": "Örviken, Folkets hus",
+     "kommun": "Skellefteå",
+     "lokalId": "2482003",
      "total": 55,
      "dagarMedRoster": 1,
      "storstaDag": 55,
@@ -2834,7 +2913,7 @@
      "total": 41,
      "dagarMedRoster": 1,
      "storstaDag": 41,
-     "andel": 0.2
+     "andel": 0.1
     },
     {
      "namn": "Hökmark, Samlingslokalen",
@@ -2852,6 +2931,15 @@
      "total": 40,
      "dagarMedRoster": 1,
      "storstaDag": 40,
+     "andel": 0.1
+    },
+    {
+     "namn": "Falmark, Skellefteå Airport",
+     "kommun": "Skellefteå",
+     "lokalId": "2482004",
+     "total": 36,
+     "dagarMedRoster": 1,
+     "storstaDag": 36,
      "andel": 0.1
     },
     {
@@ -2963,45 +3051,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Bygdsiljum, Siljegården",
-     "kommun": "Skellefteå",
-     "lokalId": "2482006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Dammen",
      "kommun": "Skellefteå",
      "lokalId": "2482067",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Drängsmark, Drängsmarkskolan",
-     "kommun": "Skellefteå",
-     "lokalId": "2482007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Ersmark, Ersmarksskolan",
-     "kommun": "Skellefteå",
-     "lokalId": "2482010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Falmark, Skellefteå Airport",
-     "kommun": "Skellefteå",
-     "lokalId": "2482004",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
@@ -3017,27 +3069,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Fällfors, Aktivitetshuset Älvan",
-     "kommun": "Skellefteå",
-     "lokalId": "2482034",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Guldstadsgymnasiet",
      "kommun": "Skellefteå",
      "lokalId": "2482070",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Gummarksskolan",
-     "kommun": "Skellefteå",
-     "lokalId": "2482009",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
@@ -3152,15 +3186,6 @@
      "andel": 0.0
     },
     {
-     "namn": "Sandfors, Bönhuset",
-     "kommun": "Skellefteå",
-     "lokalId": "2482012",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Seniortorg Nordanå",
      "kommun": "Skellefteå",
      "lokalId": "2482058",
@@ -3260,27 +3285,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Åbyn (Byske), Brännfors byggnadsför.",
-     "kommun": "Skellefteå",
-     "lokalId": "2482024",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Ömheten",
      "kommun": "Skellefteå",
      "lokalId": "2482056",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Örviken, Folkets hus",
-     "kommun": "Skellefteå",
-     "lokalId": "2482003",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

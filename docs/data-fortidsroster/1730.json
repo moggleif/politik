@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,8 +811,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -937,11 +937,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 331,
-     "ack": 3130
+     "antal": 332,
+     "ack": 3131
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 12,
+     "ack": 3143
     }
    ],
-   "total": 3130,
+   "total": 3143,
    "rostberattigade": {
     "riksdag": 5491,
     "kommun": 6597,
@@ -959,10 +966,10 @@
      "namn": "Charlottenbergs Folkets Hus",
      "kommun": "Eda",
      "lokalId": "1730004",
-     "total": 2083,
-     "dagarMedRoster": 18,
+     "total": 2095,
+     "dagarMedRoster": 19,
      "storstaDag": 223,
-     "andel": 66.5
+     "andel": 66.7
     },
     {
      "namn": "Älvgården",
@@ -971,13 +978,13 @@
      "total": 551,
      "dagarMedRoster": 5,
      "storstaDag": 184,
-     "andel": 17.6
+     "andel": 17.5
     },
     {
      "namn": "Gillevihallen",
      "kommun": "Eda",
      "lokalId": "1730006",
-     "total": 353,
+     "total": 354,
      "dagarMedRoster": 4,
      "storstaDag": 156,
      "andel": 11.3
@@ -998,7 +1005,7 @@
      "total": 33,
      "dagarMedRoster": 9,
      "storstaDag": 13,
-     "andel": 1.1
+     "andel": 1.0
     }
    ],
    "antalLokaler": 5,

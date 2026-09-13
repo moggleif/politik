@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -874,8 +874,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -979,32 +979,39 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 1059,
-     "ack": 8441
+     "antal": 1060,
+     "ack": 8442
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
      "antal": 949,
-     "ack": 9390
+     "ack": 9391
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
      "antal": 1022,
-     "ack": 10412
+     "ack": 10413
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 948,
-     "ack": 11360
+     "antal": 952,
+     "ack": 11365
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 162,
+     "ack": 11527
     }
    ],
-   "total": 11360,
+   "total": 11527,
    "rostberattigade": {
     "riksdag": 24348,
     "kommun": 24940,
@@ -1022,19 +1029,19 @@
      "namn": "Galleria Center Syd",
      "kommun": "Kävlinge",
      "lokalId": "1261005",
-     "total": 7273,
-     "dagarMedRoster": 16,
+     "total": 7398,
+     "dagarMedRoster": 17,
      "storstaDag": 725,
-     "andel": 64.0
+     "andel": 64.2
     },
     {
      "namn": "Kommunhuset, Kävlinge",
      "kommun": "Kävlinge",
      "lokalId": "1261004",
-     "total": 3723,
-     "dagarMedRoster": 16,
+     "total": 3765,
+     "dagarMedRoster": 17,
      "storstaDag": 357,
-     "andel": 32.8
+     "andel": 32.7
     },
     {
      "namn": "Ljungenskolans matsal Furulund",

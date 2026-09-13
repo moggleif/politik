@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,8 +865,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -984,18 +984,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 560,
-     "ack": 4099
+     "antal": 561,
+     "ack": 4100
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 201,
-     "ack": 4300
+     "antal": 202,
+     "ack": 4302
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 375,
+     "ack": 4677
     }
    ],
-   "total": 4300,
+   "total": 4677,
    "rostberattigade": {
     "riksdag": 10946,
     "kommun": 11490,
@@ -1013,64 +1020,64 @@
      "namn": "Folkets hus, Vaggeryd",
      "kommun": "Vaggeryd",
      "lokalId": "0665005",
-     "total": 2494,
+     "total": 2495,
      "dagarMedRoster": 16,
      "storstaDag": 341,
-     "andel": 58.0
+     "andel": 53.3
     },
     {
      "namn": "Äldrecentrum Mejeriet, Skillingaryd",
      "kommun": "Vaggeryd",
      "lokalId": "0665006",
-     "total": 1769,
-     "dagarMedRoster": 15,
+     "total": 1830,
+     "dagarMedRoster": 16,
      "storstaDag": 219,
-     "andel": 41.1
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Vaggeryd",
-     "lokalId": "0665007",
-     "total": 37,
-     "dagarMedRoster": 3,
-     "storstaDag": 22,
-     "andel": 0.9
+     "andel": 39.1
     },
     {
      "namn": "Särskild röstmottagning i Bondstorp",
      "kommun": "Vaggeryd",
      "lokalId": "0665001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 123,
+     "dagarMedRoster": 1,
+     "storstaDag": 123,
+     "andel": 2.6
     },
     {
      "namn": "Särskild röstmottagning i Hagshult",
      "kommun": "Vaggeryd",
      "lokalId": "0665004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 79,
+     "dagarMedRoster": 1,
+     "storstaDag": 79,
+     "andel": 1.7
     },
     {
      "namn": "Särskild röstmottagning i Tofteryd",
      "kommun": "Vaggeryd",
      "lokalId": "0665002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 79,
+     "dagarMedRoster": 1,
+     "storstaDag": 79,
+     "andel": 1.7
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Vaggeryd",
+     "lokalId": "0665007",
+     "total": 38,
+     "dagarMedRoster": 4,
+     "storstaDag": 22,
+     "andel": 0.8
     },
     {
      "namn": "Särskild röstmottagning i Åker",
      "kommun": "Vaggeryd",
      "lokalId": "0665003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
+     "andel": 0.7
     }
    ],
    "antalLokaler": 7,

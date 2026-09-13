@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -721,8 +721,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -849,9 +849,16 @@
      "kvar": 1,
      "antal": 283,
      "ack": 3270
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 35,
+     "ack": 3305
     }
    ],
-   "total": 3270,
+   "total": 3305,
    "rostberattigade": {
     "riksdag": 6923,
     "kommun": 7197,
@@ -869,10 +876,10 @@
      "namn": "Grums bibliotek",
      "kommun": "Grums",
      "lokalId": "1764001",
-     "total": 3101,
-     "dagarMedRoster": 18,
+     "total": 3136,
+     "dagarMedRoster": 19,
      "storstaDag": 302,
-     "andel": 94.8
+     "andel": 94.9
     },
     {
      "namn": "Ambulerande röstmottagning",

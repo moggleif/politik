@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,8 +991,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1117,11 +1117,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 393,
-     "ack": 6626
+     "antal": 395,
+     "ack": 6628
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 27,
+     "ack": 6655
     }
    ],
-   "total": 6626,
+   "total": 6655,
    "rostberattigade": {
     "riksdag": 13866,
     "kommun": 14118,
@@ -1139,10 +1146,10 @@
      "namn": "Biblioteket Timrå",
      "kommun": "Timrå",
      "lokalId": "2262004",
-     "total": 4074,
+     "total": 4075,
      "dagarMedRoster": 16,
      "storstaDag": 441,
-     "andel": 61.5
+     "andel": 61.2
     },
     {
      "namn": "Söråkers Folkets Hus",
@@ -1151,7 +1158,7 @@
      "total": 1467,
      "dagarMedRoster": 16,
      "storstaDag": 224,
-     "andel": 22.1
+     "andel": 22.0
     },
     {
      "namn": "HSB brf Berge",
@@ -1166,8 +1173,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Timrå",
      "lokalId": "2262006",
-     "total": 127,
-     "dagarMedRoster": 11,
+     "total": 128,
+     "dagarMedRoster": 12,
      "storstaDag": 29,
      "andel": 1.9
     },
@@ -1184,9 +1191,9 @@
      "namn": "Aktivitetshuset Pangea",
      "kommun": "Timrå",
      "lokalId": "2262008",
-     "total": 107,
+     "total": 108,
      "dagarMedRoster": 2,
-     "storstaDag": 91,
+     "storstaDag": 92,
      "andel": 1.6
     },
     {
@@ -1211,10 +1218,10 @@
      "namn": "Kommunhuset",
      "kommun": "Timrå",
      "lokalId": "2262003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 26,
+     "dagarMedRoster": 1,
+     "storstaDag": 26,
+     "andel": 0.4
     }
    ],
    "antalLokaler": 9,

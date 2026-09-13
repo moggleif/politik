@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1063,8 +1063,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1191,9 +1191,16 @@
      "kvar": 1,
      "antal": 206,
      "ack": 2426
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 28,
+     "ack": 2454
     }
    ],
-   "total": 2426,
+   "total": 2454,
    "rostberattigade": {
     "riksdag": 6333,
     "kommun": 7367,
@@ -1211,10 +1218,10 @@
      "namn": "Klippanhuset, vid stadsbiblioteket",
      "kommun": "Haparanda",
      "lokalId": "2583001",
-     "total": 2330,
-     "dagarMedRoster": 18,
+     "total": 2358,
+     "dagarMedRoster": 19,
      "storstaDag": 217,
-     "andel": 96.0
+     "andel": 96.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1223,7 +1230,7 @@
      "total": 96,
      "dagarMedRoster": 8,
      "storstaDag": 55,
-     "andel": 4.0
+     "andel": 3.9
     },
     {
      "namn": "Säivis Byagård",

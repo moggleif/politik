@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1135,8 +1135,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1263,9 +1263,16 @@
      "kvar": 1,
      "antal": 911,
      "ack": 10499
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 135,
+     "ack": 10634
     }
    ],
-   "total": 10499,
+   "total": 10634,
    "rostberattigade": {
     "riksdag": 23547,
     "kommun": 24548,
@@ -1283,10 +1290,10 @@
      "namn": "Stadsbiblioteket Nässjö",
      "kommun": "Nässjö",
      "lokalId": "0682005",
-     "total": 7658,
-     "dagarMedRoster": 18,
+     "total": 7793,
+     "dagarMedRoster": 19,
      "storstaDag": 693,
-     "andel": 72.9
+     "andel": 73.3
     },
     {
      "namn": "Biblioteket Bodafors",
@@ -1295,7 +1302,7 @@
      "total": 882,
      "dagarMedRoster": 6,
      "storstaDag": 185,
-     "andel": 8.4
+     "andel": 8.3
     },
     {
      "namn": "Biblioteket Forserum",
@@ -1304,7 +1311,7 @@
      "total": 775,
      "dagarMedRoster": 6,
      "storstaDag": 178,
-     "andel": 7.4
+     "andel": 7.3
     },
     {
      "namn": "Annebergs bibliotek",
@@ -1313,7 +1320,7 @@
      "total": 449,
      "dagarMedRoster": 6,
      "storstaDag": 108,
-     "andel": 4.3
+     "andel": 4.2
     },
     {
      "namn": "Biblioteket Malmbäck",
@@ -1322,7 +1329,7 @@
      "total": 430,
      "dagarMedRoster": 6,
      "storstaDag": 97,
-     "andel": 4.1
+     "andel": 4.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1331,7 +1338,7 @@
      "total": 248,
      "dagarMedRoster": 13,
      "storstaDag": 65,
-     "andel": 2.4
+     "andel": 2.3
     },
     {
      "namn": "Brinellgymnasiet",

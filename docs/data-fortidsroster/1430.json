@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,8 +793,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -921,9 +921,16 @@
      "kvar": 1,
      "antal": 186,
      "ack": 3607
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 74,
+     "ack": 3681
     }
    ],
-   "total": 3607,
+   "total": 3681,
    "rostberattigade": {
     "riksdag": 7932,
     "kommun": 8228,
@@ -941,10 +948,10 @@
      "namn": "Kommunhuset Forum Munkedal",
      "kommun": "Munkedal",
      "lokalId": "1430001",
-     "total": 2442,
-     "dagarMedRoster": 18,
+     "total": 2516,
+     "dagarMedRoster": 19,
      "storstaDag": 263,
-     "andel": 67.7
+     "andel": 68.4
     },
     {
      "namn": "Utvecklingscentrum Munkedal (Dingle)",
@@ -953,7 +960,7 @@
      "total": 424,
      "dagarMedRoster": 6,
      "storstaDag": 143,
-     "andel": 11.8
+     "andel": 11.5
     },
     {
      "namn": "Bygdegården Hedekas",
@@ -962,7 +969,7 @@
      "total": 359,
      "dagarMedRoster": 7,
      "storstaDag": 139,
-     "andel": 10.0
+     "andel": 9.8
     },
     {
      "namn": "Hällevadsholms Folkets Hus",
@@ -971,7 +978,7 @@
      "total": 340,
      "dagarMedRoster": 7,
      "storstaDag": 112,
-     "andel": 9.4
+     "andel": 9.2
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -980,7 +987,7 @@
      "total": 42,
      "dagarMedRoster": 9,
      "storstaDag": 12,
-     "andel": 1.2
+     "andel": 1.1
     }
    ],
    "antalLokaler": 5,

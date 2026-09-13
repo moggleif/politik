@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1288,8 +1288,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1416,9 +1416,16 @@
      "kvar": 1,
      "antal": 4001,
      "ack": 35449
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 381,
+     "ack": 35830
     }
    ],
-   "total": 35449,
+   "total": 35830,
    "rostberattigade": {
     "riksdag": 79905,
     "kommun": 86928,
@@ -1436,10 +1443,10 @@
      "namn": "Huddinge centrum, Folkes",
      "kommun": "Huddinge",
      "lokalId": "0126006",
-     "total": 7730,
-     "dagarMedRoster": 18,
+     "total": 7930,
+     "dagarMedRoster": 19,
      "storstaDag": 925,
-     "andel": 21.8
+     "andel": 22.1
     },
     {
      "namn": "Skogås bibliotek",
@@ -1448,16 +1455,16 @@
      "total": 4762,
      "dagarMedRoster": 18,
      "storstaDag": 437,
-     "andel": 13.4
+     "andel": 13.3
     },
     {
      "namn": "Karolinska sjukhuset, Huddinge",
      "kommun": "Huddinge",
      "lokalId": "0126002",
-     "total": 4369,
-     "dagarMedRoster": 18,
+     "total": 4544,
+     "dagarMedRoster": 19,
      "storstaDag": 676,
-     "andel": 12.3
+     "andel": 12.7
     },
     {
      "namn": "Huvudbibliotek Huddinge",
@@ -1466,7 +1473,7 @@
      "total": 4302,
      "dagarMedRoster": 18,
      "storstaDag": 456,
-     "andel": 12.1
+     "andel": 12.0
     },
     {
      "namn": "Stuvsta stationshus",
@@ -1475,7 +1482,7 @@
      "total": 3957,
      "dagarMedRoster": 18,
      "storstaDag": 426,
-     "andel": 11.2
+     "andel": 11.0
     },
     {
      "namn": "Flemingsbergs bibliotek",
@@ -1484,7 +1491,7 @@
      "total": 3204,
      "dagarMedRoster": 18,
      "storstaDag": 562,
-     "andel": 9.0
+     "andel": 8.9
     },
     {
      "namn": "Segeltorps bibliotek",
@@ -1493,7 +1500,7 @@
      "total": 2327,
      "dagarMedRoster": 18,
      "storstaDag": 321,
-     "andel": 6.6
+     "andel": 6.5
     },
     {
      "namn": "Eklunden Seniorcenter",
@@ -1502,7 +1509,7 @@
      "total": 2155,
      "dagarMedRoster": 18,
      "storstaDag": 301,
-     "andel": 6.1
+     "andel": 6.0
     },
     {
      "namn": "Vårby bibliotek",
@@ -1511,7 +1518,7 @@
      "total": 1660,
      "dagarMedRoster": 18,
      "storstaDag": 230,
-     "andel": 4.7
+     "andel": 4.6
     },
     {
      "namn": "Expose föreningslokal, Masmo",
@@ -1535,8 +1542,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Huddinge",
      "lokalId": "0126018",
-     "total": 95,
-     "dagarMedRoster": 10,
+     "total": 101,
+     "dagarMedRoster": 11,
      "storstaDag": 29,
      "andel": 0.3
     },

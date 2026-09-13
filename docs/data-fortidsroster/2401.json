@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -730,8 +730,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -856,11 +856,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 157,
-     "ack": 2231
+     "antal": 163,
+     "ack": 2237
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 45,
+     "ack": 2282
     }
    ],
-   "total": 2231,
+   "total": 2282,
    "rostberattigade": {
     "riksdag": 5516,
     "kommun": 5628,
@@ -878,10 +885,10 @@
      "namn": "Norrskenshallen",
      "kommun": "Nordmaling",
      "lokalId": "2401001",
-     "total": 2053,
-     "dagarMedRoster": 18,
+     "total": 2104,
+     "dagarMedRoster": 19,
      "storstaDag": 306,
-     "andel": 92.0
+     "andel": 92.2
     },
     {
      "namn": "Folkets Hus, Rundvik",
@@ -890,7 +897,7 @@
      "total": 165,
      "dagarMedRoster": 2,
      "storstaDag": 117,
-     "andel": 7.4
+     "andel": 7.2
     },
     {
      "namn": "Ambulerande röstmottagning",

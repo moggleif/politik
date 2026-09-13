@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -775,8 +775,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -903,9 +903,16 @@
      "kvar": 1,
      "antal": 1064,
      "ack": 10338
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 92,
+     "ack": 10430
     }
    ],
-   "total": 10338,
+   "total": 10430,
    "rostberattigade": {
     "riksdag": 21373,
     "kommun": 21812,
@@ -926,23 +933,23 @@
      "total": 8380,
      "dagarMedRoster": 18,
      "storstaDag": 689,
-     "andel": 81.1
+     "andel": 80.3
     },
     {
      "namn": "Stenungsunds Arena",
      "kommun": "Stenungsund",
      "lokalId": "1415001",
-     "total": 1857,
-     "dagarMedRoster": 8,
+     "total": 1945,
+     "dagarMedRoster": 9,
      "storstaDag": 368,
-     "andel": 18.0
+     "andel": 18.6
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Stenungsund",
      "lokalId": "1415003",
-     "total": 101,
-     "dagarMedRoster": 9,
+     "total": 105,
+     "dagarMedRoster": 10,
      "storstaDag": 44,
      "andel": 1.0
     }

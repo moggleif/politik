@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,8 +1729,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1743,123 +1743,130 @@
      "datum": "2026-08-27",
      "veckodag": "tor",
      "kvar": 17,
-     "antal": 161336,
-     "ack": 315821
+     "antal": 161337,
+     "ack": 315822
     },
     {
      "datum": "2026-08-28",
      "veckodag": "fre",
      "kvar": 16,
      "antal": 142844,
-     "ack": 458665
+     "ack": 458666
     },
     {
      "datum": "2026-08-29",
      "veckodag": "lör",
      "kvar": 15,
      "antal": 92365,
-     "ack": 551030
+     "ack": 551031
     },
     {
      "datum": "2026-08-30",
      "veckodag": "sön",
      "kvar": 14,
      "antal": 85159,
-     "ack": 636189
+     "ack": 636190
     },
     {
      "datum": "2026-08-31",
      "veckodag": "mån",
      "kvar": 13,
-     "antal": 184077,
-     "ack": 820266
+     "antal": 184083,
+     "ack": 820273
     },
     {
      "datum": "2026-09-01",
      "veckodag": "tis",
      "kvar": 12,
      "antal": 181447,
-     "ack": 1001713
+     "ack": 1001720
     },
     {
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 192917,
-     "ack": 1194630
+     "antal": 192921,
+     "ack": 1194641
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 193410,
-     "ack": 1388040
+     "ack": 1388051
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 176705,
-     "ack": 1564745
+     "ack": 1564756
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 139956,
-     "ack": 1704701
+     "ack": 1704712
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
-     "antal": 134328,
-     "ack": 1839029
+     "antal": 134329,
+     "ack": 1839041
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 258606,
-     "ack": 2097635
+     "antal": 258614,
+     "ack": 2097655
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 285655,
-     "ack": 2383290
+     "antal": 285658,
+     "ack": 2383313
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 304815,
-     "ack": 2688105
+     "antal": 304869,
+     "ack": 2688182
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 330567,
-     "ack": 3018672
+     "antal": 330618,
+     "ack": 3018800
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 358622,
-     "ack": 3377294
+     "antal": 358893,
+     "ack": 3377693
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 265538,
-     "ack": 3642832
+     "antal": 266191,
+     "ack": 3643884
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 40141,
+     "ack": 3684025
     }
    ],
-   "total": 3642832,
+   "total": 3684025,
    "rostberattigade": {
     "riksdag": 8046725,
     "kommun": 8401213,
@@ -1877,8 +1884,8 @@
      "namn": "Nordstan",
      "kommun": "Göteborg",
      "lokalId": "1480080",
-     "total": 26332,
-     "dagarMedRoster": 18,
+     "total": 27076,
+     "dagarMedRoster": 19,
      "storstaDag": 2188,
      "andel": 0.7
     },
@@ -1886,8 +1893,8 @@
      "namn": "Frölunda Torg köpcenter",
      "kommun": "Göteborg",
      "lokalId": "1480081",
-     "total": 19238,
-     "dagarMedRoster": 18,
+     "total": 19790,
+     "dagarMedRoster": 19,
      "storstaDag": 1680,
      "andel": 0.5
     },
@@ -1895,8 +1902,8 @@
      "namn": "Kungsmässan",
      "kommun": "Kungsbacka",
      "lokalId": "1384008",
-     "total": 18904,
-     "dagarMedRoster": 18,
+     "total": 19130,
+     "dagarMedRoster": 19,
      "storstaDag": 1709,
      "andel": 0.5
     },
@@ -1904,8 +1911,8 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Göteborg",
      "lokalId": "1480073",
-     "total": 17938,
-     "dagarMedRoster": 18,
+     "total": 18266,
+     "dagarMedRoster": 19,
      "storstaDag": 1670,
      "andel": 0.5
     },
@@ -1913,9 +1920,9 @@
      "namn": "Gränbystaden Galleria",
      "kommun": "Uppsala",
      "lokalId": "0380025",
-     "total": 17600,
-     "dagarMedRoster": 18,
-     "storstaDag": 1355,
+     "total": 17932,
+     "dagarMedRoster": 19,
+     "storstaDag": 1362,
      "andel": 0.5
     },
     {
@@ -1931,8 +1938,8 @@
      "namn": "Stockholms central, Centralhallen",
      "kommun": "Stockholm",
      "lokalId": "0180023",
-     "total": 16528,
-     "dagarMedRoster": 18,
+     "total": 17262,
+     "dagarMedRoster": 19,
      "storstaDag": 1909,
      "andel": 0.5
     },
@@ -1940,7 +1947,7 @@
      "namn": "Luleå Energi Arena",
      "kommun": "Luleå",
      "lokalId": "2580016",
-     "total": 16371,
+     "total": 16373,
      "dagarMedRoster": 18,
      "storstaDag": 1713,
      "andel": 0.4
@@ -1949,8 +1956,8 @@
      "namn": "Mobilia",
      "kommun": "Malmö",
      "lokalId": "1280033",
-     "total": 15050,
-     "dagarMedRoster": 18,
+     "total": 15618,
+     "dagarMedRoster": 19,
      "storstaDag": 1393,
      "andel": 0.4
     },
@@ -1958,8 +1965,8 @@
      "namn": "Bibliotekshuset",
      "kommun": "Karlstad",
      "lokalId": "1780010",
-     "total": 14765,
-     "dagarMedRoster": 18,
+     "total": 14974,
+     "dagarMedRoster": 19,
      "storstaDag": 1611,
      "andel": 0.4
     },
@@ -1967,7 +1974,7 @@
      "namn": "Nacka Forum, plan 0",
      "kommun": "Nacka",
      "lokalId": "0182002",
-     "total": 14402,
+     "total": 14447,
      "dagarMedRoster": 18,
      "storstaDag": 1300,
      "andel": 0.4
@@ -1982,21 +1989,21 @@
      "andel": 0.4
     },
     {
+     "namn": "Sara Kulturhus",
+     "kommun": "Skellefteå",
+     "lokalId": "2482037",
+     "total": 14375,
+     "dagarMedRoster": 19,
+     "storstaDag": 1632,
+     "andel": 0.4
+    },
+    {
      "namn": "Medborgarhuset",
      "kommun": "Stockholm",
      "lokalId": "0180028",
      "total": 14264,
      "dagarMedRoster": 18,
      "storstaDag": 1196,
-     "andel": 0.4
-    },
-    {
-     "namn": "Sara Kulturhus",
-     "kommun": "Skellefteå",
-     "lokalId": "2482037",
-     "total": 14233,
-     "dagarMedRoster": 18,
-     "storstaDag": 1632,
      "andel": 0.4
     },
     {
@@ -2012,8 +2019,8 @@
      "namn": "Stadshuset",
      "kommun": "Lidköping",
      "lokalId": "1494001",
-     "total": 13360,
-     "dagarMedRoster": 18,
+     "total": 13478,
+     "dagarMedRoster": 19,
      "storstaDag": 1367,
      "andel": 0.4
     },
@@ -2021,27 +2028,27 @@
      "namn": "Marieberg Galleria",
      "kommun": "Örebro",
      "lokalId": "1880012",
-     "total": 12854,
+     "total": 12855,
      "dagarMedRoster": 18,
-     "storstaDag": 1300,
-     "andel": 0.4
-    },
-    {
-     "namn": "Agnes kulturhus",
-     "kommun": "Gävle",
-     "lokalId": "2180005",
-     "total": 12561,
-     "dagarMedRoster": 18,
-     "storstaDag": 1091,
+     "storstaDag": 1301,
      "andel": 0.3
     },
     {
      "namn": "Farsta bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180007",
-     "total": 12489,
-     "dagarMedRoster": 18,
+     "total": 12842,
+     "dagarMedRoster": 19,
      "storstaDag": 1081,
+     "andel": 0.3
+    },
+    {
+     "namn": "Agnes kulturhus",
+     "kommun": "Gävle",
+     "lokalId": "2180005",
+     "total": 12772,
+     "dagarMedRoster": 19,
+     "storstaDag": 1091,
      "andel": 0.3
     },
     {
@@ -2054,6 +2061,15 @@
      "andel": 0.3
     },
     {
+     "namn": "Stadshuset",
+     "kommun": "Lidingö",
+     "lokalId": "0186005",
+     "total": 12307,
+     "dagarMedRoster": 19,
+     "storstaDag": 1208,
+     "andel": 0.3
+    },
+    {
      "namn": "Humlegården",
      "kommun": "Stockholm",
      "lokalId": "0180018",
@@ -2063,12 +2079,12 @@
      "andel": 0.3
     },
     {
-     "namn": "Stadshuset",
-     "kommun": "Lidingö",
-     "lokalId": "0186005",
+     "namn": "SKHLM-Skärholmens centrum",
+     "kommun": "Stockholm",
+     "lokalId": "0180020",
      "total": 12179,
-     "dagarMedRoster": 18,
-     "storstaDag": 1208,
+     "dagarMedRoster": 19,
+     "storstaDag": 968,
      "andel": 0.3
     },
     {
@@ -2081,29 +2097,11 @@
      "andel": 0.3
     },
     {
-     "namn": "SKHLM-Skärholmens centrum",
-     "kommun": "Stockholm",
-     "lokalId": "0180020",
-     "total": 11912,
-     "dagarMedRoster": 18,
-     "storstaDag": 968,
-     "andel": 0.3
-    },
-    {
-     "namn": "Stadsbiblioteket, Växjö",
-     "kommun": "Växjö",
-     "lokalId": "0780031",
-     "total": 11734,
-     "dagarMedRoster": 17,
-     "storstaDag": 1057,
-     "andel": 0.3
-    },
-    {
      "namn": "Väsby Centrum",
      "kommun": "Upplands Väsby",
      "lokalId": "0114001",
-     "total": 11685,
-     "dagarMedRoster": 18,
+     "total": 12031,
+     "dagarMedRoster": 19,
      "storstaDag": 1037,
      "andel": 0.3
     },
@@ -2111,36 +2109,45 @@
      "namn": "Turebergshuset",
      "kommun": "Sollentuna",
      "lokalId": "0163002",
-     "total": 11667,
-     "dagarMedRoster": 18,
+     "total": 12004,
+     "dagarMedRoster": 19,
      "storstaDag": 1274,
+     "andel": 0.3
+    },
+    {
+     "namn": "Stadsbiblioteket, Växjö",
+     "kommun": "Växjö",
+     "lokalId": "0780031",
+     "total": 11953,
+     "dagarMedRoster": 18,
+     "storstaDag": 1057,
      "andel": 0.3
     },
     {
      "namn": "Arena Skövde",
      "kommun": "Skövde",
      "lokalId": "1496021",
-     "total": 11646,
-     "dagarMedRoster": 18,
+     "total": 11756,
+     "dagarMedRoster": 19,
      "storstaDag": 1263,
-     "andel": 0.3
-    },
-    {
-     "namn": "Kulturhuset Strömmen",
-     "kommun": "Kalmar",
-     "lokalId": "0880023",
-     "total": 11350,
-     "dagarMedRoster": 18,
-     "storstaDag": 1047,
      "andel": 0.3
     },
     {
      "namn": "Östermalms bibliotek",
      "kommun": "Stockholm",
      "lokalId": "0180011",
-     "total": 11146,
-     "dagarMedRoster": 18,
+     "total": 11434,
+     "dagarMedRoster": 19,
      "storstaDag": 970,
+     "andel": 0.3
+    },
+    {
+     "namn": "Kulturhuset Strömmen",
+     "kommun": "Kalmar",
+     "lokalId": "0880023",
+     "total": 11351,
+     "dagarMedRoster": 18,
+     "storstaDag": 1047,
      "andel": 0.3
     }
    ],

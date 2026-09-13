@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,8 +973,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1099,11 +1099,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 768,
-     "ack": 11583
+     "antal": 775,
+     "ack": 11590
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 100,
+     "ack": 11690
     }
    ],
-   "total": 11583,
+   "total": 11690,
    "rostberattigade": {
     "riksdag": 24943,
     "kommun": 25528,
@@ -1121,19 +1128,19 @@
      "namn": "Rådhuset, Rådhussalen",
      "kommun": "Karlshamn",
      "lokalId": "1082001",
-     "total": 5796,
-     "dagarMedRoster": 18,
+     "total": 5899,
+     "dagarMedRoster": 19,
      "storstaDag": 621,
-     "andel": 50.0
+     "andel": 50.5
     },
     {
      "namn": "Bellevueparken, Karlshamn",
      "kommun": "Karlshamn",
      "lokalId": "1082006",
-     "total": 3688,
+     "total": 3692,
      "dagarMedRoster": 18,
      "storstaDag": 398,
-     "andel": 31.8
+     "andel": 31.6
     },
     {
      "namn": "Mörrumsparken",
@@ -1142,7 +1149,7 @@
      "total": 1110,
      "dagarMedRoster": 8,
      "storstaDag": 251,
-     "andel": 9.6
+     "andel": 9.5
     },
     {
      "namn": "Svängsta fritidsgård",
@@ -1169,7 +1176,7 @@
      "total": 181,
      "dagarMedRoster": 7,
      "storstaDag": 48,
-     "andel": 1.6
+     "andel": 1.5
     },
     {
      "namn": "Väggaskolan",

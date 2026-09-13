@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1045,8 +1045,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1136,46 +1136,53 @@
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
-     "antal": 1643,
-     "ack": 12330
+     "antal": 1645,
+     "ack": 12332
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 1863,
-     "ack": 14193
+     "antal": 1865,
+     "ack": 14197
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 2110,
-     "ack": 16303
+     "antal": 2112,
+     "ack": 16309
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 2213,
-     "ack": 18516
+     "antal": 2218,
+     "ack": 18527
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 2568,
-     "ack": 21084
+     "antal": 2578,
+     "ack": 21105
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 2271,
-     "ack": 23355
+     "antal": 2279,
+     "ack": 23384
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 256,
+     "ack": 23640
     }
    ],
-   "total": 23355,
+   "total": 23640,
    "rostberattigade": {
     "riksdag": 54338,
     "kommun": 56607,
@@ -1193,19 +1200,19 @@
      "namn": "Mölndal galleria",
      "kommun": "Mölndal",
      "lokalId": "1481010",
-     "total": 11034,
-     "dagarMedRoster": 18,
-     "storstaDag": 923,
-     "andel": 47.2
+     "total": 11306,
+     "dagarMedRoster": 19,
+     "storstaDag": 925,
+     "andel": 47.8
     },
     {
      "namn": "Aktiviteten",
      "kommun": "Mölndal",
      "lokalId": "1481014",
-     "total": 4890,
+     "total": 4897,
      "dagarMedRoster": 16,
-     "storstaDag": 804,
-     "andel": 20.9
+     "storstaDag": 807,
+     "andel": 20.7
     },
     {
      "namn": "Lindome centrum",
@@ -1214,16 +1221,16 @@
      "total": 3876,
      "dagarMedRoster": 16,
      "storstaDag": 499,
-     "andel": 16.6
+     "andel": 16.4
     },
     {
      "namn": "Kållereds fritidsgård",
      "kommun": "Mölndal",
      "lokalId": "1481008",
-     "total": 3080,
+     "total": 3086,
      "dagarMedRoster": 16,
-     "storstaDag": 348,
-     "andel": 13.2
+     "storstaDag": 352,
+     "andel": 13.1
     },
     {
      "namn": "Ambulerande röstmottagning",

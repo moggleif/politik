@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -820,8 +820,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -946,11 +946,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 257,
-     "ack": 4213
+     "antal": 260,
+     "ack": 4216
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 83,
+     "ack": 4299
     }
    ],
-   "total": 4213,
+   "total": 4299,
    "rostberattigade": {
     "riksdag": 8826,
     "kommun": 8986,
@@ -968,10 +975,10 @@
      "namn": "Säters bibliotek",
      "kommun": "Säter",
      "lokalId": "2082004",
-     "total": 3245,
+     "total": 3248,
      "dagarMedRoster": 18,
      "storstaDag": 358,
-     "andel": 77.0
+     "andel": 75.6
     },
     {
      "namn": "Stora Skedvi bibliotek",
@@ -980,7 +987,7 @@
      "total": 519,
      "dagarMedRoster": 8,
      "storstaDag": 119,
-     "andel": 12.3
+     "andel": 12.1
     },
     {
      "namn": "Enbackagården",
@@ -989,7 +996,16 @@
      "total": 412,
      "dagarMedRoster": 4,
      "storstaDag": 164,
-     "andel": 9.8
+     "andel": 9.6
+    },
+    {
+     "namn": "Skenshyttans Bygdegård",
+     "kommun": "Säter",
+     "lokalId": "2082005",
+     "total": 67,
+     "dagarMedRoster": 1,
+     "storstaDag": 67,
+     "andel": 1.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1004,19 +1020,10 @@
      "namn": "Folkets Hus i Säter",
      "kommun": "Säter",
      "lokalId": "2082002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Skenshyttans Bygdegård",
-     "kommun": "Säter",
-     "lokalId": "2082005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 16,
+     "dagarMedRoster": 1,
+     "storstaDag": 16,
+     "andel": 0.4
     }
    ],
    "antalLokaler": 6,

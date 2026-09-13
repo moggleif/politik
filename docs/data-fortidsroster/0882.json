@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -919,8 +919,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1045,11 +1045,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 567,
-     "ack": 9438
+     "antal": 568,
+     "ack": 9439
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 100,
+     "ack": 9539
     }
    ],
-   "total": 9438,
+   "total": 9539,
    "rostberattigade": {
     "riksdag": 20938,
     "kommun": 21448,
@@ -1067,10 +1074,10 @@
      "namn": "Kulturhuset, Oskarshamn",
      "kommun": "Oskarshamn",
      "lokalId": "0882006",
-     "total": 8049,
-     "dagarMedRoster": 18,
+     "total": 8145,
+     "dagarMedRoster": 19,
      "storstaDag": 891,
-     "andel": 85.3
+     "andel": 85.4
     },
     {
      "namn": "Figeholms bibliotek",
@@ -1079,7 +1086,7 @@
      "total": 375,
      "dagarMedRoster": 6,
      "storstaDag": 141,
-     "andel": 4.0
+     "andel": 3.9
     },
     {
      "namn": "Kristdala bibliotek",
@@ -1088,7 +1095,7 @@
      "total": 357,
      "dagarMedRoster": 5,
      "storstaDag": 113,
-     "andel": 3.8
+     "andel": 3.7
     },
     {
      "namn": "Strandagården",
@@ -1121,8 +1128,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Oskarshamn",
      "lokalId": "0882009",
-     "total": 72,
-     "dagarMedRoster": 7,
+     "total": 77,
+     "dagarMedRoster": 8,
      "storstaDag": 26,
      "andel": 0.8
     },

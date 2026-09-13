@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,8 +1180,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1306,11 +1306,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 2692,
-     "ack": 29144
+     "antal": 2699,
+     "ack": 29151
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 280,
+     "ack": 29431
     }
    ],
-   "total": 29144,
+   "total": 29431,
    "rostberattigade": {
     "riksdag": 69597,
     "kommun": 77516,
@@ -1328,19 +1335,19 @@
      "namn": "Ica Maxi",
      "kommun": "Haninge",
      "lokalId": "0136010",
-     "total": 10916,
+     "total": 10922,
      "dagarMedRoster": 18,
      "storstaDag": 1123,
-     "andel": 37.5
+     "andel": 37.1
     },
     {
      "namn": "Haninge kulturhus",
      "kommun": "Haninge",
      "lokalId": "0136003",
-     "total": 6701,
-     "dagarMedRoster": 18,
+     "total": 6981,
+     "dagarMedRoster": 19,
      "storstaDag": 657,
-     "andel": 23.0
+     "andel": 23.7
     },
     {
      "namn": "Västerhaninge bibliotek",
@@ -1349,7 +1356,7 @@
      "total": 4303,
      "dagarMedRoster": 16,
      "storstaDag": 360,
-     "andel": 14.8
+     "andel": 14.6
     },
     {
      "namn": "Jordbro bibliotek",
@@ -1358,7 +1365,7 @@
      "total": 1986,
      "dagarMedRoster": 16,
      "storstaDag": 296,
-     "andel": 6.8
+     "andel": 6.7
     },
     {
      "namn": "Vega skola & aktivitetshus",
@@ -1367,7 +1374,7 @@
      "total": 1976,
      "dagarMedRoster": 12,
      "storstaDag": 358,
-     "andel": 6.8
+     "andel": 6.7
     },
     {
      "namn": "Träffpunkten Brandbergen",
@@ -1376,7 +1383,7 @@
      "total": 1272,
      "dagarMedRoster": 13,
      "storstaDag": 189,
-     "andel": 4.4
+     "andel": 4.3
     },
     {
      "namn": "Träffpunkten Dalarö",
@@ -1394,15 +1401,15 @@
      "total": 662,
      "dagarMedRoster": 4,
      "storstaDag": 217,
-     "andel": 2.3
+     "andel": 2.2
     },
     {
      "namn": "Utö skola",
      "kommun": "Haninge",
      "lokalId": "0136005",
-     "total": 110,
+     "total": 111,
      "dagarMedRoster": 1,
-     "storstaDag": 110,
+     "storstaDag": 111,
      "andel": 0.4
     },
     {

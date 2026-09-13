@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1045,8 +1045,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1164,18 +1164,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 1059,
-     "ack": 8281
+     "antal": 1065,
+     "ack": 8287
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 711,
-     "ack": 8992
+     "ack": 8998
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 229,
+     "ack": 9227
     }
    ],
-   "total": 8992,
+   "total": 9227,
    "rostberattigade": {
     "riksdag": 17623,
     "kommun": 18071,
@@ -1193,10 +1200,10 @@
      "namn": "Stadsbiblioteket, Sala",
      "kommun": "Sala",
      "lokalId": "1981004",
-     "total": 7499,
-     "dagarMedRoster": 18,
-     "storstaDag": 871,
-     "andel": 83.4
+     "total": 7613,
+     "dagarMedRoster": 19,
+     "storstaDag": 877,
+     "andel": 82.5
     },
     {
      "namn": "Ransta Nästa bygdegård",
@@ -1205,7 +1212,7 @@
      "total": 512,
      "dagarMedRoster": 6,
      "storstaDag": 99,
-     "andel": 5.7
+     "andel": 5.5
     },
     {
      "namn": "Församlingshemmet, Västerfärnebo",
@@ -1214,7 +1221,7 @@
      "total": 418,
      "dagarMedRoster": 6,
      "storstaDag": 89,
-     "andel": 4.6
+     "andel": 4.5
     },
     {
      "namn": "Kriminalvårdsanstalten Salberga",
@@ -1223,7 +1230,7 @@
      "total": 271,
      "dagarMedRoster": 2,
      "storstaDag": 149,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Möklinta skola",
@@ -1233,6 +1240,15 @@
      "dagarMedRoster": 6,
      "storstaDag": 71,
      "andel": 2.8
+    },
+    {
+     "namn": "Kilbo skola",
+     "kommun": "Sala",
+     "lokalId": "1981001",
+     "total": 121,
+     "dagarMedRoster": 1,
+     "storstaDag": 121,
+     "andel": 1.3
     },
     {
      "namn": "Rättspsykiatri Västmanland",
@@ -1247,15 +1263,6 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Sala",
      "lokalId": "1981009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Kilbo skola",
-     "kommun": "Sala",
-     "lokalId": "1981001",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

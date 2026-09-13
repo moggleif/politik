@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -838,8 +838,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -966,9 +966,16 @@
      "kvar": 1,
      "antal": 217,
      "ack": 7112
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 170,
+     "ack": 7282
     }
    ],
-   "total": 7112,
+   "total": 7282,
    "rostberattigade": {
     "riksdag": 14728,
     "kommun": 15018,
@@ -986,10 +993,10 @@
      "namn": "Ljusdals kommunhus",
      "kommun": "Ljusdal",
      "lokalId": "2161001",
-     "total": 4824,
-     "dagarMedRoster": 18,
+     "total": 4907,
+     "dagarMedRoster": 19,
      "storstaDag": 520,
-     "andel": 67.8
+     "andel": 67.4
     },
     {
      "namn": "Färila Bibliotek",
@@ -998,7 +1005,7 @@
      "total": 880,
      "dagarMedRoster": 10,
      "storstaDag": 211,
-     "andel": 12.4
+     "andel": 12.1
     },
     {
      "namn": "Träteatern Stenegård",
@@ -1007,25 +1014,25 @@
      "total": 834,
      "dagarMedRoster": 10,
      "storstaDag": 176,
-     "andel": 11.7
+     "andel": 11.5
     },
     {
      "namn": "Los Bibliotek",
      "kommun": "Ljusdal",
      "lokalId": "2161003",
-     "total": 243,
-     "dagarMedRoster": 5,
+     "total": 297,
+     "dagarMedRoster": 6,
      "storstaDag": 78,
-     "andel": 3.4
+     "andel": 4.1
     },
     {
      "namn": "Ramsjö Bibliotek",
      "kommun": "Ljusdal",
      "lokalId": "2161004",
-     "total": 149,
-     "dagarMedRoster": 5,
+     "total": 182,
+     "dagarMedRoster": 6,
      "storstaDag": 36,
-     "andel": 2.1
+     "andel": 2.5
     },
     {
      "namn": "Valbuss",
@@ -1043,7 +1050,7 @@
      "total": 82,
      "dagarMedRoster": 7,
      "storstaDag": 44,
-     "andel": 1.2
+     "andel": 1.1
     }
    ],
    "antalLokaler": 7,

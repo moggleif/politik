@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,8 +1000,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1119,18 +1119,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 433,
-     "ack": 4068
+     "antal": 473,
+     "ack": 4108
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 339,
-     "ack": 4407
+     "ack": 4447
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 30,
+     "ack": 4477
     }
    ],
-   "total": 4407,
+   "total": 4477,
    "rostberattigade": {
     "riksdag": 10304,
     "kommun": 10575,
@@ -1148,10 +1155,10 @@
      "namn": "Sessionssalen, Centrumhuset Götene",
      "kommun": "Götene",
      "lokalId": "1471001",
-     "total": 4015,
-     "dagarMedRoster": 18,
-     "storstaDag": 433,
-     "andel": 91.1
+     "total": 4047,
+     "dagarMedRoster": 19,
+     "storstaDag": 435,
+     "andel": 90.4
     },
     {
      "namn": "Källby Gård",
@@ -1169,7 +1176,7 @@
      "total": 140,
      "dagarMedRoster": 1,
      "storstaDag": 140,
-     "andel": 3.2
+     "andel": 3.1
     },
     {
      "namn": "Lundabyn",
@@ -1184,10 +1191,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Götene",
      "lokalId": "1471005",
-     "total": 17,
-     "dagarMedRoster": 1,
-     "storstaDag": 17,
-     "andel": 0.4
+     "total": 55,
+     "dagarMedRoster": 2,
+     "storstaDag": 38,
+     "andel": 1.2
     }
    ],
    "antalLokaler": 5,

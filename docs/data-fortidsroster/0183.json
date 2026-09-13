@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,8 +829,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -957,9 +957,16 @@
      "kvar": 1,
      "antal": 1670,
      "ack": 18029
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 334,
+     "ack": 18363
     }
    ],
-   "total": 18029,
+   "total": 18363,
    "rostberattigade": {
     "riksdag": 41432,
     "kommun": 45353,
@@ -977,10 +984,10 @@
      "namn": "Biblioteket Signalfabriken",
      "kommun": "Sundbyberg",
      "lokalId": "0183004",
-     "total": 9575,
-     "dagarMedRoster": 18,
+     "total": 9909,
+     "dagarMedRoster": 19,
      "storstaDag": 904,
-     "andel": 53.1
+     "andel": 54.0
     },
     {
      "namn": "Biblioteket Hallonbergen C",
@@ -989,7 +996,7 @@
      "total": 2932,
      "dagarMedRoster": 16,
      "storstaDag": 320,
-     "andel": 16.3
+     "andel": 16.0
     },
     {
      "namn": "Kulturhuset",
@@ -998,7 +1005,7 @@
      "total": 2170,
      "dagarMedRoster": 16,
      "storstaDag": 567,
-     "andel": 12.0
+     "andel": 11.8
     },
     {
      "namn": "Förvaltarens träfflokal i Rissne",
@@ -1007,7 +1014,7 @@
      "total": 2106,
      "dagarMedRoster": 18,
      "storstaDag": 314,
-     "andel": 11.7
+     "andel": 11.5
     },
     {
      "namn": "Stadshuset",
@@ -1016,7 +1023,7 @@
      "total": 1108,
      "dagarMedRoster": 13,
      "storstaDag": 138,
-     "andel": 6.1
+     "andel": 6.0
     },
     {
      "namn": "Ekbacken",

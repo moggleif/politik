@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -838,8 +838,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -966,9 +966,16 @@
      "kvar": 1,
      "antal": 141,
      "ack": 2273
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 16,
+     "ack": 2289
     }
    ],
-   "total": 2273,
+   "total": 2289,
    "rostberattigade": {
     "riksdag": 5740,
     "kommun": 5915,
@@ -989,7 +996,7 @@
      "total": 1982,
      "dagarMedRoster": 18,
      "storstaDag": 174,
-     "andel": 87.2
+     "andel": 86.6
     },
     {
      "namn": "Träffpunkten",
@@ -998,7 +1005,7 @@
      "total": 216,
      "dagarMedRoster": 3,
      "storstaDag": 92,
-     "andel": 9.5
+     "andel": 9.4
     },
     {
      "namn": "Margaretas Park äldreboende",
@@ -1013,19 +1020,19 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Mullsjö",
      "lokalId": "0642005",
-     "total": 25,
-     "dagarMedRoster": 7,
+     "total": 30,
+     "dagarMedRoster": 8,
      "storstaDag": 10,
-     "andel": 1.1
+     "andel": 1.3
     },
     {
      "namn": "Gunnarsbohallen",
      "kommun": "Mullsjö",
      "lokalId": "0642003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.5
     }
    ],
    "antalLokaler": 5,

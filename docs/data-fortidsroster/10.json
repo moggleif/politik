@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,8 +1729,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1855,11 +1855,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 2889,
-     "ack": 54268
+     "antal": 2896,
+     "ack": 54275
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 922,
+     "ack": 55197
     }
    ],
-   "total": 54268,
+   "total": 55197,
    "rostberattigade": {
     "riksdag": 123298,
     "kommun": 126173,
@@ -1877,8 +1884,8 @@
      "namn": "Rådhuset, Rådhussalen",
      "kommun": "Karlshamn",
      "lokalId": "1082001",
-     "total": 5796,
-     "dagarMedRoster": 18,
+     "total": 5899,
+     "dagarMedRoster": 19,
      "storstaDag": 621,
      "andel": 10.7
     },
@@ -1889,7 +1896,7 @@
      "total": 5396,
      "dagarMedRoster": 18,
      "storstaDag": 459,
-     "andel": 9.9
+     "andel": 9.8
     },
     {
      "namn": "Militärhemmet",
@@ -1898,24 +1905,24 @@
      "total": 5150,
      "dagarMedRoster": 18,
      "storstaDag": 526,
-     "andel": 9.5
-    },
-    {
-     "namn": "Stadshuset",
-     "kommun": "Sölvesborg",
-     "lokalId": "1083001",
-     "total": 4666,
-     "dagarMedRoster": 18,
-     "storstaDag": 530,
-     "andel": 8.6
+     "andel": 9.3
     },
     {
      "namn": "Stadshuset",
      "kommun": "Ronneby",
      "lokalId": "1081003",
-     "total": 4646,
-     "dagarMedRoster": 18,
+     "total": 4753,
+     "dagarMedRoster": 19,
      "storstaDag": 601,
+     "andel": 8.6
+    },
+    {
+     "namn": "Stadshuset",
+     "kommun": "Sölvesborg",
+     "lokalId": "1083001",
+     "total": 4733,
+     "dagarMedRoster": 19,
+     "storstaDag": 530,
      "andel": 8.6
     },
     {
@@ -1925,25 +1932,25 @@
      "total": 4434,
      "dagarMedRoster": 18,
      "storstaDag": 501,
-     "andel": 8.2
+     "andel": 8.0
     },
     {
      "namn": "Kulturhuset",
      "kommun": "Olofström",
      "lokalId": "1060006",
-     "total": 3734,
-     "dagarMedRoster": 18,
+     "total": 3760,
+     "dagarMedRoster": 19,
      "storstaDag": 366,
-     "andel": 6.9
+     "andel": 6.8
     },
     {
      "namn": "Bellevueparken, Karlshamn",
      "kommun": "Karlshamn",
      "lokalId": "1082006",
-     "total": 3688,
+     "total": 3692,
      "dagarMedRoster": 18,
      "storstaDag": 398,
-     "andel": 6.8
+     "andel": 6.7
     },
     {
      "namn": "Stadsbiblioteket Ronneby",
@@ -1952,7 +1959,7 @@
      "total": 2060,
      "dagarMedRoster": 13,
      "storstaDag": 279,
-     "andel": 3.8
+     "andel": 3.7
     },
     {
      "namn": "Blekinge Tekniska Högskola",
@@ -1979,7 +1986,7 @@
      "total": 1071,
      "dagarMedRoster": 7,
      "storstaDag": 230,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Blekingesjukhuset Karlskrona",
@@ -1988,7 +1995,16 @@
      "total": 963,
      "dagarMedRoster": 13,
      "storstaDag": 175,
-     "andel": 1.8
+     "andel": 1.7
+    },
+    {
+     "namn": "Ruthensparre, Kommunhuset",
+     "kommun": "Karlskrona",
+     "lokalId": "1080005",
+     "total": 837,
+     "dagarMedRoster": 16,
+     "storstaDag": 180,
+     "andel": 1.5
     },
     {
      "namn": "Jämjö bibliotek",
@@ -2000,22 +2016,13 @@
      "andel": 1.5
     },
     {
-     "namn": "Ruthensparre, Kommunhuset",
-     "kommun": "Karlskrona",
-     "lokalId": "1080005",
-     "total": 771,
-     "dagarMedRoster": 15,
-     "storstaDag": 180,
-     "andel": 1.4
-    },
-    {
      "namn": "Biblioteket i Mjällby",
      "kommun": "Sölvesborg",
      "lokalId": "1083003",
      "total": 686,
      "dagarMedRoster": 4,
      "storstaDag": 205,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "PRO-lokalen Bräkne-Hoby",
@@ -2057,8 +2064,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Karlskrona",
      "lokalId": "1080020",
-     "total": 431,
-     "dagarMedRoster": 14,
+     "total": 445,
+     "dagarMedRoster": 15,
      "storstaDag": 65,
      "andel": 0.8
     },

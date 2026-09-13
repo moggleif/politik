@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,8 +973,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1092,18 +1092,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 307,
-     "ack": 2825
+     "antal": 309,
+     "ack": 2827
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 94,
-     "ack": 2919
+     "ack": 2921
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 87,
+     "ack": 3008
     }
    ],
-   "total": 2919,
+   "total": 3008,
    "rostberattigade": {
     "riksdag": 7328,
     "kommun": 7867,
@@ -1121,10 +1128,10 @@
      "namn": "Markaryds kulturhus",
      "kommun": "Markaryd",
      "lokalId": "0767002",
-     "total": 2198,
-     "dagarMedRoster": 18,
+     "total": 2283,
+     "dagarMedRoster": 19,
      "storstaDag": 264,
-     "andel": 75.3
+     "andel": 75.9
     },
     {
      "namn": "Strömsnäsbruk Servicekontoret",
@@ -1133,7 +1140,7 @@
      "total": 411,
      "dagarMedRoster": 8,
      "storstaDag": 69,
-     "andel": 14.1
+     "andel": 13.7
     },
     {
      "namn": "Traryd Verdandi",
@@ -1142,16 +1149,16 @@
      "total": 156,
      "dagarMedRoster": 3,
      "storstaDag": 64,
-     "andel": 5.3
+     "andel": 5.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Markaryd",
      "lokalId": "0767005",
-     "total": 86,
-     "dagarMedRoster": 8,
+     "total": 90,
+     "dagarMedRoster": 10,
      "storstaDag": 23,
-     "andel": 2.9
+     "andel": 3.0
     },
     {
      "namn": "Hinneryds bygdegård",

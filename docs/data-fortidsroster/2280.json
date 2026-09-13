@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -973,8 +973,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1101,9 +1101,16 @@
      "kvar": 1,
      "antal": 566,
      "ack": 9783
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 91,
+     "ack": 9874
     }
    ],
-   "total": 9783,
+   "total": 9874,
    "rostberattigade": {
     "riksdag": 18984,
     "kommun": 19478,
@@ -1121,10 +1128,10 @@
      "namn": "Sambiblioteket plan 4 övre ingång",
      "kommun": "Härnösand",
      "lokalId": "2280001",
-     "total": 8673,
-     "dagarMedRoster": 16,
+     "total": 8730,
+     "dagarMedRoster": 17,
      "storstaDag": 1028,
-     "andel": 88.7
+     "andel": 88.4
     },
     {
      "namn": "Älandsbro Folketshus",
@@ -1142,7 +1149,7 @@
      "total": 191,
      "dagarMedRoster": 12,
      "storstaDag": 62,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Kriminalvårdsanstalten Saltvik",
@@ -1163,21 +1170,21 @@
      "andel": 1.3
     },
     {
+     "namn": "Viksjö Folkets Hus",
+     "kommun": "Härnösand",
+     "lokalId": "2280006",
+     "total": 118,
+     "dagarMedRoster": 3,
+     "storstaDag": 42,
+     "andel": 1.2
+    },
+    {
      "namn": "Utansjögården",
      "kommun": "Härnösand",
      "lokalId": "2280003",
      "total": 92,
      "dagarMedRoster": 2,
      "storstaDag": 50,
-     "andel": 0.9
-    },
-    {
-     "namn": "Viksjö Folkets Hus",
-     "kommun": "Härnösand",
-     "lokalId": "2280006",
-     "total": 84,
-     "dagarMedRoster": 2,
-     "storstaDag": 42,
      "andel": 0.9
     },
     {

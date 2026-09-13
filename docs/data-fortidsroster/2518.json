@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -892,8 +892,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1020,9 +1020,16 @@
      "kvar": 1,
      "antal": 73,
      "ack": 1206
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 209,
+     "ack": 1415
     }
    ],
-   "total": 1206,
+   "total": 1415,
    "rostberattigade": {
     "riksdag": 3094,
     "kommun": 3365,
@@ -1043,7 +1050,52 @@
      "total": 1192,
      "dagarMedRoster": 18,
      "storstaDag": 137,
-     "andel": 98.8
+     "andel": 84.2
+    },
+    {
+     "namn": "Pello församlingshem",
+     "kommun": "Övertorneå",
+     "lokalId": "2518005",
+     "total": 69,
+     "dagarMedRoster": 1,
+     "storstaDag": 69,
+     "andel": 4.9
+    },
+    {
+     "namn": "Juoksengi församlingshem",
+     "kommun": "Övertorneå",
+     "lokalId": "2518002",
+     "total": 56,
+     "dagarMedRoster": 1,
+     "storstaDag": 56,
+     "andel": 4.0
+    },
+    {
+     "namn": "Byapaviljongen i Aapua",
+     "kommun": "Övertorneå",
+     "lokalId": "2518006",
+     "total": 31,
+     "dagarMedRoster": 1,
+     "storstaDag": 31,
+     "andel": 2.2
+    },
+    {
+     "namn": "Brostugan i Luppio (f d daghem)",
+     "kommun": "Övertorneå",
+     "lokalId": "2518003",
+     "total": 23,
+     "dagarMedRoster": 1,
+     "storstaDag": 23,
+     "andel": 1.6
+    },
+    {
+     "namn": "F d skolan i Rantajärvi",
+     "kommun": "Övertorneå",
+     "lokalId": "2518007",
+     "total": 22,
+     "dagarMedRoster": 1,
+     "storstaDag": 22,
+     "andel": 1.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1052,61 +1104,16 @@
      "total": 14,
      "dagarMedRoster": 2,
      "storstaDag": 9,
-     "andel": 1.2
-    },
-    {
-     "namn": "Brostugan i Luppio (f d daghem)",
-     "kommun": "Övertorneå",
-     "lokalId": "2518003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Byapaviljongen i Aapua",
-     "kommun": "Övertorneå",
-     "lokalId": "2518006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "F d skolan i Rantajärvi",
-     "kommun": "Övertorneå",
-     "lokalId": "2518007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.0
     },
     {
      "namn": "Folkets Hus",
      "kommun": "Övertorneå",
      "lokalId": "2518001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Juoksengi församlingshem",
-     "kommun": "Övertorneå",
-     "lokalId": "2518002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Pello församlingshem",
-     "kommun": "Övertorneå",
-     "lokalId": "2518005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 8,
+     "dagarMedRoster": 1,
+     "storstaDag": 8,
+     "andel": 0.6
     }
    ],
    "antalLokaler": 8,

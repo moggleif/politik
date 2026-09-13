@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -937,8 +937,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1056,18 +1056,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 1148,
-     "ack": 11246
+     "antal": 1149,
+     "ack": 11247
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 826,
-     "ack": 12072
+     "antal": 829,
+     "ack": 12076
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 160,
+     "ack": 12236
     }
    ],
-   "total": 12072,
+   "total": 12236,
    "rostberattigade": {
     "riksdag": 35493,
     "kommun": 37352,
@@ -1085,28 +1092,28 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Landskrona",
      "lokalId": "1282003",
-     "total": 7492,
+     "total": 7494,
      "dagarMedRoster": 18,
      "storstaDag": 656,
-     "andel": 62.1
+     "andel": 61.2
     },
     {
      "namn": "Brf Kungens kvarterslokal",
      "kommun": "Landskrona",
      "lokalId": "1282013",
-     "total": 1753,
+     "total": 1755,
      "dagarMedRoster": 13,
-     "storstaDag": 244,
-     "andel": 14.5
+     "storstaDag": 245,
+     "andel": 14.3
     },
     {
      "namn": "Stadshuset",
      "kommun": "Landskrona",
      "lokalId": "1282004",
-     "total": 1198,
-     "dagarMedRoster": 10,
+     "total": 1338,
+     "dagarMedRoster": 11,
      "storstaDag": 197,
-     "andel": 9.9
+     "andel": 10.9
     },
     {
      "namn": "Häljarps bibliotek",
@@ -1115,7 +1122,7 @@
      "total": 538,
      "dagarMedRoster": 4,
      "storstaDag": 195,
-     "andel": 4.5
+     "andel": 4.4
     },
     {
      "namn": "Asmundtorps församlingshem",
@@ -1139,8 +1146,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Landskrona",
      "lokalId": "1282009",
-     "total": 179,
-     "dagarMedRoster": 10,
+     "total": 188,
+     "dagarMedRoster": 11,
      "storstaDag": 32,
      "andel": 1.5
     },
@@ -1157,10 +1164,10 @@
      "namn": "Uranienborgs skola",
      "kommun": "Landskrona",
      "lokalId": "1282001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 11,
+     "dagarMedRoster": 1,
+     "storstaDag": 11,
+     "andel": 0.1
     }
    ],
    "antalLokaler": 9,

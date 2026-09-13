@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1459,8 +1459,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1587,9 +1587,16 @@
      "kvar": 1,
      "antal": 784,
      "ack": 11011
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 86,
+     "ack": 11097
     }
    ],
-   "total": 11011,
+   "total": 11097,
    "rostberattigade": {
     "riksdag": 26944,
     "kommun": 27764,
@@ -1607,10 +1614,10 @@
      "namn": "Kommunhuset Kinnaborgssalen",
      "kommun": "Mark",
      "lokalId": "1463010",
-     "total": 5013,
-     "dagarMedRoster": 18,
+     "total": 5099,
+     "dagarMedRoster": 19,
      "storstaDag": 515,
-     "andel": 45.5
+     "andel": 45.9
     },
     {
      "namn": "Ängshallen, Skene",
@@ -1619,7 +1626,7 @@
      "total": 2202,
      "dagarMedRoster": 13,
      "storstaDag": 301,
-     "andel": 20.0
+     "andel": 19.8
     },
     {
      "namn": "Lundagård, Sätila",
@@ -1628,7 +1635,7 @@
      "total": 1266,
      "dagarMedRoster": 9,
      "storstaDag": 204,
-     "andel": 11.5
+     "andel": 11.4
     },
     {
      "namn": "Ekelund linneväveri",
@@ -1637,7 +1644,7 @@
      "total": 1088,
      "dagarMedRoster": 16,
      "storstaDag": 134,
-     "andel": 9.9
+     "andel": 9.8
     },
     {
      "namn": "Fritsla Folketshus",
@@ -1691,7 +1698,7 @@
      "total": 83,
      "dagarMedRoster": 1,
      "storstaDag": 83,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Rydals Museum",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1252,8 +1252,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1380,9 +1380,16 @@
      "kvar": 1,
      "antal": 3151,
      "ack": 41609
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 107,
+     "ack": 41716
     }
    ],
-   "total": 41609,
+   "total": 41716,
    "rostberattigade": {
     "riksdag": 86834,
     "kommun": 90596,
@@ -1403,7 +1410,7 @@
      "total": 7562,
      "dagarMedRoster": 18,
      "storstaDag": 508,
-     "andel": 18.2
+     "andel": 18.1
     },
     {
      "namn": "Knallelands valstuga",
@@ -1412,7 +1419,7 @@
      "total": 6976,
      "dagarMedRoster": 18,
      "storstaDag": 575,
-     "andel": 16.8
+     "andel": 16.7
     },
     {
      "namn": "Stadsbiblioteket",
@@ -1469,6 +1476,15 @@
      "andel": 3.7
     },
     {
+     "namn": "Stadshuset, receptionen",
+     "kommun": "Borås",
+     "lokalId": "1490009",
+     "total": 1518,
+     "dagarMedRoster": 17,
+     "storstaDag": 253,
+     "andel": 3.6
+    },
+    {
      "namn": "Södra Älvsborgs Sjukhus",
      "kommun": "Borås",
      "lokalId": "1490012",
@@ -1485,15 +1501,6 @@
      "dagarMedRoster": 14,
      "storstaDag": 238,
      "andel": 3.5
-    },
-    {
-     "namn": "Stadshuset, receptionen",
-     "kommun": "Borås",
-     "lokalId": "1490009",
-     "total": 1411,
-     "dagarMedRoster": 16,
-     "storstaDag": 253,
-     "andel": 3.4
     },
     {
      "namn": "Sjömarkenkyrkan, bottenvåningen",

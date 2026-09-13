@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,8 +865,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -993,9 +993,16 @@
      "kvar": 1,
      "antal": 221,
      "ack": 4359
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 537,
+     "ack": 4896
     }
    ],
-   "total": 4359,
+   "total": 4896,
    "rostberattigade": {
     "riksdag": 10488,
     "kommun": 10525,
@@ -1013,10 +1020,46 @@
      "namn": "Öckerö bibliotek, utställningshallen",
      "kommun": "Öckerö",
      "lokalId": "1407005",
-     "total": 4297,
-     "dagarMedRoster": 18,
+     "total": 4375,
+     "dagarMedRoster": 19,
      "storstaDag": 381,
-     "andel": 98.6
+     "andel": 89.4
+    },
+    {
+     "namn": "Rörö församlingshem/bibliotek",
+     "kommun": "Öckerö",
+     "lokalId": "1407003",
+     "total": 134,
+     "dagarMedRoster": 1,
+     "storstaDag": 134,
+     "andel": 2.7
+    },
+    {
+     "namn": "Föreningsgården Knippla",
+     "kommun": "Öckerö",
+     "lokalId": "1407004",
+     "total": 114,
+     "dagarMedRoster": 1,
+     "storstaDag": 114,
+     "andel": 2.3
+    },
+    {
+     "namn": "Brandstationen",
+     "kommun": "Öckerö",
+     "lokalId": "1407006",
+     "total": 98,
+     "dagarMedRoster": 1,
+     "storstaDag": 98,
+     "andel": 2.0
+    },
+    {
+     "namn": "Hyppelns församlingshem",
+     "kommun": "Öckerö",
+     "lokalId": "1407002",
+     "total": 75,
+     "dagarMedRoster": 1,
+     "storstaDag": 75,
+     "andel": 1.5
     },
     {
      "namn": "Solhöjdens äldreboende",
@@ -1025,61 +1068,25 @@
      "total": 59,
      "dagarMedRoster": 1,
      "storstaDag": 59,
-     "andel": 1.4
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Öckerö",
-     "lokalId": "1407008",
-     "total": 3,
-     "dagarMedRoster": 1,
-     "storstaDag": 3,
-     "andel": 0.1
-    },
-    {
-     "namn": "Brandstationen",
-     "kommun": "Öckerö",
-     "lokalId": "1407006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Föreningsgården Knippla",
-     "kommun": "Öckerö",
-     "lokalId": "1407004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Hyppelns församlingshem",
-     "kommun": "Öckerö",
-     "lokalId": "1407002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.2
     },
     {
      "namn": "Kurts garage",
      "kommun": "Öckerö",
      "lokalId": "1407007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 37,
+     "dagarMedRoster": 1,
+     "storstaDag": 37,
+     "andel": 0.8
     },
     {
-     "namn": "Rörö församlingshem/bibliotek",
+     "namn": "Ambulerande röstmottagning",
      "kommun": "Öckerö",
-     "lokalId": "1407003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "lokalId": "1407008",
+     "total": 4,
+     "dagarMedRoster": 2,
+     "storstaDag": 3,
+     "andel": 0.1
     }
    ],
    "antalLokaler": 8,

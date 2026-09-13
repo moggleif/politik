@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,8 +766,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -892,11 +892,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 624,
-     "ack": 5210
+     "antal": 625,
+     "ack": 5211
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 52,
+     "ack": 5263
     }
    ],
-   "total": 5210,
+   "total": 5263,
    "rostberattigade": {
     "riksdag": 13202,
     "kommun": 14118,
@@ -914,10 +921,10 @@
      "namn": "Arenan i Sågenhuset i Klippan",
      "kommun": "Klippan",
      "lokalId": "1276001",
-     "total": 3553,
-     "dagarMedRoster": 18,
-     "storstaDag": 426,
-     "andel": 68.2
+     "total": 3604,
+     "dagarMedRoster": 19,
+     "storstaDag": 427,
+     "andel": 68.5
     },
     {
      "namn": "Församlingshemmet i Ljungbyhed",
@@ -926,7 +933,7 @@
      "total": 1004,
      "dagarMedRoster": 11,
      "storstaDag": 141,
-     "andel": 19.3
+     "andel": 19.1
     },
     {
      "namn": "Östra Ljungby Bygdegård",
@@ -935,14 +942,14 @@
      "total": 595,
      "dagarMedRoster": 8,
      "storstaDag": 143,
-     "andel": 11.4
+     "andel": 11.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Klippan",
      "lokalId": "1276005",
-     "total": 58,
-     "dagarMedRoster": 14,
+     "total": 60,
+     "dagarMedRoster": 15,
      "storstaDag": 16,
      "andel": 1.1
     }

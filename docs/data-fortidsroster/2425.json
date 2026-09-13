@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -964,8 +964,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1092,9 +1092,16 @@
      "kvar": 1,
      "antal": 48,
      "ack": 929
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 86,
+     "ack": 1015
     }
    ],
-   "total": 929,
+   "total": 1015,
    "rostberattigade": {
     "riksdag": 1795,
     "kommun": 1844,
@@ -1115,7 +1122,16 @@
      "total": 888,
      "dagarMedRoster": 18,
      "storstaDag": 113,
-     "andel": 95.6
+     "andel": 87.5
+    },
+    {
+     "namn": "Ped. omsorg Borgafjäll",
+     "kommun": "Dorotea",
+     "lokalId": "2425007",
+     "total": 48,
+     "dagarMedRoster": 1,
+     "storstaDag": 48,
+     "andel": 4.7
     },
     {
      "namn": "Bergvattengården",
@@ -1124,7 +1140,25 @@
      "total": 28,
      "dagarMedRoster": 1,
      "storstaDag": 28,
-     "andel": 3.0
+     "andel": 2.8
+    },
+    {
+     "namn": "Skolan Avaträsk",
+     "kommun": "Dorotea",
+     "lokalId": "2425002",
+     "total": 21,
+     "dagarMedRoster": 1,
+     "storstaDag": 21,
+     "andel": 2.1
+    },
+    {
+     "namn": "F.d. hemtjänstlokal Risbäck",
+     "kommun": "Dorotea",
+     "lokalId": "2425005",
+     "total": 17,
+     "dagarMedRoster": 1,
+     "storstaDag": 17,
+     "andel": 1.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1133,16 +1167,7 @@
      "total": 13,
      "dagarMedRoster": 2,
      "storstaDag": 10,
-     "andel": 1.4
-    },
-    {
-     "namn": "F.d. hemtjänstlokal Risbäck",
-     "kommun": "Dorotea",
-     "lokalId": "2425005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.3
     },
     {
      "namn": "Fd posten Högland",
@@ -1172,27 +1197,9 @@
      "andel": 0.0
     },
     {
-     "namn": "Ped. omsorg Borgafjäll",
-     "kommun": "Dorotea",
-     "lokalId": "2425007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
      "namn": "Samlingslokal ICA Ormsjö",
      "kommun": "Dorotea",
      "lokalId": "2425006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Skolan Avaträsk",
-     "kommun": "Dorotea",
-     "lokalId": "2425002",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
