@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>Hur träffsäkra är Kungsbackas befolkningsprognoser?</title>
-<meta name="description" content="Jämförelse av Kungsbacka kommuns befolkningsprognoser genom åren med den faktiska befolkningsutvecklingen enligt SCB.">
+<title>Hur träffsäkra är prognoserna för 16–18-åringarna i Varberg?</title>
+<meta name="description" content="Jämförelse av Varbergs kommuns prognoser för åldersgruppen 16–18 år (gymnasieåldern så som Varbergs prognoser delar in den) med det faktiska utfallet enligt SCB.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-datafil="data.json" data-enhet="invånare" data-enhet-lang="Antal invånare">
+<body data-datafil="data-varberg-16-18.json" data-enhet="ungdomar" data-enhet-lang="Antal 16–18-åringar" data-jamforfil="data-varberg.json" data-jamforserie="hela befolkningen" data-totalsida="varberg-befolkningsprognos.html">
 
 <a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
 
@@ -18,7 +18,7 @@
     <nav class="huvudnav" aria-label="Webbplatsens sidor">
       <a href="index.html">Start</a>
       <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
-        <a href="befolkningsprognos.html" aria-current="page">Hela befolkningen</a>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
         <a href="barn-och-unga.html">0–15 år</a>
         <a href="gymnasiealdern.html">16–19 år</a>
       </span>
@@ -39,17 +39,21 @@
       <span class="navgrupp"><span class="navrubrik">Varberg:</span>
         <a href="varberg-befolkningsprognos.html">Hela befolkningen</a>
         <a href="varberg-barn-och-unga.html">0–15 år</a>
-        <a href="varberg-gymnasiealdern.html">16–18 år</a>
+        <a href="varberg-gymnasiealdern.html" aria-current="page">16–18 år</a>
       </span>
       <a href="metod.html">Metod</a>
     </nav>
-    <h1>Hur träffsäkra är Kungsbackas befolkningsprognoser?</h1>
+    <h1>Hur träffsäkra är prognoserna för 16&ndash;18-åringarna i Varberg?</h1>
     <p class="ingress">
-      Kungsbacka kommun tar varje år fram en prognos för hur många invånare
-      kommunen kommer att ha i framtiden. Prognoserna används när kommunen
-      planerar skolor, äldreboenden och bostäder. Den här sidan jämför vad
-      prognoserna sa &ndash; med hur det faktiskt blev, enligt Statistiska
-      centralbyrån (SCB).
+      Antalet ungdomar i gymnasieåldern är ett viktigt underlag för hur många
+      gymnasieplatser kommunen behöver &ndash; men inte hela svaret: elever
+      pendlar över kommungränsen i båda riktningarna. Den här sidan visar vad
+      Varbergs kommuns prognoser sa om just den åldersgruppen &ndash; och hur
+      det faktiskt blev, enligt Statistiska centralbyrån (SCB). Varbergs
+      prognoser delar in ungdomarna i 16&ndash;18 och 19&ndash;24 år, så här
+      är gymnasieåldern <strong>16&ndash;18 år</strong> &ndash; inte
+      16&ndash;19 som på <a href="gymnasiealdern.html">motsvarande sida för
+      Kungsbacka</a>.
     </p>
     <p class="meta-rad" id="meta-rad" hidden></p>
   </div>
@@ -73,7 +77,7 @@
     <p class="forklaring">
       Välj ett år. Diagrammet visar hur mycket varje års prognos räknade fel
       för just det året. En stapel åt höger betyder att prognosen trodde på
-      <em>fler</em> invånare än det blev. En stapel åt vänster betyder att
+      <em>fler</em> ungdomar än det blev. En stapel åt vänster betyder att
       prognosen trodde på <em>färre</em>.
     </p>
     <div class="valj-ar">
@@ -96,7 +100,8 @@
     <p class="forklaring">
       Här har vi räknat ihop alla prognoser. Diagrammet visar hur stort felet
       i genomsnitt har varit, grupperat efter hur många kalenderår i förväg
-      prognosen gjordes. Felet mäts i procent av den faktiska folkmängden.
+      prognosen gjordes. Felet mäts i procent av det faktiska antalet
+      16&ndash;18-åringar.
     </p>
     <p class="forklaring">
       Diagrammet beskriver hur felen sett ut vid olika kalenderårsavstånd i
@@ -104,8 +109,10 @@
       som orsakas av en längre prognoshorisont. Grupperna innehåller olika
       prognosårgångar &ndash; ett långt avstånd kan bara mätas för de äldsta
       prognoserna &ndash; och årgångarna skiljer sig också åt i prognoslängd
-      och i vilka målår de träffar. Vilka årgångar som ligger bakom varje
-      stapel står i tabellen.
+      och i vilka målår de träffar. Budgettabellerna 2017&ndash;2021
+      redovisar dessutom bara ett urval år, så de årgångarna bidrar med få
+      jämförelsepunkter. Vilka årgångar som ligger bakom varje stapel står i
+      tabellen.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-avstand" aria-label="Diagram: genomsnittligt absolut prognosfel per antal år i förväg" role="img"></canvas></div>
@@ -142,14 +149,14 @@
   <section id="sektion-spagetti" hidden>
     <h2>Alla prognoser i en bild</h2>
     <p class="forklaring">
-      Den svarta linjen visar hur folkmängden faktiskt har utvecklats. Varje
-      blå linje är en av kommunens årliga prognoser &ndash; ju mörkare linje,
-      desto senare är prognosen gjord. Här syns hur kommunens bild av
-      framtiden har förskjutits från år till år. Peka på en linje för att se
-      vilken prognos det är.
+      Den svarta linjen visar hur antalet 16&ndash;18-åringar faktiskt har
+      utvecklats. Varje blå linje är en av kommunens årliga prognoser &ndash;
+      ju mörkare linje, desto senare är prognosen gjord. Den orange linjen är
+      kohortframskrivningen från <a href="#sektion-kohort">avsnittet längst
+      ned</a>, som räcker några år längre fram än prognoserna. Peka på en linje för att se vilken det är.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-spagetti" aria-label="Diagram: faktisk folkmängd och alla prognoser" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-spagetti" aria-label="Diagram: faktiskt antal 16–18-åringar och alla prognoser" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-spagetti"></p>
     </div>
     <details>
@@ -162,9 +169,9 @@
     <h2>Samma bild, inzoomad på åren vi har facit för</h2>
     <p class="forklaring">
       Samma linjer som ovan, men bara fram till sista året med känt utfall.
-      I diagrammet ovanför måste skalan rymma prognoserna ända till 2050,
+      I diagrammet ovanför måste skalan rymma prognoserna ända till 2041,
       vilket trycker ihop kurvorna. Här syns i detalj hur nära prognoserna
-      låg folkmängden år för år.
+      låg antalet 16&ndash;18-åringar år för år.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-utfall" aria-label="Diagram: prognoserna mot utfallet, inzoomat" role="img"></canvas></div>
@@ -173,6 +180,77 @@
     <details>
       <summary>Visa siffrorna som tabell</summary>
       <div class="tabell-rull"><table id="tabell-utfall"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kohort" hidden>
+    <h2>Vad som redan är fött</h2>
+    <p class="forklaring">
+      De barn som bor i Varberg i dag blir ett år äldre varje år. Antalet
+      16&ndash;18-åringar om k år är därför helt enkelt summan av dagens
+      16&nbsp;&minus;&nbsp;k till 18&nbsp;&minus;&nbsp;k-åringar &ndash; en
+      ren <strong>kohortframskrivning</strong> ur SCB:s faktiska siffror per
+      enskild ålder. Den innehåller ingen modell och inga födelsetal, men
+      den är inte antagandefri: att bära varje kohort rakt fram
+      förutsätter att nettoflyttningen är noll och att ingen faller bort.
+      Det är ett enkelt och genomskådligt antagande &ndash; inte
+      frånvaron av ett. Den <em>orange</em> linjen är den
+      framskrivningen; den blå är kommunens senaste prognos.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kohort" aria-label="Diagram: faktiskt utfall, kohortframskrivning och kommunens senaste prognos för antalet 16–18-åringar" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kohort"></p>
+    </div>
+    <div id="not-kohort" hidden></div>
+    <div class="slutsats" id="slutsats-kohort"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kohort"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kohortalla" hidden>
+    <h2>En framskrivning per år &ndash; alla i samma bild</h2>
+    <p class="forklaring">
+      Kommunen gör en ny prognos varje år. Kohortmodellen kan göra
+      detsamma: varje årsskifte ger nya åldersklasser att skriva fram ur.
+      Här är alla årgångar &ndash; ju mörkare orange, desto senare gjord.
+      Diagrammet innehåller <em>bara</em> framskrivningar; kommunens
+      prognoser ligger i <a href="#sektion-spagetti">sitt eget diagram</a>,
+      eftersom två linjeknippen i samma bild inte går att skilja åt.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kohortalla" aria-label="Diagram: en kohortframskrivning per basår, tillsammans med det faktiska utfallet" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kohortalla"></p>
+    </div>
+    <div class="slutsats" id="slutsats-kohortalla"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kohortalla"></table></div>
+    </details>
+  </section>
+
+
+
+
+  <section id="sektion-kohortfel" hidden>
+    <h2>Kommunens prognos och framskrivningen vid samma horisont</h2>
+    <p class="forklaring">
+      Båda går att pröva mot facit: utgå från ett år där utfallet är känt,
+      räkna fram, och jämför. Diagrammet ställer dem mot varandra vid
+      <em>samma</em> horisont, så att de mäts på samma sak.
+      Framskrivningen får samma utgångspunkt som kommunen hade när
+      prognosen gjordes &ndash; folkmängden vid det senast passerade
+      årsskiftet.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kohortfel" aria-label="Diagram: genomsnittligt fel för kommunens prognos och för kohortframskrivningen, per antal år i förväg" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kohortfel"></p>
+    </div>
+    <div class="slutsats" id="slutsats-kohortfel"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kohortfel"></table></div>
     </details>
   </section>
 
@@ -189,10 +267,19 @@
   <section id="sektion-om">
     <h2>Om den här sidan</h2>
     <p class="forklaring">
-      Sidan är fristående och drivs inte av Kungsbacka kommun. Den är byggd
-      för att det ska vara lätt att i efterhand se hur bra prognoserna har
-      stämt &ndash; inget mer. Alla beräkningar är öppna:
-      källkoden och alla data finns på
+      Siffrorna för 16&ndash;18 år är hämtade ur raden &rdquo;16-18 år&rdquo;
+      i budgetarnas prognostabeller (2017&ndash;2021) och ur raden
+      &rdquo;16&ndash;18&rdquo; i tabellbilagan till Swecos rapporter
+      (2023&ndash;2026). Varbergs prognoser drar gränsen mellan
+      åldersgrupperna vid 18/19 år, så 16&ndash;19 går inte att läsa ut ur
+      dem; därför är gymnasieåldern här 16&ndash;18 år, och SCB:s utfall är
+      hämtat för samma åldrar. Budgettabellerna redovisar bara ett urval år,
+      och 2022 års rapport är raderad och finns inte arkiverad. Läs mer på
+      <a href="varberg-befolkningsprognos.html">sidan för hela befolkningen</a>.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Varbergs kommun. Alla
+      beräkningar är öppna: källkoden och alla data finns på
       <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
       Hittar du ett fel? Lämna gärna en rättelse där.
     </p>
@@ -203,13 +290,14 @@
 
 <footer>
   <div class="sidfot-inre">
-    <p>Data: Kungsbacka kommuns befolkningsprognoser samt SCB:s befolkningsstatistik.
+    <p>Data: Varbergs kommuns befolkningsprognoser samt SCB:s befolkningsstatistik.
     Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
   </div>
 </footer>
 
 <script src="chart.umd.js"></script>
 <script src="gemensam.js"></script>
+<script src="kohort.js"></script>
 <script src="app.js"></script>
 <script data-goatcounter="https://moderat.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>

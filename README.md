@@ -32,6 +32,22 @@ officiella befolkningsstatistik.
   horisont. Årgångarna har ett eget diagram; att lägga två linjeknippen med
   var sin färgramp i samma bild går inte att läsa.
 
+**Befolkningsprognoser i Varberg** &ndash; exakt samma tre sidor för
+grannkommunen Varberg, byggda med samma skript och samma beräkningar:
+kommunens prognoser 2017&ndash;2026 mot SCB:s utfall. Två skillnader
+följer av Varbergs eget material: gymnasieåldern är **16&ndash;18 år**
+(Varbergs prognoser delar in ungdomarna i 16&ndash;18 och 19&ndash;24 år,
+så 16&ndash;19 går inte att läsa ut ur dem), och årgångarna
+2017&ndash;2021 kommer ur kommunbudgetarnas prognostabeller, som bara
+redovisar ett urval år. 2022 års rapport är raderad och finns inte
+arkiverad. Vad som finns och vad som saknas står i `data/KALLOR.md`.
+
+- [Hela befolkningen](https://moggleif.github.io/politik/varberg-befolkningsprognos.html)
+- [16–18 år, gymnasieåldern](https://moggleif.github.io/politik/varberg-gymnasiealdern.html)
+  &ndash; med kohortframskrivningen av 16&ndash;18-åringarna
+- [0–15 år, förskole- och grundskoleåldern](https://moggleif.github.io/politik/varberg-barn-och-unga.html)
+  &ndash; enbart faktiskt utfall enligt SCB
+
 **Betygen på gymnasiet** &ndash; vad eleverna hade med sig in, och vad de gick
 ut med, program för program. Enheten är programmet och inte skolan på båda
 sidorna: kommunen flyttar program mellan Aranäsgymnasiet och Elof Lindälvs
@@ -154,6 +170,7 @@ Hur allting hämtas, räknas och kan reproduceras beskrivs på
 data/
   prognoser/prognos_<år>.json   Extraherade prognossiffror ur varje rapport,
                                 med källänk och sidhänvisning
+  prognoser/varberg/prognos_<år>.json  Detsamma för Varbergs rapporter
   antagning/antagning_<år>.json Meritvärden per utbildning ur GR:s rapport
                                 efter varje års slutantagning
   slutbetyg/slutbetyg_<år>.json Avgångselevernas slutbetyg per skolenhet och
@@ -179,6 +196,7 @@ data/
   scb/bnp.json                  BNP i löpande priser och rikets folkmängd,
                                 nämnare till den nationella nivån
   scb/folkmangd_kungsbacka.json Faktisk folkmängd, hämtad från SCB:s öppna API
+  scb/folkmangd_varberg.json    Detsamma för Varberg (gymnasieåldern 16–18 år)
   fortidsroster/mottagna_<år>.csv  Valmyndighetens filer med mottagna
                                 förtidsröster per lokal och dag i hela
                                 landet, orörda (2010, 2014, 2018, 2022, 2026)
@@ -196,6 +214,7 @@ scripts/
   hamta_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API):
                                 total folkmängd, åldersgrupper och
                                 folkmängden per enskild ålder 0–19 år
+                                (--kommun kungsbacka|varberg)
   extrahera_prognos.py          Läser folkmängdstabellen ur en fristående
                                 prognosrapport
   extrahera_budget.py           Läser prognostabellen ur en kommunbudget
@@ -219,6 +238,8 @@ scripts/
                                 län och rike ur Valmyndighetens Excel-filer
   build_data.py                 Bygger docs/data.json och docs/data-16-19.json,
                                 inklusive kohortframskrivningen för 16–19 år
+                                – och för Varberg docs/data-varberg.json och
+                                docs/data-varberg-16-18.json
   build_meritvarden.py          Bygger docs/data-meritvarden.json, med en
                                 serie per program i stället för per skola
   build_slutbetyg.py            Bygger docs/data-slutbetyg.json, på samma sätt
@@ -226,7 +247,8 @@ scripts/
                                 parad med avgångseleverna år X+3, per program
   build_amnesbetyg.py           Bygger docs/data-amnesbetyg.json, en serie per
                                 ämne i årskurs 9
-  build_befolkning.py           Bygger docs/data-befolkning.json: folkmängden
+  build_befolkning.py           Bygger docs/data-befolkning.json och
+                                docs/data-varberg-befolkning.json: folkmängden
                                 efter ålder, enbart faktiskt utfall
   build_kostnader.py            Bygger docs/data-kostnader.json: kostnaden
                                 per elev i löpande och fasta priser, med
@@ -258,6 +280,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   befolkningsprognos.html       Befolkningsprognoser, hela befolkningen
   gymnasiealdern.html           Befolkningsprognoser, åldersgruppen 16–19 år
   barn-och-unga.html            Barn och unga 0–15 år, enbart faktiskt utfall
+  varberg-befolkningsprognos.html, varberg-gymnasiealdern.html,
+  varberg-barn-och-unga.html    Samma tre sidor för Varberg (16–18 år)
   amnesbetyg.html               Slutbetyg per ämne i årskurs 9
   kostnad-per-elev.html         Kostnaden per elev i grundskolan, fasta priser
   resurser-till-skolan.html     Resurserna mot referenskostnaden
@@ -313,8 +337,9 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
 Befolkningsprognoserna:
 
 ```bash
-python3 scripts/hamta_scb.py    # hämtar senaste utfallet från SCB
-python3 scripts/build_data.py   # bygger om docs/data.json
+python3 scripts/hamta_scb.py    # hämtar senaste utfallet från SCB (Kungsbacka)
+python3 scripts/hamta_scb.py --kommun varberg   # detsamma för Varberg
+python3 scripts/build_data.py   # bygger om docs/data*.json för båda kommunerna
 ```
 
 `hamta_scb.py` hämtar också folkmängden per enskild ålder 0&ndash;19 år, som
@@ -325,8 +350,10 @@ ställer den mot kommunens egen modell vid samma horisont, årgång för
 årgång.
 
 Nya prognosrapporter läggs till genom att spara PDF:en i `docs/rapporter/`,
-skapa en `data/prognoser/prognos_<år>.json` med siffrorna och källänken, och
-köra `build_data.py` igen.
+skapa en `data/prognoser/prognos_<år>.json` (Varberg:
+`data/prognoser/varberg/prognos_<år>.json`) med siffrorna och källänken, och
+köra `build_data.py` igen. En rapportfil som bara har vissa år får bara de
+åren; sidan ritar den då streckad med en punkt per redovisat år.
 
 Meritvärdena (kräver `pip install -r requirements.txt` &ndash; pdfplumber
 för antagnings-PDF:erna; pypdf används av `extrahera_prognos.py` och
@@ -384,6 +411,7 @@ Barn och unga 0&ndash;15 år (enbart utfall, inga prognoser):
 ```bash
 python3 scripts/hamta_scb.py          # hämtar 0–15 och 16–19 samtidigt
 python3 scripts/build_befolkning.py   # bygger om docs/data-befolkning.json
+                                      # och docs/data-varberg-befolkning.json
 ```
 
 Kostnaden per elev i grundskolan:
@@ -513,6 +541,9 @@ branch `main`, mapp `/docs`.
 
 - Kungsbacka kommuns befolkningsprognosrapporter (länkade på hemsidan,
   lokala kopior i `docs/rapporter/`)
+- Varbergs kommuns befolkningsprognoser: Swecos rapporter 2023&ndash;2026
+  och prognostabellerna i kommunbudgetarna 2018&ndash;2022 (lokala kopior
+  `docs/rapporter/varberg-*.pdf`)
 - SCB, Befolkningsstatistik (BE0101), tabellen *Folkmängden efter region,
   civilstånd, ålder och kön* — hämtas via [SCB:s öppna API](https://www.scb.se/vara-tjanster/oppna-data/api-for-statistikdatabasen/)
 - Göteborgsregionen (GR), Gymnasieantagningen: *Antagningspoäng och

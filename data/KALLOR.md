@@ -11,6 +11,8 @@ och vad som återstår.
 | Skript (`scripts/`) | Klara och körda |
 | Faktisk folkmängd 2000–2025 (SCB), totalt samt 0–15 och 16–19 år | Klar |
 | Prognoser 2015–2026, samtliga tolv årgångar | Klara |
+| Varberg: faktisk folkmängd 2000–2025 (SCB), totalt samt 0–15 och 16–18 år | Klar |
+| Varberg: prognoser 2017–2026, nio årgångar (2022 saknas) | Klara, se avsnittet om Varberg |
 | Meritvärden 2017 och 2019–2026 (GR) | Klara, 2018 saknas |
 | Slutbetyg 2014–2025 (Skolverket) | Klara, samtliga läsår |
 | Ämnesbetyg åk 9, 2013–2025 (Skolverket) | Klara, samtliga läsår |
@@ -294,6 +296,121 @@ kommunbudgetunderlag 2023, arkiverad 2022-03-19) är en presentation där
 **96 897 år 2030**, mot 98 017 i 2021 års rapport och 95 497 i 2022 års.
 Siffrorna finns bara som bilder, och eftersom den ligger mellan två
 årgångar vi redan har är den inte inlagd som en egen prognosserie.
+
+## Varberg
+
+Sidorna om Varberg (`varberg-befolkningsprognos.html`,
+`varberg-gymnasiealdern.html`, `varberg-barn-och-unga.html`) är byggda med
+samma skript och samma beräkningar som Kungsbackas. Två saker skiljer:
+
+- **Gymnasieåldern är 16–18 år, inte 16–19.** Varbergs prognoser delar in
+  ungdomarna i 16–18 och 19–24 år (budgettabellerna 2017–2021 såväl som
+  Swecos rapporter 2023–2026), så 16–19 går inte att läsa ut ur dem.
+  SCB-utfallet hämtas därför för 16–18 år (`hamta_scb.py --kommun varberg`
+  läser gymnasiegruppen ur `KOMMUNER`), och kohortframskrivningen skriver
+  fram 16–18-åringar. Sidan `varberg-barn-och-unga.html` jämför av samma
+  skäl 0–15 med 16–18 år.
+- **Budgettabellerna redovisar bara ett urval år.** Varbergs kommunbudgetar
+  2018–2022 innehåller en tabell "Folkmängd, totalprognos" med prognosens
+  första år och några "utblicksår" (t.ex. 2018, 2023, 2025, 2030, 2032),
+  inte varje år. De årgångarna ger färre jämförelsepunkter och ritas
+  streckade med punkter i diagrammen; linjen mellan punkterna är dragen
+  rakt och är inga prognosvärden.
+
+### Faktisk folkmängd
+
+`python3 scripts/hamta_scb.py --kommun varberg` hämtar regionkod 1383 ur
+samma två SCB-tabeller som Kungsbacka och skriver
+`data/scb/folkmangd_varberg.json`. Kontroll mot kommunens egna uppgifter:
+Varbergs webbplats anger 69 070 invånare 2024 (stämmer) och 69 462 för
+2025, medan SCB:s tabell (uppdaterad 2026-02-24) ger 69 460 – två
+personers skillnad, som SCB:s efterjusteringar förklarar. Sidorna använder
+genomgående SCB som facit.
+
+### Prognosrapporterna
+
+Filerna ligger i `data/prognoser/varberg/`, de lokala kopiorna i
+`docs/rapporter/varberg-*.pdf`.
+
+| Prognosår | Källa | Redovisade år | Hittad var |
+|---|---|---|---|
+| 2017 | Budget 2018 (sid 18), "Folkmängd, totalprognos 2017-2030" | 2017, 2020, 2025 (2030 utesluten, se nedan) | Wayback |
+| 2018 | Budget 2019 (sid 17), "Folkmängd, totalprognos 2018-2032" | 2018, 2023, 2025, 2030, 2032 | Wayback |
+| 2019 | Budget 2020 (sid 19), "Folkmängd, totalprognos 2019-2033" | 2019, 2024, 2030, 2033 | Kommunens webbplats, aktuell fil (10 MB) |
+| 2020 | Budget 2021 (sid 22), "Folkmängd, totalprognos 2020-2034" | 2025, 2030, 2034 | Kommunens webbplats, aktuell fil |
+| 2021 | Budget 2022 (sid 22), "Folkmängd, totalprognos 2021-2036" | 2026, 2031, 2036 | Kommunens webbplats, aktuell fil |
+| 2022 | *Varberg befolkningsprognos 2022–2037* (Sweco) | – | **Saknas**, se nedan |
+| 2023 | *Varberg befolkningsprognos 2023–2038* (Sweco, 2023-04-06) | 2023–2038 | Wayback |
+| 2024 | *Varberg befolkningsprognos 2024–2039* (Sweco, 2024-04-09) | 2024–2039 | Wayback |
+| 2025 | *Varberg befolkningsprognos 2025–2040* (Sweco, 2025-04-09) | 2025–2040 | Kommunens webbplats, aktuell fil |
+| 2026 | *Befolkningsprognos 2026–2041* (Sweco, 2026-04-22) | 2026–2041 | Kommunens webbplats (sidan Budget), aktuell fil |
+
+**Totalprognosen** i Swecos rapporter tas ur tabellen "Demografiska
+komponenter" i tabellbilagan, som har folkmängden för varje prognosår.
+Tabellen "Folkmängd: planeringsåldersklasser" redovisar bara vissa år
+(t.ex. 2025–2031, 2035 och 2040) och används för **16–18 år**; därför har
+åldersgruppen luckor även i Sweco-årgångarna. Årsvärdena i "Demografiska
+komponenter" stämmer med planeringsåldersklassernas summarad i de år båda
+har, och med de årsvisa totaler kommunen själv trycker i Budget 2025
+(2024–2029), Budget 2026 (2026–2030) och Planeringsförutsättningar inför
+Budget 2027 (2026–2031).
+
+**Utfallskolumnerna.** Budget 2021 och 2022 inleder tabellen med
+"Utfall 2019" respektive "Utfall 2020"; Swecos tabeller inleder med en
+SCB-kolumn för året före prognosen. De kontrollerades mot SCB och togs
+inte med bland prognosvärdena:
+
+| Källa | Utfallsår | Rapporten, totalt | SCB | Rapporten, 16–18 | SCB |
+|---|---|---|---|---|---|
+| Budget 2021 | 2019 | 64 601 | 64 601 | 2 144 | 2 144 |
+| Budget 2022 | 2020 | 65 397 | 65 397 | 2 169 | 2 169 |
+| Sweco 2023 | 2022 | 67 800 | 67 800 | 2 266 | 2 266 |
+| Sweco 2024 | 2023 | 68 325 | 68 325 | 2 292 | 2 292 |
+| Sweco 2025 | 2024 | 69 070 | 69 070 | 2 372 | 2 372 |
+| Sweco 2026 | 2025 | 69 489 | 69 460 | 2 432 | 2 427 |
+
+Alla utom 2026 års rapport stämmer exakt. 2026 års rapport anger 29
+personer fler än SCB:s tabell för 2025 (och fem fler 16–18-åringar);
+Sweco har uppenbarligen räknat på ett tidigare uttag än det SCB nu
+publicerar. Sidorna använder SCB.
+
+Budget 2018, 2019 och 2020 inleder i stället med kolumnen "Prognos
+2017/2018/2019" – prognosens eget startår, gjord under året – och de
+kolumnerna är prognosvärden (avstånd 0 år) precis som i Kungsbackas
+material. 2030-kolumnen i Budget 2018 utelämnas: budgetens fotnot säger
+att "2030 års siffror är ingen prognos utan endast en utblick", och texten
+beskriver prognosen som "2017-2021 med utblick mot 2030". I de senare
+budgetarna kallas alla kolumner efter den första "Utblick" trots att de
+ligger inom rapportens prognosperiod (2018–2032 osv.), och de tas med.
+
+### Årgångar som saknas – och varför
+
+**2022.** Rapporten *Varberg befolkningsprognos 2022–2037_TotalPrognos*
+länkades från kommunens befolkningssida (arkiverade sidversioner från
+december 2022 och mars 2023 pekar på
+`varberg.se/download/18.3fa8c94182e8fb56d42cc3b/1662725335868/…`), men
+själva filen är raderad och har ingen kopia i Wayback. Budget 2023
+återger bara avrundade uppgifter i löptext ("70 000 invånare år 2025",
+"över 80 000 under 2036", "drygt 81 500 år 2037"), vilket inte räcker för
+en jämförelse. Budget 2024 (november 2023) återger 2023 års prognos,
+inte 2022 års.
+
+**Före 2017.** Budget 2016 och Budget 2017 (www2.varberg.se) finns bara i
+Wayback, och alla kopior är kapade vid 1 MiB – samma fälla som för
+Kungsbackas budgetar, men här utan någon komplett kopia från något
+datum. Detsamma gäller Budget 2012–2015. Den fristående rapporten för
+2017 ("Befolkningsprognos 2017-2030 exkl. bilagor") är raderad och finns
+bara som omdirigering i Wayback; 2018 års rapport
+(*Varberg_Byggbaserad_180405*, april 2018) finns arkiverad men bara som
+inskannade bilder utan text; 2020 års (*Varberg_Byggbaserad_Kommun_20200303*)
+bara som kapad kopia. För 2019 och 2021 har ingen fristående rapport
+hittats alls. I samtliga fall räcker budgettabellerna till siffrorna.
+
+Sökningarna som gjordes: Wayback CDX över `varberg.se` (filter på
+`prognos`, `befolkning`, `budget`, `byggbaserad` och `application/pdf`),
+arkiverade versioner av kommunens befolkningssida 2019–2023 (urlkey
+`kommunpolitik/kommunfakta/befolkning*`), kommunens sökfunktion samt
+sidorna Budget, Befolkningsstatistik och Analys Varberg på varberg.se.
 
 ## Lägga in en ny rapport
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Hämtar faktisk folkmängd för Kungsbacka kommun från SCB:s öppna API.
+"""Hämtar faktisk folkmängd för en kommun från SCB:s öppna API.
+
+Kungsbacka är standard; Varberg hämtas med  --kommun varberg.
 
 Hämtar tre serier: hela befolkningen, åldersgruppen 16–19 år
 (gymnasieåldern) och åldersgruppen 0–15 år (förskole- och
@@ -24,12 +26,13 @@ kön", folkmängd den 31 december. Vill man lägga till ett nytt år: sök upp
   https://api.scb.se/OV0104/v2beta/api/v2/tables?query=folkmängd&lang=sv
 och lägg till den i SENARE_TABELLER nedan.
 
-Resultatet sparas till data/scb/folkmangd_kungsbacka.json tillsammans med
+Resultatet sparas till data/scb/folkmangd_<kommun>.json tillsammans med
 metadata om när och hur datat hämtades, så att hämtningen är reproducerbar.
 
-Körs:  python3 scripts/hamta_scb.py
+Körs:  python3 scripts/hamta_scb.py [--kommun kungsbacka|varberg]
 """
 
+import argparse
 import json
 import ssl
 import urllib.request
@@ -44,14 +47,26 @@ TABELL_URL = "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE01
 API2_URL = "https://api.scb.se/OV0104/v2beta/api/v2/tables/{tabell}/data?lang=sv&outputFormat=json-stat2"
 SENARE_TABELLER = {"2025": "TAB5557"}
 
-REGION_KUNGSBACKA = "1384"
+# Kommunerna som går att hämta: nyckel i filnamnet -> (namn, SCB:s regionkod,
+# gymnasieåldern så som kommunens egna prognosrapporter delar in den).
+# Kungsbacka redovisar 16–19 år; Varbergs rapporter drar gränsen vid 16–18
+# och 19–24, så där hämtas 16–18 för att prognoserna ska gå att jämföra.
+KOMMUNER = {
+    "kungsbacka": ("Kungsbacka", "1384", (16, 19)),
+    "varberg": ("Varberg", "1383", (16, 18)),
+}
+REGION = KOMMUNER["kungsbacka"][1]  # sätts om av --kommun i main()
 FORSTA_AR = 2000
 
-# Åldersgrupper som hämtas utöver totalen. Nyckeln används i utdatafilen.
-ALDERSGRUPPER = {
-    "16-19": [str(a) for a in range(16, 20)],
-    "0-15": [str(a) for a in range(0, 16)],
-}
+
+def aldersgrupper(gymnasie: tuple) -> dict:
+    """Åldersgrupper som hämtas utöver totalen. Nyckeln används i utdatafilen."""
+    lag, hog = gymnasie
+    return {
+        f"{lag}-{hog}": [str(a) for a in range(lag, hog + 1)],
+        "0-15": [str(a) for a in range(0, 16)],
+    }
+
 
 # Enskilda åldrar som sparas var för sig. 0–19 räcker för att skriva fram
 # 16–19-åringarna så långt som till dagens nyfödda.
@@ -73,7 +88,7 @@ def fraga(aldrar=None) -> dict:
     """Utelämnas ålder summerar SCB över alla åldrar; annars summerar vi själva."""
     q = [
         {"code": "Region",
-         "selection": {"filter": "vs:RegionKommun07", "values": [REGION_KUNGSBACKA]}},
+         "selection": {"filter": "vs:RegionKommun07", "values": [REGION]}},
         {"code": "ContentsCode", "selection": {"filter": "item", "values": ["BE0101N1"]}},
     ]
     if aldrar:
@@ -126,7 +141,7 @@ def hamta_senare_ar(ar: str, tabell: str, aldrar=None) -> int:
     kön och civilstånd; 000007ME är måttet Folkmängd."""
     svar = posta(API2_URL.format(tabell=tabell), {
         "selection": [
-            {"variableCode": "Region", "valueCodes": [REGION_KUNGSBACKA]},
+            {"variableCode": "Region", "valueCodes": [REGION]},
             {"variableCode": "Civilstand", "valueCodes": ["SC"]},
             {"variableCode": "Alder", "valueCodes": aldrar or ["TotSA"]},
             {"variableCode": "Kon", "valueCodes": ["TotSa"]},
@@ -146,38 +161,44 @@ def komplettera(serie: dict, aldrar=None) -> dict:
     return dict(sorted(serie.items()))
 
 
-def kontrollera(per_alder: dict, grupper: dict) -> None:
+def kontrollera(per_alder: dict, grupper: dict, grupper_def: dict) -> None:
     """De enskilda åldrarna ska summera till åldersgrupperna.
 
     Gör de inte det har någon av frågorna hämtat något annat än den andra,
     och då är kohortframskrivningen byggd på fel underlag. Det ska synas
     direkt, inte upptäckas i ett diagram långt senare."""
-    intervall = {"0-15": range(0, 16), "16-19": range(16, 20)}
-    for namn, aldrar in intervall.items():
+    for namn, aldrar in grupper_def.items():
         for ar, rad in per_alder.items():
             facit = grupper.get(namn, {}).get(ar)
             if facit is None:
                 continue
-            summa = sum(rad.get(str(a), 0) for a in aldrar)
+            summa = sum(rad.get(a, 0) for a in aldrar)
             if summa != facit:
                 print(f"Varning: {ar} ålder {namn} summerar till {summa}, "
                       f"men åldersgruppen säger {facit}")
 
 
 def main() -> None:
+    global REGION
+    arg = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    arg.add_argument("--kommun", choices=sorted(KOMMUNER), default="kungsbacka")
+    val = arg.parse_args()
+    kommun, REGION, gymnasie = KOMMUNER[val.kommun]
+    grupper_def = aldersgrupper(gymnasie)
+
     folkmangd = komplettera(hamta_serie())
 
     grupper = {}
-    for namn, aldrar in ALDERSGRUPPER.items():
+    for namn, aldrar in grupper_def.items():
         grupper[namn] = komplettera(hamta_serie(aldrar), aldrar)
 
     per_alder = komplettera_per_alder(hamta_per_alder(ENSKILDA_ALDRAR),
                                       ENSKILDA_ALDRAR)
-    kontrollera(per_alder, grupper)
+    kontrollera(per_alder, grupper, grupper_def)
 
     ut = {
-        "kommun": "Kungsbacka",
-        "regionkod": REGION_KUNGSBACKA,
+        "kommun": kommun,
+        "regionkod": REGION,
         "matt": "Folkmängd 31 december respektive år",
         "kalla": "SCB, Befolkningsstatistik (BE0101), Folkmängden efter region, "
                  "civilstånd, ålder och kön",
@@ -190,7 +211,8 @@ def main() -> None:
         "perAlder": per_alder,
     }
 
-    utfil = Path(__file__).resolve().parent.parent / "data" / "scb" / "folkmangd_kungsbacka.json"
+    utfil = (Path(__file__).resolve().parent.parent / "data" / "scb"
+             / f"folkmangd_{val.kommun}.json")
     utfil.parent.mkdir(parents=True, exist_ok=True)
     utfil.write_text(json.dumps(ut, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Sparade {len(folkmangd)} år ({min(folkmangd)}–{max(folkmangd)}) till {utfil}")

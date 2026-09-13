@@ -111,8 +111,9 @@
        det historiskt har betytt. */
     var kort = k.traffsakerhet[0];
     var langt = k.traffsakerhet[k.traffsakerhet.length - 1];
-    /* Riktningen på felet skiftar med horisonten och får därför inte
-       sammanfattas till ett håll. Båda tecknen läses ur datat. Varför de
+    /* Riktningen på felet kan skifta med horisonten (så i Kungsbacka) och
+       får därför inte sammanfattas till ett håll. Båda tecknen läses ur
+       datat, och om de är lika sägs det i stället. Varför de
        skiftar går inte att läsa ur samma tal: felet är nettoförändringen
        i kohorterna, och datat delar inte upp den i flyttning, dödlighet
        och folkbokföringsändringar. */
@@ -127,7 +128,10 @@
       "oförändrade. Historiskt " +
       "har den missat med i snitt " + talSv(kort.medelAbsPct, 1) + " % ett år " +
       "framåt och " + talSv(langt.medelAbsPct, 1) + " % " + esc(langt.avstand) +
-      " år framåt. Riktningen skiftar: ett år framåt har den legat " +
+      " år framåt. " +
+      ((kort.medelPct > 0) !== (langt.medelPct > 0)
+        ? "Riktningen skiftar: ett år framåt har den legat "
+        : "Riktningen är densamma på båda sikterna: ett år framåt har den legat ") +
       riktning(kort) + ", " + esc(langt.avstand) + " år framåt " + riktning(langt) +
       (langt.medelPct < 0
         ? " – på den sikten har nettoförändringen i kohorterna varit " +
@@ -143,15 +147,17 @@
     if (mot.length && senaste) {
       var under = mot.filter(function (r) { return r.diff < 0; });
       var forsta = mot[0];
-      var txt = "<p>Om kohorterna vore oförändrade skulle Kungsbacka ha <strong>" +
+      var txt = "<p>Om kohorterna vore oförändrade skulle " + esc(data.kommun) + " ha <strong>" +
         talSv(k.framskrivning[String(forsta.ar)]) + "</strong> " + ENHET +
         " i åldern " + esc(k.aldrar[0]) + "–" + esc(k.aldrar[1]) + " år " + esc(forsta.ar) +
         " – de finns redan i kommunen, de är bara yngre än så. År " +
         esc(k.sistaAr) + " är samma tal <strong>" +
-        talSv(k.framskrivning[String(k.sistaAr)]) + "</strong>, en minskning " +
-        "med " + talSv(Math.round(100 * (1 -
+        talSv(k.framskrivning[String(k.sistaAr)]) + "</strong>, " +
+        (k.framskrivning[String(k.sistaAr)] <= k.framskrivning[String(forsta.ar)]
+          ? "en minskning" : "en ökning") +
+        " med " + talSv(Math.abs(Math.round(100 * (1 -
           k.framskrivning[String(k.sistaAr)] /
-          k.framskrivning[String(forsta.ar)])), 0) + " %.</p>";
+          k.framskrivning[String(forsta.ar)]))), 0) + " %.</p>";
       if (under.length) {
         var storst = under.reduce(function (a, b) {
           return Math.abs(b.diff) > Math.abs(a.diff) ? b : a;
@@ -166,7 +172,9 @@
           "den ska slå in krävs en negativ nettoförändring i de kohorterna, " +
           "vilket i den här åldersgruppen huvudsakligen skulle kunna komma " +
           "från nettoutflyttning. Framskrivningen har legat " +
-          talSv(kort.medelPct, 1) + " % för högt ett år framåt, men i en helt " +
+          talSv(Math.abs(kort.medelPct), 1) + " % " +
+          (kort.medelPct >= 0 ? "för högt" : "för lågt") +
+          " ett år framåt, men i en helt " +
           "annan storleksordning än den skillnaden.</p>";
       }
       el("slutsats-kohort").innerHTML = txt;

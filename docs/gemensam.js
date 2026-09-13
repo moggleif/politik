@@ -270,6 +270,16 @@
     }
   }
 
+  /* ---------- Kommunnamnet i genitiv ----------
+     De officiella namnen är "Kungsbacka kommun" men "Varbergs kommun":
+     namn som slutar på vokal får inget s. Används där sidtexterna
+     nämner kommunen och datat bara har namnet. */
+
+  function kommunGenitiv(namn) {
+    var n = String(namn || "");
+    return /[aeiouyåäö]$/i.test(n) ? n : n + "s";
+  }
+
   /* ---------- Utfallslinjen ----------
      Den svarta linjen med SCB:s faktiska folkmängd, återanvänd i flera
      diagram på befolknings- och kohortsidorna. */
@@ -692,6 +702,7 @@
     regimmarkering: regimmarkering,
     taBortDiagram: taBortDiagram,
     utfallDataset: utfallDataset,
+    kommunGenitiv: kommunGenitiv,
     starta: starta,
     visaStatus: visaStatus,
     urlLas: urlLas,

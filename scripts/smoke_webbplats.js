@@ -26,6 +26,8 @@ const DOCS = path.join(__dirname, "..", "docs");
    textsidor (startsidans fakta fylls i men ritar inga diagram). */
 const DIAGRAMSIDOR = [
   "befolkningsprognos.html", "gymnasiealdern.html", "barn-och-unga.html",
+  "varberg-befolkningsprognos.html", "varberg-gymnasiealdern.html",
+  "varberg-barn-och-unga.html",
   "amnesbetyg.html", "kostnad-per-elev.html", "resurser-till-skolan.html",
   "nian-till-gymnasiet.html",
   "meritvarden.html",

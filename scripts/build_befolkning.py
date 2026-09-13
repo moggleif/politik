@@ -1,39 +1,56 @@
 #!/usr/bin/env python3
-"""Bygger docs/data-befolkning.json: den faktiska befolkningen efter ålder.
+"""Bygger datafilerna över den faktiska befolkningen efter ålder.
 
 Till skillnad från build_data.py, som ställer kommunens prognoser mot
-utfallet, innehåller den här filen **enbart faktiskt utfall** från SCB.
+utfallet, innehåller de här filerna **enbart faktiskt utfall** från SCB.
 Inga prognossiffror ingår.
 
-Läser:
-  data/scb/folkmangd_kungsbacka.json   (från hamta_scb.py)
+Läser, för varje kommun i KOMMUNER:
+  data/scb/folkmangd_<kommun>.json   (från hamta_scb.py)
 
 Skriver:
-  docs/data-befolkning.json
+  docs/data-befolkning.json           Kungsbacka
+  docs/data-varberg-befolkning.json   Varberg
 
-Tre serier redovisas: 0–15 år (förskole- och grundskoleåldern), 16–19 år
-(gymnasieåldern) och hela folkmängden. Utöver antalen räknas tre saker
-fram, som alla följer direkt ur samma tal:
+Tre serier redovisas: 0–15 år (förskole- och grundskoleåldern),
+gymnasieåldern (16–19 år i Kungsbacka, 16–18 år i Varberg – den indelning
+respektive kommuns prognoser använder, hämtad så ur SCB) och hela
+folkmängden. Utöver antalen räknas tre saker fram, som alla följer direkt
+ur samma tal:
 
   andel        gruppens andel av folkmängden, i procent
   forandring   förändringen mot föregående år, i personer
   index        utvecklingen med första året som 100, så att grupper av
                helt olika storlek går att jämföra i samma diagram
 
-Körs:  python3 scripts/build_befolkning.py
+Körs:  python3 scripts/build_befolkning.py [--kommun kungsbacka|varberg]
 """
 
+import argparse
 import json
 from pathlib import Path
 
 ROT = Path(__file__).resolve().parent.parent
 
-# utdatanyckel -> (etikett, var serien hämtas i SCB-filen)
-SERIER = [
-    ("0-15", "0–15 år", "aldersgrupper"),
-    ("16-19", "16–19 år", "aldersgrupper"),
-    ("total", "Hela folkmängden", None),
-]
+# kommun -> (SCB-fil, utfil)
+KOMMUNER = {
+    "kungsbacka": ("folkmangd_kungsbacka.json", "data-befolkning.json"),
+    "varberg": ("folkmangd_varberg.json", "data-varberg-befolkning.json"),
+}
+
+
+def serier_for(scb: dict) -> list:
+    """utdatanyckel -> (etikett, var serien hämtas i SCB-filen).
+
+    0–15 först, sedan gymnasieåldern så som SCB-filen har den (16–19 eller
+    16–18), sist hela folkmängden – samma ordning oavsett kommun."""
+    grupper = scb.get("aldersgrupper", {})
+    gymnasie = [g for g in grupper if g != "0-15"]
+    ut = [("0-15", "0–15 år", "aldersgrupper")]
+    for g in gymnasie:
+        ut.append((g, g.replace("-", "–") + " år", "aldersgrupper"))
+    ut.append(("total", "Hela folkmängden", None))
+    return ut
 
 
 def lasa_json(p: Path):
@@ -53,7 +70,7 @@ def bygg(scb: dict) -> dict:
     ar = sorted(total)
 
     serier = []
-    for nyckel, etikett, var in SERIER:
+    for nyckel, etikett, var in serier_for(scb):
         varden = serie_ur_scb(scb, nyckel, var)
         if not varden:
             print(f"Hoppar över {nyckel}: saknas i SCB-filen")
@@ -103,16 +120,26 @@ def bygg(scb: dict) -> dict:
     return ut
 
 
-def main() -> None:
-    scb = lasa_json(ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+def bygg_kommun(kommun: str) -> None:
+    scbfil, utnamn = KOMMUNER[kommun]
+    scb = lasa_json(ROT / "data" / "scb" / scbfil)
     ut = bygg(scb)
     ar, serier = ut["ar"], ut["serier"]
-    utfil = ROT / "docs" / "data-befolkning.json"
+    utfil = ROT / "docs" / utnamn
     utfil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"Skrev {utfil.name}: {len(serier)} serier, {len(ar)} år ({ar[0]}–{ar[-1]})")
     for s in serier:
         print(f"  {s['etikett']}: {s['forsta']} ({s['forstaAr']}) → {s['sista']} ({s['sistaAr']}), "
               f"högst {s['hogsta']} år {s['hogstaAr']}")
+
+
+def main() -> None:
+    arg = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    arg.add_argument("--kommun", choices=sorted(KOMMUNER),
+                     help="bygg bara den här kommunen (annars alla)")
+    val = arg.parse_args()
+    for kommun in ([val.kommun] if val.kommun else sorted(KOMMUNER)):
+        bygg_kommun(kommun)
 
 
 if __name__ == "__main__":

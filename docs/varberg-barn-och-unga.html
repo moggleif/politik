@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>Hur många barn och unga 0–15 år finns det i Kungsbacka?</title>
-<meta name="description" content="Antalet barn och unga 0–15 år i Kungsbacka 2000–2025 enligt SCB:s befolkningsstatistik. Enbart faktiskt utfall, inga prognoser.">
+<title>Hur många barn och unga 0–15 år finns det i Varberg?</title>
+<meta name="description" content="Antalet barn och unga 0–15 år i Varberg 2000–2025 enligt SCB:s befolkningsstatistik. Enbart faktiskt utfall, inga prognoser.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-datafil="data-varberg-befolkning.json">
 
 <a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
 
@@ -19,7 +19,7 @@
       <a href="index.html">Start</a>
       <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
         <a href="befolkningsprognos.html">Hela befolkningen</a>
-        <a href="barn-och-unga.html" aria-current="page">0–15 år</a>
+        <a href="barn-och-unga.html">0–15 år</a>
         <a href="gymnasiealdern.html">16–19 år</a>
       </span>
       <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
@@ -38,14 +38,14 @@
       </span>
       <span class="navgrupp"><span class="navrubrik">Varberg:</span>
         <a href="varberg-befolkningsprognos.html">Hela befolkningen</a>
-        <a href="varberg-barn-och-unga.html">0–15 år</a>
+        <a href="varberg-barn-och-unga.html" aria-current="page">0–15 år</a>
         <a href="varberg-gymnasiealdern.html">16–18 år</a>
       </span>
       <a href="metod.html">Metod</a>
     </nav>
-    <h1>Hur många barn och unga finns det i Kungsbacka?</h1>
+    <h1>Hur många barn och unga finns det i Varberg?</h1>
     <p class="ingress">
-      Den här sidan visar antalet barn och unga 0&ndash;15 år i Kungsbacka
+      Den här sidan visar antalet barn och unga 0&ndash;15 år i Varberg
       sedan år 2000, enligt Statistiska centralbyrån (SCB), samt gruppens
       andel av folkmängden, förändringen år för år och den indexerade
       utvecklingen. <strong>Inga prognoser ingår</strong> &ndash; varje tal
@@ -69,7 +69,7 @@
   <section id="sektion-antal" hidden>
     <h2>Hur många är de?</h2>
     <p class="forklaring">
-      Antalet barn och unga 0&ndash;15 år i Kungsbacka, år för år. Gruppen är
+      Antalet barn och unga 0&ndash;15 år i Varberg, år för år. Gruppen är
       hämtad som en enda åldersgrupp &ndash; SCB redovisar ettårsklasser, som
       här summeras till 0&ndash;15.
     </p>
@@ -88,11 +88,13 @@
     <h2>Hur stor del av kommunen är de?</h2>
     <p class="forklaring">
       Hur stor <em>andel</em> av folkmängden de två skolåldrarna 0&ndash;15
-      år och 16&ndash;19 år utgör, år för år. Andelen är gruppens storlek
+      år och 16&ndash;18 år utgör, år för år. Gymnasieåldern är här
+      16&ndash;18 år, eftersom det är så Varbergs prognoser delar in den;
+      se <a href="varberg-gymnasiealdern.html">sidan om 16&ndash;18-åringarna</a>. Andelen är gruppens storlek
       delad med hela folkmängden samma år.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-andel" aria-label="Diagram: andel av folkmängden för åldersgrupperna 0–15 och 16–19 år" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-andel" aria-label="Diagram: andel av folkmängden för åldersgrupperna 0–15 och 16–18 år" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-andel"></p>
     </div>
     <div class="slutsats" id="slutsats-andel"></div>
@@ -129,7 +131,7 @@
       en annan har ökat mindre sedan startåret.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-index" aria-label="Diagram: indexerad utveckling för 0–15 år, 16–19 år och hela folkmängden" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-index" aria-label="Diagram: indexerad utveckling för 0–15 år, 16–18 år och hela folkmängden" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-index"></p>
     </div>
     <div class="slutsats" id="slutsats-index"></div>
@@ -153,8 +155,8 @@
     <p class="forklaring">
       Sidan visar <strong>enbart faktiskt utfall</strong>. Vill du se hur väl
       kommunens egna prognoser har träffat finns det på sidorna för
-      <a href="befolkningsprognos.html">hela befolkningen</a> och
-      <a href="gymnasiealdern.html">16&ndash;19-åringarna</a>.
+      <a href="varberg-befolkningsprognos.html">hela befolkningen</a> och
+      <a href="varberg-gymnasiealdern.html">16&ndash;18-åringarna</a>.
     </p>
     <p class="forklaring">
       Åldersgruppen hämtas som en enda grupp, 0&ndash;15 år. SCB redovisar
@@ -162,7 +164,7 @@
       på förskole-, låg-, mellan- och högstadieålder.
     </p>
     <p class="forklaring">
-      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
+      Sidan är fristående och drivs inte av Varbergs kommun. Alla
       beräkningar är öppna: källkoden och alla data finns på
       <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
       Hittar du ett fel? Lämna gärna en rättelse där.

@@ -1,7 +1,10 @@
 /* Barn och unga 0–15 år — enbart faktiskt utfall ur SCB.
    Till skillnad från prognossidorna finns här inga prognossiffror alls:
    varje tal i diagrammen är folkmängd den 31 december ett år som varit.
-   Läser docs/data-befolkning.json, byggd av scripts/build_befolkning.py. */
+   Läser den datafil som <body data-datafil="…"> pekar ut (Kungsbacka:
+   data-befolkning.json, Varberg: data-varberg-befolkning.json), byggd av
+   scripts/build_befolkning.py. Kommunens namn och jämförelsegruppens
+   åldrar (16–19 eller 16–18 år) läses ur datafilen. */
 (function () {
   "use strict";
 
@@ -13,15 +16,15 @@
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
-  var DATAFIL = "data-befolkning.json";
+  var DATAFIL = document.body.dataset.datafil || "data-befolkning.json";
   var HUVUD = "0-15";           // sidans huvudgrupp
-  var JAMFOR = "16-19";         // gymnasieåldern, som jämförelse
+  var JAMFOR = null;            // gymnasieåldern, som jämförelse – sätts ur datat
 
   /* Fast färg per serie — färgen följer gruppen, aldrig dess ordning
-     i ett filtrerat urval. */
+     i ett filtrerat urval. Gymnasiegruppen heter 16-19 i Kungsbacka och
+     16-18 i Varberg; den får PALETT[1] oavsett namn. */
   var SERIEFARG = {
     "0-15": PALETT[0],
-    "16-19": PALETT[1],
     "total": PALETT[2]
   };
 
@@ -30,6 +33,21 @@
       if (data.serier[i].nyckel === nyckel) return data.serier[i];
     }
     return null;
+  }
+
+  /* Jämförelsegruppen är den serie som varken är huvudgruppen eller
+     hela folkmängden. */
+  function jamforNyckel(data) {
+    for (var i = 0; i < data.serier.length; i++) {
+      var n = data.serier[i].nyckel;
+      if (n !== HUVUD && n !== "total") return n;
+    }
+    return null;
+  }
+
+  /* "16–19 år" -> "16–19-åringarna" */
+  function aringar(serie) {
+    return serie.etikett.replace(/\s*år$/, "") + "-åringarna";
   }
 
   function cell(serie, ar, falt) {
@@ -158,9 +176,9 @@
       data: {
         labels: ar.map(String),
         datasets: [
-          linjeSerie("0–15 år", SERIEFARG[HUVUD],
+          linjeSerie(a15.etikett, SERIEFARG[HUVUD],
             ar.map(function (x) { return cell(a15, x, "andel"); })),
-          linjeSerie("16–19 år", SERIEFARG[JAMFOR],
+          linjeSerie(a19.etikett, SERIEFARG[JAMFOR],
             ar.map(function (x) { return cell(a19, x, "andel"); }), [7, 4])
         ]
       },
@@ -175,7 +193,7 @@
     el("slutsats-andel").innerHTML =
       "<p>Andelen 0&ndash;15-åringar har gått från <strong>" + talSv(f, 1) +
       "&nbsp;%</strong> år " + esc(data.ar[0]) + " till <strong>" + talSv(sist, 1) +
-      "&nbsp;%</strong> år " + esc(a15.sistaAr) + ". För 16&ndash;19-åringarna " +
+      "&nbsp;%</strong> år " + esc(a15.sistaAr) + ". För " + esc(aringar(a19)) + " " +
       "gick andelen från " + talSv(cell(a19, data.ar[0], "andel"), 1) +
       "&nbsp;% till " + talSv(cell(a19, a19.sistaAr, "andel"), 1) +
       "&nbsp;% under samma år.</p>";
@@ -190,8 +208,8 @@
         talSv(cell(a19, a, "andel"), 1) + "&nbsp;%</td></tr>";
     }).join("");
     el("tabell-andel").innerHTML =
-      "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">0&ndash;15 år</th>" +
-      "<th scope=\"col\">16&ndash;19 år</th></tr></thead><tbody>" + rader + "</tbody>";
+      "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">" + esc(a15.etikett) + "</th>" +
+      "<th scope=\"col\">" + esc(a19.etikett) + "</th></tr></thead><tbody>" + rader + "</tbody>";
   }
 
   /* ---------- 3. Förändring år för år ---------- */
@@ -264,7 +282,8 @@
     opt.plugins.legend.display = true;
     opt.scales.y.beginAtZero = false;
 
-    var streck = { "0-15": [], "16-19": [7, 4], "total": [2, 3] };
+    var streck = { "0-15": [], "total": [2, 3] };
+    streck[JAMFOR] = [7, 4];
     var dataset = data.serier.map(function (s) {
       return linjeSerie(s.etikett, SERIEFARG[s.nyckel],
         ar.map(function (a) { return cell(s, a, "index"); }), streck[s.nyckel]);
@@ -310,7 +329,7 @@
 
     K.visaKortSagt([
       "År " + esc(a15.sistaAr) + " fanns <strong>" + talSv(a15.sista) +
-        "</strong> barn och unga 0&ndash;15 år i Kungsbacka.",
+        "</strong> barn och unga 0&ndash;15 år i " + esc(data.kommun) + ".",
       "Gruppen var som störst <strong>" + esc(a15.hogstaAr) + "</strong> och har sedan dess " +
         "minskat med " + talSv(sedanTopp) + " personer.",
       "Andelen av befolkningen har gått från " + talSv(forstaAndel, 1) +
@@ -324,6 +343,8 @@
   /* ---------- Start ---------- */
 
   function start(data) {
+    JAMFOR = jamforNyckel(data);
+    SERIEFARG[JAMFOR] = PALETT[1];
     K.visaMeta({
       kalla: data.kalla,
       period: data.ar[0] + "–" + data.ar[data.ar.length - 1],

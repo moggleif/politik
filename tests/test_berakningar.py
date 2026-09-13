@@ -1386,6 +1386,32 @@ class TestGenereradeFiler(unittest.TestCase):
                                   "16–19 år", (16, 19))
         self.assertEqual(ombyggd, self.las("data-16-19.json"))
 
+    def test_data_varberg_ar_reproducerbar(self):
+        """Varbergs två prognosfiler byggs av samma kod ur data/prognoser/varberg/
+        – med gymnasieåldern 16–18 år, som Varbergs rapporter delar in den."""
+        scb = json.loads(
+            (ROT / "data" / "scb" / "folkmangd_varberg.json")
+            .read_text(encoding="utf-8"))
+        rapporter = [
+            json.loads(f.read_text(encoding="utf-8"))
+            for f in sorted((ROT / "data" / "prognoser" / "varberg").glob("prognos_*.json"))
+        ]
+        utfall = {int(a): v for a, v in scb["folkmangd"].items()}
+        self.assertEqual(
+            build_data.bygg(scb, rapporter, utfall, None, "Hela befolkningen"),
+            self.las("data-varberg.json"))
+        utfall = {int(a): v for a, v in scb["aldersgrupper"]["16-18"].items()}
+        self.assertEqual(
+            build_data.bygg(scb, rapporter, utfall, "16-18", "16–18 år", (16, 18)),
+            self.las("data-varberg-16-18.json"))
+
+    def test_data_varberg_befolkning_ar_reproducerbar(self):
+        scb = json.loads(
+            (ROT / "data" / "scb" / "folkmangd_varberg.json")
+            .read_text(encoding="utf-8"))
+        ombyggd = json.loads(json.dumps(build_befolkning.bygg(scb)))
+        self.assertEqual(ombyggd, self.las("data-varberg-befolkning.json"))
+
     def test_data_meritvarden_ar_reproducerbar(self):
         argangar = [
             json.loads(f.read_text(encoding="utf-8"))
@@ -1568,7 +1594,8 @@ class TestTolkningsregler(unittest.TestCase):
     def test_kohortframskrivningen_pastas_inte_antagandefri(self):
         """Att bära kohorten rakt fram förutsätter noll nettoflyttning
         och ingen dödlighet – det är ett antagande, inte frånvaron av ett."""
-        for vag in ("docs/kohort.js", "docs/gymnasiealdern.html", "README.md"):
+        for vag in ("docs/kohort.js", "docs/gymnasiealdern.html",
+                    "docs/varberg-gymnasiealdern.html", "README.md"):
             text = self.las(vag).lower()
             for forbjudet in ("inga antaganden", "antar ingenting alls",
                               "inte antar något alls", "fri från antaganden"):
