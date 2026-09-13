@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,8 +811,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -939,9 +939,16 @@
      "kvar": 1,
      "antal": 547,
      "ack": 6632
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 263,
+     "ack": 6895
     }
    ],
-   "total": 6632,
+   "total": 6895,
    "rostberattigade": {
     "riksdag": 14261,
     "kommun": 14691,
@@ -959,28 +966,37 @@
      "namn": "Storgatan 40",
      "kommun": "Tranås",
      "lokalId": "0687001",
-     "total": 4128,
-     "dagarMedRoster": 18,
+     "total": 4177,
+     "dagarMedRoster": 19,
      "storstaDag": 493,
-     "andel": 62.2
+     "andel": 60.6
     },
     {
      "namn": "Parkhallen",
      "kommun": "Tranås",
      "lokalId": "0687002",
-     "total": 2143,
-     "dagarMedRoster": 18,
+     "total": 2178,
+     "dagarMedRoster": 19,
      "storstaDag": 217,
-     "andel": 32.3
+     "andel": 31.6
     },
     {
      "namn": "Sommens skola",
      "kommun": "Tranås",
      "lokalId": "0687006",
-     "total": 70,
-     "dagarMedRoster": 1,
-     "storstaDag": 70,
-     "andel": 1.1
+     "total": 183,
+     "dagarMedRoster": 2,
+     "storstaDag": 113,
+     "andel": 2.7
+    },
+    {
+     "namn": "Adelövs Friskola",
+     "kommun": "Tranås",
+     "lokalId": "0687003",
+     "total": 84,
+     "dagarMedRoster": 2,
+     "storstaDag": 66,
+     "andel": 1.2
     },
     {
      "namn": "Seniorboende Berget",
@@ -989,7 +1005,7 @@
      "total": 65,
      "dagarMedRoster": 1,
      "storstaDag": 65,
-     "andel": 1.0
+     "andel": 0.9
     },
     {
      "namn": "Särskilt boende Lövstagården",
@@ -1037,22 +1053,13 @@
      "andel": 0.3
     },
     {
-     "namn": "Adelövs Friskola",
-     "kommun": "Tranås",
-     "lokalId": "0687003",
-     "total": 18,
-     "dagarMedRoster": 1,
-     "storstaDag": 18,
-     "andel": 0.3
-    },
-    {
      "namn": "Särskilt boende Råsvägen",
      "kommun": "Tranås",
      "lokalId": "0687011",
      "total": 17,
      "dagarMedRoster": 1,
      "storstaDag": 17,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Särskilt boende Östanå",
@@ -1061,7 +1068,7 @@
      "total": 17,
      "dagarMedRoster": 1,
      "storstaDag": 17,
-     "andel": 0.3
+     "andel": 0.2
     },
     {
      "namn": "Seniorboende Idyllen",

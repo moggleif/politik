@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -766,8 +766,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -894,9 +894,16 @@
      "kvar": 1,
      "antal": 376,
      "ack": 3934
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 20,
+     "ack": 3954
     }
    ],
-   "total": 3934,
+   "total": 3954,
    "rostberattigade": {
     "riksdag": 7435,
     "kommun": 7600,
@@ -917,7 +924,7 @@
      "total": 3910,
      "dagarMedRoster": 18,
      "storstaDag": 406,
-     "andel": 99.4
+     "andel": 98.9
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -932,10 +939,10 @@
      "namn": "Ljusgården, Kommunhuset",
      "kommun": "Älvkarleby",
      "lokalId": "0319002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 20,
+     "dagarMedRoster": 1,
+     "storstaDag": 20,
+     "andel": 0.5
     }
    ],
    "antalLokaler": 3,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -829,8 +829,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -957,9 +957,16 @@
      "kvar": 1,
      "antal": 476,
      "ack": 5019
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 39,
+     "ack": 5058
     }
    ],
-   "total": 5019,
+   "total": 5058,
    "rostberattigade": {
     "riksdag": 10607,
     "kommun": 11041,
@@ -977,10 +984,10 @@
      "namn": "Kommunhuset Tomelilla",
      "kommun": "Tomelilla",
      "lokalId": "1270002",
-     "total": 4027,
-     "dagarMedRoster": 16,
+     "total": 4066,
+     "dagarMedRoster": 17,
      "storstaDag": 525,
-     "andel": 80.2
+     "andel": 80.4
     },
     {
      "namn": "Brösarps skola, gymnastiksalen",
@@ -998,7 +1005,7 @@
      "total": 225,
      "dagarMedRoster": 8,
      "storstaDag": 142,
-     "andel": 4.5
+     "andel": 4.4
     },
     {
      "namn": "Medborgarhuset, Smedstorp",

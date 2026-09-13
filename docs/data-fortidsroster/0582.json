@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,8 +1000,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1128,9 +1128,16 @@
      "kvar": 1,
      "antal": 392,
      "ack": 5610
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 29,
+     "ack": 5639
     }
    ],
-   "total": 5610,
+   "total": 5639,
    "rostberattigade": {
     "riksdag": 11467,
     "kommun": 11573,
@@ -1151,7 +1158,16 @@
      "total": 5361,
      "dagarMedRoster": 18,
      "storstaDag": 555,
-     "andel": 95.6
+     "andel": 95.1
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Söderköping",
+     "lokalId": "0582005",
+     "total": 97,
+     "dagarMedRoster": 7,
+     "storstaDag": 40,
+     "andel": 1.7
     },
     {
      "namn": "Östra Ryds församlingshem",
@@ -1160,15 +1176,6 @@
      "total": 95,
      "dagarMedRoster": 2,
      "storstaDag": 50,
-     "andel": 1.7
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Söderköping",
-     "lokalId": "0582005",
-     "total": 93,
-     "dagarMedRoster": 6,
-     "storstaDag": 40,
      "andel": 1.7
     },
     {
@@ -1184,10 +1191,10 @@
      "namn": "Kommunhuset",
      "kommun": "Söderköping",
      "lokalId": "0582004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 25,
+     "dagarMedRoster": 1,
+     "storstaDag": 25,
+     "andel": 0.4
     }
    ],
    "antalLokaler": 5,

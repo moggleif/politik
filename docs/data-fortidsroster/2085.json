@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -955,8 +955,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1081,11 +1081,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 377,
-     "ack": 9777
+     "antal": 379,
+     "ack": 9779
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 110,
+     "ack": 9889
     }
    ],
-   "total": 9777,
+   "total": 9889,
    "rostberattigade": {
     "riksdag": 19683,
     "kommun": 20952,
@@ -1103,10 +1110,10 @@
      "namn": "Ludvika Folkets Hus",
      "kommun": "Ludvika",
      "lokalId": "2085004",
-     "total": 5896,
-     "dagarMedRoster": 18,
+     "total": 6008,
+     "dagarMedRoster": 19,
      "storstaDag": 660,
-     "andel": 60.3
+     "andel": 60.8
     },
     {
      "namn": "Grängesbergs bibliotek",
@@ -1115,7 +1122,7 @@
      "total": 1301,
      "dagarMedRoster": 13,
      "storstaDag": 156,
-     "andel": 13.3
+     "andel": 13.2
     },
     {
      "namn": "Ludvika lasarett",
@@ -1124,7 +1131,7 @@
      "total": 882,
      "dagarMedRoster": 13,
      "storstaDag": 117,
-     "andel": 9.0
+     "andel": 8.9
     },
     {
      "namn": "Solgärde",
@@ -1133,7 +1140,7 @@
      "total": 736,
      "dagarMedRoster": 13,
      "storstaDag": 112,
-     "andel": 7.5
+     "andel": 7.4
     },
     {
      "namn": "Lingongården",
@@ -1151,7 +1158,7 @@
      "total": 289,
      "dagarMedRoster": 8,
      "storstaDag": 66,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Biskopsgården",
@@ -1160,7 +1167,7 @@
      "total": 54,
      "dagarMedRoster": 1,
      "storstaDag": 54,
-     "andel": 0.6
+     "andel": 0.5
     },
     {
      "namn": "Ängsgården",

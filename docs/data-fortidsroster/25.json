@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,8 +1729,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1848,18 +1848,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 9219,
-     "ack": 88844
+     "antal": 9238,
+     "ack": 88863
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 5490,
-     "ack": 94334
+     "antal": 5495,
+     "ack": 94358
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 1043,
+     "ack": 95401
     }
    ],
-   "total": 94334,
+   "total": 95401,
    "rostberattigade": {
     "riksdag": 193266,
     "kommun": 201979,
@@ -1877,17 +1884,17 @@
      "namn": "Luleå Energi Arena",
      "kommun": "Luleå",
      "lokalId": "2580016",
-     "total": 16371,
+     "total": 16373,
      "dagarMedRoster": 18,
      "storstaDag": 1713,
-     "andel": 17.4
+     "andel": 17.2
     },
     {
      "namn": "Stadshuset",
      "kommun": "Boden",
      "lokalId": "2582001",
-     "total": 9385,
-     "dagarMedRoster": 18,
+     "total": 9428,
+     "dagarMedRoster": 19,
      "storstaDag": 940,
      "andel": 9.9
     },
@@ -1898,14 +1905,14 @@
      "total": 8514,
      "dagarMedRoster": 18,
      "storstaDag": 768,
-     "andel": 9.0
+     "andel": 8.9
     },
     {
      "namn": "Stadshuset Kristallen",
      "kommun": "Kiruna",
      "lokalId": "2584014",
-     "total": 7173,
-     "dagarMedRoster": 18,
+     "total": 7258,
+     "dagarMedRoster": 19,
      "storstaDag": 766,
      "andel": 7.6
     },
@@ -1916,7 +1923,7 @@
      "total": 5824,
      "dagarMedRoster": 18,
      "storstaDag": 650,
-     "andel": 6.2
+     "andel": 6.1
     },
     {
      "namn": "Gallerian Kalix",
@@ -1925,7 +1932,7 @@
      "total": 5163,
      "dagarMedRoster": 18,
      "storstaDag": 653,
-     "andel": 5.5
+     "andel": 5.4
     },
     {
      "namn": "Christina Kultur",
@@ -1940,17 +1947,17 @@
      "namn": "Kommunförvaltningen",
      "kommun": "Älvsbyn",
      "lokalId": "2560001",
-     "total": 3051,
-     "dagarMedRoster": 14,
+     "total": 3103,
+     "dagarMedRoster": 15,
      "storstaDag": 362,
-     "andel": 3.2
+     "andel": 3.3
     },
     {
      "namn": "Medborgarhuset",
      "kommun": "Arvidsjaur",
      "lokalId": "2505005",
-     "total": 2474,
-     "dagarMedRoster": 18,
+     "total": 2490,
+     "dagarMedRoster": 19,
      "storstaDag": 289,
      "andel": 2.6
     },
@@ -1958,8 +1965,8 @@
      "namn": "Klippanhuset, vid stadsbiblioteket",
      "kommun": "Haparanda",
      "lokalId": "2583001",
-     "total": 2330,
-     "dagarMedRoster": 18,
+     "total": 2358,
+     "dagarMedRoster": 19,
      "storstaDag": 217,
      "andel": 2.5
     },
@@ -1979,7 +1986,7 @@
      "total": 1750,
      "dagarMedRoster": 13,
      "storstaDag": 254,
-     "andel": 1.9
+     "andel": 1.8
     },
     {
      "namn": "Hyresgästlokal Lulebo",
@@ -1997,7 +2004,7 @@
      "total": 1562,
      "dagarMedRoster": 17,
      "storstaDag": 172,
-     "andel": 1.7
+     "andel": 1.6
     },
     {
      "namn": "Gymnasiebiblioteket",
@@ -2012,8 +2019,8 @@
      "namn": "Folkets Hus Jokkmokk",
      "kommun": "Jokkmokk",
      "lokalId": "2510013",
-     "total": 1500,
-     "dagarMedRoster": 17,
+     "total": 1510,
+     "dagarMedRoster": 18,
      "storstaDag": 184,
      "andel": 1.6
     },
@@ -2024,14 +2031,14 @@
      "total": 1381,
      "dagarMedRoster": 15,
      "storstaDag": 156,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Överkalix kommunförvaltning",
      "kommun": "Överkalix",
      "lokalId": "2513004",
-     "total": 1268,
-     "dagarMedRoster": 18,
+     "total": 1285,
+     "dagarMedRoster": 19,
      "storstaDag": 139,
      "andel": 1.3
     },
@@ -2042,16 +2049,16 @@
      "total": 1192,
      "dagarMedRoster": 18,
      "storstaDag": 137,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Sunderby sjukhus",
      "kommun": "Luleå",
      "lokalId": "2580001",
-     "total": 998,
+     "total": 999,
      "dagarMedRoster": 6,
-     "storstaDag": 192,
-     "andel": 1.1
+     "storstaDag": 193,
+     "andel": 1.0
     },
     {
      "namn": "Kommunbiblioteket",
@@ -2069,7 +2076,7 @@
      "total": 809,
      "dagarMedRoster": 5,
      "storstaDag": 188,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Sörbygården",
@@ -2078,7 +2085,7 @@
      "total": 710,
      "dagarMedRoster": 7,
      "storstaDag": 118,
-     "andel": 0.8
+     "andel": 0.7
     },
     {
      "namn": "Norrfjärdens Folkets Hus",

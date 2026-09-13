@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1198,8 +1198,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1326,9 +1326,16 @@
      "kvar": 1,
      "antal": 556,
      "ack": 7162
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 112,
+     "ack": 7274
     }
    ],
-   "total": 7162,
+   "total": 7274,
    "rostberattigade": {
     "riksdag": 13347,
     "kommun": 13885,
@@ -1349,7 +1356,7 @@
      "total": 5824,
      "dagarMedRoster": 18,
      "storstaDag": 650,
-     "andel": 81.3
+     "andel": 80.1
     },
     {
      "namn": "Myranskolan",
@@ -1367,7 +1374,7 @@
      "total": 214,
      "dagarMedRoster": 3,
      "storstaDag": 75,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Hakkas skola Aula",
@@ -1376,16 +1383,34 @@
      "total": 206,
      "dagarMedRoster": 4,
      "storstaDag": 66,
-     "andel": 2.9
+     "andel": 2.8
     },
     {
      "namn": "Dokkas skola",
      "kommun": "Gällivare",
      "lokalId": "2523011",
-     "total": 129,
-     "dagarMedRoster": 2,
+     "total": 141,
+     "dagarMedRoster": 3,
      "storstaDag": 72,
+     "andel": 1.9
+    },
+    {
+     "namn": "Niilivaara Träffpunkt",
+     "kommun": "Gällivare",
+     "lokalId": "2523006",
+     "total": 129,
+     "dagarMedRoster": 3,
+     "storstaDag": 49,
      "andel": 1.8
+    },
+    {
+     "namn": "PRO Träffpunkt Nattavaara",
+     "kommun": "Gällivare",
+     "lokalId": "2523005",
+     "total": 113,
+     "dagarMedRoster": 5,
+     "storstaDag": 35,
+     "andel": 1.6
     },
     {
      "namn": "Ullatti byastugan",
@@ -1397,30 +1422,12 @@
      "andel": 1.5
     },
     {
-     "namn": "PRO Träffpunkt Nattavaara",
-     "kommun": "Gällivare",
-     "lokalId": "2523005",
-     "total": 88,
-     "dagarMedRoster": 4,
-     "storstaDag": 35,
-     "andel": 1.2
-    },
-    {
      "namn": "Puoltikasvaara skola gymnastiksal",
      "kommun": "Gällivare",
      "lokalId": "2523016",
      "total": 81,
      "dagarMedRoster": 2,
      "storstaDag": 43,
-     "andel": 1.1
-    },
-    {
-     "namn": "Niilivaara Träffpunkt",
-     "kommun": "Gällivare",
-     "lokalId": "2523006",
-     "total": 80,
-     "dagarMedRoster": 2,
-     "storstaDag": 48,
      "andel": 1.1
     },
     {
@@ -1445,9 +1452,18 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Gällivare",
      "lokalId": "2523015",
-     "total": 25,
-     "dagarMedRoster": 3,
+     "total": 26,
+     "dagarMedRoster": 4,
      "storstaDag": 14,
+     "andel": 0.4
+    },
+    {
+     "namn": "Sjöparksskolan gymnastiksal",
+     "kommun": "Gällivare",
+     "lokalId": "2523013",
+     "total": 25,
+     "dagarMedRoster": 1,
+     "storstaDag": 25,
      "andel": 0.3
     },
     {
@@ -1458,15 +1474,6 @@
      "dagarMedRoster": 2,
      "storstaDag": 8,
      "andel": 0.2
-    },
-    {
-     "namn": "Sjöparksskolan gymnastiksal",
-     "kommun": "Gällivare",
-     "lokalId": "2523013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 14,

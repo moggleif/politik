@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1225,8 +1225,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1281,81 +1281,88 @@
      "datum": "2026-09-02",
      "veckodag": "ons",
      "kvar": 11,
-     "antal": 446,
-     "ack": 2063
+     "antal": 447,
+     "ack": 2064
     },
     {
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
      "antal": 401,
-     "ack": 2464
+     "ack": 2465
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 239,
-     "ack": 2703
+     "ack": 2704
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 95,
-     "ack": 2798
+     "ack": 2799
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 267,
-     "ack": 3065
+     "ack": 3066
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 384,
-     "ack": 3449
+     "ack": 3450
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
      "antal": 294,
-     "ack": 3743
+     "ack": 3744
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 426,
-     "ack": 4169
+     "ack": 4170
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
      "antal": 573,
-     "ack": 4742
+     "ack": 4743
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
      "antal": 380,
-     "ack": 5122
+     "ack": 5123
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 300,
-     "ack": 5422
+     "ack": 5423
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 17,
+     "ack": 5440
     }
    ],
-   "total": 5422,
+   "total": 5440,
    "rostberattigade": {
     "riksdag": 8508,
     "kommun": 8953,
@@ -1373,16 +1380,16 @@
      "namn": "Folkets hus - Strömsund",
      "kommun": "Strömsund",
      "lokalId": "2313019",
-     "total": 2760,
-     "dagarMedRoster": 18,
+     "total": 2777,
+     "dagarMedRoster": 19,
      "storstaDag": 279,
-     "andel": 50.9
+     "andel": 51.0
     },
     {
      "namn": "Gamla lokalkontoret i Hammerdal",
      "kommun": "Strömsund",
      "lokalId": "2313010",
-     "total": 878,
+     "total": 879,
      "dagarMedRoster": 14,
      "storstaDag": 130,
      "andel": 16.2
@@ -1394,7 +1401,7 @@
      "total": 378,
      "dagarMedRoster": 10,
      "storstaDag": 50,
-     "andel": 7.0
+     "andel": 6.9
     },
     {
      "namn": "Biblioteket Backe",
@@ -1403,7 +1410,7 @@
      "total": 312,
      "dagarMedRoster": 11,
      "storstaDag": 39,
-     "andel": 5.8
+     "andel": 5.7
     },
     {
      "namn": "Biblioteket Gäddede",
@@ -1421,7 +1428,7 @@
      "total": 242,
      "dagarMedRoster": 7,
      "storstaDag": 47,
-     "andel": 4.5
+     "andel": 4.4
     },
     {
      "namn": "Mittpunkt Norråker",
@@ -1511,7 +1518,7 @@
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Rossöcenter",
@@ -1520,7 +1527,7 @@
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 0.4
+     "andel": 0.3
     },
     {
      "namn": "Ambulerande röstmottagning",

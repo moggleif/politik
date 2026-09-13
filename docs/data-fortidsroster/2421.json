@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -955,8 +955,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1083,9 +1083,16 @@
      "kvar": 1,
      "antal": 87,
      "ack": 2444
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 143,
+     "ack": 2587
     }
    ],
-   "total": 2444,
+   "total": 2587,
    "rostberattigade": {
     "riksdag": 4420,
     "kommun": 4573,
@@ -1106,7 +1113,7 @@
      "total": 1637,
      "dagarMedRoster": 17,
      "storstaDag": 190,
-     "andel": 67.0
+     "andel": 63.3
     },
     {
      "namn": "Folkan Tärnaby",
@@ -1115,7 +1122,34 @@
      "total": 771,
      "dagarMedRoster": 15,
      "storstaDag": 102,
-     "andel": 31.5
+     "andel": 29.8
+    },
+    {
+     "namn": "Hemavans förskola/idrottshallen",
+     "kommun": "Storuman",
+     "lokalId": "2421003",
+     "total": 27,
+     "dagarMedRoster": 1,
+     "storstaDag": 27,
+     "andel": 1.0
+    },
+    {
+     "namn": "Slussfors skola",
+     "kommun": "Storuman",
+     "lokalId": "2421012",
+     "total": 27,
+     "dagarMedRoster": 1,
+     "storstaDag": 27,
+     "andel": 1.0
+    },
+    {
+     "namn": "Gunnarns skola/Byalokalen",
+     "kommun": "Storuman",
+     "lokalId": "2421013",
+     "total": 26,
+     "dagarMedRoster": 1,
+     "storstaDag": 26,
+     "andel": 1.0
     },
     {
      "namn": "Äldreboendet Tranan",
@@ -1127,72 +1161,45 @@
      "andel": 1.0
     },
     {
+     "namn": "Skarvsjöby bygdegård",
+     "kommun": "Storuman",
+     "lokalId": "2421001",
+     "total": 23,
+     "dagarMedRoster": 1,
+     "storstaDag": 23,
+     "andel": 0.9
+    },
+    {
+     "namn": "Sionkapellet Långsjöby",
+     "kommun": "Storuman",
+     "lokalId": "2421002",
+     "total": 21,
+     "dagarMedRoster": 1,
+     "storstaDag": 21,
+     "andel": 0.8
+    },
+    {
+     "namn": "Kommunhuset Storuman",
+     "kommun": "Storuman",
+     "lokalId": "2421007",
+     "total": 19,
+     "dagarMedRoster": 1,
+     "storstaDag": 19,
+     "andel": 0.7
+    },
+    {
      "namn": "Äldreboendet Vikbacka",
      "kommun": "Storuman",
      "lokalId": "2421010",
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
-     "andel": 0.5
+     "andel": 0.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Storuman",
      "lokalId": "2421011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Gunnarns skola/Byalokalen",
-     "kommun": "Storuman",
-     "lokalId": "2421013",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Hemavans förskola/idrottshallen",
-     "kommun": "Storuman",
-     "lokalId": "2421003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Kommunhuset Storuman",
-     "kommun": "Storuman",
-     "lokalId": "2421007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Sionkapellet Långsjöby",
-     "kommun": "Storuman",
-     "lokalId": "2421002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Skarvsjöby bygdegård",
-     "kommun": "Storuman",
-     "lokalId": "2421001",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Slussfors skola",
-     "kommun": "Storuman",
-     "lokalId": "2421012",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

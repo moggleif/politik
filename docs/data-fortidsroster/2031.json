@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1018,8 +1018,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1137,18 +1137,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 480,
-     "ack": 4576
+     "antal": 481,
+     "ack": 4577
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 80,
-     "ack": 4656
+     "ack": 4657
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 97,
+     "ack": 4754
     }
    ],
-   "total": 4656,
+   "total": 4754,
    "rostberattigade": {
     "riksdag": 9087,
     "kommun": 9249,
@@ -1166,10 +1173,10 @@
      "namn": "Kulturhuset",
      "kommun": "Rättvik",
      "lokalId": "2031002",
-     "total": 4318,
-     "dagarMedRoster": 18,
+     "total": 4364,
+     "dagarMedRoster": 19,
      "storstaDag": 489,
-     "andel": 92.7
+     "andel": 91.8
     },
     {
      "namn": "Ore bibliotek",
@@ -1178,16 +1185,25 @@
      "total": 260,
      "dagarMedRoster": 2,
      "storstaDag": 155,
-     "andel": 5.6
+     "andel": 5.5
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Rättvik",
      "lokalId": "2031005",
-     "total": 62,
+     "total": 63,
      "dagarMedRoster": 7,
      "storstaDag": 34,
      "andel": 1.3
+    },
+    {
+     "namn": "Bingsjö bystuga",
+     "kommun": "Rättvik",
+     "lokalId": "2031004",
+     "total": 51,
+     "dagarMedRoster": 1,
+     "storstaDag": 51,
+     "andel": 1.1
     },
     {
      "namn": "Stiernhööksgymnasiet",
@@ -1197,15 +1213,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 16,
      "andel": 0.3
-    },
-    {
-     "namn": "Bingsjö bystuga",
-     "kommun": "Rättvik",
-     "lokalId": "2031004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 5,

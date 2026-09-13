@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1036,8 +1036,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1155,18 +1155,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 973,
-     "ack": 11852
+     "antal": 975,
+     "ack": 11854
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 611,
-     "ack": 12463
+     "ack": 12465
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 57,
+     "ack": 12522
     }
    ],
-   "total": 12463,
+   "total": 12522,
    "rostberattigade": {
     "riksdag": 26090,
     "kommun": 26371,
@@ -1184,10 +1191,10 @@
      "namn": "Ystads Stadsbibliotek",
      "kommun": "Ystad",
      "lokalId": "1286002",
-     "total": 11018,
-     "dagarMedRoster": 18,
-     "storstaDag": 970,
-     "andel": 88.4
+     "total": 11077,
+     "dagarMedRoster": 19,
+     "storstaDag": 972,
+     "andel": 88.5
     },
     {
      "namn": "Köpingebro bibliotek",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1090,8 +1090,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1218,9 +1218,16 @@
      "kvar": 1,
      "antal": 52,
      "ack": 2006
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 14,
+     "ack": 2020
     }
    ],
-   "total": 2006,
+   "total": 2020,
    "rostberattigade": {
     "riksdag": 3664,
     "kommun": 3871,
@@ -1238,8 +1245,8 @@
      "namn": "Folkets Hus Jokkmokk",
      "kommun": "Jokkmokk",
      "lokalId": "2510013",
-     "total": 1500,
-     "dagarMedRoster": 17,
+     "total": 1510,
+     "dagarMedRoster": 18,
      "storstaDag": 184,
      "andel": 74.8
     },
@@ -1250,16 +1257,16 @@
      "total": 284,
      "dagarMedRoster": 6,
      "storstaDag": 71,
-     "andel": 14.2
+     "andel": 14.1
     },
     {
      "namn": "Laponiaporten Porjus",
      "kommun": "Jokkmokk",
      "lokalId": "2510001",
-     "total": 75,
-     "dagarMedRoster": 2,
+     "total": 77,
+     "dagarMedRoster": 3,
      "storstaDag": 43,
-     "andel": 3.7
+     "andel": 3.8
     },
     {
      "namn": "Hemvärnsgården Puottaure",
@@ -1337,10 +1344,10 @@
      "namn": "Folkets hus Vuollerim",
      "kommun": "Jokkmokk",
      "lokalId": "2510012",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 2,
+     "dagarMedRoster": 1,
+     "storstaDag": 2,
+     "andel": 0.1
     }
    ],
    "antalLokaler": 12,

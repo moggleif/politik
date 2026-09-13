@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -928,8 +928,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1054,11 +1054,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 525,
-     "ack": 8365
+     "antal": 528,
+     "ack": 8368
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 43,
+     "ack": 8411
     }
    ],
-   "total": 8365,
+   "total": 8411,
    "rostberattigade": {
     "riksdag": 19347,
     "kommun": 19817,
@@ -1076,8 +1083,8 @@
      "namn": "Stadshuset",
      "kommun": "Mariestad",
      "lokalId": "1493001",
-     "total": 7995,
-     "dagarMedRoster": 18,
+     "total": 8041,
+     "dagarMedRoster": 19,
      "storstaDag": 852,
      "andel": 95.6
     },
@@ -1088,7 +1095,7 @@
      "total": 214,
      "dagarMedRoster": 3,
      "storstaDag": 110,
-     "andel": 2.6
+     "andel": 2.5
     },
     {
      "namn": "Ambulerande röstmottagning",

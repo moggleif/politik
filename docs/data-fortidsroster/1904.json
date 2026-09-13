@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,8 +757,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -885,9 +885,16 @@
      "kvar": 1,
      "antal": 87,
      "ack": 1489
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 223,
+     "ack": 1712
     }
    ],
-   "total": 1489,
+   "total": 1712,
    "rostberattigade": {
     "riksdag": 3356,
     "kommun": 3502,
@@ -905,10 +912,28 @@
      "namn": "Kommunhuset",
      "kommun": "Skinnskatteberg",
      "lokalId": "1904001",
-     "total": 1474,
-     "dagarMedRoster": 18,
+     "total": 1500,
+     "dagarMedRoster": 19,
      "storstaDag": 206,
-     "andel": 99.0
+     "andel": 87.6
+    },
+    {
+     "namn": "Gymnastiksalen, Riddarhyttans skola",
+     "kommun": "Skinnskatteberg",
+     "lokalId": "1904002",
+     "total": 100,
+     "dagarMedRoster": 1,
+     "storstaDag": 100,
+     "andel": 5.8
+    },
+    {
+     "namn": "Hedgården i Hed",
+     "kommun": "Skinnskatteberg",
+     "lokalId": "1904003",
+     "total": 97,
+     "dagarMedRoster": 1,
+     "storstaDag": 97,
+     "andel": 5.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -917,25 +942,7 @@
      "total": 15,
      "dagarMedRoster": 1,
      "storstaDag": 15,
-     "andel": 1.0
-    },
-    {
-     "namn": "Gymnastiksalen, Riddarhyttans skola",
-     "kommun": "Skinnskatteberg",
-     "lokalId": "1904002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Hedgården i Hed",
-     "kommun": "Skinnskatteberg",
-     "lokalId": "1904003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 0.9
     }
    ],
    "antalLokaler": 4,

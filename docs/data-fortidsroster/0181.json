@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1081,8 +1081,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1207,11 +1207,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 2799,
-     "ack": 32297
+     "antal": 2805,
+     "ack": 32303
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 239,
+     "ack": 32542
     }
    ],
-   "total": 32297,
+   "total": 32542,
    "rostberattigade": {
     "riksdag": 69612,
     "kommun": 79206,
@@ -1232,7 +1239,7 @@
      "total": 6130,
      "dagarMedRoster": 18,
      "storstaDag": 620,
-     "andel": 19.0
+     "andel": 18.8
     },
     {
      "namn": "Morabergs handelsplats",
@@ -1241,25 +1248,25 @@
      "total": 4940,
      "dagarMedRoster": 18,
      "storstaDag": 593,
-     "andel": 15.3
+     "andel": 15.2
     },
     {
      "namn": "Södertälje centrum, Storgatan 17",
      "kommun": "Södertälje",
      "lokalId": "0181003",
-     "total": 4357,
-     "dagarMedRoster": 18,
+     "total": 4581,
+     "dagarMedRoster": 19,
      "storstaDag": 410,
-     "andel": 13.5
+     "andel": 14.1
     },
     {
      "namn": "Futurum Järna",
      "kommun": "Södertälje",
      "lokalId": "0181006",
-     "total": 4096,
+     "total": 4097,
      "dagarMedRoster": 18,
      "storstaDag": 520,
-     "andel": 12.7
+     "andel": 12.6
     },
     {
      "namn": "Stadshuset Södertälje kommun",
@@ -1268,7 +1275,7 @@
      "total": 2711,
      "dagarMedRoster": 18,
      "storstaDag": 368,
-     "andel": 8.4
+     "andel": 8.3
     },
     {
      "namn": "Mötesplats Bergvik",
@@ -1283,27 +1290,27 @@
      "namn": "Södertälje Syd",
      "kommun": "Södertälje",
      "lokalId": "0181027",
-     "total": 1471,
+     "total": 1472,
      "dagarMedRoster": 18,
      "storstaDag": 186,
-     "andel": 4.6
+     "andel": 4.5
     },
     {
      "namn": "Hovsjö Hub",
      "kommun": "Södertälje",
      "lokalId": "0181008",
-     "total": 1460,
+     "total": 1461,
      "dagarMedRoster": 18,
-     "storstaDag": 196,
+     "storstaDag": 197,
      "andel": 4.5
     },
     {
      "namn": "Aktivitetshuset Mosaik Ronna",
      "kommun": "Södertälje",
      "lokalId": "0181026",
-     "total": 1452,
+     "total": 1454,
      "dagarMedRoster": 18,
-     "storstaDag": 222,
+     "storstaDag": 224,
      "andel": 4.5
     },
     {
@@ -1373,8 +1380,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Södertälje",
      "lokalId": "0181025",
-     "total": 254,
-     "dagarMedRoster": 11,
+     "total": 270,
+     "dagarMedRoster": 12,
      "storstaDag": 73,
      "andel": 0.8
     },

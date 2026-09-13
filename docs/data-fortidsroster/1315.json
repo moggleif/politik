@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,8 +793,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -921,9 +921,16 @@
      "kvar": 1,
      "antal": 220,
      "ack": 2825
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 29,
+     "ack": 2854
     }
    ],
-   "total": 2825,
+   "total": 2854,
    "rostberattigade": {
     "riksdag": 7385,
     "kommun": 7899,
@@ -944,7 +951,7 @@
      "total": 1945,
      "dagarMedRoster": 18,
      "storstaDag": 224,
-     "andel": 68.8
+     "andel": 68.1
     },
     {
      "namn": "Torups bygdegård",
@@ -953,7 +960,7 @@
      "total": 579,
      "dagarMedRoster": 8,
      "storstaDag": 139,
-     "andel": 20.5
+     "andel": 20.3
     },
     {
      "namn": "Unnaryds sporthall",
@@ -962,7 +969,7 @@
      "total": 259,
      "dagarMedRoster": 8,
      "storstaDag": 46,
-     "andel": 9.2
+     "andel": 9.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -977,10 +984,10 @@
      "namn": "Kontaktcenter i kommunhuset",
      "kommun": "Hylte",
      "lokalId": "1315002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 29,
+     "dagarMedRoster": 1,
+     "storstaDag": 29,
+     "andel": 1.0
     }
    ],
    "antalLokaler": 5,

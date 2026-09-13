@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,8 +757,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -885,9 +885,16 @@
      "kvar": 1,
      "antal": 230,
      "ack": 4593
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 53,
+     "ack": 4646
     }
    ],
-   "total": 4593,
+   "total": 4646,
    "rostberattigade": {
     "riksdag": 9328,
     "kommun": 9620,
@@ -905,8 +912,8 @@
      "namn": "D-skolans matsal",
      "kommun": "Oxelösund",
      "lokalId": "0481003",
-     "total": 4514,
-     "dagarMedRoster": 18,
+     "total": 4567,
+     "dagarMedRoster": 19,
      "storstaDag": 415,
      "andel": 98.3
     },

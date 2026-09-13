@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1234,8 +1234,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1362,9 +1362,16 @@
      "kvar": 1,
      "antal": 621,
      "ack": 12837
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 93,
+     "ack": 12930
     }
    ],
-   "total": 12837,
+   "total": 12930,
    "rostberattigade": {
     "riksdag": 29033,
     "kommun": 29611,
@@ -1385,7 +1392,7 @@
      "total": 8980,
      "dagarMedRoster": 16,
      "storstaDag": 867,
-     "andel": 70.0
+     "andel": 69.5
     },
     {
      "namn": "Fritidsgården, Gamleby",
@@ -1394,7 +1401,7 @@
      "total": 2403,
      "dagarMedRoster": 13,
      "storstaDag": 302,
-     "andel": 18.7
+     "andel": 18.6
     },
     {
      "namn": "Ankarsrums bibliotek",
@@ -1404,6 +1411,15 @@
      "dagarMedRoster": 8,
      "storstaDag": 136,
      "andel": 5.0
+    },
+    {
+     "namn": "Kommunhuset, Valnämnden",
+     "kommun": "Västervik",
+     "lokalId": "0883005",
+     "total": 322,
+     "dagarMedRoster": 3,
+     "storstaDag": 124,
+     "andel": 2.5
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1421,15 +1437,6 @@
      "total": 234,
      "dagarMedRoster": 2,
      "storstaDag": 135,
-     "andel": 1.8
-    },
-    {
-     "namn": "Kommunhuset, Valnämnden",
-     "kommun": "Västervik",
-     "lokalId": "0883005",
-     "total": 229,
-     "dagarMedRoster": 2,
-     "storstaDag": 124,
      "andel": 1.8
     },
     {

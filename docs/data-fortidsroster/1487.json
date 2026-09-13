@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1054,8 +1054,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1180,11 +1180,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 681,
-     "ack": 13845
+     "antal": 682,
+     "ack": 13846
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 111,
+     "ack": 13957
     }
    ],
-   "total": 13845,
+   "total": 13957,
    "rostberattigade": {
     "riksdag": 31205,
     "kommun": 31920,
@@ -1202,10 +1209,10 @@
      "namn": "Arena Vänersborg",
      "kommun": "Vänersborg",
      "lokalId": "1487001",
-     "total": 7668,
-     "dagarMedRoster": 18,
+     "total": 7779,
+     "dagarMedRoster": 19,
      "storstaDag": 804,
-     "andel": 55.4
+     "andel": 55.7
     },
     {
      "namn": "Vänersborgs Huvudbibliotek",
@@ -1214,7 +1221,7 @@
      "total": 2768,
      "dagarMedRoster": 7,
      "storstaDag": 518,
-     "andel": 20.0
+     "andel": 19.8
     },
     {
      "namn": "Vargöns bibliotek",
@@ -1223,7 +1230,7 @@
      "total": 1806,
      "dagarMedRoster": 8,
      "storstaDag": 385,
-     "andel": 13.0
+     "andel": 12.9
     },
     {
      "namn": "Brålanda bibliotek",
@@ -1238,8 +1245,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Vänersborg",
      "lokalId": "1487009",
-     "total": 179,
-     "dagarMedRoster": 9,
+     "total": 180,
+     "dagarMedRoster": 10,
      "storstaDag": 37,
      "andel": 1.3
     },

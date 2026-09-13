@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1135,8 +1135,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1240,32 +1240,39 @@
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
-     "antal": 647,
-     "ack": 5141
+     "antal": 679,
+     "ack": 5173
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 751,
-     "ack": 5892
+     "antal": 752,
+     "ack": 5925
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 852,
-     "ack": 6744
+     "antal": 880,
+     "ack": 6805
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 282,
-     "ack": 7026
+     "ack": 7087
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 59,
+     "ack": 7146
     }
    ],
-   "total": 7026,
+   "total": 7146,
    "rostberattigade": {
     "riksdag": 14135,
     "kommun": 14724,
@@ -1283,10 +1290,10 @@
      "namn": "Kommunhuset Sollefteå",
      "kommun": "Sollefteå",
      "lokalId": "2283008",
-     "total": 4628,
-     "dagarMedRoster": 18,
-     "storstaDag": 514,
-     "andel": 65.9
+     "total": 4694,
+     "dagarMedRoster": 19,
+     "storstaDag": 521,
+     "andel": 65.7
     },
     {
      "namn": "Långsele bibliotek",
@@ -1295,16 +1302,16 @@
      "total": 794,
      "dagarMedRoster": 13,
      "storstaDag": 128,
-     "andel": 11.3
+     "andel": 11.1
     },
     {
      "namn": "Medborgarkontoret Ramsele",
      "kommun": "Sollefteå",
      "lokalId": "2283007",
-     "total": 713,
+     "total": 714,
      "dagarMedRoster": 13,
      "storstaDag": 93,
-     "andel": 10.1
+     "andel": 10.0
     },
     {
      "namn": "Medborgarkontoret Junsele",
@@ -1313,7 +1320,7 @@
      "total": 426,
      "dagarMedRoster": 13,
      "storstaDag": 68,
-     "andel": 6.1
+     "andel": 6.0
     },
     {
      "namn": "Markusgården",
@@ -1322,7 +1329,16 @@
      "total": 341,
      "dagarMedRoster": 13,
      "storstaDag": 49,
-     "andel": 4.9
+     "andel": 4.8
+    },
+    {
+     "namn": "Solgården",
+     "kommun": "Sollefteå",
+     "lokalId": "2283004",
+     "total": 51,
+     "dagarMedRoster": 1,
+     "storstaDag": 51,
+     "andel": 0.7
     },
     {
      "namn": "Graningebyn",
@@ -1334,21 +1350,21 @@
      "andel": 0.4
     },
     {
+     "namn": "Skärvstagården",
+     "kommun": "Sollefteå",
+     "lokalId": "2283005",
+     "total": 21,
+     "dagarMedRoster": 1,
+     "storstaDag": 21,
+     "andel": 0.3
+    },
+    {
      "namn": "Gunillagården",
      "kommun": "Sollefteå",
      "lokalId": "2283003",
      "total": 20,
      "dagarMedRoster": 1,
      "storstaDag": 20,
-     "andel": 0.3
-    },
-    {
-     "namn": "Solgården",
-     "kommun": "Sollefteå",
-     "lokalId": "2283004",
-     "total": 19,
-     "dagarMedRoster": 1,
-     "storstaDag": 19,
      "andel": 0.3
     },
     {
@@ -1395,15 +1411,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 6,
      "andel": 0.1
-    },
-    {
-     "namn": "Skärvstagården",
-     "kommun": "Sollefteå",
-     "lokalId": "2283005",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 14,

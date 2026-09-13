@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -883,8 +883,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1011,9 +1011,16 @@
      "kvar": 1,
      "antal": 219,
      "ack": 3045
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 16,
+     "ack": 3061
     }
    ],
-   "total": 3045,
+   "total": 3061,
    "rostberattigade": {
     "riksdag": 4718,
     "kommun": 4963,
@@ -1031,10 +1038,10 @@
      "namn": "Medborgarhuset",
      "kommun": "Arvidsjaur",
      "lokalId": "2505005",
-     "total": 2474,
-     "dagarMedRoster": 18,
+     "total": 2490,
+     "dagarMedRoster": 19,
      "storstaDag": 289,
-     "andel": 81.2
+     "andel": 81.3
     },
     {
      "namn": "Finnbergs Diversehandel",

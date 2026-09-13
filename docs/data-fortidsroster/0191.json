@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1126,8 +1126,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1252,11 +1252,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 1643,
-     "ack": 17070
+     "antal": 1647,
+     "ack": 17074
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 132,
+     "ack": 17206
     }
    ],
-   "total": 17070,
+   "total": 17206,
    "rostberattigade": {
     "riksdag": 35359,
     "kommun": 39959,
@@ -1274,10 +1281,10 @@
      "namn": "Parkering framför Pinbackshallen",
      "kommun": "Sigtuna",
      "lokalId": "0191006",
-     "total": 6622,
+     "total": 6626,
      "dagarMedRoster": 18,
      "storstaDag": 701,
-     "andel": 38.8
+     "andel": 38.5
     },
     {
      "namn": "Humlegården",
@@ -1286,16 +1293,16 @@
      "total": 3475,
      "dagarMedRoster": 18,
      "storstaDag": 355,
-     "andel": 20.4
+     "andel": 20.2
     },
     {
      "namn": "Kulturlänken",
      "kommun": "Sigtuna",
      "lokalId": "0191003",
-     "total": 3229,
-     "dagarMedRoster": 18,
+     "total": 3360,
+     "dagarMedRoster": 19,
      "storstaDag": 320,
-     "andel": 18.9
+     "andel": 19.5
     },
     {
      "namn": "Mötesplatsen, Valsta centrum",
@@ -1304,7 +1311,7 @@
      "total": 2844,
      "dagarMedRoster": 18,
      "storstaDag": 298,
-     "andel": 16.7
+     "andel": 16.5
     },
     {
      "namn": "Rosersbergs bibliotek",
@@ -1319,8 +1326,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Sigtuna",
      "lokalId": "0191007",
-     "total": 165,
-     "dagarMedRoster": 13,
+     "total": 166,
+     "dagarMedRoster": 14,
      "storstaDag": 29,
      "andel": 1.0
     },

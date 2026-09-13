@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1018,8 +1018,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1146,9 +1146,16 @@
      "kvar": 1,
      "antal": 443,
      "ack": 7425
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 51,
+     "ack": 7476
     }
    ],
-   "total": 7425,
+   "total": 7476,
    "rostberattigade": {
     "riksdag": 16325,
     "kommun": 16747,
@@ -1169,7 +1176,7 @@
      "total": 5799,
      "dagarMedRoster": 18,
      "storstaDag": 552,
-     "andel": 78.1
+     "andel": 77.6
     },
     {
      "namn": "Sollerö bibliotek",
@@ -1178,7 +1185,7 @@
      "total": 754,
      "dagarMedRoster": 14,
      "storstaDag": 111,
-     "andel": 10.2
+     "andel": 10.1
     },
     {
      "namn": "Våmhus bibliotek",
@@ -1187,7 +1194,7 @@
      "total": 592,
      "dagarMedRoster": 13,
      "storstaDag": 124,
-     "andel": 8.0
+     "andel": 7.9
     },
     {
      "namn": "Tempo i Venjan",
@@ -1196,7 +1203,16 @@
      "total": 242,
      "dagarMedRoster": 16,
      "storstaDag": 28,
-     "andel": 3.3
+     "andel": 3.2
+    },
+    {
+     "namn": "Andreasgården",
+     "kommun": "Mora",
+     "lokalId": "2062003",
+     "total": 51,
+     "dagarMedRoster": 1,
+     "storstaDag": 51,
+     "andel": 0.7
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1206,15 +1222,6 @@
      "dagarMedRoster": 9,
      "storstaDag": 7,
      "andel": 0.5
-    },
-    {
-     "namn": "Andreasgården",
-     "kommun": "Mora",
-     "lokalId": "2062003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     },
     {
      "namn": "Garsås bygdegård",

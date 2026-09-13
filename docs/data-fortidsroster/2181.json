@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1126,8 +1126,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1254,9 +1254,16 @@
      "kvar": 1,
      "antal": 801,
      "ack": 12025
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 127,
+     "ack": 12152
     }
    ],
-   "total": 12025,
+   "total": 12152,
    "rostberattigade": {
     "riksdag": 29335,
     "kommun": 30740,
@@ -1274,10 +1281,10 @@
      "namn": "Stadshuset",
      "kommun": "Sandviken",
      "lokalId": "2181006",
-     "total": 8635,
-     "dagarMedRoster": 18,
+     "total": 8762,
+     "dagarMedRoster": 19,
      "storstaDag": 847,
-     "andel": 71.8
+     "andel": 72.1
     },
     {
      "namn": "Ica, Storvik",
@@ -1286,7 +1293,7 @@
      "total": 939,
      "dagarMedRoster": 6,
      "storstaDag": 210,
-     "andel": 7.8
+     "andel": 7.7
     },
     {
      "namn": "Björksätraskolan, biblioteket",
@@ -1295,7 +1302,7 @@
      "total": 752,
      "dagarMedRoster": 6,
      "storstaDag": 189,
-     "andel": 6.3
+     "andel": 6.2
     },
     {
      "namn": "Gullhedskolan",

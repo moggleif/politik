@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1432,8 +1432,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1560,9 +1560,16 @@
      "kvar": 1,
      "antal": 1370,
      "ack": 19447
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 110,
+     "ack": 19557
     }
    ],
-   "total": 19447,
+   "total": 19557,
    "rostberattigade": {
     "riksdag": 44917,
     "kommun": 46151,
@@ -1580,10 +1587,10 @@
      "namn": "Arena Skövde",
      "kommun": "Skövde",
      "lokalId": "1496021",
-     "total": 11646,
-     "dagarMedRoster": 18,
+     "total": 11756,
+     "dagarMedRoster": 19,
      "storstaDag": 1263,
-     "andel": 59.9
+     "andel": 60.1
     },
     {
      "namn": "Skövde kulturfabrik",
@@ -1592,7 +1599,7 @@
      "total": 2928,
      "dagarMedRoster": 16,
      "storstaDag": 343,
-     "andel": 15.1
+     "andel": 15.0
     },
     {
      "namn": "Skövde Kulturhus",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -730,8 +730,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -849,18 +849,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 501,
-     "ack": 5121
+     "antal": 502,
+     "ack": 5122
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 222,
-     "ack": 5343
+     "ack": 5344
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 31,
+     "ack": 5375
     }
    ],
-   "total": 5343,
+   "total": 5375,
    "rostberattigade": {
     "riksdag": 11951,
     "kommun": 12328,
@@ -878,10 +885,10 @@
      "namn": "Plenisalen, Stadshuset",
      "kommun": "Vimmerby",
      "lokalId": "0884001",
-     "total": 4789,
-     "dagarMedRoster": 18,
+     "total": 4821,
+     "dagarMedRoster": 19,
      "storstaDag": 519,
-     "andel": 89.6
+     "andel": 89.7
     },
     {
      "namn": "Södra vi bibliotek",

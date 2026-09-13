@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1018,8 +1018,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1146,9 +1146,16 @@
      "kvar": 1,
      "antal": 655,
      "ack": 14267
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 113,
+     "ack": 14380
     }
    ],
-   "total": 14267,
+   "total": 14380,
    "rostberattigade": {
     "riksdag": 36886,
     "kommun": 37679,
@@ -1169,16 +1176,16 @@
      "total": 7197,
      "dagarMedRoster": 18,
      "storstaDag": 683,
-     "andel": 50.4
+     "andel": 50.0
     },
     {
      "namn": "Stadshuset, Falkenberg",
      "kommun": "Falkenberg",
      "lokalId": "1382005",
-     "total": 3878,
-     "dagarMedRoster": 13,
+     "total": 3991,
+     "dagarMedRoster": 14,
      "storstaDag": 428,
-     "andel": 27.2
+     "andel": 27.8
     },
     {
      "namn": "Falkenbergs Netto, Heberg",
@@ -1187,7 +1194,7 @@
      "total": 1960,
      "dagarMedRoster": 18,
      "storstaDag": 187,
-     "andel": 13.7
+     "andel": 13.6
     },
     {
      "namn": "Mariagården, Ullared",

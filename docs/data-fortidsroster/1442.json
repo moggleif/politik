@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -685,8 +685,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -813,9 +813,16 @@
      "kvar": 1,
      "antal": 386,
      "ack": 3310
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 44,
+     "ack": 3354
     }
    ],
-   "total": 3310,
+   "total": 3354,
    "rostberattigade": {
     "riksdag": 9372,
     "kommun": 9664,
@@ -833,8 +840,8 @@
      "namn": "Vårgårda Kommunhus",
      "kommun": "Vårgårda",
      "lokalId": "1442001",
-     "total": 3292,
-     "dagarMedRoster": 18,
+     "total": 3336,
+     "dagarMedRoster": 19,
      "storstaDag": 386,
      "andel": 99.5
     },

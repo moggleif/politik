@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1639,8 +1639,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1758,18 +1758,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 5994,
-     "ack": 55246
+     "antal": 5995,
+     "ack": 55247
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 4231,
-     "ack": 59477
+     "antal": 4232,
+     "ack": 59479
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 224,
+     "ack": 59703
     }
    ],
-   "total": 59477,
+   "total": 59703,
    "rostberattigade": {
     "riksdag": 123912,
     "kommun": 127167,
@@ -1787,10 +1794,10 @@
      "namn": "Marieberg Galleria",
      "kommun": "Örebro",
      "lokalId": "1880012",
-     "total": 12854,
+     "total": 12855,
      "dagarMedRoster": 18,
-     "storstaDag": 1300,
-     "andel": 21.6
+     "storstaDag": 1301,
+     "andel": 21.5
     },
     {
      "namn": "Vågen Gallerian",
@@ -1805,10 +1812,19 @@
      "namn": "Eurostop, Best Western",
      "kommun": "Örebro",
      "lokalId": "1880026",
-     "total": 7792,
+     "total": 7793,
      "dagarMedRoster": 18,
-     "storstaDag": 757,
+     "storstaDag": 758,
      "andel": 13.1
+    },
+    {
+     "namn": "Kulturkvarteret",
+     "kommun": "Örebro",
+     "lokalId": "1880008",
+     "total": 7386,
+     "dagarMedRoster": 19,
+     "storstaDag": 967,
+     "andel": 12.4
     },
     {
      "namn": "Haga centrum",
@@ -1820,22 +1836,13 @@
      "andel": 12.4
     },
     {
-     "namn": "Kulturkvarteret",
-     "kommun": "Örebro",
-     "lokalId": "1880008",
-     "total": 7162,
-     "dagarMedRoster": 18,
-     "storstaDag": 967,
-     "andel": 12.0
-    },
-    {
      "namn": "Universitetssjukhuset (USÖ), M-huset",
      "kommun": "Örebro",
      "lokalId": "1880003",
      "total": 4799,
      "dagarMedRoster": 13,
      "storstaDag": 517,
-     "andel": 8.1
+     "andel": 8.0
     },
     {
      "namn": "Universitetet, Långhuset",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1324,8 +1324,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1452,9 +1452,16 @@
      "kvar": 1,
      "antal": 901,
      "ack": 19124
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 91,
+     "ack": 19215
     }
    ],
-   "total": 19124,
+   "total": 19215,
    "rostberattigade": {
     "riksdag": 43542,
     "kommun": 44347,
@@ -1475,7 +1482,7 @@
      "total": 8337,
      "dagarMedRoster": 16,
      "storstaDag": 917,
-     "andel": 43.6
+     "andel": 43.4
     },
     {
      "namn": "Gullänget, Folkets hus Gnistan",
@@ -1484,7 +1491,7 @@
      "total": 2790,
      "dagarMedRoster": 8,
      "storstaDag": 610,
-     "andel": 14.6
+     "andel": 14.5
     },
     {
      "namn": "Själevads församlingshem",
@@ -1502,7 +1509,7 @@
      "total": 1178,
      "dagarMedRoster": 6,
      "storstaDag": 286,
-     "andel": 6.2
+     "andel": 6.1
     },
     {
      "namn": "Bjästa entrébyggnad",
@@ -1553,10 +1560,10 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284019",
-     "total": 377,
-     "dagarMedRoster": 14,
+     "total": 398,
+     "dagarMedRoster": 15,
      "storstaDag": 68,
-     "andel": 2.0
+     "andel": 2.1
     },
     {
      "namn": "Mellansels Bad & Fritid",
@@ -1592,7 +1599,7 @@
      "total": 163,
      "dagarMedRoster": 2,
      "storstaDag": 83,
-     "andel": 0.9
+     "andel": 0.8
     },
     {
      "namn": "Skorpeds församlingshem",
@@ -1616,10 +1623,10 @@
      "namn": "Nolaskolan (valdagen)",
      "kommun": "Örnsköldsvik",
      "lokalId": "2284010",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 70,
+     "dagarMedRoster": 1,
+     "storstaDag": 70,
+     "andel": 0.4
     },
     {
      "namn": "Solberg, Solstrålen (valdagen)",

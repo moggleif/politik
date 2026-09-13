@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -982,8 +982,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1110,9 +1110,16 @@
      "kvar": 1,
      "antal": 1020,
      "ack": 11213
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 32,
+     "ack": 11245
     }
    ],
-   "total": 11213,
+   "total": 11245,
    "rostberattigade": {
     "riksdag": 22091,
     "kommun": 22713,
@@ -1133,7 +1140,7 @@
      "total": 5206,
      "dagarMedRoster": 18,
      "storstaDag": 551,
-     "andel": 46.4
+     "andel": 46.3
     },
     {
      "namn": "Valtältet vid Ica Kvantum i Höganäs",
@@ -1151,7 +1158,7 @@
      "total": 1836,
      "dagarMedRoster": 18,
      "storstaDag": 174,
-     "andel": 16.4
+     "andel": 16.3
     },
     {
      "namn": "Vikens hemgård",
@@ -1169,7 +1176,7 @@
      "total": 163,
      "dagarMedRoster": 2,
      "storstaDag": 83,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Mölle stationshus",
@@ -1178,14 +1185,14 @@
      "total": 163,
      "dagarMedRoster": 2,
      "storstaDag": 85,
-     "andel": 1.5
+     "andel": 1.4
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Höganäs",
      "lokalId": "1284017",
-     "total": 128,
-     "dagarMedRoster": 12,
+     "total": 129,
+     "dagarMedRoster": 13,
      "storstaDag": 33,
      "andel": 1.1
     },
@@ -1206,6 +1213,15 @@
      "dagarMedRoster": 2,
      "storstaDag": 27,
      "andel": 0.4
+    },
+    {
+     "namn": "Höganäs Stadshus - Sessionssalen",
+     "kommun": "Höganäs",
+     "lokalId": "1284006",
+     "total": 31,
+     "dagarMedRoster": 1,
+     "storstaDag": 31,
+     "andel": 0.3
     },
     {
      "namn": "Valbussen i Farhult",
@@ -1259,15 +1275,6 @@
      "total": 5,
      "dagarMedRoster": 1,
      "storstaDag": 5,
-     "andel": 0.0
-    },
-    {
-     "namn": "Höganäs Stadshus - Sessionssalen",
-     "kommun": "Höganäs",
-     "lokalId": "1284006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
      "andel": 0.0
     }
    ],

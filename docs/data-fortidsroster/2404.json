@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -757,8 +757,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -885,9 +885,16 @@
      "kvar": 1,
      "antal": 131,
      "ack": 2023
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 69,
+     "ack": 2092
     }
    ],
-   "total": 2023,
+   "total": 2092,
    "rostberattigade": {
     "riksdag": 4098,
     "kommun": 4297,
@@ -905,10 +912,10 @@
      "namn": "Forum, Renforsskolan",
      "kommun": "Vindeln",
      "lokalId": "2404001",
-     "total": 1962,
-     "dagarMedRoster": 18,
+     "total": 1984,
+     "dagarMedRoster": 19,
      "storstaDag": 270,
-     "andel": 97.0
+     "andel": 94.8
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -917,25 +924,25 @@
      "total": 61,
      "dagarMedRoster": 5,
      "storstaDag": 25,
-     "andel": 3.0
-    },
-    {
-     "namn": "Granö småbarnsskola",
-     "kommun": "Vindeln",
-     "lokalId": "2404002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 2.9
     },
     {
      "namn": "Åmsele Folkets Hus",
      "kommun": "Vindeln",
      "lokalId": "2404003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 27,
+     "dagarMedRoster": 1,
+     "storstaDag": 27,
+     "andel": 1.3
+    },
+    {
+     "namn": "Granö småbarnsskola",
+     "kommun": "Vindeln",
+     "lokalId": "2404002",
+     "total": 20,
+     "dagarMedRoster": 1,
+     "storstaDag": 20,
+     "andel": 1.0
     }
    ],
    "antalLokaler": 4,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -847,8 +847,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -966,18 +966,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 393,
-     "ack": 3198
+     "antal": 394,
+     "ack": 3199
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 368,
-     "ack": 3566
+     "ack": 3567
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 40,
+     "ack": 3607
     }
    ],
-   "total": 3566,
+   "total": 3607,
    "rostberattigade": {
     "riksdag": 8020,
     "kommun": 8072,
@@ -995,10 +1002,10 @@
      "namn": "Adelborgssalen, Djurås",
      "kommun": "Gagnef",
      "lokalId": "2026002",
-     "total": 2957,
-     "dagarMedRoster": 15,
-     "storstaDag": 393,
-     "andel": 82.9
+     "total": 2997,
+     "dagarMedRoster": 16,
+     "storstaDag": 394,
+     "andel": 83.1
     },
     {
      "namn": "Församlingshemmet, Dala-Floda",
@@ -1007,14 +1014,14 @@
      "total": 589,
      "dagarMedRoster": 5,
      "storstaDag": 173,
-     "andel": 16.5
+     "andel": 16.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Gagnef",
      "lokalId": "2026003",
-     "total": 20,
-     "dagarMedRoster": 3,
+     "total": 21,
+     "dagarMedRoster": 4,
      "storstaDag": 13,
      "andel": 0.6
     }

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -937,8 +937,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1056,18 +1056,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 1366,
-     "ack": 11660
+     "antal": 1372,
+     "ack": 11666
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 772,
-     "ack": 12432
+     "antal": 778,
+     "ack": 12444
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 80,
+     "ack": 12524
     }
    ],
-   "total": 12432,
+   "total": 12524,
    "rostberattigade": {
     "riksdag": 29517,
     "kommun": 30233,
@@ -1085,28 +1092,28 @@
      "namn": "Mölnlycke kulturhus",
      "kommun": "Härryda",
      "lokalId": "1401005",
-     "total": 6599,
+     "total": 6606,
      "dagarMedRoster": 18,
      "storstaDag": 639,
-     "andel": 53.1
+     "andel": 52.7
     },
     {
      "namn": "Landvetters kulturhus",
      "kommun": "Härryda",
      "lokalId": "1401004",
-     "total": 4169,
+     "total": 4173,
      "dagarMedRoster": 16,
-     "storstaDag": 492,
-     "andel": 33.5
+     "storstaDag": 494,
+     "andel": 33.3
     },
     {
      "namn": "Hindås stationshus",
      "kommun": "Härryda",
      "lokalId": "1401002",
-     "total": 1017,
+     "total": 1018,
      "dagarMedRoster": 7,
-     "storstaDag": 241,
-     "andel": 8.2
+     "storstaDag": 242,
+     "andel": 8.1
     },
     {
      "namn": "Rävlanda föreningsgård",
@@ -1130,10 +1137,10 @@
      "namn": "Mölnlycke kommunhus",
      "kommun": "Härryda",
      "lokalId": "1401001",
-     "total": 1,
-     "dagarMedRoster": 1,
-     "storstaDag": 1,
-     "andel": 0.0
+     "total": 81,
+     "dagarMedRoster": 2,
+     "storstaDag": 80,
+     "andel": 0.6
     }
    ],
    "antalLokaler": 6,

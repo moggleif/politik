@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -730,8 +730,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -856,11 +856,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 399,
-     "ack": 4009
+     "antal": 400,
+     "ack": 4010
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 33,
+     "ack": 4043
     }
    ],
-   "total": 4009,
+   "total": 4043,
    "rostberattigade": {
     "riksdag": 9311,
     "kommun": 9393,
@@ -878,8 +885,8 @@
      "namn": "Lägerbacken",
      "kommun": "Vaxholm",
      "lokalId": "0187001",
-     "total": 3981,
-     "dagarMedRoster": 18,
+     "total": 4015,
+     "dagarMedRoster": 19,
      "storstaDag": 425,
      "andel": 99.3
     },

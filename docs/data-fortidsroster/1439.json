@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -739,8 +739,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -867,9 +867,16 @@
      "kvar": 1,
      "antal": 303,
      "ack": 2298
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 36,
+     "ack": 2334
     }
    ],
-   "total": 2298,
+   "total": 2334,
    "rostberattigade": {
     "riksdag": 4931,
     "kommun": 5064,
@@ -887,8 +894,8 @@
      "namn": "Centrumhuset",
      "kommun": "Färgelanda",
      "lokalId": "1439001",
-     "total": 2259,
-     "dagarMedRoster": 18,
+     "total": 2295,
+     "dagarMedRoster": 19,
      "storstaDag": 300,
      "andel": 98.3
     },

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1072,8 +1072,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1200,9 +1200,16 @@
      "kvar": 1,
      "antal": 357,
      "ack": 4731
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 150,
+     "ack": 4881
     }
    ],
-   "total": 4731,
+   "total": 4881,
    "rostberattigade": {
     "riksdag": 7996,
     "kommun": 8410,
@@ -1220,10 +1227,10 @@
      "namn": "Malungs bibliotek",
      "kommun": "Malung-Sälen",
      "lokalId": "2023001",
-     "total": 3122,
-     "dagarMedRoster": 18,
+     "total": 3165,
+     "dagarMedRoster": 19,
      "storstaDag": 342,
-     "andel": 66.0
+     "andel": 64.8
     },
     {
      "namn": "Sälens bibliotek",
@@ -1232,39 +1239,39 @@
      "total": 1510,
      "dagarMedRoster": 18,
      "storstaDag": 179,
-     "andel": 31.9
+     "andel": 30.9
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Malung-Sälen",
      "lokalId": "2023007",
-     "total": 99,
-     "dagarMedRoster": 8,
+     "total": 100,
+     "dagarMedRoster": 9,
      "storstaDag": 19,
-     "andel": 2.1
-    },
-    {
-     "namn": "Förskolan/skolan Sörsjön",
-     "kommun": "Malung-Sälen",
-     "lokalId": "2023002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Rörbäcksnäs skola",
-     "kommun": "Malung-Sälen",
-     "lokalId": "2023004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 2.0
     },
     {
      "namn": "Tyngsjö bydgegård",
      "kommun": "Malung-Sälen",
      "lokalId": "2023005",
+     "total": 57,
+     "dagarMedRoster": 1,
+     "storstaDag": 57,
+     "andel": 1.2
+    },
+    {
+     "namn": "Rörbäcksnäs skola",
+     "kommun": "Malung-Sälen",
+     "lokalId": "2023004",
+     "total": 49,
+     "dagarMedRoster": 1,
+     "storstaDag": 49,
+     "andel": 1.0
+    },
+    {
+     "namn": "Förskolan/skolan Sörsjön",
+     "kommun": "Malung-Sälen",
+     "lokalId": "2023002",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,

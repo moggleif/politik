@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1108,8 +1108,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1234,11 +1234,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 487,
-     "ack": 6900
+     "antal": 488,
+     "ack": 6901
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 24,
+     "ack": 6925
     }
    ],
-   "total": 6900,
+   "total": 6925,
    "rostberattigade": {
     "riksdag": 13670,
     "kommun": 14351,
@@ -1256,10 +1263,10 @@
      "namn": "Kramfors Fritidsgård",
      "kommun": "Kramfors",
      "lokalId": "2282002",
-     "total": 3543,
-     "dagarMedRoster": 16,
+     "total": 3567,
+     "dagarMedRoster": 17,
      "storstaDag": 388,
-     "andel": 51.3
+     "andel": 51.5
     },
     {
      "namn": "Nylands Folkets Hus",
@@ -1277,7 +1284,7 @@
      "total": 949,
      "dagarMedRoster": 13,
      "storstaDag": 102,
-     "andel": 13.8
+     "andel": 13.7
     },
     {
      "namn": "Bollstakyrkan",
@@ -1301,8 +1308,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kramfors",
      "lokalId": "2282006",
-     "total": 80,
-     "dagarMedRoster": 9,
+     "total": 81,
+     "dagarMedRoster": 10,
      "storstaDag": 27,
      "andel": 1.2
     }

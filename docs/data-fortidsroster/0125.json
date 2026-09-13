@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,8 +910,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1038,9 +1038,16 @@
      "kvar": 1,
      "antal": 573,
      "ack": 8427
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 75,
+     "ack": 8502
     }
    ],
-   "total": 8427,
+   "total": 8502,
    "rostberattigade": {
     "riksdag": 21184,
     "kommun": 21860,
@@ -1061,7 +1068,7 @@
      "total": 6194,
      "dagarMedRoster": 17,
      "storstaDag": 685,
-     "andel": 73.5
+     "andel": 72.9
     },
     {
      "namn": "Stenhamra centrum, biblioteket",
@@ -1070,25 +1077,25 @@
      "total": 2054,
      "dagarMedRoster": 17,
      "storstaDag": 270,
-     "andel": 24.4
+     "andel": 24.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Ekerö",
      "lokalId": "0125005",
-     "total": 179,
-     "dagarMedRoster": 8,
+     "total": 202,
+     "dagarMedRoster": 9,
      "storstaDag": 99,
-     "andel": 2.1
+     "andel": 2.4
     },
     {
      "namn": "Ekerö kommunhus",
      "kommun": "Ekerö",
      "lokalId": "0125002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 52,
+     "dagarMedRoster": 1,
+     "storstaDag": 52,
+     "andel": 0.6
     }
    ],
    "antalLokaler": 4,

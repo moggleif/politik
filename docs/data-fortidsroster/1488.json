@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1135,8 +1135,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1254,18 +1254,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 2333,
-     "ack": 20436
+     "antal": 2361,
+     "ack": 20464
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 1297,
-     "ack": 21733
+     "antal": 1302,
+     "ack": 21766
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 173,
+     "ack": 21939
     }
    ],
-   "total": 21733,
+   "total": 21939,
    "rostberattigade": {
     "riksdag": 44926,
     "kommun": 46304,
@@ -1283,64 +1290,64 @@
      "namn": "Folkets hus / Kulturhuset",
      "kommun": "Trollhättan",
      "lokalId": "1488012",
-     "total": 7263,
+     "total": 7268,
      "dagarMedRoster": 18,
      "storstaDag": 689,
-     "andel": 33.4
+     "andel": 33.1
     },
     {
      "namn": "Överby Etagehuset",
      "kommun": "Trollhättan",
      "lokalId": "1488010",
-     "total": 7087,
+     "total": 7088,
      "dagarMedRoster": 18,
      "storstaDag": 703,
-     "andel": 32.6
+     "andel": 32.3
     },
     {
      "namn": "Edsborg Idrottsplats",
      "kommun": "Trollhättan",
      "lokalId": "1488009",
-     "total": 5137,
+     "total": 5138,
      "dagarMedRoster": 13,
-     "storstaDag": 687,
-     "andel": 23.6
+     "storstaDag": 688,
+     "andel": 23.4
     },
     {
      "namn": "Kronogården, PRO Södra",
      "kommun": "Trollhättan",
      "lokalId": "1488001",
-     "total": 2041,
+     "total": 2044,
      "dagarMedRoster": 13,
-     "storstaDag": 295,
-     "andel": 9.4
+     "storstaDag": 298,
+     "andel": 9.3
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Trollhättan",
      "lokalId": "1488013",
-     "total": 205,
-     "dagarMedRoster": 10,
+     "total": 231,
+     "dagarMedRoster": 11,
      "storstaDag": 52,
-     "andel": 0.9
-    },
-    {
-     "namn": "Norra Björke Bygdegård",
-     "kommun": "Trollhättan",
-     "lokalId": "1488011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.1
     },
     {
      "namn": "Stadshuset",
      "kommun": "Trollhättan",
      "lokalId": "1488003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 96,
+     "dagarMedRoster": 1,
+     "storstaDag": 96,
+     "andel": 0.4
+    },
+    {
+     "namn": "Norra Björke Bygdegård",
+     "kommun": "Trollhättan",
+     "lokalId": "1488011",
+     "total": 74,
+     "dagarMedRoster": 1,
+     "storstaDag": 74,
+     "andel": 0.3
     }
    ],
    "antalLokaler": 7,

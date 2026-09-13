@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -901,8 +901,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1029,9 +1029,16 @@
      "kvar": 1,
      "antal": 1539,
      "ack": 16229
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 257,
+     "ack": 16486
     }
    ],
-   "total": 16229,
+   "total": 16486,
    "rostberattigade": {
     "riksdag": 36816,
     "kommun": 38195,
@@ -1049,10 +1056,10 @@
      "namn": "Biblioteket",
      "kommun": "Enköping",
      "lokalId": "0381002",
-     "total": 10976,
-     "dagarMedRoster": 18,
+     "total": 11233,
+     "dagarMedRoster": 19,
      "storstaDag": 843,
-     "andel": 67.6
+     "andel": 68.1
     },
     {
      "namn": "Ljunggården, Enköping",
@@ -1061,7 +1068,7 @@
      "total": 2860,
      "dagarMedRoster": 18,
      "storstaDag": 512,
-     "andel": 17.6
+     "andel": 17.3
     },
     {
      "namn": "Brandstationen, Örsundsbro",
@@ -1070,7 +1077,7 @@
      "total": 1175,
      "dagarMedRoster": 8,
      "storstaDag": 255,
-     "andel": 7.2
+     "andel": 7.1
     },
     {
      "namn": "Brandstationen Fjärdhundra",
@@ -1079,7 +1086,7 @@
      "total": 565,
      "dagarMedRoster": 6,
      "storstaDag": 131,
-     "andel": 3.5
+     "andel": 3.4
     },
     {
      "namn": "Tallgården, Grillby",
@@ -1088,7 +1095,7 @@
      "total": 514,
      "dagarMedRoster": 6,
      "storstaDag": 128,
-     "andel": 3.2
+     "andel": 3.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1097,7 +1104,7 @@
      "total": 139,
      "dagarMedRoster": 8,
      "storstaDag": 29,
-     "andel": 0.9
+     "andel": 0.8
     }
    ],
    "antalLokaler": 6,

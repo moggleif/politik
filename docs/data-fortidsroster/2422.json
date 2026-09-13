@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -811,8 +811,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -939,9 +939,16 @@
      "kvar": 1,
      "antal": 38,
      "ack": 1092
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 136,
+     "ack": 1228
     }
    ],
-   "total": 1092,
+   "total": 1228,
    "rostberattigade": {
     "riksdag": 1787,
     "kommun": 1935,
@@ -959,37 +966,37 @@
      "namn": "Biblioteket Sorsele",
      "kommun": "Sorsele",
      "lokalId": "2422001",
-     "total": 759,
-     "dagarMedRoster": 16,
+     "total": 768,
+     "dagarMedRoster": 17,
      "storstaDag": 127,
-     "andel": 69.5
+     "andel": 62.5
     },
     {
      "namn": "Gargnäs Ica Nära",
      "kommun": "Sorsele",
      "lokalId": "2422004",
-     "total": 106,
-     "dagarMedRoster": 2,
+     "total": 159,
+     "dagarMedRoster": 3,
      "storstaDag": 70,
-     "andel": 9.7
+     "andel": 12.9
     },
     {
      "namn": "Ammarnäs församlingshem",
      "kommun": "Sorsele",
      "lokalId": "2422002",
-     "total": 105,
-     "dagarMedRoster": 2,
+     "total": 145,
+     "dagarMedRoster": 3,
      "storstaDag": 62,
-     "andel": 9.6
+     "andel": 11.8
     },
     {
      "namn": "Blattnicksele Ica Nära",
      "kommun": "Sorsele",
      "lokalId": "2422003",
-     "total": 103,
-     "dagarMedRoster": 2,
+     "total": 137,
+     "dagarMedRoster": 3,
      "storstaDag": 73,
-     "andel": 9.4
+     "andel": 11.2
     },
     {
      "namn": "Särskilt boende",
@@ -998,7 +1005,7 @@
      "total": 19,
      "dagarMedRoster": 1,
      "storstaDag": 19,
-     "andel": 1.7
+     "andel": 1.5
     },
     {
      "namn": "Ambulerande röstmottagning",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1594,8 +1594,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -1720,11 +1720,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 2024,
-     "ack": 33600
+     "antal": 2029,
+     "ack": 33605
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 207,
+     "ack": 33812
     }
    ],
-   "total": 33600,
+   "total": 33812,
    "rostberattigade": {
     "riksdag": 78124,
     "kommun": 79857,
@@ -1742,19 +1749,19 @@
      "namn": "Sundsvalls stadsbibliotek",
      "kommun": "Sundsvall",
      "lokalId": "2281011",
-     "total": 10272,
-     "dagarMedRoster": 18,
+     "total": 10483,
+     "dagarMedRoster": 19,
      "storstaDag": 1058,
-     "andel": 30.6
+     "andel": 31.0
     },
     {
      "namn": "Kvissleby bibliotek",
      "kommun": "Sundsvall",
      "lokalId": "2281009",
-     "total": 3457,
+     "total": 3458,
      "dagarMedRoster": 16,
-     "storstaDag": 383,
-     "andel": 10.3
+     "storstaDag": 384,
+     "andel": 10.2
     },
     {
      "namn": "Alnö bibliotek, Vibackeskolan",
@@ -1763,7 +1770,7 @@
      "total": 3054,
      "dagarMedRoster": 16,
      "storstaDag": 433,
-     "andel": 9.1
+     "andel": 9.0
     },
     {
      "namn": "EQ-House",
@@ -1772,7 +1779,7 @@
      "total": 2479,
      "dagarMedRoster": 13,
      "storstaDag": 296,
-     "andel": 7.4
+     "andel": 7.3
     },
     {
      "namn": "Matfors bibliotek",
@@ -1808,7 +1815,7 @@
      "total": 1531,
      "dagarMedRoster": 13,
      "storstaDag": 337,
-     "andel": 4.6
+     "andel": 4.5
     },
     {
      "namn": "Livli (Birsta City)",

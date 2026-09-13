@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T11:42+02:00",
+ "senastUppdaterad": "2026-09-13T18:36+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -2188,8 +2188,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T11:42+02:00",
-   "klart": false,
+   "hamtad": "2026-09-13T18:36+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -2314,11 +2314,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 3886,
-     "ack": 54652
+     "antal": 3919,
+     "ack": 54685
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 338,
+     "ack": 55023
     }
    ],
-   "total": 54652,
+   "total": 55023,
    "rostberattigade": {
     "riksdag": 115538,
     "kommun": 119936,
@@ -2333,55 +2340,55 @@
    },
    "lokaler": [
     {
-     "namn": "Väla Centrum",
-     "kommun": "Helsingborg",
-     "lokalId": "1283005",
-     "total": 10077,
-     "dagarMedRoster": 18,
-     "storstaDag": 714,
-     "andel": 18.4
-    },
-    {
      "namn": "Helsingborg C",
      "kommun": "Helsingborg",
      "lokalId": "1283014",
-     "total": 9834,
-     "dagarMedRoster": 18,
+     "total": 10169,
+     "dagarMedRoster": 19,
      "storstaDag": 795,
-     "andel": 18.0
+     "andel": 18.5
+    },
+    {
+     "namn": "Väla Centrum",
+     "kommun": "Helsingborg",
+     "lokalId": "1283005",
+     "total": 10083,
+     "dagarMedRoster": 18,
+     "storstaDag": 714,
+     "andel": 18.3
     },
     {
      "namn": "Råå Center",
      "kommun": "Helsingborg",
      "lokalId": "1283009",
-     "total": 8853,
+     "total": 8856,
      "dagarMedRoster": 18,
      "storstaDag": 641,
-     "andel": 16.2
+     "andel": 16.1
     },
     {
      "namn": "IKEA Helsingborg",
      "kommun": "Helsingborg",
      "lokalId": "1283012",
-     "total": 6067,
+     "total": 6073,
      "dagarMedRoster": 18,
      "storstaDag": 621,
-     "andel": 11.1
+     "andel": 11.0
     },
     {
      "namn": "Södergallerian",
      "kommun": "Helsingborg",
      "lokalId": "1283047",
-     "total": 4970,
+     "total": 4976,
      "dagarMedRoster": 18,
-     "storstaDag": 590,
-     "andel": 9.1
+     "storstaDag": 596,
+     "andel": 9.0
     },
     {
      "namn": "Ringstorps centrum",
      "kommun": "Helsingborg",
      "lokalId": "1283006",
-     "total": 4112,
+     "total": 4114,
      "dagarMedRoster": 18,
      "storstaDag": 400,
      "andel": 7.5
@@ -2393,15 +2400,15 @@
      "total": 2228,
      "dagarMedRoster": 13,
      "storstaDag": 214,
-     "andel": 4.1
+     "andel": 4.0
     },
     {
      "namn": "Idé A Drottninghög",
      "kommun": "Helsingborg",
      "lokalId": "1283045",
-     "total": 1743,
+     "total": 1746,
      "dagarMedRoster": 16,
-     "storstaDag": 238,
+     "storstaDag": 241,
      "andel": 3.2
     },
     {
@@ -2411,7 +2418,7 @@
      "total": 1069,
      "dagarMedRoster": 8,
      "storstaDag": 204,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
      "namn": "Elinebergs bibliotek",
@@ -2486,6 +2493,15 @@
      "andel": 0.4
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Helsingborg",
+     "lokalId": "1283049",
+     "total": 157,
+     "dagarMedRoster": 17,
+     "storstaDag": 48,
+     "andel": 0.3
+    },
+    {
      "namn": "Planteringen, valbuss",
      "kommun": "Helsingborg",
      "lokalId": "1283046",
@@ -2501,15 +2517,6 @@
      "total": 151,
      "dagarMedRoster": 3,
      "storstaDag": 97,
-     "andel": 0.3
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Helsingborg",
-     "lokalId": "1283049",
-     "total": 147,
-     "dagarMedRoster": 16,
-     "storstaDag": 48,
      "andel": 0.3
     },
     {
