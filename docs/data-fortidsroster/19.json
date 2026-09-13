@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-12T17:48+02:00",
+ "senastUppdaterad": "2026-09-13T11:42+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-12T17:48+02:00",
+   "hamtad": "2026-09-13T11:42+02:00",
    "klart": false,
    "dagar": [
     {
@@ -1841,25 +1841,25 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 7840,
-     "ack": 77254
+     "antal": 7850,
+     "ack": 77264
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 9384,
-     "ack": 86638
+     "antal": 9489,
+     "ack": 86753
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 4433,
-     "ack": 91071
+     "antal": 8641,
+     "ack": 95394
     }
    ],
-   "total": 91071,
+   "total": 95394,
    "rostberattigade": {
     "riksdag": 213717,
     "kommun": 222010,
@@ -1877,172 +1877,190 @@
      "namn": "Erikslund Shoppingcenter/Livli",
      "kommun": "Västerås",
      "lokalId": "1980007",
-     "total": 8795,
+     "total": 8802,
      "dagarMedRoster": 17,
-     "storstaDag": 881,
-     "andel": 9.7
-    },
-    {
-     "namn": "Stadsbiblioteket, Sala",
-     "kommun": "Sala",
-     "lokalId": "1981004",
-     "total": 7307,
-     "dagarMedRoster": 18,
-     "storstaDag": 871,
-     "andel": 8.0
+     "storstaDag": 888,
+     "andel": 9.2
     },
     {
      "namn": "Forum - Globen",
      "kommun": "Köping",
      "lokalId": "1983010",
-     "total": 7104,
+     "total": 7576,
      "dagarMedRoster": 18,
-     "storstaDag": 894,
-     "andel": 7.8
+     "storstaDag": 900,
+     "andel": 7.9
+    },
+    {
+     "namn": "Stadsbiblioteket, Sala",
+     "kommun": "Sala",
+     "lokalId": "1981004",
+     "total": 7499,
+     "dagarMedRoster": 18,
+     "storstaDag": 871,
+     "andel": 7.9
     },
     {
      "namn": "Skiljeboporten",
      "kommun": "Västerås",
      "lokalId": "1980008",
-     "total": 5699,
+     "total": 5701,
      "dagarMedRoster": 13,
-     "storstaDag": 770,
-     "andel": 6.3
+     "storstaDag": 772,
+     "andel": 6.0
     },
     {
      "namn": "Västerås stadsbibliotek, Hörsalen",
      "kommun": "Västerås",
      "lokalId": "1980009",
-     "total": 5394,
+     "total": 5399,
      "dagarMedRoster": 13,
-     "storstaDag": 651,
-     "andel": 5.9
+     "storstaDag": 656,
+     "andel": 5.7
     },
     {
      "namn": "Arboga stadsbibliotek",
      "kommun": "Arboga",
      "lokalId": "1984002",
-     "total": 5248,
+     "total": 5282,
      "dagarMedRoster": 18,
      "storstaDag": 492,
-     "andel": 5.8
-    },
-    {
-     "namn": "Västmanlands sjukhus Västerås",
-     "kommun": "Västerås",
-     "lokalId": "1980003",
-     "total": 4578,
-     "dagarMedRoster": 13,
-     "storstaDag": 561,
-     "andel": 5.0
+     "andel": 5.5
     },
     {
      "namn": "Växhuset",
      "kommun": "Västerås",
      "lokalId": "1980012",
-     "total": 4319,
+     "total": 4883,
      "dagarMedRoster": 18,
+     "storstaDag": 735,
+     "andel": 5.1
+    },
+    {
+     "namn": "Västmanlands sjukhus Västerås",
+     "kommun": "Västerås",
+     "lokalId": "1980003",
+     "total": 4581,
+     "dagarMedRoster": 13,
      "storstaDag": 564,
-     "andel": 4.7
-    },
-    {
-     "namn": "Kulturhuset",
-     "kommun": "Hallstahammar",
-     "lokalId": "1961002",
-     "total": 3974,
-     "dagarMedRoster": 16,
-     "storstaDag": 461,
-     "andel": 4.4
-    },
-    {
-     "namn": "Fagersta bibliotek",
-     "kommun": "Fagersta",
-     "lokalId": "1982001",
-     "total": 3879,
-     "dagarMedRoster": 18,
-     "storstaDag": 422,
-     "andel": 4.3
+     "andel": 4.8
     },
     {
      "namn": "Bäckbyhuset",
      "kommun": "Västerås",
      "lokalId": "1980001",
-     "total": 3861,
+     "total": 4316,
      "dagarMedRoster": 18,
-     "storstaDag": 438,
-     "andel": 4.2
+     "storstaDag": 699,
+     "andel": 4.5
+    },
+    {
+     "namn": "Kulturhuset",
+     "kommun": "Hallstahammar",
+     "lokalId": "1961002",
+     "total": 4103,
+     "dagarMedRoster": 16,
+     "storstaDag": 461,
+     "andel": 4.3
+    },
+    {
+     "namn": "Fagersta bibliotek",
+     "kommun": "Fagersta",
+     "lokalId": "1982001",
+     "total": 3884,
+     "dagarMedRoster": 18,
+     "storstaDag": 422,
+     "andel": 4.1
     },
     {
      "namn": "Stadshuset, Munkgatan",
      "kommun": "Västerås",
      "lokalId": "1980010",
-     "total": 3839,
+     "total": 3840,
      "dagarMedRoster": 13,
-     "storstaDag": 545,
-     "andel": 4.2
+     "storstaDag": 546,
+     "andel": 4.0
     },
     {
      "namn": "Råby bibliotek",
      "kommun": "Västerås",
      "lokalId": "1980006",
-     "total": 2633,
+     "total": 2693,
      "dagarMedRoster": 16,
-     "storstaDag": 251,
-     "andel": 2.9
-    },
-    {
-     "namn": "Folkan Surahammar",
-     "kommun": "Surahammar",
-     "lokalId": "1907003",
-     "total": 2485,
-     "dagarMedRoster": 18,
-     "storstaDag": 277,
-     "andel": 2.7
+     "storstaDag": 265,
+     "andel": 2.8
     },
     {
      "namn": "Biblioteket Kungsör",
      "kommun": "Kungsör",
      "lokalId": "1960002",
-     "total": 2401,
+     "total": 2600,
      "dagarMedRoster": 18,
      "storstaDag": 270,
-     "andel": 2.6
+     "andel": 2.7
     },
     {
      "namn": "Mälarparksskolan",
      "kommun": "Västerås",
      "lokalId": "1980013",
-     "total": 2112,
+     "total": 2564,
      "dagarMedRoster": 5,
-     "storstaDag": 568,
-     "andel": 2.3
+     "storstaDag": 811,
+     "andel": 2.7
+    },
+    {
+     "namn": "Folkan Surahammar",
+     "kommun": "Surahammar",
+     "lokalId": "1907003",
+     "total": 2494,
+     "dagarMedRoster": 18,
+     "storstaDag": 277,
+     "andel": 2.6
     },
     {
      "namn": "Mälardalens universitetsbibliotek",
      "kommun": "Västerås",
      "lokalId": "1980004",
-     "total": 1804,
+     "total": 1806,
      "dagarMedRoster": 12,
      "storstaDag": 280,
-     "andel": 2.0
+     "andel": 1.9
     },
     {
-     "namn": "Tingshuset",
-     "kommun": "Norberg",
-     "lokalId": "1962006",
-     "total": 1440,
-     "dagarMedRoster": 18,
-     "storstaDag": 147,
+     "namn": "Piltorpsskolan",
+     "kommun": "Västerås",
+     "lokalId": "1980018",
+     "total": 1536,
+     "dagarMedRoster": 6,
+     "storstaDag": 605,
      "andel": 1.6
     },
     {
      "namn": "Kommunhuset",
      "kommun": "Skinnskatteberg",
      "lokalId": "1904001",
-     "total": 1433,
+     "total": 1474,
      "dagarMedRoster": 18,
-     "storstaDag": 166,
-     "andel": 1.6
+     "storstaDag": 206,
+     "andel": 1.5
+    },
+    {
+     "namn": "Tingshuset",
+     "kommun": "Norberg",
+     "lokalId": "1962006",
+     "total": 1442,
+     "dagarMedRoster": 18,
+     "storstaDag": 147,
+     "andel": 1.5
+    },
+    {
+     "namn": "Irstaskolan",
+     "kommun": "Västerås",
+     "lokalId": "1980016",
+     "total": 1430,
+     "dagarMedRoster": 5,
+     "storstaDag": 465,
+     "andel": 1.5
     },
     {
      "namn": "Kolsva bibliotek",
@@ -2051,7 +2069,7 @@
      "total": 1264,
      "dagarMedRoster": 13,
      "storstaDag": 179,
-     "andel": 1.4
+     "andel": 1.3
     },
     {
      "namn": "Stationshuset (Biblioteket), Kolbäck",
@@ -2063,39 +2081,39 @@
      "andel": 1.3
     },
     {
-     "namn": "Piltorpsskolan",
-     "kommun": "Västerås",
-     "lokalId": "1980018",
-     "total": 1187,
-     "dagarMedRoster": 5,
-     "storstaDag": 307,
-     "andel": 1.3
-    },
-    {
-     "namn": "Irstaskolan",
-     "kommun": "Västerås",
-     "lokalId": "1980016",
-     "total": 1165,
-     "dagarMedRoster": 5,
-     "storstaDag": 336,
-     "andel": 1.3
-    },
-    {
      "namn": "Tillbergaskolan",
      "kommun": "Västerås",
      "lokalId": "1980005",
-     "total": 963,
+     "total": 1177,
      "dagarMedRoster": 5,
-     "storstaDag": 236,
-     "andel": 1.1
+     "storstaDag": 413,
+     "andel": 1.2
     },
     {
      "namn": "Persboskolan/Drömfabriken",
      "kommun": "Västerås",
      "lokalId": "1980002",
-     "total": 921,
+     "total": 1098,
      "dagarMedRoster": 5,
-     "storstaDag": 214,
+     "storstaDag": 367,
+     "andel": 1.2
+    },
+    {
+     "namn": "Vallby Paletten",
+     "kommun": "Västerås",
+     "lokalId": "1980011",
+     "total": 1093,
+     "dagarMedRoster": 5,
+     "storstaDag": 461,
+     "andel": 1.1
+    },
+    {
+     "namn": "Pettersbergsskolan",
+     "kommun": "Västerås",
+     "lokalId": "1980019",
+     "total": 989,
+     "dagarMedRoster": 5,
+     "storstaDag": 466,
      "andel": 1.0
     },
     {
@@ -2108,37 +2126,19 @@
      "andel": 0.9
     },
     {
-     "namn": "Vallby Paletten",
-     "kommun": "Västerås",
-     "lokalId": "1980011",
-     "total": 819,
-     "dagarMedRoster": 5,
-     "storstaDag": 218,
-     "andel": 0.9
-    },
-    {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Västerås",
      "lokalId": "1980017",
-     "total": 697,
+     "total": 725,
      "dagarMedRoster": 15,
      "storstaDag": 86,
-     "andel": 0.8
-    },
-    {
-     "namn": "Pettersbergsskolan",
-     "kommun": "Västerås",
-     "lokalId": "1980019",
-     "total": 691,
-     "dagarMedRoster": 5,
-     "storstaDag": 172,
      "andel": 0.8
     },
     {
      "namn": "Ransta Nästa bygdegård",
      "kommun": "Sala",
      "lokalId": "1981006",
-     "total": 484,
+     "total": 512,
      "dagarMedRoster": 6,
      "storstaDag": 99,
      "andel": 0.5
