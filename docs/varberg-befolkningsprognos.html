@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>Hur träffsäkra är Kungsbackas befolkningsprognoser?</title>
-<meta name="description" content="Jämförelse av Kungsbacka kommuns befolkningsprognoser genom åren med den faktiska befolkningsutvecklingen enligt SCB.">
+<title>Hur träffsäkra är Varbergs befolkningsprognoser?</title>
+<meta name="description" content="Jämförelse av Varbergs kommuns befolkningsprognoser genom åren med den faktiska befolkningsutvecklingen enligt SCB.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-datafil="data.json" data-enhet="invånare" data-enhet-lang="Antal invånare">
+<body data-datafil="data-varberg.json" data-enhet="invånare" data-enhet-lang="Antal invånare">
 
 <a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
 
@@ -18,7 +18,7 @@
     <nav class="huvudnav" aria-label="Webbplatsens sidor">
       <a href="index.html">Start</a>
       <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
-        <a href="befolkningsprognos.html" aria-current="page">Hela befolkningen</a>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
         <a href="barn-och-unga.html">0–15 år</a>
         <a href="gymnasiealdern.html">16–19 år</a>
       </span>
@@ -37,19 +37,20 @@
         <a href="fortidsrostning.html">Förtidsröstning</a>
       </span>
       <span class="navgrupp"><span class="navrubrik">Varberg:</span>
-        <a href="varberg-befolkningsprognos.html">Hela befolkningen</a>
+        <a href="varberg-befolkningsprognos.html" aria-current="page">Hela befolkningen</a>
         <a href="varberg-barn-och-unga.html">0–15 år</a>
         <a href="varberg-gymnasiealdern.html">16–18 år</a>
       </span>
       <a href="metod.html">Metod</a>
     </nav>
-    <h1>Hur träffsäkra är Kungsbackas befolkningsprognoser?</h1>
+    <h1>Hur träffsäkra är Varbergs befolkningsprognoser?</h1>
     <p class="ingress">
-      Kungsbacka kommun tar varje år fram en prognos för hur många invånare
+      Varbergs kommun tar varje år fram en prognos för hur många invånare
       kommunen kommer att ha i framtiden. Prognoserna används när kommunen
       planerar skolor, äldreboenden och bostäder. Den här sidan jämför vad
       prognoserna sa &ndash; med hur det faktiskt blev, enligt Statistiska
-      centralbyrån (SCB).
+      centralbyrån (SCB). Den är byggd på samma sätt som
+      <a href="befolkningsprognos.html">sidan för Kungsbacka</a>.
     </p>
     <p class="meta-rad" id="meta-rad" hidden></p>
   </div>
@@ -162,7 +163,7 @@
     <h2>Samma bild, inzoomad på åren vi har facit för</h2>
     <p class="forklaring">
       Samma linjer som ovan, men bara fram till sista året med känt utfall.
-      I diagrammet ovanför måste skalan rymma prognoserna ända till 2050,
+      I diagrammet ovanför måste skalan rymma prognoserna ända till 2041,
       vilket trycker ihop kurvorna. Här syns i detalj hur nära prognoserna
       låg folkmängden år för år.
     </p>
@@ -189,7 +190,18 @@
   <section id="sektion-om">
     <h2>Om den här sidan</h2>
     <p class="forklaring">
-      Sidan är fristående och drivs inte av Kungsbacka kommun. Den är byggd
+      Varbergs kommun har publicerat en fristående prognosrapport, gjord av
+      Sweco, varje år sedan 2022; 2022 års rapport är raderad från
+      kommunens webbplats och finns inte arkiverad. För 2017&ndash;2021
+      kommer siffrorna i stället ur den prognostabell som varje års
+      kommunbudget innehåller. Budgettabellerna redovisar bara ett urval
+      år &ndash; prognosens första år och några &rdquo;utblicksår&rdquo;
+      &ndash; så de årgångarna har färre jämförelsepunkter och ritas
+      streckade i diagrammen. Äldre budgetar än 2018 finns bara som
+      kapade arkivkopior, så årgångar före 2017 saknas.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Varbergs kommun. Den är byggd
       för att det ska vara lätt att i efterhand se hur bra prognoserna har
       stämt &ndash; inget mer. Alla beräkningar är öppna:
       källkoden och alla data finns på
@@ -203,7 +215,7 @@
 
 <footer>
   <div class="sidfot-inre">
-    <p>Data: Kungsbacka kommuns befolkningsprognoser samt SCB:s befolkningsstatistik.
+    <p>Data: Varbergs kommuns befolkningsprognoser samt SCB:s befolkningsstatistik.
     Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
   </div>
 </footer>

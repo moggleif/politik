@@ -36,6 +36,11 @@
       <span class="navgrupp"><span class="navrubrik">Val:</span>
         <a href="fortidsrostning.html">Förtidsröstning</a>
       </span>
+      <span class="navgrupp"><span class="navrubrik">Varberg:</span>
+        <a href="varberg-befolkningsprognos.html">Hela befolkningen</a>
+        <a href="varberg-barn-och-unga.html">0–15 år</a>
+        <a href="varberg-gymnasiealdern.html">16–18 år</a>
+      </span>
       <a href="metod.html" aria-current="page">Metod</a>
     </nav>
     <h1>Så är siffrorna framtagna</h1>
@@ -64,14 +69,29 @@
         med källänk och sidhänvisning. Var varje rapport hittades
         dokumenteras i
         <a href="https://github.com/moggleif/politik/blob/main/data/KALLOR.md">data/KALLOR.md</a>.</dd>
+      <dt>Varbergs kommuns befolkningsprognoser</dt>
+      <dd>Sidorna om Varberg är byggda med samma skript och samma
+        beräkningar. Prognosrapporterna är Swecos fristående rapporter
+        2023&ndash;2026 och, för 2017&ndash;2021, tabellen
+        &rdquo;Folkmängd, totalprognos&rdquo; i kommunens budgetar; 2022
+        års rapport är raderad och finns inte arkiverad. Kopiorna ligger som
+        <code>varberg-*.pdf</code> i docs/rapporter/ och siffrorna i
+        <a href="https://github.com/moggleif/politik/tree/main/data/prognoser/varberg">data/prognoser/varberg/</a>.
+        Varbergs prognoser delar in ungdomarna i 16&ndash;18 och
+        19&ndash;24 år, så gymnasieåldern är där 16&ndash;18 år, och
+        budgettabellerna redovisar bara ett urval år. Båda sakerna, och
+        vad som sökts utan resultat, beskrivs i
+        <a href="https://github.com/moggleif/politik/blob/main/data/KALLOR.md">data/KALLOR.md</a>.</dd>
       <dt>SCB:s befolkningsstatistik</dt>
       <dd>Det faktiska utfallet &ndash; folkmängden 31 december per år,
-        totalt och för åldersgrupperna 0&ndash;15 och 16&ndash;19 år,
-        summerade ur SCB:s ettårsklasser &ndash; hämtas från
-        SCB:s öppna PxWeb-API med skriptet
+        totalt och för åldersgrupperna 0&ndash;15 och 16&ndash;19 år
+        (16&ndash;18 år för Varberg), summerade ur SCB:s ettårsklasser
+        &ndash; hämtas från SCB:s öppna PxWeb-API med skriptet
         <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_scb.py">scripts/hamta_scb.py</a>
         och sparas i
-        <a href="https://github.com/moggleif/politik/blob/main/data/scb/folkmangd_kungsbacka.json">data/scb/folkmangd_kungsbacka.json</a>.</dd>
+        <a href="https://github.com/moggleif/politik/blob/main/data/scb/folkmangd_kungsbacka.json">data/scb/folkmangd_kungsbacka.json</a>
+        och
+        <a href="https://github.com/moggleif/politik/blob/main/data/scb/folkmangd_varberg.json">data/scb/folkmangd_varberg.json</a>.</dd>
       <dt>Göteborgsregionens antagningsstatistik</dt>
       <dd>GR:s rapport &rdquo;Antagningspoäng och medelvärde&rdquo; efter
         varje års slutantagning, sparad som PDF och maskinellt utläst med
@@ -229,7 +249,12 @@
         per horisont beskriver därför materialet &ndash; den identifierar
         inte vad en längre prognoshorisont orsakar. Skriver
         <a href="data.json">data.json</a> och
-        <a href="data-16-19.json">data-16-19.json</a>.</dd>
+        <a href="data-16-19.json">data-16-19.json</a> &ndash; och för
+        Varberg, med samma kod, <a href="data-varberg.json">data-varberg.json</a>
+        och <a href="data-varberg-16-18.json">data-varberg-16-18.json</a>.
+        En prognos som bara redovisar vissa år (Varbergs budgettabeller) får
+        jämförelsepunkter bara för de åren; inga mellanliggande värden
+        räknas fram.</dd>
       <dt>Antagningsrapporterna blir tidsserier</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_meritvarden.py">build_meritvarden.py</a>
         känner igen samma utbildning mellan åren trots att rapporterna
@@ -337,10 +362,12 @@
       <dt>Åldersgrupperna summeras ur ettårsklasser</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_befolkning.py">build_befolkning.py</a>
         räknar fram andel av folkmängden, förändring mot föregående år och
-        index med första året som 100, för 0&ndash;15 år, 16&ndash;19 år
-        och hela folkmängden. Filen innehåller <strong>enbart faktiskt
+        index med första året som 100, för 0&ndash;15 år, gymnasieåldern
+        (16&ndash;19 år i Kungsbacka, 16&ndash;18 år i Varberg) och hela
+        folkmängden. Filerna innehåller <strong>enbart faktiskt
         utfall</strong> &ndash; inga prognossiffror alls. Skriver
-        <a href="data-befolkning.json">data-befolkning.json</a>.</dd>
+        <a href="data-befolkning.json">data-befolkning.json</a> och
+        <a href="data-varberg-befolkning.json">data-varberg-befolkning.json</a>.</dd>
       <dt>Förtidsröstningen jämförs på dagar kvar till valdagen</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_fortidsroster.py">build_fortidsroster.py</a>
         summerar lokalerna till ett tal per dag för varje kommun, varje
@@ -571,7 +598,9 @@
       (<code>math.fsum</code>) i stället för med vanlig
       flyttalsaddition, vars avrundningsfel annars kan slå igenom på
       andra decimalen &ndash; och gör det olika i olika Python-versioner.
-      Så här återskapas allt från grunden:
+      Så här återskapas allt från grunden (prognos- och
+      befolkningsskripten bygger Kungsbackas och Varbergs filer i samma
+      körning):
     </p>
     <div class="kort"><pre class="kodblock"><code>git clone https://github.com/moggleif/politik
 cd politik
@@ -624,7 +653,7 @@ python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pr
 
 <footer>
   <div class="sidfot-inre">
-    <p>Data: Kungsbacka kommuns befolkningsprognoser, SCB:s befolkningsstatistik,
+    <p>Data: Kungsbacka kommuns och Varbergs kommuns befolkningsprognoser, SCB:s befolkningsstatistik,
     Göteborgsregionens antagningsstatistik och Skolverkets utbildningsstatistik.
     Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
   </div>

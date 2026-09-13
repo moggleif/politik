@@ -1,7 +1,8 @@
-/* Prognoskollen Kungsbacka — läser en datafil och ritar diagrammen.
+/* Prognoskollen — läser en datafil och ritar diagrammen.
    Vilken fil och vilket ord som används om de räknade personerna styrs
    från sidans <body data-datafil="…" data-enhet="…" data-enhet-lang="…">,
-   så att samma kod driver både totalsidan och åldersgruppssidan. */
+   så att samma kod driver både totalsidan och åldersgruppssidan – och
+   både Kungsbackas och Varbergs sidor. Kommunens namn läses ur datafilen. */
 (function () {
   "use strict";
 
@@ -21,6 +22,22 @@
   var ENHET_LANG = KONF.enhetLang || "Antal invånare";  // axelrubrik
   var JAMFORFIL = KONF.jamforfil || null;               // seriens jämförelsefil
   var JAMFORSERIE = KONF.jamforserie || "";
+  var TOTALSIDA = KONF.totalsida || "befolkningsprognos.html";  // kommunens totalsida
+  var ANNAN_INDELNING = KONF.annanIndelning || "";      // t.ex. "16–18 år i stället för 16–19"
+
+  /* En prognos som bara redovisar vissa år – budgettabellerna i Varberg
+     ger t.ex. 2018, 2023, 2025, 2030 och 2032 – har luckor mellan sina
+     redovisade år. Sådana serier ritas streckade med en punkt vid varje
+     redovisat år, så att det syns var prognosvärdena faktiskt finns. */
+  function harLuckor(p) {
+    var ar = Object.keys(p.prognos).map(Number).sort(function (a, b) { return a - b; });
+    return ar.length > 1 && ar[ar.length - 1] - ar[0] + 1 > ar.length;
+  }
+  function glesStil(p) {
+    return harLuckor(p)
+      ? { spanGaps: true, borderDash: [5, 4], pointRadius: 3, pointStyle: "circle" }
+      : { spanGaps: false, pointRadius: 0 };
+  }
 
   var talSv = K.talSv;
 
@@ -474,6 +491,7 @@
 
     var dataset = [];
     data.prognoser.forEach(function (p, i) {
+      var stil = glesStil(p);
       dataset.push({
         label: "Prognos " + p.prognosAr,
         data: ar.map(function (a) {
@@ -482,12 +500,14 @@
         borderColor: rampFarg(i, data.prognoser.length),
         backgroundColor: rampFarg(i, data.prognoser.length),
         borderWidth: 2,
-        pointRadius: 0,
+        borderDash: stil.borderDash || [],
+        pointRadius: stil.pointRadius,
         pointHoverRadius: 5,
-        spanGaps: false,
+        spanGaps: stil.spanGaps,
         tension: 0.1
       });
     });
+    var glesa = data.prognoser.filter(harLuckor);
     /* Kohortlinjen ritas bara när 16–19-sidans kohort.js är inläst */
     if (data.kohort && K.kohortDataset) dataset.push(K.kohortDataset(data, ar, 2));
     dataset.push(K.utfallDataset(data, ar));
@@ -569,7 +589,17 @@
         "Peka på en linje så tonas de övriga ned."
       : "Svart linje: SCB:s faktiska siffror 31 december. Blå linje: kommunens prognos.") +
       (data.kohort ? " Orange linje: kohortframskrivningen ur åldersklasserna "
-        + data.kohort.basAr + "." : "");
+        + data.kohort.basAr + "." : "") +
+      (glesa.length === data.prognoser.length && glesa.length
+        ? " Prognoslinjerna är streckade med punkter, eftersom rapporterna " +
+          "bara redovisar vissa år: punkterna är rapportens värden, linjen " +
+          "däremellan är dragen rakt och är inte prognosvärden."
+        : glesa.length
+          ? " Streckade linjer med punkter är prognoser som bara redovisar " +
+            "vissa år (" + glesa.map(function (p) { return p.prognosAr; }).join(", ") +
+            "): punkterna är rapportens värden, linjen däremellan är dragen rakt " +
+            "och är inte prognosvärden."
+          : "");
 
     /* Tabell: matris år × prognos */
     var t = "<caption>Faktiskt utfall och samtliga prognoser, antal " + ENHET + ".</caption>";
@@ -616,15 +646,17 @@
         return p.prognos[String(a)] !== undefined ? p.prognos[String(a)] : null;
       });
       if (!v.some(function (x) { return x !== null; })) return;  // ingen överlappning
+      var stil = glesStil(p);
       dataset.push({
         label: "Prognos " + p.prognosAr,
         data: v,
         borderColor: rampFarg(i, n),
         backgroundColor: rampFarg(i, n),
         borderWidth: 2,
-        pointRadius: 0,
+        borderDash: stil.borderDash || [],
+        pointRadius: stil.pointRadius,
         pointHoverRadius: 5,
-        spanGaps: false,
+        spanGaps: stil.spanGaps,
         tension: 0.1
       });
     });
@@ -699,7 +731,11 @@
       "Svart linje: SCB:s faktiska siffror. Blå linjer: kommunens prognoser, " +
       "klippta vid " + sistaUtfall + ". Skalan börjar inte på noll, utan följer " +
       "kurvorna – det gör skillnaderna synliga, men får dem också att se större ut. " +
-      "Peka på en linje så tonas de övriga ned.";
+      "Peka på en linje så tonas de övriga ned." +
+      (data.prognoser.some(harLuckor)
+        ? " Streckade linjer med punkter är prognoser som bara redovisar vissa år; " +
+          "linjen mellan punkterna är dragen rakt och är inte prognosvärden."
+        : "");
 
     /* Tabell: utfallet med förändring, som facit att läsa mot */
     var t = "<caption>" + (data.serie ? esc(data.serie) + ". " : "") +
@@ -852,16 +888,16 @@
     K.sattDataNot("not-argangar",
       "<p>Prognosrapporten från <strong>" + esc(saknade.join(", ")) + "</strong> " +
       "ingår inte på den här sidan: den redovisar åldersgrupperna på ett " +
-      "annat sätt (16–18 år i stället för 16–19) och går därför inte att " +
-      "jämföra rakt av. Den finns med på " +
-      "<a href=\"befolkningsprognos.html\">sidan för hela befolkningen</a>.</p>");
+      "annat sätt" + (ANNAN_INDELNING ? " (" + esc(ANNAN_INDELNING) + ")" : "") +
+      " och går därför inte att jämföra rakt av. Den finns med på " +
+      "<a href=\"" + esc(TOTALSIDA) + "\">sidan för hela befolkningen</a>.</p>");
   }
 
   function initMeta(data) {
     var prognosAr = data.prognoser.map(function (p) { return p.prognosAr; });
     var utfallAr = Object.keys(data.utfall).map(Number);
     K.visaMeta({
-      kalla: "Kungsbacka kommuns prognosrapporter och SCB",
+      kalla: K.kommunGenitiv(data.kommun) + " kommuns prognosrapporter och SCB",
       period: "prognoser " + Math.min.apply(null, prognosAr) + "–" +
         Math.max.apply(null, prognosAr),
       senaste: "utfall t.o.m. " + Math.max.apply(null, utfallAr),

@@ -70,8 +70,12 @@
     return delar.length ? delar.join(" · ") : null;
   }
 
-  function visaBefolkning(total, unga) {
+  /* Samma kort för Kungsbacka och Varberg: `ids` pekar ut kortets
+     faktalista och undertexter, åldersgruppens namn ("16–19 år" /
+     "16–18 år") läses ur åldersgruppsfilen. */
+  function visaBefolkning(total, unga, ids) {
     var t = prognosFakta(total);
+    var grupp = unga && unga.serie ? unga.serie : "16–19 år";
     var rader = [
       rad("Prognosårgångar", t.argangar + " (" + t.forsta + "–" + t.sista + ")"),
       rad("Jämförs mot utfallet", t.jamforFrom + "–" + t.jamforTom)
@@ -82,31 +86,32 @@
     }
     var uFel = unga ? felPerHorisont(unga) : null;
     if (uFel !== null) {
-      rader.push(rad("Absolut prognosfel i snitt, 16–19 år", uFel));
+      rader.push(rad("Absolut prognosfel i snitt, " + esc(grupp), uFel));
     }
     /* Kohortframskrivningen: vad som redan är fött, utan någon modell. */
     var k = unga && unga.kohort;
     if (k && k.framskrivning[String(k.sistaAr)] !== undefined) {
-      rader.push(rad("16–19-åringar " + esc(k.sistaAr) + " av dem som redan bor här",
+      rader.push(rad(esc(grupp.replace(/\s*år$/, "")) + "-åringar " + esc(k.sistaAr) +
+        " av dem som redan bor här",
         talSv(k.framskrivning[String(k.sistaAr)]) + " (mot " +
         talSv(k.framskrivning[String(k.basAr + 1)]) + " år " + esc(k.basAr + 1) + ")"));
     }
-    fyll("fakta-befolkning", rader);
+    fyll(ids.fakta, rader);
 
     if (t.antal && t.antalOver !== null) {
       var over = t.antalOver, under = t.antal - over;
       var hall = over >= under
         ? over + " av " + t.antal + " prognosvärden låg över utfallet"
         : under + " av " + t.antal + " prognosvärden låg under utfallet";
-      el("undertext-befolkning").textContent =
+      el(ids.total).textContent =
         "I de år som kan jämföras: " + hall + ".";
     }
     if (k) {
-      el("undertext-gymnasiealdern").textContent =
+      el(ids.gymnasie).textContent =
         "Kommunens prognoser mot utfallet – och en ren framskrivning av de " +
         "barn som redan bor i kommunen, fram till " + k.sistaAr + ".";
     } else if (unga) {
-      el("undertext-gymnasiealdern").textContent =
+      el(ids.gymnasie).textContent =
         "Kommunens prognoser för åldersgruppen jämförda med utfallet.";
     }
   }
@@ -251,12 +256,12 @@
 
   /* ---------- Barn och unga 0–15 år ---------- */
 
-  function visaBarn(data) {
+  function visaBarn(data, id) {
     if (!data || !data.serier) return;
     var s = null;
     data.serier.forEach(function (x) { if (x.nyckel === "0-15") s = x; });
     if (!s) return;
-    el("undertext-barn").textContent =
+    el(id).textContent =
       "Faktiskt utfall " + s.forstaAr + "–" + s.sistaAr + ", störst " +
       s.hogstaAr + " (" + talSv(s.hogsta) + ").";
   }
@@ -364,7 +369,10 @@
      beskrivande text kvar. */
 
   hamta("data-amnesbetyg.json").then(visaAmnesbetyg).catch(function () {});
-  hamta("data-befolkning.json").then(visaBarn).catch(function () {});
+  hamta("data-befolkning.json")
+    .then(function (d) { visaBarn(d, "undertext-barn"); }).catch(function () {});
+  hamta("data-varberg-befolkning.json")
+    .then(function (d) { visaBarn(d, "undertext-varberg-barn"); }).catch(function () {});
   hamta("data-nian-gymnasiet.json").then(visaNian).catch(function () {});
   hamta("data-kostnader.json").then(visaKostnader).catch(function () {});
   hamta("data-resurser.json").then(visaResurser).catch(function () {});
@@ -375,7 +383,21 @@
     hamta("data.json").catch(function () { return null; }),
     hamta("data-16-19.json").catch(function () { return null; })
   ]).then(function (svar) {
-    if (svar[0]) visaBefolkning(svar[0], svar[1]);
+    if (svar[0]) visaBefolkning(svar[0], svar[1], {
+      fakta: "fakta-befolkning", total: "undertext-befolkning",
+      gymnasie: "undertext-gymnasiealdern"
+    });
+  });
+
+  /* Varberg: samma tre sidor, byggda av samma skript. */
+  Promise.all([
+    hamta("data-varberg.json").catch(function () { return null; }),
+    hamta("data-varberg-16-18.json").catch(function () { return null; })
+  ]).then(function (svar) {
+    if (svar[0]) visaBefolkning(svar[0], svar[1], {
+      fakta: "fakta-varberg", total: "undertext-varberg-befolkning",
+      gymnasie: "undertext-varberg-gymnasiealdern"
+    });
   });
 
   Promise.all([

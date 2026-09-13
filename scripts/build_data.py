@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Bygger sidornas datafiler av innehållet i data/.
 
-Läser:
-  data/scb/folkmangd_kungsbacka.json   (faktiskt utfall, från hamta_scb.py)
-  data/prognoser/prognos_*.json        (en fil per prognosrapport)
+Läser, för varje kommun i KOMMUNER:
+  data/scb/folkmangd_<kommun>.json     (faktiskt utfall, från hamta_scb.py)
+  data/prognoser[/<kommun>]/prognos_*.json   (en fil per prognosrapport)
 
-Skriver en fil per serie:
-  docs/data.json          hela befolkningen
-  docs/data-16-19.json    åldersgruppen 16–19 år (gymnasieåldern)
+Skriver en fil per serie och kommun:
+  docs/data.json                 Kungsbacka, hela befolkningen
+  docs/data-16-19.json           Kungsbacka, 16–19 år (gymnasieåldern)
+  docs/data-varberg.json         Varberg, hela befolkningen
+  docs/data-varberg-16-18.json   Varberg, 16–18 år (gymnasieåldern så som
+                                 Varbergs prognoser delar in den)
 
 För varje prognos beräknas avvikelsen mot utfallet per målår, samt
 träffsäkerheten som funktion av hur många år i förväg prognosen gjordes.
@@ -21,21 +24,41 @@ dödlighet. Hur mycket den historiskt avvikit från utfallet, och hur den
 står sig mot kommunens egen modell vid samma horisont, räknas fram här
 och redovisas på sidan.
 
-Körs:  python3 scripts/build_data.py
+Körs:  python3 scripts/build_data.py [--kommun kungsbacka|varberg]
 """
 
+import argparse
 import json
 import math
 from pathlib import Path
 
 ROT = Path(__file__).resolve().parent.parent
 
+# Per kommun: SCB-filen, mappen med prognosrapporterna och serierna.
 # serienyckel -> (utfil, etikett, hur prognosserien hämtas ur en rapportfil,
 #                 åldrarna serien omfattar för kohortframskrivningen)
-SERIER = {
-    "total": ("data.json", "Hela befolkningen", None, None),
-    "16-19": ("data-16-19.json", "16–19 år", "16-19", (16, 19)),
+# Gymnasieåldern följer kommunens egna rapporter: Kungsbacka redovisar
+# 16–19 år, Varberg 16–18 år (nästa grupp är 19–24), och prognoserna går
+# bara att jämföra med utfallet i den indelning de själva använder.
+KOMMUNER = {
+    "kungsbacka": {
+        "scb": "folkmangd_kungsbacka.json",
+        "prognoser": "prognoser",
+        "serier": {
+            "total": ("data.json", "Hela befolkningen", None, None),
+            "16-19": ("data-16-19.json", "16–19 år", "16-19", (16, 19)),
+        },
+    },
+    "varberg": {
+        "scb": "folkmangd_varberg.json",
+        "prognoser": "prognoser/varberg",
+        "serier": {
+            "total": ("data-varberg.json", "Hela befolkningen", None, None),
+            "16-18": ("data-varberg-16-18.json", "16–18 år", "16-18", (16, 18)),
+        },
+    },
 }
+SERIER = KOMMUNER["kungsbacka"]["serier"]
 
 
 def lasa_json(p: Path):
@@ -278,10 +301,13 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str,
                     "avstand": ar - rapport["prognosAr"],
                 }
 
-        p = {k: v for k, v in rapport.items() if k not in ("prognos", "aldersgrupper")}
+        p = {k: v for k, v in rapport.items()
+             if k not in ("prognos", "aldersgrupper", "sidhanvisningAldersgrupp")}
         if grupp is not None:
-            # åldersgruppssiffrorna står i en annan tabell än totalprognosen
-            p["sidhanvisning"] = (
+            # åldersgruppssiffrorna står i en annan tabell än totalprognosen;
+            # rapportfilen kan peka ut den själv, annars gäller Kungsbackas
+            # rapportmall
+            p["sidhanvisning"] = rapport.get("sidhanvisningAldersgrupp") or (
                 f'Tabellen "Antal per åldersgrupp" i rapportens bilaga, raden {grupp} år'
             )
         p["prognos"] = {str(k): v for k, v in sorted(prognos.items())}
@@ -377,11 +403,13 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str,
     }
 
 
-def main() -> None:
-    scb = lasa_json(ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
-    rapporter = [lasa_json(f) for f in sorted((ROT / "data" / "prognoser").glob("prognos_*.json"))]
+def bygg_kommun(kommun: str) -> None:
+    konf = KOMMUNER[kommun]
+    scb = lasa_json(ROT / "data" / "scb" / konf["scb"])
+    rapporter = [lasa_json(f) for f in
+                 sorted((ROT / "data" / konf["prognoser"]).glob("prognos_*.json"))]
 
-    for nyckel, (utnamn, etikett, grupp, aldrar) in SERIER.items():
+    for nyckel, (utnamn, etikett, grupp, aldrar) in konf["serier"].items():
         if grupp is None:
             utfall = {int(a): v for a, v in scb["folkmangd"].items()}
         else:
@@ -404,6 +432,16 @@ def main() -> None:
             print(f"  kohortframskrivning: basår {k['basAr']}, "
                   f"{len(k['framskrivning'])} år fram till {k['sistaAr']}; "
                   f"{len(k['argangar'])} årgångar från {k['forstaBasAr']}")
+
+
+def main() -> None:
+    arg = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    arg.add_argument("--kommun", choices=sorted(KOMMUNER),
+                     help="bygg bara den här kommunen (annars alla)")
+    val = arg.parse_args()
+    for kommun in ([val.kommun] if val.kommun else sorted(KOMMUNER)):
+        print(f"{KOMMUNER[kommun]['scb']}:")
+        bygg_kommun(kommun)
 
 
 if __name__ == "__main__":
