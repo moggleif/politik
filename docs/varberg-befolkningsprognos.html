@@ -14,36 +14,65 @@
 <a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
 
 <header class="sidhuvud">
+<nav class="toppnav" aria-label="Webbplatsens sidor">
+  <div class="toppnav-inre">
+    <a class="markesnamn" href="index.html">Kungsbacka i siffror</a>
+    <ul class="navrad">
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Befolkning</summary>
+          <ul class="navpanel">
+            <li><a href="befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="barn-och-unga.html">0–15 år</a></li>
+            <li><a href="gymnasiealdern.html">16–19 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Grundskolan</summary>
+          <ul class="navpanel">
+            <li><a href="amnesbetyg.html">Betyg per ämne i nian</a></li>
+            <li><a href="kostnad-per-elev.html">Kostnad per elev</a></li>
+            <li><a href="resurser-till-skolan.html">Resurser mot referenskostnad</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Gymnasiet</summary>
+          <ul class="navpanel">
+            <li><a href="meritvarden.html">Meritvärden vid antagningen</a></li>
+            <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a></li>
+            <li><a href="antagning-till-examen.html">Från antagning till examen</a></li>
+            <li><a href="nian-till-gymnasiet.html">Från nian till gymnasiet</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Valen</summary>
+          <ul class="navpanel">
+            <li><a href="fortidsrostning.html">Förtidsröstningen 2026</a></li>
+            <li><a href="kommunval.html">Valresultat per distrikt</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny aktuell">
+          <summary>Varberg</summary>
+          <ul class="navpanel">
+            <li><a href="varberg-befolkningsprognos.html" aria-current="page">Hela befolkningen</a></li>
+            <li><a href="varberg-barn-och-unga.html">0–15 år</a></li>
+            <li><a href="varberg-gymnasiealdern.html">16–18 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost"><a href="metod.html">Metod</a></li>
+    </ul>
+  </div>
+</nav>
   <div class="sidhuvud-inre">
-    <nav class="huvudnav" aria-label="Webbplatsens sidor">
-      <a href="index.html">Start</a>
-      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
-        <a href="befolkningsprognos.html">Hela befolkningen</a>
-        <a href="barn-och-unga.html">0–15 år</a>
-        <a href="gymnasiealdern.html">16–19 år</a>
-      </span>
-      <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
-        <a href="amnesbetyg.html">Betyg per ämne</a>
-        <a href="kostnad-per-elev.html">Kostnad per elev</a>
-        <a href="resurser-till-skolan.html">Resurser</a>
-      </span>
-      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
-        <a href="meritvarden.html">Antagning</a>
-        <a href="slutbetyg.html">Slutbetyg</a>
-        <a href="antagning-till-examen.html">Antagning till examen</a>
-        <a href="nian-till-gymnasiet.html">Nian till gymnasiet</a>
-      </span>
-      <span class="navgrupp"><span class="navrubrik">Val:</span>
-        <a href="fortidsrostning.html">Förtidsröstning</a>
-        <a href="kommunval.html">Valresultat per distrikt</a>
-      </span>
-      <span class="navgrupp"><span class="navrubrik">Varberg:</span>
-        <a href="varberg-befolkningsprognos.html" aria-current="page">Hela befolkningen</a>
-        <a href="varberg-barn-och-unga.html">0–15 år</a>
-        <a href="varberg-gymnasiealdern.html">16–18 år</a>
-      </span>
-      <a href="metod.html">Metod</a>
-    </nav>
     <h1>Hur träffsäkra är Varbergs befolkningsprognoser?</h1>
     <p class="ingress">
       Varbergs kommun tar varje år fram en prognos för hur många invånare
@@ -214,10 +243,18 @@
 
 </main>
 
-<footer>
+<footer class="sidfot">
   <div class="sidfot-inre">
-    <p>Data: Varbergs kommuns befolkningsprognoser samt SCB:s befolkningsstatistik.
-    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+    <nav class="sidfot-nav" aria-label="Om webbplatsen">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="metod.html">Metod och källor</a></li>
+        <li><a href="https://github.com/moggleif/politik">Källkod och data på GitHub</a></li>
+        <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
+      </ul>
+    </nav>
+    <p class="sidfot-data">Data: Varbergs kommuns befolkningsprognoser samt SCB:s befolkningsstatistik.</p>
+    <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
   </div>
 </footer>
 

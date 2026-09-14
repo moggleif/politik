@@ -14,150 +14,179 @@
 <a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
 
 <header class="sidhuvud">
+<nav class="toppnav" aria-label="Webbplatsens sidor">
+  <div class="toppnav-inre">
+    <a class="markesnamn" href="index.html" aria-current="page">Kungsbacka i siffror</a>
+    <ul class="navrad">
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Befolkning</summary>
+          <ul class="navpanel">
+            <li><a href="befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="barn-och-unga.html">0–15 år</a></li>
+            <li><a href="gymnasiealdern.html">16–19 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Grundskolan</summary>
+          <ul class="navpanel">
+            <li><a href="amnesbetyg.html">Betyg per ämne i nian</a></li>
+            <li><a href="kostnad-per-elev.html">Kostnad per elev</a></li>
+            <li><a href="resurser-till-skolan.html">Resurser mot referenskostnad</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Gymnasiet</summary>
+          <ul class="navpanel">
+            <li><a href="meritvarden.html">Meritvärden vid antagningen</a></li>
+            <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a></li>
+            <li><a href="antagning-till-examen.html">Från antagning till examen</a></li>
+            <li><a href="nian-till-gymnasiet.html">Från nian till gymnasiet</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Valen</summary>
+          <ul class="navpanel">
+            <li><a href="fortidsrostning.html">Förtidsröstningen 2026</a></li>
+            <li><a href="kommunval.html">Valresultat per distrikt</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Varberg</summary>
+          <ul class="navpanel">
+            <li><a href="varberg-befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="varberg-barn-och-unga.html">0–15 år</a></li>
+            <li><a href="varberg-gymnasiealdern.html">16–18 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost"><a href="metod.html">Metod</a></li>
+    </ul>
+  </div>
+</nav>
   <div class="sidhuvud-inre">
     <h1>Kungsbacka i siffror</h1>
     <p class="ingress">
       Fristående sammanställningar av offentliga siffror om Kungsbacka
       &ndash; från kommunen, SCB, Skolverket, Kolada och Göteborgsregionen
-      &ndash; med alla källor länkade och alla beräkningar öppna. Välj vad du
-      vill titta på.
+      &ndash; med alla källor länkade och alla beräkningar öppna.
     </p>
   </div>
 </header>
 
 <main id="huvudinnehall">
 
-  <section class="huvudmeny">
-    <h2 class="dold">Välj ämne</h2>
+  <section class="oversikt">
+    <h2>Vad finns här</h2>
+    <p class="forklaring">
+      Fem ämnen, samma indelning som i menyn högst upp. Siffrorna under
+      varje rubrik räknas fram ur sidornas datafiler vid varje sidvisning.
+    </p>
 
-    <div class="meny-kort">
-      <h3><a href="befolkningsprognos.html">Befolkningsprognoser</a></h3>
-      <p class="forklaring">
-        Kungsbacka kommun tar varje år fram en prognos för hur många
-        invånare kommunen kommer att ha. Prognoserna används i planeringen
-        av skolor, äldreboenden och bostäder &ndash; här jämförs de med hur
-        det faktiskt blev enligt SCB.
-      </p>
-      <ul class="kort-fakta" id="fakta-befolkning" hidden></ul>
-      <ul class="undersidor">
-        <li><a href="befolkningsprognos.html">Hela befolkningen</a>
-          <span class="undertext" id="undertext-befolkning">Alla invånare, 2000 och framåt</span></li>
-        <li><a href="gymnasiealdern.html">16&ndash;19 år (gymnasieåldern)</a>
-          <span class="undertext" id="undertext-gymnasiealdern">Åldersgruppen som är ett viktigt underlag för behovet av gymnasieplatser</span></li>
-        <li><a href="barn-och-unga.html">0&ndash;15 år (förskole- och grundskoleåldern)</a>
-          <span class="undertext" id="undertext-barn">Enbart faktiskt utfall, inga prognoser</span></li>
-      </ul>
+    <div class="oversikt-rutnat">
+
+      <article class="oversikt-kort">
+        <h3><a href="befolkningsprognos.html">Befolkningen</a></h3>
+        <p class="forklaring">
+          Kungsbackas årliga befolkningsprognoser ställda mot hur det
+          faktiskt blev enligt SCB &ndash; underlaget för planeringen av
+          skolor, äldreboenden och bostäder.
+        </p>
+        <ul class="kort-fakta" id="fakta-befolkning" hidden></ul>
+        <ul class="undersidor">
+          <li><a href="befolkningsprognos.html">Hela befolkningen</a>
+            <span class="undertext" id="undertext-befolkning">Alla invånare, 2000 och framåt</span></li>
+          <li><a href="barn-och-unga.html">0&ndash;15 år</a>
+            <span class="undertext" id="undertext-barn">Förskole- och grundskoleåldern, enbart faktiskt utfall</span></li>
+          <li><a href="gymnasiealdern.html">16&ndash;19 år</a>
+            <span class="undertext" id="undertext-gymnasiealdern">Gymnasieåldern, ett viktigt underlag för behovet av gymnasieplatser</span></li>
+        </ul>
+      </article>
+
+      <article class="oversikt-kort">
+        <h3><a href="amnesbetyg.html">Grundskolan</a></h3>
+        <p class="forklaring">
+          Vad niondeklassarna fick, ämne för ämne &ndash; och vad skolan
+          kostade. Beloppen är omräknade till dagens prisnivå, så att åren
+          går att jämföra.
+        </p>
+        <ul class="kort-fakta" id="fakta-amnesbetyg" hidden></ul>
+        <ul class="kort-fakta" id="fakta-kostnader" hidden></ul>
+        <ul class="kort-fakta" id="fakta-resurser" hidden></ul>
+        <ul class="undersidor">
+          <li><a href="amnesbetyg.html">Betyg per ämne i nian</a>
+            <span class="undertext" id="undertext-amnesbetyg">Hela kommunen, kommunala och fristående skolor</span></li>
+          <li><a href="kostnad-per-elev.html">Kostnad per elev</a>
+            <span class="undertext" id="undertext-kostnader">Kungsbacka och riket, i fasta priser</span></li>
+          <li><a href="resurser-till-skolan.html">Resurser mot referenskostnad</a>
+            <span class="undertext" id="undertext-resurser">Vad kommunen valde, inte vad skolan kostade</span></li>
+        </ul>
+      </article>
+
+      <article class="oversikt-kort">
+        <h3><a href="meritvarden.html">Gymnasiet</a></h3>
+        <p class="forklaring">
+          Vilka betyg eleverna kom in med, vad de gick ut med tre år
+          senare &ndash; och hur nians resultat förhåller sig till
+          gymnasiets.
+        </p>
+        <ul class="kort-fakta" id="fakta-gymnasium" hidden></ul>
+        <ul class="kort-fakta" id="fakta-nian" hidden></ul>
+        <ul class="undersidor">
+          <li><a href="meritvarden.html">Meritvärden vid antagningen</a>
+            <span class="undertext" id="undertext-meritvarden">Aranäsgymnasiet och Elof Lindälvs gymnasium, slutantagningen</span></li>
+          <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a>
+            <span class="undertext" id="undertext-slutbetyg">Avgångseleverna, program för program</span></li>
+          <li><a href="antagning-till-examen.html">Från antagning till examen</a>
+            <span class="undertext" id="undertext-kull">Antagningen ställd mot avgångseleverna tre år senare</span></li>
+          <li><a href="nian-till-gymnasiet.html">Från nian till gymnasiet</a>
+            <span class="undertext" id="undertext-nian">Meritvärde, genomströmning, examen och pendling</span></li>
+        </ul>
+      </article>
+
+      <article class="oversikt-kort">
+        <h3><a href="fortidsrostning.html">Valen</a></h3>
+        <p class="forklaring">
+          Hur många som röstade, och vad de röstade på: förtidsröstningen
+          inför valet den 13 september 2026 dag för dag, och kommunvalets
+          resultat i vart och ett av Kungsbackas valdistrikt.
+        </p>
+        <ul class="kort-fakta" id="fakta-val" data-omrade="1384" hidden></ul>
+        <ul class="undersidor">
+          <li><a href="fortidsrostning.html">Förtidsröstningen 2026</a>
+            <span class="undertext" id="undertext-val">Valmyndighetens mottagna förtidsröster, uppdateras två gånger om dagen</span></li>
+          <li><a href="kommunval.html">Valresultat per distrikt</a>
+            <span class="undertext">Kommunvalet 2010&ndash;2026, parti för parti och distrikt för distrikt</span></li>
+        </ul>
+      </article>
+
+      <article class="oversikt-kort">
+        <h3><a href="varberg-befolkningsprognos.html">Varberg</a></h3>
+        <p class="forklaring">
+          Samma prognosjämförelse för grannkommunen, byggd med samma kod
+          och samma beräkningar. Varbergs prognoser räknar gymnasieåldern
+          som 16&ndash;18 år.
+        </p>
+        <ul class="kort-fakta" id="fakta-varberg" hidden></ul>
+        <ul class="undersidor">
+          <li><a href="varberg-befolkningsprognos.html">Hela befolkningen</a>
+            <span class="undertext" id="undertext-varberg-befolkning">Alla invånare, 2000 och framåt</span></li>
+          <li><a href="varberg-barn-och-unga.html">0&ndash;15 år</a>
+            <span class="undertext" id="undertext-varberg-barn">Enbart faktiskt utfall, inga prognoser</span></li>
+          <li><a href="varberg-gymnasiealdern.html">16&ndash;18 år</a>
+            <span class="undertext" id="undertext-varberg-gymnasiealdern">Åldersgruppen som är ett viktigt underlag för behovet av gymnasieplatser</span></li>
+        </ul>
+      </article>
+
     </div>
-
-    <div class="meny-kort">
-      <h3><a href="varberg-befolkningsprognos.html">Befolkningsprognoser i Varberg</a></h3>
-      <p class="forklaring">
-        Samma jämförelse för grannkommunen Varberg: kommunens årliga
-        befolkningsprognoser ställda mot hur det faktiskt blev enligt SCB,
-        för hela befolkningen och för gymnasieåldern &ndash; som Varbergs
-        prognoser räknar som 16&ndash;18 år &ndash; samt antalet
-        0&ndash;15-åringar. Sidorna är byggda med samma kod och samma
-        beräkningar som Kungsbackas.
-      </p>
-      <ul class="kort-fakta" id="fakta-varberg" hidden></ul>
-      <ul class="undersidor">
-        <li><a href="varberg-befolkningsprognos.html">Hela befolkningen</a>
-          <span class="undertext" id="undertext-varberg-befolkning">Alla invånare, 2000 och framåt</span></li>
-        <li><a href="varberg-gymnasiealdern.html">16&ndash;18 år (gymnasieåldern)</a>
-          <span class="undertext" id="undertext-varberg-gymnasiealdern">Åldersgruppen som är ett viktigt underlag för behovet av gymnasieplatser</span></li>
-        <li><a href="varberg-barn-och-unga.html">0&ndash;15 år (förskole- och grundskoleåldern)</a>
-          <span class="undertext" id="undertext-varberg-barn">Enbart faktiskt utfall, inga prognoser</span></li>
-      </ul>
-    </div>
-
-    <div class="meny-kort">
-      <h3><a href="amnesbetyg.html">Betygen i grundskolan</a></h3>
-      <p class="forklaring">
-        Vad fick niondeklassarna i Kungsbacka, ämne för ämne? I den
-        statistik på skol- och programnivå som används här redovisas
-        gymnasiets resultat som samlad betygspoäng, medan
-        grundskolestatistiken finns ämnesvis. Här syns matematik, svenska
-        och engelska var för sig, läsår för läsår.
-      </p>
-      <ul class="kort-fakta" id="fakta-amnesbetyg" hidden></ul>
-      <ul class="undersidor">
-        <li><a href="amnesbetyg.html">Slutbetyg per ämne i årskurs 9</a>
-          <span class="undertext" id="undertext-amnesbetyg">Hela kommunen, kommunala och fristående skolor</span></li>
-      </ul>
-    </div>
-
-    <div class="meny-kort">
-      <h3><a href="kostnad-per-elev.html">Vad grundskolan kostar</a></h3>
-      <p class="forklaring">
-        Hur mycket pengar går det åt per elev i grundskolan, och hur har
-        det ändrat sig? Beloppen är omräknade till dagens prisnivå med
-        konsumentprisindex, så att åren går att jämföra. Kostnaden svarar
-        på vad skolan kostade &ndash; en andra sida ställer den mot vad
-        kommunens struktur motiverar, vilket ligger närmare vad politiken
-        faktiskt valde.
-      </p>
-      <ul class="kort-fakta" id="fakta-kostnader" hidden></ul>
-      <ul class="kort-fakta" id="fakta-resurser" hidden></ul>
-      <ul class="undersidor">
-        <li><a href="kostnad-per-elev.html">Kostnad per elev i grundskolan</a>
-          <span class="undertext" id="undertext-kostnader">Kungsbacka och riket, i fasta priser</span></li>
-        <li><a href="resurser-till-skolan.html">Resurser jämfört med referenskostnaden</a>
-          <span class="undertext" id="undertext-resurser">Vad kommunen valde, inte vad skolan kostade</span></li>
-      </ul>
-    </div>
-
-    <div class="meny-kort">
-      <h3><a href="nian-till-gymnasiet.html">Från nian till gymnasiet</a></h3>
-      <p class="forklaring">
-        Vad hade niondeklassarna med sig ut ur nian &ndash; och hur ser
-        gymnasiets resultat ut för samma årtal? Tre mätpunkter, för hela
-        kommunen. Här finns också svaret på varför de tre inte kan
-        behandlas som samma elever: ungefär var tredje gymnasieelev från
-        Kungsbacka läser i en annan kommun.
-      </p>
-      <ul class="kort-fakta" id="fakta-nian" hidden></ul>
-      <ul class="undersidor">
-        <li><a href="nian-till-gymnasiet.html">Slutbetygen i nian mot gymnasiets resultat</a>
-          <span class="undertext" id="undertext-nian">Meritvärde, genomströmning, examen och pendling</span></li>
-      </ul>
-    </div>
-
-    <div class="meny-kort">
-      <h3><a href="meritvarden.html">Betygen på gymnasiet</a></h3>
-      <p class="forklaring">
-        Vilka betyg hade eleverna med sig in på Kungsbackas
-        gymnasieprogram &ndash; och vad gick de ut med tre år senare?
-        Program för program, ur Göteborgsregionens antagningsstatistik
-        och Skolverkets statistik över avgångseleverna.
-      </p>
-      <ul class="kort-fakta" id="fakta-gymnasium" hidden></ul>
-      <ul class="undersidor">
-        <li><a href="meritvarden.html">Meritvärden vid antagningen</a>
-          <span class="undertext" id="undertext-meritvarden">Aranäsgymnasiet och Elof Lindälvs gymnasium, slutantagningen</span></li>
-        <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a>
-          <span class="undertext" id="undertext-slutbetyg">Aranäsgymnasiet och Elof Lindälvs gymnasium, avgångseleverna</span></li>
-        <li><a href="antagning-till-examen.html">Från antagning till examen</a>
-          <span class="undertext" id="undertext-kull">Antagningen ställd mot avgångseleverna tre år senare, program för program</span></li>
-      </ul>
-    </div>
-
-    <div class="meny-kort">
-      <h3><a href="fortidsrostning.html">Valen</a></h3>
-      <p class="forklaring">
-        Hur många som röstade, och vad de röstade på. Förtidsröstningen
-        inför valet den 13 september 2026 dag för dag och per
-        röstningslokal &ndash; och kommunvalets resultat i vart och ett av
-        Kungsbackas valdistrikt, de fem senaste valen, parti för parti.
-      </p>
-      <ul class="kort-fakta" id="fakta-val" data-omrade="1384" hidden></ul>
-      <ul class="undersidor">
-        <li><a href="fortidsrostning.html">Förtidsröstningen dag för dag</a>
-          <span class="undertext" id="undertext-val">Valmyndighetens mottagna förtidsröster, uppdateras två gånger om dagen</span></li>
-        <li><a href="kommunval.html">Valresultat per valdistrikt</a>
-          <span class="undertext">Kommunvalet 2010&ndash;2026, parti för parti och distrikt för distrikt</span></li>
-      </ul>
-    </div>
-
   </section>
 
   <section id="sektion-om">
@@ -177,13 +206,18 @@
 
 </main>
 
-<footer>
+<footer class="sidfot">
   <div class="sidfot-inre">
-    <p>Data: Kungsbacka kommuns och Varbergs kommuns befolkningsprognoser, SCB:s befolkningsstatistik
-    och konsumentprisindex, Göteborgsregionens antagningsstatistik, Skolverkets
-    utbildningsstatistik, Koladas kommunala nyckeltal och Valmyndighetens
-    statistik över förtidsröster.
-    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+    <nav class="sidfot-nav" aria-label="Om webbplatsen">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="metod.html">Metod och källor</a></li>
+        <li><a href="https://github.com/moggleif/politik">Källkod och data på GitHub</a></li>
+        <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
+      </ul>
+    </nav>
+    <p class="sidfot-data">Data: Kungsbacka kommuns och Varbergs kommuns befolkningsprognoser, SCB:s befolkningsstatistik och konsumentprisindex, Göteborgsregionens antagningsstatistik, Skolverkets utbildningsstatistik, Koladas kommunala nyckeltal och Valmyndighetens statistik över förtidsröster.</p>
+    <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
   </div>
 </footer>
 
