@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -991,7 +991,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1124,11 +1124,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 34,
-     "ack": 5587
+     "antal": 184,
+     "ack": 5737
     }
    ],
-   "total": 5587,
+   "total": 5737,
    "rostberattigade": {
     "riksdag": 12760,
     "kommun": 12975,
@@ -1146,10 +1146,10 @@
      "namn": "Kommunkontoret",
      "kommun": "Tjörn",
      "lokalId": "1419009",
-     "total": 4785,
+     "total": 4830,
      "dagarMedRoster": 19,
      "storstaDag": 426,
-     "andel": 85.6
+     "andel": 84.2
     },
     {
      "namn": "Häggvallskolan, aulan",
@@ -1158,7 +1158,7 @@
      "total": 183,
      "dagarMedRoster": 1,
      "storstaDag": 183,
-     "andel": 3.3
+     "andel": 3.2
     },
     {
      "namn": "Myggenäs skola, matsalen",
@@ -1167,7 +1167,7 @@
      "total": 123,
      "dagarMedRoster": 1,
      "storstaDag": 123,
-     "andel": 2.2
+     "andel": 2.1
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1176,7 +1176,25 @@
      "total": 122,
      "dagarMedRoster": 5,
      "storstaDag": 45,
-     "andel": 2.2
+     "andel": 2.1
+    },
+    {
+     "namn": "Dyröns EFS",
+     "kommun": "Tjörn",
+     "lokalId": "1419003",
+     "total": 111,
+     "dagarMedRoster": 2,
+     "storstaDag": 69,
+     "andel": 1.9
+    },
+    {
+     "namn": "Åstols café",
+     "kommun": "Tjörn",
+     "lokalId": "1419004",
+     "total": 104,
+     "dagarMedRoster": 2,
+     "storstaDag": 68,
+     "andel": 1.8
     },
     {
      "namn": "Kållekärrs skola, matsalen",
@@ -1188,22 +1206,13 @@
      "andel": 1.6
     },
     {
-     "namn": "Åstols café",
-     "kommun": "Tjörn",
-     "lokalId": "1419004",
-     "total": 68,
-     "dagarMedRoster": 1,
-     "storstaDag": 68,
-     "andel": 1.2
-    },
-    {
      "namn": "Klövedals församlingshem",
      "kommun": "Tjörn",
      "lokalId": "1419005",
      "total": 65,
      "dagarMedRoster": 1,
      "storstaDag": 65,
-     "andel": 1.2
+     "andel": 1.1
     },
     {
      "namn": "Klädesholmens församlingshem",
@@ -1222,15 +1231,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 55,
      "andel": 1.0
-    },
-    {
-     "namn": "Dyröns EFS",
-     "kommun": "Tjörn",
-     "lokalId": "1419003",
-     "total": 42,
-     "dagarMedRoster": 1,
-     "storstaDag": 42,
-     "andel": 0.8
     }
    ],
    "antalLokaler": 10,

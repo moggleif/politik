@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1043,11 +1043,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 21,
-     "ack": 4857
+     "antal": 46,
+     "ack": 4882
     }
    ],
-   "total": 4857,
+   "total": 4882,
    "rostberattigade": {
     "riksdag": 9273,
     "kommun": 9461,
@@ -1068,7 +1068,7 @@
      "total": 4504,
      "dagarMedRoster": 18,
      "storstaDag": 507,
-     "andel": 92.7
+     "andel": 92.3
     },
     {
      "namn": "Fengersfors Folkets hus",
@@ -1098,6 +1098,15 @@
      "andel": 1.0
     },
     {
+     "namn": "Stadshuset",
+     "kommun": "Åmål",
+     "lokalId": "1492006",
+     "total": 45,
+     "dagarMedRoster": 1,
+     "storstaDag": 45,
+     "andel": 0.9
+    },
+    {
      "namn": "Mo-Berga Bygdegård",
      "kommun": "Åmål",
      "lokalId": "1492004",
@@ -1114,15 +1123,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 31,
      "andel": 0.6
-    },
-    {
-     "namn": "Stadshuset",
-     "kommun": "Åmål",
-     "lokalId": "1492006",
-     "total": 21,
-     "dagarMedRoster": 1,
-     "storstaDag": 21,
-     "andel": 0.4
     },
     {
      "namn": "Tjuke Särskilt boende",
@@ -1146,8 +1146,8 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Åmål",
      "lokalId": "1492008",
-     "total": 9,
-     "dagarMedRoster": 5,
+     "total": 10,
+     "dagarMedRoster": 6,
      "storstaDag": 2,
      "andel": 0.2
     },

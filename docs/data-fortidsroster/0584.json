@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -910,7 +910,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1043,11 +1043,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 42,
-     "ack": 3157
+     "antal": 76,
+     "ack": 3191
     }
    ],
-   "total": 3157,
+   "total": 3191,
    "rostberattigade": {
     "riksdag": 6172,
     "kommun": 6247,
@@ -1068,7 +1068,16 @@
      "total": 2984,
      "dagarMedRoster": 17,
      "storstaDag": 334,
-     "andel": 94.5
+     "andel": 93.5
+    },
+    {
+     "namn": "Kommunhuset",
+     "kommun": "Vadstena",
+     "lokalId": "0584004",
+     "total": 71,
+     "dagarMedRoster": 1,
+     "storstaDag": 71,
+     "andel": 2.2
     },
     {
      "namn": "Rättspsykiatriska kliniken",
@@ -1080,13 +1089,13 @@
      "andel": 1.7
     },
     {
-     "namn": "Kommunhuset",
+     "namn": "Ambulerande röstmottagning",
      "kommun": "Vadstena",
-     "lokalId": "0584004",
-     "total": 42,
-     "dagarMedRoster": 1,
-     "storstaDag": 42,
-     "andel": 1.3
+     "lokalId": "0584006",
+     "total": 31,
+     "dagarMedRoster": 7,
+     "storstaDag": 8,
+     "andel": 1.0
     },
     {
      "namn": "Wasagården",
@@ -1096,15 +1105,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 31,
      "andel": 1.0
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Vadstena",
-     "lokalId": "0584006",
-     "total": 26,
-     "dagarMedRoster": 6,
-     "storstaDag": 8,
-     "andel": 0.8
     },
     {
      "namn": "Vätterngården",

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1855,18 +1855,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 3803,
-     "ack": 82629
+     "antal": 3812,
+     "ack": 82638
     },
     {
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 613,
-     "ack": 83242
+     "antal": 1462,
+     "ack": 84100
     }
    ],
-   "total": 83242,
+   "total": 84100,
    "rostberattigade": {
     "riksdag": 191083,
     "kommun": 197431,
@@ -1884,25 +1884,25 @@
      "namn": "Kulturhuset Strömmen",
      "kommun": "Kalmar",
      "lokalId": "0880023",
-     "total": 11351,
+     "total": 11356,
      "dagarMedRoster": 18,
      "storstaDag": 1047,
-     "andel": 13.6
+     "andel": 13.5
     },
     {
      "namn": "Stadsbiblioteket, Västervik",
      "kommun": "Västervik",
      "lokalId": "0883004",
-     "total": 8980,
+     "total": 8981,
      "dagarMedRoster": 16,
      "storstaDag": 867,
-     "andel": 10.8
+     "andel": 10.7
     },
     {
      "namn": "Kulturhuset, Oskarshamn",
      "kommun": "Oskarshamn",
      "lokalId": "0882006",
-     "total": 8145,
+     "total": 8244,
      "dagarMedRoster": 19,
      "storstaDag": 891,
      "andel": 9.8
@@ -1914,13 +1914,13 @@
      "total": 6174,
      "dagarMedRoster": 18,
      "storstaDag": 617,
-     "andel": 7.4
+     "andel": 7.3
     },
     {
      "namn": "Plenisalen, Stadshuset",
      "kommun": "Vimmerby",
      "lokalId": "0884001",
-     "total": 4821,
+     "total": 4887,
      "dagarMedRoster": 19,
      "storstaDag": 519,
      "andel": 5.8
@@ -1938,16 +1938,16 @@
      "namn": "Huvudbiblioteket i Borgholm",
      "kommun": "Borgholm",
      "lokalId": "0885002",
-     "total": 3849,
+     "total": 3916,
      "dagarMedRoster": 17,
      "storstaDag": 332,
-     "andel": 4.6
+     "andel": 4.7
     },
     {
      "namn": "Biblioteket",
      "kommun": "Mönsterås",
      "lokalId": "0861003",
-     "total": 3766,
+     "total": 3821,
      "dagarMedRoster": 19,
      "storstaDag": 385,
      "andel": 4.5
@@ -1956,7 +1956,7 @@
      "namn": "Emmaboda bibliotek",
      "kommun": "Emmaboda",
      "lokalId": "0862001",
-     "total": 2666,
+     "total": 2732,
      "dagarMedRoster": 19,
      "storstaDag": 294,
      "andel": 3.2
@@ -1965,7 +1965,7 @@
      "namn": "Torsås Bibliotek",
      "kommun": "Torsås",
      "lokalId": "0834001",
-     "total": 2611,
+     "total": 2642,
      "dagarMedRoster": 19,
      "storstaDag": 271,
      "andel": 3.1
@@ -1974,7 +1974,7 @@
      "namn": "Fritidsgården, Gamleby",
      "kommun": "Västervik",
      "lokalId": "0883006",
-     "total": 2403,
+     "total": 2406,
      "dagarMedRoster": 13,
      "storstaDag": 302,
      "andel": 2.9
@@ -1983,10 +1983,10 @@
      "namn": "Valhall",
      "kommun": "Hultsfred",
      "lokalId": "0860008",
-     "total": 2371,
+     "total": 2398,
      "dagarMedRoster": 19,
      "storstaDag": 242,
-     "andel": 2.8
+     "andel": 2.9
     },
     {
      "namn": "Biblioteket Lindsdal",
@@ -1995,7 +1995,16 @@
      "total": 1550,
      "dagarMedRoster": 8,
      "storstaDag": 289,
-     "andel": 1.9
+     "andel": 1.8
+    },
+    {
+     "namn": "Kommunkontoret",
+     "kommun": "Högsby",
+     "lokalId": "0821003",
+     "total": 1439,
+     "dagarMedRoster": 19,
+     "storstaDag": 130,
+     "andel": 1.7
     },
     {
      "namn": "Biblioteket Bergavik",
@@ -2007,22 +2016,13 @@
      "andel": 1.7
     },
     {
-     "namn": "Kommunkontoret",
-     "kommun": "Högsby",
-     "lokalId": "0821003",
-     "total": 1397,
-     "dagarMedRoster": 19,
-     "storstaDag": 130,
-     "andel": 1.7
-    },
-    {
      "namn": "Biblioteket, Mörbylånga",
      "kommun": "Mörbylånga",
      "lokalId": "0840003",
      "total": 1041,
      "dagarMedRoster": 11,
      "storstaDag": 157,
-     "andel": 1.3
+     "andel": 1.2
     },
     {
      "namn": "Träffpunkt Skogsrået",
@@ -2142,12 +2142,12 @@
      "andel": 0.5
     },
     {
-     "namn": "Biblioteket Timmernabben",
-     "kommun": "Mönsterås",
-     "lokalId": "0861004",
-     "total": 390,
-     "dagarMedRoster": 7,
-     "storstaDag": 106,
+     "namn": "Kommunhuset, Valnämnden",
+     "kommun": "Västervik",
+     "lokalId": "0883005",
+     "total": 422,
+     "dagarMedRoster": 3,
+     "storstaDag": 193,
      "andel": 0.5
     }
    ],

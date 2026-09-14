@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -955,7 +955,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1018,81 +1018,81 @@
      "datum": "2026-09-03",
      "veckodag": "tor",
      "kvar": 10,
-     "antal": 145,
-     "ack": 1061
+     "antal": 147,
+     "ack": 1063
     },
     {
      "datum": "2026-09-04",
      "veckodag": "fre",
      "kvar": 9,
      "antal": 159,
-     "ack": 1220
+     "ack": 1222
     },
     {
      "datum": "2026-09-05",
      "veckodag": "lör",
      "kvar": 8,
      "antal": 34,
-     "ack": 1254
+     "ack": 1256
     },
     {
      "datum": "2026-09-06",
      "veckodag": "sön",
      "kvar": 7,
      "antal": 62,
-     "ack": 1316
+     "ack": 1318
     },
     {
      "datum": "2026-09-07",
      "veckodag": "mån",
      "kvar": 6,
      "antal": 145,
-     "ack": 1461
+     "ack": 1463
     },
     {
      "datum": "2026-09-08",
      "veckodag": "tis",
      "kvar": 5,
-     "antal": 160,
-     "ack": 1621
+     "antal": 161,
+     "ack": 1624
     },
     {
      "datum": "2026-09-09",
      "veckodag": "ons",
      "kvar": 4,
      "antal": 245,
-     "ack": 1866
+     "ack": 1869
     },
     {
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
      "antal": 292,
-     "ack": 2158
+     "ack": 2161
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 199,
-     "ack": 2357
+     "antal": 211,
+     "ack": 2372
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
      "antal": 87,
-     "ack": 2444
+     "ack": 2459
     },
     {
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 143,
-     "ack": 2587
+     "antal": 483,
+     "ack": 2942
     }
    ],
-   "total": 2587,
+   "total": 2942,
    "rostberattigade": {
     "riksdag": 4420,
     "kommun": 4573,
@@ -1113,43 +1113,70 @@
      "total": 1637,
      "dagarMedRoster": 17,
      "storstaDag": 190,
-     "andel": 63.3
+     "andel": 55.6
     },
     {
      "namn": "Folkan Tärnaby",
      "kommun": "Storuman",
      "lokalId": "2421006",
-     "total": 771,
+     "total": 773,
      "dagarMedRoster": 15,
      "storstaDag": 102,
-     "andel": 29.8
-    },
-    {
-     "namn": "Hemavans förskola/idrottshallen",
-     "kommun": "Storuman",
-     "lokalId": "2421003",
-     "total": 27,
-     "dagarMedRoster": 1,
-     "storstaDag": 27,
-     "andel": 1.0
-    },
-    {
-     "namn": "Slussfors skola",
-     "kommun": "Storuman",
-     "lokalId": "2421012",
-     "total": 27,
-     "dagarMedRoster": 1,
-     "storstaDag": 27,
-     "andel": 1.0
+     "andel": 26.3
     },
     {
      "namn": "Gunnarns skola/Byalokalen",
      "kommun": "Storuman",
      "lokalId": "2421013",
-     "total": 26,
+     "total": 151,
      "dagarMedRoster": 1,
-     "storstaDag": 26,
-     "andel": 1.0
+     "storstaDag": 151,
+     "andel": 5.1
+    },
+    {
+     "namn": "Hemavans förskola/idrottshallen",
+     "kommun": "Storuman",
+     "lokalId": "2421003",
+     "total": 108,
+     "dagarMedRoster": 1,
+     "storstaDag": 108,
+     "andel": 3.7
+    },
+    {
+     "namn": "Slussfors skola",
+     "kommun": "Storuman",
+     "lokalId": "2421012",
+     "total": 94,
+     "dagarMedRoster": 1,
+     "storstaDag": 94,
+     "andel": 3.2
+    },
+    {
+     "namn": "Kommunhuset Storuman",
+     "kommun": "Storuman",
+     "lokalId": "2421007",
+     "total": 52,
+     "dagarMedRoster": 1,
+     "storstaDag": 52,
+     "andel": 1.8
+    },
+    {
+     "namn": "Sionkapellet Långsjöby",
+     "kommun": "Storuman",
+     "lokalId": "2421002",
+     "total": 45,
+     "dagarMedRoster": 1,
+     "storstaDag": 45,
+     "andel": 1.5
+    },
+    {
+     "namn": "Skarvsjöby bygdegård",
+     "kommun": "Storuman",
+     "lokalId": "2421001",
+     "total": 33,
+     "dagarMedRoster": 1,
+     "storstaDag": 33,
+     "andel": 1.1
     },
     {
      "namn": "Äldreboendet Tranan",
@@ -1158,39 +1185,21 @@
      "total": 25,
      "dagarMedRoster": 1,
      "storstaDag": 25,
-     "andel": 1.0
-    },
-    {
-     "namn": "Skarvsjöby bygdegård",
-     "kommun": "Storuman",
-     "lokalId": "2421001",
-     "total": 23,
-     "dagarMedRoster": 1,
-     "storstaDag": 23,
-     "andel": 0.9
-    },
-    {
-     "namn": "Sionkapellet Långsjöby",
-     "kommun": "Storuman",
-     "lokalId": "2421002",
-     "total": 21,
-     "dagarMedRoster": 1,
-     "storstaDag": 21,
      "andel": 0.8
-    },
-    {
-     "namn": "Kommunhuset Storuman",
-     "kommun": "Storuman",
-     "lokalId": "2421007",
-     "total": 19,
-     "dagarMedRoster": 1,
-     "storstaDag": 19,
-     "andel": 0.7
     },
     {
      "namn": "Äldreboendet Vikbacka",
      "kommun": "Storuman",
      "lokalId": "2421010",
+     "total": 12,
+     "dagarMedRoster": 1,
+     "storstaDag": 12,
+     "andel": 0.4
+    },
+    {
+     "namn": "Äldreboendet Sibyllagården",
+     "kommun": "Storuman",
+     "lokalId": "2421009",
      "total": 11,
      "dagarMedRoster": 1,
      "storstaDag": 11,
@@ -1200,18 +1209,9 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Storuman",
      "lokalId": "2421011",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Äldreboendet Sibyllagården",
-     "kommun": "Storuman",
-     "lokalId": "2421009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
+     "total": 1,
+     "dagarMedRoster": 1,
+     "storstaDag": 1,
      "andel": 0.0
     }
    ],

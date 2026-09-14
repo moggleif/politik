@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1000,7 +1000,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1133,11 +1133,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 30,
-     "ack": 4477
+     "antal": 70,
+     "ack": 4517
     }
    ],
-   "total": 4477,
+   "total": 4517,
    "rostberattigade": {
     "riksdag": 10304,
     "kommun": 10575,
@@ -1155,7 +1155,7 @@
      "namn": "Sessionssalen, Centrumhuset Götene",
      "kommun": "Götene",
      "lokalId": "1471001",
-     "total": 4047,
+     "total": 4084,
      "dagarMedRoster": 19,
      "storstaDag": 435,
      "andel": 90.4
@@ -1167,7 +1167,7 @@
      "total": 177,
      "dagarMedRoster": 1,
      "storstaDag": 177,
-     "andel": 4.0
+     "andel": 3.9
     },
     {
      "namn": "Samlingslokal servicehuset Hällekis",
@@ -1179,6 +1179,15 @@
      "andel": 3.1
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Götene",
+     "lokalId": "1471005",
+     "total": 58,
+     "dagarMedRoster": 3,
+     "storstaDag": 38,
+     "andel": 1.3
+    },
+    {
      "namn": "Lundabyn",
      "kommun": "Götene",
      "lokalId": "1471004",
@@ -1186,15 +1195,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 58,
      "andel": 1.3
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Götene",
-     "lokalId": "1471005",
-     "total": 55,
-     "dagarMedRoster": 2,
-     "storstaDag": 38,
-     "andel": 1.2
     }
    ],
    "antalLokaler": 5,

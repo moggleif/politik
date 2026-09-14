@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -946,7 +946,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1079,11 +1079,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 48,
-     "ack": 6626
+     "antal": 113,
+     "ack": 6691
     }
    ],
-   "total": 6626,
+   "total": 6691,
    "rostberattigade": {
     "riksdag": 15081,
     "kommun": 15774,
@@ -1104,7 +1104,7 @@
      "total": 6174,
      "dagarMedRoster": 18,
      "storstaDag": 617,
-     "andel": 93.2
+     "andel": 92.3
     },
     {
      "namn": "Fryshuset Nybro",
@@ -1116,22 +1116,22 @@
      "andel": 3.4
     },
     {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Nybro",
-     "lokalId": "0881012",
-     "total": 75,
-     "dagarMedRoster": 12,
-     "storstaDag": 33,
-     "andel": 1.1
-    },
-    {
      "namn": "Kulturhuset Kristallen",
      "kommun": "Nybro",
      "lokalId": "0881013",
-     "total": 48,
+     "total": 107,
      "dagarMedRoster": 1,
-     "storstaDag": 48,
-     "andel": 0.7
+     "storstaDag": 107,
+     "andel": 1.6
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Nybro",
+     "lokalId": "0881012",
+     "total": 81,
+     "dagarMedRoster": 13,
+     "storstaDag": 33,
+     "andel": 1.2
     },
     {
      "namn": "Vattugatan, äldreboende",
@@ -1176,7 +1176,7 @@
      "total": 10,
      "dagarMedRoster": 1,
      "storstaDag": 10,
-     "andel": 0.2
+     "andel": 0.1
     }
    ],
    "antalLokaler": 9,

@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -874,7 +874,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1000,18 +1000,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 464,
-     "ack": 7036
+     "antal": 466,
+     "ack": 7038
     },
     {
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 38,
-     "ack": 7074
+     "antal": 111,
+     "ack": 7149
     }
    ],
-   "total": 7074,
+   "total": 7149,
    "rostberattigade": {
     "riksdag": 16310,
     "kommun": 16803,
@@ -1029,10 +1029,10 @@
      "namn": "Kulturhuset Möbeln",
      "kommun": "Tierp",
      "lokalId": "0360003",
-     "total": 4138,
+     "total": 4140,
      "dagarMedRoster": 18,
-     "storstaDag": 464,
-     "andel": 58.5
+     "storstaDag": 466,
+     "andel": 57.9
     },
     {
      "namn": "Örbyhus bibliotek",
@@ -1041,7 +1041,7 @@
      "total": 921,
      "dagarMedRoster": 9,
      "storstaDag": 146,
-     "andel": 13.0
+     "andel": 12.9
     },
     {
      "namn": "Skärplinge bibliotek",
@@ -1050,7 +1050,7 @@
      "total": 825,
      "dagarMedRoster": 9,
      "storstaDag": 139,
-     "andel": 11.7
+     "andel": 11.5
     },
     {
      "namn": "Karlholms bibliotek",
@@ -1059,7 +1059,7 @@
      "total": 480,
      "dagarMedRoster": 9,
      "storstaDag": 78,
-     "andel": 6.8
+     "andel": 6.7
     },
     {
      "namn": "Söderfors bibliotek",
@@ -1068,7 +1068,7 @@
      "total": 423,
      "dagarMedRoster": 9,
      "storstaDag": 62,
-     "andel": 6.0
+     "andel": 5.9
     },
     {
      "namn": "Mehede skola, gymnastiksalen",
@@ -1080,6 +1080,15 @@
      "andel": 2.3
     },
     {
+     "namn": "Kommunhuset, Tierp",
+     "kommun": "Tierp",
+     "lokalId": "0360008",
+     "total": 111,
+     "dagarMedRoster": 1,
+     "storstaDag": 111,
+     "andel": 1.6
+    },
+    {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Tierp",
      "lokalId": "0360007",
@@ -1087,15 +1096,6 @@
      "dagarMedRoster": 11,
      "storstaDag": 30,
      "andel": 1.2
-    },
-    {
-     "namn": "Kommunhuset, Tierp",
-     "kommun": "Tierp",
-     "lokalId": "0360008",
-     "total": 38,
-     "dagarMedRoster": 1,
-     "storstaDag": 38,
-     "andel": 0.5
     }
    ],
    "antalLokaler": 8,

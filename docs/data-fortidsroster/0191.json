@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1126,7 +1126,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1238,32 +1238,32 @@
      "datum": "2026-09-10",
      "veckodag": "tor",
      "kvar": 3,
-     "antal": 1166,
-     "ack": 13686
+     "antal": 1168,
+     "ack": 13688
     },
     {
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 1741,
-     "ack": 15427
+     "antal": 1747,
+     "ack": 15435
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 1647,
-     "ack": 17074
+     "antal": 1648,
+     "ack": 17083
     },
     {
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 132,
-     "ack": 17206
+     "antal": 410,
+     "ack": 17493
     }
    ],
-   "total": 17206,
+   "total": 17493,
    "rostberattigade": {
     "riksdag": 35359,
     "kommun": 39959,
@@ -1281,10 +1281,19 @@
      "namn": "Parkering framför Pinbackshallen",
      "kommun": "Sigtuna",
      "lokalId": "0191006",
-     "total": 6626,
+     "total": 6635,
      "dagarMedRoster": 18,
-     "storstaDag": 701,
-     "andel": 38.5
+     "storstaDag": 707,
+     "andel": 37.9
+    },
+    {
+     "namn": "Kulturlänken",
+     "kommun": "Sigtuna",
+     "lokalId": "0191003",
+     "total": 3636,
+     "dagarMedRoster": 19,
+     "storstaDag": 407,
+     "andel": 20.8
     },
     {
      "namn": "Humlegården",
@@ -1293,16 +1302,7 @@
      "total": 3475,
      "dagarMedRoster": 18,
      "storstaDag": 355,
-     "andel": 20.2
-    },
-    {
-     "namn": "Kulturlänken",
-     "kommun": "Sigtuna",
-     "lokalId": "0191003",
-     "total": 3360,
-     "dagarMedRoster": 19,
-     "storstaDag": 320,
-     "andel": 19.5
+     "andel": 19.9
     },
     {
      "namn": "Mötesplatsen, Valsta centrum",
@@ -1311,7 +1311,7 @@
      "total": 2844,
      "dagarMedRoster": 18,
      "storstaDag": 298,
-     "andel": 16.5
+     "andel": 16.3
     },
     {
      "namn": "Rosersbergs bibliotek",
@@ -1320,13 +1320,13 @@
      "total": 735,
      "dagarMedRoster": 11,
      "storstaDag": 120,
-     "andel": 4.3
+     "andel": 4.2
     },
     {
      "namn": "Ambulerande röstmottagning",
      "kommun": "Sigtuna",
      "lokalId": "0191007",
-     "total": 166,
+     "total": 168,
      "dagarMedRoster": 14,
      "storstaDag": 29,
      "andel": 1.0

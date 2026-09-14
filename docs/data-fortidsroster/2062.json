@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1018,7 +1018,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1151,11 +1151,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 51,
-     "ack": 7476
+     "antal": 287,
+     "ack": 7712
     }
    ],
-   "total": 7476,
+   "total": 7712,
    "rostberattigade": {
     "riksdag": 16325,
     "kommun": 16747,
@@ -1176,7 +1176,7 @@
      "total": 5799,
      "dagarMedRoster": 18,
      "storstaDag": 552,
-     "andel": 77.6
+     "andel": 75.2
     },
     {
      "namn": "Sollerö bibliotek",
@@ -1185,7 +1185,7 @@
      "total": 754,
      "dagarMedRoster": 14,
      "storstaDag": 111,
-     "andel": 10.1
+     "andel": 9.8
     },
     {
      "namn": "Våmhus bibliotek",
@@ -1194,7 +1194,7 @@
      "total": 592,
      "dagarMedRoster": 13,
      "storstaDag": 124,
-     "andel": 7.9
+     "andel": 7.7
     },
     {
      "namn": "Tempo i Venjan",
@@ -1203,16 +1203,43 @@
      "total": 242,
      "dagarMedRoster": 16,
      "storstaDag": 28,
-     "andel": 3.2
+     "andel": 3.1
     },
     {
      "namn": "Andreasgården",
      "kommun": "Mora",
      "lokalId": "2062003",
-     "total": 51,
+     "total": 122,
      "dagarMedRoster": 1,
-     "storstaDag": 51,
+     "storstaDag": 122,
+     "andel": 1.6
+    },
+    {
+     "namn": "Oxbergsgården",
+     "kommun": "Mora",
+     "lokalId": "2062004",
+     "total": 59,
+     "dagarMedRoster": 1,
+     "storstaDag": 59,
+     "andel": 0.8
+    },
+    {
+     "namn": "Garsås bygdegård",
+     "kommun": "Mora",
+     "lokalId": "2062002",
+     "total": 57,
+     "dagarMedRoster": 1,
+     "storstaDag": 57,
      "andel": 0.7
+    },
+    {
+     "namn": "Siknäs bygdegård",
+     "kommun": "Mora",
+     "lokalId": "2062007",
+     "total": 49,
+     "dagarMedRoster": 1,
+     "storstaDag": 49,
+     "andel": 0.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1222,33 +1249,6 @@
      "dagarMedRoster": 9,
      "storstaDag": 7,
      "andel": 0.5
-    },
-    {
-     "namn": "Garsås bygdegård",
-     "kommun": "Mora",
-     "lokalId": "2062002",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Oxbergsgården",
-     "kommun": "Mora",
-     "lokalId": "2062004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Siknäs bygdegård",
-     "kommun": "Mora",
-     "lokalId": "2062007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
     }
    ],
    "antalLokaler": 9,

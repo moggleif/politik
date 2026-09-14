@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1729,7 +1729,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1862,11 +1862,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 953,
-     "ack": 105317
+     "antal": 2200,
+     "ack": 106564
     }
    ],
-   "total": 105317,
+   "total": 106564,
    "rostberattigade": {
     "riksdag": 229568,
     "kommun": 237379,
@@ -1887,7 +1887,7 @@
      "total": 10892,
      "dagarMedRoster": 18,
      "storstaDag": 805,
-     "andel": 10.3
+     "andel": 10.2
     },
     {
      "namn": "Sveaplan",
@@ -1896,40 +1896,40 @@
      "total": 9543,
      "dagarMedRoster": 18,
      "storstaDag": 1019,
-     "andel": 9.1
+     "andel": 9.0
     },
     {
      "namn": "Gallerian",
      "kommun": "Eskilstuna",
      "lokalId": "0484020",
-     "total": 9008,
+     "total": 9435,
      "dagarMedRoster": 19,
      "storstaDag": 913,
-     "andel": 8.6
-    },
-    {
-     "namn": "Stadshuset Nyköping",
-     "kommun": "Nyköping",
-     "lokalId": "0480003",
-     "total": 8905,
-     "dagarMedRoster": 19,
-     "storstaDag": 772,
-     "andel": 8.5
+     "andel": 8.9
     },
     {
      "namn": "Bibliotek/kulturhuset Ängeln",
      "kommun": "Katrineholm",
      "lokalId": "0483004",
-     "total": 8883,
+     "total": 9079,
      "dagarMedRoster": 19,
      "storstaDag": 784,
-     "andel": 8.4
+     "andel": 8.5
+    },
+    {
+     "namn": "Stadshuset Nyköping",
+     "kommun": "Nyköping",
+     "lokalId": "0480003",
+     "total": 9050,
+     "dagarMedRoster": 19,
+     "storstaDag": 772,
+     "andel": 8.5
     },
     {
      "namn": "Kulturhuset Multeum",
      "kommun": "Strängnäs",
      "lokalId": "0486008",
-     "total": 7543,
+     "total": 7648,
      "dagarMedRoster": 16,
      "storstaDag": 748,
      "andel": 7.2
@@ -1947,16 +1947,16 @@
      "namn": "D-skolans matsal",
      "kommun": "Oxelösund",
      "lokalId": "0481003",
-     "total": 4567,
+     "total": 4637,
      "dagarMedRoster": 19,
      "storstaDag": 415,
-     "andel": 4.3
+     "andel": 4.4
     },
     {
      "namn": "Skärborgarnas hus",
      "kommun": "Trosa",
      "lokalId": "0488004",
-     "total": 4501,
+     "total": 4605,
      "dagarMedRoster": 18,
      "storstaDag": 463,
      "andel": 4.3
@@ -1965,7 +1965,7 @@
      "namn": "Servicecenter",
      "kommun": "Gnesta",
      "lokalId": "0461001",
-     "total": 4097,
+     "total": 4178,
      "dagarMedRoster": 19,
      "storstaDag": 394,
      "andel": 3.9
@@ -1977,7 +1977,7 @@
      "total": 3634,
      "dagarMedRoster": 18,
      "storstaDag": 304,
-     "andel": 3.5
+     "andel": 3.4
     },
     {
      "namn": "Vingåkers Bibliotek",
@@ -1995,7 +1995,7 @@
      "total": 3135,
      "dagarMedRoster": 13,
      "storstaDag": 482,
-     "andel": 3.0
+     "andel": 2.9
     },
     {
      "namn": "Medborgarkontoret Mariefred",
@@ -2013,7 +2013,7 @@
      "total": 1852,
      "dagarMedRoster": 12,
      "storstaDag": 291,
-     "andel": 1.8
+     "andel": 1.7
     },
     {
      "namn": "Medborgarkontoret Stallarholmen",
@@ -2124,21 +2124,21 @@
      "andel": 0.4
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Katrineholm",
+     "lokalId": "0483011",
+     "total": 452,
+     "dagarMedRoster": 14,
+     "storstaDag": 62,
+     "andel": 0.4
+    },
+    {
      "namn": "Vrena församlingshem",
      "kommun": "Nyköping",
      "lokalId": "0480002",
      "total": 449,
      "dagarMedRoster": 10,
      "storstaDag": 68,
-     "andel": 0.4
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Katrineholm",
-     "lokalId": "0483011",
-     "total": 448,
-     "dagarMedRoster": 14,
-     "storstaDag": 62,
      "andel": 0.4
     },
     {

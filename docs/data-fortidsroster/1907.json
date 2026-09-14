@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -793,8 +793,8 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
-   "klart": false,
+   "hamtad": "2026-09-14T12:06+02:00",
+   "klart": true,
    "dagar": [
     {
      "datum": "2026-08-26",
@@ -921,9 +921,16 @@
      "kvar": 1,
      "antal": 270,
      "ack": 3207
+    },
+    {
+     "datum": "2026-09-13",
+     "veckodag": "sön",
+     "kvar": 0,
+     "antal": 40,
+     "ack": 3247
     }
    ],
-   "total": 3207,
+   "total": 3247,
    "rostberattigade": {
     "riksdag": 7398,
     "kommun": 7709,
@@ -944,7 +951,7 @@
      "total": 2494,
      "dagarMedRoster": 18,
      "storstaDag": 277,
-     "andel": 77.8
+     "andel": 76.8
     },
     {
      "namn": "Biblioteket Virsbo",
@@ -953,7 +960,7 @@
      "total": 366,
      "dagarMedRoster": 8,
      "storstaDag": 72,
-     "andel": 11.4
+     "andel": 11.3
     },
     {
      "namn": "Biblioteket Ramnäs",
@@ -962,7 +969,7 @@
      "total": 293,
      "dagarMedRoster": 9,
      "storstaDag": 66,
-     "andel": 9.1
+     "andel": 9.0
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -977,10 +984,10 @@
      "namn": "Kommunkontoret, Surahammar",
      "kommun": "Surahammar",
      "lokalId": "1907004",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 40,
+     "dagarMedRoster": 1,
+     "storstaDag": 40,
+     "andel": 1.2
     }
    ],
    "antalLokaler": 5,

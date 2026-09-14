@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -865,7 +865,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -998,11 +998,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 28,
-     "ack": 5253
+     "antal": 61,
+     "ack": 5286
     }
    ],
-   "total": 5253,
+   "total": 5286,
    "rostberattigade": {
     "riksdag": 9917,
     "kommun": 10163,
@@ -1020,10 +1020,19 @@
      "namn": "Stadsbiblioteket",
      "kommun": "Tidaholm",
      "lokalId": "1498001",
-     "total": 5168,
+     "total": 5196,
      "dagarMedRoster": 19,
      "storstaDag": 543,
-     "andel": 98.4
+     "andel": 98.3
+    },
+    {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Tidaholm",
+     "lokalId": "1498002",
+     "total": 26,
+     "dagarMedRoster": 9,
+     "storstaDag": 5,
+     "andel": 0.5
     },
     {
      "namn": "Midgård",
@@ -1033,15 +1042,6 @@
      "dagarMedRoster": 1,
      "storstaDag": 26,
      "andel": 0.5
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Tidaholm",
-     "lokalId": "1498002",
-     "total": 21,
-     "dagarMedRoster": 8,
-     "storstaDag": 4,
-     "andel": 0.4
     },
     {
      "namn": "Solvik",

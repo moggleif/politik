@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1567,7 +1567,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1693,18 +1693,18 @@
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 594,
-     "ack": 20475
+     "antal": 599,
+     "ack": 20480
     },
     {
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 133,
-     "ack": 20608
+     "antal": 302,
+     "ack": 20782
     }
    ],
-   "total": 20608,
+   "total": 20782,
    "rostberattigade": {
     "riksdag": 56257,
     "kommun": 57789,
@@ -1722,10 +1722,10 @@
      "namn": "Kulturhuset Strömmen",
      "kommun": "Kalmar",
      "lokalId": "0880023",
-     "total": 11351,
+     "total": 11356,
      "dagarMedRoster": 18,
      "storstaDag": 1047,
-     "andel": 55.1
+     "andel": 54.6
     },
     {
      "namn": "Biblioteket Lindsdal",
@@ -1743,7 +1743,7 @@
      "total": 1397,
      "dagarMedRoster": 8,
      "storstaDag": 265,
-     "andel": 6.8
+     "andel": 6.7
     },
     {
      "namn": "Träffpunkt Skogsrået",
@@ -1818,6 +1818,15 @@
      "andel": 2.2
     },
     {
+     "namn": "Stadshuset",
+     "kommun": "Kalmar",
+     "lokalId": "0880004",
+     "total": 294,
+     "dagarMedRoster": 1,
+     "storstaDag": 294,
+     "andel": 1.4
+    },
+    {
      "namn": "Biblioteket Påryd",
      "kommun": "Kalmar",
      "lokalId": "0880006",
@@ -1836,15 +1845,6 @@
      "andel": 0.6
     },
     {
-     "namn": "Stadshuset",
-     "kommun": "Kalmar",
-     "lokalId": "0880004",
-     "total": 130,
-     "dagarMedRoster": 1,
-     "storstaDag": 130,
-     "andel": 0.6
-    },
-    {
      "namn": "Träffpunkt Äringen",
      "kommun": "Kalmar",
      "lokalId": "0880009",
@@ -1857,7 +1857,7 @@
      "namn": "Ambulerande röstmottagning",
      "kommun": "Kalmar",
      "lokalId": "0880029",
-     "total": 81,
+     "total": 86,
      "dagarMedRoster": 10,
      "storstaDag": 13,
      "andel": 0.4

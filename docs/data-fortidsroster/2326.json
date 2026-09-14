@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-13T18:36+02:00",
+ "senastUppdaterad": "2026-09-14T12:06+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1180,7 +1180,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-13T18:36+02:00",
+   "hamtad": "2026-09-14T12:06+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1313,11 +1313,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 197,
-     "ack": 2734
+     "antal": 288,
+     "ack": 2825
     }
    ],
-   "total": 2734,
+   "total": 2825,
    "rostberattigade": {
     "riksdag": 5539,
     "kommun": 5708,
@@ -1338,7 +1338,7 @@
      "total": 1036,
      "dagarMedRoster": 12,
      "storstaDag": 124,
-     "andel": 37.9
+     "andel": 36.7
     },
     {
      "namn": "Biblioteket i Myrviken",
@@ -1347,7 +1347,16 @@
      "total": 529,
      "dagarMedRoster": 8,
      "storstaDag": 110,
-     "andel": 19.3
+     "andel": 18.7
+    },
+    {
+     "namn": "Föreninga i Klövsjö",
+     "kommun": "Berg",
+     "lokalId": "2326012",
+     "total": 300,
+     "dagarMedRoster": 3,
+     "storstaDag": 146,
+     "andel": 10.6
     },
     {
      "namn": "Biblioteket i Hackås",
@@ -1356,16 +1365,7 @@
      "total": 240,
      "dagarMedRoster": 6,
      "storstaDag": 92,
-     "andel": 8.8
-    },
-    {
-     "namn": "Föreninga i Klövsjö",
-     "kommun": "Berg",
-     "lokalId": "2326012",
-     "total": 237,
-     "dagarMedRoster": 3,
-     "storstaDag": 93,
-     "andel": 8.7
+     "andel": 8.5
     },
     {
      "namn": "Biblioteket i Rätan",
@@ -1374,25 +1374,25 @@
      "total": 179,
      "dagarMedRoster": 5,
      "storstaDag": 45,
-     "andel": 6.5
-    },
-    {
-     "namn": "Storsjö Bygdegård",
-     "kommun": "Berg",
-     "lokalId": "2326004",
-     "total": 123,
-     "dagarMedRoster": 2,
-     "storstaDag": 64,
-     "andel": 4.5
+     "andel": 6.3
     },
     {
      "namn": "Kommunkontoret",
      "kommun": "Berg",
      "lokalId": "2326001",
-     "total": 107,
+     "total": 132,
      "dagarMedRoster": 3,
      "storstaDag": 61,
-     "andel": 3.9
+     "andel": 4.7
+    },
+    {
+     "namn": "Storsjö Bygdegård",
+     "kommun": "Berg",
+     "lokalId": "2326004",
+     "total": 124,
+     "dagarMedRoster": 2,
+     "storstaDag": 64,
+     "andel": 4.4
     },
     {
      "namn": "Åsarna skicenter",
@@ -1401,7 +1401,7 @@
      "total": 102,
      "dagarMedRoster": 1,
      "storstaDag": 102,
-     "andel": 3.7
+     "andel": 3.6
     },
     {
      "namn": "Ljungdalens skola",
@@ -1416,9 +1416,9 @@
      "namn": "Gillhovs bygdegård",
      "kommun": "Berg",
      "lokalId": "2326008",
-     "total": 38,
+     "total": 40,
      "dagarMedRoster": 1,
-     "storstaDag": 38,
+     "storstaDag": 40,
      "andel": 1.4
     },
     {
