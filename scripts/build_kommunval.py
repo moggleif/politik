@@ -7,7 +7,12 @@ Läser:
                                      rader ur Valmyndighetens filer)
   data/kommunval/jamforbarhet.json  (Valmyndighetens egen bedömning av
                                      vilka valdistrikt som går att jämföra
-                                     mellan två val)
+                                     mellan två val, med vilket distrikt
+                                     varje distrikt kommer ur)
+  data/kommunval/harkomst.json      (frivillig; från hamta_harkomst.py,
+                                     ursprunget uträknat ur kartorna för
+                                     de distrikt Valmyndigheten inte
+                                     anger något ursprung för)
 
 Skriver:
   docs/data-kommunval.json
@@ -29,6 +34,19 @@ Valmyndigheten, och deras bedömning följer med som `jamforbart` per
 Distrikt som inte finns ett visst år får `null`, aldrig 0. Skillnaden
 mellan "fanns inte" och "fick inga röster" är hela poängen när
 indelningen ändrats.
+
+För de åren räknas i stället en **härkomst** fram: siffrorna från det
+distrikt området låg i då. Kolla Norra fanns inte 2010, men marken
+gjorde det, och den låg i Västra Villastaden/Kolla. Kedjan följs val för
+val bakåt – Kolla Norra kom ur Kolla, som kom ur Västra Villastaden/
+Kolla – och vikterna multipliceras på vägen. Rösterna skalas med hur
+stor del av det gamla distriktet som blev det nya, så att andelen blir
+det gamla distriktets andel.
+
+Härkomsten ligger i ett eget fält och aldrig i `roster`: den är en
+indikator för området, inte ett valresultat för distriktet, och sidan
+ritar den med streckad linje. Tabellen och förändringstalen rör den
+inte.
 
 Körs:  python3 scripts/build_kommunval.py
 """
@@ -113,8 +131,39 @@ def vik_ihop(roster: dict, stora: set) -> dict:
     return ut
 
 
-def bygg(kallor: dict, jamforbarhet: dict) -> dict:
+def ursprung(kod: str, overgang: str, jamforbarhet: dict,
+             harkomst: dict) -> dict:
+    """Vilka distrikt ett distrikt kommer ur i den tidigare indelningen,
+    som {tidigare kod: andel av det tidigare distriktet, 0–1}.
+
+    Valmyndighetens egen uppgift går först. Där den saknas – och den
+    saknas för de distrikt som ritades om mellan 2018 och 2022 – används
+    den uträknade härkomsten ur kartorna. Finns ingendera vet vi inte,
+    och då ritas ingen indikator.
+
+    Vikten är andelen av det *gamla* distriktet, för det är den som
+    röstetal ska skalas med: Björkris fick 52,9 % av Tölö Landsbygds
+    yta, och indikatorn för Björkris 2014 är 52,9 % av Tölö Landsbygds
+    röster. Andelen blir därmed Tölö Landsbygds andel, vilket är
+    poängen: partiets ställning i området.
+
+    Saknas andelen i källan (2018 -> 2022 och 2022 -> 2026 anger bara
+    koder) betyder posten att hela det gamla distriktet gick in i det
+    nya, alltså 100 %."""
+    post = (jamforbarhet.get("overgangar", {}).get(overgang, {})).get(kod)
+    if post and post.get("foregaende"):
+        return {f["kod"]: (f["andel"] if f["andel"] is not None else 100.0) / 100.0
+                for f in post["foregaende"]}
+    if harkomst.get("overgang") == overgang:
+        post = harkomst.get("distrikt", {}).get(kod)
+        if post:
+            return {f["kod"]: f["andelAvGammalt"] / 100.0 for f in post["fran"]}
+    return {}
+
+
+def bygg(kallor: dict, jamforbarhet: dict, harkomst: dict = None) -> dict:
     """kallor: {år: innehållet i data/kommunval/<år>.json}."""
+    harkomst = harkomst or {}
     ar = [a for a in AR if a in kallor]
     overgangar = [f"{a}-{b}" for a, b in zip(ar, ar[1:])]
     distrikt_per_ar = {a: per_kod(kallor[a]) for a in ar}
@@ -147,6 +196,63 @@ def bygg(kallor: dict, jamforbarhet: dict) -> dict:
         for d in distrikt_per_ar[a].values():
             d["roster"] = vik_ihop(d["roster"], stora)
 
+    def harkomst_for(kod: str) -> dict:
+        """Indikator för de val distriktet inte fanns: siffrorna från de
+        distrikt området låg i då, skalade med hur stor del av dem som
+        blev det här distriktet.
+
+        Kedjan följs ett val i taget bakåt från det första val distriktet
+        finns, och vikterna multipliceras. Tappas spåret – ingen källa
+        anger något ursprung – slutar kedjan där, och de valen får ingen
+        indikator."""
+        finns = [a for a in ar if kod in distrikt_per_ar[a]]
+        if not finns:
+            return {}
+        vikter = {kod: 1.0}
+        ut = {}
+        for i in range(ar.index(finns[0]), 0, -1):
+            senare, tidigare = ar[i], ar[i - 1]
+            nya = {}
+            for k, vikt in vikter.items():
+                for fore, andel in ursprung(k, f"{tidigare}-{senare}",
+                                            jamforbarhet, harkomst).items():
+                    nya[fore] = nya.get(fore, 0.0) + vikt * andel
+            # Bara distrikt som verkligen har siffror det året; ett
+            # ursprung utan data för oss ingenstans.
+            nya = {k: v for k, v in nya.items() if k in distrikt_per_ar[tidigare]}
+            if not nya:
+                break
+            vikter = nya
+            roster = {}
+            for k, vikt in vikter.items():
+                for p, n in distrikt_per_ar[tidigare][k]["roster"].items():
+                    roster[p] = roster.get(p, 0.0) + vikt * n
+            giltiga = sum(vikt * distrikt_per_ar[tidigare][k]["giltiga"]
+                          for k, vikt in vikter.items())
+            if not giltiga:
+                break
+            # Namnen som indikatorn vilar på, störst först, med hur stor
+            # del av indikatorn var och en står för. Det är den andelen
+            # en läsare behöver för att veta hur mycket ett namn betyder,
+            # inte hur stor del av det gamla distriktet som togs i
+            # anspråk.
+            delar = sorted(
+                ((k, distrikt_per_ar[tidigare][k]["namn"],
+                  vikt * distrikt_per_ar[tidigare][k]["giltiga"])
+                 for k, vikt in vikter.items()),
+                key=lambda knv: -knv[2])
+            ut[str(tidigare)] = {
+                "roster": {p: round(n) for p, n in roster.items()},
+                "giltiga": round(giltiga),
+                # Koden följer med så att sidan kan se när ett markerat
+                # distrikt också är ursprung för ett annat markerat
+                # distrikt; då ligger samma röster i summan två gånger.
+                "fran": [{"kod": k, "namn": namn,
+                          "andel": round(100 * n / giltiga, 1)}
+                         for k, namn, n in delar],
+            }
+        return ut
+
     def serie(kod: str) -> dict:
         d = {a: distrikt_per_ar[a].get(kod) for a in ar}
         partier = sorted({p for v in d.values() if v for p in v["roster"]})
@@ -165,6 +271,9 @@ def bygg(kallor: dict, jamforbarhet: dict) -> dict:
                          if d[a] and d[a]["namn"] != d[senaste]["namn"]}
         if tidigare_namn:
             rad["tidigareNamn"] = tidigare_namn
+        harkomst_rad = harkomst_for(kod)
+        if harkomst_rad:
+            rad["harkomst"] = harkomst_rad
         return rad
 
     rader = [serie(k) for k in aktuella]
@@ -208,6 +317,10 @@ def bygg(kallor: dict, jamforbarhet: dict) -> dict:
                            "sidaUrl": kallor[a]["sidaUrl"],
                            "hamtad": kallor[a]["hamtad"]} for a in ar},
         "kallaJamforbarhet": jamforbarhet.get("kalla", {}),
+        "kallaHarkomst": ({"kalla": harkomst["kalla"]["kalla"],
+                           "kallaUrl": harkomst["kalla"].get("sidaUrl"),
+                           "metod": harkomst["metod"]}
+                          if harkomst.get("kalla") else None),
         "senastUppdaterad": max(kallor[a]["hamtad"] for a in ar),
     }
 
@@ -223,7 +336,13 @@ def main() -> None:
                          "scripts/hamta_kommunval.py först")
     jamforbarhet = json.loads(
         (IN_MAPP / "jamforbarhet.json").read_text(encoding="utf-8"))
-    data = bygg(kallor, jamforbarhet)
+    # Härkomsten är frivillig: utan den ritas inga indikatorer för de
+    # distrikt Valmyndigheten inte anger något ursprung för, och resten
+    # av sidan är sig lik.
+    harkomstfil = IN_MAPP / "harkomst.json"
+    harkomst = (json.loads(harkomstfil.read_text(encoding="utf-8"))
+                if harkomstfil.exists() else {})
+    data = bygg(kallor, jamforbarhet, harkomst)
     UT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n",
                   encoding="utf-8")
     print(f"Skrev {UT.relative_to(ROT)}: {len(data['distrikt'])} valdistrikt, "
@@ -233,6 +352,9 @@ def main() -> None:
     for o in data["overgangar"]:
         ja = sum(1 for d in data["distrikt"] if d["jamforbart"][o])
         print(f"  {o}: {ja} av {len(data['distrikt'])} distrikt jämförbara")
+    med = [d["namn"] for d in data["distrikt"] if d.get("harkomst")]
+    if med:
+        print("  indikator bakåt för: " + ", ".join(med))
     if data["nedlagda"]:
         print("  nedlagda distrikt: "
               + ", ".join(f"{d['namn']} (t.o.m. {d['sistaVal']})"

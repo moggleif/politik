@@ -140,6 +140,25 @@
      kommunen, och då används kommunens egna totalsiffror (som också
      innehåller uppsamlingsdistriktet). */
 
+  /* ---------- Härkomst: området innan distriktet fanns ----------
+     Ett valdistrikt som ritades upp 2022 har inga siffror för 2010, men
+     marken hade det: den låg i ett annat valdistrikt. Datafilen bär det
+     distriktets röster, skalade med hur stor del av det som blev det
+     här distriktet, och de åren ritas med streckad linje.
+
+     Talen är en indikator för området och aldrig distriktets resultat.
+     De ligger därför i ett eget fält, och allt som påstår något om
+     distriktet självt – tabellen, förändringen mellan två val, "Kort
+     sagt" – håller sig till de riktiga siffrorna. */
+
+  function harkomst(d, a) {
+    return (d.harkomst && d.harkomst[a]) || null;
+  }
+
+  function egetAr(d, a) {
+    return d.giltiga[a] !== null && d.giltiga[a] !== undefined;
+  }
+
   function kommunSerie() {
     return {
       namn: "Hela Kungsbacka",
@@ -150,6 +169,7 @@
       },
       giltiga: function (a) { return data.kommunTotalt.giltiga[a] || 0; },
       komplett: function () { return true; },
+      indikator: function () { return false; },
       jamforbart: function () { return true; }
     };
   }
@@ -164,26 +184,50 @@
       roster: function (parti, a) {
         var s = 0;
         for (var i = 0; i < lista.length; i++) {
-          var p = lista[i].roster[parti];
-          s += (p && p[a]) || 0;
+          var d = lista[i];
+          if (egetAr(d, a)) {
+            var p = d.roster[parti];
+            s += (p && p[a]) || 0;
+          } else {
+            var h = harkomst(d, a);
+            s += (h && h.roster[parti]) || 0;
+          }
         }
         return s;
       },
       giltiga: function (a) {
         var s = 0;
-        for (var i = 0; i < lista.length; i++) s += lista[i].giltiga[a] || 0;
+        for (var i = 0; i < lista.length; i++) {
+          var d = lista[i];
+          var h = egetAr(d, a) ? null : harkomst(d, a);
+          s += (h ? h.giltiga : d.giltiga[a]) || 0;
+        }
         return s;
       },
-      /* Saknas något markerat distrikt ett år är gruppens summa inte
-         gruppen. Då ritas ingen punkt alls i stället för en punkt som
-         ser ut som en nedgång. */
+      /* Saknas något markerat distrikt ett år, och har det ingen
+         härkomst att falla tillbaka på, är gruppens summa inte gruppen.
+         Då ritas ingen punkt alls i stället för en punkt som ser ut som
+         en nedgång. */
       komplett: function (a) {
         for (var i = 0; i < lista.length; i++) {
-          if (lista[i].giltiga[a] === null || lista[i].giltiga[a] === undefined) {
-            return false;
-          }
+          if (!egetAr(lista[i], a) && !harkomst(lista[i], a)) return false;
         }
         return lista.length > 0;
+      },
+      /* Gruppens år är en indikator så fort ett enda av distrikten
+         bidrar med en. */
+      indikator: function (a) {
+        for (var i = 0; i < lista.length; i++) {
+          if (!egetAr(lista[i], a) && harkomst(lista[i], a)) return true;
+        }
+        return false;
+      },
+      indikatorText: function (a) {
+        var namn = lista.filter(function (d) {
+          return !egetAr(d, a) && harkomst(d, a);
+        }).map(function (d) { return d.namn; });
+        return namn.length
+          ? "indikator för " + namn.join(", ") : null;
       },
       /* En övergång är jämförbar för gruppen bara om den är det för
          varje distrikt i den. */
@@ -196,21 +240,46 @@
     };
   }
 
-  function distriktSerie(d) {
+  /* Andra argumentet spelar roll: anropas den här funktionen via
+     Array.prototype.map får den indexet som `baraEgna`. Gå därför alltid
+     via en egen funktion i map, aldrig `map(distriktSerie)`.
+
+     `baraEgna` stänger av indikatorn. Allt som påstår något om
+     distriktet självt – tabellen, förändringen mellan två val, "Kort
+     sagt" – ska läsa distriktets egna röster och ingenting annat, och
+     ber om en sådan serie. Diagrammen ber om den vanliga. */
+  function distriktSerie(d, baraEgna) {
+    function hk(a) { return baraEgna ? null : harkomst(d, a); }
     return {
       namn: d.namn,
       antalDistrikt: 1,
       lista: [d],
       roster: function (parti, a) {
+        if (!egetAr(d, a)) {
+          var h = hk(a);
+          return h ? (h.roster[parti] || 0) : 0;
+        }
         var p = d.roster[parti];
         return (p && p[a] !== null && p[a] !== undefined) ? p[a] : 0;
       },
       giltiga: function (a) {
-        return d.giltiga[a] === null || d.giltiga[a] === undefined
-          ? 0 : d.giltiga[a];
+        if (!egetAr(d, a)) {
+          var h = hk(a);
+          return h ? h.giltiga : 0;
+        }
+        return d.giltiga[a];
       },
       komplett: function (a) {
-        return d.giltiga[a] !== null && d.giltiga[a] !== undefined;
+        return egetAr(d, a) || !!hk(a);
+      },
+      indikator: function (a) { return !egetAr(d, a) && !!hk(a); },
+      /* Vilka distrikt indikatorn vilar på, för tooltipen. */
+      indikatorText: function (a) {
+        var h = egetAr(d, a) ? null : hk(a);
+        if (!h) return null;
+        return "siffrorna för " + rakna_upp(h.fran.map(function (f) {
+          return f.namn;
+        }));
       },
       jamforbart: function (overgang) { return !!d.jamforbart[overgang]; }
     };
@@ -234,33 +303,65 @@
     return arStr().map(function (a) { return varde(serie, parti, a); });
   }
 
-  /* Streckad linje över de övergångar Valmyndigheten inte anser
-     jämförbara. Chart.js frågar per segment; p0DataIndex är årsindexet
-     till vänster om segmentet. */
-  function brottSegment(serie) {
+  /* Streckad linje betyder en enda sak på den här sidan: talen i var
+     sin ände av sträckan är inte samma distrikt mätt två gånger.
+     Antingen ritades gränserna om mellan valen, eller så fanns
+     distriktet inte och talet är områdets härkomst. Chart.js frågar per
+     segment; p0DataIndex är årsindexet till vänster om segmentet. */
+  function brottSegment(serie, indikatorer) {
     return {
       borderDash: function (ctx) {
-        var overgang = data.overgangar[ctx.p0DataIndex];
+        var i = ctx.p0DataIndex;
+        if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT;
+        var overgang = data.overgangar[i];
         return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined;
       }
     };
   }
 
+  function indikatorAr(serie) {
+    return arStr().map(function (a) {
+      return !!(serie.indikator && serie.indikator(a) && serie.komplett(a));
+    });
+  }
+
   function linje(serie, parti, stil, tjock) {
+    var indikatorer = indikatorAr(serie);
+    var nagon = indikatorer.some(function (v) { return v; });
     return {
       label: serie.namn,
       data: serieData(serie, parti),
       borderColor: stil.farg,
       backgroundColor: stil.farg,
-      pointBackgroundColor: stil.farg,
+      /* Indikatorpunkten ritas ihålig: samma form och samma färg, men
+         med sidans bakgrund i mitten, så att den syns som ett annat
+         slags tal utan att bli en egen serie i teckenförklaringen. */
+      pointBackgroundColor: nagon ? indikatorer.map(function (ind) {
+        return ind ? FARG.surface : stil.farg;
+      }) : stil.farg,
+      pointBorderColor: stil.farg,
+      pointBorderWidth: nagon ? indikatorer.map(function (ind) {
+        return ind ? 2 : 1;
+      }) : 1,
       pointStyle: stil.punkt || "circle",
+      /* Teckenförklaringen ska visa seriens färg och inget annat: den
+         ihåliga indikatorpunkten hör hemma i diagrammet, och den bleka
+         linjen i partidiagrammen är en framhävning av det valda partiet,
+         inte seriens identitet. */
+      legendFarg: stil.farg,
       borderWidth: tjock || 2,
       pointRadius: 3,
       pointHoverRadius: 5,
       borderDash: stil.streck && stil.streck.length ? stil.streck : undefined,
-      segment: brottSegment(serie),
+      segment: brottSegment(serie, indikatorer),
       spanGaps: false,
-      tension: 0
+      tension: 0,
+      /* Läses av tooltipen; Chart.js rör inte egna fält. */
+      indikatorer: indikatorer,
+      indikatorText: arStr().map(function (a, i) {
+        return indikatorer[i] && serie.indikatorText
+          ? serie.indikatorText(a) : null;
+      })
     };
   }
 
@@ -309,13 +410,31 @@
         legend: {
           display: true,
           position: "bottom",
-          labels: { usePointStyle: true, pointStyleWidth: 14 }
+          labels: {
+            usePointStyle: true,
+            pointStyleWidth: 14,
+            generateLabels: function (chart) {
+              var etiketter =
+                Chart.defaults.plugins.legend.labels.generateLabels(chart);
+              etiketter.forEach(function (e) {
+                var ds = chart.data.datasets[e.datasetIndex];
+                if (ds && ds.legendFarg) {
+                  e.fillStyle = ds.legendFarg;
+                  e.strokeStyle = ds.legendFarg;
+                }
+              });
+              return etiketter;
+            }
+          }
         },
         tooltip: {
           callbacks: {
             label: function (it) {
               if (it.parsed.y === null) return it.dataset.label + ": –";
-              return it.dataset.label + ": " + formatera(it.parsed.y);
+              var rad = it.dataset.label + ": " + formatera(it.parsed.y);
+              var text = it.dataset.indikatorText
+                && it.dataset.indikatorText[it.dataIndex];
+              return text ? rad + " (" + text + ")" : rad;
             }
           }
         }
@@ -344,11 +463,63 @@
      ihop: antingen fanns valdistriktet inte det året, eller så fanns det
      men Valmyndigheten anser inte att det går att jämföra. Gruppregeln
      hör bara hemma där flera distrikt summeras. */
-  function brottsNoter(slugar, medGrupp) {
-    var saknade = [], omritade = [], noter = [];
-    slugar.map(distriktFor).filter(Boolean).forEach(function (d) {
+  /* "A", "A och B", "A, B och C" – inte "A och B och C". */
+  function rakna_upp(namn) {
+    if (namn.length < 2) return namn[0] || "";
+    return namn.slice(0, -1).join(", ") + " och " + namn[namn.length - 1];
+  }
+
+  /* De distrikt en indikator vilar på, som "Kolla Norra före 2022:
+     Kolla (2018), Västra Villastaden/Kolla (2010–2014)". Ett distrikt
+     kan byta ursprung på vägen bakåt, och då ska båda stå där. */
+  function harkomstText(d) {
+    var perNamn = {}, ordning = [];
+    arStr().forEach(function (a) {
+      var h = egetAr(d, a) ? null : harkomst(d, a);
+      if (!h) return;
+      var namn = rakna_upp(h.fran.map(function (f) { return f.namn; }));
+      if (!perNamn[namn]) { perNamn[namn] = []; ordning.push(namn); }
+      perNamn[namn].push(a);
+    });
+    if (!ordning.length) return null;
+    return d.namn + ": " + ordning.map(function (namn) {
+      var a = perNamn[namn];
+      return namn + " (" + (a.length > 1 ? a[0] + "–" + a[a.length - 1] : a[0]) + ")";
+    }).join(", ");
+  }
+
+  /* Ett markerat distrikt kan vara ursprung för ett annat markerat
+     distrikt. Då ligger den delen av rösterna i gruppens summa två
+     gånger, och det ska stå i klartext i stället för att tigas ihjäl. */
+  function dubbelraknade(lista) {
+    var koder = {};
+    lista.forEach(function (d) {
       arStr().forEach(function (a) {
-        if (d.giltiga[a] === null || d.giltiga[a] === undefined) {
+        if (d.kod[a]) koder[a + ":" + d.kod[a]] = d.namn;
+      });
+    });
+    var trassel = [];
+    lista.forEach(function (d) {
+      arStr().forEach(function (a) {
+        var h = egetAr(d, a) ? null : harkomst(d, a);
+        if (!h) return;
+        h.fran.forEach(function (f) {
+          var annat = koder[a + ":" + f.kod];
+          if (annat && trassel.indexOf(annat) < 0) trassel.push(annat);
+        });
+      });
+    });
+    return trassel;
+  }
+
+  function brottsNoter(slugar, medGrupp) {
+    var saknade = [], omritade = [], harkomster = [], noter = [];
+    var lista = slugar.map(distriktFor).filter(Boolean);
+    lista.forEach(function (d) {
+      var h = harkomstText(d);
+      if (h) harkomster.push(h);
+      arStr().forEach(function (a) {
+        if (!egetAr(d, a) && !harkomst(d, a)) {
           saknade.push(d.namn + " " + a);
         }
       });
@@ -362,16 +533,34 @@
         omritade.push(d.namn + " " + visaOvergang(o));
       });
     });
+    if (harkomster.length) {
+      noter.push("Streckad linje med ihålig punkt: valdistriktet fanns inte " +
+        "det året, och talet är i stället områdets &ndash; siffrorna för det " +
+        "distrikt marken låg i då (" + esc(harkomster.join("; ")) + "). Det " +
+        "är en indikator för området och inte distriktets resultat" +
+        (valtMatt() === "antal"
+          ? "; antalet röster är dessutom vägt efter yta och därför grovt"
+          : "") + ".");
+    }
     if (saknade.length) {
-      noter.push("Avbrott i linjen: valdistriktet fanns inte det året (" +
+      noter.push("Avbrott i linjen: valdistriktet fanns inte det året, och " +
+        "ingen källa anger vilket distrikt marken låg i (" +
         esc(saknade.join(", ")) + ")." +
         (medGrupp ? " Gruppens linje ritas bara de år alla markerade " +
-          "distrikt finns, eftersom summan annars inte är gruppen." : ""));
+          "distrikt har ett tal, eftersom summan annars inte är gruppen." : ""));
     }
     if (omritade.length) {
       noter.push("Streckad linje: Valmyndigheten anser inte att distriktet " +
         "går att jämföra mellan de två valen, eftersom gränserna ritades om (" +
         esc(omritade.join(", ")) + ").");
+    }
+    if (medGrupp) {
+      var trassel = dubbelraknade(lista);
+      if (trassel.length) {
+        noter.push("Observera: " + esc(trassel.join(", ")) + " är också " +
+          "ursprung för ett annat markerat distrikt, så gruppens " +
+          "indikatorår innehåller de rösterna två gånger.");
+      }
     }
     return noter;
   }
@@ -429,7 +618,7 @@
     var delar = overgang.split("-");
     var fore = delar[0], efter = delar[1];
     if (!d.jamforbart[overgang]) return null;
-    var serie = distriktSerie(d);
+    var serie = distriktSerie(d, true);
     var a = varde(serie, parti, fore), b = varde(serie, parti, efter);
     if (a === null || b === null) return null;
     return b - a;
@@ -526,6 +715,8 @@
     el("rubrik-partier").textContent =
       "Hur har partierna gått i " +
       (serie.antalDistrikt ? "det markerade området" : "hela kommunen") + "?";
+
+    K.sattDataNot("not-partier", brottsNoter(valdaSlugar(), true).join(" "));
   }
 
   /* ---------- Diagram 4: partierna i vart och ett av distrikten ----------
@@ -696,7 +887,11 @@
         "diagram här. Markera högst " + MAX_SMADIAGRAM +
         " distrikt för att se partifältet i vart och ett av dem.");
     } else {
-      var serier = lista.map(distriktSerie);
+      /* Inte lista.map(distriktSerie): map skickar med indexet som
+         andra argument, och det hade blivit distriktSerie(d, 1) för det
+         andra distriktet – alltså "bara egna siffror", och inga
+         indikatorer i något diagram utom det första. */
+      var serier = lista.map(function (d) { return distriktSerie(d); });
       var skala = gemensamSkala(serier, koder);
       rutnat.innerHTML = lista.map(function (d) {
         return '<div class="kort smadiagram"><h3>' + esc(d.namn) + "</h3>" +
@@ -733,7 +928,7 @@
     })).concat(["Förändring " + visaOvergang(overgang)]);
 
     var kropp = data.distrikt.map(function (d) {
-      var serie = distriktSerie(d);
+      var serie = distriktSerie(d, true);
       var celler = arStr().map(function (a) {
         var v = varde(serie, parti, a);
         return v === null ? "–"
@@ -750,7 +945,9 @@
 
     el("tabell-distrikt").innerHTML =
       "<caption>" + esc(partiNamn(parti)) + " i kommunvalet, per valdistrikt. " +
-      "– betyder att distriktet inte fanns eller inte går att jämföra." +
+      "– betyder att distriktet inte fanns eller inte går att jämföra. " +
+      "Tabellen visar distriktens egna röster; indikatorerna för de år ett " +
+      "distrikt inte fanns finns bara i diagrammen." +
       "</caption><thead><tr>" +
       rubriker.map(function (r) {
         return '<th scope="col">' + esc(r) + "</th>";
@@ -788,7 +985,7 @@
 
     /* Starkaste och svagaste distriktet i det senaste valet. */
     var med = data.distrikt.map(function (d) {
-      return { namn: d.namn, v: varde(distriktSerie(d), parti, senaste) };
+      return { namn: d.namn, v: varde(distriktSerie(d, true), parti, senaste) };
     }).filter(function (p) { return p.v !== null; });
     if (med.length > 1) {
       med.sort(function (x, y) { return y.v - x.v; });

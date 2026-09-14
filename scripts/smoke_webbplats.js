@@ -47,6 +47,9 @@ const DIAGRAMSIDOR = [
   /* Tre markerade distrikt: ett litet partidiagram vardera. Granskas
      närmare i granskaSmadiagram nedan. */
   "kommunval.html?parti=sd&distrikt=onsala-kyrka,innerstaden,anneberg",
+  /* Ett distrikt som ritades upp först 2022 och därför har indikatorer
+     bakåt. Granskas närmare i granskaHarkomst nedan. */
+  "kommunval.html?parti=m&distrikt=kolla-norra,kolla-sodra",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
 
@@ -267,6 +270,113 @@ async function granskaSmadiagram(browser, bas) {
   return fel;
 }
 
+/* Ett valdistrikt som ritades upp först 2022 fylls på bakåt med
+   siffrorna för det distrikt marken låg i: fem punkter i stället för
+   två, de tre första streckade och ihåliga. Indikatorn får däremot
+   aldrig läcka in i tabellen, som redovisar distriktets egna röster. */
+async function granskaHarkomst(browser, bas) {
+  const page = await browser.newPage();
+  const fel = [];
+  page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
+  await stubbaGoatcounter(page);
+  await page.goto(bas + "/kommunval.html?parti=m&distrikt=kolla-norra",
+    { waitUntil: "networkidle" });
+  await page.waitForFunction(function () {
+    return document.querySelector("table tbody tr");
+  }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+
+  const lage = await page.evaluate(function () {
+    const c = Chart.getChart(document.getElementById("diagram-andel"));
+    if (!c) return { saknas: true };
+    const ds = c.data.datasets.filter(function (d) {
+      return d.label === "Kolla Norra";
+    })[0];
+    if (!ds) return { saknasSerie: true };
+    const rad = Array.prototype.slice.call(
+      document.querySelectorAll("#tabell-distrikt tbody tr")).filter(function (tr) {
+        return tr.querySelector("th").textContent.trim() === "Kolla Norra";
+      })[0];
+    return {
+      etiketter: c.data.labels,
+      varden: ds.data,
+      punktfarg: ds.pointBackgroundColor,
+      linjefarg: ds.borderColor,
+      streck: [0, 1, 2, 3].map(function (i) {
+        return ds.segment.borderDash({ p0DataIndex: i }) ? "streck" : "hel";
+      }),
+      not: (document.getElementById("not-andel").textContent || "").trim(),
+      tabellrad: rad ? Array.prototype.map.call(rad.querySelectorAll("td"),
+        function (td) { return td.textContent.trim(); }) : null,
+    };
+  });
+
+  if (lage.saknas) { fel.push("diagram-andel ritades aldrig"); }
+  else if (lage.saknasSerie) { fel.push("ingen serie för Kolla Norra"); }
+  else {
+    if (lage.varden.length !== 5 || lage.varden.some(function (v) { return v === null; })) {
+      fel.push("förväntade fem punkter utan hål, fick " + JSON.stringify(lage.varden));
+    }
+    /* Distriktet finns 2022 och 2026; 2010–2018 är indikatorer. */
+    if (!Array.isArray(lage.punktfarg)) {
+      fel.push("punkterna har en enda färg; indikatorpunkten ska vara ihålig");
+    } else {
+      lage.punktfarg.forEach(function (farg, i) {
+        const skaVaraIhalig = i < 3;
+        const ihalig = farg !== lage.linjefarg;
+        if (ihalig !== skaVaraIhalig) {
+          fel.push("punkten " + lage.etiketter[i] + " är "
+            + (ihalig ? "ihålig" : "fylld") + ", förväntade "
+            + (skaVaraIhalig ? "ihålig" : "fylld"));
+        }
+      });
+    }
+    const vantatStreck = ["streck", "streck", "streck", "hel"];
+    if (lage.streck.join(",") !== vantatStreck.join(",")) {
+      fel.push("streckningen är " + lage.streck.join(",")
+        + ", förväntade " + vantatStreck.join(","));
+    }
+    if (!/indikator/.test(lage.not)) {
+      fel.push("noten förklarar inte indikatorn: " + lage.not);
+    }
+    if (!lage.tabellrad) {
+      fel.push("Kolla Norra saknas i tabellen");
+    } else if (lage.tabellrad.slice(0, 3).join(",") !== "–,–,–") {
+      fel.push("indikatorn har läckt in i tabellen: "
+        + lage.tabellrad.join(" | "));
+    }
+  }
+
+  /* Och samma sak i de små diagrammen – för *varje* markerat distrikt,
+     inte bara det första. Array.prototype.map skickar med indexet som
+     andra argument, och en serie som tar ett andra argument tappar då
+     indikatorerna i alla diagram utom det första. */
+  await page.goto(bas + "/kommunval.html?parti=m&distrikt=kolla-norra,asa-kust",
+    { waitUntil: "networkidle" });
+  await page.waitForFunction(function () {
+    return document.getElementById("diagram-enskilt-asa-kust");
+  }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+  const sma = await page.evaluate(function () {
+    return ["kolla-norra", "asa-kust"].map(function (slug) {
+      const c = Chart.getChart(document.getElementById("diagram-enskilt-" + slug));
+      return {
+        slug: slug,
+        punkter: c ? c.data.datasets[0].data.filter(function (v) {
+          return v !== null;
+        }).length : -1,
+      };
+    });
+  });
+  sma.forEach(function (d) {
+    if (d.punkter !== 5) {
+      fel.push("det lilla diagrammet för " + d.slug + " har " + d.punkter
+        + " punkter, förväntade 5 (indikatorerna saknas)");
+    }
+  });
+
+  await page.close();
+  return fel;
+}
+
 (async function () {
   const server = await startaServer();
   const bas = "http://127.0.0.1:" + server.address().port;
@@ -286,6 +396,13 @@ async function granskaSmadiagram(browser, bas) {
   {
     const fel = await granskaSmadiagram(browser, bas);
     console.log((fel.length ? "FEL " : "ok  ") + "kommunval.html (ett diagram per markerat distrikt)");
+    fel.forEach(function (f) { console.log("     " + f); });
+    antalFel += fel.length;
+  }
+
+  {
+    const fel = await granskaHarkomst(browser, bas);
+    console.log((fel.length ? "FEL " : "ok  ") + "kommunval.html (indikator bakåt för ett nytt distrikt)");
     fel.forEach(function (f) { console.log("     " + f); });
     antalFel += fel.length;
   }

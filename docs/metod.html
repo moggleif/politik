@@ -490,8 +490,40 @@
         underkänns döljs inte &ndash; talen är riktiga &ndash; utan ritas
         med streckad linje, så att det syns att rörelsen mellan de två
         punkterna inte behöver vara en opinionsrörelse. En grupp markerade
-        distrikt ritas bara de år alla distrikt i gruppen finns, eftersom
-        summan annars inte är gruppen.</dd>
+        distrikt ritas bara de år alla distrikt i gruppen har ett tal,
+        eftersom summan annars inte är gruppen.</dd>
+      <dt>Ett nytt valdistrikt får områdets tidigare siffror som indikator</dt>
+      <dd>Fem av dagens valdistrikt fanns inte 2010. Marken fanns
+        däremot, och den låg i ett annat valdistrikt. För de valen ritar
+        sidan det distriktets siffror som en <em>indikator</em> för
+        området, med streckad linje och ihålig punkt, och
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/build_kommunval.py">build_kommunval.py</a>
+        lägger dem i ett eget fält som aldrig blandas med distriktets
+        egna röster. Kedjan följs ett val i taget bakåt &ndash; Kolla
+        Norra kom ur Kolla, som kom ur Västra Villastaden/Kolla &ndash;
+        och vikterna multipliceras på vägen. Rösterna skalas med hur stor
+        del av det gamla distriktet som blev det nya, så att
+        <em>andelen</em> blir det gamla distriktets andel.
+        <p>Ursprunget kommer i första hand från Valmyndigheten själv:
+        mappningen 2014&ndash;2018 anger till och med vikten (Tölö
+        Landsbygd delas 47,1/52,9 mellan Tölö och Björkris). Men för
+        2018&ndash;2022 står ursprungskolumnerna tomma på just de rader
+        som skulle behövas, och där räknas ursprunget i stället ut ur
+        Valmyndighetens egna valdistriktskartor med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_harkomst.py">scripts/hamta_harkomst.py</a>:
+        kartorna för 2018 och 2022 ligger båda i SWEREF99&nbsp;TM, det
+        nya distriktet rastreras i punkter, och andelen punkter är
+        andelen yta. Metoden kontrollerar sig själv mot Valmyndighetens
+        egen bedömning &ndash; de 35 distrikt de anser jämförbara ska
+        hamna på sig själva, och den lägsta egenträffen är
+        92,6&nbsp;%.</p>
+        <p><strong>Ytandel är inte väljarandel.</strong> Punkterna vet
+        inte var människor bor, så ett skogsområde väger lika tungt som
+        ett villakvarter. Andelen tål det, eftersom den ärvs från det
+        gamla distriktet, men <em>antalet</em> röster blir grovt. Därför
+        är indikatorn aldrig med i tabellen, i förändringen mellan två
+        val eller i &rdquo;Kort sagt&rdquo; &ndash; bara i kurvan, och
+        där streckad.</p></dd>
       <dt>Kostnaderna räknas om till fasta priser</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_kostnader.py">build_kostnader.py</a>
         multiplicerar varje års kostnad med kvoten mellan konsument&shy;prisindex
