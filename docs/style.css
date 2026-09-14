@@ -974,3 +974,74 @@ ul.kort-fakta .siffra {
 tr.rad-markerad > th, tr.rad-markerad > td {
   background: var(--neutral-mid);
 }
+
+/* ---------- Små diagram bredvid varandra (ett per markerat distrikt) ----
+   Samma bild upprepad med olika data jämförs med ögat, och då ska den
+   upprepas likadant: samma storlek, samma axlar och samma färger. Kortens
+   bredd sätts av rutnätet och inte av hur många de är, så att två
+   markerade distrikt ger två diagram i normalstorlek och inte två
+   utsträckta. */
+
+.smadiagram-rutnat {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  align-items: start;
+  margin-top: 1.25rem;
+}
+
+/* Texten när inget distrikt är markerat är ingen diagramruta och ska
+   löpa över hela rutnätets bredd, inte brytas i den första kolumnen. */
+.smadiagram-rutnat > .forklaring {
+  grid-column: 1 / -1;
+  margin: 0.25rem 0 0;
+}
+
+.smadiagram {
+  margin-top: 0;
+  padding: 1rem 1.125rem 1.125rem;
+  /* Kortet är en rutnätscell och ska kunna krympa under diagrammets
+     naturliga bredd i stället för att spränga rutnätet i sidled. */
+  min-width: 0;
+}
+
+.smadiagram h3 {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+}
+
+/* Gemensam teckenförklaring över rutnätet: färgerna är desamma i alla de
+   små diagrammen, så den behöver bara stå en gång. Markören är en form
+   och inte en färgruta, eftersom formen bär information när serierna är
+   fler än palettens färger. */
+
+.teckenforklaring {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--ink-2);
+}
+
+/* display: flex ovan är en författarregel och slår webbläsarens egen
+   [hidden]-regel; utan den här raden lämnar den dolda förklaringen kvar
+   en tom rad över rutnätet. */
+.teckenforklaring[hidden] { display: none; }
+
+.teckenpost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.teckenpost-huvud {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.teckenmarke { flex: none; }
+
+@media (max-width: 30rem) {
+  .smadiagram-rutnat { grid-template-columns: 1fr; }
+}

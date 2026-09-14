@@ -44,9 +44,9 @@ const DIAGRAMSIDOR = [
   "kommunval.html?parti=m&distrikt=anneberg,bjorkris,fjaras-norra,fjaras-sodra," +
     "fors,frillesas-kust,gottskar,hammero,innerstaden,hede",
   "kommunval.html?parti=sd&distrikt=alla",
-  /* Det enskilda distriktets partidiagram, med ett distrikt som inte är
-     markerat ovanför – reglaget står för sig. */
-  "kommunval.html?parti=sd&enskilt=onsala-kyrka",
+  /* Tre markerade distrikt: ett litet partidiagram vardera. Granskas
+     närmare i granskaSmadiagram nedan. */
+  "kommunval.html?parti=sd&distrikt=onsala-kyrka,innerstaden,anneberg",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
 
@@ -208,6 +208,65 @@ async function granskaRegimmarkering(browser, bas, sida, diagramId, aren) {
   return fel;
 }
 
+/* Ett litet partidiagram per markerat valdistrikt: lika många diagram som
+   markeringar, en gemensam y-axel så att bilderna går att jämföra med
+   ögat, och inga kvarglömda diagram när markeringen ändras. */
+async function granskaSmadiagram(browser, bas) {
+  const slugar = ["onsala-kyrka", "innerstaden", "anneberg"];
+  const page = await browser.newPage();
+  const fel = [];
+  page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
+  await stubbaGoatcounter(page);
+  await page.goto(bas + "/kommunval.html?parti=sd&distrikt=" + slugar.join(","),
+    { waitUntil: "networkidle" });
+  await page.waitForFunction(function () {
+    return document.querySelectorAll("#smadiagram-rutnat canvas").length > 0;
+  }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+
+  const lage = await page.evaluate(function (slugar) {
+    return {
+      antal: document.querySelectorAll("#smadiagram-rutnat canvas").length,
+      teckenposter: document.querySelectorAll("#teckenforklaring-enskilt .teckenpost").length,
+      skalor: slugar.map(function (s) {
+        const c = Chart.getChart(document.getElementById("diagram-enskilt-" + s));
+        return c ? [c.scales.y.min, c.scales.y.max] : null;
+      }),
+    };
+  }, slugar);
+
+  if (lage.antal !== slugar.length) {
+    fel.push("förväntade " + slugar.length + " små diagram, fann " + lage.antal);
+  }
+  if (!lage.teckenposter) fel.push("teckenförklaringen över rutnätet är tom");
+  lage.skalor.forEach(function (skala, i) {
+    if (!skala) { fel.push(slugar[i] + ": diagrammet ritades aldrig"); return; }
+    const forsta = lage.skalor[0];
+    if (forsta && (skala[0] !== forsta[0] || skala[1] !== forsta[1])) {
+      fel.push(slugar[i] + ": y-axeln " + skala.join("–") + " skiljer sig från "
+        + slugar[0] + "s " + forsta.join("–") + "; diagrammen ska dela skala");
+    }
+  });
+
+  /* Alla 46 distrikt är fler än taket: diagrammen ska då rivas, inte
+     ligga kvar med gammal data, och sidan säga varför. */
+  await page.click("#valj-alla");
+  await page.waitForTimeout(400);
+  const efter = await page.evaluate(function () {
+    return {
+      antal: document.querySelectorAll("#smadiagram-rutnat canvas").length,
+      not: (document.getElementById("not-enskilt").textContent || "").trim().length,
+    };
+  });
+  if (efter.antal !== 0) {
+    fel.push("alla distrikt markerade: " + efter.antal
+      + " små diagram ligger kvar, förväntade noll");
+  }
+  if (!efter.not) fel.push("alla distrikt markerade: ingen not om taket");
+
+  await page.close();
+  return fel;
+}
+
 (async function () {
   const server = await startaServer();
   const bas = "http://127.0.0.1:" + server.address().port;
@@ -220,6 +279,13 @@ async function granskaRegimmarkering(browser, bas, sida, diagramId, aren) {
   for (const par of sidor) {
     const fel = await granska(browser, bas, par[0], par[1]);
     console.log((fel.length ? "FEL " : "ok  ") + par[0]);
+    fel.forEach(function (f) { console.log("     " + f); });
+    antalFel += fel.length;
+  }
+
+  {
+    const fel = await granskaSmadiagram(browser, bas);
+    console.log((fel.length ? "FEL " : "ok  ") + "kommunval.html (ett diagram per markerat distrikt)");
     fel.forEach(function (f) { console.log("     " + f); });
     antalFel += fel.length;
   }

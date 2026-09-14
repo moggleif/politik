@@ -171,6 +171,9 @@ Valmyndighetens öppna data.
   valdistrikt som helst, fritt kombinerade, och se dem som en grupp mot
   kommunen i övrigt; byt parti, se förändringen mellan två val distrikt
   för distrikt, och ställ alla partier bredvid varandra i samma område.
+  Längst ned får dessutom vart och ett av de markerade distrikten ett
+  eget diagram med hela partifältet, alla med samma y-axel så att
+  bilderna går att jämföra med ögat.
   Vyn följer med i adressen:
   [`?parti=m&distrikt=innerstaden,hede`](https://moggleif.github.io/politik/kommunval.html?parti=m&distrikt=innerstaden,hede).
 
