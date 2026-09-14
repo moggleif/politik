@@ -1497,7 +1497,11 @@ class TestGenereradeFiler(unittest.TestCase):
         jamforbarhet = json.loads(
             (ROT / "data" / "kommunval" / "jamforbarhet.json")
             .read_text(encoding="utf-8"))
-        ombyggd = json.loads(json.dumps(build_kommunval.bygg(kallor, jamforbarhet)))
+        harkomst = json.loads(
+            (ROT / "data" / "kommunval" / "harkomst.json")
+            .read_text(encoding="utf-8"))
+        ombyggd = json.loads(json.dumps(
+            build_kommunval.bygg(kallor, jamforbarhet, harkomst)))
         self.assertEqual(ombyggd, self.las("data-kommunval.json"))
 
     def test_data_fortidsroster_ar_reproducerbar(self):
@@ -2485,3 +2489,174 @@ class TestKommunvalTroskel(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestHarkomst(unittest.TestCase):
+    """Indikatorn för de val ett valdistrikt inte fanns: siffrorna från
+    det distrikt marken låg i då.
+
+    Det som ska gå att lita på är två saker. Vikten ska följa med hela
+    kedjan bakåt och multipliceras på vägen, och skalningen ska vara
+    sådan att *andelen* blir det gamla distriktets andel – annars är
+    indikatorn inte en indikator på partiets ställning i området utan ett
+    eget påhittat tal."""
+
+    ROSTER = {"M": 400, "S": 300, "ÖVR": 300}   # 1 000 giltiga, M = 40 %
+
+    def distrikt(self, kod, namn, roster=None, giltiga=1000):
+        return {"kod": kod, "namn": namn, "uppsamling": False,
+                "roster": dict(roster or self.ROSTER), "giltiga": giltiga,
+                "rostande": giltiga, "rostberattigade": giltiga}
+
+    def kalla(self, distrikt):
+        return {"distrikt": distrikt, "kalla": "test", "kallaUrl": None,
+                "sidaUrl": None, "hamtad": "2026-01-01"}
+
+    def bygg(self, kallor, overgangar, harkomst=None):
+        return build_kommunval.bygg(
+            kallor, {"overgangar": overgangar}, harkomst or {})
+
+    def test_officiell_vikt_skalar_rosterna(self):
+        """Björkrisfallet: Valmyndigheten säger att 52,9 % av Tölö
+        Landsbygd blev Björkris. Indikatorn ska vara 52,9 % av rösterna –
+        men samma andel M som Tölö Landsbygd hade."""
+        kallor = {
+            2022: self.kalla([self.distrikt("02", "Tölö Landsbygd")]),
+            2026: self.kalla([self.distrikt("02", "Tölö Landsbygd"),
+                              self.distrikt("07", "Björkris",
+                                            {"M": 100, "S": 100}, 200)]),
+        }
+        data = self.bygg(kallor, {"2022-2026": {
+            "07": {"foregaende": [{"kod": "02", "andel": 52.9}],
+                   "jamforbart": False},
+            "02": {"foregaende": [{"kod": "02", "andel": 47.1}],
+                   "jamforbart": False}}})
+        bjorkris = [d for d in data["distrikt"] if d["namn"] == "Björkris"][0]
+        h = bjorkris["harkomst"]["2022"]
+        self.assertEqual(h["giltiga"], 529)
+        self.assertEqual(h["roster"]["M"], 212)          # 52,9 % av 400
+        self.assertAlmostEqual(100 * h["roster"]["M"] / h["giltiga"], 40.1, 1)
+        self.assertEqual(h["fran"], [{"kod": "02", "namn": "Tölö Landsbygd",
+                                      "andel": 100.0}])
+
+    def test_andelen_ar_ursprungets_andel(self):
+        """Skalningen får inte flytta andelen, hur vikten än ser ut."""
+        for vikt in (5.0, 17.5, 52.9, 100.0):
+            with self.subTest(vikt=vikt):
+                kallor = {
+                    2022: self.kalla([self.distrikt("02", "Gammalt")]),
+                    2026: self.kalla([self.distrikt("02", "Gammalt"),
+                                      self.distrikt("07", "Nytt")]),
+                }
+                data = self.bygg(kallor, {"2022-2026": {
+                    "07": {"foregaende": [{"kod": "02", "andel": vikt}],
+                           "jamforbart": False}}})
+                h = [d for d in data["distrikt"]
+                     if d["namn"] == "Nytt"][0]["harkomst"]["2022"]
+                self.assertAlmostEqual(
+                    100 * h["roster"]["M"] / h["giltiga"], 40.0, 0)
+
+    def test_vikterna_multipliceras_genom_kedjan(self):
+        """Nytt 2026 kom ur Mellan 2022 (50 %), som kom ur Gammalt 2018
+        (40 %). Indikatorn för 2018 ska vila på 20 % av Gammalt."""
+        kallor = {
+            2018: self.kalla([self.distrikt("01", "Gammalt")]),
+            2022: self.kalla([self.distrikt("02", "Mellan")]),
+            2026: self.kalla([self.distrikt("03", "Nytt")]),
+        }
+        data = self.bygg(kallor, {
+            "2018-2022": {"02": {"foregaende": [{"kod": "01", "andel": 40.0}],
+                                 "jamforbart": False}},
+            "2022-2026": {"03": {"foregaende": [{"kod": "02", "andel": 50.0}],
+                                 "jamforbart": False}}})
+        h = data["distrikt"][0]["harkomst"]
+        self.assertEqual(h["2022"]["giltiga"], 500)
+        self.assertEqual(h["2018"]["giltiga"], 200)
+        self.assertEqual([f["namn"] for f in h["2018"]["fran"]], ["Gammalt"])
+
+    def test_saknad_andel_betyder_hela_distriktet(self):
+        """2018 -> 2022 och 2022 -> 2026 anger bara koder, ingen vikt.
+        Posten betyder då att hela det gamla distriktet gick in i det nya."""
+        kallor = {
+            2022: self.kalla([self.distrikt("02", "Gammalt")]),
+            2026: self.kalla([self.distrikt("02", "Gammalt"),
+                              self.distrikt("07", "Nytt")]),
+        }
+        data = self.bygg(kallor, {"2022-2026": {
+            "07": {"foregaende": [{"kod": "02", "andel": None}],
+                   "jamforbart": False}}})
+        h = [d for d in data["distrikt"]
+             if d["namn"] == "Nytt"][0]["harkomst"]["2022"]
+        self.assertEqual(h["giltiga"], 1000)
+
+    def test_kartan_anvands_bara_dar_valmyndigheten_tiger(self):
+        """Där Valmyndigheten anger ett ursprung är det deras svar som
+        gäller; den uträknade härkomsten används bara i tystnaden."""
+        kallor = {
+            2018: self.kalla([self.distrikt("01", "A"), self.distrikt("02", "B")]),
+            2022: self.kalla([self.distrikt("09", "Ny")]),
+        }
+        harkomst = {"overgang": "2018-2022", "distrikt": {
+            "09": {"namn": "Ny", "fran": [{"kod": "02", "namn": "B",
+                                           "andelAvNytt": 100.0,
+                                           "andelAvGammalt": 30.0}]}}}
+        # Utan officiellt ursprung: kartan används.
+        data = self.bygg(kallor, {"2018-2022": {"09": {"foregaende": [],
+                                                       "jamforbart": False}}},
+                         harkomst)
+        h = data["distrikt"][0]["harkomst"]["2018"]
+        self.assertEqual(h["giltiga"], 300)
+        self.assertEqual(h["fran"][0]["namn"], "B")
+        # Med officiellt ursprung: Valmyndigheten vinner.
+        data = self.bygg(kallor, {"2018-2022": {
+            "09": {"foregaende": [{"kod": "01", "andel": 80.0}],
+                   "jamforbart": False}}}, harkomst)
+        h = data["distrikt"][0]["harkomst"]["2018"]
+        self.assertEqual(h["giltiga"], 800)
+        self.assertEqual(h["fran"][0]["namn"], "A")
+
+    def test_okant_ursprung_ger_ingen_indikator(self):
+        """Tappas spåret ska inget gissas – och kedjan ska sluta där, inte
+        hoppa över ett val."""
+        kallor = {
+            2018: self.kalla([self.distrikt("01", "Gammalt")]),
+            2022: self.kalla([self.distrikt("01", "Gammalt")]),
+            2026: self.kalla([self.distrikt("01", "Gammalt"),
+                              self.distrikt("09", "Ny")]),
+        }
+        data = self.bygg(kallor, {"2022-2026": {"09": {"foregaende": [],
+                                                       "jamforbart": False}}})
+        ny = [d for d in data["distrikt"] if d["namn"] == "Ny"][0]
+        self.assertNotIn("harkomst", ny)
+
+    def test_indikatorn_blandas_aldrig_med_egna_roster(self):
+        """De riktiga fälten ska stå kvar som null för de åren: tabellen
+        och förändringstalen läser dem, och får inte råka läsa en
+        indikator."""
+        data = json.loads((ROT / "docs" / "data-kommunval.json")
+                          .read_text(encoding="utf-8"))
+        med_harkomst = [d for d in data["distrikt"] if d.get("harkomst")]
+        self.assertTrue(med_harkomst, "ingen indikator i den byggda filen")
+        for d in med_harkomst:
+            for a in d["harkomst"]:
+                self.assertIsNone(d["giltiga"][a], f"{d['namn']} {a}")
+                for parti in d["roster"]:
+                    self.assertIsNone(d["roster"][parti][a], f"{d['namn']} {a}")
+            # Och tvärtom: inget år med egna siffror får ha en indikator.
+            for a in data["ar"]:
+                if d["giltiga"][str(a)] is not None:
+                    self.assertNotIn(str(a), d["harkomst"], d["namn"])
+
+    def test_kartmetoden_kontrollerar_sig_mot_valmyndigheten(self):
+        """data/kommunval/harkomst.json bär sin egen kontroll: distrikt
+        som Valmyndigheten anser jämförbara ska hamna på sig själva."""
+        h = json.loads((ROT / "data" / "kommunval" / "harkomst.json")
+                       .read_text(encoding="utf-8"))
+        kontroll = h["kontroll"]
+        self.assertGreaterEqual(kontroll["jamforbaraDistrikt"], 30)
+        self.assertGreaterEqual(kontroll["lagstaEgentraff"],
+                                kontroll["kravEgentraff"])
+        # Varje andel ska summera till 100 för det nya distriktet.
+        for kod, post in h["distrikt"].items():
+            summa = sum(f["andelAvNytt"] for f in post["fran"])
+            self.assertAlmostEqual(summa, 100.0, 0, f"{post['namn']} ({kod})")

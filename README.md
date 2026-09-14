@@ -173,7 +173,9 @@ Valmyndighetens öppna data.
   för distrikt, och ställ alla partier bredvid varandra i samma område.
   Längst ned får dessutom vart och ett av de markerade distrikten ett
   eget diagram med hela partifältet, alla med samma y-axel så att
-  bilderna går att jämföra med ögat.
+  bilderna går att jämföra med ögat. Fem distrikt fanns inte 2010, och
+  för de valen ritas i stället siffrorna för det distrikt marken låg i
+  &ndash; streckat och med ihålig punkt, som en indikator för området.
   Vyn följer med i adressen:
   [`?parti=m&distrikt=innerstaden,hede`](https://moggleif.github.io/politik/kommunval.html?parti=m&distrikt=innerstaden,hede).
 
@@ -191,10 +193,17 @@ Valmyndighetens öppna data.
   påstår är jämförbart, och en övergång de underkänner ritas med
   streckad linje i stället för att döljas. Den bedömningen är strängare
   än namnen antyder: elva distrikt underkänns mellan 2018 och 2022, sju
-  av dem med oförändrat namn. Ett distrikt som ritades upp först senare
-  har ingenting att visa de tidigare valen; då beskärs x-axeln till de
-  val distriktet fanns, och vilka val som inte visas står under
-  diagrammet.
+  av dem med oförändrat namn.
+
+  Fem av dagens distrikt fanns inte 2010. Marken gjorde det, och låg då i
+  ett annat valdistrikt, så för de valen ritar sidan det distriktets
+  siffror som en **indikator** för området &ndash; streckad linje, ihålig
+  punkt, och aldrig i tabellen eller i förändringstalen. Ursprunget
+  kommer från Valmyndigheten där de anger det; för 2018&ndash;2022 står
+  deras ursprungskolumner tomma på just de raderna, och då räknas det ut
+  ur deras egna valdistriktskartor (`hamta_harkomst.py`). Ytandel är inte
+  väljarandel, vilket gör *andelen* pålitlig &ndash; den ärvs från det
+  gamla distriktet &ndash; men *antalet* röster grovt.
 
 Hur allting hämtas, räknas och kan reproduceras beskrivs på
 [metodsidan](https://moggleif.github.io/politik/metod.html).
@@ -251,7 +260,12 @@ data/
                                 tillsammans över 30 MB
   kommunval/jamforbarhet.json   Valmyndighetens bedömning av vilka
                                 valdistrikt som går att jämföra mellan två
-                                val, per övergång
+                                val, per övergång, och vilket distrikt
+                                varje distrikt kommer ur
+  kommunval/harkomst.json       Var 2022 års nya valdistrikt kom ifrån,
+                                uträknat ur Valmyndighetens valdistrikts-
+                                kartor – för de rader där deras egen
+                                mappning är tom (se hamta_harkomst.py)
   KALLOR.md                     Dokumentation av var varje rapport hittades
 scripts/
   hamta_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API):
@@ -315,9 +329,18 @@ scripts/
                                 data/kommunval/. Kontrollerar varje år mot
                                 källans egna summor och avbryter hellre än
                                 att spara siffror som inte går ihop
+  hamta_harkomst.py             Räknar ut var 2022 års nya valdistrikt kom
+                                ifrån, ur Valmyndighetens valdistriktskartor
+                                för 2018 och 2022 (båda i SWEREF99 TM): det
+                                nya distriktet rastreras i punkter, och
+                                andelen punkter är andelen yta. Kontrollerar
+                                metoden mot Valmyndighetens egen bedömning –
+                                jämförbara distrikt ska hamna på sig själva –
+                                och avbryter annars
   build_kommunval.py            Bygger docs/data-kommunval.json: rösterna
                                 per distrikt, parti och val, med
-                                jämförbarheten mellan valen
+                                jämförbarheten mellan valen och en indikator
+                                bakåt för de val ett distrikt inte fanns
   val.py                        Gemensamt för de skript som läser
                                 Valmyndighetens filer: hämtningen med
                                 återförsök, xlsx-läsaren, valdistriktskoden
@@ -516,6 +539,7 @@ Valresultatet per valdistrikt (inget extra beroende):
 ```bash
 python3 scripts/hamta_kommunval.py            # alla fem valen
 python3 scripts/hamta_kommunval.py --ar 2026  # bara ett år
+python3 scripts/hamta_harkomst.py             # var 2022 års nya distrikt kom ifrån
 python3 scripts/build_kommunval.py            # bygger om docs/data-kommunval.json
 ```
 

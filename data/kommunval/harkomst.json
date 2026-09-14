@@ -1,0 +1,177 @@
+{
+  "overgang": "2018-2022",
+  "kalla": {
+    "kalla": "Valmyndigheten, Valgeografi 2018: valdistrikt; Valmyndigheten, Valdistrikt 2022: Hallands län",
+    "kallaUrl": "https://historik.val.se/val/val2018/statistik/2018_valgeografi_valdistrikt.zip",
+    "kallaUrl2022": "https://www.val.se/download/18.162047b519a91d053311a218/1662820377293/valdistrikt-hallands-lan.zip",
+    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-fran-val-2002-2022.html"
+  },
+  "metod": "Andelen av det nya valdistriktets yta som 2018 låg i ett visst valdistrikt, uträknad genom att distriktet rastreras i punkter ur Valmyndighetens egna valdistriktskartor (båda i SWEREF99 TM). Ytandel är inte väljarandel: punkterna vet inte var människor bor. Talen används bara för att väga ihop en indikator för de val distriktet inte fanns.",
+  "kontroll": {
+    "jamforbaraDistrikt": 35,
+    "lagstaEgentraff": 92.6,
+    "lagstaEgentraffDistrikt": "Frillesås Kust",
+    "kravEgentraff": 85.0
+  },
+  "minstaAndel": 1.0,
+  "distrikt": {
+    "13840403": {
+      "namn": "Vallda Bröndome",
+      "fran": [
+        {
+          "kod": "13840403",
+          "namn": "Vallda Bröndome",
+          "andelAvNytt": 100.0,
+          "andelAvGammalt": 95.8
+        }
+      ]
+    },
+    "13840601": {
+      "namn": "Frillesås Landsbygd",
+      "fran": [
+        {
+          "kod": "13840601",
+          "namn": "Frillesås Landsbygd",
+          "andelAvNytt": 100.0,
+          "andelAvGammalt": 96.9
+        }
+      ]
+    },
+    "13840801": {
+      "namn": "Ölmevalla Östra",
+      "fran": [
+        {
+          "kod": "13840801",
+          "namn": "Ölmevalla Östra",
+          "andelAvNytt": 90.2,
+          "andelAvGammalt": 86.2
+        },
+        {
+          "kod": "13840802",
+          "namn": "Ölmanäs",
+          "andelAvNytt": 9.8,
+          "andelAvGammalt": 7.6
+        }
+      ]
+    },
+    "13840802": {
+      "namn": "Ölmanäs",
+      "fran": [
+        {
+          "kod": "13840802",
+          "namn": "Ölmanäs",
+          "andelAvNytt": 100.0,
+          "andelAvGammalt": 88.1
+        }
+      ]
+    },
+    "13840803": {
+      "namn": "Åsa Centrum",
+      "fran": [
+        {
+          "kod": "13840803",
+          "namn": "Åsa Centrum",
+          "andelAvNytt": 100.0,
+          "andelAvGammalt": 75.7
+        }
+      ]
+    },
+    "13841405": {
+      "namn": "Gottskär",
+      "fran": [
+        {
+          "kod": "13841405",
+          "namn": "Gottskär",
+          "andelAvNytt": 100.0,
+          "andelAvGammalt": 65.0
+        }
+      ]
+    },
+    "13841406": {
+      "namn": "Vässingö/Röda Holme",
+      "fran": [
+        {
+          "kod": "13841406",
+          "namn": "Vässingö/Röda Holme",
+          "andelAvNytt": 100.0,
+          "andelAvGammalt": 84.0
+        }
+      ]
+    },
+    "13841408": {
+      "namn": "Kolla Norra",
+      "fran": [
+        {
+          "kod": "13840108",
+          "namn": "Kolla",
+          "andelAvNytt": 100.0,
+          "andelAvGammalt": 17.0
+        }
+      ]
+    },
+    "13841409": {
+      "namn": "Kolla Södra",
+      "fran": [
+        {
+          "kod": "13840108",
+          "namn": "Kolla",
+          "andelAvNytt": 73.8,
+          "andelAvGammalt": 82.2
+        },
+        {
+          "kod": "13840403",
+          "namn": "Vallda Bröndome",
+          "andelAvNytt": 26.2,
+          "andelAvGammalt": 3.8
+        }
+      ]
+    },
+    "13841411": {
+      "namn": "Södra Onsala",
+      "fran": [
+        {
+          "kod": "13841406",
+          "namn": "Vässingö/Röda Holme",
+          "andelAvNytt": 78.8,
+          "andelAvGammalt": 15.8
+        },
+        {
+          "kod": "13841405",
+          "namn": "Gottskär",
+          "andelAvNytt": 21.2,
+          "andelAvGammalt": 34.9
+        }
+      ]
+    },
+    "13841412": {
+      "namn": "Åsa kust",
+      "fran": [
+        {
+          "kod": "13840801",
+          "namn": "Ölmevalla Östra",
+          "andelAvNytt": 57.9,
+          "andelAvGammalt": 13.8
+        },
+        {
+          "kod": "13840802",
+          "namn": "Ölmanäs",
+          "andelAvNytt": 22.2,
+          "andelAvGammalt": 4.3
+        },
+        {
+          "kod": "13840601",
+          "namn": "Frillesås Landsbygd",
+          "andelAvNytt": 12.1,
+          "andelAvGammalt": 1.2
+        },
+        {
+          "kod": "13840803",
+          "namn": "Åsa Centrum",
+          "andelAvNytt": 7.9,
+          "andelAvGammalt": 24.3
+        }
+      ]
+    }
+  },
+  "hamtad": "2026-09-14"
+}
