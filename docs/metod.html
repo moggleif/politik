@@ -35,6 +35,7 @@
       </span>
       <span class="navgrupp"><span class="navrubrik">Val:</span>
         <a href="fortidsrostning.html">Förtidsröstning</a>
+        <a href="kommunval.html">Valresultat per distrikt</a>
       </span>
       <span class="navgrupp"><span class="navrubrik">Varberg:</span>
         <a href="varberg-befolkningsprognos.html">Hela befolkningen</a>
@@ -221,13 +222,38 @@
         <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_rostberattigade.py">scripts/hamta_rostberattigade.py</a>.
         Siffrorna över förtidsröster är preliminära och kan justeras
         fram till den 16 september 2026.</dd>
+      <dt>Valmyndighetens valresultat per valdistrikt</dt>
+      <dd>Sidan <a href="kommunval.html">Valresultat per valdistrikt</a>
+        bygger på Valmyndighetens resultatfiler för valet till
+        kommunfullm&auml;ktige, hämtade med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_kommunval.py">scripts/hamta_kommunval.py</a>
+        till
+        <a href="https://github.com/moggleif/politik/tree/main/data/kommunval">data/kommunval/</a>.
+        De fem valen ligger i fyra olika format: semikolonseparerad text i
+        Latin-1 (2010 och 2014), Excel i två olika layouter (2018 och
+        2022) och zippad JSON per kommun (2026). Till skillnad från
+        förtidsrösterna sparas <em>bara Kungsbackas rader</em>: riksfilerna
+        är tillsammans över 30&nbsp;MB och innehåller kommunens dryga
+        fyrtio rader per val. Raderna sparas ordagrant som de står i
+        källan, tillsammans med adressen, bladet och antalet rader hela
+        källan hade, så att den som vill kan ladda ner riksfilen och räkna
+        efter. Varje år kontrolleras mot källans egna summor innan det
+        sparas: partiernas röster ska bli antalet giltiga, och giltiga
+        plus blanka plus ogiltiga ska bli antalet röstande. Stämmer det
+        inte avbryts hämtningen.
+        Resultatet för 2026 är i skrivande stund den <em>preliminära</em>
+        räkningen: den innehåller bara de partier som väntas kunna ta
+        mandat, och de sent inkomna förtidsrösterna och brevrösterna
+        räknas först onsdagen efter valdagen. Vilken räkning som visas
+        står på sidan. Var varje fil hittades står i
+        <a href="https://github.com/moggleif/politik/blob/main/data/KALLOR.md">data/KALLOR.md</a>.</dd>
     </dl>
   </section>
 
   <section id="sektion-transformationer">
     <h2>Vad som görs med rådatat</h2>
     <p class="forklaring">
-      Tio byggskript sätter ihop rådatat till de datafiler diagrammen
+      Elva byggskript sätter ihop rådatat till de datafiler diagrammen
       läser. De gör ingenting mer än det som står här:
     </p>
     <dl class="metod-lista">
@@ -386,6 +412,57 @@
         åren; talet är ungefärligt, eftersom förtidsröster får lämnas i
         vilken kommun som helst. Sidan tolkar ingenting om utfallet: den
         redovisar hur många som röstat, inte vad de röstat på.</dd>
+      <dt>Valresultatet summeras före andelen räknas</dt>
+      <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_kommunval.py">build_kommunval.py</a>
+        skriver <em>antal röster</em> till datafilen, aldrig andelar.
+        Andelarna räknas i webbläsaren, och skälet är sidans viktigaste
+        reglage: användaren kryssar i en fritt vald grupp valdistrikt, och
+        då måste rösterna summeras först och andelen räknas på summan. Ett
+        medelvärde av distriktens procenttal hade vägt ett distrikt med
+        400 röster lika tungt som ett med 1&nbsp;400. Ligger bara rösterna
+        i filen kan sidan inte råka göra fel. Andelen räknas på giltiga
+        röster; blanka och ogiltiga redovisas för sig. Ett valdistrikt som
+        inte fanns ett visst år får <em>inget värde</em> och inte noll
+        &ndash; skillnaden mellan &rdquo;fanns inte&rdquo; och &rdquo;fick
+        inga röster&rdquo; är hela poängen när indelningen ändrats.</dd>
+      <dt>Partierna översätts till en gemensam nyckel</dt>
+      <dd>Källorna skriver partierna olika: förkortning 2010, 2014 och
+        2018, hela partibeteckningen 2022, och båda 2026.
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/val.py">val.py</a>
+        översätter dem till förkortningen, som är sig lik hela vägen &ndash;
+        också för de lokala partierna. Folkpartiet bytte namn till
+        Liberalerna 2015; det är samma parti och redovisas som en serie
+        med Valmyndighetens egen skrivning &rdquo;Liberalerna (tidigare
+        Folkpartiet)&rdquo;. Ett parti som inte går att tolka läggs bland
+        övriga, men bara om det är försumbart: går det över en halv procent
+        av de giltiga rösterna avbryts hämtningen i stället.</dd>
+      <dt>Partier under tre procent samlas i en restpost</dt>
+      <dd>Ett parti redovisas för sig om det någon gång i de fem valen
+        nått över 3&nbsp;% av de giltiga rösterna i hela kommunen. I
+        Kungsbacka är det nio: de åtta riksdagspartierna och
+        Kungsbackaborna. De nitton som inte gör det &ndash; tillsammans
+        under en procent varje val &ndash; läggs under <em>övriga
+        partier</em>, samma restpost som Valmyndighetens egna filer
+        använder, så att partiernas röster fortfarande summerar till
+        antalet giltiga. Tröskeln mäts på kommunen och inte på enskilda
+        valdistrikt; ett enda bortvikt parti har någon gång gått över den
+        i ett distrikt (Din Förening, 4,3&nbsp;% i Fjärås Södra 2010).
+        Samtliga partiers röster ligger kvar oavkortat i
+        <a href="https://github.com/moggleif/politik/tree/main/data/kommunval">data/kommunval/</a>.</dd>
+      <dt>Valdistrikten kopplas ihop med Valmyndighetens bedömning</dt>
+      <dd>Valdistrikten ritas om mellan valen &ndash; Kungsbacka hade 41
+        distrikt 2010 och 46 i dag &ndash; och det är den verkliga gränsen
+        för hur långt bakåt en trend går att läsa. Valmyndigheten
+        publicerar själv sin bedömning av vilka distrikt som går att
+        jämföra mellan två val, och det är den bedömningen sidan följer,
+        aldrig distriktets namn. Bedömningen är strängare än namnen
+        antyder: elva Kungsbackadistrikt underkänns mellan 2018 och 2022,
+        och sju av dem heter precis likadant båda åren. En övergång som
+        underkänns döljs inte &ndash; talen är riktiga &ndash; utan ritas
+        med streckad linje, så att det syns att rörelsen mellan de två
+        punkterna inte behöver vara en opinionsrörelse. En grupp markerade
+        distrikt ritas bara de år alla distrikt i gruppen finns, eftersom
+        summan annars inte är gruppen.</dd>
       <dt>Kostnaderna räknas om till fasta priser</dt>
       <dd><a href="https://github.com/moggleif/politik/blob/main/scripts/build_kostnader.py">build_kostnader.py</a>
         multiplicerar varje års kostnad med kvoten mellan konsument&shy;prisindex
@@ -613,13 +690,14 @@ python3 scripts/build_befolkning.py   # barn och unga 0–15 år
 python3 scripts/build_nian_gymnasiet.py  # från nian till gymnasiet
 python3 scripts/build_kostnader.py    # kostnaden per elev i grundskolan
 python3 scripts/build_resurser.py     # resurserna mot referenskostnaden
+python3 scripts/build_kommunval.py    # valresultat per valdistrikt
 python3 -m unittest discover tests    # kontrollräkna beräkningarna</code></pre></div>
     <p class="forklaring">
       Skripten kräver bara Python 3 (utan paket). Att även hämta om
       rådatat &ndash; <code>hamta_scb.py</code>,
       <code>hamta_slutbetyg.py</code>, <code>hamta_kullkedjan.py</code>,
       <code>hamta_kolada.py</code>, <code>hamta_kpi.py</code>,
-      <code>hamta_bnp.py</code>
+      <code>hamta_bnp.py</code>, <code>hamta_kommunval.py</code>
       och <code>extrahera_antagning.py</code> &ndash; kräver nätverk och för
       PDF-läsningen paketet <code>pdfplumber</code>; se
       <a href="https://github.com/moggleif/politik#uppdatera-datat">README</a>.

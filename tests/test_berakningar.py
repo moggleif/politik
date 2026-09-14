@@ -42,7 +42,10 @@ build_fortidsroster = ladda("build_fortidsroster")
 build_kostnader = ladda("build_kostnader")
 build_resurser = ladda("build_resurser")
 hamta_fortidsroster = ladda("hamta_fortidsroster")
+build_kommunval = ladda("build_kommunval")
+hamta_kommunval = ladda("hamta_kommunval")
 skolverket = ladda("skolverket")
+val = ladda("val")
 
 
 class TestPrognosberakningar(unittest.TestCase):
@@ -1485,6 +1488,18 @@ class TestGenereradeFiler(unittest.TestCase):
         ombyggd = json.loads(json.dumps(build_resurser.bygg(kolada, scb, bnp)))
         self.assertEqual(ombyggd, self.las("data-resurser.json"))
 
+    def test_data_kommunval_ar_reproducerbar(self):
+        kallor = {}
+        for a in build_kommunval.AR:
+            fil = ROT / "data" / "kommunval" / f"{a}.json"
+            if fil.exists():
+                kallor[a] = json.loads(fil.read_text(encoding="utf-8"))
+        jamforbarhet = json.loads(
+            (ROT / "data" / "kommunval" / "jamforbarhet.json")
+            .read_text(encoding="utf-8"))
+        ombyggd = json.loads(json.dumps(build_kommunval.bygg(kallor, jamforbarhet)))
+        self.assertEqual(ombyggd, self.las("data-kommunval.json"))
+
     def test_data_fortidsroster_ar_reproducerbar(self):
         """Alla områdesfiler, och inga andra, ska vara vad bygget ger."""
         filer, index = build_fortidsroster.bygg(*build_fortidsroster.las_indata())
@@ -2121,6 +2136,351 @@ class TestPresentationsregler(unittest.TestCase):
         self.assertEqual(ar, sorted(ar))
         for r in rader:
             self.assertIsNotNone(r["antal"], r["ar"])
+
+
+def _xlsx(rader_xml: str) -> bytes:
+    """Minsta möjliga xlsx-fil med ett blad som heter "Blad", byggd för
+    hand så att testet kan styra exakt vilka <c>-element som finns."""
+    import io
+    import zipfile
+    z = io.BytesIO()
+    m = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
+    r = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+    with zipfile.ZipFile(z, "w") as f:
+        f.writestr("xl/workbook.xml",
+                   f'<workbook xmlns="{m}" xmlns:r="{r}">'
+                   f'<sheets><sheet name="Blad" sheetId="1" r:id="rId1"/>'
+                   f"</sheets></workbook>")
+        f.writestr("xl/_rels/workbook.xml.rels",
+                   '<Relationships xmlns="http://schemas.openxmlformats.org/'
+                   'package/2006/relationships">'
+                   '<Relationship Id="rId1" Target="worksheets/sheet1.xml"/>'
+                   "</Relationships>")
+        f.writestr("xl/worksheets/sheet1.xml",
+                   f'<worksheet xmlns="{m}"><sheetData>{rader_xml}'
+                   f"</sheetData></worksheet>")
+    return z.getvalue()
+
+
+class TestXlsxLasare(unittest.TestCase):
+    """val.las_blad måste placera cellerna efter referensen r="D5", inte
+    efter ordningen mellan <c>-elementen.
+
+    Tomma celler skrivs inte ut i xlsx-filens XML. Valmyndighetens
+    2018_K_per_valdistrikt.xlsx utelämnar VALKRETSKOD och VALKRETSNAMN för
+    kommuner med en enda valkrets – och Kungsbacka är en sådan. Läses
+    cellerna i ordning glider varenda partikolumn två steg åt vänster, och
+    resultatet blir tyst fel: siffror på fel parti."""
+
+    def test_tom_cell_mitt_i_raden_forskjuter_inte(self):
+        rader = val.las_blad(_xlsx(
+            '<row r="1">'
+            '<c r="A1" t="inlineStr"><is><t>kod</t></is></c>'
+            '<c r="B1" t="inlineStr"><is><t>valkrets</t></is></c>'
+            '<c r="C1" t="inlineStr"><is><t>namn</t></is></c>'
+            '<c r="D1" t="inlineStr"><is><t>M</t></is></c></row>'
+            # Rad 2 saknar valkrets: inget <c> för B alls.
+            '<row r="2">'
+            '<c r="A2"><v>101</v></c>'
+            '<c r="C2" t="inlineStr"><is><t>Innerstaden</t></is></c>'
+            '<c r="D2"><v>316</v></c></row>'), "Blad")
+        self.assertEqual(rader[0], ["kod", "valkrets", "namn", "M"])
+        self.assertEqual(rader[1], ["101", None, "Innerstaden", "316"])
+
+    def test_alla_rader_fylls_ut_till_samma_bredd(self):
+        """Ett kolumnindex ur rubrikraden ska alltid gå att slå upp, också
+        på en rad som slutar tidigt."""
+        rader = val.las_blad(_xlsx(
+            '<row r="1"><c r="A1"><v>1</v></c><c r="D1"><v>4</v></c></row>'
+            '<row r="2"><c r="A2"><v>9</v></c></row>'), "Blad")
+        self.assertEqual([len(r) for r in rader], [4, 4])
+        self.assertEqual(rader[1], ["9", None, None, None])
+
+    def test_kolumnindex_ur_cellreferens(self):
+        self.assertEqual(val.kolumnindex("A1"), 0)
+        self.assertEqual(val.kolumnindex("D5"), 3)
+        self.assertEqual(val.kolumnindex("Z1"), 25)
+        self.assertEqual(val.kolumnindex("AA1"), 26)
+        self.assertEqual(val.kolumnindex("IV99"), 255)
+        self.assertIsNone(val.kolumnindex(None))
+
+
+class TestPartinormalisering(unittest.TestCase):
+    """Partierna skrivs olika i de fem kommunvalen: förkortning 2010, 2014
+    och 2018, hela partibeteckningen 2022, och båda 2026."""
+
+    def test_folkpartiet_och_liberalerna_ar_samma_serie(self):
+        """Folkpartiet bytte namn till Liberalerna 2015. Samma parti, och
+        måste bli samma kod – annars bryts serien mitt i."""
+        for skrivning in ("FP", "L", "Liberalerna",
+                          "Liberalerna (tidigare Folkpartiet)"):
+            self.assertEqual(val.normalisera_parti(skrivning), "L", skrivning)
+
+    def test_lokala_partier_kanns_igen_i_alla_skrivsatt(self):
+        self.assertEqual(val.normalisera_parti("Kbabo"), "Kbabo")
+        self.assertEqual(val.normalisera_parti("Kungsbackaborna"), "Kbabo")
+        self.assertEqual(val.normalisera_parti("Medborgerlig Samling"), "MED")
+
+    def test_socialdemokraterna_bada_skrivningarna(self):
+        for skrivning in ("S", "Arbetarepartiet-Socialdemokraterna"):
+            self.assertEqual(val.normalisera_parti(skrivning), "S", skrivning)
+
+    def test_icke_partier_hamnar_for_sig(self):
+        self.assertEqual(val.normalisera_parti("blanka röster"), val.BLANKA)
+        self.assertEqual(val.normalisera_parti("BLANK"), val.BLANKA)
+        self.assertEqual(val.normalisera_parti("övriga ogiltiga"), val.OGILTIGA)
+        self.assertEqual(val.normalisera_parti("ÖVR"), val.OVRIGA)
+        self.assertEqual(val.normalisera_parti("övriga anmälda partier"),
+                         val.OVRIGA)
+
+    def test_summeringsrader_last_inte_in(self):
+        """Summan räknas ut ur delarna; läses den också in blir den
+        dubbelräknad."""
+        self.assertIsNone(val.normalisera_parti("Summa giltiga röster"))
+        self.assertIsNone(val.normalisera_parti("Valdeltagande"))
+
+    def test_okant_parti_ger_none(self):
+        self.assertIsNone(val.normalisera_parti("Partiet Som Inte Finns"))
+
+    def test_ett_stort_okant_parti_ar_inte_forsumbart(self):
+        """Ett otolkat parti får bli ÖVR så länge det är småsmulor, men
+        ett stort måste larma: då har källan bytt skrivsätt."""
+        self.assertTrue(val.okand_ar_forsumbar(3, 50000))
+        self.assertFalse(val.okand_ar_forsumbar(5000, 50000))
+
+
+def _distrikt(kod, namn, roster, giltiga, uppsamling=False,
+              rostberattigade=0, rostande=0):
+    return {"kod": kod, "namn": namn, "uppsamling": uppsamling,
+            "rostberattigade": rostberattigade, "rostande": rostande,
+            "giltiga": giltiga, "blanka": 0, "ogiltiga": 0, "ejAnmalt": 0,
+            "roster": roster}
+
+
+def _kalla(ar, distrikt, **extra):
+    return dict({"ar": ar, "kalla": f"Källa {ar}", "kallaUrl": f"http://x/{ar}",
+                 "sidaUrl": "http://x", "hamtad": f"20{ar % 100:02d}-01-01",
+                 "raderIKallan": len(distrikt), "distrikt": distrikt}, **extra)
+
+
+class TestKommunval(unittest.TestCase):
+    """build_kommunval: rösterna, de saknade åren, uppsamlingsdistriktet
+    och jämförbarheten mellan valen."""
+
+    # Tre val. "Norr" finns hela vägen. "Söder" tillkommer först 2018.
+    # "Gamla" läggs ned efter 2014. Dessutom ett uppsamlingsdistrikt.
+    KALLOR = {
+        2010: _kalla(2010, [
+            _distrikt("13840101", "Norr", {"M": 100, "S": 60, "ÖVR": 40}, 200),
+            _distrikt("13840102", "Gamla", {"M": 40, "S": 60}, 100),
+            _distrikt("13840000", "Uppsamlingsdistrikt", {"M": 10, "S": 10},
+                      20, uppsamling=True)]),
+        2014: _kalla(2014, [
+            _distrikt("13840101", "Norr", {"M": 120, "S": 80}, 200),
+            _distrikt("13840102", "Gamla", {"M": 50, "S": 50}, 100),
+            _distrikt("13840000", "Uppsamlingsdistrikt", {"M": 5, "S": 5},
+                      10, uppsamling=True)]),
+        2018: _kalla(2018, [
+            _distrikt("13840101", "Norr", {"M": 150, "S": 50}, 200),
+            _distrikt("13840103", "Söder", {"M": 200, "S": 600}, 800),
+            _distrikt("13840000", "Uppsamlingsdistrikt", {"M": 1, "S": 9},
+                      10, uppsamling=True)]),
+    }
+    JAMFORBARHET = {
+        "kalla": {"2010-2014": {"kalla": "k", "kallaUrl": None,
+                                "sidaUrl": "http://x"}},
+        "overgangar": {
+            "2010-2014": {"13840101": {"jamforbart": True, "foregaende": [],
+                                       "indelning": "O"},
+                          "13840102": {"jamforbart": True, "foregaende": [],
+                                       "indelning": "O"}},
+            # Norr ritades om mellan 2014 och 2018.
+            "2014-2018": {"13840101": {"jamforbart": False, "foregaende": [],
+                                       "indelning": "M"}},
+        },
+    }
+
+    def setUp(self):
+        self.d = build_kommunval.bygg(self.KALLOR, self.JAMFORBARHET)
+        self.rader = {r["namn"]: r for r in self.d["distrikt"]}
+
+    def test_raderna_ar_distrikten_i_senaste_valet(self):
+        self.assertEqual(sorted(self.rader), ["Norr", "Söder"])
+
+    def test_uppsamlingsdistriktet_blir_ingen_egen_rad(self):
+        self.assertNotIn("Uppsamlingsdistrikt", self.rader)
+
+    def test_uppsamlingsdistriktet_rakans_in_i_kommunen(self):
+        """Rösterna där är riktiga röster och måste finnas i totalen."""
+        self.assertEqual(self.d["kommunTotalt"]["giltiga"]["2010"], 320)
+        self.assertEqual(self.d["kommunTotalt"]["roster"]["M"]["2010"], 150)
+
+    def test_ar_som_distriktet_inte_fanns_ar_null_inte_noll(self):
+        """Skillnaden mellan "fanns inte" och "fick inga röster" är hela
+        poängen när indelningen ändrats."""
+        soder = self.rader["Söder"]
+        self.assertIsNone(soder["roster"]["M"]["2010"])
+        self.assertIsNone(soder["giltiga"]["2010"])
+        self.assertEqual(soder["roster"]["M"]["2018"], 200)
+
+    def test_parti_utan_roster_ett_ar_ar_noll_inte_null(self):
+        """Norr fick ÖVR-röster 2010 men inga 2014 – och fanns båda åren."""
+        self.assertEqual(self.rader["Norr"]["roster"]["ÖVR"]["2010"], 40)
+        self.assertEqual(self.rader["Norr"]["roster"]["ÖVR"]["2014"], 0)
+
+    def test_filen_innehaller_roster_inte_andelar(self):
+        """Andelen räknas i webbläsaren, så att en fritt vald grupp
+        distrikt kan summeras före andelen räknas."""
+        text = json.dumps(self.d)
+        self.assertNotIn("andel", text)
+        self.assertEqual(self.rader["Norr"]["roster"]["M"]["2018"], 150)
+
+    def test_jamforbarheten_foljer_valmyndigheten(self):
+        self.assertTrue(self.rader["Norr"]["jamforbart"]["2010-2014"])
+        self.assertFalse(self.rader["Norr"]["jamforbart"]["2014-2018"])
+
+    def test_saknat_ar_gor_overgangen_ojamforbar(self):
+        """Söder fanns inte 2014, så det finns ingen övergång att bedöma."""
+        self.assertFalse(self.rader["Söder"]["jamforbart"]["2014-2018"])
+        self.assertFalse(self.rader["Söder"]["jamforbart"]["2010-2014"])
+
+    def test_nedlagt_distrikt_redovisas_for_sig(self):
+        self.assertEqual(self.d["nedlagda"],
+                         [{"kod": "13840102", "namn": "Gamla",
+                           "sistaVal": 2014}])
+
+    def test_partierna_ordnas_efter_senaste_valet_med_ovriga_sist(self):
+        """S är störst 2018 trots att M var störst 2010; ÖVR är ingen
+        politisk riktning utan en restpost och hamnar sist."""
+        koder = [p["kod"] for p in self.d["partier"]]
+        self.assertEqual(koder, ["S", "M", "ÖVR"])
+
+    def test_partinamnen_skrivs_ut(self):
+        namn = {p["kod"]: p["namn"] for p in self.d["partier"]}
+        self.assertEqual(namn["M"], "Moderaterna")
+        self.assertEqual(namn["S"], "Socialdemokraterna")
+
+    def test_slug_och_overgangar(self):
+        self.assertEqual(self.rader["Söder"]["slug"], "soder")
+        self.assertEqual(self.d["overgangar"], ["2010-2014", "2014-2018"])
+
+    def test_namnbyte_bevaras(self):
+        """Heter distriktet något annat i ett äldre val ska det stå kvar,
+        så att den som letar efter det gamla namnet hittar raden."""
+        kallor = json.loads(json.dumps(self.KALLOR))
+        kallor = {int(a): v for a, v in kallor.items()}
+        kallor[2010]["distrikt"][0]["namn"] = "Norra distriktet"
+        d = build_kommunval.bygg(kallor, self.JAMFORBARHET)
+        rad = [r for r in d["distrikt"] if r["namn"] == "Norr"][0]
+        self.assertEqual(rad["tidigareNamn"], {"2010": "Norra distriktet"})
+
+
+class TestKommunvalGranskning(unittest.TestCase):
+    """hamta_kommunval kontrollerar varje år mot källans egna summor och
+    avbryter hellre än att spara siffror som inte går ihop."""
+
+    def rader(self, giltiga, rostande=0, roster=None):
+        return [_distrikt("13840101", "Norr", roster or {"M": 60, "S": 40},
+                          giltiga, rostande=rostande)]
+
+    def test_partisumma_som_inte_stammer_avbryter(self):
+        with self.assertRaises(SystemExit):
+            hamta_kommunval.granska(2018, self.rader(999), {})
+
+    def test_rostande_som_inte_stammer_avbryter(self):
+        with self.assertRaises(SystemExit):
+            hamta_kommunval.granska(2018, self.rader(100, rostande=999), {})
+
+    def test_ratt_summor_gar_igenom(self):
+        hamta_kommunval.granska(2018, self.rader(100, rostande=100), {})
+
+    def test_stort_otolkat_parti_avbryter(self):
+        with self.assertRaises(SystemExit):
+            hamta_kommunval.granska(2018, self.rader(100, rostande=100),
+                                    {"Okänt parti": 40})
+
+    def test_litet_otolkat_parti_gar_igenom(self):
+        """Enstaka röster på ett parti som inte går att tolka blir ÖVR;
+        granskningen antecknar det men avbryter inte."""
+        import contextlib
+        import io
+        with contextlib.redirect_stdout(io.StringIO()) as ut:
+            hamta_kommunval.granska(
+                2018,
+                self.rader(10000, rostande=10000,
+                           roster={"M": 6000, "S": 4000}),
+                {"Okänt parti": 3})
+        self.assertIn("Okänt parti", ut.getvalue())
+
+
+
+class TestKommunvalTroskel(unittest.TestCase):
+    """Bara partier som någon gång nått över tröskeln redovisas för sig.
+    Resten läggs i ÖVR – samma restpost som källorna själva använder – så
+    att partiernas röster fortfarande summerar till antalet giltiga."""
+
+    # Stort fick 40 %, Litet 2 % båda åren, Ibland 1 % ena året och 6 %
+    # det andra. Tröskeln ska släppa igenom Ibland men inte Litet.
+    KALLOR = {
+        2022: _kalla(2022, [
+            _distrikt("13840101", "Norr",
+                      {"M": 400, "S": 570, "Litet": 20, "Ibland": 10}, 1000)]),
+        2026: _kalla(2026, [
+            _distrikt("13840101", "Norr",
+                      {"M": 400, "S": 520, "Litet": 20, "Ibland": 60}, 1000)]),
+    }
+    JAMFORBARHET = {"kalla": {}, "overgangar": {
+        "2022-2026": {"13840101": {"jamforbart": True, "foregaende": [],
+                                   "indelning": "O"}}}}
+
+    def setUp(self):
+        self.d = build_kommunval.bygg(self.KALLOR, self.JAMFORBARHET)
+        self.norr = self.d["distrikt"][0]
+
+    def test_troskeln_ar_tre_procent(self):
+        self.assertEqual(self.d["troskelProcent"], 3.0)
+
+    def test_parti_over_troskeln_nagot_ar_redovisas_for_sig(self):
+        """Ibland låg under tröskeln 2022 men över den 2026, och ska
+        därför synas båda åren – annars går serien inte att läsa."""
+        koder = [p["kod"] for p in self.d["partier"]]
+        self.assertIn("Ibland", koder)
+        self.assertEqual(self.norr["roster"]["Ibland"],
+                         {"2022": 10, "2026": 60})
+
+    def test_parti_under_troskeln_alla_ar_hamnar_i_ovriga(self):
+        self.assertNotIn("Litet", [p["kod"] for p in self.d["partier"]])
+        self.assertNotIn("Litet", self.norr["roster"])
+        self.assertEqual(self.norr["roster"]["ÖVR"], {"2022": 20, "2026": 20})
+
+    def test_summan_ar_oforandrad_efter_hopvikningen(self):
+        """Det springande: andelarna räknas på giltiga röster, så om
+        hopvikningen tappade röster skulle varje andel på sidan bli fel."""
+        for a in ("2022", "2026"):
+            self.assertEqual(
+                sum(v[a] for v in self.norr["roster"].values()),
+                self.norr["giltiga"][a], a)
+            self.assertEqual(
+                sum(v[a] for v in self.d["kommunTotalt"]["roster"].values()),
+                self.d["kommunTotalt"]["giltiga"][a], a)
+
+    def test_ovriga_ligger_sist_i_partilistan(self):
+        self.assertEqual([p["kod"] for p in self.d["partier"]][-1], "ÖVR")
+
+    def test_troskeln_mats_pa_kommunen_inte_pa_distriktet(self):
+        """Ett parti som är stort i ett enda litet distrikt men litet i
+        kommunen ska inte få egen serie – annars fylls listan av partier
+        som bara finns på ett ställe."""
+        kallor = json.loads(json.dumps(self.KALLOR))
+        kallor = {int(a): v for a, v in kallor.items()}
+        for a in (2022, 2026):
+            kallor[a]["distrikt"].append(
+                _distrikt("13840102", "Söder", {"M": 5, "Litet": 5}, 10))
+        d = build_kommunval.bygg(kallor, self.JAMFORBARHET)
+        self.assertNotIn("Litet", [p["kod"] for p in d["partier"]])
+        soder = [r for r in d["distrikt"] if r["namn"] == "Söder"][0]
+        self.assertEqual(soder["roster"]["ÖVR"]["2026"], 5)
+
 
 
 if __name__ == "__main__":

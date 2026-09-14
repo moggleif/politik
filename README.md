@@ -161,6 +161,35 @@ många som röstat &ndash; inte vad de röstat på.
   [`?omrade=hallands-lan`](https://moggleif.github.io/politik/fortidsrostning.html?omrade=hallands-lan),
   [`?omrade=hela-riket`](https://moggleif.github.io/politik/fortidsrostning.html?omrade=hela-riket)
 
+**Valresultat per valdistrikt** &ndash; vad väljarna röstade på, till
+skillnad från sidan ovan. Valet till kommunfullmäktige i Kungsbacka i de
+fem senaste valen, parti för parti och valdistrikt för valdistrikt, ur
+Valmyndighetens öppna data.
+
+- [Valresultat per valdistrikt](https://moggleif.github.io/politik/kommunval.html)
+  &ndash; kommunvalen 2010, 2014, 2018, 2022 och 2026. Kryssa i vilka
+  valdistrikt som helst, fritt kombinerade, och se dem som en grupp mot
+  kommunen i övrigt; byt parti, se förändringen mellan två val distrikt
+  för distrikt, och ställ alla partier bredvid varandra i samma område.
+  Vyn följer med i adressen:
+  [`?parti=m&distrikt=innerstaden,hede`](https://moggleif.github.io/politik/kommunval.html?parti=m&distrikt=innerstaden,hede).
+
+  Partier redovisas för sig om de någon gång nått **över 3&nbsp;%** av de
+  giltiga rösterna i kommunen. I Kungsbacka är det nio: de åtta
+  riksdagspartierna och Kungsbackaborna. De nitton övriga &ndash; som
+  tillsammans fick under en procent varje val &ndash; ligger samlade under
+  *övriga partier*, samma restpost som Valmyndighetens egna filer
+  använder, så att partiernas röster fortfarande summerar till antalet
+  giltiga. Deras siffror ligger kvar oavkortat i `data/kommunval/`.
+
+  Valdistrikten ritas om mellan valen: Kungsbacka hade 41 distrikt 2010
+  och 46 i dag. Valmyndighetens egen bedömning av vilka distrikt som går
+  att jämföra &ndash; inte distriktets namn &ndash; avgör vad sidan
+  påstår är jämförbart, och en övergång de underkänner ritas med
+  streckad linje i stället för att döljas. Den bedömningen är strängare
+  än namnen antyder: elva distrikt underkänns mellan 2018 och 2022, sju
+  av dem med oförändrat namn.
+
 Hur allting hämtas, räknas och kan reproduceras beskrivs på
 [metodsidan](https://moggleif.github.io/politik/metod.html).
 
@@ -209,6 +238,14 @@ data/
                                 september 2026 vid tio dagar kvar, för
                                 riket och Kungsbacka. Skrivs en gång och
                                 ändras inte (se gor_prognos.py)
+  kommunval/<år>.json           Kommunvalets resultat per valdistrikt i
+                                Kungsbacka, parti för parti (2010, 2014,
+                                2018, 2022, 2026). Bara Kungsbackas rader
+                                ur Valmyndighetens riksfiler – de är
+                                tillsammans över 30 MB
+  kommunval/jamforbarhet.json   Valmyndighetens bedömning av vilka
+                                valdistrikt som går att jämföra mellan två
+                                val, per övergång
   KALLOR.md                     Dokumentation av var varje rapport hittades
 scripts/
   hamta_scb.py                  Hämtar faktiskt utfall från SCB (PxWeb-API):
@@ -266,6 +303,19 @@ scripts/
                                 samt index.json med områdeslistan. Lägger in
                                 den ställda prognosen oförändrad hos de två
                                 områden den gäller
+  hamta_kommunval.py            Hämtar kommunvalets resultat per valdistrikt
+                                i Kungsbacka ur fem olika filformat (skv,
+                                xlsx i två layouter och zippad JSON) till
+                                data/kommunval/. Kontrollerar varje år mot
+                                källans egna summor och avbryter hellre än
+                                att spara siffror som inte går ihop
+  build_kommunval.py            Bygger docs/data-kommunval.json: rösterna
+                                per distrikt, parti och val, med
+                                jämförbarheten mellan valen
+  val.py                        Gemensamt för de skript som läser
+                                Valmyndighetens filer: hämtningen med
+                                återförsök, xlsx-läsaren, valdistriktskoden
+                                och partinormaliseringen
   gor_prognos.py                Engångsskript: ställde prognosen för valet
                                 2026 och frös den till
                                 data/fortidsroster/prognos.json. Körs inte
@@ -291,6 +341,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   antagning-till-examen.html    Antagningen mot examen tre år senare
   fortidsrostning.html          Förtidsröstningen inför valet 2026, mot 2022,
                                 för valfri kommun, län eller riket (?omrade=)
+  kommunval.html                Kommunvalets resultat per valdistrikt i
+                                Kungsbacka 2010–2026 (?parti=, ?distrikt=)
   metod.html                    Metodsidan: källor, transformationer, viktning
   style.css                     Delas av alla sidor
   gemensam.js                   Delade byggstenar: färger, delbara URL:er
@@ -326,6 +378,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   data-fortidsroster/<kod>.json Data till förtidsröstningssidan, en fil per
                                 område, plus index.json (genereras, två gånger
                                 om dagen under förtidsröstningen)
+  data-kommunval.json           Data till sidan om valresultat per
+                                valdistrikt (genereras)
   rapporter/*.pdf               Lokala kopior av käll­rapporterna
   rapporter/slutbetyg-*.csv     Skolverkets exportfiler, en per läsår
   chart.umd.js                  Chart.js v4.5.1 (vendrad UMD-build från
@@ -444,6 +498,24 @@ python3 scripts/hamta_fortidsroster.py --ar 2018  # (även 2014 och 2010)
 python3 scripts/hamta_rostberattigade.py          # röstberättigade, en gång
 python3 scripts/build_fortidsroster.py            # bygger om docs/data-fortidsroster/
 ```
+
+Valresultatet per valdistrikt (inget extra beroende):
+
+```bash
+python3 scripts/hamta_kommunval.py            # alla fem valen
+python3 scripts/hamta_kommunval.py --ar 2026  # bara ett år
+python3 scripts/build_kommunval.py            # bygger om docs/data-kommunval.json
+```
+
+De fyra äldre valen är färdigräknade och ändras inte; de behöver hämtas en
+enda gång. **2026 är undantaget.** Just nu ligger Valmyndighetens
+preliminära räkning i filen: den innehåller bara rapportpartier, saknar de
+små lokala partierna, och de sent inkomna förtidsrösterna och
+brevrösterna är inte med. Hämtskriptet läser
+`https://resultat.val.se/resultatfiler/val2026/index.md5` och tar den
+slutliga räkningen så fort den finns där, men bytet sker inte av sig
+självt &ndash; kör om de två kommandona ovan när räkningen är fastställd.
+Sidan skriver ut vilken räkning den visar, så det syns om det inte gjorts.
 
 Prognosen ingår inte i den kedjan. Den ställdes en gång med
 `python3 scripts/gor_prognos.py`, och skriptet vägrar sedan skriva över

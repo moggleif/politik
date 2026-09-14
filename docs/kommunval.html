@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Valresultat per valdistrikt i Kungsbacka</title>
+<meta name="description" content="Kommunvalet i Kungsbacka 2010–2026, parti för parti och valdistrikt för valdistrikt. Kryssa i de distrikt du vill följa och se dem tillsammans. Källa: Valmyndigheten.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+  <div class="sidhuvud-inre">
+    <nav class="huvudnav" aria-label="Webbplatsens sidor">
+      <a href="index.html">Start</a>
+      <span class="navgrupp"><span class="navrubrik">Befolkning:</span>
+        <a href="befolkningsprognos.html">Hela befolkningen</a>
+        <a href="barn-och-unga.html">0–15 år</a>
+        <a href="gymnasiealdern.html">16–19 år</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Grundskolan:</span>
+        <a href="amnesbetyg.html">Betyg per ämne</a>
+        <a href="kostnad-per-elev.html">Kostnad per elev</a>
+        <a href="resurser-till-skolan.html">Resurser</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Gymnasiet:</span>
+        <a href="meritvarden.html">Antagning</a>
+        <a href="slutbetyg.html">Slutbetyg</a>
+        <a href="antagning-till-examen.html">Antagning till examen</a>
+        <a href="nian-till-gymnasiet.html">Nian till gymnasiet</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Val:</span>
+        <a href="fortidsrostning.html">Förtidsröstning</a>
+        <a href="kommunval.html" aria-current="page">Valresultat per distrikt</a>
+      </span>
+      <span class="navgrupp"><span class="navrubrik">Varberg:</span>
+        <a href="varberg-befolkningsprognos.html">Hela befolkningen</a>
+        <a href="varberg-barn-och-unga.html">0–15 år</a>
+        <a href="varberg-gymnasiealdern.html">16–18 år</a>
+      </span>
+      <a href="metod.html">Metod</a>
+    </nav>
+    <h1>Valresultat per valdistrikt i Kungsbacka</h1>
+    <p class="ingress">
+      Valet till kommunfullmäktige i Kungsbacka, de fem senaste valen,
+      parti för parti och valdistrikt för valdistrikt. Kryssa i de
+      distrikt du vill följa &ndash; de räknas då ihop till en grupp, och
+      kan jämföras med kommunen som helhet. Andelarna räknas på giltiga
+      röster. Källa: Valmyndigheten.
+      <strong>Valdistrikten ritas om mellan valen, och alla distrikt går
+      därför inte att följa hela vägen bakåt.</strong>
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div class="valjarrad" id="valjarrad" hidden>
+    <div class="valj-ar">
+      <label for="valj-parti">Parti</label>
+      <select id="valj-parti"></select>
+    </div>
+    <div class="valj-ar">
+      <label for="valj-matt">Mått</label>
+      <select id="valj-matt">
+        <option value="andel">Andel av rösterna</option>
+        <option value="antal">Antal röster</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="sektion-distrikt" hidden>
+    <h2>Välj valdistrikt</h2>
+    <p class="forklaring">
+      Kryssa i de distrikt du vill följa. De markerade räknas ihop till en
+      grupp: rösterna summeras först, och andelen räknas på summan. Utan
+      markering visas hela kommunen. Valet följer med i adressraden, så
+      en länk ger samma vy igen.
+    </p>
+    <fieldset class="distriktval" id="distriktval">
+      <legend>Valdistrikt i Kungsbacka</legend>
+      <div class="distriktval-knappar">
+        <button type="button" id="valj-alla">Markera alla</button>
+        <button type="button" id="valj-inga">Rensa</button>
+        <span class="distriktval-antal" id="distriktval-antal" role="status" aria-live="polite"></span>
+      </div>
+      <div class="distriktval-rutor" id="distriktval-rutor"></div>
+    </fieldset>
+    <div id="not-distrikt" hidden></div>
+  </section>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Beräknat ur sidans datafil vid varje sidvisning.</p>
+  </section>
+
+  <section id="sektion-andel" hidden>
+    <h2 id="rubrik-andel">Hur har partiet gått i distrikten?</h2>
+    <p class="forklaring" id="forklaring-andel">
+      Andel av de giltiga rösterna i kommunvalet, val för val. Den grå
+      linjen är hela Kungsbacka som jämförelse. En <strong>streckad
+      del</strong> av en linje betyder att Valmyndigheten inte anser att
+      distriktets resultat går att jämföra mellan de två valen &ndash;
+      gränserna har flyttats. Talen är riktiga, men rörelsen mellan dem
+      behöver inte vara en opinionsrörelse.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-andel" aria-label="Diagram: partiets andel av rösterna i kommunvalet per valdistrikt, 2010 till 2026" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-andel"></p>
+    </div>
+    <div id="not-andel" hidden></div>
+  </section>
+
+  <section id="sektion-forandring" hidden>
+    <h2 id="rubrik-forandring">Var gick partiet fram, och var backade det?</h2>
+    <p class="forklaring">
+      Förändring i procentenheter mellan två val, ett distrikt per stapel.
+      Markerade distrikt visas i fylld färg och övriga blekt, så att den
+      egna gruppen syns i sitt sammanhang. Distrikt som inte går att
+      jämföra mellan de två valen utelämnas och räknas upp under
+      diagrammet.
+    </p>
+    <div class="valjarrad">
+      <div class="valj-ar">
+        <label for="valj-jamfor">Jämför</label>
+        <select id="valj-jamfor"></select>
+      </div>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-forandring" aria-label="Diagram: förändring i procentenheter per valdistrikt mellan två kommunval" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-forandring"></p>
+    </div>
+    <div id="not-forandring" hidden></div>
+  </section>
+
+  <section id="sektion-partier" hidden>
+    <h2 id="rubrik-partier">Hur har de andra partierna gått i samma område?</h2>
+    <p class="forklaring">
+      Samma område som ovan &ndash; de markerade distrikten tillsammans,
+      eller hela kommunen om inget är markerat &ndash; men alla partier
+      samtidigt. Kryssa i och ur partier för att se vilka som rört sig åt
+      motsatt håll.
+    </p>
+    <p class="forklaring" id="forklaring-partier"></p>
+    <fieldset class="distriktval" id="partival">
+      <legend>Partier i diagrammet</legend>
+      <div class="distriktval-rutor" id="partival-rutor"></div>
+    </fieldset>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-partier" aria-label="Diagram: alla partiers andel av rösterna i det markerade området, 2010 till 2026" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-partier"></p>
+    </div>
+  </section>
+
+  <section id="sektion-tabell" hidden>
+    <h2>Siffrorna</h2>
+    <details>
+      <summary>Visa tabell: valt parti per valdistrikt och val</summary>
+      <div class="tabell-rull"><table id="tabell-distrikt"></table></div>
+      <p class="tabell-teckenforklaring">
+        &ndash; betyder att valdistriktet inte fanns det året.
+      </p>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Andelar, inte antal.</strong> Ett valdistrikt kan växa med
+      flera hundra röstberättigade mellan två val, så antalet röster säger
+      lika mycket om inflyttningen som om opinionen. Diagrammen visar
+      därför andelen av de giltiga rösterna. Antalet går att välja i
+      reglaget, och finns alltid i tabellen.
+    </p>
+    <p class="forklaring">
+      <strong>Markerade distrikt räknas ihop, inte medelvärdesberäknas.</strong>
+      När flera distrikt är markerade summeras deras röster först, och
+      andelen räknas på summan. Ett medelvärde av distriktens procenttal
+      hade vägt ett distrikt med 400 röster lika tungt som ett med 1&nbsp;400.
+    </p>
+    <p class="forklaring" id="om-jamforbarhet">
+      <strong>Valdistrikten ritas om.</strong> Kungsbacka hade 41
+      valdistrikt 2010 och 46 i dag. Valmyndigheten publicerar själv sin
+      bedömning av vilka distrikt som går att jämföra mellan två val, och
+      den bedömningen &ndash; inte distriktets namn &ndash; är det sidan
+      följer. Bedömningen är strängare än namnen antyder: flera distrikt
+      som heter precis likadant underkänns ändå, för att gränserna
+      flyttats. Sådana övergångar ritas med streckad linje.
+    </p>
+    <p class="forklaring" id="om-troskel"></p>
+    <p class="forklaring" id="om-rakning"></p>
+    <p class="forklaring">
+      Sidan visar valresultat, alltså vad väljarna röstade på. Den drar
+      inga slutsatser om varför, och säger ingenting om nästa val. Sidan
+      är fristående; källkod och data finns på
+      <a href="https://github.com/moggleif/politik">GitHub</a>.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="sidfot-inre">
+    <p>Data: Valmyndigheten, valresultat per valdistrikt i kommunvalen 2010–2026.
+    Källkod: <a href="https://github.com/moggleif/politik">github.com/moggleif/politik</a>.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="kommunval.js"></script>
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

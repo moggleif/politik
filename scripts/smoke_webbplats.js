@@ -35,6 +35,11 @@ const DIAGRAMSIDOR = [
   /* Samma sida för ett län och för riket – servern bortser från
      frågesträngen, sidan läser den. */
   "fortidsrostning.html?omrade=hallands-lan", "fortidsrostning.html?omrade=hela-riket",
+  "kommunval.html",
+  /* Samma sida med markerade distrikt och ett annat parti – reglagen
+     läses ur frågesträngen, så en delad länk ska ge samma vy. */
+  "kommunval.html?parti=s&distrikt=innerstaden,hede&matt=antal",
+  "kommunval.html?parti=sd&distrikt=alla",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
 

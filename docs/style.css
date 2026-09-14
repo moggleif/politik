@@ -733,3 +733,91 @@ ul.kort-fakta .siffra {
 }
 
 .kort .tabell-rull table { margin-top: 0; }
+
+/* ---------- Kryssrutor: valdistrikt och partier ----------
+   Fri kombination av valdistrikt. Rutorna är riktiga kryssrutor med
+   riktiga etiketter, så att de går att nå med tangentbord och läsas upp
+   som en grupp; fältgruppens <legend> namnger gruppen. */
+
+.distriktval {
+  /* <fieldset> har min-width: min-content som standard och blir därför
+     aldrig smalare än sitt bredaste distriktsnamn – sidan skulle rulla i
+     sidled på en telefon. */
+  min-width: 0;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem 1rem;
+  margin: 1rem 0 0;
+  background: var(--surface);
+}
+
+.distriktval legend {
+  font-weight: 600;
+  padding: 0 0.4rem;
+}
+
+.distriktval-knappar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.distriktval-knappar button {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.9rem;
+  border: 2px solid var(--baseline);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--blue-dark);
+  cursor: pointer;
+}
+
+.distriktval-knappar button:hover { border-color: var(--blue-dark); }
+
+.distriktval-antal {
+  font-size: 0.95rem;
+  color: var(--ink-2);
+}
+
+.distriktval-rutor {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.15rem 1rem;
+}
+
+.distriktval-ruta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.distriktval-ruta input {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  accent-color: var(--blue-dark);
+  cursor: pointer;
+}
+
+.distriktval-ruta label { cursor: pointer; }
+
+.distriktval-ruta input:disabled,
+.distriktval-ruta input:disabled + label {
+  cursor: not-allowed;
+  color: var(--muted);
+}
+
+/* Smal skärm: en kolumn, så att etiketterna inte bryts mitt i namnet. */
+@media (max-width: 30rem) {
+  .distriktval-rutor { grid-template-columns: 1fr; }
+}
+
+/* Markerade distrikt känns igen i tabellen också. */
+tr.rad-markerad > th, tr.rad-markerad > td {
+  background: var(--neutral-mid);
+}
