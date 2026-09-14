@@ -33,11 +33,17 @@
      garnnystan. */
   var MAX_LINJER = 8;
 
-  /* Partidiagrammet tar högst lika många serier som paletten har färger,
-     så att varje parti skiljs med både färg och punktform. En streckad
+  /* Nio partier har någon gång nått över tre procent i Kungsbacka, och
+     alla nio ska kunna ritas samtidigt: att som förval utelämna det
+     nionde vore ett godtyckligt val om vilket parti som är värt att se.
+     Paletten har åtta färger, så den nionde serien får svart – samma
+     lösning som den kontrast- och färgblindhetsvaliderade paletten
+     själv använder för sin nionde kategori.
+
+     Streckning används inte för att skilja serierna åt här. En streckad
      linje har på den här sidan en enda innebörd, "går inte att jämföra",
      och får inte också betyda "nionde serien". */
-  var MAX_PARTIER = 8;
+  var MAX_PARTIER = 9;
 
   /* Tre nivåer, tre uttryck: grå tunn linje är hela kommunen som
      referens, svart tjock linje är den markerade gruppen, och de enskilda
@@ -99,6 +105,16 @@
 
   /* "2022-2026" är nyckeln i datafilen; tankstreck är bara för ögat. */
   function visaOvergang(o) { return o.replace("-", "–"); }
+
+  /* Partiets stil i partidiagrammet: palettens åtta färger, och svart
+     med stjärnmarkör som nionde. Aldrig streckning – se MAX_PARTIER. */
+  function partiStil(i) {
+    if (i < K.PALETT.length) {
+      var stil = K.serieStil(i);
+      return { farg: stil.farg, punkt: stil.punkt };
+    }
+    return { farg: FARG.ink, punkt: "star" };
+  }
 
   /* ---------- Området: kommunen, ett distrikt eller en grupp ----------
      Ett "område" är en lista distrikt. Utan markering är området hela
@@ -438,8 +454,7 @@
     var koder = data.partier.map(function (p) { return p.kod; })
       .filter(function (k) { return valdaPartier[k]; });
     var datasets = koder.map(function (kod, i) {
-      var stil = K.serieStil(i);
-      var d = linje(serie, kod, stil, 2);
+      var d = linje(serie, kod, partiStil(i), 2);
       d.label = partiNamn(kod);
       return d;
     });
@@ -694,6 +709,27 @@
   }
 
   function visaOm() {
+    var troskel = data.troskelProcent;
+    var egna = data.partier.filter(function (p) { return p.kod !== "ÖVR"; });
+    el("forklaring-partier").innerHTML =
+      "Redovisade partier är de " + egna.length + " som någon gång nått över " +
+      talSv(troskel, 0) + "&nbsp;% av rösterna i kommunen. Resten ligger " +
+      "samlade i <strong>övriga partier</strong>. Högst " + MAX_PARTIER +
+      " serier ritas samtidigt, så att varje parti kan skiljas från de " +
+      "andra på både färg och punktform &ndash; kryssa ur ett parti för " +
+      "att få plats med ett annat.";
+    el("om-troskel").innerHTML =
+      "<strong>Partier under " + talSv(troskel, 0) + "&nbsp;%.</strong> " +
+      "Ett parti redovisas för sig om det någon gång i de fem valen nått " +
+      "över " + talSv(troskel, 0) + "&nbsp;% av de giltiga rösterna i hela " +
+      "kommunen. I Kungsbacka är det " + egna.length + " partier. Övriga " +
+      "ligger samlade under <em>övriga partier</em> &ndash; samma restpost " +
+      "som Valmyndighetens egna filer använder &ndash; så att partiernas " +
+      "röster fortfarande summerar till antalet giltiga. Deras siffror " +
+      "finns kvar oavkortat i " +
+      '<a href="https://github.com/moggleif/politik/tree/main/data/kommunval">' +
+      "datat i repot</a>.";
+
     var prel = data.rakningstillfalle || {};
     var preliminara = Object.keys(prel).filter(function (a) {
       return prel[a] !== "slutlig";

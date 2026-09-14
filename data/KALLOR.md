@@ -192,6 +192,24 @@ tolka läggs i `ÖVR`, men bara om det är försumbart: går det över 0,5&nbsp;
 av de giltiga rösterna avbryter hämtningen i stället, för då har källan
 bytt skrivsätt på något som spelar roll.
 
+**Tröskel på 3&nbsp;%.** `build_kommunval.py` redovisar ett parti för sig
+om det någon gång i de fem valen nått över 3&nbsp;% av de giltiga rösterna
+i hela kommunen. Nio partier klarar det: M, S, SD, C, L, KD, MP,
+Kungsbackaborna och V. Vänsterpartiet är det som ligger närmast kanten
+(3,29&nbsp;% 2022 och 3,02&nbsp;% 2026). De nitton som inte klarar det
+läggs i `ÖVR` tillsammans med källornas egen ÖVR-post, så att summan av
+partierna fortfarande blir antalet giltiga röster &ndash; det kontrolleras
+av ett test. Utan tröskeln blir sidans partilista tjugonio namn, varav
+tjugo har en handfull röster.
+
+Tröskeln mäts på kommunen, inte på enskilda valdistrikt. Ett enda parti
+under tröskeln har någon gång gått över den i ett distrikt: **Din Förening
+fick 4,3&nbsp;% i Fjärås Södra 2010** (kommunen: 1,26&nbsp;%). Näst störst
+bland de bortvikta är SPI Välfärden med 2,92&nbsp;% i Tingberget 2010.
+Samtliga partiers röster ligger kvar oavkortat i
+`data/kommunval/<år>.json`; det är bara den byggda `docs/data-kommunval.json`
+som viker ihop dem.
+
 **Valdistrikten ritas om mellan valen**, och det är den verkliga gränsen
 för hur långt bakåt en trend går att läsa &ndash; inte tillgången på data.
 Kungsbacka hade 41 valdistrikt 2010, 43 år 2018 och 46 i dag.

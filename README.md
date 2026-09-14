@@ -174,6 +174,14 @@ Valmyndighetens öppna data.
   Vyn följer med i adressen:
   [`?parti=m&distrikt=innerstaden,hede`](https://moggleif.github.io/politik/kommunval.html?parti=m&distrikt=innerstaden,hede).
 
+  Partier redovisas för sig om de någon gång nått **över 3&nbsp;%** av de
+  giltiga rösterna i kommunen. I Kungsbacka är det nio: de åtta
+  riksdagspartierna och Kungsbackaborna. De nitton övriga &ndash; som
+  tillsammans fick under en procent varje val &ndash; ligger samlade under
+  *övriga partier*, samma restpost som Valmyndighetens egna filer
+  använder, så att partiernas röster fortfarande summerar till antalet
+  giltiga. Deras siffror ligger kvar oavkortat i `data/kommunval/`.
+
   Valdistrikten ritas om mellan valen: Kungsbacka hade 41 distrikt 2010
   och 46 i dag. Valmyndighetens egen bedömning av vilka distrikt som går
   att jämföra &ndash; inte distriktets namn &ndash; avgör vad sidan

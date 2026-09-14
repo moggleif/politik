@@ -2414,5 +2414,74 @@ class TestKommunvalGranskning(unittest.TestCase):
 
 
 
+class TestKommunvalTroskel(unittest.TestCase):
+    """Bara partier som någon gång nått över tröskeln redovisas för sig.
+    Resten läggs i ÖVR – samma restpost som källorna själva använder – så
+    att partiernas röster fortfarande summerar till antalet giltiga."""
+
+    # Stort fick 40 %, Litet 2 % båda åren, Ibland 1 % ena året och 6 %
+    # det andra. Tröskeln ska släppa igenom Ibland men inte Litet.
+    KALLOR = {
+        2022: _kalla(2022, [
+            _distrikt("13840101", "Norr",
+                      {"M": 400, "S": 570, "Litet": 20, "Ibland": 10}, 1000)]),
+        2026: _kalla(2026, [
+            _distrikt("13840101", "Norr",
+                      {"M": 400, "S": 520, "Litet": 20, "Ibland": 60}, 1000)]),
+    }
+    JAMFORBARHET = {"kalla": {}, "overgangar": {
+        "2022-2026": {"13840101": {"jamforbart": True, "foregaende": [],
+                                   "indelning": "O"}}}}
+
+    def setUp(self):
+        self.d = build_kommunval.bygg(self.KALLOR, self.JAMFORBARHET)
+        self.norr = self.d["distrikt"][0]
+
+    def test_troskeln_ar_tre_procent(self):
+        self.assertEqual(self.d["troskelProcent"], 3.0)
+
+    def test_parti_over_troskeln_nagot_ar_redovisas_for_sig(self):
+        """Ibland låg under tröskeln 2022 men över den 2026, och ska
+        därför synas båda åren – annars går serien inte att läsa."""
+        koder = [p["kod"] for p in self.d["partier"]]
+        self.assertIn("Ibland", koder)
+        self.assertEqual(self.norr["roster"]["Ibland"],
+                         {"2022": 10, "2026": 60})
+
+    def test_parti_under_troskeln_alla_ar_hamnar_i_ovriga(self):
+        self.assertNotIn("Litet", [p["kod"] for p in self.d["partier"]])
+        self.assertNotIn("Litet", self.norr["roster"])
+        self.assertEqual(self.norr["roster"]["ÖVR"], {"2022": 20, "2026": 20})
+
+    def test_summan_ar_oforandrad_efter_hopvikningen(self):
+        """Det springande: andelarna räknas på giltiga röster, så om
+        hopvikningen tappade röster skulle varje andel på sidan bli fel."""
+        for a in ("2022", "2026"):
+            self.assertEqual(
+                sum(v[a] for v in self.norr["roster"].values()),
+                self.norr["giltiga"][a], a)
+            self.assertEqual(
+                sum(v[a] for v in self.d["kommunTotalt"]["roster"].values()),
+                self.d["kommunTotalt"]["giltiga"][a], a)
+
+    def test_ovriga_ligger_sist_i_partilistan(self):
+        self.assertEqual([p["kod"] for p in self.d["partier"]][-1], "ÖVR")
+
+    def test_troskeln_mats_pa_kommunen_inte_pa_distriktet(self):
+        """Ett parti som är stort i ett enda litet distrikt men litet i
+        kommunen ska inte få egen serie – annars fylls listan av partier
+        som bara finns på ett ställe."""
+        kallor = json.loads(json.dumps(self.KALLOR))
+        kallor = {int(a): v for a, v in kallor.items()}
+        for a in (2022, 2026):
+            kallor[a]["distrikt"].append(
+                _distrikt("13840102", "Söder", {"M": 5, "Litet": 5}, 10))
+        d = build_kommunval.bygg(kallor, self.JAMFORBARHET)
+        self.assertNotIn("Litet", [p["kod"] for p in d["partier"]])
+        soder = [r for r in d["distrikt"] if r["namn"] == "Söder"][0]
+        self.assertEqual(soder["roster"]["ÖVR"]["2026"], 5)
+
+
+
 if __name__ == "__main__":
     unittest.main()

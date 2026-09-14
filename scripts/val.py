@@ -214,6 +214,9 @@ for _kod, _namn, _alias in PARTIER:
     for _a in _alias:
         _ALIAS[_a.casefold()] = _kod
 _PARTINAMN = {kod: namn for kod, namn, _ in PARTIER}
+# ÖVR är ingen egen politisk riktning utan en restpost, och ska skrivas ut
+# som det den är – på sidan står den i väljaren bredvid partierna.
+_PARTINAMN[OVRIGA] = "Övriga partier"
 
 
 def partinamn(kod: str) -> str:
