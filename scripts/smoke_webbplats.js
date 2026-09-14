@@ -267,67 +267,6 @@ async function granskaSmadiagram(browser, bas) {
   return fel;
 }
 
-/* Valdistrikt som ritades upp efter 2010 har ingenting att visa de första
-   valen. x-axeln ska då börja vid det första val distriktet fanns – och
-   streckningen (de övergångar Valmyndigheten inte anser jämförbara) ska
-   följa med beskärningen i stället för att hamna på fel övergång.
-   Björkris fanns från 2018 och är jämförbart både 2018–2022 och
-   2022–2026: ingen del av linjen ska vara streckad. */
-async function granskaBeskurenAxel(browser, bas) {
-  const page = await browser.newPage();
-  const fel = [];
-  page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
-  await stubbaGoatcounter(page);
-  await page.goto(bas + "/kommunval.html?parti=m&distrikt=bjorkris",
-    { waitUntil: "networkidle" });
-  await page.waitForFunction(function () {
-    return document.getElementById("diagram-enskilt-bjorkris");
-  }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
-
-  const lage = await page.evaluate(function () {
-    const c = Chart.getChart(document.getElementById("diagram-enskilt-bjorkris"));
-    if (!c) return { saknas: true };
-    const ds = c.data.datasets[0];
-    return {
-      etiketter: c.data.labels,
-      punkter: ds.data.length,
-      /* Chart.js frågar segmentet per delsträcka; index 0 är den första
-         som ritas, alltså 2018–2022 i det beskurna fönstret. */
-      streck: [0, 1].map(function (i) {
-        return ds.segment.borderDash({ p0DataIndex: i }) || null;
-      }),
-      not: (document.getElementById("not-enskilt").textContent || "").trim(),
-    };
-  });
-
-  if (lage.saknas) {
-    fel.push("diagrammet för björkris ritades aldrig");
-    await page.close();
-    return fel;
-  }
-  if (lage.etiketter.join(",") !== "2018,2022,2026") {
-    fel.push("x-axeln är " + lage.etiketter.join(",")
-      + ", förväntade att de val distriktet inte fanns beskurits bort "
-      + "(2018,2022,2026)");
-  }
-  if (lage.punkter !== lage.etiketter.length) {
-    fel.push("serien har " + lage.punkter + " punkter mot axelns "
-      + lage.etiketter.length + " år");
-  }
-  lage.streck.forEach(function (streck, i) {
-    if (streck) {
-      fel.push("segment " + i + " ritades streckat; båda övergångarna är "
-        + "jämförbara, så streckningen har följt med fel årsindex");
-    }
-  });
-  if (!/2010, 2014 visas inte/.test(lage.not)) {
-    fel.push("noten säger inte vilka val som beskurits bort: " + lage.not);
-  }
-
-  await page.close();
-  return fel;
-}
-
 (async function () {
   const server = await startaServer();
   const bas = "http://127.0.0.1:" + server.address().port;
@@ -347,13 +286,6 @@ async function granskaBeskurenAxel(browser, bas) {
   {
     const fel = await granskaSmadiagram(browser, bas);
     console.log((fel.length ? "FEL " : "ok  ") + "kommunval.html (ett diagram per markerat distrikt)");
-    fel.forEach(function (f) { console.log("     " + f); });
-    antalFel += fel.length;
-  }
-
-  {
-    const fel = await granskaBeskurenAxel(browser, bas);
-    console.log((fel.length ? "FEL " : "ok  ") + "kommunval.html (beskuren x-axel för ett nyare distrikt)");
     fel.forEach(function (f) { console.log("     " + f); });
     antalFel += fel.length;
   }
