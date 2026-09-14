@@ -555,7 +555,11 @@
     if (rorelser.length > 1) {
       rorelser.sort(function (x, y) { return y.v - x.v; });
       var upp = rorelser[0], ner = rorelser[rorelser.length - 1];
-      punkter.push("Mellan " + overgang.replace("-", " och ") +
+      /* Övergången kommer ur reglaget, som i sin tur kan sättas ur
+         adressraden. Reglaget släpper bara igenom värden som redan finns
+         som alternativ, men "Kort sagt" skrivs som HTML och ska inte vila
+         på det antagandet – escapa. */
+      punkter.push("Mellan " + esc(overgang.replace("-", " och ")) +
         " gick partiet mest fram i <strong>" + esc(upp.namn) + "</strong> (" +
         (valtMatt() === "antal" ? tecken(upp.v) + " röster" : procentenheter(upp.v)) +
         ") och mest bakåt i <strong>" + esc(ner.namn) + "</strong> (" +
