@@ -676,6 +676,50 @@
     });
   }
 
+  /* ---------- Toppnavigeringen ----------
+     Menyerna är <details> och fungerar utan det här: de öppnas och stängs
+     av webbläsaren själv. Det som läggs till är bara det en besökare
+     väntar sig av en meny – att bara en är öppen åt gången, och att en
+     öppen meny stängs av Escape, av ett klick utanför och när fokus
+     lämnar navigeringen. */
+
+  function aktiveraToppnav() {
+    var nav = document.querySelector(".toppnav");
+    if (!nav) return;
+    var menyer = [].slice.call(nav.querySelectorAll("details.navmeny"));
+    if (!menyer.length) return;
+
+    function stang(utom) {
+      menyer.forEach(function (d) { if (d !== utom) d.open = false; });
+    }
+
+    menyer.forEach(function (d) {
+      d.addEventListener("toggle", function () { if (d.open) stang(d); });
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!nav.contains(e.target)) stang(null);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape" && e.key !== "Esc") return;
+      var oppen = menyer.filter(function (d) { return d.open; })[0];
+      if (!oppen) return;
+      oppen.open = false;
+      var summary = oppen.querySelector("summary");
+      if (summary) summary.focus();
+    });
+
+    /* Tabbar man sig ut ur navigeringen ska menyn inte bli kvar öppen. */
+    nav.addEventListener("focusout", function (e) {
+      if (!e.relatedTarget || !nav.contains(e.relatedTarget)) stang(null);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", aktiveraToppnav);
+  } else { aktiveraToppnav(); }
+
   /* ---------- Export ---------- */
 
   window.KIS = {

@@ -316,6 +316,10 @@ scripts/
                                 Valmyndighetens filer: hämtningen med
                                 återförsök, xlsx-läsaren, valdistriktskoden
                                 och partinormaliseringen
+  bygg_sidmall.py               Skriver in samma meny och samma sidfot på
+                                alla sidor i docs/. Menyn finns bara här;
+                                --kontrollera faller om någon sida hamnat
+                                i otakt (körs i CI)
   gor_prognos.py                Engångsskript: ställde prognosen för valet
                                 2026 och frös den till
                                 data/fortidsroster/prognos.json. Körs inte
@@ -325,8 +329,10 @@ tests/
                                 att docs/data*.json går att reproducera ur
                                 data/ (python3 -m unittest discover tests)
 docs/                           Själva hemsidan (serveras av GitHub Pages)
-  index.html                    Startsida; ämneskorten fylls med beräknade
-                                sammanfattningar av index.js
+  index.html                    Startsida: en översikt med ett kort per ämne,
+                                som fylls med beräknade sammanfattningar av
+                                index.js. Navigeringen ligger i sidhuvudet,
+                                som på alla andra sidor
   befolkningsprognos.html       Befolkningsprognoser, hela befolkningen
   gymnasiealdern.html           Befolkningsprognoser, åldersgruppen 16–19 år
   barn-och-unga.html            Barn och unga 0–15 år, enbart faktiskt utfall
@@ -639,8 +645,19 @@ branch `main`, mapp `/docs`.
 
 ## Gemensamma byggstenar på sidorna
 
-Alla analyssidor delar samma komponenter (docs/gemensam.js):
+Alla sidor delar samma ram, och analyssidorna dessutom samma
+komponenter (docs/gemensam.js):
 
+- **Samma sidhuvud och samma sidfot på varje sida.** Högst upp ligger
+  en navigeringsrad med webbplatsens namn och ämnena som utfällbara
+  menyer; längst ner en sidfot med länkar till startsidan, metodsidan,
+  [källkoden på GitHub](https://github.com/moggleif/politik) och
+  felanmälan, sidans egna källor och en rad om att sidorna är
+  fristående. Båda byggs av `scripts/bygg_sidmall.py`, som skriver in
+  dem i varje docs/*.html &ndash; menyn finns alltså bara på ett ställe,
+  och CI faller om en sida hamnat i otakt. Menyerna är `<details>` och
+  fungerar utan JavaScript; skriptet lägger bara till att en öppen meny
+  stängs av Escape, av ett klick utanför och när en annan öppnas.
 - **"Kort sagt"** överst: de viktigaste observationerna, beräknade ur
   sidans datafil vid varje sidvisning &ndash; ingenting är hårdkodat.
 - **Delbara URL:er**: valen i reglagen speglas i adressraden

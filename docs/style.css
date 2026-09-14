@@ -47,8 +47,12 @@ main, .sidhuvud-inre, .sidfot-inre {
 header.sidhuvud {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  padding: 2.5rem 0 2rem;
+  padding: 0 0 2rem;
 }
+
+/* Navigeringen ligger först i sidhuvudet och har sin egen luft; titeln
+   och ingressen får sin under den. */
+header.sidhuvud .sidhuvud-inre { padding-top: 2.25rem; }
 
 h1 {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
@@ -180,7 +184,7 @@ button:focus-visible, th[tabindex]:focus-visible {
   background: var(--surface);
   color: var(--blue-dark);
   padding: 0.5rem 1rem;
-  z-index: 10;
+  z-index: 40;
 }
 
 .hoppa:focus-visible { left: 0.5rem; top: 0.5rem; }
@@ -279,13 +283,40 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* ---------- Sidfot ---------- */
 
-footer {
+.sidfot {
   border-top: 1px solid var(--border);
   background: var(--surface);
   margin-top: 4rem;
-  padding: 2rem 0;
+  padding: 2rem 0 2.5rem;
   color: var(--ink-2);
-  font-size: 1.05rem;
+  font-size: 1rem;
+}
+
+.sidfot-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.75rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.sidfot-nav a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sidfot-nav a:hover { text-decoration: underline; }
+
+.sidfot-data, .sidfot-not {
+  max-width: 46rem;
+  margin: 0 0 0.5rem;
+}
+
+.sidfot-not {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 0;
 }
 
 /* ---------- Status/felmeddelande ---------- */
@@ -305,9 +336,13 @@ footer {
 @media print {
   .kort { border: none; padding: 0; }
   details { display: none; }
+  .toppnav, .sidfot-nav { display: none; }
 }
 
-/* ---------- Huvudmeny ---------- */
+/* ---------- Startsidans översikt ----------
+   Navigeringen ligger i sidhuvudet; startsidan är därför ingen meny utan
+   en översikt: ett kort per ämne med de siffror sidorna själva räknar
+   fram, och länkarna till sidorna under. */
 
 .dold {
   position: absolute;
@@ -317,31 +352,39 @@ footer {
   white-space: nowrap;
 }
 
-.huvudmeny {
+.oversikt-rutnat {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
-  margin-top: 2.5rem;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  /* Korten är olika långa; låt dem sluta där innehållet slutar i stället
+     för att sträckas ut till radens högsta kort. */
+  align-items: start;
+  margin-top: 1.75rem;
 }
 
-.meny-kort {
+.oversikt-kort {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.25rem 1.375rem 1.375rem;
 }
 
-.meny-kort h3 {
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+.oversikt-kort h3 {
+  font-size: 1.35rem;
   line-height: 1.25;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.4rem;
 }
 
-.meny-kort h3 a { text-decoration: none; }
+.oversikt-kort h3 a { text-decoration: none; }
 
-.meny-kort h3 a:hover { text-decoration: underline; }
+.oversikt-kort h3 a:hover { text-decoration: underline; }
 
-.meny-kort .forklaring { margin-bottom: 1.25rem; }
+.oversikt-kort .forklaring {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.oversikt-kort .kort-fakta + .undersidor { margin-top: 1rem; }
 
 ul.undersidor {
   list-style: none;
@@ -351,8 +394,8 @@ ul.undersidor {
 
 ul.undersidor li {
   border-top: 1px solid var(--grid);
-  padding: 0.75rem 0 0;
-  margin-top: 0.75rem;
+  padding: 0.6rem 0 0;
+  margin-top: 0.6rem;
 }
 
 ul.undersidor li:first-child { border-top: none; margin-top: 0; }
@@ -362,7 +405,8 @@ ul.undersidor a { font-weight: 600; }
 .undertext {
   display: block;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 /* ---------- Brödsmula tillbaka till startsidan ---------- */
@@ -388,38 +432,147 @@ ul.undersidor a { font-weight: 600; }
 
 .valjarrad .valj-ar { margin: 0; }
 
-/* ---------- Huvudnavigation ---------- */
+/* ---------- Toppnavigering ----------
+   Samma rad högst upp på varje sida: webbplatsens namn till vänster och
+   ämnena som utfällbara menyer. Menyerna är <details>, så de fungerar
+   utan JavaScript; gemensam.js lägger bara till att en öppen meny stängs
+   av Escape, av ett klick utanför och när en annan meny öppnas. */
 
-.huvudnav {
-  display: flex;
-  gap: 0.4rem 1.25rem;
-  flex-wrap: wrap;
-  align-items: baseline;
+.toppnav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
   font-size: 1rem;
-  margin: 0 0 1rem;
 }
 
-.huvudnav a { text-decoration: none; }
+.toppnav-inre {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.5rem;
+}
 
-.huvudnav a:hover { text-decoration: underline; }
+.markesnamn {
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.8rem 0;
+  white-space: nowrap;
+}
 
-.huvudnav a[aria-current="page"] {
+.markesnamn:hover { color: var(--blue-dark); }
+
+.navrad {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.navpost { position: relative; }
+
+.navpost > a, .navmeny > summary {
+  display: block;
+  padding: 0.55rem 0.7rem;
+  margin: 0.2rem 0.1rem;
+  border-radius: 7px;
+  color: var(--blue-dark);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Triangeln ritas av oss, så att den kan peka uppåt när menyn är öppen. */
+.navmeny > summary { list-style: none; }
+.navmeny > summary::-webkit-details-marker { display: none; }
+
+.navmeny > summary::after {
+  content: "";
+  display: inline-block;
+  width: 0.36em;
+  height: 0.36em;
+  margin-left: 0.5em;
+  vertical-align: 0.15em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.navmeny[open] > summary::after { transform: rotate(-135deg); vertical-align: 0; }
+
+.navpost > a:hover, .navmeny > summary:hover,
+.navmeny[open] > summary { background: var(--neutral-mid); }
+
+/* Sidan man står på, och den meny den ligger i. */
+.navpost > a[aria-current="page"], .navmeny.aktuell > summary {
   color: var(--ink);
   font-weight: 700;
+}
+
+.markesnamn[aria-current="page"] { color: var(--ink); }
+
+.navpanel {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 31;
+  min-width: 16rem;
+  margin: 0;
+  padding: 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--baseline);
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(11, 11, 11, 0.14);
+}
+
+/* De sista menyerna fälls ut åt vänster, annars hamnar de utanför kanten. */
+.navrad > .navpost:nth-last-child(-n+3) .navpanel { left: auto; right: 0; }
+
+.navpanel a {
+  display: block;
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  color: var(--blue-dark);
   text-decoration: none;
-  cursor: default;
 }
 
-.huvudnav .navgrupp {
-  display: inline-flex;
-  gap: 0.4rem 0.6rem;
-  flex-wrap: wrap;
-  align-items: baseline;
+.navpanel a:hover { background: var(--neutral-mid); }
+
+.navpanel a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 700;
+  background: var(--neutral-mid);
 }
 
-.huvudnav .navrubrik {
-  color: var(--muted);
-  font-size: 0.95rem;
+/* Smal skärm: menyraden radbryts och de utfällda menyerna läggs över
+   hela navigeringens bredd i stället för intill sin egen knapp. */
+@media (max-width: 46rem) {
+  /* Inte klistrad högst upp: menyraden radbryts här och skulle ta för
+     mycket av skärmen. Däremot positionerad, så att de utfällda menyerna
+     hänger under hela raden i stället för under sin egen knapp. */
+  .toppnav { position: relative; }
+  .toppnav-inre { gap: 0; padding-bottom: 0.35rem; }
+  .markesnamn { padding: 0.7rem 0 0.4rem; width: 100%; }
+  .navpost { position: static; }
+  .navpost > a, .navmeny > summary {
+    padding: 0.45rem 0.6rem;
+    margin: 0.15rem 0.35rem 0.15rem 0;
+    font-size: 0.95rem;
+  }
+  .navpanel, .navrad > .navpost:nth-last-child(-n+3) .navpanel {
+    left: 1.25rem;
+    right: 1.25rem;
+    min-width: 0;
+  }
 }
 
 /* ---------- Metadataraden ---------- */

@@ -1,5 +1,6 @@
 # Kör beräkningstesterna och kontrollerna av den färdiga webbplatsen.
-# Python-jobbet är snabbt och fångar räknefel och osynkade datafiler;
+# Python-jobbet är snabbt och fångar räknefel, osynkade datafiler och
+# sidor vars meny eller sidfot hamnat i otakt med de andras;
 # webbplatsjobbet fångar trasiga länkar, JavaScript-fel och sidor som
 # inte längre ritar sina diagram.
 name: Tester
@@ -28,6 +29,8 @@ jobs:
         run: python3 -m unittest discover tests
       - name: Kontrollera interna länkar och lokala källfiler
         run: python3 scripts/kontrollera_lankar.py
+      - name: Kontrollera att alla sidor har samma meny och sidfot
+        run: python3 scripts/bygg_sidmall.py --kontrollera
 
   webbplats:
     name: Webbplatsens sidor
