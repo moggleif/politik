@@ -11,11 +11,13 @@ Två sorters test:
 """
 
 import importlib
+import io
 import itertools
 import json
 import re
 import sys
 import unittest
+import zipfile
 from pathlib import Path
 
 ROT = Path(__file__).resolve().parent.parent
@@ -42,8 +44,8 @@ build_fortidsroster = ladda("build_fortidsroster")
 build_kostnader = ladda("build_kostnader")
 build_resurser = ladda("build_resurser")
 hamta_fortidsroster = ladda("hamta_fortidsroster")
-build_kommunval = ladda("build_kommunval")
-hamta_kommunval = ladda("hamta_kommunval")
+build_valresultat = ladda("build_valresultat")
+hamta_valresultat = ladda("hamta_valresultat")
 skolverket = ladda("skolverket")
 val = ladda("val")
 
@@ -1488,21 +1490,26 @@ class TestGenereradeFiler(unittest.TestCase):
         ombyggd = json.loads(json.dumps(build_resurser.bygg(kolada, scb, bnp)))
         self.assertEqual(ombyggd, self.las("data-resurser.json"))
 
-    def test_data_kommunval_ar_reproducerbar(self):
-        kallor = {}
-        for a in build_kommunval.AR:
-            fil = ROT / "data" / "kommunval" / f"{a}.json"
-            if fil.exists():
-                kallor[a] = json.loads(fil.read_text(encoding="utf-8"))
+    def test_valresultatet_ar_reproducerbart(self):
+        """Alla tre valen: varje datafil ska vara vad bygget ger."""
         jamforbarhet = json.loads(
-            (ROT / "data" / "kommunval" / "jamforbarhet.json")
+            (ROT / "data" / "valdistrikt" / "jamforbarhet.json")
             .read_text(encoding="utf-8"))
         harkomst = json.loads(
-            (ROT / "data" / "kommunval" / "harkomst.json")
+            (ROT / "data" / "valdistrikt" / "harkomst.json")
             .read_text(encoding="utf-8"))
-        ombyggd = json.loads(json.dumps(
-            build_kommunval.bygg(kallor, jamforbarhet, harkomst)))
-        self.assertEqual(ombyggd, self.las("data-kommunval.json"))
+        for valnyckel, val in hamta_valresultat.VALEN.items():
+            with self.subTest(val=valnyckel):
+                kallor = {}
+                for a in build_valresultat.AR:
+                    fil = ROT / "data" / val["mapp"] / f"{a}.json"
+                    if fil.exists():
+                        kallor[a] = json.loads(fil.read_text(encoding="utf-8"))
+                self.assertTrue(kallor, f"inga källfiler för {valnyckel}")
+                ombyggd = json.loads(json.dumps(build_valresultat.bygg(
+                    kallor, jamforbarhet, harkomst, valnyckel)))
+                self.assertEqual(ombyggd,
+                                 self.las(f"data-{val['mapp']}.json"))
 
     def test_data_fortidsroster_ar_reproducerbar(self):
         """Alla områdesfiler, och inga andra, ska vara vad bygget ger."""
@@ -2268,7 +2275,7 @@ def _kalla(ar, distrikt, **extra):
 
 
 class TestKommunval(unittest.TestCase):
-    """build_kommunval: rösterna, de saknade åren, uppsamlingsdistriktet
+    """build_valresultat: rösterna, de saknade åren, uppsamlingsdistriktet
     och jämförbarheten mellan valen."""
 
     # Tre val. "Norr" finns hela vägen. "Söder" tillkommer först 2018.
@@ -2305,7 +2312,7 @@ class TestKommunval(unittest.TestCase):
     }
 
     def setUp(self):
-        self.d = build_kommunval.bygg(self.KALLOR, self.JAMFORBARHET)
+        self.d = build_valresultat.bygg(self.KALLOR, self.JAMFORBARHET)
         self.rader = {r["namn"]: r for r in self.d["distrikt"]}
 
     def test_raderna_ar_distrikten_i_senaste_valet(self):
@@ -2374,13 +2381,155 @@ class TestKommunval(unittest.TestCase):
         kallor = json.loads(json.dumps(self.KALLOR))
         kallor = {int(a): v for a, v in kallor.items()}
         kallor[2010]["distrikt"][0]["namn"] = "Norra distriktet"
-        d = build_kommunval.bygg(kallor, self.JAMFORBARHET)
+        d = build_valresultat.bygg(kallor, self.JAMFORBARHET)
         rad = [r for r in d["distrikt"] if r["namn"] == "Norr"][0]
         self.assertEqual(rad["tidigareNamn"], {"2010": "Norra distriktet"})
 
 
+class TestTreVal(unittest.TestCase):
+    """Samma valdistrikt röstar i tre val samma dag, och sidan visar ett i
+    taget. Det som gör att de kan ligga på samma sida är att de tre
+    datafilerna har samma distrikt med samma slugar – markeringen ska
+    överleva ett byte av val."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.filer = {
+            valnyckel: json.loads(
+                (ROT / "docs" / f"data-{val['mapp']}.json")
+                .read_text(encoding="utf-8"))
+            for valnyckel, val in hamta_valresultat.VALEN.items()}
+
+    def test_alla_tre_valen_ar_byggda(self):
+        self.assertEqual(sorted(self.filer), ["kommun", "region", "riksdag"])
+
+    def test_samma_valdistrikt_i_de_tre_valen(self):
+        """Slug, namn och kod måste vara identiska – annars tappar sidan
+        markerade distrikt när valet byts."""
+        facit = None
+        for valnyckel, data in sorted(self.filer.items()):
+            nycklar = [(d["slug"], d["namn"], d["kod"]) for d in data["distrikt"]]
+            if facit is None:
+                facit = nycklar
+            else:
+                self.assertEqual(nycklar, facit, valnyckel)
+
+    def test_samma_val_och_samma_overgangar(self):
+        for valnyckel, data in sorted(self.filer.items()):
+            self.assertEqual(data["ar"], [2010, 2014, 2018, 2022, 2026],
+                             valnyckel)
+            self.assertEqual(data["overgangar"],
+                             ["2010-2014", "2014-2018", "2018-2022",
+                              "2022-2026"], valnyckel)
+
+    def test_varje_fil_bar_sitt_eget_namn_pa_valet(self):
+        """Sidans texter läser namnet ur filen, så det måste stämma med
+        vilket val filen är byggd ur."""
+        for valnyckel, data in sorted(self.filer.items()):
+            val = hamta_valresultat.VALEN[valnyckel]
+            self.assertEqual(data["valNyckel"], valnyckel)
+            self.assertEqual(data["valEtikett"], val["etikett"])
+            self.assertEqual(data["val"], val["namn"])
+            self.assertEqual(data["valKort"], val["kort"])
+            self.assertEqual(data["valenKort"], val["valen"])
+        namn = {d["val"] for d in self.filer.values()}
+        self.assertEqual(len(namn), 3)
+
+    def test_troskeln_rakans_per_val(self):
+        """Ett lokalt parti finns i kommunvalet men inte på riksdagens
+        valsedel, så partilistorna får inte vara samma lista."""
+        koder = {v: [p["kod"] for p in d["partier"]]
+                 for v, d in self.filer.items()}
+        self.assertIn("Kbabo", koder["kommun"])
+        self.assertNotIn("Kbabo", koder["riksdag"])
+        for valnyckel, lista in sorted(koder.items()):
+            self.assertEqual(lista[-1], "ÖVR", valnyckel)
+
+    def test_kallorna_pekar_pa_olika_filer(self):
+        """Varje val hämtas ur sina egna resultatfiler; två val som pekar
+        på samma fil vore samma siffror två gånger."""
+        for a in ("2010", "2014", "2018", "2022"):
+            urler = {d["kalla"][a]["kallaUrl"] for d in self.filer.values()}
+            self.assertEqual(len(urler), 3, a)
+
+    def test_kallor_finns_for_varje_val_och_ar(self):
+        for valnyckel in hamta_valresultat.VALEN:
+            self.assertEqual(sorted(hamta_valresultat.KALLOR[valnyckel]),
+                             hamta_valresultat.AR, valnyckel)
+
+    def test_jamforbarheten_ar_gemensam(self):
+        """Den hör till distrikten och inte till valet, och ligger därför
+        i en enda fil som alla tre valen byggs med."""
+        facit = None
+        for valnyckel, data in sorted(self.filer.items()):
+            per_distrikt = {d["slug"]: d["jamforbart"] for d in data["distrikt"]}
+            if facit is None:
+                facit = per_distrikt
+            else:
+                self.assertEqual(per_distrikt, facit, valnyckel)
+
+
+class TestTreValKontroller(unittest.TestCase):
+    """Hämtningens två egna kontroller: att jämförbarheten säger samma sak
+    i de tre valen, och att 2026 års slutliga räkning används först när
+    den omfattar Kungsbacka."""
+
+    def bedomning(self, jamforbart=True):
+        return {"2010-2014": {"13840101": {"jamforbart": True,
+                                           "foregaende": [],
+                                           "indelning": "O"}},
+                "2022-2026": {"13840101": {"jamforbart": jamforbart,
+                                           "foregaende": [],
+                                           "indelning": "Kan jämföras"}}}
+
+    def test_samma_bedomning_i_alla_val_gar_igenom(self):
+        lika = {v: self.bedomning() for v in ("kommun", "region", "riksdag")}
+        self.assertEqual(hamta_valresultat.kontrollera_delad(lika),
+                         self.bedomning())
+
+    def test_olika_bedomning_avbryter(self):
+        olika = {"kommun": self.bedomning(),
+                 "riksdag": self.bedomning(jamforbart=False)}
+        with self.assertRaises(SystemExit):
+            hamta_valresultat.kontrollera_delad(olika)
+
+    def zip_med(self, distrikt):
+        """En resultatfil som 2026 års zip ser ut."""
+        rymd = io.BytesIO()
+        with zipfile.ZipFile(rymd, "w") as z:
+            z.writestr("Val_2026_slutlig_rostfordelning_00_RD.json",
+                       json.dumps({"valdistrikt": distrikt}))
+        return rymd.getvalue()
+
+    def distrikt(self, kod, raknat, typ="valdistrikt"):
+        return {"valdistriktskod": kod, "kommunkod": kod[:4], "namn": kod,
+                "valdistriktstyp": typ,
+                "rostfordelning": {"rosterPaverkaMandat": {"antalRoster": 1}}
+                if raknat else None}
+
+    def test_rakning_utan_kungsbacka_ar_inte_raknad(self):
+        """Riksfilen för den slutliga räkningen publiceras så fort det
+        första distriktet i landet är klart. Är Kungsbacka inte med säger
+        den mindre än den preliminära räkningen."""
+        raa = self.zip_med([self.distrikt("13840101", False),
+                            self.distrikt("01800101", True)])
+        self.assertFalse(hamta_valresultat.raknad(raa))
+
+    def test_rakning_med_hela_kungsbacka_ar_raknad(self):
+        raa = self.zip_med([self.distrikt("13840101", True),
+                            self.distrikt("13840102", True),
+                            self.distrikt("138400", False, "uppsamlingsdistrikt"),
+                            self.distrikt("01800101", False)])
+        self.assertTrue(hamta_valresultat.raknad(raa))
+
+    def test_halvraknad_kommun_ar_inte_raknad(self):
+        raa = self.zip_med([self.distrikt("13840101", True),
+                            self.distrikt("13840102", False)])
+        self.assertFalse(hamta_valresultat.raknad(raa))
+
+
 class TestKommunvalGranskning(unittest.TestCase):
-    """hamta_kommunval kontrollerar varje år mot källans egna summor och
+    """hamta_valresultat kontrollerar varje år mot källans egna summor och
     avbryter hellre än att spara siffror som inte går ihop."""
 
     def rader(self, giltiga, rostande=0, roster=None):
@@ -2389,18 +2538,18 @@ class TestKommunvalGranskning(unittest.TestCase):
 
     def test_partisumma_som_inte_stammer_avbryter(self):
         with self.assertRaises(SystemExit):
-            hamta_kommunval.granska(2018, self.rader(999), {})
+            hamta_valresultat.granska(2018, self.rader(999), {})
 
     def test_rostande_som_inte_stammer_avbryter(self):
         with self.assertRaises(SystemExit):
-            hamta_kommunval.granska(2018, self.rader(100, rostande=999), {})
+            hamta_valresultat.granska(2018, self.rader(100, rostande=999), {})
 
     def test_ratt_summor_gar_igenom(self):
-        hamta_kommunval.granska(2018, self.rader(100, rostande=100), {})
+        hamta_valresultat.granska(2018, self.rader(100, rostande=100), {})
 
     def test_stort_otolkat_parti_avbryter(self):
         with self.assertRaises(SystemExit):
-            hamta_kommunval.granska(2018, self.rader(100, rostande=100),
+            hamta_valresultat.granska(2018, self.rader(100, rostande=100),
                                     {"Okänt parti": 40})
 
     def test_litet_otolkat_parti_gar_igenom(self):
@@ -2409,7 +2558,7 @@ class TestKommunvalGranskning(unittest.TestCase):
         import contextlib
         import io
         with contextlib.redirect_stdout(io.StringIO()) as ut:
-            hamta_kommunval.granska(
+            hamta_valresultat.granska(
                 2018,
                 self.rader(10000, rostande=10000,
                            roster={"M": 6000, "S": 4000}),
@@ -2438,7 +2587,7 @@ class TestKommunvalTroskel(unittest.TestCase):
                                    "indelning": "O"}}}}
 
     def setUp(self):
-        self.d = build_kommunval.bygg(self.KALLOR, self.JAMFORBARHET)
+        self.d = build_valresultat.bygg(self.KALLOR, self.JAMFORBARHET)
         self.norr = self.d["distrikt"][0]
 
     def test_troskeln_ar_tre_procent(self):
@@ -2480,7 +2629,7 @@ class TestKommunvalTroskel(unittest.TestCase):
         for a in (2022, 2026):
             kallor[a]["distrikt"].append(
                 _distrikt("13840102", "Söder", {"M": 5, "Litet": 5}, 10))
-        d = build_kommunval.bygg(kallor, self.JAMFORBARHET)
+        d = build_valresultat.bygg(kallor, self.JAMFORBARHET)
         self.assertNotIn("Litet", [p["kod"] for p in d["partier"]])
         soder = [r for r in d["distrikt"] if r["namn"] == "Söder"][0]
         self.assertEqual(soder["roster"]["ÖVR"]["2026"], 5)
@@ -2513,7 +2662,7 @@ class TestHarkomst(unittest.TestCase):
                 "sidaUrl": None, "hamtad": "2026-01-01"}
 
     def bygg(self, kallor, overgangar, harkomst=None):
-        return build_kommunval.bygg(
+        return build_valresultat.bygg(
             kallor, {"overgangar": overgangar}, harkomst or {})
 
     def test_officiell_vikt_skalar_rosterna(self):
@@ -2648,9 +2797,9 @@ class TestHarkomst(unittest.TestCase):
                     self.assertNotIn(str(a), d["harkomst"], d["namn"])
 
     def test_kartmetoden_kontrollerar_sig_mot_valmyndigheten(self):
-        """data/kommunval/harkomst.json bär sin egen kontroll: distrikt
+        """data/valdistrikt/harkomst.json bär sin egen kontroll: distrikt
         som Valmyndigheten anser jämförbara ska hamna på sig själva."""
-        h = json.loads((ROT / "data" / "kommunval" / "harkomst.json")
+        h = json.loads((ROT / "data" / "valdistrikt" / "harkomst.json")
                        .read_text(encoding="utf-8"))
         kontroll = h["kontroll"]
         self.assertGreaterEqual(kontroll["jamforbaraDistrikt"], 30)

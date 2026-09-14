@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Valresultat per valdistrikt i Kungsbacka</title>
-<meta name="description" content="Kommunvalet i Kungsbacka 2010–2026, parti för parti och valdistrikt för valdistrikt. Kryssa i de distrikt du vill följa och se dem tillsammans. Källa: Valmyndigheten.">
+<meta name="description" content="Kommunvalet, regionvalet och riksdagsvalet i Kungsbacka 2010–2026, parti för parti och valdistrikt för valdistrikt. Välj val, kryssa i de distrikt du vill följa och se dem tillsammans. Källa: Valmyndigheten.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -54,7 +54,7 @@
           <summary>Valen</summary>
           <ul class="navpanel">
             <li><a href="fortidsrostning.html">Förtidsröstningen 2026</a></li>
-            <li><a href="kommunval.html" aria-current="page">Valresultat per distrikt</a></li>
+            <li><a href="valresultat.html" aria-current="page">Valresultat per distrikt</a></li>
           </ul>
         </details>
       </li>
@@ -75,11 +75,13 @@
   <div class="sidhuvud-inre">
     <h1>Valresultat per valdistrikt i Kungsbacka</h1>
     <p class="ingress">
-      Valet till kommunfullmäktige i Kungsbacka, de fem senaste valen,
-      parti för parti och valdistrikt för valdistrikt. Kryssa i de
-      distrikt du vill följa &ndash; de räknas då ihop till en grupp, och
-      kan jämföras med kommunen som helhet. Andelarna räknas på giltiga
-      röster. Källa: Valmyndigheten.
+      Kommunfullmäktige, regionfullmäktige och riksdagen, de fem senaste
+      valen, parti för parti och valdistrikt för valdistrikt. Välj val
+      högst upp på sidan. Kryssa i de distrikt du vill följa &ndash; de
+      räknas då ihop till en grupp, och kan jämföras med kommunen som
+      helhet. Andelarna räknas på giltiga röster. Siffrorna är
+      Kungsbackas: också riksdagsvalet är de röster som lades här, inte
+      rikets. Källa: Valmyndigheten.
       <strong>Valdistrikten ritas om mellan valen, och alla distrikt går
       därför inte att följa hela vägen bakåt.</strong>
     </p>
@@ -90,6 +92,10 @@
 <main id="huvudinnehall">
 
   <div class="valjarrad" id="valjarrad" hidden>
+    <div class="valj-ar">
+      <label for="valj-val">Val</label>
+      <select id="valj-val"></select>
+    </div>
     <div class="valj-ar">
       <label for="valj-parti">Parti</label>
       <select id="valj-parti"></select>
@@ -135,7 +141,8 @@
   <section id="sektion-andel" hidden>
     <h2 id="rubrik-andel">Hur har partiet gått i distrikten?</h2>
     <p class="forklaring" id="forklaring-andel">
-      Andel av de giltiga rösterna i kommunvalet, val för val. Varje
+      <span id="andel-inledning">Andel av de giltiga rösterna, val för
+      val.</span> Varje
       markerat distrikt får en egen linje, den svarta linjen är de
       markerade distrikten tillsammans, och den grå är hela Kungsbacka
       som jämförelse. En <strong>streckad del</strong> av en linje betyder
@@ -146,7 +153,7 @@
       distrikt marken låg i. Vad som gäller står under diagrammet.
     </p>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-andel" aria-label="Diagram: partiets andel av rösterna i kommunvalet per valdistrikt, 2010 till 2026" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-andel" aria-label="Diagram: partiets andel av rösterna per valdistrikt, 2010 till 2026" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-andel"></p>
     </div>
     <div id="not-andel" hidden></div>
@@ -168,7 +175,7 @@
       </div>
     </div>
     <div class="kort">
-      <div class="diagram-wrap"><canvas id="diagram-forandring" aria-label="Diagram: förändring i procentenheter per valdistrikt mellan två kommunval" role="img"></canvas></div>
+      <div class="diagram-wrap"><canvas id="diagram-forandring" aria-label="Diagram: förändring i procentenheter per valdistrikt mellan två val" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-forandring"></p>
     </div>
     <div id="not-forandring" hidden></div>
@@ -263,6 +270,17 @@
       &rdquo;Kort sagt&rdquo; håller sig till distriktets egna röster.
       <a href="metod.html">Metodsidan</a> beskriver uträkningen.
     </p>
+    <p class="forklaring" id="om-tre-val">
+      <strong>Tre val, samma valdistrikt.</strong> Samma valdistrikt
+      röstar i tre val samma dag, och väljaren högst upp byter vilket av
+      dem sidan visar. Distrikten, markeringarna och allt annat står
+      kvar; det som byts är rösterna. Redovisade partier räknas fram för
+      varje val för sig, så partilistan kan se olika ut &ndash; ett
+      lokalt parti som ställer upp i kommunvalet finns inte på
+      riksdagsvalsedeln. Och hela sidan handlar om Kungsbacka: i
+      riksdagsvalet är det Kungsbackabornas röster som räknas, inte
+      rikets.
+    </p>
     <p class="forklaring" id="om-troskel"></p>
     <p class="forklaring" id="om-rakning"></p>
     <p class="forklaring">
@@ -286,14 +304,14 @@
         <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
       </ul>
     </nav>
-    <p class="sidfot-data">Data: Valmyndigheten, valresultat per valdistrikt i kommunvalen 2010–2026.</p>
+    <p class="sidfot-data">Data: Valmyndigheten, valresultat per valdistrikt i kommun-, region- och riksdagsvalen 2010–2026.</p>
     <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
   </div>
 </footer>
 
 <script src="chart.umd.js"></script>
 <script src="gemensam.js"></script>
-<script src="kommunval.js"></script>
+<script src="valresultat.js"></script>
 <script data-goatcounter="https://moderat.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
 </body>

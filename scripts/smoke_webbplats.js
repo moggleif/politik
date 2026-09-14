@@ -35,21 +35,28 @@ const DIAGRAMSIDOR = [
   /* Samma sida för ett län och för riket – servern bortser från
      frågesträngen, sidan läser den. */
   "fortidsrostning.html?omrade=hallands-lan", "fortidsrostning.html?omrade=hela-riket",
-  "kommunval.html",
+  "valresultat.html",
   /* Samma sida med markerade distrikt och ett annat parti – reglagen
      läses ur frågesträngen, så en delad länk ska ge samma vy. */
-  "kommunval.html?parti=s&distrikt=innerstaden,hede&matt=antal",
+  "valresultat.html?parti=s&distrikt=innerstaden,hede&matt=antal",
   /* Tio markerade distrikt: fler än palettens åtta färger, och ska ändå
      ritas var för sig. */
-  "kommunval.html?parti=m&distrikt=anneberg,bjorkris,fjaras-norra,fjaras-sodra," +
+  "valresultat.html?parti=m&distrikt=anneberg,bjorkris,fjaras-norra,fjaras-sodra," +
     "fors,frillesas-kust,gottskar,hammero,innerstaden,hede",
-  "kommunval.html?parti=sd&distrikt=alla",
+  "valresultat.html?parti=sd&distrikt=alla",
   /* Tre markerade distrikt: ett litet partidiagram vardera. Granskas
      närmare i granskaSmadiagram nedan. */
-  "kommunval.html?parti=sd&distrikt=onsala-kyrka,innerstaden,anneberg",
+  "valresultat.html?parti=sd&distrikt=onsala-kyrka,innerstaden,anneberg",
   /* Ett distrikt som ritades upp först 2022 och därför har indikatorer
      bakåt. Granskas närmare i granskaHarkomst nedan. */
-  "kommunval.html?parti=m&distrikt=kolla-norra,kolla-sodra",
+  "valresultat.html?parti=m&distrikt=kolla-norra,kolla-sodra",
+  /* Samma sida, de två andra valen. Bytet självt granskas närmare i
+     granskaValbyte nedan. */
+  "valresultat.html?val=region",
+  "valresultat.html?val=riksdag&parti=sd&distrikt=innerstaden,hede",
+  /* Ett parti som bara finns i kommunvalet, tillsammans med ett val där
+     det inte ställer upp: sidan ska falla tillbaka på förvalet och rita. */
+  "valresultat.html?val=riksdag&parti=kbabo",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
 
@@ -220,7 +227,7 @@ async function granskaSmadiagram(browser, bas) {
   const fel = [];
   page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
   await stubbaGoatcounter(page);
-  await page.goto(bas + "/kommunval.html?parti=sd&distrikt=" + slugar.join(","),
+  await page.goto(bas + "/valresultat.html?parti=sd&distrikt=" + slugar.join(","),
     { waitUntil: "networkidle" });
   await page.waitForFunction(function () {
     return document.querySelectorAll("#smadiagram-rutnat canvas").length > 0;
@@ -279,7 +286,7 @@ async function granskaHarkomst(browser, bas) {
   const fel = [];
   page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
   await stubbaGoatcounter(page);
-  await page.goto(bas + "/kommunval.html?parti=m&distrikt=kolla-norra",
+  await page.goto(bas + "/valresultat.html?parti=m&distrikt=kolla-norra",
     { waitUntil: "networkidle" });
   await page.waitForFunction(function () {
     return document.querySelector("table tbody tr");
@@ -350,7 +357,7 @@ async function granskaHarkomst(browser, bas) {
      inte bara det första. Array.prototype.map skickar med indexet som
      andra argument, och en serie som tar ett andra argument tappar då
      indikatorerna i alla diagram utom det första. */
-  await page.goto(bas + "/kommunval.html?parti=m&distrikt=kolla-norra,asa-kust",
+  await page.goto(bas + "/valresultat.html?parti=m&distrikt=kolla-norra,asa-kust",
     { waitUntil: "networkidle" });
   await page.waitForFunction(function () {
     return document.getElementById("diagram-enskilt-asa-kust");
@@ -377,6 +384,100 @@ async function granskaHarkomst(browser, bas) {
   return fel;
 }
 
+/* Väljaren högst upp byter vilket av de tre valen sidan visar. Bytet ska
+   ske utan omladdning, byta både siffror och text, lägga valet i adressen
+   – och framför allt låta de markerade distrikten stå kvar: det är hela
+   skälet till att de tre valen ligger på samma sida. */
+async function granskaValbyte(browser, bas) {
+  const page = await browser.newPage();
+  const fel = [];
+  page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
+  await stubbaGoatcounter(page);
+  await page.goto(bas + "/valresultat.html?parti=m&distrikt=innerstaden,hede",
+    { waitUntil: "networkidle" });
+  await page.waitForFunction(function () {
+    return document.querySelector("#tabell-distrikt tbody tr");
+  }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+
+  function lage() {
+    return page.evaluate(function () {
+      const c = Chart.getChart(document.getElementById("diagram-andel"));
+      return {
+        val: document.getElementById("valj-val").value,
+        parti: document.getElementById("valj-parti").value,
+        markerade: Array.prototype.slice.call(
+          document.querySelectorAll("#distriktval-rutor input:checked"))
+          .map(function (i) { return i.value; }),
+        rubrik: (document.querySelector("#tabell-distrikt caption")
+          || { textContent: "" }).textContent,
+        varden: c ? c.data.datasets.map(function (d) { return d.data.join(","); }) : [],
+      };
+    });
+  }
+
+  const fore = await lage();
+  if (fore.val !== "kommun") fel.push("sidan börjar inte i kommunvalet");
+  if (!/kommunvalet/.test(fore.rubrik)) {
+    fel.push("tabellen nämner inte kommunvalet: " + fore.rubrik);
+  }
+
+  await page.selectOption("#valj-val", "riksdag");
+  await page.waitForFunction(function () {
+    return /riksdagsvalet/.test(
+      (document.querySelector("#tabell-distrikt caption") || {}).textContent || "");
+  }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+  const efter = await lage();
+
+  if (efter.markerade.join(",") !== fore.markerade.join(",")) {
+    fel.push("markeringen ändrades av bytet: " + fore.markerade.join(",")
+      + " blev " + efter.markerade.join(","));
+  }
+  if (!efter.markerade.length) fel.push("inga distrikt markerade efter bytet");
+  if (efter.parti !== fore.parti) {
+    fel.push("partiet ändrades av bytet: " + fore.parti + " blev " + efter.parti);
+  }
+  if (!/riksdagsvalet/.test(efter.rubrik)) {
+    fel.push("tabellen nämner inte riksdagsvalet: " + efter.rubrik);
+  }
+  if (efter.varden.join("|") === fore.varden.join("|")) {
+    fel.push("samma siffror i diagrammet efter bytet – datafilen byttes inte");
+  }
+  const url = new URL(page.url());
+  if (url.searchParams.get("val") !== "riksdag") {
+    fel.push("valet hamnade inte i adressen: " + page.url());
+  }
+
+  /* Bakåt i webbläsaren ska ta sidan tillbaka till kommunvalet. */
+  await page.goBack({ waitUntil: "networkidle" });
+  await page.waitForFunction(function () {
+    return /kommunvalet/.test(
+      (document.querySelector("#tabell-distrikt caption") || {}).textContent || "");
+  }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+  const tillbaka = await lage();
+  if (tillbaka.val !== "kommun") {
+    fel.push("bakåtknappen tog inte tillbaka till kommunvalet (" + tillbaka.val + ")");
+  }
+  if (tillbaka.varden.join("|") !== fore.varden.join("|")) {
+    fel.push("bakåtknappen gav inte tillbaka kommunvalets siffror");
+  }
+
+  /* Och framåt igen: bytet får inte lägga en ny post i historiken, för
+     då äts posten användaren är på väg tillbaka till upp. */
+  await page.goForward({ waitUntil: "networkidle" });
+  await page.waitForFunction(function () {
+    return /riksdagsvalet/.test(
+      (document.querySelector("#tabell-distrikt caption") || {}).textContent || "");
+  }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+  const framat = await lage();
+  if (framat.val !== "riksdag") {
+    fel.push("framåtknappen kom inte tillbaka till riksdagsvalet ("
+      + framat.val + ")");
+  }
+
+  await page.close();
+  return fel;
+}
+
 (async function () {
   const server = await startaServer();
   const bas = "http://127.0.0.1:" + server.address().port;
@@ -395,14 +496,21 @@ async function granskaHarkomst(browser, bas) {
 
   {
     const fel = await granskaSmadiagram(browser, bas);
-    console.log((fel.length ? "FEL " : "ok  ") + "kommunval.html (ett diagram per markerat distrikt)");
+    console.log((fel.length ? "FEL " : "ok  ") + "valresultat.html (ett diagram per markerat distrikt)");
     fel.forEach(function (f) { console.log("     " + f); });
     antalFel += fel.length;
   }
 
   {
     const fel = await granskaHarkomst(browser, bas);
-    console.log((fel.length ? "FEL " : "ok  ") + "kommunval.html (indikator bakåt för ett nytt distrikt)");
+    console.log((fel.length ? "FEL " : "ok  ") + "valresultat.html (indikator bakåt för ett nytt distrikt)");
+    fel.forEach(function (f) { console.log("     " + f); });
+    antalFel += fel.length;
+  }
+
+  {
+    const fel = await granskaValbyte(browser, bas);
+    console.log((fel.length ? "FEL " : "ok  ") + "valresultat.html (byte av val)");
     fel.forEach(function (f) { console.log("     " + f); });
     antalFel += fel.length;
   }

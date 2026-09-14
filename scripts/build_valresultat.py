@@ -1,21 +1,31 @@
 #!/usr/bin/env python3
-"""Bygger docs/data-kommunval.json: kommunvalet per valdistrikt i
-Kungsbacka 2010–2026, parti för parti.
+"""Bygger docs/data-<valets mapp>.json: ett av de tre valen per
+valdistrikt i Kungsbacka 2010–2026, parti för parti.
+
+Samma valdistrikt röstar i tre val samma dag, och sidan visar ett i taget:
+kommunfullmäktige, regionfullmäktige eller riksdagen. De tre datafilerna
+är byggda likadant och av samma kod; det enda som skiljer dem är vilken
+mapp rösterna lästs ur och vad valet heter.
 
 Läser:
-  data/kommunval/<år>.json          (från hamta_kommunval.py, Kungsbackas
-                                     rader ur Valmyndighetens filer)
-  data/kommunval/jamforbarhet.json  (Valmyndighetens egen bedömning av
-                                     vilka valdistrikt som går att jämföra
-                                     mellan två val, med vilket distrikt
-                                     varje distrikt kommer ur)
-  data/kommunval/harkomst.json      (frivillig; från hamta_harkomst.py,
-                                     ursprunget uträknat ur kartorna för
-                                     de distrikt Valmyndigheten inte
-                                     anger något ursprung för)
+  data/<valets mapp>/<år>.json        (från hamta_valresultat.py,
+                                       Kungsbackas rader ur
+                                       Valmyndighetens filer)
+  data/valdistrikt/jamforbarhet.json  (Valmyndighetens egen bedömning av
+                                       vilka valdistrikt som går att
+                                       jämföra mellan två val, med vilket
+                                       distrikt varje distrikt kommer ur)
+  data/valdistrikt/harkomst.json      (frivillig; från hamta_harkomst.py,
+                                       ursprunget uträknat ur kartorna för
+                                       de distrikt Valmyndigheten inte
+                                       anger något ursprung för)
+
+De två sista ligger under data/valdistrikt/ och inte i valens mappar: de
+handlar om hur distrikten ritats om, vilket är detsamma i alla tre valen.
 
 Skriver:
-  docs/data-kommunval.json
+  docs/data-kommunval.json, docs/data-regionval.json,
+  docs/data-riksdagsval.json
 
 Filen innehåller **antal röster**, aldrig andelar. Andelarna räknas i
 webbläsaren, och skälet är sidans viktigaste reglage: användaren kryssar
@@ -48,18 +58,19 @@ indikator för området, inte ett valresultat för distriktet, och sidan
 ritar den med streckad linje. Tabellen och förändringstalen rör den
 inte.
 
-Körs:  python3 scripts/build_kommunval.py
+Körs:  python3 scripts/build_valresultat.py               (alla tre valen)
+       python3 scripts/build_valresultat.py --val region  (ett val)
 """
 
+import argparse
 import json
-from datetime import date
 from pathlib import Path
 
+from hamta_valresultat import VALEN
 from val import KOMMUN, OVRIGA, partinamn, slug
 
 ROT = Path(__file__).resolve().parent.parent
-IN_MAPP = ROT / "data" / "kommunval"
-UT = ROT / "docs" / "data-kommunval.json"
+DELAT = ROT / "data" / "valdistrikt"
 
 AR = [2010, 2014, 2018, 2022, 2026]
 OVERGANGAR = [f"{a}-{b}" for a, b in zip(AR, AR[1:])]
@@ -161,9 +172,11 @@ def ursprung(kod: str, overgang: str, jamforbarhet: dict,
     return {}
 
 
-def bygg(kallor: dict, jamforbarhet: dict, harkomst: dict = None) -> dict:
-    """kallor: {år: innehållet i data/kommunval/<år>.json}."""
+def bygg(kallor: dict, jamforbarhet: dict, harkomst: dict = None,
+         valnyckel: str = "kommun") -> dict:
+    """kallor: {år: innehållet i data/<valets mapp>/<år>.json}."""
     harkomst = harkomst or {}
+    val = VALEN[valnyckel]
     ar = [a for a in AR if a in kallor]
     overgangar = [f"{a}-{b}" for a, b in zip(ar, ar[1:])]
     distrikt_per_ar = {a: per_kod(kallor[a]) for a in ar}
@@ -302,7 +315,14 @@ def bygg(kallor: dict, jamforbarhet: dict, harkomst: dict = None) -> dict:
     return {
         "kommun": "Kungsbacka",
         "kommunkod": KOMMUN,
-        "val": "Val till kommunfullmäktige",
+        # Valets namn i fyra längder, för sidans fyra slags text:
+        # nyckeln i adressraden, etiketten i väljaren, rubrikens "Val
+        # till …" och den löpande textens "i kommunvalet 2026".
+        "valNyckel": valnyckel,
+        "valEtikett": val["etikett"],
+        "val": val["namn"],
+        "valKort": val["kort"],
+        "valenKort": val["valen"],
         "ar": ar,
         "overgangar": overgangar,
         "rakningstillfalle": {str(a): kallor[a]["rakningstillfalle"]
@@ -326,39 +346,50 @@ def bygg(kallor: dict, jamforbarhet: dict, harkomst: dict = None) -> dict:
 
 
 def main() -> None:
-    kallor = {}
-    for a in AR:
-        fil = IN_MAPP / f"{a}.json"
-        if fil.exists():
-            kallor[a] = json.loads(fil.read_text(encoding="utf-8"))
-    if not kallor:
-        raise SystemExit("Inga källfiler i data/kommunval/ – kör "
-                         "scripts/hamta_kommunval.py först")
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--val", choices=sorted(VALEN),
+                   help="bygg bara det här valet")
+    args = p.parse_args()
+
     jamforbarhet = json.loads(
-        (IN_MAPP / "jamforbarhet.json").read_text(encoding="utf-8"))
+        (DELAT / "jamforbarhet.json").read_text(encoding="utf-8"))
     # Härkomsten är frivillig: utan den ritas inga indikatorer för de
     # distrikt Valmyndigheten inte anger något ursprung för, och resten
     # av sidan är sig lik.
-    harkomstfil = IN_MAPP / "harkomst.json"
+    harkomstfil = DELAT / "harkomst.json"
     harkomst = (json.loads(harkomstfil.read_text(encoding="utf-8"))
                 if harkomstfil.exists() else {})
-    data = bygg(kallor, jamforbarhet, harkomst)
-    UT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n",
-                  encoding="utf-8")
-    print(f"Skrev {UT.relative_to(ROT)}: {len(data['distrikt'])} valdistrikt, "
-          f"{len(data['partier'])} partier, {len(data['ar'])} val")
-    print("  redovisade partier: "
-          + ", ".join(p["kod"] for p in data["partier"]))
-    for o in data["overgangar"]:
-        ja = sum(1 for d in data["distrikt"] if d["jamforbart"][o])
-        print(f"  {o}: {ja} av {len(data['distrikt'])} distrikt jämförbara")
-    med = [d["namn"] for d in data["distrikt"] if d.get("harkomst")]
-    if med:
-        print("  indikator bakåt för: " + ", ".join(med))
-    if data["nedlagda"]:
-        print("  nedlagda distrikt: "
-              + ", ".join(f"{d['namn']} (t.o.m. {d['sistaVal']})"
-                          for d in data["nedlagda"]))
+
+    for valnyckel in ([args.val] if args.val else sorted(VALEN)):
+        mapp = VALEN[valnyckel]["mapp"]
+        in_mapp = ROT / "data" / mapp
+        kallor = {}
+        for a in AR:
+            fil = in_mapp / f"{a}.json"
+            if fil.exists():
+                kallor[a] = json.loads(fil.read_text(encoding="utf-8"))
+        if not kallor:
+            raise SystemExit(f"Inga källfiler i data/{mapp}/ – kör "
+                             f"scripts/hamta_valresultat.py först")
+        data = bygg(kallor, jamforbarhet, harkomst, valnyckel)
+        ut = ROT / "docs" / f"data-{mapp}.json"
+        ut.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+                      encoding="utf-8")
+        print(f"Skrev {ut.relative_to(ROT)}: {len(data['distrikt'])} "
+              f"valdistrikt, {len(data['partier'])} partier, "
+              f"{len(data['ar'])} val")
+        print("  redovisade partier: "
+              + ", ".join(p["kod"] for p in data["partier"]))
+        for o in data["overgangar"]:
+            ja = sum(1 for d in data["distrikt"] if d["jamforbart"][o])
+            print(f"  {o}: {ja} av {len(data['distrikt'])} distrikt jämförbara")
+        med = [d["namn"] for d in data["distrikt"] if d.get("harkomst")]
+        if med:
+            print("  indikator bakåt för: " + ", ".join(med))
+        if data["nedlagda"]:
+            print("  nedlagda distrikt: "
+                  + ", ".join(f"{d['namn']} (t.o.m. {d['sistaVal']})"
+                              for d in data["nedlagda"]))
 
 
 if __name__ == "__main__":

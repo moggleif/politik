@@ -130,11 +130,17 @@ för båda åren. Förtidsröster får lämnas i vilken kommun som helst, så
 andelen är ungefärlig: den räknar röster mottagna i Kungsbackas lokaler,
 inte Kungsbackabors röster.
 
-## Valresultat per valdistrikt, kommunvalet (Valmyndigheten)
+## Valresultat per valdistrikt, tre val (Valmyndigheten)
 
-Hämtas med `python3 scripts/hamta_kommunval.py` till
-`data/kommunval/<år>.json`, och byggs till `docs/data-kommunval.json` med
-`python3 scripts/build_kommunval.py`. Fem val, fem filformat:
+Samma valdistrikt röstar i tre val samma dag, och sidan visar ett i taget.
+Hämtas med `python3 scripts/hamta_valresultat.py` till
+`data/kommunval/<år>.json`, `data/regionval/<år>.json` och
+`data/riksdagsval/<år>.json`, och byggs till `docs/data-kommunval.json`,
+`docs/data-regionval.json` och `docs/data-riksdagsval.json` med
+`python3 scripts/build_valresultat.py`. Femton filer i fem format &ndash;
+tre val gånger fem valår:
+
+**Kommunfullmäktige**
 
 | Val | Fil | Format |
 |---|---|---|
@@ -143,6 +149,26 @@ Hämtas med `python3 scripts/hamta_kommunval.py` till
 | 2018 | <https://historik.val.se/val/val2018/statistik/2018_K_per_valdistrikt.xlsx> | xlsx, bladet `K antal`, en kolumn per parti (5,9&nbsp;MB) |
 | 2022 | <https://www.val.se/download/18.162047b519a91d0533118f4e/1764337121617/roster-per-distrikt-slutligt-antal-roster-inklusive-totalt-valdeltagande-kommunval-2022.xlsx> | xlsx, bladet `roster_KF`, en rad per distrikt och parti (20,4&nbsp;MB) |
 | 2026 | `https://resultat.val.se/resultatfiler/val2026/<gren>/kf/Val_2026_<räkning>_1384_KF.zip` | zip med JSON, en fil per kommun (22&nbsp;kB) |
+
+**Regionfullmäktige** (landstingsval till och med 2018)
+
+| Val | Fil | Format |
+|---|---|---|
+| 2010 | <https://historik.val.se/val/val2010/statistik/slutligt_valresultat_valdistrikt_L.skv> | skv, Latin-1, semikolon, kolumnparen `M tal`/`M proc` (1,4&nbsp;MB) |
+| 2014 | <https://historik.val.se/val/val2014/statistik/2014_landstingsval_per_valdistrikt.skv> | skv, Latin-1, semikolon, kolumnpar (1,5&nbsp;MB) |
+| 2018 | <https://historik.val.se/val/val2018/statistik/2018_L_per_valdistrikt.xlsx> | xlsx, bladet `L antal`, en kolumn per parti (2,8&nbsp;MB) |
+| 2022 | <https://www.val.se/download/18.162047b519a91d0533118f4d/1764336772618/roster-per-distrikt-slutligt-antal-roster-inklusive-totalt-valdeltagande-regionval-2022.xlsx> | xlsx, bladet `roster_RF`, en rad per distrikt och parti (14,3&nbsp;MB) |
+| 2026 | `https://resultat.val.se/resultatfiler/val2026/<gren>/rf/Val_2026_<räkning>_13_RF.zip` | zip med JSON, en fil per län (81&nbsp;kB) |
+
+**Riksdagen**
+
+| Val | Fil | Format |
+|---|---|---|
+| 2010 | <https://historik.val.se/val/val2010/statistik/slutligt_valresultat_valdistrikt_R.skv> | skv, Latin-1, semikolon, kolumnpar, `OVR`/`BL` i stället för `ÖVR`/`BLANK` (1,0&nbsp;MB) |
+| 2014 | <https://historik.val.se/val/val2014/statistik/2014_riksdagsval_per_valdistrikt.skv> | skv, Latin-1, semikolon, kolumnpar, egen valkretskolumn (1,1&nbsp;MB) |
+| 2018 | <https://historik.val.se/val/val2018/statistik/2018_R_per_valdistrikt.xlsx> | xlsx, bladet `R antal`, en kolumn per parti (2,1&nbsp;MB) |
+| 2022 | <https://www.val.se/download/18.162047b519a91d0533118f4b/1764336897948/Roster-per-distrikt-slutligt-antal-roster-inklusive-totalt-valdeltagande-riksdagsvalet-2022.xlsx> | xlsx, bladet `roster_RD`, en rad per distrikt och parti (15,9&nbsp;MB) |
+| 2026 | `https://resultat.val.se/resultatfiler/val2026/<gren>/rd/Val_2026_<räkning>_00_RD.zip` | zip med JSON, en enda fil för hela riket, 6&nbsp;626 valdistrikt (2,1&nbsp;MB) |
 
 Filerna hittades via val.se:s sidor
 [Rådata från val 2002–2022](https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-fran-val-2002-2022)
@@ -153,7 +179,7 @@ Formatet för 2026 beskrivs i
 **Bara Kungsbackas rader sparas.** Det är ett avsteg från hur
 förtidsrösterna hanteras, där Valmyndighetens rikstäckande filer ligger
 orörda i `data/` &ndash; de är små. Här är riksfilerna tillsammans över
-30&nbsp;MB, och innehåller Kungsbackas dryga fyrtio rader per val.
+100&nbsp;MB, och innehåller Kungsbackas dryga fyrtio rader per val.
 Skriptet strömmar därför riksfilen i minnet och sparar bara Kungsbackas
 rader, ordagrant som de står i källan och utan några framräknade tal. För
 att det ändå ska gå att räkna efter sparas exakt vilken fil och vilket
@@ -163,8 +189,13 @@ källan hade. Byts källan ut mot en annan märks det där.
 Varje år kontrolleras dessutom mot sig självt innan det sparas: summan av
 partiernas röster ska bli källans egen siffra för giltiga röster, och
 giltiga plus blanka plus ogiltiga ska bli antalet röstande. Stämmer det
-inte avbryts hämtningen. Giltiga röster i Kungsbacka: 48&nbsp;313 (2010),
-51&nbsp;812 (2014), 55&nbsp;589 (2018), 56&nbsp;949 (2022).
+inte avbryts hämtningen. Giltiga röster i Kungsbacka:
+
+| Val | 2010 | 2014 | 2018 | 2022 |
+|---|---|---|---|---|
+| Kommunfullmäktige | 48&nbsp;313 | 51&nbsp;812 | 55&nbsp;589 | 56&nbsp;949 |
+| Regionfullmäktige | 47&nbsp;712 | 51&nbsp;304 | 55&nbsp;000 | 56&nbsp;537 |
+| Riksdagen | 49&nbsp;187 | 52&nbsp;386 | 56&nbsp;049 | 57&nbsp;603 |
 
 **Två fällor i filerna.**
 
@@ -180,6 +211,13 @@ inte avbryts hämtningen. Giltiga röster i Kungsbacka: 48&nbsp;313 (2010),
    ska inte blandas: i kommunvalet röstar också folkbokförda utan svenskt
    medborgarskap.
 
+**Riksdagsvalets filer skriver några kolumner kortare** än de två andra
+valens: `OVR` i stället för `ÖVR` och `BL` i stället för `BLANK` (2010 och
+2014). 2014 års riksdagsfil har dessutom en valkretskolumn som
+landstingsvalets fil saknar, så kolumnerna ligger två steg åt höger. Var
+varje kolumn står ligger i tabellen `KALLOR` i `hamta_valresultat.py`, en
+post per val och år; läsarna själva är tre, en per format.
+
 **Partierna** skrivs olika: förkortning 2010, 2014 och 2018
 (`M`, `FP`, `Kbabo`), hela partibeteckningen 2022
 (`Liberalerna (tidigare Folkpartiet)`), och både förkortning, beteckning
@@ -192,10 +230,13 @@ tolka läggs i `ÖVR`, men bara om det är försumbart: går det över 0,5&nbsp;
 av de giltiga rösterna avbryter hämtningen i stället, för då har källan
 bytt skrivsätt på något som spelar roll.
 
-**Tröskel på 3&nbsp;%.** `build_kommunval.py` redovisar ett parti för sig
+**Tröskel på 3&nbsp;%.** `build_valresultat.py` redovisar ett parti för sig
 om det någon gång i de fem valen nått över 3&nbsp;% av de giltiga rösterna
-i hela kommunen. Nio partier klarar det: M, S, SD, C, L, KD, MP,
-Kungsbackaborna och V. Vänsterpartiet är det som ligger närmast kanten
+i hela kommunen. Tröskeln räknas om för varje val: i kommunvalet klarar
+nio partier den &ndash; M, S, SD, C, L, KD, MP, Kungsbackaborna och V
+&ndash; och i region- och riksdagsvalet de åtta riksdagspartierna.
+Kungsbackaborna ställer inte upp i riksdagsvalet, och stannar under
+tröskeln i regionvalet (2,3&nbsp;% som mest, 2010). I kommunvalet Vänsterpartiet är det som ligger närmast kanten
 (3,29&nbsp;% 2022 och 3,02&nbsp;% 2026). De nitton som inte klarar det
 läggs i `ÖVR` tillsammans med källornas egen ÖVR-post, så att summan av
 partierna fortfarande blir antalet giltiga röster &ndash; det kontrolleras
@@ -207,14 +248,21 @@ under tröskeln har någon gång gått över den i ett distrikt: **Din Förening
 fick 4,3&nbsp;% i Fjärås Södra 2010** (kommunen: 1,26&nbsp;%). Näst störst
 bland de bortvikta är SPI Välfärden med 2,92&nbsp;% i Tingberget 2010.
 Samtliga partiers röster ligger kvar oavkortat i
-`data/kommunval/<år>.json`; det är bara den byggda `docs/data-kommunval.json`
-som viker ihop dem.
+`data/<valets mapp>/<år>.json`; det är bara de byggda
+`docs/data-*.json` som viker ihop dem.
 
 **Valdistrikten ritas om mellan valen**, och det är den verkliga gränsen
 för hur långt bakåt en trend går att läsa &ndash; inte tillgången på data.
 Kungsbacka hade 41 valdistrikt 2010, 43 år 2018 och 46 i dag.
 Valmyndigheten publicerar själv sin bedömning av vilka distrikt som går
-att jämföra, och den bedömningen används &ndash; aldrig distriktets namn:
+att jämföra, och den bedömningen används &ndash; aldrig distriktets namn.
+Den hör till distrikten och inte till valet, och ligger därför för sig i
+`data/valdistrikt/jamforbarhet.json`, gemensam för de tre valen. Att den
+verkligen säger samma sak i alla tre kontrolleras hellre än antas: de två
+övergångar som räknas fram ur resultatfilerna (2010&rarr;2014 och
+2022&rarr;2026) jämförs mellan valen, och skiljer de sig avbryts
+hämtningen. Detsamma gäller härkomsten i
+`data/valdistrikt/harkomst.json`, som är ren geografi.
 
 | Övergång | Källa | Jämförbara |
 |---|---|---|
@@ -242,19 +290,22 @@ sidan men ingår i kommunens siffror.
 
 **2026 är preliminärt.** Hämtskriptet läser
 `https://resultat.val.se/resultatfiler/val2026/index.md5` och tar den
-slutliga räkningen (`./s/kf/…`) om den finns, annars den preliminära
-(`./p/kf/…`). Den preliminära räkningen innehåller bara rapportpartier
+slutliga räkningen (`./s/…`) om den finns *och* omfattar Kungsbackas alla
+valdistrikt, annars den preliminära (`./p/…`). Det senare ledet behövs:
+riksdagsvalets slutliga fil täcker hela riket och publiceras så fort det
+första distriktet i landet är räknat, så den fanns med i indexet redan
+dagen efter valet med 15 av 6&nbsp;626 distrikt räknade &ndash; en fil som
+säger mindre om Kungsbacka än den preliminära gör. Den preliminära räkningen innehåller bara rapportpartier
 &ndash; de partier som väntas kunna ta mandat &ndash; och de sent inkomna
 förtidsrösterna och brevrösterna, som räknas på onsdagen efter valdagen,
 är inte med. Antalet röster är därför för lågt och andelarna kan ändras.
 Vilken räkning som ligger i filen står i `rakningstillfalle`, och sidan
 skriver ut det. Bytet till den slutliga räkningen sker inte av sig självt:
-kör om `hamta_kommunval.py` och `build_kommunval.py` när räkningen är
+kör om `hamta_valresultat.py` och `build_valresultat.py` när räkningen är
 fastställd.
 
-**Äldre val än 2010** finns, men togs inte med. Per valdistrikt går
-kommunvalet att få tillbaka till 2006, då i ett fjärde format (en
-XML-fil per kommun,
+**Äldre val än 2010** finns, men togs inte med. Per valdistrikt går valen
+att få tillbaka till 2006, då i ett fjärde format (en XML-fil per kommun,
 `https://historik.val.se/val/val2006/slutlig/xml/slutresultat_1384K.xml`).
 2002 och tidigare finns inte som rådata per valdistrikt hos
 Valmyndigheten &ndash; bara som webbsidor på riks- och länsnivå.

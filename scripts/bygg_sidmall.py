@@ -47,7 +47,7 @@ MENY = [
     ]),
     ("Valen", [
         ("fortidsrostning.html", "Förtidsröstningen 2026"),
-        ("kommunval.html", "Valresultat per distrikt"),
+        ("valresultat.html", "Valresultat per distrikt"),
     ]),
     ("Varberg", [
         ("varberg-befolkningsprognos.html", "Hela befolkningen"),
