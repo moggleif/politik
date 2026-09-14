@@ -29,20 +29,15 @@ Körs:  python3 scripts/hamta_rostberattigade.py
 """
 
 import json
-import ssl
 import sys
-import urllib.request
-import xml.etree.ElementTree as ET
-import zipfile
 from collections import defaultdict
 from datetime import date
-from io import BytesIO
 from pathlib import Path
+
+from val import RIKET, distriktskod, hamta, kolumn, las_blad, omraden_for
 
 ROT = Path(__file__).resolve().parent.parent
 UT = ROT / "data" / "fortidsroster" / "rostberattigade.json"
-
-RIKET = "00"
 
 KALLOR = {
     2026: {
@@ -60,74 +55,6 @@ KALLOR = {
         "blad": "roster_RD",
     },
 }
-
-NS = {
-    "m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
-    "r": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
-}
-
-
-def hamta(url: str) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": "kungsbacka-i-siffror"})
-    with urllib.request.urlopen(req, timeout=300,
-                                context=ssl.create_default_context()) as resp:
-        return resp.read()
-
-
-def blad_sokvag(z: zipfile.ZipFile, namn: str) -> str:
-    rels = {r.get("Id"): r.get("Target")
-            for r in ET.fromstring(z.read("xl/_rels/workbook.xml.rels"))}
-    for s in ET.fromstring(z.read("xl/workbook.xml")).find("m:sheets", NS):
-        if s.get("name") == namn:
-            mal = rels[s.get(f"{{{NS['r']}}}id")]
-            return mal.lstrip("/") if mal.startswith("/") else "xl/" + mal
-    sys.exit(f"Bladet {namn!r} finns inte i filen")
-
-
-def las_blad(raa: bytes, namn: str):
-    """Raderna i ett blad som listor av strängar (None för tom cell)."""
-    z = zipfile.ZipFile(BytesIO(raa))
-    strangar = []
-    if "xl/sharedStrings.xml" in z.namelist():
-        for si in ET.fromstring(z.read("xl/sharedStrings.xml")).findall("m:si", NS):
-            strangar.append("".join(t.text or "" for t in si.iter(f"{{{NS['m']}}}t")))
-    rader = []
-    for _, elem in ET.iterparse(z.open(blad_sokvag(z, namn))):
-        if elem.tag != f"{{{NS['m']}}}row":
-            continue
-        rad = []
-        for c in elem.findall("m:c", NS):
-            v = c.find("m:v", NS)
-            if v is not None:
-                rad.append(strangar[int(v.text)] if c.get("t") == "s" else v.text)
-            elif c.get("t") == "inlineStr":
-                rad.append("".join(t.text or "" for t in c.iter(f"{{{NS['m']}}}t")))
-            else:
-                rad.append(None)
-        rader.append(rad)
-        elem.clear()
-    return rader
-
-
-def kolumn(rubriker, namn):
-    rensade = [(r or "").strip() for r in rubriker]
-    if namn not in rensade:
-        sys.exit(f"Kolumnen {namn!r} saknas; rubriker: {rensade}")
-    return rensade.index(namn)
-
-
-def distriktskod(cell) -> str:
-    """Valdistriktskoden som sträng, eller "" för rader som inte är
-    distrikt (summeringsrader, tomma rader). Riktiga koder är sex siffror
-    (uppsamlingsdistrikt) eller åtta (valdistrikt)."""
-    kod = (cell or "").strip()
-    return kod if kod.isdigit() and len(kod) in (6, 8) else ""
-
-
-def omraden_for(kod: str):
-    """Kommun, län och rike som distriktet räknas till."""
-    return kod[:4], kod[:2], RIKET
-
 
 def summera(per_distrikt: dict) -> dict:
     """{distriktskod: {fält: tal}} -> {områdeskod: {fält: summa, valdistrikt: n}}.
