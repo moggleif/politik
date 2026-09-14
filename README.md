@@ -171,6 +171,9 @@ Valmyndighetens öppna data.
   valdistrikt som helst, fritt kombinerade, och se dem som en grupp mot
   kommunen i övrigt; byt parti, se förändringen mellan två val distrikt
   för distrikt, och ställ alla partier bredvid varandra i samma område.
+  Längst ned får dessutom vart och ett av de markerade distrikten ett
+  eget diagram med hela partifältet, alla med samma y-axel så att
+  bilderna går att jämföra med ögat.
   Vyn följer med i adressen:
   [`?parti=m&distrikt=innerstaden,hede`](https://moggleif.github.io/politik/kommunval.html?parti=m&distrikt=innerstaden,hede).
 
@@ -188,7 +191,10 @@ Valmyndighetens öppna data.
   påstår är jämförbart, och en övergång de underkänner ritas med
   streckad linje i stället för att döljas. Den bedömningen är strängare
   än namnen antyder: elva distrikt underkänns mellan 2018 och 2022, sju
-  av dem med oförändrat namn.
+  av dem med oförändrat namn. Ett distrikt som ritades upp först senare
+  har ingenting att visa de tidigare valen; då beskärs x-axeln till de
+  val distriktet fanns, och vilka val som inte visas står under
+  diagrammet.
 
 Hur allting hämtas, räknas och kan reproduceras beskrivs på
 [metodsidan](https://moggleif.github.io/politik/metod.html).
