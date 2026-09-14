@@ -103,6 +103,7 @@
   }
 
   function valtParti() { return el("valj-parti").value; }
+  function valtEnskilt() { return el("valj-distrikt").value; }
   function valtMatt() { return el("valj-matt").value; }
   function valdOvergang() { return el("valj-jamfor").value; }
 
@@ -340,6 +341,42 @@
       ? talSv(v) + " röster" : talSv(v, 1) + " %";
   }
 
+  /* Två skilda skäl till att en linje bryts, och de får inte blandas
+     ihop: antingen fanns valdistriktet inte det året, eller så fanns det
+     men Valmyndigheten anser inte att det går att jämföra. Gruppregeln
+     hör bara hemma där flera distrikt summeras. */
+  function brottsNoter(slugar, medGrupp) {
+    var saknade = [], omritade = [], noter = [];
+    slugar.map(distriktFor).filter(Boolean).forEach(function (d) {
+      arStr().forEach(function (a) {
+        if (d.giltiga[a] === null || d.giltiga[a] === undefined) {
+          saknade.push(d.namn + " " + a);
+        }
+      });
+      data.overgangar.forEach(function (o) {
+        var delar = o.split("-");
+        if (d.jamforbart[o]) return;
+        if (d.giltiga[delar[0]] === null || d.giltiga[delar[0]] === undefined ||
+            d.giltiga[delar[1]] === null || d.giltiga[delar[1]] === undefined) {
+          return;
+        }
+        omritade.push(d.namn + " " + visaOvergang(o));
+      });
+    });
+    if (saknade.length) {
+      noter.push("Avbrott i linjen: valdistriktet fanns inte det året (" +
+        esc(saknade.join(", ")) + ")." +
+        (medGrupp ? " Gruppens linje ritas bara de år alla markerade " +
+          "distrikt finns, eftersom summan annars inte är gruppen." : ""));
+    }
+    if (omritade.length) {
+      noter.push("Streckad linje: Valmyndigheten anser inte att distriktet " +
+        "går att jämföra mellan de två valen, eftersom gränserna ritades om (" +
+        esc(omritade.join(", ")) + ").");
+    }
+    return noter;
+  }
+
   function ritaAndel() {
     var parti = valtParti();
     var slugar = valdaSlugar();
@@ -383,37 +420,8 @@
         "gruppen och kommunen. Markera högst " + MAX_LINJER +
         " distrikt för att se dem var för sig.");
     }
-    /* Två skilda skäl till att en linje bryts, och de får inte blandas
-       ihop: antingen fanns valdistriktet inte det året, eller så fanns
-       det men Valmyndigheten anser inte att det går att jämföra. */
-    var saknade = [], omritade = [];
-    slugar.map(distriktFor).forEach(function (d) {
-      arStr().forEach(function (a) {
-        if (d.giltiga[a] === null || d.giltiga[a] === undefined) {
-          saknade.push(d.namn + " " + a);
-        }
-      });
-      data.overgangar.forEach(function (o) {
-        var delar = o.split("-");
-        if (d.jamforbart[o]) return;
-        if (d.giltiga[delar[0]] === null || d.giltiga[delar[0]] === undefined ||
-            d.giltiga[delar[1]] === null || d.giltiga[delar[1]] === undefined) {
-          return;
-        }
-        omritade.push(d.namn + " " + visaOvergang(o));
-      });
-    });
-    if (saknade.length) {
-      noter.push("Avbrott i linjen: valdistriktet fanns inte det året (" +
-        esc(saknade.join(", ")) + "). Gruppens linje ritas bara de år alla " +
-        "markerade distrikt finns, eftersom summan annars inte är gruppen.");
-    }
-    if (omritade.length) {
-      noter.push("Streckad linje: Valmyndigheten anser inte att distriktet " +
-        "går att jämföra mellan de två valen, eftersom gränserna ritades om (" +
-        esc(omritade.join(", ")) + ").");
-    }
-    K.sattDataNot("not-andel", noter.join(" "));
+    K.sattDataNot("not-andel",
+      noter.concat(brottsNoter(slugar, true)).join(" "));
   }
 
   /* ---------- Diagram 2: förändringen mellan två val ---------- */
@@ -519,6 +527,59 @@
     el("rubrik-partier").textContent =
       "Hur har partierna gått i " +
       (serie.antalDistrikt ? "det markerade området" : "hela kommunen") + "?";
+  }
+
+  /* ---------- Diagram 4: partierna i ett enskilt distrikt ----------
+     Diagram 3 svarar på hur partierna gått i det markerade området, och
+     summerar då ihop distrikten. Den här frågan är den motsatta: hur ser
+     partifältet ut i ett distrikt, ett i taget. Distriktet väljs för sig
+     och behöver inte vara markerat ovanför – den som vill jämföra två
+     distrikt byter i reglaget i stället för att kryssa om hela sidan.
+
+     Det valda partiet är sidans ämne också här: det ritas tjockt och i
+     full färg, de andra blekt och tunt. Punkterna behåller sin fulla
+     färg – en linje på trettio procents opacitet går att se men inte att
+     peka ut, och det är punkterna legenden visar. */
+  var TJOCK_HUVUD = 4;
+  var TUNN_OVRIG = 1.5;
+
+  function ritaEnskilt() {
+    var d = distriktFor(valtEnskilt());
+    if (!d) return;
+    var serie = distriktSerie(d);
+    var huvud = valtParti();
+    var koder = data.partier.map(function (p) { return p.kod; })
+      .filter(function (k) { return valdaPartier[k]; });
+
+    var datasets = koder.map(function (kod, i) {
+      var stil = partiStil(i);
+      var arHuvud = kod === huvud;
+      var rad = linje(serie, kod, stil,
+        arHuvud ? TJOCK_HUVUD : TUNN_OVRIG);
+      rad.label = partiNamn(kod);
+      rad.pointRadius = arHuvud ? 4 : 2;
+      if (!arHuvud) rad.borderColor = tonad(stil.farg);
+      return rad;
+    });
+
+    var chart = K.rita("diagram-enskilt", {
+      type: "line",
+      data: { labels: arStr(), datasets: datasets },
+      options: basOptions(yTitel(), formateraVarde)
+    }, HOJD);
+    vaxMedLegend(chart, HOJD);
+    K.aktiveraToning(chart, true);
+
+    el("rubrik-enskilt").textContent =
+      "Hur står " + partiNamn(huvud) + " mot de andra partierna i " +
+      d.namn + "?";
+
+    var noter = brottsNoter([d.slug], false);
+    if (!valdaPartier[huvud]) {
+      noter.unshift(esc(partiNamn(huvud)) + " är urkryssat i diagrammet ovanför " +
+        "och ritas därför inte heller här.");
+    }
+    K.sattDataNot("not-enskilt", noter.join(" "));
   }
 
   /* ---------- Tabellen ---------- */
@@ -669,6 +730,18 @@
     return koder.length ? koder.join(",") : null;
   }
 
+  /* Det enskilda diagrammets distrikt väljs för sig, men börjar där
+     blicken redan är: på det första markerade distriktet, och på det
+     första i listan när inget är markerat. Bär adressraden ett eget val
+     är det det som gäller, och då rör vi inte reglaget – kopplaValjare
+     har redan ställt det. Samma regel vid start som vid bakåt i
+     historiken, så att bakåtknappen ger samma vy som en ny laddning av
+     samma adress. */
+  function stallEnskiltForval() {
+    if (K.urlLas("enskilt")) return;
+    el("valj-distrikt").value = valdaSlugar()[0] || data.distrikt[0].slug;
+  }
+
   function byggDistriktRutor() {
     var plats = el("distriktval-rutor");
     plats.innerHTML = data.distrikt.map(function (d) {
@@ -708,6 +781,7 @@
       K.urlSatt({ partier: urlPartierVarde() });
       speglaPartiRutor();
       ritaPartier();
+      ritaEnskilt();
     });
   }
 
@@ -737,6 +811,7 @@
     ritaAndel();
     ritaForandring();
     ritaPartier();
+    ritaEnskilt();
     ritaTabell();
     kortSagt();
   }
@@ -842,13 +917,20 @@
     laesUrlDistrikt();
     laesUrlPartier();
 
+    K.fyllValjare(el("valj-distrikt"),
+      data.distrikt.map(function (d) { return d.slug; }),
+      function (slug) { return distriktFor(slug).namn; });
+    stallEnskiltForval();
+
     K.kopplaValjare(el("valj-parti"), "parti", ritaAllt);
     K.kopplaValjare(el("valj-matt"), "matt", ritaAllt);
     K.kopplaValjare(el("valj-jamfor"), "jamfor", ritaAllt);
+    K.kopplaValjare(el("valj-distrikt"), "enskilt", ritaEnskilt);
 
     K.urlLyssna(function () {
       laesUrlDistrikt();
       laesUrlPartier();
+      stallEnskiltForval();
       ritaAllt();
     });
 
@@ -864,7 +946,8 @@
     });
 
     ["valjarrad", "sektion-distrikt", "sektion-andel", "sektion-forandring",
-      "sektion-partier", "sektion-tabell", "sektion-kallor", "sektion-om"]
+      "sektion-partier", "sektion-enskilt", "sektion-tabell", "sektion-kallor",
+      "sektion-om"]
       .forEach(function (id) { el(id).hidden = false; });
 
     K.visaMeta({

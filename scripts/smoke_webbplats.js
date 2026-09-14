@@ -44,6 +44,9 @@ const DIAGRAMSIDOR = [
   "kommunval.html?parti=m&distrikt=anneberg,bjorkris,fjaras-norra,fjaras-sodra," +
     "fors,frillesas-kust,gottskar,hammero,innerstaden,hede",
   "kommunval.html?parti=sd&distrikt=alla",
+  /* Det enskilda distriktets partidiagram, med ett distrikt som inte är
+     markerat ovanför – reglaget står för sig. */
+  "kommunval.html?parti=sd&enskilt=onsala-kyrka",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
 
