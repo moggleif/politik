@@ -30,8 +30,11 @@
 
   /* Så många distriktslinjer går att läsa i samma bild. Över det ritas
      bara gruppen och kommunen — 46 linjer är ingen bild, det är ett
-     garnnystan. */
-  var MAX_LINJER = 8;
+     garnnystan. Gränsen går vid tolv och inte vid palettens åtta färger:
+     den som följer en hel ort kryssar i tio eller elva distrikt, och ska
+     då se tio eller elva linjer. Se distriktStil för hur det nionde till
+     tolfte distriktet skiljs från de åtta första. */
+  var MAX_LINJER = 12;
 
   /* Nio partier har någon gång nått över tre procent i Kungsbacka, och
      alla nio ska kunna ritas samtidigt: att som förval utelämna det
@@ -105,6 +108,22 @@
 
   /* "2022-2026" är nyckeln i datafilen; tankstreck är bara för ögat. */
   function visaOvergang(o) { return o.replace("-", "–"); }
+
+  /* Distriktets stil i andelsdiagrammet: palettens åtta färger, och
+     därefter samma åtta färger en gång till med en annan punktform. Det
+     är punktformen och inte linjen som skiljer varven åt, för streckning
+     är upptagen på den här sidan: en streckad linje betyder "går inte
+     att jämföra" och får inte också betyda "andra varvet i paletten".
+     Punktformen står i legenden, så ett nionde distrikt går att peka ut
+     där även om färgen är samma som det första distriktets. */
+  var VARVPUNKT = ["circle", "triangle", "rectRot", "star"];
+
+  function distriktStil(i) {
+    return {
+      farg: K.PALETT[i % K.PALETT.length],
+      punkt: VARVPUNKT[Math.floor(i / K.PALETT.length) % VARVPUNKT.length]
+    };
+  }
 
   /* Partiets stil i partidiagrammet: palettens åtta färger, och svart
      med stjärnmarkör som nionde. Aldrig streckning – se MAX_PARTIER. */
@@ -254,13 +273,44 @@
       ? "Antal röster" : "Andel av de giltiga rösterna (%)";
   }
 
+  /* Legenden ligger under diagrammet och tar sin plats ur ritytan. Med
+     tolv markerade distrikt blir den flera rader hög – på en smal skärm
+     ännu fler – och ritytan hade då tryckts ihop tills linjerna låg på
+     varandra. Diagrammet växer i stället med legenden, så att bilden är
+     lika hög oavsett hur många distrikt som är markerade.
+
+     Legendens höjd går inte att räkna ut i förväg: den beror på
+     skärmbredden och på hur långa distriktsnamnen är. Den läses därför
+     av efter första ritningen. En höjdändring flyttar inga rader i
+     legenden – den är lika bred som förut – så en omläsning räcker. */
+  var HOJD = 420;
+  var LEGEND_EN_RAD = 34;
+
+  function vaxMedLegend(chart, bashojd) {
+    if (!chart.legend) return;
+    var wrap = chart.canvas.parentElement;
+    var onskad = bashojd +
+      Math.max(0, Math.round(chart.legend.height) - LEGEND_EN_RAD);
+    if (parseInt(wrap.style.height, 10) === onskad) return;
+    wrap.style.height = onskad + "px";
+    chart.resize();
+  }
+
   function basOptions(ytitel, formatera) {
     return {
       responsive: true,
       maintainAspectRatio: false,
       interaction: { mode: "nearest", intersect: false },
       plugins: {
-        legend: { display: true, position: "bottom" },
+        /* Legenden ritar punktformen och inte bara en färgruta. Med fler
+           serier än paletten har färger är formen det som skiljer det
+           nionde distriktet från det första, och då måste den synas
+           också i legenden. */
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: { usePointStyle: true, pointStyleWidth: 14 }
+        },
         tooltip: {
           callbacks: {
             label: function (it) {
@@ -303,7 +353,7 @@
       if (slugar.length <= MAX_LINJER) {
         slugar.forEach(function (s, i) {
           datasets.push(linje(distriktSerie(distriktFor(s)), parti,
-            K.serieStil(i), 2));
+            distriktStil(i), 2));
         });
       }
       if (slugar.length > 1) {
@@ -320,7 +370,8 @@
       type: "line",
       data: { labels: arStr(), datasets: datasets },
       options: basOptions(yTitel(), formateraVarde)
-    }, 420);
+    }, HOJD);
+    vaxMedLegend(chart, HOJD);
     K.aktiveraToning(chart, true);
 
     el("rubrik-andel").textContent =
@@ -459,11 +510,11 @@
       return d;
     });
 
-    K.rita("diagram-partier", {
+    vaxMedLegend(K.rita("diagram-partier", {
       type: "line",
       data: { labels: arStr(), datasets: datasets },
       options: basOptions(yTitel(), formateraVarde)
-    }, 420);
+    }, HOJD), HOJD);
 
     el("rubrik-partier").textContent =
       "Hur har partierna gått i " +
@@ -760,6 +811,12 @@
         }).join(", ") +
         " och finns inte som egen rad, men ingår i kommunens siffror."
       : "");
+
+    el("forklaring-distriktval").textContent =
+      "Varje markerat distrikt får dessutom en egen linje i diagrammet " +
+      "nedanför, så länge högst " + MAX_LINJER + " distrikt är markerade. " +
+      "Fler linjer än så går inte att läsa i samma bild, och då ritas bara " +
+      "gruppen och kommunen.";
 
     el("om-uppdaterad").textContent =
       "Senast uppdaterad: " + data.senastUppdaterad + ".";
