@@ -234,22 +234,74 @@
     return arStr().map(function (a) { return varde(serie, parti, a); });
   }
 
+  /* ---------- Diagrammets fönster på valåren ----------
+     Ett valdistrikt som ritades upp först 2022 har ingenting att visa
+     2010, 2014 och 2018, och diagrammet blir då tre femtedelar tom yta
+     med linjerna hoptryckta i högerkanten. x-axeln beskärs därför till
+     de valår serierna faktiskt har punkter för.
+
+     Bara ändarna beskärs, aldrig ett år mitt i: ett hål inuti serien är
+     ett avbrott i linjen och ska synas som ett avbrott. Och beskärningen
+     sägs ut under diagrammet – en x-axel som börjar 2022 får inte läsas
+     som att valen dessförinnan saknades, bara för att distriktet gjorde
+     det. */
+
+  function helaFonstret() {
+    return { fran: 0, till: data.ar.length - 1 };
+  }
+
+  function fonsterFor(serier, koder) {
+    var a = arStr();
+    var fran = -1, till = -1;
+    a.forEach(function (year, i) {
+      var finns = serier.some(function (serie) {
+        return koder.some(function (kod) {
+          return varde(serie, kod, year) !== null;
+        });
+      });
+      if (!finns) return;
+      if (fran < 0) fran = i;
+      till = i;
+    });
+    return fran < 0 ? helaFonstret() : { fran: fran, till: till };
+  }
+
+  function helt(f) {
+    return f.fran === 0 && f.till === data.ar.length - 1;
+  }
+
+  function arIFonster(f) { return arStr().slice(f.fran, f.till + 1); }
+
+  function doldaAr(f) {
+    var a = arStr();
+    return a.slice(0, f.fran).concat(a.slice(f.till + 1));
+  }
+
+  function fonsterNot(f, ettDistrikt) {
+    if (helt(f)) return "";
+    return "Valen " + esc(doldaAr(f).join(", ")) + " visas inte i " +
+      "diagrammet: " + (ettDistrikt ? "valdistriktet fanns inte då."
+        : "inget av de markerade valdistrikten fanns då.");
+  }
+
   /* Streckad linje över de övergångar Valmyndigheten inte anser
      jämförbara. Chart.js frågar per segment; p0DataIndex är årsindexet
-     till vänster om segmentet. */
-  function brottSegment(serie) {
+     till vänster om segmentet – räknat i det beskurna fönstret, så
+     fönstrets startår läggs till innan övergången slås upp. */
+  function brottSegment(serie, forskjutning) {
     return {
       borderDash: function (ctx) {
-        var overgang = data.overgangar[ctx.p0DataIndex];
+        var overgang = data.overgangar[ctx.p0DataIndex + forskjutning];
         return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined;
       }
     };
   }
 
-  function linje(serie, parti, stil, tjock) {
+  function linje(serie, parti, stil, tjock, fonster) {
+    var f = fonster || helaFonstret();
     return {
       label: serie.namn,
-      data: serieData(serie, parti),
+      data: serieData(serie, parti).slice(f.fran, f.till + 1),
       borderColor: stil.farg,
       backgroundColor: stil.farg,
       pointBackgroundColor: stil.farg,
@@ -258,7 +310,7 @@
       pointRadius: 3,
       pointHoverRadius: 5,
       borderDash: stil.streck && stil.streck.length ? stil.streck : undefined,
-      segment: brottSegment(serie),
+      segment: brottSegment(serie, f.fran),
       spanGaps: false,
       tension: 0
     };
@@ -344,10 +396,15 @@
      ihop: antingen fanns valdistriktet inte det året, eller så fanns det
      men Valmyndigheten anser inte att det går att jämföra. Gruppregeln
      hör bara hemma där flera distrikt summeras. */
-  function brottsNoter(slugar, medGrupp) {
+  function brottsNoter(slugar, medGrupp, fonster) {
+    var f = fonster || helaFonstret();
+    var synligaAr = arIFonster(f);
     var saknade = [], omritade = [], noter = [];
     slugar.map(distriktFor).filter(Boolean).forEach(function (d) {
-      arStr().forEach(function (a) {
+      /* Bara år som står på x-axeln kan vara avbrott i en linje. Åren
+         utanför fönstret ritas inte alls, och räknas upp för sig i
+         fonsterNot. */
+      synligaAr.forEach(function (a) {
         if (d.giltiga[a] === null || d.giltiga[a] === undefined) {
           saknade.push(d.namn + " " + a);
         }
@@ -355,6 +412,9 @@
       data.overgangar.forEach(function (o) {
         var delar = o.split("-");
         if (d.jamforbart[o]) return;
+        if (synligaAr.indexOf(delar[0]) < 0 || synligaAr.indexOf(delar[1]) < 0) {
+          return;
+        }
         if (d.giltiga[delar[0]] === null || d.giltiga[delar[0]] === undefined ||
             d.giltiga[delar[1]] === null || d.giltiga[delar[1]] === undefined) {
           return;
@@ -381,30 +441,36 @@
     var slugar = valdaSlugar();
     var kommun = kommunSerie();
     var datasets = [];
+    /* Kommunens linje finns alla valår, så fönstret beskärs här bara när
+       den inte ritas – och det gör den alltid. Fönstret räknas ändå ut
+       på samma sätt som i de andra diagrammen, så att en framtida
+       ändring av vilka serier som ritas inte glöms bort här. */
+    var f = fonsterFor([kommun], [parti]);
 
     if (slugar.length) {
       /* Kommunen som grå referens bakom de markerade distrikten. */
       datasets.push(linje(kommun, parti,
-        { farg: FARG_KOMMUN, punkt: "rectRot" }, 2));
+        { farg: FARG_KOMMUN, punkt: "rectRot" }, 2, f));
       if (slugar.length <= MAX_LINJER) {
         slugar.forEach(function (s, i) {
           datasets.push(linje(distriktSerie(distriktFor(s)), parti,
-            distriktStil(i), 2));
+            distriktStil(i), 2, f));
         });
       }
       if (slugar.length > 1) {
         datasets.push(linje(gruppSerie(slugar), parti,
-          { farg: FARG_GRUPP, punkt: "circle" }, 3.5));
+          { farg: FARG_GRUPP, punkt: "circle" }, 3.5, f));
       }
     } else {
       /* Utan markering är kommunen inte längre en referens i bakgrunden
          utan sidans ämne, och ritas då i sajtens blå. */
-      datasets.push(linje(kommun, parti, { farg: FARG.blaMork, punkt: "circle" }, 3));
+      datasets.push(linje(kommun, parti,
+        { farg: FARG.blaMork, punkt: "circle" }, 3, f));
     }
 
     var chart = K.rita("diagram-andel", {
       type: "line",
-      data: { labels: arStr(), datasets: datasets },
+      data: { labels: arIFonster(f), datasets: datasets },
       options: basOptions(yTitel(), formateraVarde)
     }, HOJD);
     vaxMedLegend(chart, HOJD);
@@ -420,7 +486,7 @@
         " distrikt för att se dem var för sig.");
     }
     K.sattDataNot("not-andel",
-      noter.concat(brottsNoter(slugar, true)).join(" "));
+      noter.concat(brottsNoter(slugar, true, f)).join(" "));
   }
 
   /* ---------- Diagram 2: förändringen mellan två val ---------- */
@@ -511,21 +577,27 @@
     var serie = omradet();
     var koder = data.partier.map(function (p) { return p.kod; })
       .filter(function (k) { return valdaPartier[k]; });
+    /* Här finns ingen kommunlinje i bakgrunden: består området av
+       distrikt som ritades upp först 2022 har diagrammet ingenting att
+       visa dessförinnan, och x-axeln beskärs till de val området fanns. */
+    var f = fonsterFor([serie], koder);
     var datasets = koder.map(function (kod, i) {
-      var d = linje(serie, kod, partiStil(i), 2);
+      var d = linje(serie, kod, partiStil(i), 2, f);
       d.label = partiNamn(kod);
       return d;
     });
 
     vaxMedLegend(K.rita("diagram-partier", {
       type: "line",
-      data: { labels: arStr(), datasets: datasets },
+      data: { labels: arIFonster(f), datasets: datasets },
       options: basOptions(yTitel(), formateraVarde)
     }, HOJD), HOJD);
 
     el("rubrik-partier").textContent =
       "Hur har partierna gått i " +
       (serie.antalDistrikt ? "det markerade området" : "hela kommunen") + "?";
+
+    K.sattDataNot("not-partier", fonsterNot(f, serie.antalDistrikt === 1));
   }
 
   /* ---------- Diagram 4: partierna i vart och ett av distrikten ----------
@@ -606,11 +678,11 @@
     return kvot > 5 ? tiopotens : (kvot > 2 ? tiopotens / 2 : tiopotens / 5);
   }
 
-  function gemensamSkala(serier, koder) {
+  function gemensamSkala(serier, koder, fonster) {
     var min = Infinity, max = -Infinity;
     serier.forEach(function (serie) {
       koder.forEach(function (kod) {
-        arStr().forEach(function (a) {
+        arIFonster(fonster || helaFonstret()).forEach(function (a) {
           var v = varde(serie, kod, a);
           if (v === null) return;
           if (v < min) min = v;
@@ -644,12 +716,13 @@
     return opt;
   }
 
-  function smaDatasets(serie, koder) {
+  function smaDatasets(serie, koder, fonster) {
     var huvud = valtParti();
     return koder.map(function (kod, i) {
       var stil = partiStil(i);
       var arHuvud = kod === huvud;
-      var rad = linje(serie, kod, stil, arHuvud ? TJOCK_HUVUD : TUNN_OVRIG);
+      var rad = linje(serie, kod, stil,
+        arHuvud ? TJOCK_HUVUD : TUNN_OVRIG, fonster);
       rad.label = partiNamn(kod);
       rad.pointRadius = arHuvud ? 4 : 2;
       if (!arHuvud) rad.borderColor = tonad(stil.farg);
@@ -697,7 +770,12 @@
         " distrikt för att se partifältet i vart och ett av dem.");
     } else {
       var serier = lista.map(distriktSerie);
-      var skala = gemensamSkala(serier, koder);
+      /* Ett gemensamt fönster och inte ett per distrikt: diagrammen ska
+         gå att lägga bredvid varandra, och då måste 2018 ligga på samma
+         ställe i alla. Beskärningen tar därför bara de valår då inget av
+         de visade distrikten fanns. */
+      var f = fonsterFor(serier, koder);
+      var skala = gemensamSkala(serier, koder, f);
       rutnat.innerHTML = lista.map(function (d) {
         return '<div class="kort smadiagram"><h3>' + esc(d.namn) + "</h3>" +
           '<div class="diagram-wrap"><canvas id="diagram-enskilt-' +
@@ -708,13 +786,18 @@
         var id = "diagram-enskilt-" + d.slug;
         var chart = K.rita(id, {
           type: "line",
-          data: { labels: arStr(), datasets: smaDatasets(serier[i], koder) },
+          data: {
+            labels: arIFonster(f),
+            datasets: smaDatasets(serier[i], koder, f)
+          },
           options: smaOptions(skala)
         }, SMA_HOJD);
         smadiagram.push(id);
         K.aktiveraToning(chart, false);
       });
-      noter = brottsNoter(lista.map(function (d) { return d.slug; }), false);
+      noter = brottsNoter(lista.map(function (d) { return d.slug; }), false, f);
+      var fnot = fonsterNot(f, lista.length === 1);
+      if (fnot) noter.unshift(fnot);
       if (!valdaPartier[huvud]) {
         noter.unshift(esc(partiNamn(huvud)) + " är urkryssat i diagrammet " +
           "ovanför och ritas därför inte heller här.");
