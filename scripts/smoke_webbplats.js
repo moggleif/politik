@@ -39,6 +39,10 @@ const DIAGRAMSIDOR = [
   /* Samma sida med markerade distrikt och ett annat parti – reglagen
      läses ur frågesträngen, så en delad länk ska ge samma vy. */
   "kommunval.html?parti=s&distrikt=innerstaden,hede&matt=antal",
+  /* Tio markerade distrikt: fler än palettens åtta färger, och ska ändå
+     ritas var för sig. */
+  "kommunval.html?parti=m&distrikt=anneberg,bjorkris,fjaras-norra,fjaras-sodra," +
+    "fors,frillesas-kust,gottskar,hammero,innerstaden,hede",
   "kommunval.html?parti=sd&distrikt=alla",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
