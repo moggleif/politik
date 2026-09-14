@@ -1,6 +1,17 @@
-/* Valresultat per valdistrikt i Kungsbacka — kommunvalen 2010–2026.
-   Läser docs/data-kommunval.json, byggd av scripts/build_kommunval.py ur
+/* Valresultat per valdistrikt i Kungsbacka — de tre valen 2010–2026.
+   Läser docs/data-kommunval.json, docs/data-regionval.json eller
+   docs/data-riksdagsval.json, byggda av scripts/build_valresultat.py ur
    Valmyndighetens öppna data.
+
+   Samma valdistrikt röstar i tre val samma dag, och väljaren högst upp
+   byter vilket av dem sidan visar. De tre datafilerna är byggda likadant
+   och har samma valdistrikt med samma slugar, så en markerad grupp
+   distrikt följer med över bytet – det är hela poängen med att lägga de
+   tre valen på en sida i stället för tre. Partierna kan däremot skilja
+   sig: ett lokalt parti finns i kommunvalet men inte på
+   riksdagsvalsedeln, och det valda partiet faller då tillbaka på
+   förvalet. Varje fil bär sitt eget namn på valet, och all text som
+   nämner valet läses därifrån.
 
    Datafilen innehåller antal röster, aldrig andelar. Andelarna räknas
    här, och skälet är sidans viktigaste reglage: användaren kryssar i en
@@ -26,7 +37,26 @@
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
 
-  var DATAFIL = "data-kommunval.json";
+  /* De tre valen, i den ordning väljaren visar dem. Etiketterna står
+     här och inte i datafilerna: sidan måste kunna rita väljaren innan
+     någon fil är inläst. Allt annat om valet – dess namn i löpande text
+     – kommer ur den inlästa filen. */
+  var VALEN = [
+    { nyckel: "kommun", etikett: "Kommunfullmäktige",
+      fil: "data-kommunval.json", mapp: "kommunval" },
+    { nyckel: "region", etikett: "Regionfullmäktige",
+      fil: "data-regionval.json", mapp: "regionval" },
+    { nyckel: "riksdag", etikett: "Riksdagen",
+      fil: "data-riksdagsval.json", mapp: "riksdagsval" }
+  ];
+
+  /* Okänt eller saknat värde i adressraden ger kommunvalet. */
+  function valetFor(nyckel) {
+    for (var i = 0; i < VALEN.length; i++) {
+      if (VALEN[i].nyckel === nyckel) return VALEN[i];
+    }
+    return VALEN[0];
+  }
 
   /* Så många distriktslinjer går att läsa i samma bild. Över det ritas
      bara gruppen och kommunen — 46 linjer är ingen bild, det är ett
@@ -944,7 +974,8 @@
     }).join("");
 
     el("tabell-distrikt").innerHTML =
-      "<caption>" + esc(partiNamn(parti)) + " i kommunvalet, per valdistrikt. " +
+      "<caption>" + esc(partiNamn(parti)) + " i " + esc(data.valKort) +
+      ", per valdistrikt. " +
       "– betyder att distriktet inte fanns eller inte går att jämföra. " +
       "Tabellen visar distriktens egna röster; indikatorerna för de år ett " +
       "distrikt inte fanns finns bara i diagrammen." +
@@ -971,7 +1002,7 @@
     if (nu !== null) {
       var text = "<strong>" + namn + "</strong> fick " +
         (valtMatt() === "antal" ? talSv(nu) + " röster" : talSv(nu, 1) + " %") +
-        " i " + omr + " i kommunvalet " + senaste;
+        " i " + omr + " i " + esc(data.valKort) + " " + senaste;
       if (da !== null) {
         text += ", " + (valtMatt() === "antal"
           ? tecken(nu - da) + " röster" : procentenheter(nu - da)) +
@@ -1183,8 +1214,8 @@
       "som Valmyndighetens egna filer använder &ndash; så att partiernas " +
       "röster fortfarande summerar till antalet giltiga. Deras siffror " +
       "finns kvar oavkortat i " +
-      '<a href="https://github.com/moggleif/politik/tree/main/data/kommunval">' +
-      "datat i repot</a>.";
+      '<a href="https://github.com/moggleif/politik/tree/main/data/' +
+      esc(valetFor(data.valNyckel).mapp) + '">datat i repot</a>.';
 
     var prel = data.rakningstillfalle || {};
     var preliminara = Object.keys(prel).filter(function (a) {
@@ -1224,31 +1255,137 @@
       "Senast uppdaterad: " + data.senastUppdaterad + ".";
   }
 
-  /* ---------- Start ---------- */
+  /* ---------- Byte av val ----------
+     Sidan är en och samma för de tre valen, och bytet ska kännas som ett
+     reglage bland de andra: markerade distrikt, mått och jämförelseår
+     står kvar, och bara rösterna byts. Datafilen hämtas därför i stället
+     för att sidan laddas om.
 
-  function init(hamtat) {
-    data = hamtat;
+     Valdistrikten är desamma i de tre filerna, så markeringen behöver
+     inte räddas över – den läses ur adressraden precis som vanligt.
+     Partierna är det inte: Kungsbackaborna finns i kommunvalet men inte
+     på riksdagsvalsedeln, och ett valt parti som inte finns i det nya
+     valet faller därför tillbaka på förvalet. */
 
-    /* Väljarnas värden är partikoden respektive övergångsnyckeln, som
-       koden räknar med och adressraden bär; texten är det som läses. */
+  var FORVALT_PARTI = "M";
+
+  function finnsPartiet(kod) {
+    for (var i = 0; i < data.partier.length; i++) {
+      if (data.partier[i].kod === kod) return true;
+    }
+    return false;
+  }
+
+  /* Partiväljaren fylls om vid varje val. Adressraden går först – den är
+     det som bakåtknappen ställer tillbaka – sedan det parti som redan var
+     valt, sist förvalet. */
+  function fyllPartivaljare(tidigareParti) {
     K.fyllValjare(el("valj-parti"),
       data.partier.map(function (p) { return p.kod; }), partiNamn);
-    /* Moderaterna är förvalt parti; sidan är i övrigt partineutral. */
-    el("valj-parti").value = "M";
+    var urUrl = K.urlLas("parti");
+    var kandidater = [];
+    data.partier.forEach(function (p) {
+      if (urUrl && K.slug(p.kod) === urUrl) kandidater.push(p.kod);
+    });
+    kandidater.push(tidigareParti, FORVALT_PARTI);
+    for (var i = 0; i < kandidater.length; i++) {
+      if (kandidater[i] && finnsPartiet(kandidater[i])) {
+        el("valj-parti").value = kandidater[i];
+        return;
+      }
+    }
+    el("valj-parti").value = data.partier[0].kod;
+  }
 
+  /* Allt som hänger på vilken datafil som lästs in. Körs vid start och
+     vid varje byte av val. Ritar inte – den som anropar gör det, så att
+     reglagen hinner ställas in efter adressraden först. */
+  function visaValet(hamtat, tidigareParti) {
+    data = hamtat;
+    fyllPartivaljare(tidigareParti);
+
+    var forraJamfor = el("valj-jamfor").value;
     K.fyllValjare(el("valj-jamfor"), data.overgangar, visaOvergang);
-    el("valj-jamfor").value = data.overgangar[data.overgangar.length - 1];
+    el("valj-jamfor").value = data.overgangar.indexOf(forraJamfor) >= 0
+      ? forraJamfor : data.overgangar[data.overgangar.length - 1];
 
     byggDistriktRutor();
     byggPartiRutor();
     laesUrlDistrikt();
     laesUrlPartier();
 
-    K.kopplaValjare(el("valj-parti"), "parti", ritaAllt);
-    K.kopplaValjare(el("valj-matt"), "matt", ritaAllt);
-    K.kopplaValjare(el("valj-jamfor"), "jamfor", ritaAllt);
+    el("valj-val").value = data.valNyckel;
+    el("andel-inledning").textContent =
+      "Andel av de giltiga rösterna i " + data.valKort + ", val för val.";
+    el("diagram-andel").setAttribute("aria-label",
+      "Diagram: partiets andel av rösterna i " + data.valKort +
+      " per valdistrikt, 2010 till 2026");
+    el("diagram-forandring").setAttribute("aria-label",
+      "Diagram: förändring i procentenheter per valdistrikt mellan två " +
+      data.valKort.replace(/et$/, ""));
 
-    K.urlLyssna(function () {
+    K.visaMeta({
+      kalla: "Valmyndigheten",
+      period: data.valenKort + " " + ar()[0] + "–" + ar()[ar().length - 1],
+      senaste: String(ar()[ar().length - 1]),
+      hamtad: data.senastUppdaterad
+    });
+    visaKallor();
+    visaOm();
+  }
+
+  /* Hämtar ett annat vals datafil. `skrivUrl` är falskt när bytet kommer
+     ur adressraden själv – bakåt och framåt i webbläsaren – för då står
+     valet redan där, och en ny post i historiken hade ätit upp den post
+     användaren är på väg tillbaka till.
+
+     Går hämtningen inte igenom står det gamla valet kvar med sina
+     siffror, och väljaren ställs tillbaka: en halv sida av det ena valet
+     och en halv av det andra vore värre än ingenting. */
+  function byteAvVal(nyckel, skrivUrl) {
+    var val = valetFor(nyckel);
+    var tidigareParti = el("valj-parti").value;
+    fetch(val.fil).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    }).then(function (hamtat) {
+      if (skrivUrl) {
+        K.urlSatt({ val: val.nyckel === VALEN[0].nyckel ? null : val.nyckel });
+      }
+      visaValet(hamtat, tidigareParti);
+      ritaAllt();
+      /* Partiet kan ha bytts av bytet; adressraden ska visa det som
+         verkligen ritas. */
+      if (skrivUrl) K.urlSatt({ parti: K.slug(el("valj-parti").value) }, true);
+    }).catch(function (fel) {
+      el("valj-val").value = data.valNyckel;
+      K.visaStatus("<strong>Kunde inte byta val.</strong> Tekniskt fel: " +
+        esc(fel.message) + " (" + esc(val.fil) + "). " +
+        esc(data.valEtikett) + " visas fortfarande.");
+    });
+  }
+
+  /* ---------- Start ---------- */
+
+  function init(hamtat) {
+    K.fyllValjare(el("valj-val"),
+      VALEN.map(function (v) { return v.nyckel; }),
+      function (n) { return valetFor(n).etikett; });
+
+    el("valj-val").addEventListener("change", function () {
+      byteAvVal(el("valj-val").value, true);
+    });
+
+    /* En enda lyssnare för bakåt/framåt: byter adressraden val måste
+       datafilen hämtas om innan något ritas, och då ska markeringarna
+       inte hinna ritas med det gamla valets siffror först. */
+    K.urlLyssna(function (p) {
+      var nyckel = valetFor(p.get("val")).nyckel;
+      if (nyckel !== data.valNyckel) {
+        el("valj-val").value = nyckel;
+        byteAvVal(nyckel, false);
+        return;
+      }
       laesUrlDistrikt();
       laesUrlPartier();
       ritaAllt();
@@ -1270,18 +1407,20 @@
       "sektion-om"]
       .forEach(function (id) { el(id).hidden = false; });
 
-    K.visaMeta({
-      kalla: "Valmyndigheten",
-      period: "kommunvalen " + ar()[0] + "–" + ar()[ar().length - 1],
-      senaste: String(ar()[ar().length - 1]),
-      hamtad: data.senastUppdaterad
-    });
-    visaKallor();
-    visaOm();
+    visaValet(hamtat, null);
+
+    /* Reglagen kopplas till adressraden när de väl har sina alternativ:
+       kopplingen läser adressraden en gång vid start, och ett tomt
+       reglage hade inte haft något att matcha mot. */
+    K.kopplaValjare(el("valj-parti"), "parti", ritaAllt);
+    K.kopplaValjare(el("valj-matt"), "matt", ritaAllt);
+    K.kopplaValjare(el("valj-jamfor"), "jamfor", ritaAllt);
     ritaAllt();
   }
 
-  K.starta(DATAFIL, {
+  /* Vilket val sidan börjar i står i adressraden, så att en delad länk
+     ger samma vy. */
+  K.starta(valetFor(K.urlLas("val")).fil, {
     init: init,
     tomt: function (d) { return !d || !d.distrikt || !d.distrikt.length; },
     tomtText: "Valresultatet per valdistrikt är inte inläst ännu."

@@ -1,6 +1,6 @@
 """Gemensamt för skripten som hämtar ur Valmyndighetens öppna data.
 
-hamta_rostberattigade.py och hamta_kommunval.py läser båda Excel-filer
+hamta_rostberattigade.py och hamta_valresultat.py läser båda Excel-filer
 från val.se med enbart standardbiblioteket (zip + XML), så att inget extra
 beroende behövs. Här ligger det som betyder samma sak i alla filerna:
 hämtningen, xlsx-läsaren, kolumnuppslagningen, valdistriktskoden och
@@ -145,11 +145,12 @@ def omraden_for(kod: str):
 
 # ---------- Partier ----------
 
-# Partierna skrivs olika i de fem kommunvalen: 2010, 2014 och 2018 har en
-# kolumn per parti med förkortningen som rubrik, 2022 har en rad per parti
-# med hela partibeteckningen, och 2026 har både förkortning, beteckning och
-# partikod i sin JSON. Förkortningarna är sig lika hela vägen – också de
-# lokala ("Kbabo" står för Kungsbackaborna i alla fem valen) – så
+# Partierna skrivs olika i de femton resultatfilerna: 2010, 2014 och 2018
+# har en kolumn per parti med förkortningen som rubrik, 2022 har en rad per
+# parti med hela partibeteckningen, och 2026 har både förkortning,
+# beteckning och partikod i sin JSON. Förkortningarna är sig lika hela
+# vägen – också de lokala ("Kbabo" står för Kungsbackaborna i alla fem
+# valen) – så
 # förkortningen används som kanonisk nyckel, och beteckningarna översätts
 # hit. Samma roll som scripts/program.py har för gymnasieprogrammen.
 #
@@ -177,18 +178,30 @@ PARTIER = [
     ("DinF", "Din Förening", ("DinF", "Din F", "Din Förening")),
     ("PP", "Piratpartiet", ("PP", "Piratpartiet")),
     ("DD", "Direktdemokraterna", ("DD", "Direktdemokraterna")),
-    ("KrVp", "Kristna Värdepartiet", ("KrVp", "Kristna Värdepartiet")),
-    ("MoD", "MoD", ("MoD",)),
+    ("KrVp", "Kristna Värdepartiet",
+     ("KrVp", "KVp", "Kristna Värdepartiet")),
+    ("MoD", "MoD", ("MoD", "MD", "MoD - Mänskliga rättigheter och Demokrati")),
     ("NYANS", "Partiet Nyans", ("NYANS", "Partiet Nyans")),
     ("LPo", "Landsbygdspartiet Oberoende",
      ("LPo", "Landsbygdspartiet Oberoende")),
-    ("SKP", "Sveriges Kommunistiska Parti", ("SKP",)),
+    ("SKP", "Sveriges Kommunistiska Parti",
+     ("SKP", "SKP KOMMUNISTERNA", "Sveriges Kommunistiska Parti")),
     ("ENH", "Enhet", ("ENH", "Enhet")),
     ("KLP", "Klassiskt liberala partiet", ("KLP", "Klassiskt liberala partiet")),
-    ("VÄNDP", "Partiet Vändpunkt", ("VÄNDP", "Partiet Vändpunkt")),
-    ("BIP", "Basinkomstpartiet", ("BIP", "Basinkomstpartiet")),
+    ("VÄNDP", "Partiet Vändpunkt", ("VÄNDP", "PV", "Partiet Vändpunkt")),
+    ("BIP", "Basinkomstpartiet", ("BIP", "BASIP", "Basinkomstpartiet")),
     ("KNAPP", "Knapptryckarna", ("KNAPP", "Knapptryckarna")),
     ("OKP", "Ond Kyckling Partiet", ("OKP", "Ond Kyckling Partiet")),
+    # Bara i riksdags- och regionvalen. Där källan aldrig skriver ut
+    # partiets hela beteckning står förkortningen som namn, som för MoD.
+    ("NMR", "Nordiska motståndsrörelsen", ("NMR", "Nordiska motståndsrörelsen")),
+    ("S-FRP", "Sverige ut ur EU/Frihetliga Rättvisepartiet (FRP)",
+     ("S-FRP", "Sverige ut ur EU/Frihetliga Rättvisepartiet (FRP)")),
+    ("ER", "Enad Röst", ("ER", "Enad Röst")),
+    ("ÖrP", "Örebropartiet", ("ÖrP", "Örebropartiet")),
+    ("DjuP", "DjuP", ("DjuP",)),
+    ("NYREF", "NYREF", ("NYREF",)),
+    ("INI", "INI", ("INI",)),
 ]
 
 # Poster i källorna som inte är partier. ÖVR finns som egen kolumn eller
@@ -199,8 +212,9 @@ OGILTIGA = "OG"
 EJ_ANMALT = "OGEJ"
 
 ICKE_PARTI = {
-    "ÖVR": OVRIGA, "ÖVRIGA": OVRIGA, "övriga anmälda partier": OVRIGA,
-    "BLANK": BLANKA, "blanka röster": BLANKA,
+    "ÖVR": OVRIGA, "ÖVRIGA": OVRIGA, "OVR": OVRIGA,
+    "övriga anmälda partier": OVRIGA,
+    "BLANK": BLANKA, "BL": BLANKA, "blanka röster": BLANKA,
     "OG": OGILTIGA, "övriga ogiltiga": OGILTIGA,
     "OGEJ": EJ_ANMALT, "ej anmält deltagande": EJ_ANMALT,
 }

@@ -32,7 +32,11 @@ bedömt som jämförbara mellan 2018 och 2022 ska hamna på sig själva.
 Gör de inte det stämmer inte kartorna, rastreringen eller koderna, och
 skriptet avbryter hellre än att skriva en fil som ser rimlig ut.
 
-Skriver:  data/kommunval/harkomst.json
+Skriver:  data/valdistrikt/harkomst.json
+
+Härkomsten ligger under data/valdistrikt/ och inte i något av valens
+mappar: den är ren geografi och gäller därför lika i kommun-, region-
+och riksdagsvalet.
 
 Körs:  python3 scripts/hamta_harkomst.py
 Tar en dryg minut: rastreringen är ren python, och 2018 års shapefil är
@@ -49,7 +53,7 @@ from pathlib import Path
 from val import KOMMUN, hamta
 
 ROT = Path(__file__).resolve().parent.parent
-UT_MAPP = ROT / "data" / "kommunval"
+UT_MAPP = ROT / "data" / "valdistrikt"
 UT = UT_MAPP / "harkomst.json"
 
 OVERGANG = "2018-2022"
@@ -282,7 +286,7 @@ def kontrollera(harkomst: dict, jamforbarhet: dict) -> dict:
                 "Kartorna, koderna eller rastreringen stämmer inte.")
     if not egentraffar:
         raise SystemExit("Inget jämförbart distrikt att kontrollera metoden "
-                         "mot – kör hamta_kommunval.py först.")
+                         "mot – kör hamta_valresultat.py först.")
     egentraffar.sort()
     return {
         "jamforbaraDistrikt": len(egentraffar),

@@ -162,34 +162,43 @@ många som röstat &ndash; inte vad de röstat på.
   [`?omrade=hela-riket`](https://moggleif.github.io/politik/fortidsrostning.html?omrade=hela-riket)
 
 **Valresultat per valdistrikt** &ndash; vad väljarna röstade på, till
-skillnad från sidan ovan. Valet till kommunfullmäktige i Kungsbacka i de
-fem senaste valen, parti för parti och valdistrikt för valdistrikt, ur
-Valmyndighetens öppna data.
+skillnad från sidan ovan. Kommunfullmäktige, regionfullmäktige och
+riksdagen i Kungsbacka i de fem senaste valen, parti för parti och
+valdistrikt för valdistrikt, ur Valmyndighetens öppna data.
 
-- [Valresultat per valdistrikt](https://moggleif.github.io/politik/kommunval.html)
-  &ndash; kommunvalen 2010, 2014, 2018, 2022 och 2026. Kryssa i vilka
-  valdistrikt som helst, fritt kombinerade, och se dem som en grupp mot
-  kommunen i övrigt; byt parti, se förändringen mellan två val distrikt
-  för distrikt, och ställ alla partier bredvid varandra i samma område.
+- [Valresultat per valdistrikt](https://moggleif.github.io/politik/valresultat.html)
+  &ndash; valen 2010, 2014, 2018, 2022 och 2026. Välj högst upp vilket av
+  de tre valen sidan visar: samma valdistrikt röstar i alla tre samma dag,
+  så markeringen står kvar när valet byts och bara rösterna byts ut.
+  Kryssa i vilka valdistrikt som helst, fritt kombinerade, och se dem som
+  en grupp mot kommunen i övrigt; byt parti, se förändringen mellan två
+  val distrikt för distrikt, och ställ alla partier bredvid varandra i
+  samma område.
   Längst ned får dessutom vart och ett av de markerade distrikten ett
   eget diagram med hela partifältet, alla med samma y-axel så att
   bilderna går att jämföra med ögat. Fem distrikt fanns inte 2010, och
   för de valen ritas i stället siffrorna för det distrikt marken låg i
   &ndash; streckat och med ihålig punkt, som en indikator för området.
   Vyn följer med i adressen:
-  [`?parti=m&distrikt=innerstaden,hede`](https://moggleif.github.io/politik/kommunval.html?parti=m&distrikt=innerstaden,hede).
+  [`?val=riksdag&parti=m&distrikt=innerstaden,hede`](https://moggleif.github.io/politik/valresultat.html?val=riksdag&parti=m&distrikt=innerstaden,hede).
+
+  Hela sidan handlar om Kungsbacka: också riksdagsvalet är de röster som
+  lades här, inte rikets.
 
   Partier redovisas för sig om de någon gång nått **över 3&nbsp;%** av de
-  giltiga rösterna i kommunen. I Kungsbacka är det nio: de åtta
-  riksdagspartierna och Kungsbackaborna. De nitton övriga &ndash; som
-  tillsammans fick under en procent varje val &ndash; ligger samlade under
-  *övriga partier*, samma restpost som Valmyndighetens egna filer
-  använder, så att partiernas röster fortfarande summerar till antalet
-  giltiga. Deras siffror ligger kvar oavkortat i `data/kommunval/`.
+  giltiga rösterna i kommunen, räknat för varje val för sig. I kommunvalet
+  är det nio &ndash; de åtta riksdagspartierna och Kungsbackaborna &ndash;
+  och i region- och riksdagsvalet de åtta riksdagspartierna. Övriga ligger
+  samlade under *övriga partier*, samma restpost som Valmyndighetens egna
+  filer använder, så att partiernas röster fortfarande summerar till
+  antalet giltiga. Deras siffror ligger kvar oavkortat i
+  `data/kommunval/`, `data/regionval/` och `data/riksdagsval/`.
 
   Valdistrikten ritas om mellan valen: Kungsbacka hade 41 distrikt 2010
-  och 46 i dag. Valmyndighetens egen bedömning av vilka distrikt som går
-  att jämföra &ndash; inte distriktets namn &ndash; avgör vad sidan
+  och 46 i dag. Det gäller lika i de tre valen, så bedömningen ligger för
+  sig i `data/valdistrikt/` &ndash; och att den verkligen säger samma sak
+  i alla tre kontrolleras vid hämtningen. Valmyndighetens egen bedömning
+  av vilka distrikt som går att jämföra &ndash; inte distriktets namn &ndash; avgör vad sidan
   påstår är jämförbart, och en övergång de underkänner ritas med
   streckad linje i stället för att döljas. Den bedömningen är strängare
   än namnen antyder: elva distrikt underkänns mellan 2018 och 2022, sju
@@ -254,15 +263,16 @@ data/
                                 riket och Kungsbacka. Skrivs en gång och
                                 ändras inte (se gor_prognos.py)
   kommunval/<år>.json           Kommunvalets resultat per valdistrikt i
-                                Kungsbacka, parti för parti (2010, 2014,
-                                2018, 2022, 2026). Bara Kungsbackas rader
-                                ur Valmyndighetens riksfiler – de är
-                                tillsammans över 30 MB
-  kommunval/jamforbarhet.json   Valmyndighetens bedömning av vilka
+  regionval/<år>.json           Kungsbacka, parti för parti (2010, 2014,
+  riksdagsval/<år>.json         2018, 2022, 2026) – ett val per mapp. Bara
+                                Kungsbackas rader ur Valmyndighetens
+                                riksfiler, som tillsammans är över 100 MB
+  valdistrikt/jamforbarhet.json Valmyndighetens bedömning av vilka
                                 valdistrikt som går att jämföra mellan två
                                 val, per övergång, och vilket distrikt
-                                varje distrikt kommer ur
-  kommunval/harkomst.json       Var 2022 års nya valdistrikt kom ifrån,
+                                varje distrikt kommer ur. Gäller
+                                distrikten och därmed alla tre valen
+  valdistrikt/harkomst.json     Var 2022 års nya valdistrikt kom ifrån,
                                 uträknat ur Valmyndighetens valdistrikts-
                                 kartor – för de rader där deras egen
                                 mappning är tom (se hamta_harkomst.py)
@@ -323,12 +333,14 @@ scripts/
                                 samt index.json med områdeslistan. Lägger in
                                 den ställda prognosen oförändrad hos de två
                                 områden den gäller
-  hamta_kommunval.py            Hämtar kommunvalets resultat per valdistrikt
-                                i Kungsbacka ur fem olika filformat (skv,
-                                xlsx i två layouter och zippad JSON) till
-                                data/kommunval/. Kontrollerar varje år mot
-                                källans egna summor och avbryter hellre än
-                                att spara siffror som inte går ihop
+  hamta_valresultat.py          Hämtar kommun-, region- och riksdagsvalets
+                                resultat per valdistrikt i Kungsbacka ur
+                                femton filer i fem format (skv, xlsx i två
+                                layouter och zippad JSON) till data/
+                                kommunval/, regionval/ och riksdagsval/.
+                                Kontrollerar varje år mot källans egna
+                                summor och avbryter hellre än att spara
+                                siffror som inte går ihop
   hamta_harkomst.py             Räknar ut var 2022 års nya valdistrikt kom
                                 ifrån, ur Valmyndighetens valdistriktskartor
                                 för 2018 och 2022 (båda i SWEREF99 TM): det
@@ -337,10 +349,11 @@ scripts/
                                 metoden mot Valmyndighetens egen bedömning –
                                 jämförbara distrikt ska hamna på sig själva –
                                 och avbryter annars
-  build_kommunval.py            Bygger docs/data-kommunval.json: rösterna
-                                per distrikt, parti och val, med
-                                jämförbarheten mellan valen och en indikator
-                                bakåt för de val ett distrikt inte fanns
+  build_valresultat.py          Bygger docs/data-kommunval.json och de två
+                                andra valens filer: rösterna per distrikt,
+                                parti och val, med jämförbarheten mellan
+                                valen och en indikator bakåt för de val ett
+                                distrikt inte fanns
   val.py                        Gemensamt för de skript som läser
                                 Valmyndighetens filer: hämtningen med
                                 återförsök, xlsx-läsaren, valdistriktskoden
@@ -376,8 +389,9 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   antagning-till-examen.html    Antagningen mot examen tre år senare
   fortidsrostning.html          Förtidsröstningen inför valet 2026, mot 2022,
                                 för valfri kommun, län eller riket (?omrade=)
-  kommunval.html                Kommunvalets resultat per valdistrikt i
-                                Kungsbacka 2010–2026 (?parti=, ?distrikt=)
+  valresultat.html              Kommun-, region- och riksdagsvalets resultat
+                                per valdistrikt i Kungsbacka 2010–2026
+                                (?val=, ?parti=, ?distrikt=)
   metod.html                    Metodsidan: källor, transformationer, viktning
   style.css                     Delas av alla sidor
   gemensam.js                   Delade byggstenar: färger, delbara URL:er
@@ -400,6 +414,10 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   fortidsrostning.js            Driver förtidsröstningssidan; ritar också
                                 ut den ställda prognosen, som den läser
                                 färdig ur datafilen
+  valresultat.js                Driver sidan om valresultat per valdistrikt;
+                                vilket av de tre valen som visas ligger i
+                                adressen (?val=) och byter datafil utan att
+                                sidan laddas om
   index.js                      Driver startsidans sammanfattningar
   data.json, data-16-19.json    Data till prognossidorna (genereras)
   data-meritvarden.json         Data till meritvärdessidan (genereras)
@@ -414,7 +432,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 område, plus index.json (genereras, två gånger
                                 om dagen under förtidsröstningen)
   data-kommunval.json           Data till sidan om valresultat per
-                                valdistrikt (genereras)
+  data-regionval.json           valdistrikt, en fil per val (genereras)
+  data-riksdagsval.json
   rapporter/*.pdf               Lokala kopior av käll­rapporterna
   rapporter/slutbetyg-*.csv     Skolverkets exportfiler, en per läsår
   chart.umd.js                  Chart.js v4.5.1 (vendrad UMD-build från
@@ -537,10 +556,11 @@ python3 scripts/build_fortidsroster.py            # bygger om docs/data-fortidsr
 Valresultatet per valdistrikt (inget extra beroende):
 
 ```bash
-python3 scripts/hamta_kommunval.py            # alla fem valen
-python3 scripts/hamta_kommunval.py --ar 2026  # bara ett år
-python3 scripts/hamta_harkomst.py             # var 2022 års nya distrikt kom ifrån
-python3 scripts/build_kommunval.py            # bygger om docs/data-kommunval.json
+python3 scripts/hamta_valresultat.py                 # alla tre valen, fem år
+python3 scripts/hamta_valresultat.py --val riksdag  # bara ett val
+python3 scripts/hamta_valresultat.py --ar 2026      # bara ett år
+python3 scripts/hamta_harkomst.py                   # var 2022 års nya distrikt kom ifrån
+python3 scripts/build_valresultat.py                # bygger om docs/data-*val.json
 ```
 
 De fyra äldre valen är färdigräknade och ändras inte; de behöver hämtas en
@@ -549,7 +569,10 @@ preliminära räkning i filen: den innehåller bara rapportpartier, saknar de
 små lokala partierna, och de sent inkomna förtidsrösterna och
 brevrösterna är inte med. Hämtskriptet läser
 `https://resultat.val.se/resultatfiler/val2026/index.md5` och tar den
-slutliga räkningen så fort den finns där, men bytet sker inte av sig
+slutliga räkningen så fort den finns där *och* omfattar Kungsbackas alla
+valdistrikt &ndash; riksdagsvalets slutliga fil täcker hela riket och
+publiceras så fort det första distriktet i landet är räknat, och en fil
+utan Kungsbacka säger mindre än den preliminära. Bytet sker inte av sig
 självt &ndash; kör om de två kommandona ovan när räkningen är fastställd.
 Sidan skriver ut vilken räkning den visar, så det syns om det inte gjorts.
 
