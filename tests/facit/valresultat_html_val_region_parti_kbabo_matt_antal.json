@@ -1,0 +1,3325 @@
+{
+ "diagram": [
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderWidth": 3,
+      "data": [
+       1079,
+       966,
+       1002,
+       715,
+       null
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Hela Kungsbacka",
+      "legendFarg": "#1c5cab",
+      "pointBackgroundColor": "#1c5cab",
+      "pointBorderColor": "#1c5cab",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     }
+    ],
+    "labels": [
+     "2010",
+     "2014",
+     "2018",
+     "2022",
+     "2026"
+    ]
+   },
+   "id": "diagram-andel",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "generateLabels": "fn:function (chart) { var etiketter = Chart.defaults.plugins.legend.labels.generateLabels(chart); etiketter.forEach(function (e) { var ds = chart.data.datasets[e.datasetIndex]; if (ds && ds.legendFarg) { e.fillStyle = ds.legendFarg; e.strokeStyle = ds.legendFarg; } }); return etiketter; }",
+       "pointStyleWidth": 14,
+       "usePointStyle": true
+      },
+      "onHover": "fn:function (e, post) { if (post.datasetIndex !== undefined) tona(post.datasetIndex); }",
+      "onLeave": "fn:function () { tona(null); }",
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { if (it.parsed.y === null) return it.dataset.label + \": –\"; var rad = it.dataset.label + \": \" + formatera(it.parsed.y); var text = it.dataset.indikatorText && it.dataset.indikatorText[it.dataIndex]; return text ? rad + \" (\" + text + \")\" : rad; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Valår"
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return matt === \"antal\" ? talSv(v) : talSv(v, 1); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal röster"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 4,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2010",
+       "varde": 0
+      },
+      {
+       "text": "2014",
+       "varde": 1
+      },
+      {
+       "text": "2018",
+       "varde": 2
+      },
+      {
+       "text": "2022",
+       "varde": 3
+      },
+      {
+       "text": "2026",
+       "varde": 4
+      }
+     ]
+    },
+    "y": {
+     "max": 1200,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "200",
+       "varde": 200
+      },
+      {
+       "text": "400",
+       "varde": 400
+      },
+      {
+       "text": "600",
+       "varde": 600
+      },
+      {
+       "text": "800",
+       "varde": 800
+      },
+      {
+       "text": "1 000",
+       "varde": 1000
+      },
+      {
+       "text": "1 200",
+       "varde": 1200
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": [],
+      "borderColor": [],
+      "borderWidth": 1,
+      "data": [],
+      "label": "Kungsbackaborna, 2022–2026"
+     }
+    ],
+    "labels": []
+   },
+   "id": "diagram-forandring",
+   "options": {
+    "indexAxis": "y",
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return valtMatt() === \"antal\" ? tecken(it.parsed.x) + \" röster\" : procentenheter(it.parsed.x); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "fn:function (c) { return c.tick.value === 0 ? FARG.ink2 : FARG.grid; }",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Förändring i antal röster"
+      },
+      "type": "linear"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": true,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": false,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "font": {
+        "size": 11
+       },
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 1,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "0,1",
+       "varde": 0.1
+      },
+      {
+       "text": "0,2",
+       "varde": 0.2
+      },
+      {
+       "text": "0,3",
+       "varde": 0.3
+      },
+      {
+       "text": "0,4",
+       "varde": 0.4
+      },
+      {
+       "text": "0,5",
+       "varde": 0.5
+      },
+      {
+       "text": "0,6",
+       "varde": 0.6
+      },
+      {
+       "text": "0,7",
+       "varde": 0.7
+      },
+      {
+       "text": "0,8",
+       "varde": 0.8
+      },
+      {
+       "text": "0,9",
+       "varde": 0.9
+      },
+      {
+       "text": "1,0",
+       "varde": 1
+      }
+     ]
+    },
+    "y": {
+     "max": -1,
+     "min": 0,
+     "tickar": []
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderWidth": 2,
+      "data": [
+       20096,
+       18657,
+       17128,
+       17288,
+       17557
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Moderaterna",
+      "legendFarg": "#1c5cab",
+      "pointBackgroundColor": "#1c5cab",
+      "pointBorderColor": "#1c5cab",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderWidth": 2,
+      "data": [
+       8189,
+       9171,
+       8635,
+       11302,
+       9727
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Socialdemokraterna",
+      "legendFarg": "#e69f00",
+      "pointBackgroundColor": "#e69f00",
+      "pointBorderColor": "#e69f00",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderWidth": 2,
+      "data": [
+       1726,
+       4580,
+       7824,
+       9408,
+       8713
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Sverigedemokraterna",
+      "legendFarg": "#009e73",
+      "pointBackgroundColor": "#009e73",
+      "pointBorderColor": "#009e73",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "backgroundColor": "#cc79a7",
+      "borderColor": "#cc79a7",
+      "borderWidth": 2,
+      "data": [
+       2628,
+       2732,
+       4412,
+       4945,
+       5152
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Kristdemokraterna",
+      "legendFarg": "#cc79a7",
+      "pointBackgroundColor": "#cc79a7",
+      "pointBorderColor": "#cc79a7",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "rectRot",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "backgroundColor": "#56b4e9",
+      "borderColor": "#56b4e9",
+      "borderWidth": 2,
+      "data": [
+       3627,
+       4222,
+       5995,
+       4477,
+       3968
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Centerpartiet",
+      "legendFarg": "#56b4e9",
+      "pointBackgroundColor": "#56b4e9",
+      "pointBorderColor": "#56b4e9",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "backgroundColor": "#d55e00",
+      "borderColor": "#d55e00",
+      "borderWidth": 2,
+      "data": [
+       5667,
+       5142,
+       5597,
+       3882,
+       3189
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Liberalerna (tidigare Folkpartiet)",
+      "legendFarg": "#d55e00",
+      "pointBackgroundColor": "#d55e00",
+      "pointBorderColor": "#d55e00",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "backgroundColor": "#7a5195",
+      "borderColor": "#7a5195",
+      "borderWidth": 2,
+      "data": [
+       2754,
+       3444,
+       1934,
+       1656,
+       2034
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Miljöpartiet de gröna",
+      "legendFarg": "#7a5195",
+      "pointBackgroundColor": "#7a5195",
+      "pointBorderColor": "#7a5195",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "backgroundColor": "#6b8f00",
+      "borderColor": "#6b8f00",
+      "borderWidth": 2,
+      "data": [
+       1143,
+       1753,
+       2095,
+       2090,
+       1923
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Vänsterpartiet",
+      "legendFarg": "#6b8f00",
+      "pointBackgroundColor": "#6b8f00",
+      "pointBorderColor": "#6b8f00",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "rectRot",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "backgroundColor": "#0b0b0b",
+      "borderColor": "#0b0b0b",
+      "borderWidth": 2,
+      "data": [
+       1079,
+       966,
+       1002,
+       715,
+       null
+      ],
+      "indikatorText": [
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "indikatorer": [
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "label": "Kungsbackaborna",
+      "legendFarg": "#0b0b0b",
+      "pointBackgroundColor": "#0b0b0b",
+      "pointBorderColor": "#0b0b0b",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 5,
+      "pointRadius": 3,
+      "pointStyle": "star",
+      "segment": {
+       "borderDash": "fn:function (ctx) { var i = ctx.p0DataIndex; if (indikatorer[i] || indikatorer[i + 1]) return STRECK_BROTT; var overgang = data.overgangar[i]; return overgang && !serie.jamforbart(overgang) ? STRECK_BROTT : undefined; }"
+      },
+      "spanGaps": false,
+      "tension": 0
+     }
+    ],
+    "labels": [
+     "2010",
+     "2014",
+     "2018",
+     "2022",
+     "2026"
+    ]
+   },
+   "id": "diagram-partier",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "generateLabels": "fn:function (chart) { var etiketter = Chart.defaults.plugins.legend.labels.generateLabels(chart); etiketter.forEach(function (e) { var ds = chart.data.datasets[e.datasetIndex]; if (ds && ds.legendFarg) { e.fillStyle = ds.legendFarg; e.strokeStyle = ds.legendFarg; } }); return etiketter; }",
+       "pointStyleWidth": 14,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { if (it.parsed.y === null) return it.dataset.label + \": –\"; var rad = it.dataset.label + \": \" + formatera(it.parsed.y); var text = it.dataset.indikatorText && it.dataset.indikatorText[it.dataIndex]; return text ? rad + \" (\" + text + \")\" : rad; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Valår"
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return matt === \"antal\" ? talSv(v) : talSv(v, 1); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal röster"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 4,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2010",
+       "varde": 0
+      },
+      {
+       "text": "2014",
+       "varde": 1
+      },
+      {
+       "text": "2018",
+       "varde": 2
+      },
+      {
+       "text": "2022",
+       "varde": 3
+      },
+      {
+       "text": "2026",
+       "varde": 4
+      }
+     ]
+    },
+    "y": {
+     "max": 25000,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "5 000",
+       "varde": 5000
+      },
+      {
+       "text": "10 000",
+       "varde": 10000
+      },
+      {
+       "text": "15 000",
+       "varde": 15000
+      },
+      {
+       "text": "20 000",
+       "varde": 20000
+      },
+      {
+       "text": "25 000",
+       "varde": 25000
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "reglage": [
+  {
+   "alternativ": [
+    "kommun=Kommunfullmäktige",
+    "region=Regionfullmäktige",
+    "riksdag=Riksdagen"
+   ],
+   "id": "valj-val",
+   "varde": "region"
+  },
+  {
+   "alternativ": [
+    "M=Moderaterna",
+    "S=Socialdemokraterna",
+    "SD=Sverigedemokraterna",
+    "KD=Kristdemokraterna",
+    "C=Centerpartiet",
+    "L=Liberalerna (tidigare Folkpartiet)",
+    "MP=Miljöpartiet de gröna",
+    "V=Vänsterpartiet",
+    "Kbabo=Kungsbackaborna",
+    "ÖVR=Övriga partier"
+   ],
+   "id": "valj-parti",
+   "varde": "Kbabo"
+  },
+  {
+   "alternativ": [
+    "andel=Andel av rösterna",
+    "antal=Antal röster"
+   ],
+   "id": "valj-matt",
+   "varde": "antal"
+  },
+  {
+   "alternativ": [
+    "2010-2014=2010–2014",
+    "2014-2018=2014–2018",
+    "2018-2022=2018–2022",
+    "2022-2026=2022–2026"
+   ],
+   "id": "valj-jamfor",
+   "varde": "2022-2026"
+  }
+ ],
+ "tabeller": [
+  {
+   "caption": "Kungsbackaborna i regionvalet, per valdistrikt. – betyder att distriktet inte fanns eller inte går att jämföra. Tabellen visar distriktens egna röster; indikatorerna för de år ett distrikt inte fanns finns bara i diagrammen.",
+   "id": "tabell-distrikt",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Valdistrikt"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2010"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2014"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2026"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Förändring 2022–2026"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Anneberg"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "32"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Björkris"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Bukärrs Centrum"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "35"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Fjärås Norra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Fjärås Södra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Fjärås/Må"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "30"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "32"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Fors"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Forsbäck/Oskarsberg"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "43"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "63"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "70"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Frillesås Kust"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Frillesås Landsbygd"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Gottskär"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "37"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Gällinge/Idala/Förlanda"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Hammerö"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "37"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Hammerö Södra/Västra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "32"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Hanhals"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "39"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Hede"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "31"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "30"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Hålabäck"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "31"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "36"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "34"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Innerstaden"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "27"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kolla Norra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kolla Södra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kullavik Centrum"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "35"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kyvik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Malevik/Släps Inland"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Onsala Kyrka"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "35"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Onsala Rydet"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Onsala Södra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Onsala Västra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "39"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "27"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "28"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Presse/Skällared"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "31"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Släps Kullen"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Särö"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "37"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Tingberget"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "36"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Tölö"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Vallda Backa"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Vallda Bröndome"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Vallda Lerkil"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "27"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Vallda Sandö"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Varla Norra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Varla Södra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "38"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "30"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "32"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "27"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Vässingö/Röda Holme"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Västra Villastaden"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "28"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "39"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "33"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Älvsåker"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "35"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Åsa Centrum"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "42"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "33"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Åsa kust"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Ö Villastaden/Signeskulle/Gårdskulla"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "32"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "39"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "40"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "35"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Ölmanäs"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Ölmevalla Östra"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "48"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "28"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ]
+   ]
+  }
+ ],
+ "text": {
+  "#andel-inledning": {
+   "dold": false,
+   "html": "Andel av de giltiga rösterna i regionvalet, val för val."
+  },
+  "#d-alvsaker": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-anneberg": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-asa-centrum": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-asa-kust": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-bjorkris": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-bukarrs-centrum": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-fjaras-ma": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-fjaras-norra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-fjaras-sodra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-fors": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-forsback-oskarsberg": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-frillesas-kust": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-frillesas-landsbygd": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-gallinge-idala-forlanda": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-gottskar": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-halaback": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-hammero": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-hammero-sodra-vastra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-hanhals": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-hede": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-innerstaden": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-kolla-norra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-kolla-sodra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-kullavik-centrum": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-kyvik": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-malevik-slaps-inland": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-o-villastaden-signeskulle-gardskulla": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-olmanas": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-olmevalla-ostra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-onsala-kyrka": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-onsala-rydet": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-onsala-sodra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-onsala-vastra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-presse-skallared": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-saro": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-slaps-kullen": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-tingberget": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-tolo": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-vallda-backa": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-vallda-brondome": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-vallda-lerkil": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-vallda-sando": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-varla-norra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-varla-sodra": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-vassingo-roda-holme": {
+   "dold": false,
+   "html": ""
+  },
+  "#d-vastra-villastaden": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-andel": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-forandring": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-partier": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-tre-val": {
+   "dold": false,
+   "html": ""
+  },
+  "#distriktval": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#distriktval-antal": {
+   "dold": false,
+   "html": "Inget distrikt markerat – visar hela kommunen"
+  },
+  "#distriktval-fall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#distriktval-rutor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#forklaring-andel": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#forklaring-distriktval": {
+   "dold": false,
+   "html": "Varje markerat distrikt får dessutom en egen linje i diagrammet nedanför och ett eget diagram med alla partier längre ned, så länge högst 12 distrikt är markerade. Fler linjer än så går inte att läsa i samma bild, och då ritas bara gruppen och kommunen."
+  },
+  "#forklaring-partier": {
+   "dold": false,
+   "html": "Redovisade partier är de 9 som någon gång nått över 3&nbsp;% av rösterna i kommunen. Resten ligger samlade i <strong>övriga partier</strong>. Högst 9 serier ritas samtidigt, så att varje parti kan skiljas från de andra på både färg och punktform – kryssa ur ett parti för att få plats med ett annat."
+  },
+  "#huvudinnehall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kalla-andel": {
+   "dold": false,
+   "html": ""
+  },
+  "#kalla-forandring": {
+   "dold": false,
+   "html": ""
+  },
+  "#kalla-partier": {
+   "dold": false,
+   "html": ""
+  },
+  "#kort-sagt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kort-sagt-lista": {
+   "dold": false,
+   "html": "<li><strong>Kungsbackaborna</strong> fanns inte på regionvalets valsedel 2026 – senast partiet ställde upp var 2022, då det fick 715 röster i hela Kungsbacka.</li><li>Starkast 2022: <strong>Ö Villastaden/Signeskulle/Gårdskulla</strong> med 35 röster. Svagast: <strong>Kullavik Centrum</strong> med 5 röster.</li>"
+  },
+  "#kort-sagt-rubrik": {
+   "dold": false,
+   "html": "Kort sagt"
+  },
+  "#kort-tre-val": {
+   "dold": true,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#lista-kallor": {
+   "dold": false,
+   "html": "<li>2010: <a href=\"https://historik.val.se/val/val2010/statistik/slutligt_valresultat_valdistrikt_L.skv\">Valmyndigheten, Slutligt valresultat per valdistrikt, landstingsvalet 2010</a> (hämtad 2026-09-14)</li><li>2014: <a href=\"https://historik.val.se/val/val2014/statistik/2014_landstingsval_per_valdistrikt.skv\">Valmyndigheten, Landstingsval per valdistrikt 2014</a> (hämtad 2026-09-14)</li><li>2018: <a href=\"https://historik.val.se/val/val2018/statistik/2018_L_per_valdistrikt.xlsx\">Valmyndigheten, Landstingsval per valdistrikt 2018</a> (hämtad 2026-09-14)</li><li>2022: <a href=\"https://www.val.se/download/18.162047b519a91d0533118f4d/1764336772618/roster-per-distrikt-slutligt-antal-roster-inklusive-totalt-valdeltagande-regionval-2022.xlsx\">Valmyndigheten, Röster per distrikt, slutligt antal röster inklusive totalt valdeltagande, regionval 2022</a> (hämtad 2026-09-14)</li><li>2026: <a href=\"https://resultat.val.se/resultatfiler/val2026/p/rf/Val_2026_preliminar_13_RF.zip\">Valmyndigheten, resultatfiler för valen 2026, regionvalet i Hallands län</a> (hämtad 2026-09-14)</li><li>Jämförbarhet 2010–2014: Ingen mappningsfil finns. Kontrollerat i hämtskriptet: samma valdistriktskod och samma namn båda åren.</li><li>Jämförbarhet 2014–2018: <a href=\"https://historik.val.se/val/val2018/statistik/mappning_2014_2018.zip\">Valmyndigheten, Mappning av valdistrikt mellan 2014 och 2018</a></li><li>Jämförbarhet 2018–2022: <a href=\"https://www.val.se/download/18.162047b519a91d0533119148/1666857349837/jamforelser-2018-och-2022-valdistrikt-och-uppsamlingsdistrikt-v2.xlsx\">Valmyndigheten, Jämförelser mellan valdistrikt 2018 och 2022</a></li><li>Jämförbarhet 2022–2026: Valmyndigheten, resultatfilerna för 2026 (valdistriktskodForegaendeVal och statusJamforelse)</li>"
+  },
+  "#meta-rad": {
+   "dold": false,
+   "html": "<span>Källa: Valmyndigheten</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: regionvalen 2010–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-14</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  },
+  "#not-andel": {
+   "dold": true,
+   "html": ""
+  },
+  "#not-distrikt": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Listan visar de 46 valdistrikt som fanns i det senaste valet. Kolla fanns till och med 2018 och finns inte som egen rad, men ingår i kommunens siffror.</div></div>"
+  },
+  "#not-enskilt": {
+   "dold": true,
+   "html": ""
+  },
+  "#not-forandring": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Utelämnade, eftersom valdistriktet ritades om eller inte fanns båda åren: Anneberg, Björkris, Bukärrs Centrum, Fjärås Norra, Fjärås Södra, Fjärås/Må, Fors, Forsbäck/Oskarsberg, Frillesås Kust, Frillesås Landsbygd, Gottskär, Gällinge/Idala/Förlanda, Hammerö, Hammerö Södra/Västra, Hanhals, Hede, Hålabäck, Innerstaden, Kolla Norra, Kolla Södra, Kullavik Centrum, Kyvik, Malevik/Släps Inland, Onsala Kyrka, Onsala Rydet, Onsala Södra, Onsala Västra, Presse/Skällared, Släps Kullen, Särö, Tingberget, Tölö, Vallda Backa, Vallda Bröndome, Vallda Lerkil, Vallda Sandö, Varla Norra, Varla Södra, Vässingö/Röda Holme, Västra Villastaden, Älvsåker, Åsa Centrum, Åsa kust, Ö Villastaden/Signeskulle/Gårdskulla, Ölmanäs, Ölmevalla Östra.</div></div>"
+  },
+  "#not-partier": {
+   "dold": true,
+   "html": ""
+  },
+  "#not-tre-val": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Jämförelsen gäller de partier som ställer upp i alla tre valen – i Kungsbacka de åtta riksdagspartierna. Kungsbackaborna finns bara i kommunvalet och regionvalet.</div></div>"
+  },
+  "#om-harkomst": {
+   "dold": false,
+   "html": "\n      <strong>Ett nytt distrikt får områdets tidigare siffror.</strong>\n      Fem av dagens valdistrikt fanns inte 2010 – men marken fanns,\n      och den låg i ett annat valdistrikt. De åren ritas det distriktets\n      siffror med streckad linje och ihålig punkt, som en indikator för\n      området. Ursprunget kommer från Valmyndigheten där de anger det,\n      och är annars uträknat ur deras egna valdistriktskartor. Ytandel är\n      inte väljarandel, så indikatorn hör hemma i kurvan och ingen\n      annanstans: tabellen, förändringen mellan två val och\n      ”Kort sagt” håller sig till distriktets egna röster.\n      <a href=\"metod.html\">Metodsidan</a> beskriver uträkningen.\n    "
+  },
+  "#om-jamforbarhet": {
+   "dold": false,
+   "html": "\n      <strong>Valdistrikten ritas om.</strong> Kungsbacka hade 41\n      valdistrikt 2010 och 46 i dag. Valmyndigheten publicerar själv sin\n      bedömning av vilka distrikt som går att jämföra mellan två val, och\n      den bedömningen – inte distriktets namn – är det sidan\n      följer. Bedömningen är strängare än namnen antyder: flera distrikt\n      som heter precis likadant underkänns ändå, för att gränserna\n      flyttats. Sådana övergångar ritas med streckad linje.\n    "
+  },
+  "#om-rakning": {
+   "dold": false,
+   "html": "<strong>2026 är en preliminär räkning.</strong> Den innehåller bara de partier Valmyndigheten räknar på valkvällen, inte de minsta, och de sent inkomna förtidsrösterna och brevrösterna är ännu inte med. Antalet röster är därför för lågt, och andelarna kan ändras när den slutliga räkningen är klar."
+  },
+  "#om-tre-val": {
+   "dold": false,
+   "html": "\n      <strong>Tre val, samma valdistrikt.</strong> Samma valdistrikt\n      röstar i tre val samma dag, och väljaren högst upp byter vilket av\n      dem sidan visar. Distrikten, markeringarna och allt annat står\n      kvar; det som byts är rösterna. Redovisade partier räknas fram för\n      de tre valen tillsammans, så listan är densamma – men ett\n      lokalt parti som ställer upp i kommunvalet finns inte på\n      riksdagsvalsedeln, och då saknas det där. Diagrammet\n      ”Röstar området olika i de tre valen?” ställer valen\n      mot varandra för det parti du valt, och gäller de partier som\n      ställer upp i alla tre – de åtta riksdagspartierna. Ett\n      lokalt parti har inget att jämföras med, och ”övriga\n      partier” rymmer olika partier i de tre valen. Och hela sidan handlar om\n      Kungsbacka: i riksdagsvalet är det Kungsbackabornas röster som\n      räknas, inte rikets.\n    "
+  },
+  "#om-troskel": {
+   "dold": false,
+   "html": "<strong>Partier under 3&nbsp;%.</strong> Ett parti redovisas för sig om det någon gång i de fem valen nått över 3&nbsp;% av de giltiga rösterna i hela kommunen. I Kungsbacka är det 9 partier. Övriga ligger samlade under <em>övriga partier</em> – samma restpost som Valmyndighetens egna filer använder – så att partiernas röster fortfarande summerar till antalet giltiga. Deras siffror finns kvar oavkortat i <a href=\"https://github.com/moggleif/politik/tree/main/data/regionval\">datat i repot</a>."
+  },
+  "#om-uppdaterad": {
+   "dold": false,
+   "html": "Senast uppdaterad: 2026-09-14."
+  },
+  "#om-valjarkaren": {
+   "dold": false,
+   "html": "<strong>Valen har inte samma väljarkår.</strong> I kommun- och regionvalet röstar också folkbokförda utan svenskt medborgarskap: 2026 hade kommunvalet och regionvalet 67&nbsp;148 och riksdagsvalet 66&nbsp;543 röstberättigade i Kungsbacka. Andelen av de giltiga rösterna går att jämföra mellan valen; antalet röster säger lika mycket om hur många som fick rösta i vilket val. Därför visar diagrammet alltid andel, också när måttet högst upp står på antal."
+  },
+  "#p-c": {
+   "dold": false,
+   "html": ""
+  },
+  "#p-kbabo": {
+   "dold": false,
+   "html": ""
+  },
+  "#p-kd": {
+   "dold": false,
+   "html": ""
+  },
+  "#p-l": {
+   "dold": false,
+   "html": ""
+  },
+  "#p-m": {
+   "dold": false,
+   "html": ""
+  },
+  "#p-mp": {
+   "dold": false,
+   "html": ""
+  },
+  "#p-ovr": {
+   "dold": false,
+   "html": ""
+  },
+  "#p-s": {
+   "dold": false,
+   "html": ""
+  },
+  "#p-sd": {
+   "dold": false,
+   "html": ""
+  },
+  "#p-v": {
+   "dold": false,
+   "html": ""
+  },
+  "#partival": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#partival-rutor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#rubrik-andel": {
+   "dold": false,
+   "html": "Hur har Kungsbackaborna gått i distrikten?"
+  },
+  "#rubrik-enskilt": {
+   "dold": false,
+   "html": "Hur står Kungsbackaborna mot de andra partierna, distrikt för distrikt?"
+  },
+  "#rubrik-forandring": {
+   "dold": false,
+   "html": "Var gick Kungsbackaborna fram, och var backade det?"
+  },
+  "#rubrik-partier": {
+   "dold": false,
+   "html": "Hur har partierna gått i hela kommunen?"
+  },
+  "#rubrik-tre-val": {
+   "dold": false,
+   "html": "Röstar Kungsbacka olika i de tre valen?"
+  },
+  "#sektion-andel": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-distrikt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-enskilt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-forandring": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kallor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-om": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-partier": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-tabell": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-tre-val": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#smadiagram-rutnat": {
+   "dold": false,
+   "html": "<p class=\"forklaring\">Inget valdistrikt är markerat. Kryssa i ett eller flera distrikt ovanför, så får vart och ett av dem ett eget diagram här.</p>"
+  },
+  "#status": {
+   "dold": true,
+   "html": ""
+  },
+  "#tabell-distrikt": {
+   "dold": false,
+   "html": "<caption>Kungsbackaborna i regionvalet, per valdistrikt. – betyder att distriktet inte fanns eller inte går att jämföra. Tabellen visar distriktens egna röster; indikatorerna för de år ett distrikt inte fanns finns bara i diagrammen.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Valdistrikt\">Valdistrikt</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2010\">2010</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2014\">2014</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2018\">2018</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2022\">2022</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2026\">2026</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Förändring 2022–2026\">Förändring 2022–2026</th></tr></thead><tbody><tr><th scope=\"row\">Anneberg</th><td>26</td><td>32</td><td>21</td><td>16</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Björkris</th><td>–</td><td>–</td><td>19</td><td>17</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Bukärrs Centrum</th><td>35</td><td>8</td><td>2</td><td>8</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Fjärås Norra</th><td>26</td><td>18</td><td>20</td><td>23</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Fjärås Södra</th><td>23</td><td>23</td><td>15</td><td>13</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Fjärås/Må</th><td>26</td><td>30</td><td>32</td><td>16</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Fors</th><td>18</td><td>23</td><td>23</td><td>6</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Forsbäck/Oskarsberg</th><td>43</td><td>63</td><td>70</td><td>23</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Frillesås Kust</th><td>14</td><td>5</td><td>14</td><td>5</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Frillesås Landsbygd</th><td>18</td><td>13</td><td>13</td><td>6</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Gottskär</th><td>15</td><td>25</td><td>37</td><td>23</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Gällinge/Idala/Förlanda</th><td>14</td><td>18</td><td>19</td><td>16</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Hammerö</th><td>16</td><td>37</td><td>29</td><td>16</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Hammerö Södra/Västra</th><td>18</td><td>32</td><td>19</td><td>18</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Hanhals</th><td>26</td><td>29</td><td>39</td><td>26</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Hede</th><td>17</td><td>31</td><td>30</td><td>18</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Hålabäck</th><td>31</td><td>36</td><td>34</td><td>23</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Innerstaden</th><td>24</td><td>27</td><td>22</td><td>20</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Kolla Norra</th><td>–</td><td>–</td><td>–</td><td>17</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Kolla Södra</th><td>–</td><td>–</td><td>–</td><td>7</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Kullavik Centrum</th><td>35</td><td>12</td><td>8</td><td>5</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Kyvik</th><td>15</td><td>11</td><td>10</td><td>12</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Malevik/Släps Inland</th><td>20</td><td>20</td><td>18</td><td>14</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Onsala Kyrka</th><td>35</td><td>20</td><td>21</td><td>14</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Onsala Rydet</th><td>29</td><td>29</td><td>20</td><td>17</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Onsala Södra</th><td>–</td><td>–</td><td>–</td><td>13</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Onsala Västra</th><td>39</td><td>27</td><td>28</td><td>18</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Presse/Skällared</th><td>31</td><td>23</td><td>25</td><td>20</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Släps Kullen</th><td>22</td><td>24</td><td>14</td><td>6</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Särö</th><td>37</td><td>6</td><td>8</td><td>11</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Tingberget</th><td>36</td><td>18</td><td>23</td><td>7</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Tölö</th><td>22</td><td>22</td><td>19</td><td>11</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Vallda Backa</th><td>16</td><td>26</td><td>15</td><td>14</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Vallda Bröndome</th><td>15</td><td>8</td><td>11</td><td>11</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Vallda Lerkil</th><td>27</td><td>15</td><td>9</td><td>13</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Vallda Sandö</th><td>12</td><td>14</td><td>12</td><td>14</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Varla Norra</th><td>26</td><td>17</td><td>23</td><td>17</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Varla Södra</th><td>38</td><td>30</td><td>32</td><td>27</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Vässingö/Röda Holme</th><td>20</td><td>25</td><td>23</td><td>15</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Västra Villastaden</th><td>28</td><td>39</td><td>33</td><td>17</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Älvsåker</th><td>19</td><td>12</td><td>35</td><td>18</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Åsa Centrum</th><td>42</td><td>24</td><td>33</td><td>15</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Åsa kust</th><td>–</td><td>–</td><td>–</td><td>9</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Ö Villastaden/Signeskulle/Gårdskulla</th><td>32</td><td>39</td><td>40</td><td>35</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Ölmanäs</th><td>26</td><td>9</td><td>21</td><td>24</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Ölmevalla Östra</th><td>48</td><td>29</td><td>28</td><td>8</td><td>–</td><td>–</td></tr></tbody>"
+  },
+  "#teckenforklaring-enskilt": {
+   "dold": true,
+   "html": ""
+  },
+  "#valj-alla": {
+   "dold": false,
+   "html": "Markera alla"
+  },
+  "#valj-inga": {
+   "dold": false,
+   "html": "Rensa"
+  },
+  "#valj-jamfor": {
+   "dold": false,
+   "html": "<option value=\"2010-2014\">2010–2014</option><option value=\"2014-2018\">2014–2018</option><option value=\"2018-2022\">2018–2022</option><option value=\"2022-2026\">2022–2026</option>"
+  },
+  "#valj-matt": {
+   "dold": false,
+   "html": "\n        <option value=\"andel\">Andel av rösterna</option>\n        <option value=\"antal\">Antal röster</option>\n      "
+  },
+  "#valj-parti": {
+   "dold": false,
+   "html": "<option value=\"M\">Moderaterna</option><option value=\"S\">Socialdemokraterna</option><option value=\"SD\">Sverigedemokraterna</option><option value=\"KD\">Kristdemokraterna</option><option value=\"C\">Centerpartiet</option><option value=\"L\">Liberalerna (tidigare Folkpartiet)</option><option value=\"MP\">Miljöpartiet de gröna</option><option value=\"V\">Vänsterpartiet</option><option value=\"Kbabo\">Kungsbackaborna</option><option value=\"ÖVR\">Övriga partier</option>"
+  },
+  "#valj-val": {
+   "dold": false,
+   "html": "<option value=\"kommun\">Kommunfullmäktige</option><option value=\"region\">Regionfullmäktige</option><option value=\"riksdag\">Riksdagen</option>"
+  },
+  "#valjarrad": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  ".meta-rad[meta-rad]": {
+   "dold": false,
+   "html": "<span>Källa: Valmyndigheten</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: regionvalen 2010–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-14</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  }
+ }
+}

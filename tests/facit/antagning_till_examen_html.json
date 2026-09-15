@@ -1,0 +1,1235 @@
+{
+ "diagram": [
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#7a5195",
+      "borderColor": "#7a5195",
+      "borderWidth": 2.5,
+      "data": [
+       212.6,
+       null,
+       196.66,
+       206.6,
+       215.62,
+       190.15,
+       213.06,
+       226.66,
+       202.81
+      ],
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 4,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2017 → 2020",
+     "2018 → 2021",
+     "2019 → 2022",
+     "2020 → 2023",
+     "2021 → 2024",
+     "2022 → 2025",
+     "2024 → 2027",
+     "2025 → 2028",
+     "2026 → 2029"
+    ]
+   },
+   "id": "diagram-antagning",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return tooltipRader(rader[it.dataIndex]); }",
+       "title": "fn:function (it) { var r = rader[it[0].dataIndex]; return \"Antagen \" + r.antagningsar + \", examen \" + r.examensar; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 6,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "font": {
+        "size": 13
+       },
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 45,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": "15%",
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v, dec) + (enhet === \"%\" ? \" %\" : \"\"); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 8,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2017 → 2020",
+       "varde": 0
+      },
+      {
+       "text": "2018 → 2021",
+       "varde": 1
+      },
+      {
+       "text": "2019 → 2022",
+       "varde": 2
+      },
+      {
+       "text": "2020 → 2023",
+       "varde": 3
+      },
+      {
+       "text": "2021 → 2024",
+       "varde": 4
+      },
+      {
+       "text": "2022 → 2025",
+       "varde": 5
+      },
+      {
+       "text": "2024 → 2027",
+       "varde": 6
+      },
+      {
+       "text": "2025 → 2028",
+       "varde": 7
+      },
+      {
+       "text": "2026 → 2029",
+       "varde": 8
+      }
+     ]
+    },
+    "y": {
+     "max": 230,
+     "min": 185,
+     "tickar": [
+      {
+       "text": "185",
+       "varde": 185
+      },
+      {
+       "text": "195",
+       "varde": 195
+      },
+      {
+       "text": "205",
+       "varde": 205
+      },
+      {
+       "text": "215",
+       "varde": 215
+      },
+      {
+       "text": "225",
+       "varde": 225
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderWidth": 2.5,
+      "data": [
+       13.4,
+       13.2,
+       13.6,
+       15.2,
+       13.5,
+       12.6,
+       null,
+       null,
+       null
+      ],
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 4,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2017 → 2020",
+     "2018 → 2021",
+     "2019 → 2022",
+     "2020 → 2023",
+     "2021 → 2024",
+     "2022 → 2025",
+     "2024 → 2027",
+     "2025 → 2028",
+     "2026 → 2029"
+    ]
+   },
+   "id": "diagram-examen",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return tooltipRader(rader[it.dataIndex]); }",
+       "title": "fn:function (it) { var r = rader[it[0].dataIndex]; return \"Antagen \" + r.antagningsar + \", examen \" + r.examensar; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 6,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "font": {
+        "size": 13
+       },
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 45,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": "15%",
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v, dec) + (enhet === \"%\" ? \" %\" : \"\"); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 8,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2017 → 2020",
+       "varde": 0
+      },
+      {
+       "text": "2018 → 2021",
+       "varde": 1
+      },
+      {
+       "text": "2019 → 2022",
+       "varde": 2
+      },
+      {
+       "text": "2020 → 2023",
+       "varde": 3
+      },
+      {
+       "text": "2021 → 2024",
+       "varde": 4
+      },
+      {
+       "text": "2022 → 2025",
+       "varde": 5
+      },
+      {
+       "text": "2024 → 2027",
+       "varde": 6
+      },
+      {
+       "text": "2025 → 2028",
+       "varde": 7
+      },
+      {
+       "text": "2026 → 2029",
+       "varde": 8
+      }
+     ]
+    },
+    "y": {
+     "max": 15.5,
+     "min": 12,
+     "tickar": [
+      {
+       "text": "12,0",
+       "varde": 12
+      },
+      {
+       "text": "12,5",
+       "varde": 12.5
+      },
+      {
+       "text": "13,0",
+       "varde": 13
+      },
+      {
+       "text": "13,5",
+       "varde": 13.5
+      },
+      {
+       "text": "14,0",
+       "varde": 14
+      },
+      {
+       "text": "14,5",
+       "varde": 14.5
+      },
+      {
+       "text": "15,0",
+       "varde": 15
+      },
+      {
+       "text": "15,5",
+       "varde": 15.5
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderWidth": 2.5,
+      "data": [
+       95.7,
+       87.5,
+       92.9,
+       96,
+       88.2,
+       82.4,
+       null,
+       null,
+       null
+      ],
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 4,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2017 → 2020",
+     "2018 → 2021",
+     "2019 → 2022",
+     "2020 → 2023",
+     "2021 → 2024",
+     "2022 → 2025",
+     "2024 → 2027",
+     "2025 → 2028",
+     "2026 → 2029"
+    ]
+   },
+   "id": "diagram-andel",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return tooltipRader(rader[it.dataIndex]); }",
+       "title": "fn:function (it) { var r = rader[it[0].dataIndex]; return \"Antagen \" + r.antagningsar + \", examen \" + r.examensar; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 6,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "font": {
+        "size": 13
+       },
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 45,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "max": 100,
+      "min": 0,
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v, dec) + (enhet === \"%\" ? \" %\" : \"\"); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 8,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2017 → 2020",
+       "varde": 0
+      },
+      {
+       "text": "2018 → 2021",
+       "varde": 1
+      },
+      {
+       "text": "2019 → 2022",
+       "varde": 2
+      },
+      {
+       "text": "2020 → 2023",
+       "varde": 3
+      },
+      {
+       "text": "2021 → 2024",
+       "varde": 4
+      },
+      {
+       "text": "2022 → 2025",
+       "varde": 5
+      },
+      {
+       "text": "2024 → 2027",
+       "varde": 6
+      },
+      {
+       "text": "2025 → 2028",
+       "varde": 7
+      },
+      {
+       "text": "2026 → 2029",
+       "varde": 8
+      }
+     ]
+    },
+    "y": {
+     "max": 100,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0 %",
+       "varde": 0
+      },
+      {
+       "text": "20 %",
+       "varde": 20
+      },
+      {
+       "text": "40 %",
+       "varde": 40
+      },
+      {
+       "text": "60 %",
+       "varde": 60
+      },
+      {
+       "text": "80 %",
+       "varde": 80
+      },
+      {
+       "text": "100 %",
+       "varde": 100
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "reglage": [
+  {
+   "alternativ": [
+    "Barn- och fritidsprogrammet (Aranäs)=Barn- och fritidsprogrammet (Aranäs)",
+    "Bygg- och anläggningsprogrammet (Aranäs)=Bygg- och anläggningsprogrammet (Aranäs)",
+    "Bygg- och anläggningsprogrammet (Elof Lindälv)=Bygg- och anläggningsprogrammet (Elof Lindälv)",
+    "Ekonomiprogrammet=Ekonomiprogrammet",
+    "El- och energiprogrammet=El- och energiprogrammet",
+    "Estetiska programmet=Estetiska programmet",
+    "Fordons- och transportprogrammet=Fordons- och transportprogrammet",
+    "Försäljnings- och serviceprogrammet=Försäljnings- och serviceprogrammet",
+    "Hantverksprogrammet=Hantverksprogrammet",
+    "Hotell- och turismprogrammet=Hotell- och turismprogrammet",
+    "Industritekniska programmet=Industritekniska programmet",
+    "Naturbruksprogrammet=Naturbruksprogrammet",
+    "Naturvetenskapsprogrammet (Aranäs)=Naturvetenskapsprogrammet (Aranäs)",
+    "Naturvetenskapsprogrammet (Elof Lindälv)=Naturvetenskapsprogrammet (Elof Lindälv)",
+    "Restaurang- och livsmedelsprogrammet=Restaurang- och livsmedelsprogrammet",
+    "Samhällsvetenskapsprogrammet=Samhällsvetenskapsprogrammet",
+    "Teknikprogrammet (Aranäs)=Teknikprogrammet (Aranäs)",
+    "Teknikprogrammet (Elof Lindälv)=Teknikprogrammet (Elof Lindälv)",
+    "Vård- och omsorgsprogrammet (Aranäs)=Vård- och omsorgsprogrammet (Aranäs)"
+   ],
+   "id": "program-valjare",
+   "varde": "Barn- och fritidsprogrammet (Aranäs)"
+  }
+ ],
+ "tabeller": [
+  {
+   "caption": "Kullarna för Barn- och fritidsprogrammet (Aranäs): antagningen ställd mot examen tre år senare. Meritvärdet (max 340) och betygspoängen (0–20) har olika skalor och kan inte jämföras med varandra.",
+   "id": "tabell-kullar",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kull"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Meritvärde vid antagningen"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Avgångselever"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Betygspoäng vid examen"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel med examen"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel med högskolebehörighet"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2017 → 2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "212,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "82,6 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2018 → 2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "87,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "54,2 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2019 → 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "196,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "28"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78,6 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2020 → 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "206,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,0 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2021 → 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "215,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "58,8 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2022 → 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "190,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "82,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2024 → 2027"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "213,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2025 → 2028"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "226,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2026 → 2029"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "202,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ]
+   ]
+  }
+ ],
+ "text": {
+  "#diagram-andel": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-antagning": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-examen": {
+   "dold": false,
+   "html": ""
+  },
+  "#huvudinnehall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kalla-kullar": {
+   "dold": false,
+   "html": "De två första panelerna har skalor som är inklippta kring kurvorna och börjar inte på noll. Panelen för examensandel visar hela skalan 0–100 procent. Ett avbrott i linjen är en kull som saknar uppgift; peka på punkterna för detaljer."
+  },
+  "#kort-sagt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kort-sagt-lista": {
+   "dold": false,
+   "html": "<li><strong>73 kullar</strong> på 16 program har både antagning och examen redovisade, från antagningen 2017 till examen 2025.</li><li>Måtten har olika skalor: meritvärdet från grundskolan (max 340) och betygspoängen från gymnasiet (0–20) mäter olika saker och är <strong>inte</strong> jämförbara med varandra som tal.</li><li>5 program saknar kullar där både antagning och examen är redovisade. Skolverket redovisar inte program med färre än tio avgångselever. Vilka programmen är står längre ned på sidan.</li>"
+  },
+  "#kort-sagt-rubrik": {
+   "dold": false,
+   "html": "Kort sagt"
+  },
+  "#lista-parning": {
+   "dold": false,
+   "html": "<p class=\"forklaring\"><strong>16 program</strong> kan följas med minst en komplett kull.</p><ul class=\"forklaring\"><li><strong>Hantverksprogrammet</strong> har en serie i båda källorna, men ingen kull där båda sidorna är redovisade.</li><li><strong>Naturbruksprogrammet</strong> har en serie i båda källorna, men ingen kull där båda sidorna är redovisade.</li><li><strong>Restaurang- och livsmedelsprogrammet</strong> har en serie i båda källorna, men ingen kull där båda sidorna är redovisade.</li><li><strong>Barn- och fritidsprogrammet (Elof Lindälv)</strong> har antagningssiffror, men ingen slutbetygsserie på samma skola.</li><li><strong>Vård- och omsorgsprogrammet (Elof Lindälv)</strong> har antagningssiffror, men ingen slutbetygsserie på samma skola.</li><li><strong>Samhällsvetenskapsprogrammet – Elof Lindälv</strong> har slutbetyg, men ingen antagningsserie – antagningsstatistiken omfattar bara kommunens egna skolor och åren från 2017.</li></ul>"
+  },
+  "#meta-rad": {
+   "dold": false,
+   "html": "<span>Källa: GR:s antagningsstatistik och Skolverkets utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: antagna 2017–2026, examen t.o.m. 2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-08-27</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  },
+  "#not-kullar": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div><p>Kullen 2018 → 2021: 2018 års antagningsrapport har inte gått att få tag på, så meritvärdet saknas.</p></div></div>"
+  },
+  "#program-valjare": {
+   "dold": false,
+   "html": "<option value=\"Barn- och fritidsprogrammet (Aranäs)\">Barn- och fritidsprogrammet (Aranäs)</option><option value=\"Bygg- och anläggningsprogrammet (Aranäs)\">Bygg- och anläggningsprogrammet (Aranäs)</option><option value=\"Bygg- och anläggningsprogrammet (Elof Lindälv)\">Bygg- och anläggningsprogrammet (Elof Lindälv)</option><option value=\"Ekonomiprogrammet\">Ekonomiprogrammet</option><option value=\"El- och energiprogrammet\">El- och energiprogrammet</option><option value=\"Estetiska programmet\">Estetiska programmet</option><option value=\"Fordons- och transportprogrammet\">Fordons- och transportprogrammet</option><option value=\"Försäljnings- och serviceprogrammet\">Försäljnings- och serviceprogrammet</option><option value=\"Hantverksprogrammet\">Hantverksprogrammet</option><option value=\"Hotell- och turismprogrammet\">Hotell- och turismprogrammet</option><option value=\"Industritekniska programmet\">Industritekniska programmet</option><option value=\"Naturbruksprogrammet\">Naturbruksprogrammet</option><option value=\"Naturvetenskapsprogrammet (Aranäs)\">Naturvetenskapsprogrammet (Aranäs)</option><option value=\"Naturvetenskapsprogrammet (Elof Lindälv)\">Naturvetenskapsprogrammet (Elof Lindälv)</option><option value=\"Restaurang- och livsmedelsprogrammet\">Restaurang- och livsmedelsprogrammet</option><option value=\"Samhällsvetenskapsprogrammet\">Samhällsvetenskapsprogrammet</option><option value=\"Teknikprogrammet (Aranäs)\">Teknikprogrammet (Aranäs)</option><option value=\"Teknikprogrammet (Elof Lindälv)\">Teknikprogrammet (Elof Lindälv)</option><option value=\"Vård- och omsorgsprogrammet (Aranäs)\">Vård- och omsorgsprogrammet (Aranäs)</option>"
+  },
+  "#sektion-kallor": {
+   "dold": false,
+   "html": "\n    <h2>Källor</h2>\n    <p class=\"forklaring\">\n      Sidan bygger helt på de två underliggande sidornas data:\n      meritvärdena ur Göteborgsregionens antagningsstatistik och\n      slutbetygen ur Skolverkets statistik över avgångselever. Alla\n      rapporter och exportfiler finns länkade där.\n    </p>\n    <ul class=\"kallista\">\n      <li><span class=\"titel\">Meritvärden vid antagningen</span>\n        <br><span class=\"undertext\">Göteborgsregionen (GR), Gymnasieantagningen – slutantagningen</span>\n        <div class=\"lankar\"><a href=\"meritvarden.html\">Sidan med alla källänkar</a></div></li>\n      <li><span class=\"titel\">Slutbetyg från gymnasiet</span>\n        <br><span class=\"undertext\">Skolverket, Utbildningsstatistik – avgångselever, nationella program</span>\n        <div class=\"lankar\"><a href=\"slutbetyg.html\">Sidan med alla källänkar</a></div></li>\n    </ul>\n  "
+  },
+  "#sektion-kullar": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-om": {
+   "dold": false,
+   "html": "\n    <h2>Om den här sidan</h2>\n    <p class=\"forklaring\">\n      <strong>Tre år är en förenkling.</strong> Parningen ställer\n      antagningen år X mot avgångseleverna år X&nbsp;+&nbsp;3. Det är inte\n      samma individer: en del går om ett år, byter program eller gör\n      uppehåll. Antagningssiffran gäller dem som antogs vid slutantagningen i juni;\n      examenssiffran gäller alla som fullföljde programmet det året,\n      oavsett när och var de började.\n    </p>\n    <p class=\"forklaring\">\n      <strong>Måtten väger olika.</strong> Medelmeritvärdet är ett ovägt\n      genomsnitt av programmets inriktningar – GR redovisar inte hur\n      många som antogs. Betygspoängen är däremot vägd med antalet\n      avgångselever. Hur många elever examenssiffran bygger på står i\n      tabellen.\n    </p>\n    <p class=\"forklaring\">\n      Sidan är fristående och drivs varken av Kungsbacka kommun,\n      Göteborgsregionen eller Skolverket. Alla beräkningar är öppna:\n      källkoden och alla data finns på\n      <a href=\"https://github.com/moggleif/politik\">GitHub (moggleif/politik)</a>.\n      Hur kullarna paras ihop beskrivs på <a href=\"metod.html\">metodsidan</a>.\n      Hittar du ett fel? Lämna gärna en rättelse där.\n    </p>\n  "
+  },
+  "#sektion-parning": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-skalor": {
+   "dold": false,
+   "html": "\n    <h2>Två mått med olika skalor</h2>\n    <p class=\"forklaring\">\n      Sidan visar två olika mått bredvid varandra, och de har\n      <strong>olika skalor som inte går att räkna om till varandra</strong>:\n    </p>\n    <ul class=\"forklaring\">\n      <li><strong>Meritvärdet vid antagningen</strong> är summan av\n        betygen från grundskolan, som mest 340 poäng. Programmets tal är ett\n        <strong>ovägt</strong> genomsnitt av dess inriktningars\n        medelmeritvärden – GR redovisar inte hur många som antogs, så\n        inriktningarna kan inte vägas efter storlek.</li>\n      <li><strong>Betygspoängen vid examen</strong> är genomsnittet av\n        gymnasiebetygen, på en skala från 0 till 20. Det är räknat på\n        avgångseleverna.</li>\n    </ul>\n    <p class=\"forklaring\">\n      Talen mäter olika saker på olika skalor och kan inte jämföras med\n      varandra. Diagrammen visar vart och ett av måtten <em>kull för\n      kull</em> inom samma program. Kullarna är inte exakt samma elever:\n      några byter program eller skola, några gör uppehåll och några\n      tillkommer. Datat innehåller inga uppgifter om varför ett programs\n      siffror ändras mellan kullarna.\n    </p>\n  "
+  },
+  "#slutsats-kullar": {
+   "dold": false,
+   "html": "<p>För <strong>Barn- och fritidsprogrammet (Aranäs)</strong> har 5 kullar både meritvärde vid antagningen och betygspoäng vid examen redovisade, från antagningen 2017 till examen 2025.</p><p>Mellan den första och den sista av dessa kullar gick det ovägda inriktningssnittet vid antagningen från 212,6 till 190,2 (−22,4 meritpoäng), och betygspoängen vid examen från 13,4 till 12,6 (−0,8 betygspoäng).</p><p>I dessa kullar har andelen med examen legat mellan 82,4 och 96,0 procent.</p><p>Meritvärdet (max 340) och betygspoängen (0–20) mäts på olika skalor och kan inte jämföras med varandra. Kullarna är inte exakt samma individer: antagningssiffran gäller dem som antogs antagningsåret och examenssiffran alla som fullföljde programmet examensåret. Datat innehåller inga uppgifter om orsaker.</p>"
+  },
+  "#status": {
+   "dold": true,
+   "html": ""
+  },
+  "#tabell-kullar": {
+   "dold": false,
+   "html": "<caption>Kullarna för Barn- och fritidsprogrammet (Aranäs): antagningen ställd mot examen tre år senare. Meritvärdet (max 340) och betygspoängen (0–20) har olika skalor och kan inte jämföras med varandra.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kull\">Kull</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Meritvärde vid antagningen\">Meritvärde vid antagningen</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Avgångselever\">Avgångselever</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Betygspoäng vid examen\">Betygspoäng vid examen</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel med examen\">Andel med examen</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel med högskolebehörighet\">Andel med högskolebehörighet</th></tr></thead><tbody><tr><td>2017 → 2020</td><td>212,6</td><td>23</td><td>13,4</td><td>95,7 %</td><td>82,6 %</td></tr><tr><td>2018 → 2021</td><td><abbr class=\"fanns-ej\" title=\"Kullen 2018 → 2021: antagningsrapporten saknas\">–</abbr></td><td>24</td><td>13,2</td><td>87,5 %</td><td>54,2 %</td></tr><tr><td>2019 → 2022</td><td>196,7</td><td>28</td><td>13,6</td><td>92,9 %</td><td>78,6 %</td></tr><tr><td>2020 → 2023</td><td>206,6</td><td>25</td><td>15,2</td><td>96,0 %</td><td>88,0 %</td></tr><tr><td>2021 → 2024</td><td>215,6</td><td>17</td><td>13,5</td><td>88,2 %</td><td>58,8 %</td></tr><tr><td>2022 → 2025</td><td>190,2</td><td>17</td><td>12,6</td><td>82,4 %</td><td>–</td></tr><tr><td>2024 → 2027</td><td>213,1</td><td><abbr class=\"fanns-ej\" title=\"Kullen 2024 → 2027: kullen har inte hunnit gå ut\">–</abbr></td><td><abbr class=\"fanns-ej\" title=\"Kullen 2024 → 2027: kullen har inte hunnit gå ut\">–</abbr></td><td><abbr class=\"fanns-ej\" title=\"Kullen 2024 → 2027: kullen har inte hunnit gå ut\">–</abbr></td><td><abbr class=\"fanns-ej\" title=\"Kullen 2024 → 2027: kullen har inte hunnit gå ut\">–</abbr></td></tr><tr><td>2025 → 2028</td><td>226,7</td><td><abbr class=\"fanns-ej\" title=\"Kullen 2025 → 2028: kullen har inte hunnit gå ut\">–</abbr></td><td><abbr class=\"fanns-ej\" title=\"Kullen 2025 → 2028: kullen har inte hunnit gå ut\">–</abbr></td><td><abbr class=\"fanns-ej\" title=\"Kullen 2025 → 2028: kullen har inte hunnit gå ut\">–</abbr></td><td><abbr class=\"fanns-ej\" title=\"Kullen 2025 → 2028: kullen har inte hunnit gå ut\">–</abbr></td></tr><tr><td>2026 → 2029</td><td>202,8</td><td><abbr class=\"fanns-ej\" title=\"Kullen 2026 → 2029: kullen har inte hunnit gå ut\">–</abbr></td><td><abbr class=\"fanns-ej\" title=\"Kullen 2026 → 2029: kullen har inte hunnit gå ut\">–</abbr></td><td><abbr class=\"fanns-ej\" title=\"Kullen 2026 → 2029: kullen har inte hunnit gå ut\">–</abbr></td><td><abbr class=\"fanns-ej\" title=\"Kullen 2026 → 2029: kullen har inte hunnit gå ut\">–</abbr></td></tr></tbody>"
+  },
+  "#teckenforklaring-kullar": {
+   "dold": false,
+   "html": "<strong>..</strong> = färre än tio elever, Skolverket redovisar inte värdet (sekretess). <strong>–</strong> = uppgift saknas: rapporten saknas, programmet redovisas inte det året, eller kullen har inte hunnit gå ut. Peka på symbolen för orsaken rad för rad."
+  },
+  ".meta-rad[meta-rad]": {
+   "dold": false,
+   "html": "<span>Källa: GR:s antagningsstatistik och Skolverkets utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: antagna 2017–2026, examen t.o.m. 2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-08-27</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  }
+ }
+}

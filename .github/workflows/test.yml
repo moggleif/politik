@@ -8,6 +8,11 @@
 # fångar det testerna aldrig ser: oanvända variabler, skuggade namn och
 # grenar som inte går att nå. Verktygen är pinnade, så att en ny
 # version inte gör CI rött utan att någon ändrat en rad kod.
+#
+# Facit-kontrollen jämför varje sidas färdigritade utfall mot ett
+# incheckat facit. Den körs mot fryst fixturdata i tests/fixtures/, inte
+# mot docs/data-*.json – annars vore den röd inom ett dygn, eftersom
+# förtidsröstjobbet skriver om sina datafiler två gånger om dagen.
 name: Tester
 
 on:
@@ -62,5 +67,7 @@ jobs:
         run: npx html-validate docs/*.html
       - name: Rök-testa alla sidor
         run: node scripts/smoke_webbplats.js
+      - name: Facit över sidornas renderade utfall
+        run: node scripts/facit_webbplats.js
       - name: Tillgänglighet (axe, tangentbord, smal skärm)
         run: node scripts/tillganglighet.js

@@ -1,0 +1,552 @@
+{
+ "kommun": "Kungsbacka",
+ "serie": "Folkmängd efter ålder, faktiskt utfall",
+ "matt": "Folkmängd 31 december respektive år",
+ "kalla": "SCB, Befolkningsstatistik (BE0101), Folkmängden efter region, civilstånd, ålder och kön",
+ "kallaUrl": "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101A/BefolkningNy/",
+ "apiUrl": "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy",
+ "hamtad": "2026-08-28",
+ "ar": [
+  2000,
+  2001,
+  2002,
+  2003,
+  2004,
+  2005,
+  2006,
+  2007,
+  2008,
+  2009,
+  2010,
+  2011,
+  2012,
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "serier": [
+  {
+   "nyckel": "0-15",
+   "etikett": "0–15 år",
+   "arGrupp": true,
+   "varden": {
+    "2000": {
+     "antal": 15598,
+     "andel": 23.96,
+     "forandring": null,
+     "index": 100.0
+    },
+    "2001": {
+     "antal": 15729,
+     "andel": 23.88,
+     "forandring": 131,
+     "index": 100.8
+    },
+    "2002": {
+     "antal": 15906,
+     "andel": 23.89,
+     "forandring": 177,
+     "index": 102.0
+    },
+    "2003": {
+     "antal": 16090,
+     "andel": 23.78,
+     "forandring": 184,
+     "index": 103.2
+    },
+    "2004": {
+     "antal": 16150,
+     "andel": 23.51,
+     "forandring": 60,
+     "index": 103.5
+    },
+    "2005": {
+     "antal": 16298,
+     "andel": 23.34,
+     "forandring": 148,
+     "index": 104.5
+    },
+    "2006": {
+     "antal": 16327,
+     "andel": 22.98,
+     "forandring": 29,
+     "index": 104.7
+    },
+    "2007": {
+     "antal": 16194,
+     "andel": 22.51,
+     "forandring": -133,
+     "index": 103.8
+    },
+    "2008": {
+     "antal": 16048,
+     "andel": 22.08,
+     "forandring": -146,
+     "index": 102.9
+    },
+    "2009": {
+     "antal": 16148,
+     "andel": 21.84,
+     "forandring": 100,
+     "index": 103.5
+    },
+    "2010": {
+     "antal": 16223,
+     "andel": 21.62,
+     "forandring": 75,
+     "index": 104.0
+    },
+    "2011": {
+     "antal": 16377,
+     "andel": 21.56,
+     "forandring": 154,
+     "index": 105.0
+    },
+    "2012": {
+     "antal": 16630,
+     "andel": 21.66,
+     "forandring": 253,
+     "index": 106.6
+    },
+    "2013": {
+     "antal": 16754,
+     "andel": 21.65,
+     "forandring": 124,
+     "index": 107.4
+    },
+    "2014": {
+     "antal": 17010,
+     "andel": 21.75,
+     "forandring": 256,
+     "index": 109.1
+    },
+    "2015": {
+     "antal": 17193,
+     "andel": 21.72,
+     "forandring": 183,
+     "index": 110.2
+    },
+    "2016": {
+     "antal": 17472,
+     "andel": 21.72,
+     "forandring": 279,
+     "index": 112.0
+    },
+    "2017": {
+     "antal": 17786,
+     "andel": 21.69,
+     "forandring": 314,
+     "index": 114.0
+    },
+    "2018": {
+     "antal": 17984,
+     "andel": 21.58,
+     "forandring": 198,
+     "index": 115.3
+    },
+    "2019": {
+     "antal": 18074,
+     "andel": 21.42,
+     "forandring": 90,
+     "index": 115.9
+    },
+    "2020": {
+     "antal": 17991,
+     "andel": 21.18,
+     "forandring": -83,
+     "index": 115.3
+    },
+    "2021": {
+     "antal": 17919,
+     "andel": 21.01,
+     "forandring": -72,
+     "index": 114.9
+    },
+    "2022": {
+     "antal": 17812,
+     "andel": 20.76,
+     "forandring": -107,
+     "index": 114.2
+    },
+    "2023": {
+     "antal": 17427,
+     "andel": 20.35,
+     "forandring": -385,
+     "index": 111.7
+    },
+    "2024": {
+     "antal": 17122,
+     "andel": 19.96,
+     "forandring": -305,
+     "index": 109.8
+    },
+    "2025": {
+     "antal": 16813,
+     "andel": 19.47,
+     "forandring": -309,
+     "index": 107.8
+    }
+   },
+   "forsta": 15598,
+   "sista": 16813,
+   "forstaAr": 2000,
+   "sistaAr": 2025,
+   "hogsta": 18074,
+   "hogstaAr": 2019,
+   "lagsta": 15598,
+   "lagstaAr": 2000
+  },
+  {
+   "nyckel": "16-19",
+   "etikett": "16–19 år",
+   "arGrupp": true,
+   "varden": {
+    "2000": {
+     "antal": 2934,
+     "andel": 4.51,
+     "forandring": null,
+     "index": 100.0
+    },
+    "2001": {
+     "antal": 3108,
+     "andel": 4.72,
+     "forandring": 174,
+     "index": 105.9
+    },
+    "2002": {
+     "antal": 3233,
+     "andel": 4.86,
+     "forandring": 125,
+     "index": 110.2
+    },
+    "2003": {
+     "antal": 3393,
+     "andel": 5.02,
+     "forandring": 160,
+     "index": 115.6
+    },
+    "2004": {
+     "antal": 3652,
+     "andel": 5.32,
+     "forandring": 259,
+     "index": 124.5
+    },
+    "2005": {
+     "antal": 3848,
+     "andel": 5.51,
+     "forandring": 196,
+     "index": 131.2
+    },
+    "2006": {
+     "antal": 4166,
+     "andel": 5.86,
+     "forandring": 318,
+     "index": 142.0
+    },
+    "2007": {
+     "antal": 4458,
+     "andel": 6.2,
+     "forandring": 292,
+     "index": 151.9
+    },
+    "2008": {
+     "antal": 4580,
+     "andel": 6.3,
+     "forandring": 122,
+     "index": 156.1
+    },
+    "2009": {
+     "antal": 4739,
+     "andel": 6.41,
+     "forandring": 159,
+     "index": 161.5
+    },
+    "2010": {
+     "antal": 4755,
+     "andel": 6.34,
+     "forandring": 16,
+     "index": 162.1
+    },
+    "2011": {
+     "antal": 4589,
+     "andel": 6.04,
+     "forandring": -166,
+     "index": 156.4
+    },
+    "2012": {
+     "antal": 4341,
+     "andel": 5.65,
+     "forandring": -248,
+     "index": 148.0
+    },
+    "2013": {
+     "antal": 4083,
+     "andel": 5.28,
+     "forandring": -258,
+     "index": 139.2
+    },
+    "2014": {
+     "antal": 3911,
+     "andel": 5.0,
+     "forandring": -172,
+     "index": 133.3
+    },
+    "2015": {
+     "antal": 3848,
+     "andel": 4.86,
+     "forandring": -63,
+     "index": 131.2
+    },
+    "2016": {
+     "antal": 3947,
+     "andel": 4.91,
+     "forandring": 99,
+     "index": 134.5
+    },
+    "2017": {
+     "antal": 4099,
+     "andel": 5.0,
+     "forandring": 152,
+     "index": 139.7
+    },
+    "2018": {
+     "antal": 4308,
+     "andel": 5.17,
+     "forandring": 209,
+     "index": 146.8
+    },
+    "2019": {
+     "antal": 4512,
+     "andel": 5.35,
+     "forandring": 204,
+     "index": 153.8
+    },
+    "2020": {
+     "antal": 4647,
+     "andel": 5.47,
+     "forandring": 135,
+     "index": 158.4
+    },
+    "2021": {
+     "antal": 4749,
+     "andel": 5.57,
+     "forandring": 102,
+     "index": 161.9
+    },
+    "2022": {
+     "antal": 4900,
+     "andel": 5.71,
+     "forandring": 151,
+     "index": 167.0
+    },
+    "2023": {
+     "antal": 4971,
+     "andel": 5.8,
+     "forandring": 71,
+     "index": 169.4
+    },
+    "2024": {
+     "antal": 5011,
+     "andel": 5.84,
+     "forandring": 40,
+     "index": 170.8
+    },
+    "2025": {
+     "antal": 5043,
+     "andel": 5.84,
+     "forandring": 32,
+     "index": 171.9
+    }
+   },
+   "forsta": 2934,
+   "sista": 5043,
+   "forstaAr": 2000,
+   "sistaAr": 2025,
+   "hogsta": 5043,
+   "hogstaAr": 2025,
+   "lagsta": 2934,
+   "lagstaAr": 2000
+  },
+  {
+   "nyckel": "total",
+   "etikett": "Hela folkmängden",
+   "arGrupp": false,
+   "varden": {
+    "2000": {
+     "antal": 65113,
+     "andel": 100.0,
+     "forandring": null,
+     "index": 100.0
+    },
+    "2001": {
+     "antal": 65877,
+     "andel": 100.0,
+     "forandring": 764,
+     "index": 101.2
+    },
+    "2002": {
+     "antal": 66573,
+     "andel": 100.0,
+     "forandring": 696,
+     "index": 102.2
+    },
+    "2003": {
+     "antal": 67653,
+     "andel": 100.0,
+     "forandring": 1080,
+     "index": 103.9
+    },
+    "2004": {
+     "antal": 68696,
+     "andel": 100.0,
+     "forandring": 1043,
+     "index": 105.5
+    },
+    "2005": {
+     "antal": 69817,
+     "andel": 100.0,
+     "forandring": 1121,
+     "index": 107.2
+    },
+    "2006": {
+     "antal": 71044,
+     "andel": 100.0,
+     "forandring": 1227,
+     "index": 109.1
+    },
+    "2007": {
+     "antal": 71942,
+     "andel": 100.0,
+     "forandring": 898,
+     "index": 110.5
+    },
+    "2008": {
+     "antal": 72676,
+     "andel": 100.0,
+     "forandring": 734,
+     "index": 111.6
+    },
+    "2009": {
+     "antal": 73938,
+     "andel": 100.0,
+     "forandring": 1262,
+     "index": 113.6
+    },
+    "2010": {
+     "antal": 75025,
+     "andel": 100.0,
+     "forandring": 1087,
+     "index": 115.2
+    },
+    "2011": {
+     "antal": 75954,
+     "andel": 100.0,
+     "forandring": 929,
+     "index": 116.6
+    },
+    "2012": {
+     "antal": 76786,
+     "andel": 100.0,
+     "forandring": 832,
+     "index": 117.9
+    },
+    "2013": {
+     "antal": 77390,
+     "andel": 100.0,
+     "forandring": 604,
+     "index": 118.9
+    },
+    "2014": {
+     "antal": 78219,
+     "andel": 100.0,
+     "forandring": 829,
+     "index": 120.1
+    },
+    "2015": {
+     "antal": 79144,
+     "andel": 100.0,
+     "forandring": 925,
+     "index": 121.5
+    },
+    "2016": {
+     "antal": 80442,
+     "andel": 100.0,
+     "forandring": 1298,
+     "index": 123.5
+    },
+    "2017": {
+     "antal": 81986,
+     "andel": 100.0,
+     "forandring": 1544,
+     "index": 125.9
+    },
+    "2018": {
+     "antal": 83348,
+     "andel": 100.0,
+     "forandring": 1362,
+     "index": 128.0
+    },
+    "2019": {
+     "antal": 84395,
+     "andel": 100.0,
+     "forandring": 1047,
+     "index": 129.6
+    },
+    "2020": {
+     "antal": 84930,
+     "andel": 100.0,
+     "forandring": 535,
+     "index": 130.4
+    },
+    "2021": {
+     "antal": 85301,
+     "andel": 100.0,
+     "forandring": 371,
+     "index": 131.0
+    },
+    "2022": {
+     "antal": 85801,
+     "andel": 100.0,
+     "forandring": 500,
+     "index": 131.8
+    },
+    "2023": {
+     "antal": 85653,
+     "andel": 100.0,
+     "forandring": -148,
+     "index": 131.5
+    },
+    "2024": {
+     "antal": 85792,
+     "andel": 100.0,
+     "forandring": 139,
+     "index": 131.8
+    },
+    "2025": {
+     "antal": 86332,
+     "andel": 100.0,
+     "forandring": 540,
+     "index": 132.6
+    }
+   },
+   "forsta": 65113,
+   "sista": 86332,
+   "forstaAr": 2000,
+   "sistaAr": 2025,
+   "hogsta": 86332,
+   "hogstaAr": 2025,
+   "lagsta": 65113,
+   "lagstaAr": 2000
+  }
+ ]
+}
