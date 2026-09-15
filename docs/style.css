@@ -912,10 +912,16 @@ ul.kort-fakta .siffra {
   color: var(--ink-2);
 }
 
+/* Distriktslistan ligger hopfälld: 46 kryssrutor är över 2 000 px på en
+   telefon, och sidan visar hela kommunen tills något kryssas i. Knappar
+   och räknare står kvar utanför, så att läget syns utan att fälla ut. */
+#distriktval-fall { margin-top: 0.5rem; }
+
 .distriktval-rutor {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   gap: 0.15rem 1rem;
+  margin-top: 0.5rem;
 }
 
 .distriktval-ruta {
