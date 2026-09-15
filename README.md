@@ -174,7 +174,10 @@ valdistrikt för valdistrikt, ur Valmyndighetens öppna data.
   en grupp mot kommunen i övrigt; byt parti, se förändringen mellan två
   val distrikt för distrikt, och ställ alla partier bredvid varandra i
   samma område. Ett eget diagram ställer de **tre valen mot varandra** för
-  det valda partiet i samma område &ndash; röstdelningen syns direkt:
+  det valda partiet i samma område. Det gäller de partier som ställer upp
+  i alla tre valen &ndash; i Kungsbacka de åtta riksdagspartierna; ett
+  lokalt parti har inget att jämföras med, och *övriga partier* rymmer
+  olika partier i de tre valen. Röstdelningen syns direkt:
   Sverigedemokraterna fick 19,3&nbsp;% i riksdagsvalet 2026 mot
   16,3&nbsp;% i kommunvalet, Kristdemokraterna 9,8&nbsp;% i regionvalet
   mot 5,7&nbsp;% i kommunvalet. Det diagrammet visar alltid andelar:
@@ -202,14 +205,20 @@ valdistrikt för valdistrikt, ur Valmyndighetens öppna data.
   kvar oavkortat i `data/kommunval/`, `data/regionval/` och
   `data/riksdagsval/`.
 
-  Skälet till att tröskeln räknas så är diagrammet över de tre valen: där
-  ska ett tomrum i kurvan betyda att partiet inte stod på den valsedeln,
-  och ingenting annat. Kungsbackaborna ställde upp i regionvalet
-  2010&ndash;2022 men nådde aldrig tre procent där, och till riksdagen
-  ställer de inte upp alls. Ett parti utan röster i hela kommunen ett
-  valår får därför **inget värde** och inte noll &ndash; en kurva som föll
-  till noll hade sett ut som ett sammanbrott i stället för ett parti som
-  inte var med.
+  Att tröskeln delas gör två saker. Partilistan blir densamma i de tre
+  valen, så ett byte av val inte också byter parti. Och diagrammet över de
+  tre valen kan avgöra vilka partier som hör hemma där på rätt grund:
+  *ställde partiet upp i alla tre valen?* &ndash; inte *var det stort nog
+  i vart och ett?* Kungsbackaborna ställde upp i regionvalet
+  2010&ndash;2022 men nådde aldrig tre procent där, och utan den delade
+  tröskeln hade sidan sagt att partiet saknades i regionvalet, vilket är
+  fel.
+
+  Ett parti utan röster i hela kommunen ett valår får **inget värde** och
+  inte noll. Valmyndigheten redovisar bara partier som fick röster, så
+  noll röster i kommunen betyder att partiet inte stod på valsedeln
+  &ndash; och en kurva som föll till noll hade sett ut som ett
+  sammanbrott i stället för ett parti som inte var med.
 
   Valdistrikten ritas om mellan valen: Kungsbacka hade 41 distrikt 2010
   och 46 i dag. Det gäller lika i de tre valen, så bedömningen ligger för

@@ -489,14 +489,15 @@
         kommunvalet). Samtliga partiers röster ligger kvar oavkortat i
         <a href="https://github.com/moggleif/politik/tree/main/data/kommunval">data/kommunval/</a>
         och de två andra valens mappar.
-        <p>Att tröskeln räknas på valen tillsammans är diagrammet över de
-        tre valen skäl till: där ska ett tomrum i kurvan betyda att
-        partiet inte stod på den valsedeln, och ingenting annat.
-        Kungsbackaborna ställde upp i regionvalet 2010&ndash;2022 men nådde
-        aldrig tre procent där, och till riksdagen ställer de inte upp
-        alls. Med en tröskel per val hade de legat bland övriga i
-        regionvalet och saknats helt i riksdagsvalet &ndash; två tomrum som
-        såg likadana ut men betydde olika saker.</p></dd>
+        <p>Att tröskeln räknas på valen tillsammans gör två saker.
+        Partilistan blir densamma i de tre valen, så ett byte av val inte
+        också byter parti. Och diagrammet som ställer valen mot varandra
+        kan avgöra vilka partier som hör hemma där på rätt grund:
+        <em>ställde partiet upp i alla tre valen?</em> &ndash; inte
+        <em>var det stort nog i vart och ett?</em> Kungsbackaborna ställde
+        upp i regionvalet 2010&ndash;2022 men nådde aldrig tre procent
+        där, och med en tröskel per val hade sidan sagt att partiet
+        saknades i regionvalet, vilket är fel.</p></dd>
       <dt>Ett parti utan röster ett valår får inget värde</dt>
       <dd>Valmyndigheten redovisar bara partier som fick röster, så noll
         röster i <em>hela kommunen</em> betyder att partiet inte stod på
@@ -510,9 +511,17 @@
         <em>övriga partier</em> undantas: den är ingen rad på en valsedel,
         och ett år utan övriga röster betyder att inga röster föll
         utanför.</dd>
-      <dt>Valen jämförs i andelar, aldrig i antal</dt>
+      <dt>Valen jämförs bara för partier som ställer upp i alla tre</dt>
       <dd>Diagrammet som ställer kommun-, region- och riksdagsvalet mot
-        varandra visar alltid andel av de giltiga rösterna, också när
+        varandra gäller de partier som finns på alla tre valsedlarna
+        &ndash; i Kungsbacka de åtta riksdagspartierna. Ett lokalt parti
+        har inget att jämföras med, och restposten <em>övriga partier</em>
+        rymmer olika partier i de tre valen, så dess tre tal mäter inte
+        samma sak. Vilka partierna är läses ur datafilerna och står inte
+        som en uppräkning i koden: ett parti som redovisas för sig i alla
+        tre valen ställde upp i alla tre.</dd>
+      <dt>Valen jämförs i andelar, aldrig i antal</dt>
+      <dd>Samma diagram visar alltid andel av de giltiga rösterna, också när
         måttet på sidan står på antal. Valen har inte samma väljarkår: i
         kommun- och regionvalet röstar också folkbokförda utan svenskt
         medborgarskap, och 2026 hade de valen 67&nbsp;148 röstberättigade i

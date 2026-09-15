@@ -716,8 +716,6 @@
      två tunnare bakom – samma grepp som de små distriktsdiagrammen
      använder för det valda partiet, så att man ser var man står. */
 
-  /* Vilka år partiet inte stod på valsedeln i ett visst val. Tomt betyder
-     att det fanns med hela vägen. */
   /* "kommunvalet", "regionvalet", "riksdagsvalet" – varje datafil bär
      sitt eget namn, och prosan ska använda det och inte väljarens
      etikett, som är gjord för en rullgardin ("Kommunfullmäktige"). */
@@ -726,6 +724,33 @@
     return kalla ? kalla.valKort : valetFor(nyckel).etikett.toLowerCase();
   }
 
+  /* Jämförelsen gäller de partier som ställer upp i alla tre valen – i
+     Kungsbacka de åtta riksdagspartierna. Ett lokalt parti har inget att
+     jämföras med: Kungsbackaborna står på kommunvalets och regionvalets
+     valsedlar men inte på riksdagens, och en bild med en linje som slutar
+     i luften svarar inte på frågan diagrammet ställer.
+
+     Vilka partierna är läses ur filerna och står inte som en uppräkning
+     här: ett parti som redovisas för sig i alla tre valen ställde upp i
+     alla tre. Restposten ÖVR undantas – den rymmer olika partier i de tre
+     valen, så en jämförelse av den mäter inte samma sak i de tre ändarna. */
+  function valenMedPartiet(parti) {
+    return VALEN.filter(function (v) {
+      var kalla = filer[v.nyckel];
+      if (!kalla) return false;
+      for (var i = 0; i < kalla.partier.length; i++) {
+        if (kalla.partier[i].kod === parti) return true;
+      }
+      return false;
+    });
+  }
+
+  function garAttJamforaMellanValen(parti) {
+    return parti !== "ÖVR" && valenMedPartiet(parti).length === VALEN.length;
+  }
+
+  /* Vilka år partiet inte stod på valsedeln i ett visst val. Tomt betyder
+     att det fanns med hela vägen. */
   function utanValsedel(parti, kalla) {
     return arStr().filter(function (a) {
       return !partietFanns(parti, a, kalla);
@@ -734,17 +759,37 @@
 
   function ritaTreVal() {
     var parti = valtParti();
-    var datasets = [];
-    var saknade = [], luckor = [], ohamtade = [];
+    var serie = omradet();
+    el("rubrik-tre-val").textContent = "Röstar " +
+      (serie.antalDistrikt ? "det markerade området" : "Kungsbacka") +
+      " olika i de tre valen?";
 
+    /* Utan alla tre valen finns ingen jämförelse att rita. Diagrammet
+       plockas då bort i stället för att stå kvar med gamla siffror, och
+       noten säger varför. */
+    if (!garAttJamforaMellanValen(parti)) {
+      K.taBortDiagram("diagram-tre-val");
+      el("kort-tre-val").hidden = true;
+      var med = valenMedPartiet(parti).map(function (v) {
+        return valKort(v.nyckel);
+      });
+      K.sattDataNot("not-tre-val", parti === "ÖVR"
+        ? "<strong>Övriga partier</strong> går inte att jämföra mellan " +
+          "valen: restposten rymmer olika partier i de tre valen, så de " +
+          "tre talen mäter inte samma sak. Välj ett parti för sig ovanför."
+        : "Jämförelsen gäller de partier som ställer upp i alla tre valen " +
+          "&ndash; i Kungsbacka de åtta riksdagspartierna. " +
+          esc(partiNamn(parti)) + " finns " +
+          (med.length ? "bara i " + esc(rakna_upp(med))
+            : "inte i något av valen") + ".");
+      return;
+    }
+    el("kort-tre-val").hidden = false;
+
+    var datasets = [], luckor = [];
     VALEN.forEach(function (v, i) {
       var kalla = filer[v.nyckel];
-      if (!kalla) { ohamtade.push(v.etikett); return; }
       var utan = utanValsedel(parti, kalla);
-      if (utan.length === arStr().length) {
-        saknade.push(valKort(v.nyckel));
-        return;
-      }
       if (utan.length) {
         luckor.push(valKort(v.nyckel) + "s valsedel " + utan.join(", "));
       }
@@ -766,26 +811,10 @@
       }, "andel")
     }, HOJD);
 
-    var serie = omradet();
-    el("rubrik-tre-val").textContent = "Röstar " +
-      (serie.antalDistrikt ? "det markerade området" : "Kungsbacka") +
-      " olika i de tre valen?";
-
     var noter = [];
-    if (saknade.length) {
-      noter.push(esc(partiNamn(parti)) + " ställde inte upp i " +
-        esc(rakna_upp(saknade)) + " och har därför ingen linje där " +
-        "&ndash; partiet finns inte i Valmyndighetens siffror för " +
-        (saknade.length > 1 ? "de valen" : "det valet") + ".");
-    }
     if (luckor.length) {
       noter.push("Avbrott i linjen: " + esc(partiNamn(parti)) +
         " fanns inte på " + esc(rakna_upp(luckor)) + ".");
-    }
-    if (ohamtade.length) {
-      noter.push("Siffrorna för " +
-        esc(rakna_upp(ohamtade.map(function (e) { return e.toLowerCase(); }))) +
-        " kunde inte hämtas, så det valet saknas i diagrammet.");
     }
     noter = noter.concat(brottsNoter(valdaSlugar(), true));
     K.sattDataNot("not-tre-val", noter.join(" "));
@@ -1185,7 +1214,7 @@
     /* Samma parti, samma område, de tre valen. Punkterna ställs bredvid
        varandra och får tala för sig själva: sidan räknar skillnaden men
        säger ingenting om varför den finns. */
-    var treVal = VALEN.map(function (v) {
+    var treVal = !garAttJamforaMellanValen(parti) ? [] : VALEN.map(function (v) {
       var kalla = filer[v.nyckel];
       if (!kalla) return null;
       var tal = andelen(omradet(kalla), parti, senaste, kalla);
