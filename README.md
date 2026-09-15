@@ -754,6 +754,9 @@ komponenter (docs/gemensam.js):
 - **Tabeller**: sorterbara på kolumn, nedladdningsbara som CSV och
   kopierbara. Saknade värden skiljer på sekretess (&rdquo;..&rdquo;,
   färre än tio elever) och &rdquo;fanns inte&rdquo; (&ndash;).
+- **Källistan** byggs av `K.kallpost`: titel, detaljrad och länkar, där
+  varje adress går genom `sakerUrl` och en adress som inte håller måttet
+  gör att länken inte ritas alls.
 - **Databegränsningar** visas i en liten ruta intill det diagram där
   begränsningen märks (2018 års saknade antagningsrapport, Skolverkets
   dubbelprickning, prognosrapporten 2021 med annan åldersindelning).
