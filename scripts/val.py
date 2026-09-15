@@ -18,6 +18,7 @@ import re
 import ssl
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -277,10 +278,23 @@ def tal(cell) -> int:
 
 
 def slug(text: str) -> str:
-    """Distriktsnamn -> adressvänlig nyckel, samma regel som K.slug på
-    webbsidorna: gemener, å/ä/ö -> a/a/o, allt annat till bindestreck."""
+    """Namn -> adressvänlig nyckel: gemener, å/ä/ö -> a/a/o, allt annat
+    till bindestreck.
+
+    Exakt samma regel som K.slug i docs/gemensam.js, och den enda
+    implementationen på Python-sidan: både ?distrikt= på valresultatsidan
+    och ?omrade= på förtidsröstningssidan bildas här, och sidorna läser
+    tillbaka nyckeln med K.slug. Går de isär hittar sidan inte det område
+    länken pekar ut. tests/test_berakningar.py och tests/test_gemensam.js
+    pinnar båda sidorna mot samma facit.
+
+    Bokstäver med tecken ovanpå tappar tecknet men behålls (ñ -> n), och
+    sammansatt form ("A" + kombinerande ring) ger samma nyckel som ett
+    enda tecken ("Å") – källornas xlsx-filer kan bära båda formerna.
+    """
     ut = (text or "").casefold()
     for fran, till in (("å", "a"), ("ä", "a"), ("ö", "o"), ("é", "e"), ("ü", "u")):
         ut = ut.replace(fran, till)
-    ut = re.sub(r"[^a-z0-9]+", "-", ut).strip("-")
-    return ut
+    ut = "".join(c for c in unicodedata.normalize("NFD", ut)
+                 if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]+", "-", ut).strip("-")

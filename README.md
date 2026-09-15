@@ -396,6 +396,10 @@ tests/
   test_berakningar.py           Kontrollräknar beräkningarna och stämmer av
                                 att docs/data*.json går att reproducera ur
                                 data/ (python3 -m unittest discover tests)
+  test_gemensam.js              Enhetstestar de rena funktionerna i
+                                docs/gemensam.js – talformat, escapning,
+                                adressnycklar, årsskalor och seriestilar
+                                (node --test tests/*.js)
 docs/                           Själva hemsidan (serveras av GitHub Pages)
   index.html                    Startsida: en översikt med ett kort per ämne,
                                 som fylls med beräknade sammanfattningar av
