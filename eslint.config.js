@@ -118,7 +118,8 @@ module.exports = [
     files: [
       "scripts/smoke_webbplats.js",
       "scripts/tillganglighet.js",
-      "scripts/facit_webbplats.js"
+      "scripts/facit_webbplats.js",
+      "scripts/interaktion_webbplats.js"
     ],
     languageOptions: { globals: { ...NODE, ...WEBBLASARE } }
   }

@@ -10,9 +10,12 @@
 # version inte gör CI rött utan att någon ändrat en rad kod.
 #
 # Facit-kontrollen jämför varje sidas färdigritade utfall mot ett
-# incheckat facit. Den körs mot fryst fixturdata i tests/fixtures/, inte
-# mot docs/data-*.json – annars vore den röd inom ett dygn, eftersom
-# förtidsröstjobbet skriver om sina datafiler två gånger om dagen.
+# incheckat facit, och interaktionstesterna använder sidorna: de ställer
+# om varje reglage, delar länken och trycker bakåt. Båda körs mot fryst
+# fixturdata i tests/fixtures/, inte mot docs/data-*.json – annars vore de
+# röda inom ett dygn, eftersom förtidsröstjobbet skriver om sina datafiler
+# två gånger om dagen. Rök-testet kör däremot mot de riktiga filerna, för
+# det är dess uppgift att upptäcka ett trasigt databygge.
 name: Tester
 
 on:
@@ -69,5 +72,7 @@ jobs:
         run: node scripts/smoke_webbplats.js
       - name: Facit över sidornas renderade utfall
         run: node scripts/facit_webbplats.js
+      - name: Reglage, adressrad, bakåt och framåt
+        run: node scripts/interaktion_webbplats.js
       - name: Tillgänglighet (axe, tangentbord, smal skärm)
         run: node scripts/tillganglighet.js

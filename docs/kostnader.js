@@ -533,6 +533,12 @@
     fyllValjare();
     beskrivMatt();
     kortSagt();
+    /* Måttväljaren kopplas till ?matt= innan första ritningen. Kopplingen
+       läser adressraden och ställer väljaren, men ritar inte om av sig
+       själv – ritades sidan först stod väljaren på det delade måttet
+       medan diagrammen visade förvalet. Samma ordning som på de andra
+       sidorna. */
+    K.kopplaValjare(el("matt-valjare"), "matt", ritaOm);
     ritaOm();
     ritaSlag();
     visaKallor();
@@ -542,8 +548,6 @@
         var s = el("sektion-" + id);
         if (s) s.hidden = false;
       });
-
-    K.kopplaValjare(el("matt-valjare"), "matt", ritaOm);
 
     var upp = el("om-uppdaterad");
     if (upp) {

@@ -20,6 +20,9 @@
      kort-sagt-lista, meta-rad, lista-kallor, kalla-*, not-* och
      slutsats-*, men också startsidans räknade kort
 
+   Servern, den frysta klockan och fixturdatat kommer ur testserver.js,
+   som delas med interaktionstesterna.
+
    Körs:  node scripts/facit_webbplats.js
    Skriv om facit efter en avsedd ändring:
           node scripts/facit_webbplats.js --skriv-om
@@ -27,24 +30,14 @@
 
 "use strict";
 
-const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
+const { startaServer, nySida } = require("./testserver");
 
-const ROT = path.join(__dirname, "..");
-const DOCS = path.join(ROT, "docs");
-const FIXTURER = path.join(ROT, "tests", "fixtures", "data");
-const FACIT = path.join(ROT, "tests", "facit");
+const FACIT = path.join(__dirname, "..", "tests", "facit");
 
 const SKRIV_OM = process.argv.indexOf("--skriv-om") !== -1;
-
-/* Klockan fryses i webbläsaren. fortidsrostning.js och index.js räknar ut
-   vilken dag som pågår vid laddning via K.idagSv(), så deras facit skulle
-   annars driva varje dygn. Tidpunkten hör ihop med fixturdatat: den ligger
-   efter valdagen 2026-09-13, som är sista dagen i de frysta
-   förtidsröstsiffrorna. Byts fixturerna ut ska den här flyttas med. */
-const FRUSEN_TID = "2026-09-15T09:00:00+02:00";
 
 /* Sidorna med de lägen som ska låsas fast. Frågesträngen är en del av
    läget: samma sida med ett annat val, parti eller mått är en annan bild
@@ -68,6 +61,9 @@ const SIDOR = [
   "varberg-barn-och-unga.html",
   "amnesbetyg.html",
   "kostnad-per-elev.html",
+  /* Ett annat mått ur adressen: det läget visade förvalets siffror med
+     det delade måttet i väljaren tills ordningen rättades. */
+  "kostnad-per-elev.html?matt=hemkommun",
   "resurser-till-skolan.html",
   "nian-till-gymnasiet.html",
   "meritvarden.html",
@@ -98,71 +94,6 @@ const SIDOR = [
   /* Samma parti i ett val där det ställde upp förr men inte senast. */
   "valresultat.html?val=region&parti=kbabo&matt=antal",
 ];
-
-const MIME = {
-  ".html": "text/html; charset=utf-8",
-  ".js": "text/javascript; charset=utf-8",
-  ".css": "text/css; charset=utf-8",
-  ".json": "application/json; charset=utf-8",
-  ".pdf": "application/pdf",
-  ".csv": "text/csv; charset=utf-8",
-};
-
-/* Vilka filer som får serveras räknas upp en gång vid start, och
-   adressen ur begäran används sedan bara som nyckel i den uppräkningen –
-   aldrig som sökväg. Det är inte bara en vakt mot ".." utan tar bort
-   frågan: sökvägen som når fs kommer ur katalogvandringen, inte utifrån.
-
-   Datafilerna kommer ur tests/fixtures/data/, aldrig ur docs/.
-   Förtidsröstjobbet skriver om docs/data-fortidsroster/ två gånger om
-   dygnet och pushar till main; kördes facit mot de riktiga filerna vore
-   det rött inom ett dygn och avstängt inom en vecka. Sidorna märker
-   ingenting – de begär samma adresser som vanligt.
-
-   Bara tre av de 313 områdesfilerna är frysta. Därför tas docs-varianterna
-   bort ur uppräkningen innan fixturerna läggs in: ett område utan fixtur
-   ska svara 404, inte tyst falla tillbaka på levande data. */
-function vandra(rot, prefix, karta) {
-  fs.readdirSync(rot, { withFileTypes: true }).forEach(function (post) {
-    const full = path.join(rot, post.name);
-    if (post.isDirectory()) vandra(full, prefix + post.name + "/", karta);
-    else if (post.isFile()) karta.set(prefix + post.name, full);
-  });
-}
-
-function servbaraFiler() {
-  const karta = new Map();
-  vandra(DOCS, "/", karta);
-  Array.from(karta.keys()).forEach(function (nyckel) {
-    if (/^\/data[^/]*\.json$/.test(nyckel) || nyckel.startsWith("/data-fortidsroster/")) {
-      karta.delete(nyckel);
-    }
-  });
-  vandra(FIXTURER, "/", karta);
-  karta.set("/", karta.get("/index.html"));
-  return karta;
-}
-
-function startaServer() {
-  const filer = servbaraFiler();
-  return new Promise(function (klar) {
-    const server = http.createServer(function (req, res) {
-      const fil = filer.get(decodeURIComponent(req.url.split("?")[0]));
-      if (!fil) { res.writeHead(404); res.end("saknas"); return; }
-      res.writeHead(200, { "Content-Type": MIME[path.extname(fil)] || "application/octet-stream" });
-      fs.createReadStream(fil).pipe(res);
-    });
-    server.listen(0, "127.0.0.1", function () { klar(server); });
-  });
-}
-
-/* Sidorna läser in GoatCounters count.js; besvaras lokalt så att
-   kontrollen går utan nät (samma stubb som i smoke_webbplats.js). */
-async function stubbaGoatcounter(page) {
-  await page.route("https://gc.zgo.at/**", function (r) {
-    r.fulfill({ status: 200, contentType: "text/javascript", body: "" });
-  });
-}
 
 /* Körs i sidan. Chart.js länkar tillbaka till diagrammet från flera håll
    och options är full av callbacks, så strukturen måste rensas innan den
@@ -320,11 +251,9 @@ function kort(v) {
 }
 
 async function plocka(browser, bas, sida) {
-  const page = await browser.newPage();
+  const page = await nySida(browser);
   const fel = [];
   page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
-  await page.clock.setFixedTime(new Date(FRUSEN_TID));
-  await stubbaGoatcounter(page);
   await page.goto(bas + "/" + sida, { waitUntil: "networkidle" });
   /* "networkidle" kan infalla innan sidan hunnit rita: vänta in en
      tabellrad eller sidans felruta i stället för en fast tid. */

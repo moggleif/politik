@@ -384,6 +384,8 @@ scripts/
                                 Valmyndighetens filer: hämtningen med
                                 återförsök, xlsx-läsaren, valdistriktskoden
                                 och partinormaliseringen
+  testserver.js                 Serverar docs/ med fryst fixturdata till
+                                facit- och interaktionskontrollerna
   bygg_sidmall.py               Skriver in samma meny och samma sidfot på
                                 alla sidor i docs/. Menyn finns bara här;
                                 --kontrollera faller om någon sida hamnat
@@ -689,12 +691,14 @@ presentationen: startsidan får inte visa det horisontblandade
 samlingsmåttet som ett generellt prognosfel, och kulljämförelsen får
 inte beskrivas som individuppföljning. Vid varje push och pull request
 körs testerna i GitHub Actions (`.github/workflows/test.yml`),
-tillsammans med fem kontroller av den färdiga webbplatsen: interna
+tillsammans med sex kontroller av den färdiga webbplatsen: interna
 länkar och lokala källfiler (`scripts/kontrollera_lankar.py`),
 HTML-validering (html-validate), ett rök-test som laddar varje sida i
 webbläsare och faller på JavaScript-fel, saknade resurser eller sidor
 som inte ritar sina diagram (`scripts/smoke_webbplats.js`), ett facit
-över vad sidorna faktiskt ritar (`scripts/facit_webbplats.js`), och en
+över vad sidorna faktiskt ritar (`scripts/facit_webbplats.js`), ett
+interaktionstest som använder varje reglage
+(`scripts/interaktion_webbplats.js`), och en
 tillgänglighetskontroll (`scripts/tillganglighet.js`) som kör axe-core
 mot WCAG 2.1 A och AA, tabbar igenom varje sida för att se att alla
 kontroller nås och har synlig fokusmarkering, och kontrollerar att
@@ -761,6 +765,44 @@ Skillnaderna skrivs ut med sin väg in i strukturen, så att det syns var:
 SKILJER meritvarden.html
      .tabeller[4].rader[1][1].text: facit "247,5 (11)" → sidan "247,48 (11)"
 ```
+
+### Reglagen, som de används
+
+Facit och rök-testet granskar sidorna som de *laddas*. Ingen av dem rörde
+ett reglage, och det var därför partiväljarbuggen kunde ligga ute med grön
+CI: valresultatsidans partiväljare växte från 10 alternativ till 49 när
+valet byttes fram och tillbaka. `scripts/interaktion_webbplats.js` använder
+sidorna i stället:
+
+- varje reglage ställs om och tillbaka; efter rundturen ska vyn vara
+  densamma som vid start
+- **ingen `<select>` får någonsin ha samma alternativ två gånger**, avläst
+  på hela sidan efter varje steg &ndash; inte bara i den väljare som rördes,
+  eftersom felet satt i en delad funktion
+- adressraden ska spegla läget, och en delad länk ge samma vy som att
+  klicka sig dit
+- bakåt och framåt ska ge tillbaka läget fullt ut, med ett tryck
+
+```bash
+node scripts/interaktion_webbplats.js
+```
+
+Kontrollen körs mot samma frysta fixturdata som facit, via
+`scripts/testserver.js`. Rök-testet delar medvetet *inte* den servern: det
+ska ladda de riktiga datafilerna, eftersom en av dess uppgifter är att
+upptäcka ett trasigt databygge.
+
+Två fel hittades när kontrollen skrevs, båda av samma sort som den bugg
+som föranledde den &ndash; ett reglage vars läge inte gick att lita på:
+
+- `K.kopplaValjare` föll tillbaka på *första* alternativet i stället för
+  sidans förval när adressen inte nämner reglaget. Ämnessidan förvalde
+  Matematik men hade Bild först i listan, så bakåtknappen landade på Bild
+  medan en färsk laddning av samma adress gav Matematik.
+- Kostnadssidan ritades innan måttväljaren kopplats till adressraden, så
+  `?matt=hemkommun` visade förvalets siffror med det delade måttet i
+  väljaren. Slutbetygssidan hade redan gått på samma mina och lappat
+  lokalt, utan att någon annan fick veta det.
 
 ### Granskarna
 
