@@ -524,11 +524,19 @@ ul.undersidor a { font-weight: 600; }
 
 /* Smal skärm: menyraden radbryts och de utfällda menyerna läggs över
    hela navigeringens bredd i stället för intill sin egen knapp. */
-@media (max-width: 46rem) {
-  /* Inte klistrad högst upp: menyraden radbryts här och skulle ta för
-     mycket av skärmen. Däremot positionerad, så att de utfällda menyerna
-     hänger under hela raden i stället för under sin egen knapp. */
+/* Menyraden ryms på en enda rad först vid 60rem – samma bredd som
+   textkolumnen. Under det radbryts den till två eller tre rader, och en
+   klistrad rad så hög skulle äta för mycket av en liten skärm: den
+   rullar därför med sidan i stället. (Gränsen låg tidigare vid 46rem,
+   vilket lämnade fönster mellan 46 och 60rem med en klistrad meny på
+   upp till tre rader.) */
+@media (max-width: 60rem) {
   .toppnav { position: relative; }
+}
+
+@media (max-width: 46rem) {
+  /* Menyerna är positionerade mot hela raden i stället för mot sin egen
+     knapp, så att de utfällda panelerna får plats på en smal skärm. */
   .toppnav-inre { gap: 0; padding-bottom: 0.35rem; }
   .markesnamn { padding: 0.7rem 0 0.4rem; width: 100%; }
   .navpost { position: static; }

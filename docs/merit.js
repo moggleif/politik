@@ -16,7 +16,6 @@
   var el = K.el;
   var talSv = K.talSv;
   var esc = K.esc;
-  var sakerUrl = K.sakerUrl;
 
   /* Reformer i det som mäts, markerade men inte borträknade. Serien delas
      inte: vilka utbildningar som ändrats "på riktigt" är en bedömning av
@@ -844,20 +843,16 @@
   /* ---------- Källor ---------- */
 
   function initKallor() {
-    var html = "";
-    DATA.kallor.slice().reverse().forEach(function (k) {
-      var lokalPdf = sakerUrl(k.lokalPdf);
-      var kallaUrl = sakerUrl(k.kallaUrl);
-      var arkivUrl = sakerUrl(k.arkivUrl);
-      html += "<li><span class=\"titel\">" + esc(k.rapportTitel) + "</span>";
-      html += "<br><span class=\"undertext\">" + esc(k.kalla) + "</span>";
-      html += "<div class=\"lankar\">";
-      if (lokalPdf) html += "<a href=\"" + lokalPdf + "\">Läs rapporten (PDF)</a>";
-      if (kallaUrl) html += "<a href=\"" + kallaUrl + "\">Original hos källan</a>";
-      if (arkivUrl) html += "<a href=\"" + arkivUrl + "\">Arkiverad kopia</a>";
-      html += "</div></li>";
-    });
-    el("lista-kallor").innerHTML = html;
+    el("lista-kallor").innerHTML = DATA.kallor.slice().reverse()
+      .map(function (k) {
+        return K.kallpost({
+          titel: k.rapportTitel,
+          detalj: k.kalla,
+          lankar: [[k.lokalPdf, "Läs rapporten (PDF)"],
+                   [k.kallaUrl, "Original hos källan"],
+                   [k.arkivUrl, "Arkiverad kopia"]]
+        });
+      }).join("");
     el("sektion-kallor").hidden = false;
     el("om-uppdaterad").textContent =
       "Rapporterna hämtades " + DATA.kallor[0].hamtad + ". Sidan omfattar " +

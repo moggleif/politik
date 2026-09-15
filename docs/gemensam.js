@@ -547,6 +547,34 @@
     s.hidden = false;
   }
 
+  /* ---------- Källistan ----------
+     Ett <li> i ul.kallista: rapportens titel, en valfri detaljrad och
+     länkarna till den. Låg tidigare i tre kopior (prognos-, meritvärdes-
+     och slutbetygssidan) som var för sig upprepade regeln att en adress
+     som inte håller måttet inte ska ritas som länk alls — och därmed var
+     för sig kunde tappa den. Nu på ett ställe: allt går genom esc(), och
+     adresserna genom sakerUrl().
+
+       K.kallpost({
+         titel: "Befolkningsprognos 2026",
+         detalj: "Siffrorna hämtade ur: tabell 3, s. 12",   // valfri
+         lankar: [["rapporter/p2026.pdf", "Läs rapporten (PDF)"],
+                  [k.kallaUrl, "Original hos källan"]]      // tomma hoppas över
+       }) */
+
+  function kallpost(post) {
+    var html = '<li><span class="titel">' + esc(post.titel) + "</span>";
+    if (post.detalj) {
+      html += '<br><span class="detalj">' + esc(post.detalj) + "</span>";
+    }
+    var lankar = (post.lankar || []).map(function (l) {
+      var url = sakerUrl(l[0]);
+      return url ? '<a href="' + url + '">' + esc(l[1]) + "</a>" : "";
+    }).join("");
+    if (lankar) html += '<div class="lankar">' + lankar + "</div>";
+    return html + "</li>";
+  }
+
   /* ---------- Metadataraden ----------
      En diskret rad under ingressen: källa, period, senaste data och när
      datat hämtades — samt länken till data och källkod. */
@@ -879,6 +907,7 @@
     kopplaValjare: kopplaValjare,
     visaKortSagt: visaKortSagt,
     visaMeta: visaMeta,
+    kallpost: kallpost,
     sattDataNot: sattDataNot
   };
 })();
