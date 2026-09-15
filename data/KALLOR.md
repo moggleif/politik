@@ -242,15 +242,18 @@ av partierna fortfarande blir antalet giltiga röster &ndash; det
 kontrolleras av ett test. Utan tröskeln blir sidans partilista tjugonio
 namn, varav tjugo har en handfull röster.
 
-Att tröskeln räknas på valen tillsammans och inte på ett i taget spelar
-roll för sidans diagram över hur ett parti gått i de tre valen: där ska
-ett tomrum i kurvan betyda att partiet inte stod på den valsedeln, och
-ingenting annat. **Kungsbackaborna** visar varför. De ställde upp i
-regionvalet 2010&ndash;2022 (2,26, 1,88, 1,82 och 1,26&nbsp;%) men nådde
-aldrig tre procent där, och till riksdagen ställer de inte upp alls. Med
-en tröskel per val hade de legat i `ÖVR` i regionvalet och saknats helt i
-riksdagsvalet &ndash; två tomrum som såg likadana ut men betydde helt
-olika saker.
+Att tröskeln räknas på valen tillsammans och inte på ett i taget gör två
+saker. Partilistan blir densamma i de tre valen, så ett byte av val inte
+också byter parti. Och sidans diagram över hur ett parti gått i de tre
+valen &ndash; som gäller de partier som ställer upp i alla tre, i
+Kungsbacka de åtta riksdagspartierna &ndash; kan avgöra vilka partier som
+hör hemma där på rätt grund: *ställde partiet upp i alla tre valen?*, inte
+*var det stort nog i vart och ett?* **Kungsbackaborna** visar varför. De
+ställde upp i regionvalet 2010&ndash;2022 (2,26, 1,88, 1,82 och
+1,26&nbsp;%) men nådde aldrig tre procent där, och till riksdagen ställer
+de inte upp alls. Med en tröskel per val hade de legat i `ÖVR` i
+regionvalet, och sidan hade sagt att partiet saknades där &ndash; vilket
+är fel.
 
 **Ett parti utan röster ett valår får `null`, inte 0.** Valmyndigheten
 redovisar bara partier som fick röster, så noll röster i *hela kommunen*
