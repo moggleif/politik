@@ -167,6 +167,10 @@
         window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       Chart.defaults.animation = false;
     }
+    /* Talen på axlarna formateras av Chart.js själv. Utan den här raden
+       blir de amerikanska ("15,000") mitt i en svensk sida; med den
+       skriver de sig som sidans övriga tal ("15 000"). */
+    Chart.defaults.locale = "sv-SE";
     Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
     Chart.defaults.font.size = 15;
     Chart.defaults.color = FARG.ink2;
@@ -268,6 +272,101 @@
       diagramRegister[id].destroy();
       delete diagramRegister[id];
     }
+  }
+
+  /* ---------- Tidsserier: axlar och linjer ----------
+     Sidorna som ritar ett mått år för år (kostnaderna, resurserna,
+     befolkningen) ska se ut som ett och samma system: samma axlar, samma
+     linjetjocklek, samma rutor. Inställningarna bodde tidigare kopierade
+     i varje sidskript och hann glida isär; nu finns de här.
+
+     x är kategorisk (ett år per etikett, aldrig en tidsaxel), y bär
+     måttets namn. Talformatet kommer ur Chart.js svenska locale, som
+     sätts i installChartDefaults – inga egna tickcallbacks behövs.
+
+       K.arsOptions({ ytitel: "Kronor per elev",
+                      etikett: function (it) { … },  // tooltipens rad
+                      legend: false })               // förval: true */
+
+  function arsOptions(inst) {
+    inst = inst || {};
+    return {
+      maintainAspectRatio: false,
+      responsive: true,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { display: inst.legend !== false },
+        tooltip: {
+          callbacks: {
+            title: function (it) { return "År " + it[0].label; },
+            label: inst.etikett
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          border: { color: FARG.baseline },
+          ticks: { maxRotation: 0, autoSkipPadding: 12 }
+        },
+        y: {
+          title: { display: true, text: inst.ytitel, color: FARG.muted },
+          grid: { color: FARG.grid },
+          border: { display: false },
+          /* Tomt men alltid på plats: sidorna sätter en egen callback här
+             när talet ska bära en enhet ("2,7 %", "135 993 kr"). Utan
+             objektet skulle den raden falla. */
+          ticks: {}
+        }
+      }
+    };
+  }
+
+  /* En linje i ett sådant diagram. Punkterna syns först vid pekning:
+     serierna är långa (tjugofem år), och en prick per år gör bilden
+     grötig. spanGaps: false – ett år utan mätning ska synas som en lucka. */
+
+  function linjeSerie(etikett, farg, varden, streck) {
+    return {
+      label: etikett,
+      data: varden,
+      borderColor: farg,
+      backgroundColor: farg,
+      borderWidth: 2,
+      borderDash: streck || [],
+      pointRadius: 0,
+      pointHoverRadius: 5,
+      pointBorderColor: FARG.surface,
+      pointBorderWidth: 2,
+      spanGaps: false,
+      tension: 0.1
+    };
+  }
+
+  /* ---------- Serier som inte är lika långa ----------
+     Riket börjar senare än kommunen, skolskjutsen senare än båda. Ett år
+     utan värde ska bli ett tankstreck i tabellen, inte ett undantag mitt
+     i uppritningen – och årslistan ska komma ur datat, inte ur en
+     hårdkodad början. */
+
+  function visaTal(v, dec) {
+    return (v === null || v === undefined) ? "&ndash;" : talSv(v, dec);
+  }
+
+  /* Åren en serie faktiskt har, i stigande ordning, ur ett
+     { "2019": …, "2020": … }-objekt. */
+  function arenI(varden) {
+    if (!varden) return [];
+    return Object.keys(varden).map(Number).sort(function (a, b) { return a - b; });
+  }
+
+  /* Namnet på en kod i en lista av { kod, namn }. Okänd kod får visa sig
+     som sin kod i stället för att bli tom. */
+  function namnet(lista, kod) {
+    for (var i = 0; i < (lista || []).length; i++) {
+      if (lista[i].kod === kod) return lista[i].namn;
+    }
+    return kod;
   }
 
   /* ---------- Kommunnamnet i genitiv ----------
@@ -735,42 +834,51 @@
 
   /* ---------- Export ---------- */
 
+  /* Bara det sidskripten faktiskt anropar. Uppstarten (starta) sätter
+     själv diagramstandarderna och aktiverar tabellverktygen; de behöver
+     därför inte vara utlämnade härifrån. */
   window.KIS = {
+    /* Färger och seriestilar */
     FARG: FARG,
     PALETT: PALETT,
-    STRECK: STRECK,
     serieStil: serieStil,
     rampFarg: rampFarg,
     rampFargOrange: rampFargOrange,
+    /* Tal, text och små hjälpare */
     el: el,
     idagSv: idagSv,
     talSv: talSv,
+    visaTal: visaTal,
     esc: esc,
     sakerUrl: sakerUrl,
     slug: slug,
+    kommunGenitiv: kommunGenitiv,
+    TYPNAMN: TYPNAMN,
+    /* År och serier */
     arsskala: arsskala,
     saknadeAr: saknadeAr,
     saknadeArText: saknadeArText,
-    TYPNAMN: TYPNAMN,
-    fyllValjare: fyllValjare,
-    installChartDefaults: installChartDefaults,
+    arenI: arenI,
+    namnet: namnet,
+    /* Diagram */
     rita: rita,
     diagramFor: diagramFor,
-    regimmarkering: regimmarkering,
     taBortDiagram: taBortDiagram,
+    arsOptions: arsOptions,
+    linjeSerie: linjeSerie,
+    regimmarkering: regimmarkering,
     utfallDataset: utfallDataset,
-    kommunGenitiv: kommunGenitiv,
+    aktiveraToning: aktiveraToning,
+    /* Sidans ram: uppstart, reglage, rutor */
     starta: starta,
     visaStatus: visaStatus,
     urlLas: urlLas,
     urlSatt: urlSatt,
     urlLyssna: urlLyssna,
+    fyllValjare: fyllValjare,
     kopplaValjare: kopplaValjare,
     visaKortSagt: visaKortSagt,
     visaMeta: visaMeta,
-    dataNot: dataNot,
-    sattDataNot: sattDataNot,
-    aktiveraToning: aktiveraToning,
-    aktiveraTabellverktyg: aktiveraTabellverktyg
+    sattDataNot: sattDataNot
   };
 })();

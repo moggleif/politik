@@ -1,5 +1,9 @@
-/* Prognoskollen Kungsbacka — ljust, lugnt och lättläst.
-   Palettvärden följer en validerad standardpalett (se README). */
+/* Kungsbacka i siffror — ljust, lugnt och lättläst.
+   Palettvärden följer en validerad standardpalett (se README).
+
+   Här står bara de färger sidan själv ritar med. Diagrammens palett bor
+   i docs/gemensam.js (KIS.FARG och KIS.PALETT) och upprepas medvetet
+   inte här: två listor som ska vara lika glider isär. */
 
 :root {
   --page: #f9f9f7;
@@ -10,12 +14,8 @@
   --grid: #e1e0d9;
   --baseline: #c3c2b7;
   --border: rgba(11, 11, 11, 0.10);
-  --blue: #2a78d6;      /* serie 1: utfall, sekventiell */
-  --blue-dark: #1c5cab;
-  --blue-light: #9ec5f4;
-  --red: #e34948;       /* divergerande motpol: prognosen för hög */
-  --orange: #e69f00;    /* framskrivet, aldrig uppmätt */
-  --orange-dark: #b57c00;
+  --blue-dark: #1c5cab;   /* länkar, markerat läge */
+  --orange-dark: #b57c00; /* framskrivet, aldrig uppmätt */
   --neutral-mid: #f0efec;
   --focus: #1c5cab;
 }
@@ -72,37 +72,6 @@ h1, h2, h3 {
   color: var(--ink-2);
   max-width: 46rem;
   margin: 0;
-}
-
-/* ---------- Navigering mellan vyerna ---------- */
-
-.sidnav {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-
-.sidnav a, .sidnav .aktuell {
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  border: 2px solid var(--baseline);
-  font-size: 1.05rem;
-  text-decoration: none;
-}
-
-.sidnav a { color: var(--blue-dark); }
-
-.sidnav a:hover {
-  border-color: var(--blue-dark);
-  background: var(--neutral-mid);
-}
-
-.sidnav .aktuell {
-  background: var(--blue-dark);
-  border-color: var(--blue-dark);
-  color: #fff;
-  font-weight: 600;
 }
 
 /* ---------- Sektioner ---------- */
@@ -409,28 +378,28 @@ ul.undersidor a { font-weight: 600; }
   line-height: 1.45;
 }
 
-/* ---------- Brödsmula tillbaka till startsidan ---------- */
-
-.brodsmula {
-  font-size: 1rem;
-  color: var(--muted);
-  margin: 0 0 0.75rem;
-}
-
-.brodsmula a { text-decoration: none; }
-
-.brodsmula a:hover { text-decoration: underline; }
-
-/* ---------- Reglage som styr hela sidan ---------- */
+/* ---------- Reglage som styr hela sidan ----------
+   En rad reglage, inte en kolumn: sidor med flera val (valresultatet har
+   tre – val, parti och mått) fick annars ett reglage per rad, vilket
+   sköt undan det sidan handlar om. Raden bryts av sig själv när den inte
+   får plats, så på en smal skärm står reglagen fortfarande under
+   varandra. */
 
 .valjarrad {
   background: var(--neutral-mid);
   border-radius: 8px;
   padding: 0.75rem 1.25rem;
   margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 2rem;
 }
 
-.valjarrad .valj-ar { margin: 0; }
+/* Reglagen ska kunna krympa under sin innehållsbredd, annars kan raden
+   inte brytas och en lång etikett eller ett långt alternativ skjuter ut
+   sidan i sidled på en smal skärm. */
+.valjarrad .valj-ar { margin: 0; min-width: 0; }
 
 /* ---------- Toppnavigering ----------
    Samma rad högst upp på varje sida: webbplatsens namn till vänster och

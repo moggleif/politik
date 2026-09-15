@@ -763,6 +763,13 @@ komponenter (docs/gemensam.js):
   pekar på en linje eller på ett namn i teckenförklaringen. Serierna
   skiljs åt med färg *och* punktform/streckning, så att ingen
   information bärs av färgen ensam.
+- **Samma axlar i tidsserierna.** Sidorna som ritar ett mått år för år
+  (kostnaderna, resurserna, befolkningen) hämtar axlar, rutor och
+  linjer ur `K.arsOptions` och `K.linjeSerie` i stället för att ha var
+  sin kopia. Talen på axlarna formateras av Chart.js svenska locale, som
+  sätts en gång för alla diagram &ndash; så att ett antal skrivs
+  &rdquo;15&nbsp;000&rdquo; och inte &rdquo;15,000&rdquo;, och ett
+  decimaltal &rdquo;12,4&rdquo; och inte &rdquo;12.4&rdquo;.
 - **Besöksstatistik**: sidvisningarna räknas med
   [GoatCounter](https://www.goatcounter.com/) &ndash; öppen källkod,
   inga kakor, inga sparade IP-adresser &ndash; via count.js-taggen sist

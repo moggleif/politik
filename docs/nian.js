@@ -32,7 +32,6 @@
     return {
       maintainAspectRatio: false,
       responsive: true,
-      locale: "sv-SE",
       interaction: { mode: "index", intersect: false },
       plugins: {
         legend: { display: true, position: "bottom",

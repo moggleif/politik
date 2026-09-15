@@ -75,7 +75,6 @@
       options: {
         maintainAspectRatio: false,
         responsive: true,
-        locale: "sv-SE",
         interaction: { mode: "index", intersect: false },
         plugins: {
           legend: { display: true, position: "bottom",
@@ -263,7 +262,6 @@
       options: {
         maintainAspectRatio: false,
         responsive: true,
-        locale: "sv-SE",
         interaction: { mode: "nearest", intersect: false },
         plugins: {
           legend: {
@@ -397,7 +395,6 @@
       options: {
         maintainAspectRatio: false,
         responsive: true,
-        locale: "sv-SE",
         interaction: { mode: "index", intersect: false },
         plugins: {
           legend: { display: true, position: "bottom",

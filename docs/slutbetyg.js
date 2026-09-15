@@ -117,8 +117,6 @@
      gemensam.js; wrapparna skickar in sidans egen årslista. */
   function arsskala() { return K.arsskala(DATA.ar); }
 
-  function saknadeAr() { return K.saknadeAr(DATA.ar); }
-
   function saknadeArText() { return K.saknadeArText(DATA.ar); }
 
   /* Programmen som filtret släpper fram. Tomt filter = alla. */

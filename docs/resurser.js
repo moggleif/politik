@@ -14,6 +14,8 @@
   var talSv = K.talSv;
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
+  var visa = K.visaTal;
+  var linjeSerie = K.linjeSerie;
 
   var DATAFIL = "data-resurser.json";
   var KUNGSBACKA = "1384";
@@ -42,27 +44,14 @@
     return s && s.omraden[kod] ? s.omraden[kod] : null;
   }
 
-  function omradesnamn(kod) {
-    for (var i = 0; i < data.omraden.length; i++) {
-      if (data.omraden[i].kod === kod) return data.omraden[i].namn;
-    }
-    return kod;
-  }
+  function omradesnamn(kod) { return K.namnet(data.omraden, kod); }
 
-  function aren(o) {
-    return o ? Object.keys(o.varden).map(Number).sort(function (a, b) {
-      return a - b;
-    }) : [];
-  }
+  function aren(o) { return K.arenI(o && o.varden); }
 
   function cell(o, ar) {
     if (!o) return null;
     var v = o.varden[String(ar)];
     return v === undefined ? null : v;
-  }
-
-  function visa(v, dec) {
-    return (v === null || v === undefined) ? "&ndash;" : talSv(v, dec);
   }
 
   function medTecken(v, dec) {
@@ -77,53 +66,12 @@
     });
   }
 
-  /* ---------- Gemensamma diagraminställningar ---------- */
+  /* ---------- Gemensamma diagraminställningar ----------
+     Axlar, rutor och linjer delas med kostnads- och befolkningssidorna;
+     de bor i gemensam.js, så att de tre sidorna inte kan glida isär. */
 
   function basOptions(ytitel, tooltipEtikett) {
-    return {
-      maintainAspectRatio: false,
-      responsive: true,
-      interaction: { mode: "index", intersect: false },
-      plugins: {
-        legend: { display: true },
-        tooltip: {
-          callbacks: {
-            title: function (it) { return "År " + it[0].label; },
-            label: tooltipEtikett
-          }
-        }
-      },
-      scales: {
-        x: {
-          grid: { display: false },
-          border: { color: FARG.baseline },
-          ticks: { maxRotation: 0, autoSkipPadding: 12 }
-        },
-        y: {
-          title: { display: true, text: ytitel, color: FARG.muted },
-          grid: { color: FARG.grid },
-          border: { display: false },
-          ticks: { callback: function (v) { return talSv(v); } }
-        }
-      }
-    };
-  }
-
-  function linjeSerie(etikett, farg, varden, streck) {
-    return {
-      label: etikett,
-      data: varden,
-      borderColor: farg,
-      backgroundColor: farg,
-      borderWidth: 2,
-      borderDash: streck || [],
-      pointRadius: 0,
-      pointHoverRadius: 5,
-      pointBorderColor: FARG.surface,
-      pointBorderWidth: 2,
-      spanGaps: false,
-      tension: 0.1
-    };
+    return K.arsOptions({ ytitel: ytitel, etikett: tooltipEtikett });
   }
 
   /* Staplar kring en nollinje. Medvetet **en** färg: en tvåpolig

@@ -15,6 +15,7 @@
   var talSv = K.talSv;
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
+  var linjeSerie = K.linjeSerie;
 
   var DATAFIL = document.body.dataset.datafil || "data-befolkning.json";
   var HUVUD = "0-15";           // sidans huvudgrupp
@@ -55,52 +56,12 @@
     return r ? r[falt] : null;
   }
 
-  /* Gemensamma axel- och rutinställningar, så att de fyra diagrammen
-     ser ut som ett system. */
+  /* Gemensamma axel- och rutinställningar, så att de fyra diagrammen ser
+     ut som ett system – och samma system som kostnads- och
+     resurssidorna; de bor i gemensam.js. Sidan ritar en serie i taget och
+     behöver därför ingen teckenförklaring. */
   function basOptions(ytitel, tooltipEtikett) {
-    return {
-      maintainAspectRatio: false,
-      responsive: true,
-      interaction: { mode: "index", intersect: false },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            title: function (it) { return "År " + it[0].label; },
-            label: tooltipEtikett
-          }
-        }
-      },
-      scales: {
-        x: {
-          grid: { display: false },
-          border: { color: FARG.baseline },
-          ticks: { maxRotation: 0, autoSkipPadding: 12 }
-        },
-        y: {
-          title: { display: true, text: ytitel, color: FARG.muted },
-          grid: { color: FARG.grid },
-          border: { display: false }
-        }
-      }
-    };
-  }
-
-  function linjeSerie(etikett, farg, varden, streck) {
-    return {
-      label: etikett,
-      data: varden,
-      borderColor: farg,
-      backgroundColor: farg,
-      borderWidth: 2,
-      borderDash: streck || [],
-      pointRadius: 0,
-      pointHoverRadius: 5,
-      pointBorderColor: FARG.surface,
-      pointBorderWidth: 2,
-      spanGaps: false,
-      tension: 0.1
-    };
+    return K.arsOptions({ ytitel: ytitel, etikett: tooltipEtikett, legend: false });
   }
 
   /* ---------- 1. Utvecklingen i antal ---------- */
