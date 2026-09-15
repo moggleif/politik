@@ -230,7 +230,6 @@
     var argangar = data.kohort.argangar || [];
     if (argangar.length < 2) return;
 
-    var utfallAr = Object.keys(data.utfall).map(Number);
     var forsta = Math.min.apply(null, argangar.map(function (a) { return a.basAr; }));
     var sista = Math.max.apply(null, argangar.map(function (a) { return a.sistaAr; }));
     var ar = [];
@@ -313,7 +312,7 @@
     /* Vad bilden faktiskt visar: årgångarna ligger på rad under varandra,
        eftersom var och en saknar den nettoförändring i kohorterna som hann
        ske efter dess basår. */
-    var med = argangar.filter(function (a) { return a.medelAbsPct !== null; });
+    var med = argangar.filter(function (arg) { return arg.medelAbsPct !== null; });
     var txt = "";
     if (med.length) {
       var bast = med.reduce(function (x, y) {

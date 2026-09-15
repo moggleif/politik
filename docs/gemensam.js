@@ -694,7 +694,7 @@
      händelser plus en observer som sätter attributen på nya tabeller. */
 
   function cellvarde(cell) {
-    var text = cell.textContent.replace(/ /g, " ").trim();
+    var text = cell.textContent.replace(/\u00a0/g, " ").trim();
     if (text === "" || text === "–" || text === "–" || text === ".." || text === "×") {
       return { saknas: true, text: text };
     }
@@ -734,7 +734,7 @@
     var rader = [];
     Array.prototype.forEach.call(tabell.rows, function (rad) {
       var celler = Array.prototype.map.call(rad.cells, function (c) {
-        var t = c.textContent.replace(/ /g, " ").replace(/\s+/g, " ").trim();
+        var t = c.textContent.replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
         /* En cell som inleds med =, + eller @ skulle kunna tolkas som
            formel när filen öppnas i ett kalkylprogram. Talen på sidorna
            börjar aldrig så; neutralisera med en inledande apostrof. */

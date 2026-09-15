@@ -473,6 +473,10 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   rapporter/slutbetyg-*.csv     Skolverkets exportfiler, en per läsår
   chart.umd.js                  Chart.js v4.5.1 (vendrad UMD-build från
                                 npm-paketet chart.js, ingen CDN)
+eslint.config.js                Granskningsreglerna för JavaScript. Sidorna
+                                granskas som ES5, kontrollskripten som Node
+ruff.toml                       Granskningsreglerna för Python: felklasserna
+                                F och E9, inte hela regelkatalogen
 ```
 
 ## Uppdatera datat
@@ -696,6 +700,28 @@ tabell och hämtningen stannar där. `hamta_slutbetyg.py` avbryter om
 kolumnerna i exportfilen har ändrats, och `build_slutbetyg.py` varnar om ett
 skol- eller programnamn inte känns igen &ndash; ett namnbyte som inte fångas
 upp blir annars två serier i stället för en.
+
+### Granskarna
+
+Testerna säger om koden räknar rätt. Granskarna säger om den håller ihop:
+oanvända variabler, skuggade namn, oavsiktliga globaler och grenar som
+aldrig nås &ndash; sådant som `node --check` inte ser, eftersom den bara
+frågar om filen parsar. Båda kör i CI och fäller bygget vid överträdelse.
+
+```bash
+npm install --no-save eslint@9        # samma pinning som CI använder
+npx eslint                            # docs/, scripts/ och tests/
+
+pip install "ruff==0.15.*"
+ruff check                            # scripts/ och tests/
+```
+
+Inställningarna står i `eslint.config.js` och `ruff.toml`, kommenterade
+där ett val inte är självklart. Två val är värda att känna till: sidornas
+JavaScript granskas som **ES5** (`var`, IIFE:er, inga moduler), så en
+`const` som smyger sig in blir ett fel och inte en stilfråga; och ruff
+väljer bara felklasserna `F` och `E9`, inte hela regelkatalogen &ndash;
+poängen är att fånga fel, inte att formatera om koden.
 
 ## Publicering (GitHub Pages)
 

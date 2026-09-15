@@ -828,10 +828,10 @@
       t += "<th scope=\"col\">" + esc(TYPNAMN[r.typ] || r.typ) + "</th>";
     });
     t += "</tr></thead><tbody>";
-    DATA.ar.forEach(function (a) {
-      t += "<tr><td>" + esc(a) + "</td>";
+    DATA.ar.forEach(function (radAr) {
+      t += "<tr><td>" + esc(radAr) + "</td>";
       rader.forEach(function (r) {
-        var v = r.varden[String(a)];
+        var v = r.varden[String(radAr)];
         t += "<td>" + (v ? talSv(v.medel, 1) + " (" + esc(v.antal) + ")" : "–") + "</td>";
       });
       t += "</tr>";
