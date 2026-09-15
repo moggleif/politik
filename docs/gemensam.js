@@ -148,16 +148,32 @@
   };
 
   /* ---------- Väljare ----------
-     Lägg till alternativ i en <select>. `etikett` styr texten när den
-     skiljer sig från värdet. */
+     Fyll en <select> med alternativ. `etikett` styr texten när den
+     skiljer sig från värdet.
 
-  function fyllValjare(valjare, varden, etikett) {
+     fyllValjare *ersätter* det som stod där förut. Det är nästan alltid
+     det man vill, och att det inte var så har kostat två gånger: en
+     väljare som fylls om vid varje byte – valresultatsidans partiväljare
+     när valet byts, slutbetygssidans årväljare när filtret byts – växte
+     i stället för att bytas ut, och fylldes med dubbletter. Nu är det
+     säkra beteendet förvalet, och att bygga på heter något annat.
+
+     laggTillAlternativ bygger vidare på en väljare som redan har
+     alternativ. Ett par väljare görs av två anrop: ett inledande
+     "Alla program" och listan sedan. */
+
+  function laggTillAlternativ(valjare, varden, etikett) {
     varden.forEach(function (v) {
       var o = document.createElement("option");
       o.value = v;
       o.textContent = etikett ? etikett(v) : v;
       valjare.appendChild(o);
     });
+  }
+
+  function fyllValjare(valjare, varden, etikett) {
+    valjare.innerHTML = "";
+    laggTillAlternativ(valjare, varden, etikett);
   }
 
   function installChartDefaults() {
@@ -904,6 +920,7 @@
     urlSatt: urlSatt,
     urlLyssna: urlLyssna,
     fyllValjare: fyllValjare,
+    laggTillAlternativ: laggTillAlternativ,
     kopplaValjare: kopplaValjare,
     visaKortSagt: visaKortSagt,
     visaMeta: visaMeta,

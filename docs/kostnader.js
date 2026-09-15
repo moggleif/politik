@@ -411,12 +411,10 @@
 
   function fyllValjare() {
     var v = el("matt-valjare");
-    data.kostnadPerElev.forEach(function (m) {
-      var o = document.createElement("option");
-      o.value = m.nyckel;
-      o.textContent = m.etikett;
-      v.appendChild(o);
-    });
+    var etiketter = {};
+    data.kostnadPerElev.forEach(function (m) { etiketter[m.nyckel] = m.etikett; });
+    K.fyllValjare(v, data.kostnadPerElev.map(function (m) { return m.nyckel; }),
+      function (n) { return etiketter[n]; });
     /* Kommunens egna skolor är förvalt: det är den serie som går längst
        tillbaka för båda områdena och den enda som går att bryta ned. */
     v.value = "kommunal";

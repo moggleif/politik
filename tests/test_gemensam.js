@@ -35,6 +35,7 @@ function laddaKis() {
     querySelector() { return null; },
     querySelectorAll() { return []; },
     addEventListener() {},
+    createElement() { return { value: "", textContent: "" }; },
   };
   const sandlada = { document: dokument, Intl, Date, console };
   sandlada.window = sandlada;
@@ -236,4 +237,59 @@ test("paletten är åtta kontrastvaliderade färger i fast ordning", () => {
   assert.equal(K.FARG.bla, "#2a78d6");
   assert.equal(K.FARG.orange, "#e69f00");
   assert.equal(K.FARG.ink, "#0b0b0b");
+});
+
+/* ---------- Väljare ----------
+   En <select> som fylls om vid varje byte (valresultatsidans partiväljare
+   byter val, slutbetygssidans årväljare byter filter) måste bli av med
+   sina gamla alternativ. Gör den inte det växer listan för varje byte och
+   fylls med dubbletter. */
+
+/* Så mycket <select> som funktionerna rör vid. */
+function valjarstump() {
+  const options = [];
+  return {
+    options: options,
+    appendChild(o) { options.push(o); },
+    set innerHTML(v) { if (v === "") options.length = 0; },
+    get innerHTML() { return ""; },
+    etiketter() { return options.map((o) => o.textContent); },
+    varden() { return options.map((o) => o.value); },
+  };
+}
+
+test("fyllValjare lägger in värdena som alternativ", () => {
+  const v = valjarstump();
+  K.fyllValjare(v, ["2024", "2025", "2026"]);
+  assert.deepEqual(v.varden(), ["2024", "2025", "2026"]);
+  assert.deepEqual(v.etiketter(), ["2024", "2025", "2026"]);
+});
+
+test("fyllValjare skriver etiketten när den skiljer sig från värdet", () => {
+  const v = valjarstump();
+  K.fyllValjare(v, ["m", "s"], (k) => (k === "m" ? "Moderaterna" : "Socialdemokraterna"));
+  assert.deepEqual(v.varden(), ["m", "s"]);
+  assert.deepEqual(v.etiketter(), ["Moderaterna", "Socialdemokraterna"]);
+});
+
+test("fyllValjare fyller om från grunden i stället för att växa", () => {
+  /* Det här är felet som gjorde att valresultatsidans partiväljare fick
+     tio alternativ till för varje byte av val: efter fyra byten stod
+     Moderaterna fem gånger i listan. */
+  const v = valjarstump();
+  K.fyllValjare(v, ["m", "s", "sd"]);
+  K.fyllValjare(v, ["m", "s", "sd"]);
+  K.fyllValjare(v, ["m", "s"]);
+  assert.deepEqual(v.varden(), ["m", "s"],
+    "en omfyllning ska ersätta de gamla alternativen, inte läggas till dem");
+});
+
+test("laggTillAlternativ bygger vidare på en väljare som redan har alternativ", () => {
+  /* Ett par väljare byggs av två anrop: ett inledande "Alla program" och
+     listan sedan. Det ska fortfarande gå. */
+  const v = valjarstump();
+  K.fyllValjare(v, [""], () => "Alla program");
+  K.laggTillAlternativ(v, ["Teknik", "Natur"]);
+  assert.deepEqual(v.varden(), ["", "Teknik", "Natur"]);
+  assert.deepEqual(v.etiketter(), ["Alla program", "Teknik", "Natur"]);
 });

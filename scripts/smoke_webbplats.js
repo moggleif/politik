@@ -415,11 +415,39 @@ async function granskaValbyte(browser, bas) {
         rubrik: (document.querySelector("#tabell-distrikt caption")
           || { textContent: "" }).textContent,
         varden: c ? c.data.datasets.map(function (d) { return d.data.join(","); }) : [],
+        /* Alla sidans <select>: ett byte av val fyller om flera av dem,
+           och en väljare som fylls om utan att först tömmas växer i
+           stället för att bytas ut. */
+        valjare: Array.prototype.slice.call(document.querySelectorAll("select"))
+          .map(function (v) {
+            return {
+              id: v.id,
+              varden: Array.prototype.slice.call(v.options).map(function (o) {
+                return o.value;
+              }),
+            };
+          }),
       };
     });
   }
 
+  /* Ingen <select> får ha samma alternativ två gånger. */
+  function granskaDubbletter(lage, nar) {
+    lage.valjare.forEach(function (v) {
+      const sedda = {}, dubbla = [];
+      v.varden.forEach(function (x) {
+        if (sedda[x]) { if (dubbla.indexOf(x) === -1) dubbla.push(x); }
+        sedda[x] = true;
+      });
+      if (dubbla.length) {
+        fel.push("väljaren #" + v.id + " har dubbla alternativ " + nar + ": "
+          + dubbla.join(", ") + " (" + v.varden.length + " alternativ totalt)");
+      }
+    });
+  }
+
   const fore = await lage();
+  granskaDubbletter(fore, "vid start");
   if (fore.val !== "kommun") fel.push("sidan börjar inte i kommunvalet");
   if (!/kommunvalet/.test(fore.rubrik)) {
     fel.push("tabellen nämner inte kommunvalet: " + fore.rubrik);
@@ -431,6 +459,7 @@ async function granskaValbyte(browser, bas) {
       (document.querySelector("#tabell-distrikt caption") || {}).textContent || "");
   }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
   const efter = await lage();
+  granskaDubbletter(efter, "efter bytet till riksdagsvalet");
 
   if (efter.markerade.join(",") !== fore.markerade.join(",")) {
     fel.push("markeringen ändrades av bytet: " + fore.markerade.join(",")
@@ -458,6 +487,7 @@ async function granskaValbyte(browser, bas) {
       (document.querySelector("#tabell-distrikt caption") || {}).textContent || "");
   }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
   const tillbaka = await lage();
+  granskaDubbletter(tillbaka, "efter bakåtknappen");
   if (tillbaka.val !== "kommun") {
     fel.push("bakåtknappen tog inte tillbaka till kommunvalet (" + tillbaka.val + ")");
   }
@@ -473,6 +503,7 @@ async function granskaValbyte(browser, bas) {
       (document.querySelector("#tabell-distrikt caption") || {}).textContent || "");
   }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
   const framat = await lage();
+  granskaDubbletter(framat, "efter framåtknappen");
   if (framat.val !== "riksdag") {
     fel.push("framåtknappen kom inte tillbaka till riksdagsvalet ("
       + framat.val + ")");

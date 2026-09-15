@@ -900,7 +900,6 @@
     // valda urvalet. Året behålls vid filterbyte om det finns kvar.
     var arVal = el("ar-valjare");
     var tidigare = arVal.value;
-    arVal.innerHTML = "";
     fyllValjare(arVal, arMedProgram());
     if (tidigare) arVal.value = tidigare;
     if (!arVal.value && arVal.options.length) arVal.selectedIndex = 0;
@@ -999,7 +998,7 @@
     fyllValjare(gruppVal, [""], function () { return "Alla nationella program"; });
     ["hogskoleforberedande", "yrkesprogram"].forEach(function (typ) {
       if (data.utbildningar.some(function (u) { return u.typ === typ; })) {
-        fyllValjare(gruppVal, [typ], function (t) { return TYPNAMN[t]; });
+        K.laggTillAlternativ(gruppVal, [typ], function (t) { return TYPNAMN[t]; });
       }
     });
     K.kopplaValjare(gruppVal, "grupp", ritaAllt);

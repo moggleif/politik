@@ -928,7 +928,8 @@
 
     var programVal = el("program-valjare");
     fyllValjare(programVal, [""], function () { return "Alla program"; });
-    fyllValjare(programVal, DATA.program.map(function (p) { return p.etikett; }));
+    K.laggTillAlternativ(programVal,
+      DATA.program.map(function (p) { return p.etikett; }));
     K.kopplaValjare(programVal, "program", ritaUtveckling);
 
     var arVal = el("ar-valjare");
