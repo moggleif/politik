@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-14T20:11+02:00",
+ "senastUppdaterad": "2026-09-15T11:35+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -1153,7 +1153,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-14T20:11+02:00",
+   "hamtad": "2026-09-15T11:35+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1286,11 +1286,11 @@
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 63,
-     "ack": 2688
+     "antal": 157,
+     "ack": 2782
     }
    ],
-   "total": 2688,
+   "total": 2782,
    "rostberattigade": {
     "riksdag": 5398,
     "kommun": 5639,
@@ -1311,7 +1311,7 @@
      "total": 1781,
      "dagarMedRoster": 17,
      "storstaDag": 213,
-     "andel": 66.3
+     "andel": 64.0
     },
     {
      "namn": "Kommunalkontoret i Idre",
@@ -1320,7 +1320,7 @@
      "total": 505,
      "dagarMedRoster": 8,
      "storstaDag": 124,
-     "andel": 18.8
+     "andel": 18.2
     },
     {
      "namn": "Särnakontoret",
@@ -1329,7 +1329,7 @@
      "total": 295,
      "dagarMedRoster": 8,
      "storstaDag": 104,
-     "andel": 11.0
+     "andel": 10.6
     },
     {
      "namn": "Ambulerande röstmottagning",
@@ -1338,7 +1338,16 @@
      "total": 68,
      "dagarMedRoster": 7,
      "storstaDag": 22,
-     "andel": 2.5
+     "andel": 2.4
+    },
+    {
+     "namn": "Storsäterns skola",
+     "kommun": "Älvdalen",
+     "lokalId": "2039002",
+     "total": 40,
+     "dagarMedRoster": 1,
+     "storstaDag": 40,
+     "andel": 1.4
     },
     {
      "namn": "Folkets Hus Nornäs",
@@ -1347,48 +1356,39 @@
      "total": 39,
      "dagarMedRoster": 1,
      "storstaDag": 39,
-     "andel": 1.5
-    },
-    {
-     "namn": "Drevdagen Restaurang Fjällbjörken",
-     "kommun": "Älvdalen",
-     "lokalId": "2039007",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
-    },
-    {
-     "namn": "Gördalens bystuga",
-     "kommun": "Älvdalen",
-     "lokalId": "2039003",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "andel": 1.4
     },
     {
      "namn": "Idre kulturhus, stora salen",
      "kommun": "Älvdalen",
      "lokalId": "2039006",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 25,
+     "dagarMedRoster": 1,
+     "storstaDag": 25,
+     "andel": 0.9
+    },
+    {
+     "namn": "Drevdagen Restaurang Fjällbjörken",
+     "kommun": "Älvdalen",
+     "lokalId": "2039007",
+     "total": 22,
+     "dagarMedRoster": 1,
+     "storstaDag": 22,
+     "andel": 0.8
     },
     {
      "namn": "Kyrkbacksgården",
      "kommun": "Älvdalen",
      "lokalId": "2039009",
-     "total": 0,
-     "dagarMedRoster": 0,
-     "storstaDag": 0,
-     "andel": 0.0
+     "total": 7,
+     "dagarMedRoster": 1,
+     "storstaDag": 7,
+     "andel": 0.3
     },
     {
-     "namn": "Storsäterns skola",
+     "namn": "Gördalens bystuga",
      "kommun": "Älvdalen",
-     "lokalId": "2039002",
+     "lokalId": "2039003",
      "total": 0,
      "dagarMedRoster": 0,
      "storstaDag": 0,
