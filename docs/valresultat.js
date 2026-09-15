@@ -488,62 +488,63 @@
   /* `matt` är normalt måttväljarens värde. Diagrammet över de tre valen
      skickar med "andel" i stället: det visar alltid andelar, och skulle
      annars få heltalsformaterade tickar så fort väljaren står på antal. */
+  /* Axlarna här hämtas medvetet *inte* ur K.kategoriAxel och K.mattAxel.
+     Sidans diagram ritar med Chart.js egna rutnät och axelfärger, till
+     skillnad från de andra sidorna, och att byta till de gemensamma
+     axlarna vore en ändring av vad besökaren ser – inte en städning.
+     Stommen, som bara rör proportioner, pekning och tooltipens plats,
+     delas däremot. */
   function basOptions(ytitel, formatera, matt) {
     matt = matt || valtMatt();
-    return {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: { mode: "nearest", intersect: false },
-      plugins: {
-        /* Legenden ritar punktformen och inte bara en färgruta. Med fler
-           serier än paletten har färger är formen det som skiljer det
-           nionde distriktet från det första, och då måste den synas
-           också i legenden. */
-        legend: {
-          display: true,
-          position: "bottom",
-          labels: {
-            usePointStyle: true,
-            pointStyleWidth: 14,
-            generateLabels: function (chart) {
-              var etiketter =
-                Chart.defaults.plugins.legend.labels.generateLabels(chart);
-              etiketter.forEach(function (e) {
-                var ds = chart.data.datasets[e.datasetIndex];
-                if (ds && ds.legendFarg) {
-                  e.fillStyle = ds.legendFarg;
-                  e.strokeStyle = ds.legendFarg;
-                }
-              });
-              return etiketter;
-            }
-          }
-        },
-        tooltip: {
-          callbacks: {
-            label: function (it) {
-              if (it.parsed.y === null) return it.dataset.label + ": –";
-              var rad = it.dataset.label + ": " + formatera(it.parsed.y);
-              var text = it.dataset.indikatorText
-                && it.dataset.indikatorText[it.dataIndex];
-              return text ? rad + " (" + text + ")" : rad;
-            }
+    var opt = K.diagramStomme({
+      pekar: "nearest",
+      /* Legenden ritar punktformen och inte bara en färgruta. Med fler
+         serier än paletten har färger är formen det som skiljer det
+         nionde distriktet från det första, och då måste den synas
+         också i legenden. */
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          usePointStyle: true,
+          pointStyleWidth: 14,
+          generateLabels: function (chart) {
+            var etiketter =
+              Chart.defaults.plugins.legend.labels.generateLabels(chart);
+            etiketter.forEach(function (e) {
+              var ds = chart.data.datasets[e.datasetIndex];
+              if (ds && ds.legendFarg) {
+                e.fillStyle = ds.legendFarg;
+                e.strokeStyle = ds.legendFarg;
+              }
+            });
+            return etiketter;
           }
         }
       },
-      scales: {
-        x: { title: { display: true, text: "Valår" } },
-        y: {
-          title: { display: true, text: ytitel },
-          beginAtZero: matt === "antal",
-          ticks: {
-            callback: function (v) {
-              return matt === "antal" ? talSv(v) : talSv(v, 1);
-            }
+      tooltip: {
+        label: function (it) {
+          if (it.parsed.y === null) return it.dataset.label + ": –";
+          var rad = it.dataset.label + ": " + formatera(it.parsed.y);
+          var text = it.dataset.indikatorText
+            && it.dataset.indikatorText[it.dataIndex];
+          return text ? rad + " (" + text + ")" : rad;
+        }
+      }
+    });
+    opt.scales = {
+      x: { title: { display: true, text: "Valår" } },
+      y: {
+        title: { display: true, text: ytitel },
+        beginAtZero: matt === "antal",
+        ticks: {
+          callback: function (v) {
+            return matt === "antal" ? talSv(v) : talSv(v, 1);
           }
         }
       }
     };
+    return opt;
   }
 
   function formateraVarde(v) {

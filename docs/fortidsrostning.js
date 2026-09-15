@@ -134,44 +134,37 @@
     return delar;
   }
 
+  /* Sidans egen axel är dagarna kvar till valdagen, inte årtal: den
+     räknar nedåt mot noll och delas av alla valår i samma bild. Stommen,
+     rutnätet och färgerna kommer ur gemensam.js. */
   function basOptions(ytitel, L, nu, da, etikett, ytick) {
-    return {
-      maintainAspectRatio: false,
-      responsive: true,
-      interaction: { mode: "index", intersect: false },
-      plugins: {
-        legend: {
-          display: true,
-          labels: {
-            usePointStyle: true, boxWidth: 10,
-            /* Bandets båda kanter är en och samma sak – omfånget – och
-               står i tooltipen, inte som två poster i förklaringen. */
-            filter: function (post, d) { return !d.datasets[post.datasetIndex].$utanLegend; }
-          }
-        },
-        tooltip: {
-          callbacks: {
-            title: function (it) { return tooltipTitel(it[0].chart.$kvar[it[0].dataIndex], L, nu, da); },
-            label: etikett
-          }
+    var opt = K.diagramStomme({
+      legend: {
+        display: true,
+        labels: {
+          usePointStyle: true, boxWidth: 10,
+          /* Bandets båda kanter är en och samma sak – omfånget – och
+             står i tooltipen, inte som två poster i förklaringen. */
+          filter: function (post, d) { return !d.datasets[post.datasetIndex].$utanLegend; }
         }
       },
-      scales: {
-        x: {
-          title: { display: true, text: "Dagar kvar till valdagen", color: FARG.muted },
-          grid: { display: false },
-          border: { color: FARG.baseline },
-          ticks: { maxRotation: 0, autoSkipPadding: 8 }
-        },
-        y: {
-          beginAtZero: true,
-          title: { display: true, text: ytitel, color: FARG.muted },
-          grid: { color: FARG.grid },
-          border: { display: false },
-          ticks: { callback: ytick || function (v) { return talSv(v); } }
-        }
+      tooltip: {
+        title: function (it) { return tooltipTitel(it[0].chart.$kvar[it[0].dataIndex], L, nu, da); },
+        label: etikett
       }
+    });
+    opt.scales = {
+      x: K.kategoriAxel({
+        titel: "Dagar kvar till valdagen",
+        ticks: { maxRotation: 0, autoSkipPadding: 8 }
+      }),
+      y: K.mattAxel({
+        titel: ytitel,
+        franNoll: true,
+        ticks: { callback: ytick || function (v) { return talSv(v); } }
+      })
     };
+    return opt;
   }
 
   /* ---------- Den ställda prognosen ----------

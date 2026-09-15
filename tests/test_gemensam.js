@@ -293,3 +293,97 @@ test("laggTillAlternativ bygger vidare på en väljare som redan har alternativ"
   assert.deepEqual(v.varden(), ["", "Teknik", "Natur"]);
   assert.deepEqual(v.etiketter(), ["Alla program", "Teknik", "Natur"]);
 });
+
+/* ---------- Diagrammens gemensamma stomme ---------- */
+
+test("diagramStomme ger proportioner, pekning och tooltipens plats", () => {
+  const o = K.diagramStomme();
+  assert.equal(o.maintainAspectRatio, false);
+  assert.equal(o.responsive, true);
+  assert.deepEqual(o.interaction, { mode: "index", intersect: false },
+    "index är förvalet: pekning träffar hela årets kolumn, inte en punkt");
+  assert.deepEqual(o.plugins.legend, { display: true });
+  assert.deepEqual(o.plugins.tooltip.callbacks, {});
+});
+
+test("diagramStomme äger inga axlar", () => {
+  /* Poängen med att stommen inte har någon: en liggande stapelaxel, en
+     dagsaxel och en årsaxel är genuint olika, och att rymma dem i en
+     funktion skulle kräva lägesflaggor. */
+  assert.equal(K.diagramStomme().scales, undefined);
+});
+
+test("diagramStomme tar hela legend- och tooltipobjektet", () => {
+  /* De skiljer sig för mycket mellan sidorna för att beskrivas med
+     flaggor. Stommen äger deras plats i strukturen, inte innehållet. */
+  const etikett = () => "x";
+  const o = K.diagramStomme({
+    pekar: "nearest",
+    legend: { display: true, position: "bottom" },
+    tooltip: { label: etikett },
+  });
+  assert.equal(o.interaction.mode, "nearest");
+  assert.equal(o.interaction.intersect, false, "intersect är alltid false");
+  assert.deepEqual(o.plugins.legend, { display: true, position: "bottom" });
+  assert.equal(o.plugins.tooltip.callbacks.label, etikett);
+});
+
+test("kategoriAxel har baslinje men inget rutnät", () => {
+  const a = K.kategoriAxel();
+  assert.deepEqual(a.grid, { display: false });
+  assert.equal(a.border.color, K.FARG.baseline);
+  assert.deepEqual(a.ticks, {});
+  assert.equal(a.title, undefined, "utan rubrik ska nyckeln inte finnas alls");
+});
+
+test("kategoriAxel tar rubrik och tickinställningar", () => {
+  /* Tätheten hör till diagrammet: årtal tål att gallras, ämnesnamn inte. */
+  const a = K.kategoriAxel({ titel: "Dagar kvar", ticks: { autoSkip: false } });
+  assert.deepEqual(a.title, { display: true, text: "Dagar kvar", color: K.FARG.muted });
+  assert.deepEqual(a.ticks, { autoSkip: false });
+});
+
+test("mattAxel har rutnät men ingen ram", () => {
+  const a = K.mattAxel({ titel: "Kronor per elev" });
+  assert.deepEqual(a.title, { display: true, text: "Kronor per elev", color: K.FARG.muted });
+  assert.deepEqual(a.grid, { color: K.FARG.grid });
+  assert.deepEqual(a.border, { display: false });
+  assert.equal(a.beginAtZero, undefined);
+  assert.equal(a.ticks, undefined,
+    "utan åsikt om talformatet ska ticks inte finnas alls");
+});
+
+test("mattAxel ger ett tickobjekt att fylla i efteråt när ett skickas in", () => {
+  /* Sidorna sätter opt.scales.y.ticks.callback efter att optionsobjektet
+     byggts. Utan objektet skulle den raden falla. */
+  const a = K.mattAxel({ titel: "Andel", ticks: {} });
+  assert.deepEqual(a.ticks, {});
+  a.ticks.callback = (v) => v + " %";
+  assert.equal(a.ticks.callback(3), "3 %");
+});
+
+test("mattAxel börjar vid noll bara när den ombeds", () => {
+  assert.equal(K.mattAxel({ titel: "x" }).beginAtZero, undefined);
+  assert.equal(K.mattAxel({ titel: "x", franNoll: true }).beginAtZero, true);
+});
+
+test("arsOptions bygger på stommen och sätter årsaxeln", () => {
+  const o = K.arsOptions({ ytitel: "Antal invånare" });
+  const stomme = K.diagramStomme();
+  assert.equal(o.maintainAspectRatio, stomme.maintainAspectRatio);
+  assert.equal(o.responsive, stomme.responsive);
+  assert.deepEqual(o.interaction, stomme.interaction);
+  assert.deepEqual(o.scales.x, K.kategoriAxel({ ticks: { maxRotation: 0, autoSkipPadding: 12 } }));
+  assert.equal(o.scales.y.title.text, "Antal invånare");
+  assert.deepEqual(o.scales.y.ticks, {}, "sidorna fyller i talformatet efteråt");
+});
+
+test("arsOptions rubricerar tooltipen med året", () => {
+  const o = K.arsOptions({});
+  assert.equal(o.plugins.tooltip.callbacks.title([{ label: "2025" }]), "År 2025");
+});
+
+test("arsOptions kan stänga av legenden", () => {
+  assert.equal(K.arsOptions({}).plugins.legend.display, true);
+  assert.equal(K.arsOptions({ legend: false }).plugins.legend.display, false);
+});

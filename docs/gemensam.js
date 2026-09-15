@@ -304,38 +304,78 @@
                       etikett: function (it) { … },  // tooltipens rad
                       legend: false })               // förval: true */
 
-  function arsOptions(inst) {
+  /* Stommen som varje diagram delar, oavsett vad det ritar: proportioner,
+     hur pekningen träffar, och var legenden och tooltipen sitter. Sidor med
+     en egen axel bygger vidare på den här i stället för att skriva av
+     arsOptions – det var avskrifterna som gled isär och gav amerikanska tal
+     på två sidor tills locale sattes på ett ställe.
+
+     Det som *inte* ligger här är axlarna. En liggande stapelaxel, en
+     dagsaxel och en årsaxel är genuint olika, och att pressa in dem i en
+     funktion med lägesflaggor vore sämre än tre ärliga varianter.
+
+     `tooltip` är hela callbacks-objektet och `legend` hela legendobjektet:
+     de skiljer sig för mycket mellan sidorna för att beskrivas med flaggor,
+     och stommen äger deras plats i strukturen, inte deras innehåll. */
+  function diagramStomme(inst) {
     inst = inst || {};
     return {
       maintainAspectRatio: false,
       responsive: true,
-      interaction: { mode: "index", intersect: false },
+      interaction: { mode: inst.pekar || "index", intersect: false },
       plugins: {
-        legend: { display: inst.legend !== false },
-        tooltip: {
-          callbacks: {
-            title: function (it) { return "År " + it[0].label; },
-            label: inst.etikett
-          }
-        }
-      },
-      scales: {
-        x: {
-          grid: { display: false },
-          border: { color: FARG.baseline },
-          ticks: { maxRotation: 0, autoSkipPadding: 12 }
-        },
-        y: {
-          title: { display: true, text: inst.ytitel, color: FARG.muted },
-          grid: { color: FARG.grid },
-          border: { display: false },
-          /* Tomt men alltid på plats: sidorna sätter en egen callback här
-             när talet ska bära en enhet ("2,7 %", "135 993 kr"). Utan
-             objektet skulle den raden falla. */
-          ticks: {}
-        }
+        legend: inst.legend || { display: true },
+        tooltip: { callbacks: inst.tooltip || {} }
       }
     };
+  }
+
+  /* Axeln som bär kategorin – åren, ämnena, dagarna kvar till valet. Utan
+     rutnät, med en tunn baslinje. `ticks` skickas in eftersom tätheten hör
+     till diagrammet: årtal tål att gallras, ämnesnamn gör det inte. */
+  function kategoriAxel(inst) {
+    inst = inst || {};
+    var axel = {
+      grid: { display: false },
+      border: { color: FARG.baseline },
+      ticks: inst.ticks || {}
+    };
+    if (inst.titel) axel.title = { display: true, text: inst.titel, color: FARG.muted };
+    return axel;
+  }
+
+  /* Axeln som bär siffran. Rutnät men ingen ram, och rubriken i den dämpade
+     tonen. `ticks` utelämnas när sidan inte har någon åsikt om talformatet;
+     skickas ett tomt objekt in finns det kvar att fylla i efteråt. */
+  function mattAxel(inst) {
+    inst = inst || {};
+    var axel = {
+      title: { display: true, text: inst.titel, color: FARG.muted },
+      grid: { color: FARG.grid },
+      border: { display: false }
+    };
+    if (inst.franNoll) axel.beginAtZero = true;
+    if (inst.ticks) axel.ticks = inst.ticks;
+    return axel;
+  }
+
+  function arsOptions(inst) {
+    inst = inst || {};
+    var opt = diagramStomme({
+      legend: { display: inst.legend !== false },
+      tooltip: {
+        title: function (it) { return "År " + it[0].label; },
+        label: inst.etikett
+      }
+    });
+    opt.scales = {
+      x: kategoriAxel({ ticks: { maxRotation: 0, autoSkipPadding: 12 } }),
+      /* Tomt tickobjekt men alltid på plats: sidorna sätter en egen
+         callback där när talet ska bära en enhet ("2,7 %", "135 993 kr").
+         Utan objektet skulle den raden falla. */
+      y: mattAxel({ titel: inst.ytitel, ticks: {} })
+    };
+    return opt;
   }
 
   /* En linje i ett sådant diagram. Punkterna syns först vid pekning:
@@ -919,6 +959,9 @@
     rita: rita,
     diagramFor: diagramFor,
     taBortDiagram: taBortDiagram,
+    diagramStomme: diagramStomme,
+    kategoriAxel: kategoriAxel,
+    mattAxel: mattAxel,
     arsOptions: arsOptions,
     linjeSerie: linjeSerie,
     regimmarkering: regimmarkering,
