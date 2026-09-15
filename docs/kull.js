@@ -122,9 +122,6 @@
     var rader = p.kohorter;
 
     var harExamen = rader.some(function (r) { return r.examen.status === "ok"; });
-    var harAndel = rader.some(function (r) {
-      return r.examen.status === "ok" && r.examen.andelExamen !== null;
-    });
 
     rita("diagram-antagning", panelKonf(rader, function (r) {
       return r.antagning.status === "ok" ? r.antagning.medel : null;

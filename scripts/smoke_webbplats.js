@@ -237,11 +237,11 @@ async function granskaSmadiagram(browser, bas) {
     return document.querySelectorAll("#smadiagram-rutnat canvas").length > 0;
   }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
 
-  const lage = await page.evaluate(function (slugar) {
+  const lage = await page.evaluate(function (slugarna) {
     return {
       antal: document.querySelectorAll("#smadiagram-rutnat canvas").length,
       teckenposter: document.querySelectorAll("#teckenforklaring-enskilt .teckenpost").length,
-      skalor: slugar.map(function (s) {
+      skalor: slugarna.map(function (s) {
         const c = Chart.getChart(document.getElementById("diagram-enskilt-" + s));
         return c ? [c.scales.y.min, c.scales.y.max] : null;
       }),
@@ -432,8 +432,8 @@ async function granskaValbyte(browser, bas) {
   }
 
   /* Ingen <select> får ha samma alternativ två gånger. */
-  function granskaDubbletter(lage, nar) {
-    lage.valjare.forEach(function (v) {
+  function granskaDubbletter(nulage, nar) {
+    nulage.valjare.forEach(function (v) {
       const sedda = {}, dubbla = [];
       v.varden.forEach(function (x) {
         if (sedda[x]) { if (dubbla.indexOf(x) === -1) dubbla.push(x); }

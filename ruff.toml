@@ -1,0 +1,15 @@
+# Ruff granskar Python-skripten. Poängen är att fånga fel, inte att
+# formatera om 6 000 rader: bara pyflakes-reglerna (F) och de fel i
+# pycodestyle som verkligen är fel (E9, t.ex. syntaxfel och trasig
+# indentering) väljs. Stilregler om radlängd och blankrader är medvetet
+# utelämnade – koden är skriven för hand och läses av människor.
+#
+# Körs:  ruff check
+# Ruff är en enda binär utan beroendekedja, vilket passar ett repo som
+# annars klarar sig på standardbiblioteket.
+
+include = ["scripts/**/*.py", "tests/**/*.py"]
+target-version = "py311"
+
+[lint]
+select = ["F", "E9"]
