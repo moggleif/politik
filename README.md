@@ -392,6 +392,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   valresultat.html              Kommun-, region- och riksdagsvalets resultat
                                 per valdistrikt i Kungsbacka 2010–2026
                                 (?val=, ?parti=, ?distrikt=)
+  kommunval.html                Sidans gamla adress; skickar vidare till
+                                valresultat.html med frågesträngen i behåll
   metod.html                    Metodsidan: källor, transformationer, viktning
   style.css                     Delas av alla sidor
   gemensam.js                   Delade byggstenar: färger, delbara URL:er
@@ -418,6 +420,9 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 vilket av de tre valen som visas ligger i
                                 adressen (?val=) och byter datafil utan att
                                 sidan laddas om
+  flyttad.js                    Skickar den gamla adressen kommunval.html
+                                vidare; GitHub Pages kan inte svara med en
+                                omdirigering
   index.js                      Driver startsidans sammanfattningar
   data.json, data-16-19.json    Data till prognossidorna (genereras)
   data-meritvarden.json         Data till meritvärdessidan (genereras)
