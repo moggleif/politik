@@ -37,22 +37,21 @@
     return DATA.amnen.filter(function (a) { return a.redovisas; });
   }
 
+  /* Ämnessidan ritar samma mått både stående och liggande. Axlarna byter
+     då plats, men de är i övrigt desamma – därför byggs de en gång och
+     placeras efter riktningen. Ämnesnamnen får aldrig gallras bort, så
+     kategoriaxeln säger autoSkip: false. */
   function basOptions(ytitel, tooltipEtikett, vagrat) {
-    var matt = { title: { display: true, text: ytitel, color: FARG.muted },
-                 grid: { color: FARG.grid }, border: { display: false } };
-    var kat = { grid: { display: false }, border: { color: FARG.baseline },
-                ticks: { autoSkip: false } };
-    return {
-      maintainAspectRatio: false,
-      responsive: true,
-      indexAxis: vagrat ? "y" : "x",
-      interaction: { mode: vagrat ? "nearest" : "index", intersect: false },
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { label: tooltipEtikett } }
-      },
-      scales: vagrat ? { x: matt, y: kat } : { x: kat, y: matt }
-    };
+    var matt = K.mattAxel({ titel: ytitel });
+    var kat = K.kategoriAxel({ ticks: { autoSkip: false } });
+    var opt = K.diagramStomme({
+      pekar: vagrat ? "nearest" : "index",
+      legend: { display: false },
+      tooltip: { label: tooltipEtikett }
+    });
+    opt.indexAxis = vagrat ? "y" : "x";
+    opt.scales = vagrat ? { x: matt, y: kat } : { x: kat, y: matt };
+    return opt;
   }
 
   /* ---------- 1. Alla ämnen, senaste läsåret ---------- */
