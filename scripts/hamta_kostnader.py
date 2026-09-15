@@ -43,7 +43,6 @@ Körs:  python3 scripts/hamta_kostnader.py            (alla år)
 
 import argparse
 import json
-import re
 from datetime import date
 from pathlib import Path
 

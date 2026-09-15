@@ -954,6 +954,50 @@ class TestFortidsrosterSlug(unittest.TestCase):
         self.assertEqual(reg["0643"]["slug"], "habo-jonkopings-lan")
 
 
+class TestSlugSammaRegelOverallt(unittest.TestCase):
+    """Adressnyckeln bildas på tre ställen och måste bli densamma överallt.
+
+    build_fortidsroster.slug ger ?omrade=, val.slug ger ?distrikt= och
+    K.slug i docs/gemensam.js läser tillbaka båda i webbläsaren. Skiljer
+    de sig åt hittar sidan inte det område eller distrikt som länken
+    pekar ut. Facit nedan är samma lista som i tests/test_gemensam.js,
+    som pinnar JavaScript-sidan av samma regel.
+    """
+
+    FALL = [
+        ("Kungsbacka", "kungsbacka"),
+        ("Hallands län", "hallands-lan"),
+        ("Västra Götalands län", "vastra-gotalands-lan"),
+        ("Östra Göinge", "ostra-goinge"),
+        ("Åre", "are"),
+        ("Fjärås Bräcka", "fjaras-bracka"),
+        ("Malung-Sälen", "malung-salen"),
+        ("Kolla Norra", "kolla-norra"),
+        ("Café Ö", "cafe-o"),
+        # Namn utanför svenskan förekommer inte bland valdistrikten, men
+        # regeln ska ändå vara en och densamma: bokstaven behålls, bara
+        # tecknet ovanpå faller bort.
+        ("Ñuñoa", "nunoa"),
+        ("São Paulo", "sao-paulo"),
+        ("  Hela riket  ", "hela-riket"),
+        ("A/B & C", "a-b-c"),
+        ("2026", "2026"),
+    ]
+
+    def test_bada_implementationerna_ger_facit(self):
+        for namn, vantat in self.FALL:
+            self.assertEqual(val.slug(namn), vantat, f"val.slug({namn!r})")
+            self.assertEqual(build_fortidsroster.slug(namn), vantat,
+                             f"build_fortidsroster.slug({namn!r})")
+
+    def test_sammansatt_form_ger_samma_nyckel(self):
+        """"Åre" med kombinerande ring ska ge samma nyckel som med ett
+        enda tecken – xlsx-filer från källorna kan bära båda formerna."""
+        sammansatt = "Åre"
+        self.assertEqual(val.slug(sammansatt), "are")
+        self.assertEqual(build_fortidsroster.slug(sammansatt), "are")
+
+
 class TestFortidsrosterCsv(unittest.TestCase):
     """hamta_fortidsroster: de två filformaten ska tolkas lika."""
 

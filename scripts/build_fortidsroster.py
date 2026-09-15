@@ -40,12 +40,12 @@ Körs:  python3 scripts/build_fortidsroster.py
 """
 
 import json
-import re
-import unicodedata
 from datetime import date, datetime
 from pathlib import Path
 
 from hamta_fortidsroster import VAL, tolka_csv
+# Adressnyckeln bildas på ett enda ställe, delat med valresultatskripten.
+from val import slug
 
 ROT = Path(__file__).resolve().parent.parent
 IN_MAPP = ROT / "data" / "fortidsroster"
@@ -63,18 +63,6 @@ VECKODAG = ["mån", "tis", "ons", "tor", "fre", "lör", "sön"]
 
 def lasa_json(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
-
-
-def slug(text: str) -> str:
-    """Samma regler som K.slug i docs/gemensam.js, så att ?omrade=
-    i adressraden matchar åt båda hållen."""
-    t = str(text).lower()
-    t = t.replace("å", "a").replace("ä", "a").replace("ö", "o")
-    t = t.replace("é", "e").replace("ü", "u")
-    t = "".join(c for c in unicodedata.normalize("NFD", t)
-                if not unicodedata.combining(c))
-    t = re.sub(r"[^a-z0-9]+", "-", t)
-    return t.strip("-")
 
 
 # ---------- Områden ----------

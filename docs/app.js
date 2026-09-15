@@ -14,7 +14,6 @@
   var el = K.el;
   var visaStatus = K.visaStatus;
   var esc = K.esc;
-  var sakerUrl = K.sakerUrl;
 
   var KONF = document.body.dataset;
   var DATAFIL = KONF.datafil || "data.json";
@@ -758,30 +757,22 @@
   /* ---------- Källor ---------- */
 
   function initKallor(data) {
-    var ul = el("lista-kallor");
-    var html = "";
-    data.prognoser.forEach(function (p) {
-      html += "<li><span class=\"titel\">" + esc(p.rapportTitel) + "</span>";
-      if (p.sidhanvisning) {
-        html += "<br><span class=\"detalj\">Siffrorna hämtade ur: " +
-          esc(p.sidhanvisning) + "</span>";
-      }
-      html += "<div class=\"lankar\">";
-      /* sakerUrl ger tom sträng för otillåtna adresser — då ritas länken inte. */
-      var pdfUrl = sakerUrl(p.lokalPdf), origUrl = sakerUrl(p.kallaUrl),
-          arkivUrl = sakerUrl(p.arkivUrl);
-      if (p.lokalPdf && pdfUrl) html += "<a href=\"" + pdfUrl + "\">Läs rapporten (PDF)</a>";
-      if (p.kallaUrl && origUrl) html += "<a href=\"" + origUrl + "\">Original hos källan</a>";
-      if (p.arkivUrl && arkivUrl) html += "<a href=\"" + arkivUrl + "\">Arkiverad kopia</a>";
-      html += "</div></li>";
+    var html = data.prognoser.map(function (p) {
+      return K.kallpost({
+        titel: p.rapportTitel,
+        detalj: p.sidhanvisning ? "Siffrorna hämtade ur: " + p.sidhanvisning : "",
+        lankar: [[p.lokalPdf, "Läs rapporten (PDF)"],
+                 [p.kallaUrl, "Original hos källan"],
+                 [p.arkivUrl, "Arkiverad kopia"]]
+      });
+    }).join("");
+    var scb = data.utfallMeta;
+    html += K.kallpost({
+      titel: "Faktisk folkmängd: " + scb.kalla,
+      detalj: scb.matt + ". Hämtad " + scb.hamtad + ".",
+      lankar: [[scb.kallaUrl, "Öppna tabellen hos SCB"]]
     });
-    var scbUrl = sakerUrl(data.utfallMeta.kallaUrl);
-    html += "<li><span class=\"titel\">Faktisk folkmängd: " + esc(data.utfallMeta.kalla) + "</span>" +
-      "<br><span class=\"detalj\">" + esc(data.utfallMeta.matt) +
-      ". Hämtad " + esc(data.utfallMeta.hamtad) + ".</span>" +
-      (scbUrl ? "<div class=\"lankar\"><a href=\"" + scbUrl +
-        "\">Öppna tabellen hos SCB</a></div>" : "") + "</li>";
-    ul.innerHTML = html;
+    el("lista-kallor").innerHTML = html;
     el("sektion-kallor").hidden = false;
     el("om-uppdaterad").textContent =
       "Utfallssiffrorna hämtades från SCB " + data.utfallMeta.hamtad + ".";

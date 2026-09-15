@@ -76,7 +76,6 @@
   var el = K.el;
   var talSv = K.talSv;
   var esc = K.esc;
-  var sakerUrl = K.sakerUrl;
 
   function visaTal(v, matt) {
     return v === null || v === undefined
@@ -116,8 +115,6 @@
   /* Årsskalan och de år som saknar rapport delas med meritvärdessidan via
      gemensam.js; wrapparna skickar in sidans egen årslista. */
   function arsskala() { return K.arsskala(DATA.ar); }
-
-  function saknadeAr() { return K.saknadeAr(DATA.ar); }
 
   function saknadeArText() { return K.saknadeArText(DATA.ar); }
 
@@ -868,20 +865,16 @@
   /* ---------- Källor ---------- */
 
   function initKallor() {
-    var html = "";
-    DATA.kallor.slice().reverse().forEach(function (k) {
-      var lokalFil = sakerUrl(k.lokalFil);
-      var kallaUrl = sakerUrl(k.kallaUrl);
-      var statistikUrl = sakerUrl(k.statistikUrl);
-      html += "<li><span class=\"titel\">" + esc(k.rapportTitel) + "</span>";
-      html += "<br><span class=\"undertext\">" + esc(k.kalla) + "</span>";
-      html += "<div class=\"lankar\">";
-      if (lokalFil) html += "<a href=\"" + lokalFil + "\">Läs filen (CSV)</a>";
-      if (kallaUrl) html += "<a href=\"" + kallaUrl + "\">Hämta från Skolverket</a>";
-      if (statistikUrl) html += "<a href=\"" + statistikUrl + "\">Skolverkets statistik</a>";
-      html += "</div></li>";
-    });
-    el("lista-kallor").innerHTML = html;
+    el("lista-kallor").innerHTML = DATA.kallor.slice().reverse()
+      .map(function (k) {
+        return K.kallpost({
+          titel: k.rapportTitel,
+          detalj: k.kalla,
+          lankar: [[k.lokalFil, "Läs filen (CSV)"],
+                   [k.kallaUrl, "Hämta från Skolverket"],
+                   [k.statistikUrl, "Skolverkets statistik"]]
+        });
+      }).join("");
     el("sektion-kallor").hidden = false;
     el("om-uppdaterad").textContent =
       "Statistiken hämtades " + DATA.kallor[DATA.kallor.length - 1].hamtad +
@@ -907,7 +900,6 @@
     // valda urvalet. Året behålls vid filterbyte om det finns kvar.
     var arVal = el("ar-valjare");
     var tidigare = arVal.value;
-    arVal.innerHTML = "";
     fyllValjare(arVal, arMedProgram());
     if (tidigare) arVal.value = tidigare;
     if (!arVal.value && arVal.options.length) arVal.selectedIndex = 0;
@@ -1006,7 +998,7 @@
     fyllValjare(gruppVal, [""], function () { return "Alla nationella program"; });
     ["hogskoleforberedande", "yrkesprogram"].forEach(function (typ) {
       if (data.utbildningar.some(function (u) { return u.typ === typ; })) {
-        fyllValjare(gruppVal, [typ], function (t) { return TYPNAMN[t]; });
+        K.laggTillAlternativ(gruppVal, [typ], function (t) { return TYPNAMN[t]; });
       }
     });
     K.kopplaValjare(gruppVal, "grupp", ritaAllt);

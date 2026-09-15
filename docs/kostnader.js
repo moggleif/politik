@@ -16,6 +16,8 @@
   var talSv = K.talSv;
   var esc = K.esc;
   var sakerUrl = K.sakerUrl;
+  var visa = K.visaTal;
+  var linjeSerie = K.linjeSerie;
 
   var DATAFIL = "data-kostnader.json";
   var KUNGSBACKA = "1384";
@@ -39,12 +41,7 @@
     return data.kostnadPerElev[0];
   }
 
-  function omradesnamn(kod) {
-    for (var i = 0; i < data.omraden.length; i++) {
-      if (data.omraden[i].kod === kod) return data.omraden[i].namn;
-    }
-    return kod;
-  }
+  function omradesnamn(kod) { return K.namnet(data.omraden, kod); }
 
   function omrade(post, kod) { return post.omraden[kod] || null; }
 
@@ -54,71 +51,20 @@
     return r ? r[falt] : null;
   }
 
-  /* Åren som en serie faktiskt har, i stigande ordning. */
-  function aren(o) {
-    return o ? Object.keys(o.varden).map(Number).sort(function (a, b) {
-      return a - b;
-    }) : [];
-  }
+  /* Serierna är olika långa – riket börjar senare än kommunen, och
+     skolskjutsen senare än båda. Åren kommer därför ur serien själv, och
+     ett saknat år blir ett tankstreck (K.visaTal) i stället för ett
+     undantag mitt i uppritningen. */
+  function aren(o) { return K.arenI(o && o.varden); }
 
   function kronor(v) { return talSv(v) + " kr"; }
 
-  /* Serierna är olika långa – riket börjar senare än kommunen, och
-     skolskjutsen senare än båda. Ett saknat år ska bli ett tankstreck i
-     tabellen, inte ett undantag mitt i uppritningen. */
-  function visa(v, dec) {
-    return (v === null || v === undefined) ? "&ndash;" : talSv(v, dec);
-  }
-
-  /* ---------- Gemensamma diagraminställningar ---------- */
+  /* ---------- Gemensamma diagraminställningar ----------
+     Axlar, rutor och linjer delas med resurs- och befolkningssidorna;
+     de bor i gemensam.js, så att de tre sidorna inte kan glida isär. */
 
   function basOptions(ytitel, tooltipEtikett) {
-    return {
-      maintainAspectRatio: false,
-      responsive: true,
-      interaction: { mode: "index", intersect: false },
-      plugins: {
-        legend: { display: true },
-        tooltip: {
-          callbacks: {
-            title: function (it) { return "År " + it[0].label; },
-            label: tooltipEtikett
-          }
-        }
-      },
-      scales: {
-        x: {
-          grid: { display: false },
-          border: { color: FARG.baseline },
-          ticks: { maxRotation: 0, autoSkipPadding: 12 }
-        },
-        y: {
-          title: { display: true, text: ytitel, color: FARG.muted },
-          grid: { color: FARG.grid },
-          border: { display: false },
-          ticks: {
-            callback: function (v) { return talSv(v); }
-          }
-        }
-      }
-    };
-  }
-
-  function linjeSerie(etikett, farg, varden, streck) {
-    return {
-      label: etikett,
-      data: varden,
-      borderColor: farg,
-      backgroundColor: farg,
-      borderWidth: 2,
-      borderDash: streck || [],
-      pointRadius: 0,
-      pointHoverRadius: 5,
-      pointBorderColor: FARG.surface,
-      pointBorderWidth: 2,
-      spanGaps: false,
-      tension: 0.1
-    };
+    return K.arsOptions({ ytitel: ytitel, etikett: tooltipEtikett });
   }
 
   /* ---------- 1. Löpande mot fasta priser ---------- */
@@ -465,12 +411,10 @@
 
   function fyllValjare() {
     var v = el("matt-valjare");
-    data.kostnadPerElev.forEach(function (m) {
-      var o = document.createElement("option");
-      o.value = m.nyckel;
-      o.textContent = m.etikett;
-      v.appendChild(o);
-    });
+    var etiketter = {};
+    data.kostnadPerElev.forEach(function (m) { etiketter[m.nyckel] = m.etikett; });
+    K.fyllValjare(v, data.kostnadPerElev.map(function (m) { return m.nyckel; }),
+      function (n) { return etiketter[n]; });
     /* Kommunens egna skolor är förvalt: det är den serie som går längst
        tillbaka för båda områdena och den enda som går att bryta ned. */
     v.value = "kommunal";

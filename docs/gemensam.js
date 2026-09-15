@@ -148,16 +148,32 @@
   };
 
   /* ---------- Väljare ----------
-     Lägg till alternativ i en <select>. `etikett` styr texten när den
-     skiljer sig från värdet. */
+     Fyll en <select> med alternativ. `etikett` styr texten när den
+     skiljer sig från värdet.
 
-  function fyllValjare(valjare, varden, etikett) {
+     fyllValjare *ersätter* det som stod där förut. Det är nästan alltid
+     det man vill, och att det inte var så har kostat två gånger: en
+     väljare som fylls om vid varje byte – valresultatsidans partiväljare
+     när valet byts, slutbetygssidans årväljare när filtret byts – växte
+     i stället för att bytas ut, och fylldes med dubbletter. Nu är det
+     säkra beteendet förvalet, och att bygga på heter något annat.
+
+     laggTillAlternativ bygger vidare på en väljare som redan har
+     alternativ. Ett par väljare görs av två anrop: ett inledande
+     "Alla program" och listan sedan. */
+
+  function laggTillAlternativ(valjare, varden, etikett) {
     varden.forEach(function (v) {
       var o = document.createElement("option");
       o.value = v;
       o.textContent = etikett ? etikett(v) : v;
       valjare.appendChild(o);
     });
+  }
+
+  function fyllValjare(valjare, varden, etikett) {
+    valjare.innerHTML = "";
+    laggTillAlternativ(valjare, varden, etikett);
   }
 
   function installChartDefaults() {
@@ -167,6 +183,10 @@
         window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       Chart.defaults.animation = false;
     }
+    /* Talen på axlarna formateras av Chart.js själv. Utan den här raden
+       blir de amerikanska ("15,000") mitt i en svensk sida; med den
+       skriver de sig som sidans övriga tal ("15 000"). */
+    Chart.defaults.locale = "sv-SE";
     Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
     Chart.defaults.font.size = 15;
     Chart.defaults.color = FARG.ink2;
@@ -268,6 +288,101 @@
       diagramRegister[id].destroy();
       delete diagramRegister[id];
     }
+  }
+
+  /* ---------- Tidsserier: axlar och linjer ----------
+     Sidorna som ritar ett mått år för år (kostnaderna, resurserna,
+     befolkningen) ska se ut som ett och samma system: samma axlar, samma
+     linjetjocklek, samma rutor. Inställningarna bodde tidigare kopierade
+     i varje sidskript och hann glida isär; nu finns de här.
+
+     x är kategorisk (ett år per etikett, aldrig en tidsaxel), y bär
+     måttets namn. Talformatet kommer ur Chart.js svenska locale, som
+     sätts i installChartDefaults – inga egna tickcallbacks behövs.
+
+       K.arsOptions({ ytitel: "Kronor per elev",
+                      etikett: function (it) { … },  // tooltipens rad
+                      legend: false })               // förval: true */
+
+  function arsOptions(inst) {
+    inst = inst || {};
+    return {
+      maintainAspectRatio: false,
+      responsive: true,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { display: inst.legend !== false },
+        tooltip: {
+          callbacks: {
+            title: function (it) { return "År " + it[0].label; },
+            label: inst.etikett
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          border: { color: FARG.baseline },
+          ticks: { maxRotation: 0, autoSkipPadding: 12 }
+        },
+        y: {
+          title: { display: true, text: inst.ytitel, color: FARG.muted },
+          grid: { color: FARG.grid },
+          border: { display: false },
+          /* Tomt men alltid på plats: sidorna sätter en egen callback här
+             när talet ska bära en enhet ("2,7 %", "135 993 kr"). Utan
+             objektet skulle den raden falla. */
+          ticks: {}
+        }
+      }
+    };
+  }
+
+  /* En linje i ett sådant diagram. Punkterna syns först vid pekning:
+     serierna är långa (tjugofem år), och en prick per år gör bilden
+     grötig. spanGaps: false – ett år utan mätning ska synas som en lucka. */
+
+  function linjeSerie(etikett, farg, varden, streck) {
+    return {
+      label: etikett,
+      data: varden,
+      borderColor: farg,
+      backgroundColor: farg,
+      borderWidth: 2,
+      borderDash: streck || [],
+      pointRadius: 0,
+      pointHoverRadius: 5,
+      pointBorderColor: FARG.surface,
+      pointBorderWidth: 2,
+      spanGaps: false,
+      tension: 0.1
+    };
+  }
+
+  /* ---------- Serier som inte är lika långa ----------
+     Riket börjar senare än kommunen, skolskjutsen senare än båda. Ett år
+     utan värde ska bli ett tankstreck i tabellen, inte ett undantag mitt
+     i uppritningen – och årslistan ska komma ur datat, inte ur en
+     hårdkodad början. */
+
+  function visaTal(v, dec) {
+    return (v === null || v === undefined) ? "&ndash;" : talSv(v, dec);
+  }
+
+  /* Åren en serie faktiskt har, i stigande ordning, ur ett
+     { "2019": …, "2020": … }-objekt. */
+  function arenI(varden) {
+    if (!varden) return [];
+    return Object.keys(varden).map(Number).sort(function (a, b) { return a - b; });
+  }
+
+  /* Namnet på en kod i en lista av { kod, namn }. Okänd kod får visa sig
+     som sin kod i stället för att bli tom. */
+  function namnet(lista, kod) {
+    for (var i = 0; i < (lista || []).length; i++) {
+      if (lista[i].kod === kod) return lista[i].namn;
+    }
+    return kod;
   }
 
   /* ---------- Kommunnamnet i genitiv ----------
@@ -446,6 +561,34 @@
     if (!s || !lista || !punkter.length) return;
     lista.innerHTML = punkter.map(function (p) { return "<li>" + p + "</li>"; }).join("");
     s.hidden = false;
+  }
+
+  /* ---------- Källistan ----------
+     Ett <li> i ul.kallista: rapportens titel, en valfri detaljrad och
+     länkarna till den. Låg tidigare i tre kopior (prognos-, meritvärdes-
+     och slutbetygssidan) som var för sig upprepade regeln att en adress
+     som inte håller måttet inte ska ritas som länk alls — och därmed var
+     för sig kunde tappa den. Nu på ett ställe: allt går genom esc(), och
+     adresserna genom sakerUrl().
+
+       K.kallpost({
+         titel: "Befolkningsprognos 2026",
+         detalj: "Siffrorna hämtade ur: tabell 3, s. 12",   // valfri
+         lankar: [["rapporter/p2026.pdf", "Läs rapporten (PDF)"],
+                  [k.kallaUrl, "Original hos källan"]]      // tomma hoppas över
+       }) */
+
+  function kallpost(post) {
+    var html = '<li><span class="titel">' + esc(post.titel) + "</span>";
+    if (post.detalj) {
+      html += '<br><span class="detalj">' + esc(post.detalj) + "</span>";
+    }
+    var lankar = (post.lankar || []).map(function (l) {
+      var url = sakerUrl(l[0]);
+      return url ? '<a href="' + url + '">' + esc(l[1]) + "</a>" : "";
+    }).join("");
+    if (lankar) html += '<div class="lankar">' + lankar + "</div>";
+    return html + "</li>";
   }
 
   /* ---------- Metadataraden ----------
@@ -735,42 +878,53 @@
 
   /* ---------- Export ---------- */
 
+  /* Bara det sidskripten faktiskt anropar. Uppstarten (starta) sätter
+     själv diagramstandarderna och aktiverar tabellverktygen; de behöver
+     därför inte vara utlämnade härifrån. */
   window.KIS = {
+    /* Färger och seriestilar */
     FARG: FARG,
     PALETT: PALETT,
-    STRECK: STRECK,
     serieStil: serieStil,
     rampFarg: rampFarg,
     rampFargOrange: rampFargOrange,
+    /* Tal, text och små hjälpare */
     el: el,
     idagSv: idagSv,
     talSv: talSv,
+    visaTal: visaTal,
     esc: esc,
     sakerUrl: sakerUrl,
     slug: slug,
+    kommunGenitiv: kommunGenitiv,
+    TYPNAMN: TYPNAMN,
+    /* År och serier */
     arsskala: arsskala,
     saknadeAr: saknadeAr,
     saknadeArText: saknadeArText,
-    TYPNAMN: TYPNAMN,
-    fyllValjare: fyllValjare,
-    installChartDefaults: installChartDefaults,
+    arenI: arenI,
+    namnet: namnet,
+    /* Diagram */
     rita: rita,
     diagramFor: diagramFor,
-    regimmarkering: regimmarkering,
     taBortDiagram: taBortDiagram,
+    arsOptions: arsOptions,
+    linjeSerie: linjeSerie,
+    regimmarkering: regimmarkering,
     utfallDataset: utfallDataset,
-    kommunGenitiv: kommunGenitiv,
+    aktiveraToning: aktiveraToning,
+    /* Sidans ram: uppstart, reglage, rutor */
     starta: starta,
     visaStatus: visaStatus,
     urlLas: urlLas,
     urlSatt: urlSatt,
     urlLyssna: urlLyssna,
+    fyllValjare: fyllValjare,
+    laggTillAlternativ: laggTillAlternativ,
     kopplaValjare: kopplaValjare,
     visaKortSagt: visaKortSagt,
     visaMeta: visaMeta,
-    dataNot: dataNot,
-    sattDataNot: sattDataNot,
-    aktiveraToning: aktiveraToning,
-    aktiveraTabellverktyg: aktiveraTabellverktyg
+    kallpost: kallpost,
+    sattDataNot: sattDataNot
   };
 })();

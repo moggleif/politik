@@ -1371,6 +1371,12 @@
     el("distriktval-antal").textContent = n
       ? n + " av " + data.distrikt.length + " distrikt markerade"
       : "Inget distrikt markerat – visar hela kommunen";
+    /* Listan med alla distrikt är lång och ligger hopfälld, så att
+       resultatet börjar direkt under reglagen. Kommer besökaren hit via
+       en länk som redan markerat distrikt ska hen få se vilka: då fälls
+       den ut. Har hen fällt ut den själv stängs den aldrig igen. */
+    var fall = el("distriktval-fall");
+    if (fall && n && !fall.dataset.rord) fall.open = true;
   }
 
   function speglaPartiRutor() {
@@ -1651,6 +1657,10 @@
       laesUrlDistrikt();
       laesUrlPartier();
       ritaAllt();
+    });
+
+    el("distriktval-fall").addEventListener("toggle", function () {
+      this.dataset.rord = "1";
     });
 
     el("valj-alla").addEventListener("click", function () {

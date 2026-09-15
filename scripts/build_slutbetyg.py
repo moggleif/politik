@@ -46,9 +46,11 @@ import math
 import re
 from pathlib import Path
 
-import program
-from program import (HOGSKOLEFORBEREDANDE, YRKESPROGRAM, POANG_MAX,  # noqa: F401
-                     programnamn, typ_av)
+# Skolistan hämtas under eget namn: "program" används i den här filen
+# genomgående för ett programnamn, och en modul med samma namn skulle
+# skuggas i varje sådan funktion.
+from program import SKOLOR as PROGRAM_SKOLOR
+from program import POANG_MAX, programnamn, typ_av
 
 ROT = Path(__file__).resolve().parent.parent
 
@@ -75,7 +77,7 @@ SKOLNAMN = {
 # Skolorna sidan visar (ur den delade listan i program.py), med den korta
 # form som används när ett programnamn behöver skiljas på skola i ett
 # diagram. Rader från övriga skolenheter i rapporten sorteras bort.
-SKOLOR = [(s["namn"], s["kort"]) for s in program.SKOLOR]
+SKOLOR = [(s["namn"], s["kort"]) for s in PROGRAM_SKOLOR]
 SKOLORDNING = [namn for namn, _ in SKOLOR]
 KORTNAMN = dict(SKOLOR)
 MEDTAGNA = set(SKOLORDNING)
@@ -343,8 +345,8 @@ def main() -> None:
     ut, okanda_skolor, okanda_program, bortsorterade = bygg(argangar)
     for skola in sorted(okanda_skolor):
         print(f"VARNING: okänd skola {skola!r} – lägg till den i SKOLNAMN")
-    for program in sorted(okanda_program):
-        print(f"VARNING: okänt program {program!r} – kontrollera inläsningen")
+    for namn in sorted(okanda_program):
+        print(f"VARNING: okänt program {namn!r} – kontrollera inläsningen")
 
     utfil = ROT / "docs" / "data-slutbetyg.json"
     utfil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n",
