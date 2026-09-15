@@ -13,6 +13,13 @@
    förvalet. Varje fil bär sitt eget namn på valet, och all text som
    nämner valet läses därifrån.
 
+   Alla tre filerna läses in vid start, inte en i taget. Det gör bytet i
+   väljaren till en omritning i stället för en hämtning, och det ger
+   diagrammet som ställer de tre valen mot varandra alla tre att rita.
+   Det diagrammet visar alltid andel: valen har inte samma väljarkår, och
+   antalet röster i tre val säger lika mycket om hur många som fick rösta
+   i vilket val.
+
    Datafilen innehåller antal röster, aldrig andelar. Andelarna räknas
    här, och skälet är sidans viktigaste reglage: användaren kryssar i en
    fritt vald grupp distrikt, och då måste rösterna summeras först och
@@ -58,6 +65,13 @@
     return VALEN[0];
   }
 
+  /* Alla tre valens datafiler, inlästa: { kommun: …, region: …, riksdag: … }.
+     De hämtas på en gång vid start – tillsammans är de knappt femtio
+     kilobyte packade – och det ger två saker: bytet i väljaren sker utan
+     hämtning, och diagrammet som ställer de tre valen mot varandra har
+     alltid alla tre att rita. */
+  var filer = {};
+
   /* Så många distriktslinjer går att läsa i samma bild. Över det ritas
      bara gruppen och kommunen — 46 linjer är ingen bild, det är ett
      garnnystan. Gränsen går vid tolv och inte vid palettens åtta färger:
@@ -87,6 +101,14 @@
   var FARG_GRUPP = FARG.ink;
   var STRECK_BROTT = [6, 4];
 
+  /* Ett diagram som visar flera serier av samma slag lyfter fram den som
+     är vald och lägger de andra tunt bakom: det valda partiet bland de
+     små distriktsdiagrammen, och det valda valet bland de tre valen.
+     Samma grepp, samma tjocklekar. */
+  var TJOCK_HUVUD = 4;
+  var TJOCK_VALT = 3.5;
+  var TUNN_OVRIG = 1.5;
+
   var data = null;
   var valda = {};        /* slug -> true, de markerade distrikten */
   var valdaPartier = {}; /* partikod -> true, i partidiagrammet */
@@ -113,9 +135,20 @@
       parseInt(farg.slice(5, 7), 16) + ",0.3)";
   }
 
-  function distriktFor(slug) {
-    for (var i = 0; i < data.distrikt.length; i++) {
-      if (data.distrikt[i].slug === slug) return data.distrikt[i];
+  /* `kalla` är den inlästa datafilen att läsa ur; utelämnad betyder det
+     val sidan visar.
+
+     Andra argumentet spelar roll: anropas funktionen via
+     Array.prototype.map får den indexet som `kalla`. Gå därför alltid via
+     en egen funktion i map, aldrig `map(distriktFor)` – samma fälla som
+     distriktSerie bär en varning om längre ned. Diagrammet över de tre valen skickar med de andra
+     två filerna, och kan då bygga sina serier med precis samma kod.
+     Valdistrikten har samma slugar i alla tre filerna, så en markerad
+     grupp betyder samma sak var den än slås upp. */
+  function distriktFor(slug, kalla) {
+    var lista = (kalla || data).distrikt;
+    for (var i = 0; i < lista.length; i++) {
+      if (lista[i].slug === slug) return lista[i];
     }
     return null;
   }
@@ -189,23 +222,25 @@
     return d.giltiga[a] !== null && d.giltiga[a] !== undefined;
   }
 
-  function kommunSerie() {
+  function kommunSerie(kalla) {
+    var totalt = (kalla || data).kommunTotalt;
     return {
       namn: "Hela Kungsbacka",
       antalDistrikt: null,
       roster: function (parti, a) {
-        var p = data.kommunTotalt.roster[parti];
+        var p = totalt.roster[parti];
         return p ? (p[a] || 0) : 0;
       },
-      giltiga: function (a) { return data.kommunTotalt.giltiga[a] || 0; },
+      giltiga: function (a) { return totalt.giltiga[a] || 0; },
       komplett: function () { return true; },
       indikator: function () { return false; },
       jamforbart: function () { return true; }
     };
   }
 
-  function gruppSerie(slugar) {
-    var lista = slugar.map(distriktFor).filter(Boolean);
+  function gruppSerie(slugar, kalla) {
+    var lista = slugar.map(function (s) { return distriktFor(s, kalla); })
+      .filter(Boolean);
     return {
       namn: lista.length === 1 ? lista[0].namn
         : lista.length + " markerade distrikt",
@@ -316,12 +351,23 @@
   }
 
   /* Området som allt på sidan handlar om just nu. */
-  function omradet() {
+  function omradet(kalla) {
     var s = valdaSlugar();
-    return s.length ? gruppSerie(s) : kommunSerie();
+    return s.length ? gruppSerie(s, kalla) : kommunSerie(kalla);
+  }
+
+  /* Ett parti som inte fick en enda röst i hela kommunen ett valår stod
+     inte på den valsedeln, och datafilen skriver null för det året.
+     Ingenting på sidan ska då påstå en nolla: kurvan bryts, tabellen
+     skriver "–" och förändringstalet uteblir. Kungsbackaborna ställde
+     upp i regionvalet till och med 2022 men inte 2026. */
+  function partietFanns(parti, a, kalla) {
+    var totalt = (kalla || data).kommunTotalt.roster[parti];
+    return !!totalt && totalt[a] !== null && totalt[a] !== undefined;
   }
 
   function varde(serie, parti, a) {
+    if (!partietFanns(parti, a)) return null;
     if (!serie.komplett(a)) return null;
     var roster = serie.roster(parti, a);
     if (valtMatt() === "antal") return roster;
@@ -329,8 +375,20 @@
     return giltiga ? 100 * roster / giltiga : null;
   }
 
-  function serieData(serie, parti) {
-    return arStr().map(function (a) { return varde(serie, parti, a); });
+  /* Diagrammet över de tre valen visar alltid andel, aldrig antal: valen
+     har inte samma väljarkår, och antalet röster i tre val säger mest om
+     hur många som fick rösta i vilket. Se avsnittet i sidans HTML. */
+  function andelen(serie, parti, a, kalla) {
+    if (!partietFanns(parti, a, kalla)) return null;
+    if (!serie.komplett(a)) return null;
+    var giltiga = serie.giltiga(a);
+    return giltiga ? 100 * serie.roster(parti, a) / giltiga : null;
+  }
+
+  function serieData(serie, parti, kalla) {
+    return arStr().map(function (a) {
+      return kalla ? andelen(serie, parti, a, kalla) : varde(serie, parti, a);
+    });
   }
 
   /* Streckad linje betyder en enda sak på den här sidan: talen i var
@@ -355,12 +413,12 @@
     });
   }
 
-  function linje(serie, parti, stil, tjock) {
+  function linje(serie, parti, stil, tjock, kalla) {
     var indikatorer = indikatorAr(serie);
     var nagon = indikatorer.some(function (v) { return v; });
     return {
       label: serie.namn,
-      data: serieData(serie, parti),
+      data: serieData(serie, parti, kalla),
       borderColor: stil.farg,
       backgroundColor: stil.farg,
       /* Indikatorpunkten ritas ihålig: samma form och samma färg, men
@@ -427,7 +485,11 @@
     chart.resize();
   }
 
-  function basOptions(ytitel, formatera) {
+  /* `matt` är normalt måttväljarens värde. Diagrammet över de tre valen
+     skickar med "andel" i stället: det visar alltid andelar, och skulle
+     annars få heltalsformaterade tickar så fort väljaren står på antal. */
+  function basOptions(ytitel, formatera, matt) {
+    matt = matt || valtMatt();
     return {
       responsive: true,
       maintainAspectRatio: false,
@@ -473,10 +535,10 @@
         x: { title: { display: true, text: "Valår" } },
         y: {
           title: { display: true, text: ytitel },
-          beginAtZero: valtMatt() === "antal",
+          beginAtZero: matt === "antal",
           ticks: {
             callback: function (v) {
-              return valtMatt() === "antal" ? talSv(v) : talSv(v, 1);
+              return matt === "antal" ? talSv(v) : talSv(v, 1);
             }
           }
         }
@@ -544,7 +606,7 @@
 
   function brottsNoter(slugar, medGrupp) {
     var saknade = [], omritade = [], harkomster = [], noter = [];
-    var lista = slugar.map(distriktFor).filter(Boolean);
+    var lista = slugar.map(function (s) { return distriktFor(s); }).filter(Boolean);
     lista.forEach(function (d) {
       var h = harkomstText(d);
       if (h) harkomster.push(h);
@@ -640,6 +702,93 @@
     }
     K.sattDataNot("not-andel",
       noter.concat(brottsNoter(slugar, true)).join(" "));
+  }
+
+  /* ---------- Diagram 1b: samma parti i de tre valen ----------
+     Sidan visar ett val i taget, och frågan som då infinner sig är om
+     området röstar likadant i de andra två. Diagrammet är spegelbilden
+     av partidiagrammet längre ned: där är serierna partier i ett val,
+     här är de val för ett parti. Området är detsamma som resten av sidan
+     handlar om, och de tre filerna har samma valdistrikt, så en markerad
+     grupp betyder samma sak i alla tre.
+
+     Det val som är valt högst upp ritas tjockt och i full färg, de andra
+     två tunnare bakom – samma grepp som de små distriktsdiagrammen
+     använder för det valda partiet, så att man ser var man står. */
+
+  /* Vilka år partiet inte stod på valsedeln i ett visst val. Tomt betyder
+     att det fanns med hela vägen. */
+  /* "kommunvalet", "regionvalet", "riksdagsvalet" – varje datafil bär
+     sitt eget namn, och prosan ska använda det och inte väljarens
+     etikett, som är gjord för en rullgardin ("Kommunfullmäktige"). */
+  function valKort(nyckel) {
+    var kalla = filer[nyckel];
+    return kalla ? kalla.valKort : valetFor(nyckel).etikett.toLowerCase();
+  }
+
+  function utanValsedel(parti, kalla) {
+    return arStr().filter(function (a) {
+      return !partietFanns(parti, a, kalla);
+    });
+  }
+
+  function ritaTreVal() {
+    var parti = valtParti();
+    var datasets = [];
+    var saknade = [], luckor = [], ohamtade = [];
+
+    VALEN.forEach(function (v, i) {
+      var kalla = filer[v.nyckel];
+      if (!kalla) { ohamtade.push(v.etikett); return; }
+      var utan = utanValsedel(parti, kalla);
+      if (utan.length === arStr().length) {
+        saknade.push(valKort(v.nyckel));
+        return;
+      }
+      if (utan.length) {
+        luckor.push(valKort(v.nyckel) + "s valsedel " + utan.join(", "));
+      }
+      var stil = partiStil(i);
+      var arValt = v.nyckel === data.valNyckel;
+      var rad = linje(omradet(kalla), parti, stil,
+                      arValt ? TJOCK_VALT : TUNN_OVRIG, kalla);
+      rad.label = v.etikett;
+      rad.pointRadius = arValt ? 4 : 2;
+      if (!arValt) rad.borderColor = tonad(stil.farg);
+      datasets.push(rad);
+    });
+
+    K.rita("diagram-tre-val", {
+      type: "line",
+      data: { labels: arStr(), datasets: datasets },
+      options: basOptions("Andel av de giltiga rösterna (%)", function (v) {
+        return talSv(v, 1) + " %";
+      }, "andel")
+    }, HOJD);
+
+    var serie = omradet();
+    el("rubrik-tre-val").textContent = "Röstar " +
+      (serie.antalDistrikt ? "det markerade området" : "Kungsbacka") +
+      " olika i de tre valen?";
+
+    var noter = [];
+    if (saknade.length) {
+      noter.push(esc(partiNamn(parti)) + " ställde inte upp i " +
+        esc(rakna_upp(saknade)) + " och har därför ingen linje där " +
+        "&ndash; partiet finns inte i Valmyndighetens siffror för " +
+        (saknade.length > 1 ? "de valen" : "det valet") + ".");
+    }
+    if (luckor.length) {
+      noter.push("Avbrott i linjen: " + esc(partiNamn(parti)) +
+        " fanns inte på " + esc(rakna_upp(luckor)) + ".");
+    }
+    if (ohamtade.length) {
+      noter.push("Siffrorna för " +
+        esc(rakna_upp(ohamtade.map(function (e) { return e.toLowerCase(); }))) +
+        " kunde inte hämtas, så det valet saknas i diagrammet.");
+    }
+    noter = noter.concat(brottsNoter(valdaSlugar(), true));
+    K.sattDataNot("not-tre-val", noter.join(" "));
   }
 
   /* ---------- Diagram 2: förändringen mellan två val ---------- */
@@ -769,9 +918,8 @@
      Det valda partiet är sidans ämne också här: det ritas tjockt och i
      full färg, de andra blekt och tunt. Punkterna behåller sin fulla
      färg – en linje på trettio procents opacitet går att se men inte att
-     peka ut, och det är punkterna teckenförklaringen visar. */
-  var TJOCK_HUVUD = 4;
-  var TUNN_OVRIG = 1.5;
+     peka ut, och det är punkterna teckenförklaringen visar. Tjocklekarna
+     står bland de andra formkonstanterna högst upp. */
 
   /* Samma tak som för linjerna i diagram 1, och av samma skäl som gäller
      där: över tolv distrikt är markeringen inte längre en grupp man läser
@@ -892,7 +1040,7 @@
       .filter(function (k) { return valdaPartier[k]; });
     var forManga = slugar.length > MAX_SMADIAGRAM;
     var lista = (slugar.length && !forManga)
-      ? slugar.map(distriktFor).filter(Boolean) : [];
+      ? slugar.map(function (s) { return distriktFor(s); }).filter(Boolean) : [];
 
     /* Rita om från grunden: diagrammen är lika många som markeringarna. */
     smadiagram.forEach(K.taBortDiagram);
@@ -998,7 +1146,27 @@
       ? (serie.antalDistrikt === 1 ? esc(serie.namn) : "de markerade distrikten")
       : "hela Kungsbacka";
 
+    /* Ett parti som inte stod på valsedeln i det senaste valet har inget
+       tal att öppna med, och då ska rutan säga det i stället för att stå
+       tom: Kungsbackaborna ställde upp i regionvalet till och med 2022
+       men inte 2026. */
+    var medParti = a.filter(function (x) { return partietFanns(parti, x); });
+    var sistaMedParti = medParti.length ? medParti[medParti.length - 1] : null;
+
     var nu = varde(serie, parti, senaste), da = varde(serie, parti, forra);
+    if (nu === null && !partietFanns(parti, senaste)) {
+      var saknas = "<strong>" + namn + "</strong> fanns inte på " +
+        esc(data.valKort) + "s valsedel " + senaste;
+      var sistaTal = sistaMedParti === null
+        ? null : varde(serie, parti, sistaMedParti);
+      if (sistaTal !== null) {
+        saknas += " – senast partiet ställde upp var " + sistaMedParti +
+          ", då det fick " + (valtMatt() === "antal"
+            ? talSv(sistaTal) + " röster" : talSv(sistaTal, 1) + " %") +
+          " i " + omr;
+      }
+      punkter.push(saknas + ".");
+    }
     if (nu !== null) {
       var text = "<strong>" + namn + "</strong> fick " +
         (valtMatt() === "antal" ? talSv(nu) + " röster" : talSv(nu, 1) + " %") +
@@ -1014,13 +1182,36 @@
       punkter.push(text + ".");
     }
 
-    /* Starkaste och svagaste distriktet i det senaste valet. */
+    /* Samma parti, samma område, de tre valen. Punkterna ställs bredvid
+       varandra och får tala för sig själva: sidan räknar skillnaden men
+       säger ingenting om varför den finns. */
+    var treVal = VALEN.map(function (v) {
+      var kalla = filer[v.nyckel];
+      if (!kalla) return null;
+      var tal = andelen(omradet(kalla), parti, senaste, kalla);
+      return tal === null ? null
+        : { etikett: valKort(v.nyckel), v: tal,
+            arValt: v.nyckel === data.valNyckel };
+    }).filter(Boolean);
+    if (treVal.length > 1) {
+      var valt = treVal.filter(function (x) { return x.arValt; })[0] || treVal[0];
+      var andra = treVal.filter(function (x) { return x !== valt; });
+      punkter.push("I " + esc(valt.etikett) + " " + senaste + " fick " +
+        "<strong>" + namn + "</strong> " + talSv(valt.v, 1) + " % i " + omr +
+        ", mot " + rakna_upp(andra.map(function (x) {
+          return talSv(x.v, 1) + " % i " + esc(x.etikett);
+        })) + ".");
+    }
+
+    /* Starkaste och svagaste distriktet i det senaste val partiet ställde
+       upp i – som regel det senaste valet. */
+    var jamforAr = sistaMedParti === null ? senaste : sistaMedParti;
     var med = data.distrikt.map(function (d) {
-      return { namn: d.namn, v: varde(distriktSerie(d, true), parti, senaste) };
+      return { namn: d.namn, v: varde(distriktSerie(d, true), parti, jamforAr) };
     }).filter(function (p) { return p.v !== null; });
     if (med.length > 1) {
       med.sort(function (x, y) { return y.v - x.v; });
-      punkter.push("Starkast " + senaste + ": <strong>" + esc(med[0].namn) +
+      punkter.push("Starkast " + jamforAr + ": <strong>" + esc(med[0].namn) +
         "</strong> med " + talSv(med[0].v, valtMatt() === "antal" ? 0 : 1) +
         " " + enhet() + ". Svagast: <strong>" +
         esc(med[med.length - 1].namn) + "</strong> med " +
@@ -1166,6 +1357,7 @@
     speglaDistriktRutor();
     speglaPartiRutor();
     ritaAndel();
+    ritaTreVal();
     ritaForandring();
     ritaPartier();
     ritaEnskilda();
@@ -1324,6 +1516,12 @@
       "Diagram: förändring i procentenheter per valdistrikt mellan två " +
       data.valKort.replace(/et$/, ""));
 
+    /* Röstberättigade i de tre valen, hämtade ur filerna och aldrig
+       inskrivna för hand: i kommun- och regionvalet röstar också
+       folkbokförda utan svenskt medborgarskap, och det är en del av
+       förklaringen till att andelarna skiljer sig åt. */
+    el("om-valjarkaren").innerHTML = valjarkarenText();
+
     K.visaMeta({
       kalla: "Valmyndigheten",
       period: data.valenKort + " " + ar()[0] + "–" + ar()[ar().length - 1],
@@ -1334,40 +1532,75 @@
     visaOm();
   }
 
-  /* Hämtar ett annat vals datafil. `skrivUrl` är falskt när bytet kommer
-     ur adressraden själv – bakåt och framåt i webbläsaren – för då står
-     valet redan där, och en ny post i historiken hade ätit upp den post
-     användaren är på väg tillbaka till.
+  /* Byter vilket val sidan visar. Alla tre filerna är redan inlästa, så
+     bytet är ett omritningsval och inte en hämtning.
 
-     Går hämtningen inte igenom står det gamla valet kvar med sina
-     siffror, och väljaren ställs tillbaka: en halv sida av det ena valet
-     och en halv av det andra vore värre än ingenting. */
+     `skrivUrl` är falskt när bytet kommer ur adressraden själv – bakåt
+     och framåt i webbläsaren – för då står valet redan där, och en ny
+     post i historiken hade ätit upp den post användaren är på väg
+     tillbaka till.
+
+     Gick filen inte att hämta vid start står det gamla valet kvar med
+     sina siffror och väljaren ställs tillbaka: en halv sida av det ena
+     valet och en halv av det andra vore värre än ingenting. */
   function byteAvVal(nyckel, skrivUrl) {
     var val = valetFor(nyckel);
-    var tidigareParti = el("valj-parti").value;
-    fetch(val.fil).then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    }).then(function (hamtat) {
-      if (skrivUrl) {
-        K.urlSatt({ val: val.nyckel === VALEN[0].nyckel ? null : val.nyckel });
-      }
-      visaValet(hamtat, tidigareParti);
-      ritaAllt();
-      /* Partiet kan ha bytts av bytet; adressraden ska visa det som
-         verkligen ritas. */
-      if (skrivUrl) K.urlSatt({ parti: K.slug(el("valj-parti").value) }, true);
-    }).catch(function (fel) {
+    var hamtat = filer[val.nyckel];
+    if (!hamtat) {
       el("valj-val").value = data.valNyckel;
-      K.visaStatus("<strong>Kunde inte byta val.</strong> Tekniskt fel: " +
-        esc(fel.message) + " (" + esc(val.fil) + "). " +
+      K.visaStatus("<strong>Kunde inte byta val.</strong> Siffrorna för " +
+        esc(val.etikett) + " (" + esc(val.fil) + ") kunde inte hämtas. " +
         esc(data.valEtikett) + " visas fortfarande.");
+      return;
+    }
+    if (skrivUrl) {
+      K.urlSatt({ val: val.nyckel === VALEN[0].nyckel ? null : val.nyckel });
+    }
+    visaValet(hamtat, el("valj-parti").value);
+    ritaAllt();
+    /* Partiet kan ha bytts av bytet; adressraden ska visa det som
+       verkligen ritas. */
+    if (skrivUrl) K.urlSatt({ parti: K.slug(el("valj-parti").value) }, true);
+  }
+
+  /* Hur många som fick rösta i vart och ett av valen, senaste valåret.
+     Talen står i datafilerna, en per val. */
+  function valjarkarenText() {
+    var senaste = arStr()[arStr().length - 1];
+    /* Kommun- och regionvalet har samma väljarkår och därmed samma tal.
+       De skrivs ihop i stället för att upprepa siffran – och skulle de
+       någon gång skilja sig åt delar meningen upp sig av sig själv. */
+    var ordning = [], per_antal = {};
+    VALEN.forEach(function (v) {
+      var kalla = filer[v.nyckel];
+      var antal = kalla && kalla.kommunTotalt.rostberattigade[senaste];
+      if (!antal) return;
+      if (!per_antal[antal]) { per_antal[antal] = []; ordning.push(antal); }
+      per_antal[antal].push(valKort(v.nyckel));
     });
+    if (ordning.length < 2) return "";
+    return "<strong>Valen har inte samma väljarkår.</strong> I kommun- och " +
+      "regionvalet röstar också folkbokförda utan svenskt medborgarskap: " +
+      senaste + " hade " + rakna_upp(ordning.map(function (antal) {
+        return esc(rakna_upp(per_antal[antal])) + " " + talSv(antal);
+      })) + " röstberättigade i Kungsbacka. Andelen av de giltiga rösterna " +
+      "går att jämföra mellan valen; antalet röster säger lika mycket om " +
+      "hur många som fick rösta i vilket val. Därför visar diagrammet " +
+      "alltid andel, också när måttet högst upp står på antal.";
   }
 
   /* ---------- Start ---------- */
 
-  function init(hamtat) {
+  function init(hamtat, _jamfor, extra) {
+    /* Sidans egen datafil är den som K.starta hämtat; de andra två kom
+       med som sidofiler. En som inte gick igenom blir null, och då ritas
+       den inte i diagrammet över de tre valen – resten av sidan är sig
+       lik. */
+    filer[hamtat.valNyckel] = hamtat;
+    VALEN.forEach(function (v) {
+      if (v.nyckel !== hamtat.valNyckel) filer[v.nyckel] = extra[v.nyckel];
+    });
+
     K.fyllValjare(el("valj-val"),
       VALEN.map(function (v) { return v.nyckel; }),
       function (n) { return valetFor(n).etikett; });
@@ -1402,7 +1635,8 @@
       ritaAllt();
     });
 
-    ["valjarrad", "sektion-distrikt", "sektion-andel", "sektion-forandring",
+    ["valjarrad", "sektion-distrikt", "sektion-andel", "sektion-tre-val",
+      "sektion-forandring",
       "sektion-partier", "sektion-enskilt", "sektion-tabell", "sektion-kallor",
       "sektion-om"]
       .forEach(function (id) { el(id).hidden = false; });
@@ -1422,6 +1656,16 @@
      ger samma vy. */
   K.starta(valetFor(K.urlLas("val")).fil, {
     init: init,
+    /* De två valen sidan inte börjar i hämtas parallellt, så att
+       diagrammet över de tre valen har alla tre från första ritningen
+       och bytet i väljaren sker utan hämtning. */
+    extrafiler: (function () {
+      var start = valetFor(K.urlLas("val")).nyckel, ut = {};
+      VALEN.forEach(function (v) {
+        if (v.nyckel !== start) ut[v.nyckel] = v.fil;
+      });
+      return ut;
+    })(),
     tomt: function (d) { return !d || !d.distrikt || !d.distrikt.length; },
     tomtText: "Valresultatet per valdistrikt är inte inläst ännu."
   });

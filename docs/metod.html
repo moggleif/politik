@@ -477,18 +477,49 @@
       <dt>Partier under tre procent samlas i en restpost</dt>
       <dd>Ett parti redovisas för sig om det någon gång i de fem valen
         nått över 3&nbsp;% av de giltiga rösterna i hela kommunen.
-        Tröskeln räknas om för varje val: i kommunvalet är det nio partier
-        &ndash; de åtta riksdagspartierna och Kungsbackaborna &ndash; och
-        i region- och riksdagsvalet de åtta riksdagspartierna. De som inte
-        gör det läggs under <em>övriga partier</em>, samma restpost som
-        Valmyndighetens egna filer använder, så att partiernas röster
-        fortfarande summerar till antalet giltiga. Tröskeln mäts på
-        kommunen och inte på enskilda valdistrikt; ett enda bortvikt parti
-        har någon gång gått över den i ett distrikt (Din Förening,
-        4,3&nbsp;% i Fjärås Södra 2010 i kommunvalet). Samtliga partiers
-        röster ligger kvar oavkortat i
+        Tröskeln gäller de tre valen <em>tillsammans</em>: når ett parti
+        över den i något av valen redovisas det för sig i alla tre. I
+        Kungsbacka är det nio &ndash; de åtta riksdagspartierna och
+        Kungsbackaborna. De som inte gör det läggs under <em>övriga
+        partier</em>, samma restpost som Valmyndighetens egna filer
+        använder, så att partiernas röster fortfarande summerar till
+        antalet giltiga. Tröskeln mäts på kommunen och inte på enskilda
+        valdistrikt; ett enda bortvikt parti har någon gång gått över den
+        i ett distrikt (Din Förening, 4,3&nbsp;% i Fjärås Södra 2010 i
+        kommunvalet). Samtliga partiers röster ligger kvar oavkortat i
         <a href="https://github.com/moggleif/politik/tree/main/data/kommunval">data/kommunval/</a>
-        och de två andra valens mappar.</dd>
+        och de två andra valens mappar.
+        <p>Att tröskeln räknas på valen tillsammans är diagrammet över de
+        tre valen skäl till: där ska ett tomrum i kurvan betyda att
+        partiet inte stod på den valsedeln, och ingenting annat.
+        Kungsbackaborna ställde upp i regionvalet 2010&ndash;2022 men nådde
+        aldrig tre procent där, och till riksdagen ställer de inte upp
+        alls. Med en tröskel per val hade de legat bland övriga i
+        regionvalet och saknats helt i riksdagsvalet &ndash; två tomrum som
+        såg likadana ut men betydde olika saker.</p></dd>
+      <dt>Ett parti utan röster ett valår får inget värde</dt>
+      <dd>Valmyndigheten redovisar bara partier som fick röster, så noll
+        röster i <em>hela kommunen</em> betyder att partiet inte stod på
+        den valsedeln. Sådana år får därför <em>inget värde</em> och inte
+        noll, av samma skäl som ett valdistrikt som inte fanns får det:
+        Kungsbackaborna ställde upp i regionvalet till och med 2022 men
+        inte 2026, och en kurva som föll till noll hade sett ut som ett
+        sammanbrott i stället för ett parti som inte var med. Noll röster
+        i ett enskilt <em>valdistrikt</em> är däremot en riktig nolla, så
+        länge partiet fick röster någon annanstans i kommunen. Restposten
+        <em>övriga partier</em> undantas: den är ingen rad på en valsedel,
+        och ett år utan övriga röster betyder att inga röster föll
+        utanför.</dd>
+      <dt>Valen jämförs i andelar, aldrig i antal</dt>
+      <dd>Diagrammet som ställer kommun-, region- och riksdagsvalet mot
+        varandra visar alltid andel av de giltiga rösterna, också när
+        måttet på sidan står på antal. Valen har inte samma väljarkår: i
+        kommun- och regionvalet röstar också folkbokförda utan svenskt
+        medborgarskap, och 2026 hade de valen 67&nbsp;148 röstberättigade i
+        Kungsbacka mot riksdagsvalets 66&nbsp;543. Antalet röster i tre val
+        säger därför lika mycket om hur många som fick rösta i vilket val
+        som om opinionen. Talen står i datafilerna och skrivs ut på sidan
+        av sig själva.</dd>
       <dt>Valdistrikten är desamma i de tre valen</dt>
       <dd>Samma valdistrikt röstar i kommun-, region- och riksdagsvalet
         samma dag, och sidan visar ett val i taget. Bedömningen av vilka

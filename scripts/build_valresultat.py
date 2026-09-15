@@ -88,10 +88,21 @@ SUMMOR = ["giltiga", "rostande", "rostberattigade"]
 # procent varje val. Utan tröskeln blir kryssrutorna på sidan en lista
 # med tjugonio namn, varav tjugo har en handfull röster.
 #
+# **Tröskeln mäts på de tre valen tillsammans**, inte på ett i taget. Det
+# spelar roll för sidans diagram över hur ett parti gått i de tre valen:
+# där ska ett tomrum i kurvan betyda att partiet inte fanns på valsedeln,
+# och ingenting annat. Kungsbackaborna visar varför. De ställde upp i
+# regionvalet 2010–2022 (1,3–2,3 %) men nådde aldrig tre procent där, så
+# med en tröskel per val hade de legat i ÖVR i regionvalet och saknats
+# helt i riksdagsvalet – två tomrum som såg likadana ut men betydde helt
+# olika saker. Med unionen får partiet en egen rad i vartenda val det
+# fick röster i.
+#
 # Tröskeln mäts på kommunen och inte på enskilda valdistrikt. Ett enda
 # parti under tröskeln har någon gång gått över den i ett distrikt: Din
 # Förening fick 4,3 % i Fjärås Södra 2010. Alla partiernas röster ligger
-# kvar oavkortat i data/kommunval/<år>.json för den som vill räkna på dem.
+# kvar oavkortat i data/<valets mapp>/<år>.json för den som vill räkna
+# på dem.
 TROSKEL_PROCENT = 3.0
 
 
@@ -172,9 +183,32 @@ def ursprung(kod: str, overgang: str, jamforbarhet: dict,
     return {}
 
 
+def las_kallor(valnyckel: str) -> dict:
+    """Ett vals alla år: {år: innehållet i data/<valets mapp>/<år>.json}."""
+    mapp = ROT / "data" / VALEN[valnyckel]["mapp"]
+    return {a: json.loads((mapp / f"{a}.json").read_text(encoding="utf-8"))
+            for a in AR if (mapp / f"{a}.json").exists()}
+
+
+def stora_over_valen(kallor_per_val: dict) -> set:
+    """Partierna som nått tröskeln i något av valen. Se TROSKEL_PROCENT:
+    tröskeln gäller de tre valen tillsammans, så att ett tomrum i kurvan
+    över de tre valen betyder en enda sak."""
+    stora = set()
+    for valnyckel, kallor in kallor_per_val.items():
+        ar = [a for a in AR if a in kallor]
+        distrikt_per_ar = {a: per_kod(kallor[a]) for a in ar}
+        stora |= stora_partier(summera_kommunen(distrikt_per_ar, ar), ar)
+    return stora
+
+
 def bygg(kallor: dict, jamforbarhet: dict, harkomst: dict = None,
-         valnyckel: str = "kommun") -> dict:
-    """kallor: {år: innehållet i data/<valets mapp>/<år>.json}."""
+         valnyckel: str = "kommun", stora: set = None) -> dict:
+    """kallor: {år: innehållet i data/<valets mapp>/<år>.json}.
+
+    `stora` är partierna som ska redovisas för sig, normalt unionen över
+    de tre valen (se stora_over_valen). Utelämnas den räknas tröskeln på
+    det här valet ensamt."""
     harkomst = harkomst or {}
     val = VALEN[valnyckel]
     ar = [a for a in AR if a in kallor]
@@ -204,7 +238,8 @@ def bygg(kallor: dict, jamforbarhet: dict, harkomst: dict = None,
     # Tröskeln avgörs på kommunens siffror, så de räknas först. Därefter
     # viks de små partierna ihop till ÖVR överallt – både i distrikten och
     # i kommunsumman – så att de två alltid säger samma sak.
-    stora = stora_partier(summera_kommunen(distrikt_per_ar, ar), ar)
+    if stora is None:
+        stora = stora_partier(summera_kommunen(distrikt_per_ar, ar), ar)
     for a in ar:
         for d in distrikt_per_ar[a].values():
             d["roster"] = vik_ihop(d["roster"], stora)
@@ -293,12 +328,42 @@ def bygg(kallor: dict, jamforbarhet: dict, harkomst: dict = None,
 
     totalt = summera_kommunen(distrikt_per_ar, ar)
 
+    # Ett parti som inte fick en enda röst i hela kommunen ett valår stod
+    # inte på den valsedeln – Valmyndigheten redovisar bara partier som
+    # fick röster. Sådana år får `null` och aldrig 0, av samma skäl som
+    # ett valdistrikt som inte fanns får det: skillnaden mellan "fanns
+    # inte" och "fick inga röster" är hela poängen. Kungsbackaborna ställde
+    # upp i regionvalet till och med 2022 men inte 2026, och en kurva som
+    # föll till noll det året hade sett ut som ett sammanbrott i stället
+    # för ett parti som inte var med.
+    #
+    # Noll röster i ett *distrikt* är däremot en riktig nolla, så länge
+    # partiet fick röster någon annanstans i kommunen.
+    #
+    # ÖVR undantas. Den är ingen rad på en valsedel utan restposten för
+    # allt som inte redovisas för sig, och ett år utan övriga röster är
+    # en riktig nolla: inga röster föll utanför. Att nolla bort den hade
+    # dessutom brutit det som gör restposten meningsfull, att partiernas
+    # röster summerar till antalet giltiga.
+    utan_valsedel = {p: [a for a in ar if not totalt["roster"][p][str(a)]]
+                     for p in totalt["roster"] if p != OVRIGA}
+    for p, aren in utan_valsedel.items():
+        for a in aren:
+            totalt["roster"][p][str(a)] = None
+            for rad in rader:
+                if p in rad["roster"]:
+                    rad["roster"][p][str(a)] = None
+            for rad in rader:
+                hk = rad.get("harkomst", {}).get(str(a))
+                if hk and p in hk["roster"]:
+                    hk["roster"].pop(p)
+
     # Partierna ordnas efter hur stora de var i det senaste valet, så att
     # sidans teckenförklaring och tabell börjar med de största. ÖVR sist:
     # det är ingen egen politisk riktning utan en restpost.
     partier = sorted(totalt["roster"],
                      key=lambda p: (p == OVRIGA,
-                                    -totalt["roster"][p].get(str(senaste), 0),
+                                    -(totalt["roster"][p].get(str(senaste)) or 0),
                                     p))
     partilista = [{"kod": p, "namn": partinamn(p)} for p in partier]
 
@@ -360,18 +425,20 @@ def main() -> None:
     harkomst = (json.loads(harkomstfil.read_text(encoding="utf-8"))
                 if harkomstfil.exists() else {})
 
+    # Alla tre valen läses även när bara ett ska byggas: tröskeln gäller
+    # dem tillsammans, och en fil byggd på egen hand skulle få en annan
+    # partilista än en full körning ger.
+    kallor_per_val = {v: las_kallor(v) for v in sorted(VALEN)}
+    saknas = [VALEN[v]["mapp"] for v, k in kallor_per_val.items() if not k]
+    if saknas:
+        raise SystemExit("Inga källfiler i data/" + "/, data/".join(saknas)
+                         + "/ – kör scripts/hamta_valresultat.py först")
+    stora = stora_over_valen(kallor_per_val)
+
     for valnyckel in ([args.val] if args.val else sorted(VALEN)):
         mapp = VALEN[valnyckel]["mapp"]
-        in_mapp = ROT / "data" / mapp
-        kallor = {}
-        for a in AR:
-            fil = in_mapp / f"{a}.json"
-            if fil.exists():
-                kallor[a] = json.loads(fil.read_text(encoding="utf-8"))
-        if not kallor:
-            raise SystemExit(f"Inga källfiler i data/{mapp}/ – kör "
-                             f"scripts/hamta_valresultat.py först")
-        data = bygg(kallor, jamforbarhet, harkomst, valnyckel)
+        data = bygg(kallor_per_val[valnyckel], jamforbarhet, harkomst,
+                    valnyckel, stora)
         ut = ROT / "docs" / f"data-{mapp}.json"
         ut.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n",
                       encoding="utf-8")
@@ -380,6 +447,10 @@ def main() -> None:
               f"{len(data['ar'])} val")
         print("  redovisade partier: "
               + ", ".join(p["kod"] for p in data["partier"]))
+        utan = [p for p in sorted(stora)
+                if p not in {q["kod"] for q in data["partier"]}]
+        if utan:
+            print("  utan röster i det här valet: " + ", ".join(utan))
         for o in data["overgangar"]:
             ja = sum(1 for d in data["distrikt"] if d["jamforbart"][o])
             print(f"  {o}: {ja} av {len(data['distrikt'])} distrikt jämförbara")

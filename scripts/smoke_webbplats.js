@@ -57,6 +57,10 @@ const DIAGRAMSIDOR = [
   /* Ett parti som bara finns i kommunvalet, tillsammans med ett val där
      det inte ställer upp: sidan ska falla tillbaka på förvalet och rita. */
   "valresultat.html?val=riksdag&parti=kbabo",
+  /* Samma parti i ett val där det ställde upp förr men inte i det
+     senaste: inget tal att öppna "Kort sagt" med. Granskas närmare i
+     granskaTreVal nedan. */
+  "valresultat.html?val=region&parti=kbabo&matt=antal",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
 
@@ -478,6 +482,108 @@ async function granskaValbyte(browser, bas) {
   return fel;
 }
 
+/* Diagrammet över de tre valen: samma parti och samma område, en linje
+   per val. Det val som är valt högst upp ska ritas tjockare än de andra,
+   diagrammet ska visa andel också när måttet står på antal, och ett parti
+   som inte stod på valsedeln ska sakna linje i stället för att ritas som
+   en nolla. */
+async function granskaTreVal(browser, bas) {
+  const fel = [];
+  const page = await browser.newPage();
+  page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
+  await stubbaGoatcounter(page);
+
+  async function las(sida) {
+    await page.goto(bas + "/" + sida, { waitUntil: "networkidle" });
+    await page.waitForFunction(function () {
+      return Chart.getChart(document.getElementById("diagram-tre-val"));
+    }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+    return page.evaluate(function () {
+      const c = Chart.getChart(document.getElementById("diagram-tre-val"));
+      if (!c) return { saknas: true };
+      return {
+        ytitel: c.options.scales.y.title.text,
+        serier: c.data.datasets.map(function (d) {
+          return { namn: d.label, bredd: d.borderWidth, data: d.data };
+        }),
+        not: (document.getElementById("not-tre-val").textContent || "").trim(),
+        kort: Array.prototype.slice.call(
+          document.querySelectorAll("#kort-sagt-lista li")).map(function (li) {
+            return li.textContent.trim();
+          }),
+        valjarkar: (document.getElementById("om-valjarkaren").textContent
+          || "").trim(),
+      };
+    });
+  }
+
+  /* Riksdagsvalet valt: tre linjer, och riksdagens ska vara den tjocka. */
+  const sd = await las("valresultat.html?val=riksdag&parti=sd");
+  if (sd.saknas) {
+    fel.push("diagrammet över de tre valen ritades aldrig");
+  } else {
+    if (sd.serier.length !== 3) {
+      fel.push("förväntade tre val i diagrammet, fann " + sd.serier.length);
+    }
+    const tjock = sd.serier.filter(function (s) { return s.bredd > 2; });
+    if (tjock.length !== 1 || tjock[0].namn !== "Riksdagen") {
+      fel.push("det valda valet ritas inte tjockast: "
+        + JSON.stringify(sd.serier.map(function (s) {
+            return s.namn + " " + s.bredd;
+          })));
+    }
+    if (!/väljarkår/.test(sd.valjarkar)) {
+      fel.push("stycket om väljarkåren saknas");
+    }
+    if (!/riksdagsvalet/.test(sd.kort.join(" "))
+        || !/kommunvalet/.test(sd.kort.join(" "))) {
+      fel.push("\"Kort sagt\" ställer inte valen mot varandra: "
+        + sd.kort.join(" | "));
+    }
+  }
+
+  /* Antal i måttväljaren: det här diagrammet ska ändå visa andel. */
+  const antal = await las("valresultat.html?parti=m&matt=antal");
+  if (!/Andel/.test(antal.ytitel || "")) {
+    fel.push("diagrammet följde med till antal: y-axeln säger "
+      + antal.ytitel);
+  }
+
+  /* Kungsbackaborna: ingen linje för riksdagen, och ett avbrott i
+     regionvalets linje 2026 – partiet stod inte på de valsedlarna. */
+  const kbabo = await las("valresultat.html?parti=kbabo");
+  const namn = (kbabo.serier || []).map(function (s) { return s.namn; });
+  if (namn.indexOf("Riksdagen") >= 0) {
+    fel.push("Kungsbackaborna ritas i riksdagsvalet, där partiet inte finns");
+  }
+  if (namn.indexOf("Regionfullmäktige") < 0) {
+    fel.push("Kungsbackaborna saknar linje i regionvalet, där de ställde upp");
+  }
+  const region = (kbabo.serier || []).filter(function (s) {
+    return s.namn === "Regionfullmäktige";
+  })[0];
+  if (region && region.data[region.data.length - 1] !== null) {
+    fel.push("regionvalets linje 2026 är " + region.data[region.data.length - 1]
+      + ", förväntade inget värde alls");
+  }
+  if (!/ställde inte upp/.test(kbabo.not)) {
+    fel.push("noten säger inte att partiet inte ställde upp: " + kbabo.not);
+  }
+
+  /* Och i regionvalet, där partiet ställde upp förr men inte 2026, ska
+     "Kort sagt" säga det i stället för att stå tom. */
+  const iRegion = await las("valresultat.html?val=region&parti=kbabo");
+  if (!iRegion.kort.length) {
+    fel.push("\"Kort sagt\" är tom för ett parti utan tal i det senaste valet");
+  } else if (!/fanns inte på/.test(iRegion.kort[0])) {
+    fel.push("\"Kort sagt\" förklarar inte det saknade valet: "
+      + iRegion.kort[0]);
+  }
+
+  await page.close();
+  return fel;
+}
+
 /* Den gamla adressen kommunval.html ligger kvar som en sida som skickar
    besökaren vidare till valresultat.html – GitHub Pages kan inte svara
    med en omdirigering. Frågesträngen ska följa med, så att en delad länk
@@ -572,6 +678,13 @@ async function granskaFlyttad(browser, bas) {
   {
     const fel = await granskaValbyte(browser, bas);
     console.log((fel.length ? "FEL " : "ok  ") + "valresultat.html (byte av val)");
+    fel.forEach(function (f) { console.log("     " + f); });
+    antalFel += fel.length;
+  }
+
+  {
+    const fel = await granskaTreVal(browser, bas);
+    console.log((fel.length ? "FEL " : "ok  ") + "valresultat.html (partiet i de tre valen)");
     fel.forEach(function (f) { console.log("     " + f); });
     antalFel += fel.length;
   }

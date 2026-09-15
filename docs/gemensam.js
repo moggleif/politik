@@ -308,12 +308,14 @@
      hämta sidans datafil och kör igång.
 
        K.starta("data-x.json", {
-         init: function (data, jamfor) { ... },   // körs med inläst data
+         init: function (data, jamfor, extra) { ... },  // körs med inläst data
          tomt: function (data) { ... },   // valfri: räknas datat som ofärdigt?
          tomtText: "…",                   // mening i så fall, före "Titta gärna…"
          vidTomt: function (data) { ... },// valfri: rita det som ändå går
-         jamforfil: "data-y.json"         // valfri: andrafil, null om den saknas
-       }); */
+         jamforfil: "data-y.json",        // valfri: andrafil, null om den saknas
+         extrafiler: { z: "data-z.json" } // valfria sidofiler; init får dem
+       });                                // som { z: … }, null där hämtningen
+                                          // inte gick igenom */
   function starta(datafil, alternativ) {
     function hamtaJson(fil) {
       return fetch(fil).then(function (r) {
@@ -324,21 +326,32 @@
     function kor() {
       installChartDefaults();
       aktiveraTabellverktyg();
+      /* Sidofilerna hämtas parallellt med sidans egen datafil. En som
+         inte går igenom blir null i stället för att fälla hela sidan:
+         huvudfilen är det sidan står och faller med. */
+      var extranycklar = Object.keys(alternativ.extrafiler || {});
       Promise.all([
         hamtaJson(datafil),
         alternativ.jamforfil
           ? hamtaJson(alternativ.jamforfil).catch(function () { return null; })
           : Promise.resolve(null)
-      ])
+      ].concat(extranycklar.map(function (nyckel) {
+        return hamtaJson(alternativ.extrafiler[nyckel])
+          .catch(function () { return null; });
+      })))
         .then(function (svar) {
           var data = svar[0];
+          var extra = {};
+          extranycklar.forEach(function (nyckel, i) {
+            extra[nyckel] = svar[i + 2];
+          });
           if (alternativ.tomt && alternativ.tomt(data)) {
             visaStatus("<strong>Datat är inte på plats ännu.</strong> " +
               alternativ.tomtText + " Titta gärna tillbaka snart.");
             if (alternativ.vidTomt) alternativ.vidTomt(data);
             return;
           }
-          alternativ.init(data, svar[1]);
+          alternativ.init(data, svar[1], extra);
         })
         .catch(function (fel) {
           visaStatus("<strong>Kunde inte läsa in datat.</strong> Tekniskt fel: " +

@@ -173,7 +173,14 @@ valdistrikt för valdistrikt, ur Valmyndighetens öppna data.
   Kryssa i vilka valdistrikt som helst, fritt kombinerade, och se dem som
   en grupp mot kommunen i övrigt; byt parti, se förändringen mellan två
   val distrikt för distrikt, och ställ alla partier bredvid varandra i
-  samma område.
+  samma område. Ett eget diagram ställer de **tre valen mot varandra** för
+  det valda partiet i samma område &ndash; röstdelningen syns direkt:
+  Sverigedemokraterna fick 19,3&nbsp;% i riksdagsvalet 2026 mot
+  16,3&nbsp;% i kommunvalet, Kristdemokraterna 9,8&nbsp;% i regionvalet
+  mot 5,7&nbsp;% i kommunvalet. Det diagrammet visar alltid andelar:
+  valen har inte samma väljarkår &ndash; i kommun- och regionvalet röstar
+  också folkbokförda utan svenskt medborgarskap &ndash; så antalet röster
+  säger lika mycket om hur många som fick rösta i vilket val.
   Längst ned får dessutom vart och ett av de markerade distrikten ett
   eget diagram med hela partifältet, alla med samma y-axel så att
   bilderna går att jämföra med ögat. Fem distrikt fanns inte 2010, och
@@ -186,13 +193,23 @@ valdistrikt för valdistrikt, ur Valmyndighetens öppna data.
   lades här, inte rikets.
 
   Partier redovisas för sig om de någon gång nått **över 3&nbsp;%** av de
-  giltiga rösterna i kommunen, räknat för varje val för sig. I kommunvalet
-  är det nio &ndash; de åtta riksdagspartierna och Kungsbackaborna &ndash;
-  och i region- och riksdagsvalet de åtta riksdagspartierna. Övriga ligger
-  samlade under *övriga partier*, samma restpost som Valmyndighetens egna
-  filer använder, så att partiernas röster fortfarande summerar till
-  antalet giltiga. Deras siffror ligger kvar oavkortat i
-  `data/kommunval/`, `data/regionval/` och `data/riksdagsval/`.
+  giltiga rösterna i kommunen &ndash; tröskeln gäller de tre valen
+  *tillsammans*, så ett parti som klarar den i ett val redovisas för sig i
+  alla tre. I Kungsbacka är det nio: de åtta riksdagspartierna och
+  Kungsbackaborna. Övriga ligger samlade under *övriga partier*, samma
+  restpost som Valmyndighetens egna filer använder, så att partiernas
+  röster fortfarande summerar till antalet giltiga. Deras siffror ligger
+  kvar oavkortat i `data/kommunval/`, `data/regionval/` och
+  `data/riksdagsval/`.
+
+  Skälet till att tröskeln räknas så är diagrammet över de tre valen: där
+  ska ett tomrum i kurvan betyda att partiet inte stod på den valsedeln,
+  och ingenting annat. Kungsbackaborna ställde upp i regionvalet
+  2010&ndash;2022 men nådde aldrig tre procent där, och till riksdagen
+  ställer de inte upp alls. Ett parti utan röster i hela kommunen ett
+  valår får därför **inget värde** och inte noll &ndash; en kurva som föll
+  till noll hade sett ut som ett sammanbrott i stället för ett parti som
+  inte var med.
 
   Valdistrikten ritas om mellan valen: Kungsbacka hade 41 distrikt 2010
   och 46 i dag. Det gäller lika i de tre valen, så bedömningen ligger för
