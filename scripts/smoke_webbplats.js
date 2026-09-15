@@ -478,6 +478,67 @@ async function granskaValbyte(browser, bas) {
   return fel;
 }
 
+/* Den gamla adressen kommunval.html ligger kvar som en sida som skickar
+   besökaren vidare till valresultat.html – GitHub Pages kan inte svara
+   med en omdirigering. Frågesträngen ska följa med, så att en delad länk
+   landar i samma vy, och sidan ska duga också utan JavaScript. */
+async function granskaFlyttad(browser, bas) {
+  const fraga = "?parti=sd&distrikt=innerstaden";
+  const fel = [];
+
+  const page = await browser.newPage();
+  page.on("pageerror", function (e) { fel.push("pageerror: " + e.message); });
+  await stubbaGoatcounter(page);
+  await page.goto(bas + "/kommunval.html" + fraga, { waitUntil: "networkidle" });
+  await page.waitForFunction(function () {
+    return document.querySelector("#tabell-distrikt tbody tr");
+  }, null, { timeout: 10000 }).catch(function () { /* bedöms nedan */ });
+
+  const url = new URL(page.url());
+  if (!url.pathname.endsWith("/valresultat.html")) {
+    fel.push("skickades inte vidare: " + page.url());
+  }
+  if (url.search !== fraga) {
+    fel.push("frågesträngen följde inte med: " + (url.search || "(tom)"));
+  }
+  const lage = await page.evaluate(function () {
+    return {
+      rader: document.querySelectorAll("#tabell-distrikt tbody tr").length,
+      parti: (document.getElementById("valj-parti") || {}).value,
+      val: (document.getElementById("valj-val") || {}).value,
+    };
+  });
+  if (!lage.rader) fel.push("den nya sidan ritade ingen tabell");
+  if (lage.parti !== "SD") fel.push("partiet ur länken gick förlorat: " + lage.parti);
+  if (lage.val !== "kommun") {
+    fel.push("en länk till den gamla sidan ska landa i kommunvalet, inte "
+      + lage.val);
+  }
+  await page.close();
+
+  /* Utan JavaScript sker ingen vidaresändning, och då är länken på sidan
+     det enda som finns. Den måste peka rätt. */
+  const utanJs = await browser.newContext({ javaScriptEnabled: false });
+  const sida = await utanJs.newPage();
+  await sida.goto(bas + "/kommunval.html" + fraga, { waitUntil: "load" });
+  const utan = await sida.evaluate(function () {
+    const a = document.getElementById("vidare");
+    return {
+      h1: document.querySelectorAll("h1").length,
+      main: !!document.getElementById("huvudinnehall"),
+      href: a ? a.getAttribute("href") : null,
+    };
+  });
+  if (utan.h1 !== 1) fel.push("utan JavaScript: förväntade en h1, fann " + utan.h1);
+  if (!utan.main) fel.push("utan JavaScript: huvudinnehåll saknas");
+  if (utan.href !== "valresultat.html") {
+    fel.push("utan JavaScript: länken pekar på " + utan.href);
+  }
+  await utanJs.close();
+
+  return fel;
+}
+
 (async function () {
   const server = await startaServer();
   const bas = "http://127.0.0.1:" + server.address().port;
@@ -511,6 +572,13 @@ async function granskaValbyte(browser, bas) {
   {
     const fel = await granskaValbyte(browser, bas);
     console.log((fel.length ? "FEL " : "ok  ") + "valresultat.html (byte av val)");
+    fel.forEach(function (f) { console.log("     " + f); });
+    antalFel += fel.length;
+  }
+
+  {
+    const fel = await granskaFlyttad(browser, bas);
+    console.log((fel.length ? "FEL " : "ok  ") + "kommunval.html (gammal adress skickar vidare)");
     fel.forEach(function (f) { console.log("     " + f); });
     antalFel += fel.length;
   }
