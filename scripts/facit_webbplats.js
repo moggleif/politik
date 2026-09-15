@@ -108,6 +108,15 @@ const MIME = {
   ".csv": "text/csv; charset=utf-8",
 };
 
+/* Adressen kommer utifrån, så den får aldrig bli en sökväg rakt av: en
+   begäran om /../../nyckel läses annars utanför roten. path.resolve
+   normaliserar bort varje .. innan svaret, och därefter måste resultatet
+   fortfarande ligga under roten – annars finns filen inte. */
+function underRot(rot, relativ) {
+  const fil = path.resolve(rot, "." + relativ);
+  return fil === rot || fil.startsWith(rot + path.sep) ? fil : null;
+}
+
 /* Datafilerna serveras ur tests/fixtures/data/, aldrig ur docs/.
    Förtidsröstjobbet skriver om docs/data-fortidsroster/ två gånger om
    dygnet och pushar till main; kördes facit mot de riktiga filerna vore
@@ -117,16 +126,15 @@ function fixturFor(url) {
   if (!/^\/data[^/]*\.json$/.test(url) && !/^\/data-fortidsroster\/[^/]+\.json$/.test(url)) {
     return null;
   }
-  return path.join(FIXTURER, url.slice(1));
+  return underRot(FIXTURER, url);
 }
 
 function startaServer() {
   return new Promise(function (klar) {
     const server = http.createServer(function (req, res) {
       const url = decodeURIComponent(req.url.split("?")[0]);
-      const fil = fixturFor(url) || path.join(DOCS, url === "/" ? "index.html" : url);
-      const inom = fil.startsWith(DOCS) || fil.startsWith(FIXTURER);
-      if (!inom || !fs.existsSync(fil) || !fs.statSync(fil).isFile()) {
+      const fil = fixturFor(url) || underRot(DOCS, url === "/" ? "/index.html" : url);
+      if (!fil || !fs.existsSync(fil) || !fs.statSync(fil).isFile()) {
         res.writeHead(404); res.end("saknas"); return;
       }
       res.writeHead(200, { "Content-Type": MIME[path.extname(fil)] || "application/octet-stream" });
