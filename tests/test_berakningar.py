@@ -1498,16 +1498,18 @@ class TestGenereradeFiler(unittest.TestCase):
         harkomst = json.loads(
             (ROT / "data" / "valdistrikt" / "harkomst.json")
             .read_text(encoding="utf-8"))
+        # Tröskeln gäller de tre valen tillsammans, så alla tre läses in
+        # även när en enskild fil kontrolleras.
+        kallor_per_val = {v: build_valresultat.las_kallor(v)
+                          for v in hamta_valresultat.VALEN}
+        stora = build_valresultat.stora_over_valen(kallor_per_val)
         for valnyckel, val in hamta_valresultat.VALEN.items():
             with self.subTest(val=valnyckel):
-                kallor = {}
-                for a in build_valresultat.AR:
-                    fil = ROT / "data" / val["mapp"] / f"{a}.json"
-                    if fil.exists():
-                        kallor[a] = json.loads(fil.read_text(encoding="utf-8"))
-                self.assertTrue(kallor, f"inga källfiler för {valnyckel}")
+                self.assertTrue(kallor_per_val[valnyckel],
+                                f"inga källfiler för {valnyckel}")
                 ombyggd = json.loads(json.dumps(build_valresultat.bygg(
-                    kallor, jamforbarhet, harkomst, valnyckel)))
+                    kallor_per_val[valnyckel], jamforbarhet, harkomst,
+                    valnyckel, stora)))
                 self.assertEqual(ombyggd,
                                  self.las(f"data-{val['mapp']}.json"))
 
@@ -2435,15 +2437,40 @@ class TestTreVal(unittest.TestCase):
         namn = {d["val"] for d in self.filer.values()}
         self.assertEqual(len(namn), 3)
 
-    def test_troskeln_rakans_per_val(self):
-        """Ett lokalt parti finns i kommunvalet men inte på riksdagens
-        valsedel, så partilistorna får inte vara samma lista."""
+    def test_troskeln_galler_de_tre_valen_tillsammans(self):
+        """Kungsbackaborna når tröskeln i kommunvalet men inte i
+        regionvalet, och redovisas ändå för sig i båda: annars hade ett
+        tomrum i kurvan över de tre valen ibland betytt "stod inte på
+        valsedeln" och ibland "ligger i övriga". Till riksdagen ställer de
+        inte upp, och då finns de inte alls."""
         koder = {v: [p["kod"] for p in d["partier"]]
                  for v, d in self.filer.items()}
         self.assertIn("Kbabo", koder["kommun"])
+        self.assertIn("Kbabo", koder["region"])
         self.assertNotIn("Kbabo", koder["riksdag"])
+        # Och partiet ligger under tröskeln i regionvalet – det är just
+        # därför unionen behövs.
+        totalt = self.filer["region"]["kommunTotalt"]
+        toppen = max(100 * totalt["roster"]["Kbabo"][a] / totalt["giltiga"][a]
+                     for a in map(str, self.filer["region"]["ar"])
+                     if totalt["roster"]["Kbabo"][a] is not None)
+        self.assertLess(toppen, self.filer["region"]["troskelProcent"])
         for valnyckel, lista in sorted(koder.items()):
             self.assertEqual(lista[-1], "ÖVR", valnyckel)
+
+    def test_parti_utan_valsedel_ar_null_och_inte_noll(self):
+        """Kungsbackaborna ställde upp i regionvalet till och med 2022 men
+        inte 2026. Det året ska stå som null: en kurva som föll till noll
+        hade sett ut som ett sammanbrott i stället för ett parti som inte
+        var med."""
+        region = self.filer["region"]
+        self.assertIsNone(region["kommunTotalt"]["roster"]["Kbabo"]["2026"])
+        self.assertEqual(region["kommunTotalt"]["roster"]["Kbabo"]["2022"], 715)
+        for d in region["distrikt"]:
+            self.assertIsNone(d["roster"]["Kbabo"]["2026"], d["namn"])
+        # De år partiet fanns med är nollor riktiga nollor.
+        kommun = self.filer["kommun"]["kommunTotalt"]["roster"]["Kbabo"]
+        self.assertTrue(all(kommun[a] for a in kommun))
 
     def test_kallorna_pekar_pa_olika_filer(self):
         """Varje val hämtas ur sina egna resultatfiler; två val som pekar
@@ -2467,6 +2494,80 @@ class TestTreVal(unittest.TestCase):
                 facit = per_distrikt
             else:
                 self.assertEqual(per_distrikt, facit, valnyckel)
+
+
+class TestTroskelnOverValen(unittest.TestCase):
+    """Tröskeln gäller de tre valen tillsammans, och ett parti som inte
+    stod på valsedeln ett år får null och inte noll."""
+
+    def kallor(self, per_ar):
+        """Ett val med ett valdistrikt och de partiröster som anges,
+        {år: {parti: röster}}."""
+        return {ar: _kalla(ar, [_distrikt("13840101", "Norr", roster,
+                                          sum(roster.values()))])
+                for ar, roster in per_ar.items()}
+
+    JAMFORBARHET = {"kalla": {}, "overgangar": {}}
+
+    def test_troskeln_lyfts_ur_det_andra_valet(self):
+        """Lokalt: 10 % i det ena valet, 1 % i det andra. Unionen ska ge
+        partiet en egen rad i båda."""
+        kommun = self.kallor({2022: {"M": 900, "Lokalt": 100},
+                              2026: {"M": 900, "Lokalt": 100}})
+        region = self.kallor({2022: {"M": 990, "Lokalt": 10},
+                              2026: {"M": 990, "Lokalt": 10}})
+        stora = build_valresultat.stora_over_valen(
+            {"kommun": kommun, "region": region})
+        self.assertIn("Lokalt", stora)
+        d = build_valresultat.bygg(region, self.JAMFORBARHET, None,
+                                   "region", stora)
+        self.assertIn("Lokalt", [p["kod"] for p in d["partier"]])
+        self.assertEqual(d["kommunTotalt"]["roster"]["Lokalt"]["2026"], 10)
+
+        # Utan unionen hade partiet legat i ÖVR i regionvalet.
+        ensamt = build_valresultat.bygg(region, self.JAMFORBARHET, None,
+                                        "region")
+        self.assertNotIn("Lokalt", [p["kod"] for p in ensamt["partier"]])
+
+    def test_ar_utan_roster_blir_null(self):
+        """Partiet ställde upp 2022 men inte 2026."""
+        kallor = self.kallor({2022: {"M": 900, "Lokalt": 100},
+                              2026: {"M": 1000}})
+        d = build_valresultat.bygg(kallor, self.JAMFORBARHET, None, "kommun",
+                                   {"M", "Lokalt"})
+        self.assertEqual(d["kommunTotalt"]["roster"]["Lokalt"]["2022"], 100)
+        self.assertIsNone(d["kommunTotalt"]["roster"]["Lokalt"]["2026"])
+        rad = d["distrikt"][0]
+        self.assertIsNone(rad["roster"]["Lokalt"]["2026"])
+
+    def test_noll_i_ett_distrikt_ar_en_riktig_nolla(self):
+        """Partiet ställde upp båda åren och fick röster i kommunen, men
+        inga i Söder 2026. Då är nollan sann och ska stå kvar – det är
+        bara år utan röster i *hela* kommunen som blir null."""
+        kallor = {
+            2022: _kalla(2022, [
+                _distrikt("13840101", "Norr", {"M": 900, "Lokalt": 100}, 1000),
+                _distrikt("13840102", "Söder", {"M": 900, "Lokalt": 100}, 1000)]),
+            2026: _kalla(2026, [
+                _distrikt("13840101", "Norr", {"M": 900, "Lokalt": 100}, 1000),
+                _distrikt("13840102", "Söder", {"M": 1000}, 1000)]),
+        }
+        d = build_valresultat.bygg(kallor, self.JAMFORBARHET, None, "kommun",
+                                   {"M", "Lokalt"})
+        soder = [r for r in d["distrikt"] if r["namn"] == "Söder"][0]
+        self.assertEqual(soder["roster"]["Lokalt"]["2022"], 100)
+        self.assertEqual(soder["roster"]["Lokalt"]["2026"], 0)
+        self.assertEqual(d["kommunTotalt"]["roster"]["Lokalt"]["2026"], 100)
+
+    def test_ovr_nollas_aldrig_bort(self):
+        """Restposten är ingen rad på en valsedel: ett år utan övriga
+        röster är en riktig nolla, och summan av partierna ska fortfarande
+        bli antalet giltiga."""
+        kallor = self.kallor({2022: {"M": 900, "ÖVR": 100},
+                              2026: {"M": 1000}})
+        d = build_valresultat.bygg(kallor, self.JAMFORBARHET, None, "kommun",
+                                   {"M"})
+        self.assertEqual(d["kommunTotalt"]["roster"]["ÖVR"]["2026"], 0)
 
 
 class TestTreValKontroller(unittest.TestCase):

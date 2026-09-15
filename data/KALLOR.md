@@ -232,16 +232,35 @@ bytt skrivsätt på något som spelar roll.
 
 **Tröskel på 3&nbsp;%.** `build_valresultat.py` redovisar ett parti för sig
 om det någon gång i de fem valen nått över 3&nbsp;% av de giltiga rösterna
-i hela kommunen. Tröskeln räknas om för varje val: i kommunvalet klarar
-nio partier den &ndash; M, S, SD, C, L, KD, MP, Kungsbackaborna och V
-&ndash; och i region- och riksdagsvalet de åtta riksdagspartierna.
-Kungsbackaborna ställer inte upp i riksdagsvalet, och stannar under
-tröskeln i regionvalet (2,3&nbsp;% som mest, 2010). I kommunvalet Vänsterpartiet är det som ligger närmast kanten
-(3,29&nbsp;% 2022 och 3,02&nbsp;% 2026). De nitton som inte klarar det
-läggs i `ÖVR` tillsammans med källornas egen ÖVR-post, så att summan av
-partierna fortfarande blir antalet giltiga röster &ndash; det kontrolleras
-av ett test. Utan tröskeln blir sidans partilista tjugonio namn, varav
-tjugo har en handfull röster.
+i hela kommunen. **Tröskeln gäller de tre valen tillsammans**, inte ett i
+taget: når ett parti över den i något av valen redovisas det för sig i
+alla tre. Nio partier klarar den &ndash; M, S, SD, C, L, KD, MP,
+Kungsbackaborna och V. Vänsterpartiet ligger närmast kanten
+(3,29&nbsp;% i kommunvalet 2022 och 3,02&nbsp;% 2026). De som inte klarar
+det läggs i `ÖVR` tillsammans med källornas egen ÖVR-post, så att summan
+av partierna fortfarande blir antalet giltiga röster &ndash; det
+kontrolleras av ett test. Utan tröskeln blir sidans partilista tjugonio
+namn, varav tjugo har en handfull röster.
+
+Att tröskeln räknas på valen tillsammans och inte på ett i taget spelar
+roll för sidans diagram över hur ett parti gått i de tre valen: där ska
+ett tomrum i kurvan betyda att partiet inte stod på den valsedeln, och
+ingenting annat. **Kungsbackaborna** visar varför. De ställde upp i
+regionvalet 2010&ndash;2022 (2,26, 1,88, 1,82 och 1,26&nbsp;%) men nådde
+aldrig tre procent där, och till riksdagen ställer de inte upp alls. Med
+en tröskel per val hade de legat i `ÖVR` i regionvalet och saknats helt i
+riksdagsvalet &ndash; två tomrum som såg likadana ut men betydde helt
+olika saker.
+
+**Ett parti utan röster ett valår får `null`, inte 0.** Valmyndigheten
+redovisar bara partier som fick röster, så noll röster i *hela kommunen*
+betyder att partiet inte stod på den valsedeln. Kungsbackaborna ställde
+upp i regionvalet till och med 2022 men inte 2026, och en kurva som föll
+till noll hade sett ut som ett sammanbrott i stället för ett parti som
+inte var med. Noll röster i ett enskilt *valdistrikt* är däremot en
+riktig nolla, så länge partiet fick röster någon annanstans i kommunen.
+Restposten `ÖVR` undantas: den är ingen rad på en valsedel, och ett år
+utan övriga röster betyder att inga röster föll utanför.
 
 Tröskeln mäts på kommunen, inte på enskilda valdistrikt. Ett enda parti
 under tröskeln har någon gång gått över den i ett distrikt: **Din Förening
