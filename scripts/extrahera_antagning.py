@@ -41,6 +41,8 @@ try:
 except ImportError:
     sys.exit("Saknar pdfplumber. Installera med:  pip install pdfplumber")
 
+from pdftabell import FET, celler, fet, radlinjer, ren, slaihop
+
 # Kungsbackas två kommunala gymnasieskolor. GR:s rapport täcker hela
 # regionen; allt annat sorteras bort här.
 SKOLOR = ("Aranäsgymnasiet", "Elof Lindälvs gymnasium")
@@ -58,51 +60,6 @@ KODER = {
 }
 
 
-# Markör för fetstil, som bärs med genom cellinläsningen och plockas bort
-# när cellen tolkas. Ett tecken som inte kan förekomma i rapporten.
-FET = "\x00"
-
-
-def slaihop(xs, tol=3):
-    """Slår ihop x- eller y-lägen som ligger så nära att de är samma linje."""
-    ut = []
-    for x in sorted(xs):
-        if ut and x - ut[-1] <= tol:
-            continue
-        ut.append(x)
-    return ut
-
-
-def radlinjer(sida):
-    return slaihop([e["top"] for e in sida.edges if e["orientation"] == "h"], tol=2)
-
-
-def celler(sida, xgranser, ygranser):
-    """Delar in sidans ord i ett rutnät efter kolumn- och radgränserna.
-
-    Fetstil bärs med: från 2025 markerar rapporten med fet stil de
-    utbildningar som inte hade några lediga platser kvar.
-    """
-    ord_ = sida.extract_words(extra_attrs=["fontname"])
-    rader = []
-    for topp, botten in zip(ygranser, ygranser[1:]):
-        rad = ["" for _ in range(len(xgranser) - 1)]
-        for o in ord_:
-            if not (topp - 1 <= o["top"] < botten - 1):
-                continue
-            mitt = (o["x0"] + o["x1"]) / 2
-            text = o["text"]
-            if "Bold" in o.get("fontname", ""):
-                text = FET + text
-            for k in range(len(xgranser) - 1):
-                if xgranser[k] <= mitt < xgranser[k + 1]:
-                    rad[k] = (rad[k] + " " + text).strip()
-                    break
-        if any(rad):
-            rader.append(rad)
-    return rader
-
-
 def tal(text):
     """Första talet i en cell. Sidfoten kan ha runnit in efter talet."""
     m = re.match(r"^(\d+[.,]\d+)", text.strip().replace(FET, ""))
@@ -114,14 +71,6 @@ def kod(text):
     return m.group(1) if m else None
 
 
-def fet(text):
-    """Sant om cellen står i fet stil, alltså utbildning utan lediga platser."""
-    return FET in text
-
-
-def ren(text):
-    """Cellens text utan fetstilsmarkörer."""
-    return text.replace(FET, "")
 
 
 # ---------- grupperad layout (2017–2024) ----------

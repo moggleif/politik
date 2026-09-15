@@ -40,6 +40,7 @@ MENY = [
         ("resurser-till-skolan.html", "Resurser mot referenskostnad"),
     ]),
     ("Gymnasiet", [
+        ("platser.html", "Platser på programmen"),
         ("meritvarden.html", "Meritvärden vid antagningen"),
         ("slutbetyg.html", "Slutbetyg från gymnasiet"),
         ("antagning-till-examen.html", "Från antagning till examen"),

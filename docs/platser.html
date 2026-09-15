@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Platser på Kungsbackas gymnasieprogram</title>
+<meta name="description" content="Hur många platser nämnden för Gymnasium &amp; Arbetsmarknad beslutar att varje gymnasieprogram i Kungsbacka ska erbjuda, läsår för läsår.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+<nav class="toppnav" aria-label="Webbplatsens sidor">
+  <div class="toppnav-inre">
+    <a class="markesnamn" href="index.html">Kungsbacka i siffror</a>
+    <ul class="navrad">
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Befolkning</summary>
+          <ul class="navpanel">
+            <li><a href="befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="barn-och-unga.html">0–15 år</a></li>
+            <li><a href="gymnasiealdern.html">16–19 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Grundskolan</summary>
+          <ul class="navpanel">
+            <li><a href="amnesbetyg.html">Betyg per ämne i nian</a></li>
+            <li><a href="kostnad-per-elev.html">Kostnad per elev</a></li>
+            <li><a href="resurser-till-skolan.html">Resurser mot referenskostnad</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny aktuell">
+          <summary>Gymnasiet</summary>
+          <ul class="navpanel">
+            <li><a href="platser.html" aria-current="page">Platser på programmen</a></li>
+            <li><a href="meritvarden.html">Meritvärden vid antagningen</a></li>
+            <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a></li>
+            <li><a href="antagning-till-examen.html">Från antagning till examen</a></li>
+            <li><a href="nian-till-gymnasiet.html">Från nian till gymnasiet</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Valen</summary>
+          <ul class="navpanel">
+            <li><a href="fortidsrostning.html">Förtidsröstningen 2026</a></li>
+            <li><a href="valresultat.html">Valresultat per distrikt</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Varberg</summary>
+          <ul class="navpanel">
+            <li><a href="varberg-befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="varberg-barn-och-unga.html">0–15 år</a></li>
+            <li><a href="varberg-gymnasiealdern.html">16–18 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost"><a href="metod.html">Metod</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="sidhuvud-inre">
+    <h1>Platser på Kungsbackas gymnasieprogram</h1>
+    <p class="ingress">
+      Hur många elever kan söka till varje program? Varje höst beslutar
+      nämnden för Gymnasium &amp; Arbetsmarknad hur många platser
+      Aranäsgymnasiet och Elof Lindälvs gymnasium ska erbjuda nästa läsår.
+      Här är besluten, program för program, ur nämndens egna handlingar.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <section id="sektion-forklaring">
+    <h2>Vad talen är</h2>
+    <p class="forklaring">
+      Varje höst fastställer nämnden för Gymnasium &amp; Arbetsmarknad hur
+      många platser Kungsbackas två kommunala gymnasieskolor ska erbjuda på
+      varje program nästa läsår. Talen läggs in i antagningssystemet Indra
+      innan ansökan öppnar i december, och de avgör hur många niondeklassare
+      som kan antas till varje program.
+    </p>
+    <p class="forklaring">
+      Det här är alltså <strong>ett beslut kommunen fattar</strong>, inte ett
+      utfall. Sidan säger ingenting om hur många som sökte, kom in eller
+      faktiskt började &ndash; bara hur många platser som ställdes fram.
+      Meritvärdena hos dem som antogs finns på
+      <a href="meritvarden.html">meritvärdessidan</a>.
+    </p>
+    <p class="forklaring">
+      Talen står i tjänsteskrivelsen i nämndens handlingar. Protokollet
+      återger dem inte; det belägger att beslutet fattades. Båda länkas
+      under <a href="#sektion-kallor">Källor</a>.
+    </p>
+  </section>
+
+  <section id="sektion-utveckling" hidden>
+    <h2>Hur många platser sätter kommunen på varje program?</h2>
+    <p class="forklaring">
+      Varje linje är ett program. Har programmet funnits på båda
+      gymnasieskolorna samma läsår är linjens värde <strong>summan</strong>
+      av skolornas platser &ndash; det är det tal som svarar på hur många
+      som kan söka programmet i Kungsbacka. Välj ett enskilt program för att
+      se dess inriktningar var för sig, i den mån handlingen redovisar dem.
+    </p>
+    <div class="valj-ar">
+      <label for="program-valjare">Visa program:</label>
+      <select id="program-valjare"></select>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-utveckling" aria-label="Diagram: antal platser per gymnasieprogram och läsår" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-utveckling"></p>
+    </div>
+    <div class="slutsats" id="slutsats-utveckling"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-utveckling"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-total" hidden>
+    <h2>Hur många platser blir det sammanlagt?</h2>
+    <p class="forklaring">
+      Summan av platserna på de nationella programmen och International
+      Baccalaureate, båda skolorna tillsammans. En årskull
+      sextonåringar i Kungsbacka är större än så &ndash; ungefär tre av tio
+      av kommunens gymnasieelever läser i en annan kommun, samtidigt som
+      ungefär var femte elev i kommunens skolor kommer utifrån. Hur de
+      flödena ser ut finns på
+      <a href="nian-till-gymnasiet.html">sidan om nian och gymnasiet</a>.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-total" aria-label="Diagram: totalt antal platser på de nationella programmen per läsår" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-total"></p>
+    </div>
+  </section>
+
+  <section id="sektion-ovriga" hidden>
+    <h2>Utanför de nationella programmen</h2>
+    <p class="forklaring">
+      Handlingarna tar ibland också upp utbildningar som inte är nationella
+      program: den anpassade gymnasieskolan, som är en egen skolform,
+      lärlingsutbildningen, som är en form snarare än ett program, och
+      individuellt alternativ, som är ett introduktionsprogram. De ligger
+      utanför diagrammen ovan, men redovisas här för fullständighetens skull.
+    </p>
+    <div class="tabell-rull"><table id="tabell-ovriga"></table></div>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Varje läsår har sin egen handling i nämnden. Här kan du läsa dem själv
+      &ndash; tjänsteskrivelsen med tabellen, hela mötets handlingar hos
+      kommunen, och protokollet där beslutet står.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om">
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Året är antagningsåret, inte beslutsåret.</strong> Beslutet i
+      oktober 2025 gäller läsåret 2026/2027 och ligger därför på 2026 &ndash;
+      samma år som antagningen till det läsåret. Då går platserna att lägga
+      bredvid meritvärdena år för år. I diagrammen skrivs läsåret ut när du
+      pekar på en punkt.
+    </p>
+    <p class="forklaring">
+      <strong>Platserna summeras över skolorna.</strong> Har ett program
+      funnits på både Aranäsgymnasiet och Elof Lindälvs gymnasium samma år
+      är seriens värde summan. Det skiljer sig från meritvärdessidan, som i
+      stället håller isär skolorna &ndash; två antagningspoäng går inte att
+      slå ihop, medan platser är additiva. Vilka skolor som ingår ett visst
+      år syns när du pekar på punkten, och tabellen visar var programmet
+      ligger i dag.
+    </p>
+    <p class="forklaring">
+      <strong>Det sista läsåret är planerat, inte beslutat.</strong>
+      Nämnden informeras om utbudet på septembermötet och fattar beslutet i
+      oktober. Det streckade strecket i diagrammen markerar var besluten tar
+      slut och planeringen tar vid. Talen kan alltså ändras.
+    </p>
+    <p class="forklaring">
+      <strong>Handlingen har haft tre former.</strong> 2024 redovisades
+      utbudet som en bifogad tabell med två läsår bredvid varandra plus
+      antalet elever i årskurs 1 i oktober. 2025 som en tabell per skola med
+      antal platser och hur många av dem som var sökbara via
+      introduktionsprogrammens programinriktade val. 2026 som en punktlista i
+      löptext. Alla tre läses av samma skript, och vilken form varje årgång
+      har står i datafilen.
+    </p>
+    <p class="forklaring">
+      <strong>Serien börjar läsåret 2024/2025.</strong> Kommunens webbplats
+      listar bara handlingar från 2024 och framåt, och äldre handlingar har
+      tagits bort i samband med ett plattformsbyte. I Internet Archive finns
+      nämndens dokumentmappar för 2018 och 2021 bevarade, men inte 2019,
+      2020, 2022 eller 2023. 2018 års handlingar innehåller inget
+      utbudsärende alls &ndash; den formella utbudsplaneringen med
+      platstabell är en nyare praxis, och tjänsteskrivelsen från 2024 hänvisar
+      till Skolverkets krav på regional planering och dimensionering. Vad som
+      söktes och vad som hittades står i
+      <a href="https://github.com/moggleif/politik/blob/main/data/KALLOR.md">data/KALLOR.md</a>.
+    </p>
+    <p class="forklaring">
+      <strong>Beslutet kan ändras under året.</strong> Göteborgsregionens
+      årshjul har både en sista dag att lägga ned en utbildning och en sista
+      dag att ändra antalet utbildningsplatser, båda på våren. Sidan visar
+      höstens beslut, inte vad som till slut gällde vid antagningen.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer class="sidfot">
+  <div class="sidfot-inre">
+    <nav class="sidfot-nav" aria-label="Om webbplatsen">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="metod.html">Metod och källor</a></li>
+        <li><a href="https://github.com/moggleif/politik">Källkod och data på GitHub</a></li>
+        <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
+      </ul>
+    </nav>
+    <p class="sidfot-data">Data: Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun &ndash; utbudsbesluten i nämndens handlingar.</p>
+    <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="platser.js"></script>
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -66,6 +66,7 @@ const SIDOR = [
   "kostnad-per-elev.html?matt=hemkommun",
   "resurser-till-skolan.html",
   "nian-till-gymnasiet.html",
+  "platser.html",
   "meritvarden.html",
   "slutbetyg.html",
   "antagning-till-examen.html",

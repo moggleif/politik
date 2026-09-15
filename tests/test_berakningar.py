@@ -39,6 +39,7 @@ build_befolkning = ladda("build_befolkning")
 build_amnesbetyg = ladda("build_amnesbetyg")
 build_nian_gymnasiet = ladda("build_nian_gymnasiet")
 build_meritvarden = ladda("build_meritvarden")
+build_platser = ladda("build_platser")
 build_slutbetyg = ladda("build_slutbetyg")
 build_fortidsroster = ladda("build_fortidsroster")
 build_kostnader = ladda("build_kostnader")
@@ -608,6 +609,128 @@ class TestSkolverketParsning(unittest.TestCase):
         rader = [["Valt läsår: 2024/25"], ["Skola"]]
         self.assertEqual(skolverket.lasar_ur(rader, "Valt läsår"), "2024/25")
         self.assertEqual(skolverket.lasar_ur([["Skola"]], "Valt läsår"), "")
+
+
+class TestPlatser(unittest.TestCase):
+    """build_platser: namntolkning, summering över skolor och årsmärkning."""
+
+    def rad(self, skola, utbildning, platser, **extra):
+        rad = {"skola": skola, "utbildning": utbildning, "platser": platser,
+               "varavPrograminriktatVal": None, "varavYrkesintroduktion": None,
+               "elever": None}
+        rad.update(extra)
+        return rad
+
+    def argang(self, ar, rader, **extra):
+        argang = {
+            "lasar": f"{ar}/{ar + 1}", "antagningsar": ar, "status": "beslutad",
+            "form": "tabell-2025", "kolumn": "planerad", "kolumnINamnden": None,
+            "namnd": "Nämnden", "mote": f"{ar - 1}-10-01", "paragraf": "1",
+            "diarienummer": "GA-1", "arendenamn": "Utbud", "beslut": None,
+            "not": None, "handlingUrl": None, "protokollUrl": None,
+            "lokalPdf": "rapporter/x.pdf", "hamtad": "2026-09-15",
+            "utbildningar": rader,
+        }
+        argang.update(extra)
+        return argang
+
+    def test_bindestreck_och_mellanrum_ger_samma_program(self):
+        """Handlingarna skriver "Barn och" och "Barn- och" om vartannat."""
+        for skrivning in ("Barn och fritidsprogrammet", "Barn- och fritidsprogrammet"):
+            namn, inriktning, okant = build_platser.dela_utbildning(skrivning)
+            self.assertEqual(namn, "Barn- och fritidsprogrammet")
+            self.assertEqual(inriktning, "")
+            self.assertFalse(okant)
+
+    def test_inriktning_delas_av_fran_programmet(self):
+        namn, inriktning, okant = build_platser.dela_utbildning(
+            "Estetiska programmet- Bild- och formgivning")
+        self.assertEqual(namn, "Estetiska programmet")
+        self.assertEqual(inriktning, "Bild- och formgivning")
+        self.assertFalse(okant)
+
+    def test_skrivfel_och_tillagg_i_handlingen_normaliseras(self):
+        for skrivning, vantat in (
+            ("Hotel- och turismprogrammet", "Hotell- och turismprogrammet"),
+            ("International Baccalaureate IB", "International Baccalaureate"),
+            ("Naturvetenskapsprogrammet + inriktning estet",
+             "Naturvetenskapsprogrammet"),
+        ):
+            namn, _, okant = build_platser.dela_utbildning(skrivning)
+            self.assertEqual(namn, vantat)
+            self.assertFalse(okant)
+
+    def test_utbildningar_utanfor_programmen_hamnar_utanfor(self):
+        for skrivning in ("Individuellt alternativ", "Anpassade gymnasieskolan",
+                          "Lärlingsprogrammet"):
+            namn, _, _ = build_platser.dela_utbildning(skrivning)
+            self.assertEqual(build_platser.typ_av(namn), "okant")
+
+    def test_platserna_summeras_over_skolorna(self):
+        """Ett program på båda skolorna blir en serie med summan.
+
+        Det är avsteget från meritvärdessidan, som i stället håller isär
+        skolorna. Platser är additiva; två antagningspoäng är det inte.
+        """
+        data, okanda = build_platser.bygg([self.argang(2026, [
+            self.rad("Aranäsgymnasiet", "Teknikprogrammet", 40),
+            self.rad("Elof Lindälvs gymnasium", "Teknikprogrammet", 24),
+        ])])
+        self.assertEqual(okanda, set())
+        serie = [p for p in data["program"] if p["namn"] == "Teknikprogrammet"][0]
+        self.assertEqual(serie["varden"]["2026"]["platser"], 64)
+        self.assertEqual(serie["varden"]["2026"]["antalSkolor"], 2)
+        self.assertEqual(serie["varden"]["2026"]["skola"], "Aranäs + Elof Lindälv")
+
+    def test_inriktningar_summeras_till_programmet(self):
+        data, _ = build_platser.bygg([self.argang(2026, [
+            self.rad("Aranäsgymnasiet", "Estetiska programmet- Bild", 12),
+            self.rad("Aranäsgymnasiet", "Estetiska programmet-Musik", 10),
+        ])])
+        serie = [p for p in data["program"] if p["namn"] == "Estetiska programmet"][0]
+        self.assertEqual(serie["varden"]["2026"]["platser"], 22)
+        self.assertEqual([i["namn"] for i in serie["inriktningar"]], ["Bild", "Musik"])
+
+    def test_hemvisten_ar_skolan_som_har_programmet_senast(self):
+        """Ett program som bytt hus behåller sin historik, på dagens skola."""
+        data, _ = build_platser.bygg([
+            self.argang(2025, [self.rad("Aranäsgymnasiet", "Teknikprogrammet", 40)]),
+            self.argang(2026, [self.rad("Elof Lindälvs gymnasium",
+                                        "Teknikprogrammet", 24)]),
+        ])
+        serie = [p for p in data["program"] if p["namn"] == "Teknikprogrammet"][0]
+        self.assertEqual(serie["hem"], "Elof Lindälv")
+        self.assertEqual(serie["skolor"], ["Aranäs", "Elof Lindälv"])
+        self.assertEqual(sorted(serie["varden"]), ["2025", "2026"])
+
+    def test_ett_saknat_ar_fylls_inte_i(self):
+        """Nämner handlingen inte programmet blir året ett hål, inte en nolla."""
+        data, _ = build_platser.bygg([
+            self.argang(2025, [self.rad("Aranäsgymnasiet", "Teknikprogrammet", 40)]),
+            self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                        "Naturvetenskapsprogrammet", 90)]),
+        ])
+        serie = [p for p in data["program"] if p["namn"] == "Teknikprogrammet"][0]
+        self.assertEqual(sorted(serie["varden"]), ["2025"])
+
+    def test_okant_program_flaggas(self):
+        data, okanda = build_platser.bygg([self.argang(2026, [
+            self.rad("Aranäsgymnasiet", "Rymdprogrammet", 10)])])
+        self.assertEqual(okanda, {"Rymdprogrammet"})
+        self.assertEqual(data["sammanfattning"][0]["platser"], 0)
+
+    def test_aret_ar_antagningsaret_inte_beslutsaret(self):
+        """Beslutet hösten X gäller läsåret X+1/X+2 och ligger på X+1.
+
+        Undantaget är de årgångar som står som jämförelsekolumn i en
+        senare handling: de redovisas i efterhand och kan därför ha ett
+        möte som ligger efter läsårets början.
+        """
+        for argang in build_platser.las_argangar():
+            forsta = int(argang["lasar"].split("/")[0])
+            self.assertEqual(argang["antagningsar"], forsta)
+            if argang["status"] != "redovisad":
+                self.assertLess(argang["mote"], f"{forsta}-07-01", argang["lasar"])
 
 
 class TestMeritvarden(unittest.TestCase):
@@ -1469,6 +1592,12 @@ class TestGenereradeFiler(unittest.TestCase):
         ombyggd, okanda = build_meritvarden.bygg(argangar)
         self.assertEqual(okanda, set())
         self.assertEqual(ombyggd, self.las("data-meritvarden.json"))
+
+    def test_data_platser_ar_reproducerbar(self):
+        argangar = build_platser.las_argangar()
+        ombyggd, okanda = build_platser.bygg(argangar)
+        self.assertEqual(okanda, set())
+        self.assertEqual(ombyggd, self.las("data-platser.json"))
 
     def test_data_slutbetyg_ar_reproducerbar(self):
         argangar = [

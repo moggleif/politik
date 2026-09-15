@@ -30,6 +30,7 @@ const DIAGRAMSIDOR = [
   "varberg-barn-och-unga.html",
   "amnesbetyg.html", "kostnad-per-elev.html", "resurser-till-skolan.html",
   "nian-till-gymnasiet.html",
+  "platser.html",
   "meritvarden.html",
   "slutbetyg.html", "antagning-till-examen.html", "fortidsrostning.html",
   /* Samma sida för ett län och för riket – servern bortser från
