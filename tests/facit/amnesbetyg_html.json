@@ -1,0 +1,5507 @@
+{
+ "diagram": [
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderRadius": 4,
+      "borderSkipped": false,
+      "borderWidth": 0,
+      "data": [
+       17.3,
+       15.4,
+       15.4,
+       15.4,
+       15.4,
+       15,
+       14.6,
+       14.5,
+       14.4,
+       14.3,
+       14.2,
+       14.1,
+       14,
+       13.9,
+       13.6,
+       13.5,
+       13.5,
+       13.1,
+       7.9
+      ],
+      "label": "Betygspoäng"
+     }
+    ],
+    "labels": [
+     "Modersmål",
+     "Bild",
+     "Engelska",
+     "Hem och konsumentkunskap",
+     "Slöjd",
+     "Idrott och hälsa",
+     "Moderna språk, språkval",
+     "Musik",
+     "Teknik",
+     "Historia",
+     "Samhällskunskap",
+     "Geografi",
+     "Religionskunskap",
+     "Svenska",
+     "Biologi",
+     "Fysik",
+     "Kemi",
+     "Matematik",
+     "Svenska som andraspråk"
+    ]
+   },
+   "id": "diagram-rang",
+   "options": {
+    "indexAxis": "y",
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return talSv(it.parsed.x, 1) + \" av \" + DATA.maxPoang; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Genomsnittlig betygspoäng (max 20)"
+      },
+      "type": "linear"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": true,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": false,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 18,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "2",
+       "varde": 2
+      },
+      {
+       "text": "4",
+       "varde": 4
+      },
+      {
+       "text": "6",
+       "varde": 6
+      },
+      {
+       "text": "8",
+       "varde": 8
+      },
+      {
+       "text": "10",
+       "varde": 10
+      },
+      {
+       "text": "12",
+       "varde": 12
+      },
+      {
+       "text": "14",
+       "varde": 14
+      },
+      {
+       "text": "16",
+       "varde": 16
+      },
+      {
+       "text": "18",
+       "varde": 18
+      }
+     ]
+    },
+    "y": {
+     "max": 18,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "Modersmål",
+       "varde": 0
+      },
+      {
+       "text": "Bild",
+       "varde": 1
+      },
+      {
+       "text": "Engelska",
+       "varde": 2
+      },
+      {
+       "text": "Hem och konsumentkunskap",
+       "varde": 3
+      },
+      {
+       "text": "Slöjd",
+       "varde": 4
+      },
+      {
+       "text": "Idrott och hälsa",
+       "varde": 5
+      },
+      {
+       "text": "Moderna språk, språkval",
+       "varde": 6
+      },
+      {
+       "text": "Musik",
+       "varde": 7
+      },
+      {
+       "text": "Teknik",
+       "varde": 8
+      },
+      {
+       "text": "Historia",
+       "varde": 9
+      },
+      {
+       "text": "Samhällskunskap",
+       "varde": 10
+      },
+      {
+       "text": "Geografi",
+       "varde": 11
+      },
+      {
+       "text": "Religionskunskap",
+       "varde": 12
+      },
+      {
+       "text": "Svenska",
+       "varde": 13
+      },
+      {
+       "text": "Biologi",
+       "varde": 14
+      },
+      {
+       "text": "Fysik",
+       "varde": 15
+      },
+      {
+       "text": "Kemi",
+       "varde": 16
+      },
+      {
+       "text": "Matematik",
+       "varde": 17
+      },
+      {
+       "text": "Svenska som andraspråk",
+       "varde": 18
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       13.6,
+       13,
+       13.2,
+       13.4,
+       13,
+       13.2,
+       12.9,
+       14.1,
+       13.4,
+       13.1,
+       13.5,
+       13.5,
+       13.1
+      ],
+      "label": "Alla elever",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       14,
+       13.4,
+       13.4,
+       13.6,
+       13.3,
+       13.4,
+       13.3,
+       14.2,
+       13.3,
+       13.2,
+       13.4,
+       13.7,
+       13.2
+      ],
+      "label": "Flickor",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [
+       2,
+       3
+      ],
+      "borderWidth": 2,
+      "data": [
+       13.1,
+       12.6,
+       13,
+       13.3,
+       12.7,
+       13,
+       12.4,
+       13.9,
+       13.4,
+       13,
+       13.5,
+       13.3,
+       13
+      ],
+      "label": "Pojkar",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-amne",
+   "options": {
+    "indexAxis": "x",
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y, 1); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Betygspoäng (max 20)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 12,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2013",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 15,
+     "min": 10,
+     "tickar": [
+      {
+       "text": "10",
+       "varde": 10
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#56b4e9",
+      "borderColor": "#56b4e9",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       16.1,
+       17.9,
+       16.2,
+       17.5,
+       18.1,
+       17.3,
+       18,
+       18.2,
+       17,
+       16.8,
+       17.1,
+       16.3,
+       17.3
+      ],
+      "label": "Modersmål",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       null,
+       16.6,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Moderna språk, elevens val",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       14.3,
+       14.6,
+       15.2,
+       15,
+       14.9,
+       15.2,
+       15.1,
+       15.3,
+       15.4,
+       15.2,
+       15.3,
+       15.5,
+       15.4
+      ],
+      "label": "Bild",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       14.6,
+       15.3,
+       15.3,
+       15.3,
+       14.8,
+       15.3,
+       15.2,
+       15.4,
+       14.9,
+       15.3,
+       15.2,
+       15.4,
+       15.4
+      ],
+      "label": "Engelska",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#d55e00",
+      "borderColor": "#d55e00",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       14.6,
+       15,
+       15.3,
+       15.1,
+       14.5,
+       15.2,
+       15.4,
+       15.7,
+       15.5,
+       15.4,
+       15.1,
+       15.3,
+       15.4
+      ],
+      "label": "Hem och konsumentkunskap",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [
+       2,
+       3
+      ],
+      "borderWidth": 2,
+      "data": [
+       14.6,
+       14.9,
+       15.1,
+       14.8,
+       14.4,
+       15,
+       15.3,
+       15.1,
+       15.1,
+       15.2,
+       15.1,
+       15.5,
+       15.4
+      ],
+      "label": "Slöjd",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#6b8f00",
+      "borderColor": "#6b8f00",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       15.2,
+       15.4,
+       15.4,
+       15.3,
+       14.9,
+       15.1,
+       15,
+       15.6,
+       15.4,
+       15.3,
+       15,
+       15.2,
+       15
+      ],
+      "label": "Idrott och hälsa",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#cc79a7",
+      "borderColor": "#cc79a7",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       14,
+       13.9,
+       14.4,
+       14.4,
+       14.4,
+       14.6,
+       14.6,
+       14.9,
+       14.8,
+       14.9,
+       14.8,
+       14.7,
+       14.6
+      ],
+      "label": "Moderna språk, språkval",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#d55e00",
+      "borderColor": "#d55e00",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       14.3,
+       14.5,
+       14.9,
+       15.1,
+       14.2,
+       15.2,
+       15,
+       15.2,
+       14.9,
+       14.8,
+       14.9,
+       14.4,
+       14.5
+      ],
+      "label": "Musik",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#cc79a7",
+      "borderColor": "#cc79a7",
+      "borderDash": [
+       2,
+       3
+      ],
+      "borderWidth": 2,
+      "data": [
+       13.5,
+       13.7,
+       13.9,
+       14.2,
+       14,
+       14.3,
+       14.3,
+       14.7,
+       14.4,
+       15,
+       14.5,
+       14.8,
+       14.4
+      ],
+      "label": "Teknik",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#7a5195",
+      "borderColor": "#7a5195",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       13.8,
+       14.5,
+       14.6,
+       14.8,
+       14.2,
+       15.2,
+       14.8,
+       14.8,
+       14.8,
+       14.4,
+       14.6,
+       14.6,
+       14.3
+      ],
+      "label": "Historia",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#6b8f00",
+      "borderColor": "#6b8f00",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       13.8,
+       14.1,
+       14.6,
+       14.6,
+       14.1,
+       15,
+       14.8,
+       14.8,
+       14.8,
+       14.2,
+       14.5,
+       14.3,
+       14.2
+      ],
+      "label": "Samhällskunskap",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#56b4e9",
+      "borderColor": "#56b4e9",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       13.7,
+       14.2,
+       14.5,
+       14.6,
+       14.1,
+       15.2,
+       14.8,
+       14.7,
+       14.7,
+       14.1,
+       14.6,
+       14.4,
+       14.1
+      ],
+      "label": "Geografi",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#7a5195",
+      "borderColor": "#7a5195",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       13.7,
+       14,
+       14.3,
+       14.6,
+       13.8,
+       15.1,
+       14.6,
+       14.6,
+       14.7,
+       14.1,
+       14.5,
+       14.3,
+       14
+      ],
+      "label": "Religionskunskap",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [
+       2,
+       3
+      ],
+      "borderWidth": 2,
+      "data": [
+       13.9,
+       14.1,
+       14.2,
+       14.5,
+       14.3,
+       14.5,
+       14.3,
+       14.8,
+       14.5,
+       14.2,
+       14.4,
+       14,
+       13.9
+      ],
+      "label": "Svenska",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       13.3,
+       14,
+       14.1,
+       14.3,
+       13.8,
+       14.4,
+       14.1,
+       14.2,
+       14.2,
+       14.4,
+       14,
+       14.4,
+       13.6
+      ],
+      "label": "Biologi",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#cc79a7",
+      "borderColor": "#cc79a7",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       13.3,
+       13.6,
+       13.6,
+       14.1,
+       13.8,
+       14.2,
+       14,
+       14,
+       13.8,
+       13.8,
+       13.8,
+       13.9,
+       13.5
+      ],
+      "label": "Fysik",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       12.9,
+       13.4,
+       13.7,
+       13.8,
+       13.5,
+       13.7,
+       13.9,
+       13.8,
+       13.7,
+       13.7,
+       13.8,
+       14,
+       13.5
+      ],
+      "label": "Kemi",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       13.6,
+       13,
+       13.2,
+       13.4,
+       13,
+       13.2,
+       12.9,
+       14.1,
+       13.4,
+       13.1,
+       13.5,
+       13.5,
+       13.1
+      ],
+      "label": "Matematik",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [
+       2,
+       3
+      ],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       6.8,
+       6.3,
+       3,
+       4.5,
+       7.5,
+       6.5,
+       7.5,
+       6,
+       4.6,
+       5.7,
+       7.9
+      ],
+      "label": "Svenska som andraspråk",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 7,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-alla",
+   "options": {
+    "indexAxis": "x",
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 40,
+       "padding": 10
+      },
+      "onHover": "fn:function (e, post) { if (post.datasetIndex !== undefined) tona(post.datasetIndex); }",
+      "onLeave": "fn:function () { tona(null); }",
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y, 1); }",
+       "title": "fn:function (it) { return \"Läsåret \" + lasar(Number(it[0].label)); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Betygspoäng (max 20)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 12,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2013",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 20,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderWidth": 3,
+      "data": [
+       14.07,
+       14.45,
+       14.58,
+       14.74,
+       14.38,
+       14.87,
+       14.78,
+       14.99,
+       14.78,
+       14.66,
+       14.71,
+       14.69,
+       14.53
+      ],
+      "label": "Ämnessnitt, betygspoäng",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-poang",
+   "options": {
+    "indexAxis": "x",
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return talSv(it.parsed.y, dec) + suffix; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Ovägt ämnessnitt, betygspoäng (max 20)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 12,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2013",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 15,
+     "min": 14,
+     "tickar": [
+      {
+       "text": "14",
+       "varde": 14
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderWidth": 3,
+      "data": [
+       97.66,
+       97.67,
+       96.27,
+       97.14,
+       94.43,
+       96.02,
+       96.51,
+       97.06,
+       96.61,
+       95.24,
+       95.41,
+       96.03,
+       94.51
+      ],
+      "label": "Ämnessnitt, andel med A–E",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-godkant",
+   "options": {
+    "indexAxis": "x",
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return talSv(it.parsed.y, dec) + suffix; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Ovägt ämnessnitt, andel med A–E (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 12,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2013",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 100,
+     "min": 90,
+     "tickar": [
+      {
+       "text": "90",
+       "varde": 90
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": [
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#e69f00",
+       "#1c5cab",
+       "#1c5cab"
+      ],
+      "borderRadius": 4,
+      "borderSkipped": false,
+      "borderWidth": 0,
+      "data": [
+       2.9,
+       2.4,
+       2.2,
+       1.8,
+       1.7,
+       1.7,
+       1.7,
+       1.7,
+       1.4,
+       1.4,
+       1.4,
+       1.3,
+       1.1,
+       0.8,
+       0.6,
+       0.4,
+       0.2,
+       -0.5,
+       -1.2
+      ],
+      "label": "Skillnad"
+     }
+    ],
+    "labels": [
+     "Bild",
+     "Svenska",
+     "Hem och konsumentkunskap",
+     "Moderna språk, språkval",
+     "Biologi",
+     "Musik",
+     "Religionskunskap",
+     "Slöjd",
+     "Geografi",
+     "Samhällskunskap",
+     "Svenska som andraspråk",
+     "Teknik",
+     "Kemi",
+     "Historia",
+     "Fysik",
+     "Engelska",
+     "Matematik",
+     "Idrott och hälsa",
+     "Modersmål"
+    ]
+   },
+   "id": "diagram-kon",
+   "options": {
+    "indexAxis": "y",
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { var v = it.parsed.x; return v > 0 ? \"+\" + talSv(v, 1) + \" till flickornas fördel\" : talSv(v, 1) + \" till pojkarnas fördel\"; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "fn:function (c) { return c.tick.value === 0 ? FARG.baseline : FARG.grid; }",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Flickornas betygspoäng minus pojkarnas"
+      },
+      "type": "linear"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": true,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": false,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 3,
+     "min": -1.5,
+     "tickar": [
+      {
+       "text": "−1,5",
+       "varde": -1.5
+      },
+      {
+       "text": "−1,0",
+       "varde": -1
+      },
+      {
+       "text": "−0,5",
+       "varde": -0.5
+      },
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "0,5",
+       "varde": 0.5
+      },
+      {
+       "text": "1,0",
+       "varde": 1
+      },
+      {
+       "text": "1,5",
+       "varde": 1.5
+      },
+      {
+       "text": "2,0",
+       "varde": 2
+      },
+      {
+       "text": "2,5",
+       "varde": 2.5
+      },
+      {
+       "text": "3,0",
+       "varde": 3
+      }
+     ]
+    },
+    "y": {
+     "max": 18,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "Bild",
+       "varde": 0
+      },
+      {
+       "text": "Svenska",
+       "varde": 1
+      },
+      {
+       "text": "Hem och konsumentkunskap",
+       "varde": 2
+      },
+      {
+       "text": "Moderna språk, språkval",
+       "varde": 3
+      },
+      {
+       "text": "Biologi",
+       "varde": 4
+      },
+      {
+       "text": "Musik",
+       "varde": 5
+      },
+      {
+       "text": "Religionskunskap",
+       "varde": 6
+      },
+      {
+       "text": "Slöjd",
+       "varde": 7
+      },
+      {
+       "text": "Geografi",
+       "varde": 8
+      },
+      {
+       "text": "Samhällskunskap",
+       "varde": 9
+      },
+      {
+       "text": "Svenska som andraspråk",
+       "varde": 10
+      },
+      {
+       "text": "Teknik",
+       "varde": 11
+      },
+      {
+       "text": "Kemi",
+       "varde": 12
+      },
+      {
+       "text": "Historia",
+       "varde": 13
+      },
+      {
+       "text": "Fysik",
+       "varde": 14
+      },
+      {
+       "text": "Engelska",
+       "varde": 15
+      },
+      {
+       "text": "Matematik",
+       "varde": 16
+      },
+      {
+       "text": "Idrott och hälsa",
+       "varde": 17
+      },
+      {
+       "text": "Modersmål",
+       "varde": 18
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "reglage": [
+  {
+   "alternativ": [
+    "Bild=Bild",
+    "Biologi=Biologi",
+    "Engelska=Engelska",
+    "Fysik=Fysik",
+    "Geografi=Geografi",
+    "Hem och konsumentkunskap=Hem och konsumentkunskap",
+    "Historia=Historia",
+    "Idrott och hälsa=Idrott och hälsa",
+    "Kemi=Kemi",
+    "Matematik=Matematik",
+    "Moderna språk, elevens val=Moderna språk, elevens val",
+    "Moderna språk, språkval=Moderna språk, språkval",
+    "Modersmål=Modersmål",
+    "Musik=Musik",
+    "Religionskunskap=Religionskunskap",
+    "Samhällskunskap=Samhällskunskap",
+    "Slöjd=Slöjd",
+    "Svenska=Svenska",
+    "Svenska som andraspråk=Svenska som andraspråk",
+    "Teknik=Teknik"
+   ],
+   "id": "amne-valjare",
+   "varde": "Matematik"
+  }
+ ],
+ "tabeller": [
+  {
+   "caption": null,
+   "id": "tabell-rang",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Ämne"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Betygspoäng"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel med A–E"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Modersmål"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Bild"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "97,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Engelska"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Hem och konsumentkunskap"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Slöjd"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "97,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Idrott och hälsa"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Moderna språk, språkval"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "97,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Musik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Teknik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Historia"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Samhällskunskap"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Geografi"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Religionskunskap"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Svenska"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Biologi"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Fysik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kemi"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,0 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Matematik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Svenska som andraspråk"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "64,7 %"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-amne",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Läsår"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Alla"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Flickor"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Pojkar"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel med A–E"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012/13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,0 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013/14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014/15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,0 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015/16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016/17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017/18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018/19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019/20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020/21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021/22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022/23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,6 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023/24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024/25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,9 %"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-alla",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Läsår"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Modersmål"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Moderna språk, elevens val"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Bild"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Engelska"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Hem och konsumentkunskap"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Slöjd"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Idrott och hälsa"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Moderna språk, språkval"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Musik"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Teknik"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Historia"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Samhällskunskap"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Geografi"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Religionskunskap"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Svenska"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Biologi"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Fysik"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kemi"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Matematik"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Svenska som andraspråk"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012/13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013/14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014/15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6,8"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015/16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6,3"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016/17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3,0"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017/18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018/19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019/20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020/21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021/22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6,0"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022/23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4,6"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023/24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5,7"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024/25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7,9"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "Ovägt medel av ämnenas genomsnittliga betygspoäng, över de 18 ämnen som redovisas samtliga läsår. Elevkolumnen visar det största redovisade elevantalet i något enskilt ämne det läsåret, inte antalet observationer bakom snittet.",
+   "id": "tabell-poang",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Läsår"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Betygspoäng"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Elever i det största ämnet"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012/13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,07"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "947"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013/14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,45"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "957"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014/15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,58"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "946"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015/16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,74"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "940"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016/17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,38"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 097"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017/18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,87"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 160"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018/19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,78"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 160"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019/20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,99"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 161"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020/21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,78"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 218"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021/22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,66"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 263"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022/23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,71"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 258"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023/24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,69"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 213"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024/25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,53"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 285"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "Ovägt medel av ämnenas andel med betyget A–E, över de 18 ämnen som redovisas samtliga läsår.",
+   "id": "tabell-godkant",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Läsår"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel med A–E"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012/13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "97,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013/14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "97,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014/15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015/16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "97,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016/17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017/18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,0 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018/19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019/20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "97,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020/21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,6 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021/22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022/23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023/24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,0 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024/25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,5 %"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-kon",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Ämne"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Flickor"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Pojkar"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Skillnad"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Bild"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+2,9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Svenska"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+2,4"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Hem och konsumentkunskap"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+2,2"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Moderna språk, språkval"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,8"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Biologi"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,7"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Musik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,7"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Religionskunskap"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,7"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Slöjd"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,7"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Geografi"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,4"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Samhällskunskap"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,4"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Svenska som andraspråk"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,4"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Teknik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,3"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kemi"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,1"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Historia"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,8"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Fysik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,6"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Engelska"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,4"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Matematik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,2"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Idrott och hälsa"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−0,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Modersmål"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−1,2"
+     }
+    ]
+   ]
+  }
+ ],
+ "text": {
+  "#amne-valjare": {
+   "dold": false,
+   "html": "<option value=\"Bild\">Bild</option><option value=\"Biologi\">Biologi</option><option value=\"Engelska\">Engelska</option><option value=\"Fysik\">Fysik</option><option value=\"Geografi\">Geografi</option><option value=\"Hem och konsumentkunskap\">Hem och konsumentkunskap</option><option value=\"Historia\">Historia</option><option value=\"Idrott och hälsa\">Idrott och hälsa</option><option value=\"Kemi\">Kemi</option><option value=\"Matematik\">Matematik</option><option value=\"Moderna språk, elevens val\">Moderna språk, elevens val</option><option value=\"Moderna språk, språkval\">Moderna språk, språkval</option><option value=\"Modersmål\">Modersmål</option><option value=\"Musik\">Musik</option><option value=\"Religionskunskap\">Religionskunskap</option><option value=\"Samhällskunskap\">Samhällskunskap</option><option value=\"Slöjd\">Slöjd</option><option value=\"Svenska\">Svenska</option><option value=\"Svenska som andraspråk\">Svenska som andraspråk</option><option value=\"Teknik\">Teknik</option>"
+  },
+  "#diagram-alla": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-amne": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-godkant": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-kon": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-poang": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-rang": {
+   "dold": false,
+   "html": ""
+  },
+  "#huvudinnehall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kalla-alla": {
+   "dold": false,
+   "html": "Källa: Skolverket, 20 ämnen, läsåren 2012/13–2024/25. Alla elever."
+  },
+  "#kalla-amne": {
+   "dold": false,
+   "html": "Källa: Skolverket. Ämne: Matematik, läsåren 2012/13–2024/25."
+  },
+  "#kalla-godkant": {
+   "dold": false,
+   "html": "Källa: Skolverket. Ovägt medel av ämnenas andel med betyget A–E, över de 18 ämnen som redovisas samtliga läsår."
+  },
+  "#kalla-kon": {
+   "dold": false,
+   "html": "Källa: Skolverket, läsåret 2024/25. Stapel åt höger = flickorna har högre betygspoäng."
+  },
+  "#kalla-poang": {
+   "dold": false,
+   "html": "Källa: Skolverket. Ovägt medel av ämnenas genomsnittliga betygspoäng, över de 18 ämnen som redovisas samtliga läsår."
+  },
+  "#kalla-rang": {
+   "dold": false,
+   "html": "Källa: Skolverket, läsåret 2024/25. Betygspoäng: A=20, E=10, F=0."
+  },
+  "#knapp-dolj-alla": {
+   "dold": false,
+   "html": "Dölj alla ämnen"
+  },
+  "#knapp-visa-alla": {
+   "dold": false,
+   "html": "Visa alla ämnen"
+  },
+  "#kort-sagt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kort-sagt-lista": {
+   "dold": false,
+   "html": "<li>Läsåret 2024/25 låg ämnenas genomsnittliga betygspoäng i årskurs 9 på <strong>14,53</strong> av 20 i ovägt medel, över de 18 ämnen som redovisas samtliga läsår. Varje ämne väger lika tungt: det är inte årskullens elevviktade betygssnitt.</li><li>Ämnenas andel godkända betyg (A–E) var i medeltal <strong>94,5&nbsp;%</strong>, mot 97,7&nbsp;% läsåret 2012/13.</li><li>Av 18 ämnen med hela tidsserien har betygspoängen stigit i <strong>15</strong> sedan 2012/13.</li><li>Siffrorna avser <strong>alla skolor i Kungsbacka kommun</strong>, kommunala som fristående, sammanräknat.</li>"
+  },
+  "#kort-sagt-rubrik": {
+   "dold": false,
+   "html": "Kort sagt"
+  },
+  "#lista-kallor": {
+   "dold": false,
+   "html": "<li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2024/25</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2023/24</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2022/23</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2021/22</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2020/21</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2019/20</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2018/19</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2017/18</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2016/17</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2016&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2015/16</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2015&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2014/15</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2014&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2013/14</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=92&amp;pAr=2013&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg per ämne årskurs 9, läsåret 2012/13</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li>"
+  },
+  "#meta-rad": {
+   "dold": false,
+   "html": "<span>Källa: Skolverket, utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2012/13–2024/25</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2024/25</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-08-28</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  },
+  "#not-amne": {
+   "dold": true,
+   "html": ""
+  },
+  "#not-dolda": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Följande ämnen finns i statistiken men redovisas aldrig för Kungsbacka, eftersom de bygger på färre än tio elever: <strong>moderna språk, skolans val, teckenspråk</strong>. De ingår inte i något diagram.</div></div>"
+  },
+  "#om-uppdaterad": {
+   "dold": false,
+   "html": "Datat på den här sidan hämtades 2026-08-28."
+  },
+  "#sektion-alla": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-amne": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-godkant": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kallor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kon": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-om": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-poang": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-rang": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#slutsats-amne": {
+   "dold": false,
+   "html": "<p>I matematik har betygspoängen <strong>sjunkit</strong> från 13,6 (2012/13) till 13,1 (2024/25) – en förändring på <strong>−0,5</strong> poäng.</p>"
+  },
+  "#slutsats-godkant": {
+   "dold": false,
+   "html": "<p>Andelen godkända betyg har gått från <strong>97,7&nbsp;%</strong> (2012/13) till <strong>94,5&nbsp;%</strong> (2024/25). Talet är ett ovägt medel av de 18 ämnenas andelar godkända, räknat över samma fasta ämnesurval varje läsår.</p>"
+  },
+  "#slutsats-kon": {
+   "dold": false,
+   "html": "<p>Av 19 redovisade ämnen läsåret 2024/25 hade flickorna högre betygspoäng i <strong>17</strong>. Störst är skillnaden i bild (+2,9 poäng).</p>"
+  },
+  "#slutsats-poang": {
+   "dold": false,
+   "html": "<p>Snittet över ämnena har <strong>stigit</strong> från 14,07 (2012/13) till <strong>14,53</strong> (2024/25) av 20 – en förändring på +0,46 poäng. Ett snitt på 15 motsvarar ungefär betyget C. Talet är ett ovägt medel av de 18 ämnenas genomsnittliga betygspoäng, inte årskullens elevviktade snitt.</p>"
+  },
+  "#slutsats-rang": {
+   "dold": false,
+   "html": "<p>Läsåret 2024/25 hade <strong>modersmål</strong> den högsta genomsnittliga betygspoängen (17,3) och <strong>svenska som andraspråk</strong> den lägsta (7,9).</p>"
+  },
+  "#status": {
+   "dold": true,
+   "html": ""
+  },
+  "#tabell-alla": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Läsår\">Läsår</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Modersmål\">Modersmål</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Moderna språk, elevens val\">Moderna språk, elevens val</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Bild\">Bild</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Engelska\">Engelska</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Hem och konsumentkunskap\">Hem och konsumentkunskap</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Slöjd\">Slöjd</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Idrott och hälsa\">Idrott och hälsa</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Moderna språk, språkval\">Moderna språk, språkval</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Musik\">Musik</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Teknik\">Teknik</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Historia\">Historia</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Samhällskunskap\">Samhällskunskap</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Geografi\">Geografi</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Religionskunskap\">Religionskunskap</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Svenska\">Svenska</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Biologi\">Biologi</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Fysik\">Fysik</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kemi\">Kemi</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Matematik\">Matematik</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Svenska som andraspråk\">Svenska som andraspråk</th></tr></thead><tbody><tr><th scope=\"row\">2012/13</th><td>16,1</td><td>..</td><td>14,3</td><td>14,6</td><td>14,6</td><td>14,6</td><td>15,2</td><td>14,0</td><td>14,3</td><td>13,5</td><td>13,8</td><td>13,8</td><td>13,7</td><td>13,7</td><td>13,9</td><td>13,3</td><td>13,3</td><td>12,9</td><td>13,6</td><td>..</td></tr><tr><th scope=\"row\">2013/14</th><td>17,9</td><td>16,6</td><td>14,6</td><td>15,3</td><td>15,0</td><td>14,9</td><td>15,4</td><td>13,9</td><td>14,5</td><td>13,7</td><td>14,5</td><td>14,1</td><td>14,2</td><td>14,0</td><td>14,1</td><td>14,0</td><td>13,6</td><td>13,4</td><td>13,0</td><td>..</td></tr><tr><th scope=\"row\">2014/15</th><td>16,2</td><td>..</td><td>15,2</td><td>15,3</td><td>15,3</td><td>15,1</td><td>15,4</td><td>14,4</td><td>14,9</td><td>13,9</td><td>14,6</td><td>14,6</td><td>14,5</td><td>14,3</td><td>14,2</td><td>14,1</td><td>13,6</td><td>13,7</td><td>13,2</td><td>6,8</td></tr><tr><th scope=\"row\">2015/16</th><td>17,5</td><td>..</td><td>15,0</td><td>15,3</td><td>15,1</td><td>14,8</td><td>15,3</td><td>14,4</td><td>15,1</td><td>14,2</td><td>14,8</td><td>14,6</td><td>14,6</td><td>14,6</td><td>14,5</td><td>14,3</td><td>14,1</td><td>13,8</td><td>13,4</td><td>6,3</td></tr><tr><th scope=\"row\">2016/17</th><td>18,1</td><td>..</td><td>14,9</td><td>14,8</td><td>14,5</td><td>14,4</td><td>14,9</td><td>14,4</td><td>14,2</td><td>14,0</td><td>14,2</td><td>14,1</td><td>14,1</td><td>13,8</td><td>14,3</td><td>13,8</td><td>13,8</td><td>13,5</td><td>13,0</td><td>3,0</td></tr><tr><th scope=\"row\">2017/18</th><td>17,3</td><td>..</td><td>15,2</td><td>15,3</td><td>15,2</td><td>15,0</td><td>15,1</td><td>14,6</td><td>15,2</td><td>14,3</td><td>15,2</td><td>15,0</td><td>15,2</td><td>15,1</td><td>14,5</td><td>14,4</td><td>14,2</td><td>13,7</td><td>13,2</td><td>4,5</td></tr><tr><th scope=\"row\">2018/19</th><td>18,0</td><td>..</td><td>15,1</td><td>15,2</td><td>15,4</td><td>15,3</td><td>15,0</td><td>14,6</td><td>15,0</td><td>14,3</td><td>14,8</td><td>14,8</td><td>14,8</td><td>14,6</td><td>14,3</td><td>14,1</td><td>14,0</td><td>13,9</td><td>12,9</td><td>7,5</td></tr><tr><th scope=\"row\">2019/20</th><td>18,2</td><td>..</td><td>15,3</td><td>15,4</td><td>15,7</td><td>15,1</td><td>15,6</td><td>14,9</td><td>15,2</td><td>14,7</td><td>14,8</td><td>14,8</td><td>14,7</td><td>14,6</td><td>14,8</td><td>14,2</td><td>14,0</td><td>13,8</td><td>14,1</td><td>6,5</td></tr><tr><th scope=\"row\">2020/21</th><td>17,0</td><td>..</td><td>15,4</td><td>14,9</td><td>15,5</td><td>15,1</td><td>15,4</td><td>14,8</td><td>14,9</td><td>14,4</td><td>14,8</td><td>14,8</td><td>14,7</td><td>14,7</td><td>14,5</td><td>14,2</td><td>13,8</td><td>13,7</td><td>13,4</td><td>7,5</td></tr><tr><th scope=\"row\">2021/22</th><td>16,8</td><td>..</td><td>15,2</td><td>15,3</td><td>15,4</td><td>15,2</td><td>15,3</td><td>14,9</td><td>14,8</td><td>15,0</td><td>14,4</td><td>14,2</td><td>14,1</td><td>14,1</td><td>14,2</td><td>14,4</td><td>13,8</td><td>13,7</td><td>13,1</td><td>6,0</td></tr><tr><th scope=\"row\">2022/23</th><td>17,1</td><td>..</td><td>15,3</td><td>15,2</td><td>15,1</td><td>15,1</td><td>15,0</td><td>14,8</td><td>14,9</td><td>14,5</td><td>14,6</td><td>14,5</td><td>14,6</td><td>14,5</td><td>14,4</td><td>14,0</td><td>13,8</td><td>13,8</td><td>13,5</td><td>4,6</td></tr><tr><th scope=\"row\">2023/24</th><td>16,3</td><td>..</td><td>15,5</td><td>15,4</td><td>15,3</td><td>15,5</td><td>15,2</td><td>14,7</td><td>14,4</td><td>14,8</td><td>14,6</td><td>14,3</td><td>14,4</td><td>14,3</td><td>14,0</td><td>14,4</td><td>13,9</td><td>14,0</td><td>13,5</td><td>5,7</td></tr><tr><th scope=\"row\">2024/25</th><td>17,3</td><td>..</td><td>15,4</td><td>15,4</td><td>15,4</td><td>15,4</td><td>15,0</td><td>14,6</td><td>14,5</td><td>14,4</td><td>14,3</td><td>14,2</td><td>14,1</td><td>14,0</td><td>13,9</td><td>13,6</td><td>13,5</td><td>13,5</td><td>13,1</td><td>7,9</td></tr></tbody>"
+  },
+  "#tabell-amne": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Läsår\">Läsår</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Alla\">Alla</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Flickor\">Flickor</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Pojkar\">Pojkar</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel med A–E\">Andel med A–E</th></tr></thead><tbody><tr><th scope=\"row\">2012/13</th><td>13,6</td><td>14,0</td><td>13,1</td><td>96,0&nbsp;%</td></tr><tr><th scope=\"row\">2013/14</th><td>13,0</td><td>13,4</td><td>12,6</td><td>95,5&nbsp;%</td></tr><tr><th scope=\"row\">2014/15</th><td>13,2</td><td>13,4</td><td>13,0</td><td>94,0&nbsp;%</td></tr><tr><th scope=\"row\">2015/16</th><td>13,4</td><td>13,6</td><td>13,3</td><td>95,9&nbsp;%</td></tr><tr><th scope=\"row\">2016/17</th><td>13,0</td><td>13,3</td><td>12,7</td><td>91,4&nbsp;%</td></tr><tr><th scope=\"row\">2017/18</th><td>13,2</td><td>13,4</td><td>13,0</td><td>93,8&nbsp;%</td></tr><tr><th scope=\"row\">2018/19</th><td>12,9</td><td>13,3</td><td>12,4</td><td>91,9&nbsp;%</td></tr><tr><th scope=\"row\">2019/20</th><td>14,1</td><td>14,2</td><td>13,9</td><td>95,1&nbsp;%</td></tr><tr><th scope=\"row\">2020/21</th><td>13,4</td><td>13,3</td><td>13,4</td><td>93,5&nbsp;%</td></tr><tr><th scope=\"row\">2021/22</th><td>13,1</td><td>13,2</td><td>13,0</td><td>91,7&nbsp;%</td></tr><tr><th scope=\"row\">2022/23</th><td>13,5</td><td>13,4</td><td>13,5</td><td>93,6&nbsp;%</td></tr><tr><th scope=\"row\">2023/24</th><td>13,5</td><td>13,7</td><td>13,3</td><td>93,4&nbsp;%</td></tr><tr><th scope=\"row\">2024/25</th><td>13,1</td><td>13,2</td><td>13,0</td><td>90,9&nbsp;%</td></tr></tbody>"
+  },
+  "#tabell-godkant": {
+   "dold": false,
+   "html": "<caption>Ovägt medel av ämnenas andel med betyget A–E, över de 18 ämnen som redovisas samtliga läsår.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Läsår\">Läsår</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel med A–E\">Andel med A–E</th></tr></thead><tbody><tr><th scope=\"row\">2012/13</th><td>97,7&nbsp;%</td></tr><tr><th scope=\"row\">2013/14</th><td>97,7&nbsp;%</td></tr><tr><th scope=\"row\">2014/15</th><td>96,3&nbsp;%</td></tr><tr><th scope=\"row\">2015/16</th><td>97,1&nbsp;%</td></tr><tr><th scope=\"row\">2016/17</th><td>94,4&nbsp;%</td></tr><tr><th scope=\"row\">2017/18</th><td>96,0&nbsp;%</td></tr><tr><th scope=\"row\">2018/19</th><td>96,5&nbsp;%</td></tr><tr><th scope=\"row\">2019/20</th><td>97,1&nbsp;%</td></tr><tr><th scope=\"row\">2020/21</th><td>96,6&nbsp;%</td></tr><tr><th scope=\"row\">2021/22</th><td>95,2&nbsp;%</td></tr><tr><th scope=\"row\">2022/23</th><td>95,4&nbsp;%</td></tr><tr><th scope=\"row\">2023/24</th><td>96,0&nbsp;%</td></tr><tr><th scope=\"row\">2024/25</th><td>94,5&nbsp;%</td></tr></tbody>"
+  },
+  "#tabell-kon": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Ämne\">Ämne</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Flickor\">Flickor</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Pojkar\">Pojkar</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skillnad\">Skillnad</th></tr></thead><tbody><tr><th scope=\"row\">Bild</th><td>16,9</td><td>14,0</td><td>+2,9</td></tr><tr><th scope=\"row\">Svenska</th><td>15,1</td><td>12,7</td><td>+2,4</td></tr><tr><th scope=\"row\">Hem och konsumentkunskap</th><td>16,5</td><td>14,3</td><td>+2,2</td></tr><tr><th scope=\"row\">Moderna språk, språkval</th><td>15,5</td><td>13,7</td><td>+1,8</td></tr><tr><th scope=\"row\">Biologi</th><td>14,5</td><td>12,8</td><td>+1,7</td></tr><tr><th scope=\"row\">Musik</th><td>15,4</td><td>13,7</td><td>+1,7</td></tr><tr><th scope=\"row\">Religionskunskap</th><td>14,9</td><td>13,2</td><td>+1,7</td></tr><tr><th scope=\"row\">Slöjd</th><td>16,3</td><td>14,6</td><td>+1,7</td></tr><tr><th scope=\"row\">Geografi</th><td>14,8</td><td>13,4</td><td>+1,4</td></tr><tr><th scope=\"row\">Samhällskunskap</th><td>14,9</td><td>13,5</td><td>+1,4</td></tr><tr><th scope=\"row\">Svenska som andraspråk</th><td>8,6</td><td>7,2</td><td>+1,4</td></tr><tr><th scope=\"row\">Teknik</th><td>15,0</td><td>13,7</td><td>+1,3</td></tr><tr><th scope=\"row\">Kemi</th><td>14,1</td><td>13,0</td><td>+1,1</td></tr><tr><th scope=\"row\">Historia</th><td>14,7</td><td>13,9</td><td>+0,8</td></tr><tr><th scope=\"row\">Fysik</th><td>13,8</td><td>13,2</td><td>+0,6</td></tr><tr><th scope=\"row\">Engelska</th><td>15,6</td><td>15,2</td><td>+0,4</td></tr><tr><th scope=\"row\">Matematik</th><td>13,2</td><td>13,0</td><td>+0,2</td></tr><tr><th scope=\"row\">Idrott och hälsa</th><td>14,8</td><td>15,3</td><td>−0,5</td></tr><tr><th scope=\"row\">Modersmål</th><td>16,6</td><td>17,8</td><td>−1,2</td></tr></tbody>"
+  },
+  "#tabell-poang": {
+   "dold": false,
+   "html": "<caption>Ovägt medel av ämnenas genomsnittliga betygspoäng, över de 18 ämnen som redovisas samtliga läsår. Elevkolumnen visar det största redovisade elevantalet i något enskilt ämne det läsåret, inte antalet observationer bakom snittet.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Läsår\">Läsår</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Betygspoäng\">Betygspoäng</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Elever i det största ämnet\">Elever i det största ämnet</th></tr></thead><tbody><tr><th scope=\"row\">2012/13</th><td>14,07</td><td>947</td></tr><tr><th scope=\"row\">2013/14</th><td>14,45</td><td>957</td></tr><tr><th scope=\"row\">2014/15</th><td>14,58</td><td>946</td></tr><tr><th scope=\"row\">2015/16</th><td>14,74</td><td>940</td></tr><tr><th scope=\"row\">2016/17</th><td>14,38</td><td>1&nbsp;097</td></tr><tr><th scope=\"row\">2017/18</th><td>14,87</td><td>1&nbsp;160</td></tr><tr><th scope=\"row\">2018/19</th><td>14,78</td><td>1&nbsp;160</td></tr><tr><th scope=\"row\">2019/20</th><td>14,99</td><td>1&nbsp;161</td></tr><tr><th scope=\"row\">2020/21</th><td>14,78</td><td>1&nbsp;218</td></tr><tr><th scope=\"row\">2021/22</th><td>14,66</td><td>1&nbsp;263</td></tr><tr><th scope=\"row\">2022/23</th><td>14,71</td><td>1&nbsp;258</td></tr><tr><th scope=\"row\">2023/24</th><td>14,69</td><td>1&nbsp;213</td></tr><tr><th scope=\"row\">2024/25</th><td>14,53</td><td>1&nbsp;285</td></tr></tbody>"
+  },
+  "#tabell-rang": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Ämne\">Ämne</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Betygspoäng\">Betygspoäng</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel med A–E\">Andel med A–E</th></tr></thead><tbody><tr><th scope=\"row\">Modersmål</th><td>17,3</td><td>89,7&nbsp;%</td></tr><tr><th scope=\"row\">Bild</th><td>15,4</td><td>97,3&nbsp;%</td></tr><tr><th scope=\"row\">Engelska</th><td>15,4</td><td>95,4&nbsp;%</td></tr><tr><th scope=\"row\">Hem och konsumentkunskap</th><td>15,4</td><td>96,1&nbsp;%</td></tr><tr><th scope=\"row\">Slöjd</th><td>15,4</td><td>97,8&nbsp;%</td></tr><tr><th scope=\"row\">Idrott och hälsa</th><td>15,0</td><td>94,3&nbsp;%</td></tr><tr><th scope=\"row\">Moderna språk, språkval</th><td>14,6</td><td>97,1&nbsp;%</td></tr><tr><th scope=\"row\">Musik</th><td>14,5</td><td>96,3&nbsp;%</td></tr><tr><th scope=\"row\">Teknik</th><td>14,4</td><td>94,8&nbsp;%</td></tr><tr><th scope=\"row\">Historia</th><td>14,3</td><td>94,5&nbsp;%</td></tr><tr><th scope=\"row\">Samhällskunskap</th><td>14,2</td><td>94,1&nbsp;%</td></tr><tr><th scope=\"row\">Geografi</th><td>14,1</td><td>94,1&nbsp;%</td></tr><tr><th scope=\"row\">Religionskunskap</th><td>14,0</td><td>93,5&nbsp;%</td></tr><tr><th scope=\"row\">Svenska</th><td>13,9</td><td>94,7&nbsp;%</td></tr><tr><th scope=\"row\">Biologi</th><td>13,6</td><td>93,8&nbsp;%</td></tr><tr><th scope=\"row\">Fysik</th><td>13,5</td><td>92,8&nbsp;%</td></tr><tr><th scope=\"row\">Kemi</th><td>13,5</td><td>94,0&nbsp;%</td></tr><tr><th scope=\"row\">Matematik</th><td>13,1</td><td>90,9&nbsp;%</td></tr><tr><th scope=\"row\">Svenska som andraspråk</th><td>7,9</td><td>64,7&nbsp;%</td></tr></tbody>"
+  },
+  ".meta-rad[meta-rad]": {
+   "dold": false,
+   "html": "<span>Källa: Skolverket, utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2012/13–2024/25</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2024/25</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-08-28</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  }
+ }
+}

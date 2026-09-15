@@ -1,0 +1,5583 @@
+{
+ "diagram": [
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       223.1,
+       225.2,
+       222.9,
+       223.1,
+       222.8,
+       228.1,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Meritvärde, 16 ämnen",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       242.7,
+       244.8,
+       240.4,
+       245.7,
+       243.5,
+       249.1,
+       243.1,
+       240.8,
+       243.6,
+       243.8,
+       237.4
+      ],
+      "label": "Meritvärde, 17 ämnen",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2009",
+     "2010",
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-merit",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + (it.parsed.y === null ? \"..\" : formatera(it.parsed.y)); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Meritvärde (max 340)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 16,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2009",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 250,
+     "min": 200,
+     "tickar": [
+      {
+       "text": "200",
+       "varde": 200
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       96.3,
+       95.9,
+       95.1,
+       94.5,
+       93.6,
+       94.2,
+       93.7,
+       95,
+       92.9,
+       93.9,
+       92,
+       94.7,
+       92.1,
+       90.7,
+       92,
+       91.8,
+       88.7
+      ],
+      "label": "Behöriga till yrkesprogram",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       89,
+       89,
+       88.3,
+       88.9,
+       87.3,
+       88.4,
+       88.2,
+       89.8,
+       86.3,
+       88.9,
+       85.7,
+       89.8,
+       86.9,
+       84.2,
+       84.7,
+       86.2,
+       81.6
+      ],
+      "label": "Godkänt i alla ämnen",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2009",
+     "2010",
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-behorighet",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + (it.parsed.y === null ? \"..\" : formatera(it.parsed.y)); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Andel av eleverna (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 16,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2009",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 100,
+     "min": 80,
+     "tickar": [
+      {
+       "text": "80",
+       "varde": 80
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       77.4,
+       76.3,
+       78.1,
+       77.5,
+       78.5,
+       79.4,
+       81.5,
+       84.1,
+       84.5,
+       83,
+       78.1,
+       82.1
+      ],
+      "label": "Nationella program, inom 3 år",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       82.7,
+       82.5,
+       82.7,
+       80.6,
+       83.5,
+       83,
+       85.1,
+       87.7,
+       86.7,
+       85.4,
+       81,
+       null
+      ],
+      "label": "Nationella program, inom 4 år",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       83.2,
+       82.9,
+       83,
+       81.1,
+       83.9,
+       83.4,
+       85.5,
+       88,
+       86.8,
+       85.5,
+       null,
+       null
+      ],
+      "label": "Nationella program, inom 5 år",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#cc79a7",
+      "borderColor": "#cc79a7",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       74.2,
+       72.3,
+       71.6,
+       72.9,
+       72.1,
+       72.7,
+       74.7,
+       75.9,
+       75.3,
+       76.7,
+       69.8,
+       72.6
+      ],
+      "label": "Hela gymnasieskolan, inom 3 år",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022"
+    ]
+   },
+   "id": "diagram-genomstromning",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + (it.parsed.y === null ? \"..\" : formatera(it.parsed.y)); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Andel med examen (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 11,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2011",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 100,
+     "min": 50,
+     "tickar": [
+      {
+       "text": "50",
+       "varde": 50
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       14,
+       13.7,
+       13.8,
+       13.8,
+       13.8,
+       13.7,
+       14,
+       14.2,
+       14.3,
+       14.2,
+       13.9,
+       13.9
+      ],
+      "label": "Alla avgångselever",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       14.3,
+       14.1,
+       14.4,
+       14.4,
+       14.2,
+       14.1,
+       14.3,
+       14.6,
+       14.5,
+       14.6,
+       14.5,
+       14.4
+      ],
+      "label": "Bara de med examen",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-poang",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + (it.parsed.y === null ? \"..\" : formatera(it.parsed.y)); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Betygspoäng (max 20)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 11,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2014",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 16,
+     "min": 12,
+     "tickar": [
+      {
+       "text": "12",
+       "varde": 12
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       92.4,
+       90.1,
+       88.7,
+       89.3,
+       90.6,
+       91.1,
+       94.2,
+       92.6,
+       94.4,
+       92.1,
+       88.3,
+       89.5
+      ],
+      "label": "Med gymnasieexamen",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       78.1,
+       75.6,
+       73.4,
+       74.7,
+       76.1,
+       72.3,
+       78,
+       76.9,
+       75.4,
+       77.4,
+       73.4,
+       74.1
+      ],
+      "label": "Med grundläggande högskolebehörighet",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-examen",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + (it.parsed.y === null ? \"..\" : formatera(it.parsed.y)); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Andel av avgångseleverna (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 11,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2014",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 100,
+     "min": 50,
+     "tickar": [
+      {
+       "text": "50",
+       "varde": 50
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       3680,
+       3570,
+       3280,
+       3050,
+       3000,
+       3010,
+       3030,
+       3140,
+       3370,
+       3530,
+       3640,
+       3700,
+       3770,
+       3810,
+       3790,
+       3810
+      ],
+      "label": "Folkbokförda i Kungsbacka",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       3440,
+       3340,
+       3150,
+       2990,
+       3070,
+       3030,
+       3100,
+       3190,
+       3360,
+       3430,
+       3470,
+       3510,
+       3550,
+       3500,
+       3460,
+       3420
+      ],
+      "label": "Studerar i Kungsbacka",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       870,
+       820,
+       840,
+       820,
+       890,
+       880,
+       930,
+       1020,
+       1010,
+       940,
+       870,
+       840,
+       780,
+       740,
+       740,
+       750
+      ],
+      "label": "Pendlar in från annan kommun",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#cc79a7",
+      "borderColor": "#cc79a7",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       1110,
+       1050,
+       970,
+       880,
+       820,
+       860,
+       860,
+       970,
+       1020,
+       1040,
+       1040,
+       1030,
+       1000,
+       1050,
+       1070,
+       1140
+      ],
+      "label": "Pendlar ut till annan kommun",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2010/11",
+     "2011/12",
+     "2012/13",
+     "2013/14",
+     "2014/15",
+     "2015/16",
+     "2016/17",
+     "2017/18",
+     "2018/19",
+     "2019/20",
+     "2020/21",
+     "2021/22",
+     "2022/23",
+     "2023/24",
+     "2024/25",
+     "2025/26"
+    ]
+   },
+   "id": "diagram-pendling",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + (it.parsed.y === null ? \"..\" : formatera(it.parsed.y)); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal elever"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 15,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2010/11",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 5000,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       30.2,
+       29.4,
+       29.6,
+       28.9,
+       27.3,
+       28.6,
+       28.4,
+       30.9,
+       30.3,
+       29.5,
+       28.6,
+       27.8,
+       26.5,
+       27.6,
+       28.2,
+       29.9
+      ],
+      "label": "Gymnasiet",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       1.7,
+       1.4,
+       1.5,
+       1.4,
+       1.6,
+       1.7,
+       1.5,
+       1.7,
+       1.9,
+       1.8,
+       1.7,
+       1.4,
+       1.3,
+       1.3,
+       1.4,
+       1.2
+      ],
+      "label": "Grundskolan",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2010/11",
+     "2011/12",
+     "2012/13",
+     "2013/14",
+     "2014/15",
+     "2015/16",
+     "2016/17",
+     "2017/18",
+     "2018/19",
+     "2019/20",
+     "2020/21",
+     "2021/22",
+     "2022/23",
+     "2023/24",
+     "2024/25",
+     "2025/26"
+    ]
+   },
+   "id": "diagram-utpendling",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + (it.parsed.y === null ? \"..\" : formatera(it.parsed.y)); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Andel som läser i annan kommun (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 15,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2010/11",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 50,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 3,
+      "data": [
+       85.1,
+       84,
+       90.7,
+       84.9,
+       93,
+       86.4,
+       86.6,
+       92.6,
+       88.8,
+       85,
+       85.7,
+       89.7
+      ],
+      "label": "Examen inom 3 år",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       89.4,
+       93.6,
+       95.3,
+       88.2,
+       98,
+       92.7,
+       89.3,
+       92.6,
+       91.2,
+       87,
+       86.8,
+       null
+      ],
+      "label": "Inom 4 år",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       89.4,
+       93.6,
+       95.3,
+       88.2,
+       98,
+       93.6,
+       89.3,
+       92.6,
+       91.2,
+       87,
+       null,
+       null
+      ],
+      "label": "Inom 5 år",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022"
+    ]
+   },
+   "id": "diagram-program",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + (it.parsed.y === null ? \"..\" : formatera(it.parsed.y)); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Andel med examen (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 11,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2011",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 100,
+     "min": 80,
+     "tickar": [
+      {
+       "text": "80",
+       "varde": 80
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "reglage": [
+  {
+   "alternativ": [
+    "Ekonomiprogrammet=Ekonomiprogrammet",
+    "Estetiska programmet=Estetiska programmet",
+    "International Baccalaureate=International Baccalaureate",
+    "Naturvetenskapsprogrammet=Naturvetenskapsprogrammet",
+    "Samhällsvetenskapsprogrammet=Samhällsvetenskapsprogrammet",
+    "Teknikprogrammet=Teknikprogrammet",
+    "Barn- och fritidsprogrammet=Barn- och fritidsprogrammet",
+    "Bygg- och anläggningsprogrammet=Bygg- och anläggningsprogrammet",
+    "El- och energiprogrammet=El- och energiprogrammet",
+    "Fordons- och transportprogrammet=Fordons- och transportprogrammet",
+    "Försäljnings- och serviceprogrammet=Försäljnings- och serviceprogrammet",
+    "Hantverksprogrammet=Hantverksprogrammet",
+    "Hotell- och turismprogrammet=Hotell- och turismprogrammet",
+    "Naturbruksprogrammet=Naturbruksprogrammet",
+    "Restaurang- och livsmedelsprogrammet=Restaurang- och livsmedelsprogrammet",
+    "Vård- och omsorgsprogrammet=Vård- och omsorgsprogrammet"
+   ],
+   "id": "program-valjare",
+   "varde": "Naturvetenskapsprogrammet"
+  }
+ ],
+ "tabeller": [
+  {
+   "caption": null,
+   "id": "tabell-nian",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Läsår"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Elever"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Meritvärde"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Ämnen i meritvärdet"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Behöriga till yrkesprogram"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Godkänt i alla ämnen"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2008/09"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 205"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "223,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,0 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2009/10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 132"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "225,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,0 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2010/11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 028"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "222,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011/12"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "923"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "223,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012/13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "222,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "87,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013/14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "228,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014/15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "922"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "242,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015/16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "920"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "244,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016/17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 029"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "240,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017/18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 131"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "245,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018/19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 123"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "243,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "85,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019/20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 131"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "249,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020/21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 193"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "243,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021/22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 237"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "240,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "84,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022/23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 226"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "243,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "84,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023/24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 189"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "243,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,8 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024/25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 273"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "237,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "81,6 %"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-gymnasiet",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Nybörjare (nationella program)"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Examen inom 3 år"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Inom 5 år"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Avgångselever"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Betygspoäng"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel med examen"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Grundl. högskolebehörighet"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "892"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "77,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "83,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "864"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "76,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "82,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "859"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "83,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "924"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "77,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "81,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "814"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "818"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "83,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "812"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "75,6 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "877"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "79,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "83,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "850"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "73,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "931"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "81,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "85,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "873"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "74,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "990"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "84,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "780"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "76,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "963"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "84,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,8 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "840"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "72,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "83,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "85,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "896"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78,0 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "988"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "982"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "76,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "82,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "934"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "75,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "978"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "77,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "915"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "73,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "987"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "74,1 %"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-kedjan",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Ut ur nian"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Meritvärde"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Behöriga till yrkesprogram"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Nybörjare på gymnasiet"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Examen inom 3 år"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Examensår"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Betygspoäng vid examen"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel med examen"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2008/09"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "223,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2012"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2009/10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "225,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2013"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2010/11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "222,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "892"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "77,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011/12"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "223,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "864"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "76,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012/13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "222,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "859"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013/14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "228,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "924"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "77,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014/15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "242,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "818"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,6 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015/16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "244,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "877"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "79,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016/17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "240,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "931"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "81,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017/18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "245,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "990"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "84,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,6 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018/19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "243,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "963"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "84,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019/20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "249,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "83,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020/21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "243,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "988"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021/22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "240,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "82,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022/23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "243,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023/24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "243,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,8 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2027"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024/25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "237,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2028"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-pendling",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Läsår"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Folkbokförda"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Studerar här"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Inpendling"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Utpendling"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel ut, gymnasiet"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel ut, grundskolan"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2010/11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 680"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 440"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "870"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 110"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "30,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011/12"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 570"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 340"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "820"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 050"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012/13"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 280"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 150"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "840"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "970"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013/14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 050"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 990"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "820"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "880"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "28,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014/15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 000"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 070"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "890"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "820"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "27,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,6 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015/16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 010"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 030"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "880"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "860"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "28,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016/17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 030"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 100"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "930"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "860"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "28,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017/18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 140"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 190"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "970"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "30,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018/19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 370"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 360"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 010"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "30,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019/20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 530"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 430"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "940"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 040"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020/21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 640"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 470"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "870"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 040"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "28,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021/22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 700"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 510"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "840"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 030"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "27,8 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022/23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 770"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 550"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "780"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 000"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023/24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 810"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 500"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "740"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 050"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "27,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024/25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 790"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 460"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "740"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 070"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "28,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025/26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 810"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 420"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "750"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 140"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,2 %"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-program",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Startår"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Nybörjare"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Examen inom 3 år"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Inom 4 år"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Inom 5 år"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Examensår"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Avgångselever"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Betygspoäng"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "85,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "79"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,0"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "84,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "82"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,8"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,8"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "84,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "82"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,0"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "100"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "98,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "98,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,6"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "110"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "98"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,0"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "112"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "107"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,2"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "121"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "125"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,4"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "125"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,8 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "115"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,2"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "100"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "85,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "87,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "87,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,3"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "85,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,8 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "82"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "117"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": ".."
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "111"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16,1"
+     }
+    ]
+   ]
+  }
+ ],
+ "text": {
+  "#diagram-behorighet": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-examen": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-genomstromning": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-merit": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-pendling": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-poang": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-program": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-utpendling": {
+   "dold": false,
+   "html": ""
+  },
+  "#grav-vidare": {
+   "dold": false,
+   "html": "<strong>Urvalet är skolkommun.</strong> De tre mätpunkterna ovanför redovisar skolor som ligger i Kungsbacka, inte kommunens folkbokförda elever. Att i stället följa de folkbokförda eleverna genom gymnasiet kräver en källa som redovisar hemkommun mot skolkommun; pendlingsrapporten redovisar bara summorna per läsår."
+  },
+  "#huvudinnehall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kalla-gymnasiet": {
+   "dold": false,
+   "html": "Källa: Skolverket. Genomströmning för startläsåren 2011/12–2022/23, avgångselever läsåren 2013/14–2024/25."
+  },
+  "#kalla-nian": {
+   "dold": false,
+   "html": "Källa: Skolverket, slutbetyg i årskurs 9, läsåren 2008/09–2024/25. Urval: samtliga elever utom nyinvandrade och elever med okänd bakgrund."
+  },
+  "#kalla-pendling": {
+   "dold": false,
+   "html": "Källa: Skolverket, pendling mellan hem- och skolkommun, läsåren 2010/11–2025/26. Elevantalen är avrundade till närmaste tiotal av Skolverket."
+  },
+  "#kalla-program": {
+   "dold": false,
+   "html": "Källa: Skolverket, genomströmning per program. X-axeln är det år eleverna började på programmet."
+  },
+  "#kallgrupper": {
+   "dold": false,
+   "html": "<details><summary>Grundskola – Slutbetyg årskurs 9, utan nyinvandrade och elever med okänd bakgrund (17 år)</summary><ul class=\"kallista\"><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">2024/25</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">2023/24</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">2022/23</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">2021/22</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">2020/21</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">2019/20</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">2018/19</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">2017/18</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">2016/17</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2016&amp;pKommun=1384&amp;pFlikar=0\">2015/16</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2015&amp;pKommun=1384&amp;pFlikar=0\">2014/15</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2014&amp;pKommun=1384&amp;pFlikar=0\">2013/14</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2013&amp;pKommun=1384&amp;pFlikar=0\">2012/13</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2012&amp;pKommun=1384&amp;pFlikar=0\">2011/12</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2011&amp;pKommun=1384&amp;pFlikar=0\">2010/11</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2010&amp;pKommun=1384&amp;pFlikar=0\">2009/10</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=109&amp;pAr=2009&amp;pKommun=1384&amp;pFlikar=0\">2008/09</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li></ul></details><details><summary>Gymnasieskola – Genomströmning inom 3, 4 och 5 år, GY11 (12 år)</summary><ul class=\"kallista\"><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">2022/23</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">2021/22</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">2020/21</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">2019/20</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">2018/19</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">2017/18</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2016&amp;pKommun=1384&amp;pFlikar=0\">2016/17</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2015&amp;pKommun=1384&amp;pFlikar=0\">2015/16</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2014&amp;pKommun=1384&amp;pFlikar=0\">2014/15</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2013&amp;pKommun=1384&amp;pFlikar=0\">2013/14</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2012&amp;pKommun=1384&amp;pFlikar=0\">2012/13</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=91&amp;pAr=2011&amp;pKommun=1384&amp;pFlikar=0\">2011/12</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li></ul></details><details><summary>Gymnasieskola – Avgångselever, nationella program (12 år)</summary><ul class=\"kallista\"><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">2024/25</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">2023/24</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">2022/23</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">2021/22</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">2020/21</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">2019/20</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">2018/19</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">2017/18</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">2016/17</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2016&amp;pKommun=1384&amp;pFlikar=0\">2015/16</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2015&amp;pKommun=1384&amp;pFlikar=0\">2014/15</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=89&amp;pAr=2014&amp;pKommun=1384&amp;pFlikar=0\">2013/14</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li></ul></details><details><summary>Pendling mellan hem- och skolkommun per typ av huvudman (16 år)</summary><ul class=\"kallista\"><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">2025/26</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">2024/25</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">2023/24</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">2022/23</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">2021/22</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">2020/21</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">2019/20</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">2018/19</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">2017/18</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2016&amp;pKommun=1384&amp;pFlikar=0\">2016/17</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2015&amp;pKommun=1384&amp;pFlikar=0\">2015/16</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2014&amp;pKommun=1384&amp;pFlikar=0\">2014/15</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2013&amp;pKommun=1384&amp;pFlikar=0\">2013/14</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2012&amp;pKommun=1384&amp;pFlikar=0\">2012/13</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2011&amp;pKommun=1384&amp;pFlikar=0\">2011/12</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li><li><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=61&amp;pAr=2010&amp;pKommun=1384&amp;pFlikar=0\">2010/11</a> – Skolverket, utbildningsstatistik, hämtad 2026-08-28.</li></ul></details>"
+  },
+  "#kort-sagt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kort-sagt-lista": {
+   "dold": false,
+   "html": "<li>Läsåret 2024/25 var <strong>88,7&nbsp;%</strong> av niondeklassarna i Kungsbacka behöriga till gymnasiets yrkesprogram, mot 96,3&nbsp;% läsåret 2008/09.</li><li>Av dem som började ett nationellt gymnasieprogram i kommunen 2022 hade <strong>82,1&nbsp;%</strong> examen inom tre år.</li><li>Avgångseleverna 2025 hade en genomsnittlig betygspoäng på <strong>13,9</strong> av 20, och 89,5&nbsp;% tog examen.</li><li><strong>29,9&nbsp;%</strong> av kommunens gymnasieelever läser i en annan kommun, och 21,9&nbsp;% av eleverna i kommunens gymnasieskolor kommer utifrån – mätpunkterna ovan följer alltså inte samma individer.</li>"
+  },
+  "#kort-sagt-rubrik": {
+   "dold": false,
+   "html": "Kort sagt"
+  },
+  "#meta-rad": {
+   "dold": false,
+   "html": "<span>Källa: Skolverket, utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2008/09–2024/25</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2024/25</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-08-28</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  },
+  "#not-merit": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Meritvärdet räknades över <strong>16 ämnen</strong> till och med läsåret 2013/14 och över <strong>17 ämnen</strong> från och med 2014/15. Hoppet mellan de åren är en följd av regeländringen, inte av bättre betyg – därför två linjer.</div></div>"
+  },
+  "#not-pendling": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Rapporten säger <strong>hur många</strong> som pendlar, inte <strong>vart</strong> eller <strong>varifrån</strong>. Vilka kommuner eleverna rör sig mellan går inte att läsa ur den här statistiken.</div></div>"
+  },
+  "#not-program": {
+   "dold": true,
+   "html": ""
+  },
+  "#om-uppdaterad": {
+   "dold": false,
+   "html": "Datat på den här sidan hämtades 2026-08-28."
+  },
+  "#program-valjare": {
+   "dold": false,
+   "html": "<option value=\"Ekonomiprogrammet\">Ekonomiprogrammet</option><option value=\"Estetiska programmet\">Estetiska programmet</option><option value=\"International Baccalaureate\">International Baccalaureate</option><option value=\"Naturvetenskapsprogrammet\">Naturvetenskapsprogrammet</option><option value=\"Samhällsvetenskapsprogrammet\">Samhällsvetenskapsprogrammet</option><option value=\"Teknikprogrammet\">Teknikprogrammet</option><option value=\"Barn- och fritidsprogrammet\">Barn- och fritidsprogrammet</option><option value=\"Bygg- och anläggningsprogrammet\">Bygg- och anläggningsprogrammet</option><option value=\"El- och energiprogrammet\">El- och energiprogrammet</option><option value=\"Fordons- och transportprogrammet\">Fordons- och transportprogrammet</option><option value=\"Försäljnings- och serviceprogrammet\">Försäljnings- och serviceprogrammet</option><option value=\"Hantverksprogrammet\">Hantverksprogrammet</option><option value=\"Hotell- och turismprogrammet\">Hotell- och turismprogrammet</option><option value=\"Naturbruksprogrammet\">Naturbruksprogrammet</option><option value=\"Restaurang- och livsmedelsprogrammet\">Restaurang- och livsmedelsprogrammet</option><option value=\"Vård- och omsorgsprogrammet\">Vård- och omsorgsprogrammet</option>"
+  },
+  "#sektion-gymnasiet": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kallor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kedjan": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-nian": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-om": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-pendling": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-program": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#slutsats-gymnasiet": {
+   "dold": false,
+   "html": "<p>Av dem som började ett nationellt program hösten 2011 hade <strong>77,4&nbsp;%</strong> examen efter tre år. För dem som började 2022 var andelen <strong>82,1&nbsp;%</strong>. Bland avgångseleverna 2025 var betygspoängen <strong>13,9</strong> av 20 och <strong>89,5&nbsp;%</strong> fick en gymnasieexamen.</p>"
+  },
+  "#slutsats-kedjan": {
+   "dold": false,
+   "html": "<p><strong>12</strong> årskullar har alla tre mätpunkterna: de som gick ut nian 2011–2022. Mellan den första och den sista av dem gick andelen behöriga i nian från 95,1&nbsp;% till 90,7&nbsp;%, och andelen som tog examen inom tre år från 77,4&nbsp;% till 82,1&nbsp;%. Måtten har olika skalor och olika urval, och de tre mätpunkterna följer inte samma individer.</p>"
+  },
+  "#slutsats-nian": {
+   "dold": false,
+   "html": "<p>Andelen niondeklassare i Kungsbacka som var behöriga till gymnasiets yrkesprogram har gått från <strong>96,3&nbsp;%</strong> läsåret 2008/09 till <strong>88,7&nbsp;%</strong> läsåret 2024/25 – en minskning med 7,6 procentenheter. Andelen med godkänt i samtliga ämnen var 81,6&nbsp;% det sista läsåret.</p>"
+  },
+  "#slutsats-pendling": {
+   "dold": false,
+   "html": "<p>Läsåret 2025/26 var <strong>3&nbsp;810</strong> gymnasieelever folkbokförda i Kungsbacka. Av dem läste <strong>1&nbsp;140</strong> (29,9&nbsp;%) i en annan kommun. Samtidigt kom <strong>750</strong> av eleverna i kommunens gymnasieskolor utifrån – 21,9&nbsp;% av alla som läser här. Inpendling minus utpendling ger −390 elever.</p><p>Samma läsår läste 1,2&nbsp;% av kommunens grundskoleelever i en annan kommun, mot 29,9&nbsp;% av gymnasieeleverna. Uppgifterna avser folkbokförda elever i Kungsbacka; sidans övriga mått avser i stället skolor som ligger i kommunen.</p><p>Över läsåren 2010/11–2025/26 ligger andelen utpendlare på gymnasiet mellan 26,5&nbsp;% (2022/23) och 30,9&nbsp;% (2017/18). Inpendlingens högsta värde är 1&nbsp;020 elever (2017/18), mot 750 läsåret 2025/26. Nettots högsta värde är +70 elever (2014/15), mot −390 sista läsåret.</p>"
+  },
+  "#slutsats-program": {
+   "dold": false,
+   "html": "<p>På naturvetenskapsprogrammet tog <strong>85,1&nbsp;%</strong> av dem som började 2011 examen inom tre år. För dem som började 2022 var andelen <strong>89,7&nbsp;%</strong>.</p>"
+  },
+  "#status": {
+   "dold": true,
+   "html": ""
+  },
+  "#tabell-gymnasiet": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Nybörjare (nationella program)\">Nybörjare (nationella program)</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Examen inom 3 år\">Examen inom 3 år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Inom 5 år\">Inom 5 år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Avgångselever\">Avgångselever</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Betygspoäng\">Betygspoäng</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel med examen\">Andel med examen</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Grundl. högskolebehörighet\">Grundl. högskolebehörighet</th></tr></thead><tbody><tr><th scope=\"row\">2011</th><td>892</td><td>77,4&nbsp;%</td><td>83,2&nbsp;%</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2012</th><td>864</td><td>76,3&nbsp;%</td><td>82,9&nbsp;%</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2013</th><td>859</td><td>78,1&nbsp;%</td><td>83,0&nbsp;%</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2014</th><td>924</td><td>77,5&nbsp;%</td><td>81,1&nbsp;%</td><td>814</td><td>14,0</td><td>92,4&nbsp;%</td><td>78,1&nbsp;%</td></tr><tr><th scope=\"row\">2015</th><td>818</td><td>78,5&nbsp;%</td><td>83,9&nbsp;%</td><td>812</td><td>13,7</td><td>90,1&nbsp;%</td><td>75,6&nbsp;%</td></tr><tr><th scope=\"row\">2016</th><td>877</td><td>79,4&nbsp;%</td><td>83,4&nbsp;%</td><td>850</td><td>13,8</td><td>88,7&nbsp;%</td><td>73,4&nbsp;%</td></tr><tr><th scope=\"row\">2017</th><td>931</td><td>81,5&nbsp;%</td><td>85,5&nbsp;%</td><td>873</td><td>13,8</td><td>89,3&nbsp;%</td><td>74,7&nbsp;%</td></tr><tr><th scope=\"row\">2018</th><td>990</td><td>84,1&nbsp;%</td><td>88,0&nbsp;%</td><td>780</td><td>13,8</td><td>90,6&nbsp;%</td><td>76,1&nbsp;%</td></tr><tr><th scope=\"row\">2019</th><td>963</td><td>84,5&nbsp;%</td><td>86,8&nbsp;%</td><td>840</td><td>13,7</td><td>91,1&nbsp;%</td><td>72,3&nbsp;%</td></tr><tr><th scope=\"row\">2020</th><td>1&nbsp;024</td><td>83,0&nbsp;%</td><td>85,5&nbsp;%</td><td>896</td><td>14,0</td><td>94,2&nbsp;%</td><td>78,0&nbsp;%</td></tr><tr><th scope=\"row\">2021</th><td>988</td><td>78,1&nbsp;%</td><td>..</td><td>982</td><td>14,2</td><td>92,6&nbsp;%</td><td>76,9&nbsp;%</td></tr><tr><th scope=\"row\">2022</th><td>1&nbsp;014</td><td>82,1&nbsp;%</td><td>..</td><td>934</td><td>14,3</td><td>94,4&nbsp;%</td><td>75,4&nbsp;%</td></tr><tr><th scope=\"row\">2023</th><td>–</td><td>–</td><td>–</td><td>978</td><td>14,2</td><td>92,1&nbsp;%</td><td>77,4&nbsp;%</td></tr><tr><th scope=\"row\">2024</th><td>–</td><td>–</td><td>–</td><td>915</td><td>13,9</td><td>88,3&nbsp;%</td><td>73,4&nbsp;%</td></tr><tr><th scope=\"row\">2025</th><td>–</td><td>–</td><td>–</td><td>987</td><td>13,9</td><td>89,5&nbsp;%</td><td>74,1&nbsp;%</td></tr></tbody>"
+  },
+  "#tabell-kedjan": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Ut ur nian\">Ut ur nian</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Meritvärde\">Meritvärde</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Behöriga till yrkesprogram\">Behöriga till yrkesprogram</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Nybörjare på gymnasiet\">Nybörjare på gymnasiet</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Examen inom 3 år\">Examen inom 3 år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Examensår\">Examensår</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Betygspoäng vid examen\">Betygspoäng vid examen</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel med examen\">Andel med examen</th></tr></thead><tbody><tr><th scope=\"row\">2008/09</th><td>223,1</td><td>96,3&nbsp;%</td><td><span title=\"Rapporten saknas för året\">–</span></td><td><span title=\"Rapporten saknas för året\">–</span></td><td>2012</td><td><span title=\"Rapporten saknas för året\">–</span></td><td><span title=\"Rapporten saknas för året\">–</span></td></tr><tr><th scope=\"row\">2009/10</th><td>225,2</td><td>95,9&nbsp;%</td><td><span title=\"Rapporten saknas för året\">–</span></td><td><span title=\"Rapporten saknas för året\">–</span></td><td>2013</td><td><span title=\"Rapporten saknas för året\">–</span></td><td><span title=\"Rapporten saknas för året\">–</span></td></tr><tr><th scope=\"row\">2010/11</th><td>222,9</td><td>95,1&nbsp;%</td><td>892</td><td>77,4&nbsp;%</td><td>2014</td><td>14,0</td><td>92,4&nbsp;%</td></tr><tr><th scope=\"row\">2011/12</th><td>223,1</td><td>94,5&nbsp;%</td><td>864</td><td>76,3&nbsp;%</td><td>2015</td><td>13,7</td><td>90,1&nbsp;%</td></tr><tr><th scope=\"row\">2012/13</th><td>222,8</td><td>93,6&nbsp;%</td><td>859</td><td>78,1&nbsp;%</td><td>2016</td><td>13,8</td><td>88,7&nbsp;%</td></tr><tr><th scope=\"row\">2013/14</th><td>228,1</td><td>94,2&nbsp;%</td><td>924</td><td>77,5&nbsp;%</td><td>2017</td><td>13,8</td><td>89,3&nbsp;%</td></tr><tr><th scope=\"row\">2014/15</th><td>242,7</td><td>93,7&nbsp;%</td><td>818</td><td>78,5&nbsp;%</td><td>2018</td><td>13,8</td><td>90,6&nbsp;%</td></tr><tr><th scope=\"row\">2015/16</th><td>244,8</td><td>95,0&nbsp;%</td><td>877</td><td>79,4&nbsp;%</td><td>2019</td><td>13,7</td><td>91,1&nbsp;%</td></tr><tr><th scope=\"row\">2016/17</th><td>240,4</td><td>92,9&nbsp;%</td><td>931</td><td>81,5&nbsp;%</td><td>2020</td><td>14,0</td><td>94,2&nbsp;%</td></tr><tr><th scope=\"row\">2017/18</th><td>245,7</td><td>93,9&nbsp;%</td><td>990</td><td>84,1&nbsp;%</td><td>2021</td><td>14,2</td><td>92,6&nbsp;%</td></tr><tr><th scope=\"row\">2018/19</th><td>243,5</td><td>92,0&nbsp;%</td><td>963</td><td>84,5&nbsp;%</td><td>2022</td><td>14,3</td><td>94,4&nbsp;%</td></tr><tr><th scope=\"row\">2019/20</th><td>249,1</td><td>94,7&nbsp;%</td><td>1&nbsp;024</td><td>83,0&nbsp;%</td><td>2023</td><td>14,2</td><td>92,1&nbsp;%</td></tr><tr><th scope=\"row\">2020/21</th><td>243,1</td><td>92,1&nbsp;%</td><td>988</td><td>78,1&nbsp;%</td><td>2024</td><td>13,9</td><td>88,3&nbsp;%</td></tr><tr><th scope=\"row\">2021/22</th><td>240,8</td><td>90,7&nbsp;%</td><td>1&nbsp;014</td><td>82,1&nbsp;%</td><td>2025</td><td>13,9</td><td>89,5&nbsp;%</td></tr><tr><th scope=\"row\">2022/23</th><td>243,6</td><td>92,0&nbsp;%</td><td><span title=\"Året har inte inträffat än\">–</span></td><td><span title=\"Året har inte inträffat än\">–</span></td><td>2026</td><td><span title=\"Året har inte inträffat än\">–</span></td><td><span title=\"Året har inte inträffat än\">–</span></td></tr><tr><th scope=\"row\">2023/24</th><td>243,8</td><td>91,8&nbsp;%</td><td><span title=\"Året har inte inträffat än\">–</span></td><td><span title=\"Året har inte inträffat än\">–</span></td><td>2027</td><td><span title=\"Året har inte inträffat än\">–</span></td><td><span title=\"Året har inte inträffat än\">–</span></td></tr><tr><th scope=\"row\">2024/25</th><td>237,4</td><td>88,7&nbsp;%</td><td><span title=\"Året har inte inträffat än\">–</span></td><td><span title=\"Året har inte inträffat än\">–</span></td><td>2028</td><td><span title=\"Året har inte inträffat än\">–</span></td><td><span title=\"Året har inte inträffat än\">–</span></td></tr></tbody>"
+  },
+  "#tabell-nian": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Läsår\">Läsår</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Elever\">Elever</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Meritvärde\">Meritvärde</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Ämnen i meritvärdet\">Ämnen i meritvärdet</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Behöriga till yrkesprogram\">Behöriga till yrkesprogram</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Godkänt i alla ämnen\">Godkänt i alla ämnen</th></tr></thead><tbody><tr><th scope=\"row\">2008/09</th><td>1&nbsp;205</td><td>223,1</td><td>16</td><td>96,3&nbsp;%</td><td>89,0&nbsp;%</td></tr><tr><th scope=\"row\">2009/10</th><td>1&nbsp;132</td><td>225,2</td><td>16</td><td>95,9&nbsp;%</td><td>89,0&nbsp;%</td></tr><tr><th scope=\"row\">2010/11</th><td>1&nbsp;028</td><td>222,9</td><td>16</td><td>95,1&nbsp;%</td><td>88,3&nbsp;%</td></tr><tr><th scope=\"row\">2011/12</th><td>923</td><td>223,1</td><td>16</td><td>94,5&nbsp;%</td><td>88,9&nbsp;%</td></tr><tr><th scope=\"row\">2012/13</th><td>..</td><td>222,8</td><td>16</td><td>93,6&nbsp;%</td><td>87,3&nbsp;%</td></tr><tr><th scope=\"row\">2013/14</th><td>..</td><td>228,1</td><td>16</td><td>94,2&nbsp;%</td><td>88,4&nbsp;%</td></tr><tr><th scope=\"row\">2014/15</th><td>922</td><td>242,7</td><td>17</td><td>93,7&nbsp;%</td><td>88,2&nbsp;%</td></tr><tr><th scope=\"row\">2015/16</th><td>920</td><td>244,8</td><td>17</td><td>95,0&nbsp;%</td><td>89,8&nbsp;%</td></tr><tr><th scope=\"row\">2016/17</th><td>1&nbsp;029</td><td>240,4</td><td>17</td><td>92,9&nbsp;%</td><td>86,3&nbsp;%</td></tr><tr><th scope=\"row\">2017/18</th><td>1&nbsp;131</td><td>245,7</td><td>17</td><td>93,9&nbsp;%</td><td>88,9&nbsp;%</td></tr><tr><th scope=\"row\">2018/19</th><td>1&nbsp;123</td><td>243,5</td><td>17</td><td>92,0&nbsp;%</td><td>85,7&nbsp;%</td></tr><tr><th scope=\"row\">2019/20</th><td>1&nbsp;131</td><td>249,1</td><td>17</td><td>94,7&nbsp;%</td><td>89,8&nbsp;%</td></tr><tr><th scope=\"row\">2020/21</th><td>1&nbsp;193</td><td>243,1</td><td>17</td><td>92,1&nbsp;%</td><td>86,9&nbsp;%</td></tr><tr><th scope=\"row\">2021/22</th><td>1&nbsp;237</td><td>240,8</td><td>17</td><td>90,7&nbsp;%</td><td>84,2&nbsp;%</td></tr><tr><th scope=\"row\">2022/23</th><td>1&nbsp;226</td><td>243,6</td><td>17</td><td>92,0&nbsp;%</td><td>84,7&nbsp;%</td></tr><tr><th scope=\"row\">2023/24</th><td>1&nbsp;189</td><td>243,8</td><td>17</td><td>91,8&nbsp;%</td><td>86,2&nbsp;%</td></tr><tr><th scope=\"row\">2024/25</th><td>1&nbsp;273</td><td>237,4</td><td>17</td><td>88,7&nbsp;%</td><td>81,6&nbsp;%</td></tr></tbody>"
+  },
+  "#tabell-pendling": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Läsår\">Läsår</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Folkbokförda\">Folkbokförda</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Studerar här\">Studerar här</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Inpendling\">Inpendling</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Utpendling\">Utpendling</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel ut, gymnasiet\">Andel ut, gymnasiet</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel ut, grundskolan\">Andel ut, grundskolan</th></tr></thead><tbody><tr><th scope=\"row\">2010/11</th><td>3&nbsp;680</td><td>3&nbsp;440</td><td>870</td><td>1&nbsp;110</td><td>30,2&nbsp;%</td><td>1,7&nbsp;%</td></tr><tr><th scope=\"row\">2011/12</th><td>3&nbsp;570</td><td>3&nbsp;340</td><td>820</td><td>1&nbsp;050</td><td>29,4&nbsp;%</td><td>1,4&nbsp;%</td></tr><tr><th scope=\"row\">2012/13</th><td>3&nbsp;280</td><td>3&nbsp;150</td><td>840</td><td>970</td><td>29,6&nbsp;%</td><td>1,5&nbsp;%</td></tr><tr><th scope=\"row\">2013/14</th><td>3&nbsp;050</td><td>2&nbsp;990</td><td>820</td><td>880</td><td>28,9&nbsp;%</td><td>1,4&nbsp;%</td></tr><tr><th scope=\"row\">2014/15</th><td>3&nbsp;000</td><td>3&nbsp;070</td><td>890</td><td>820</td><td>27,3&nbsp;%</td><td>1,6&nbsp;%</td></tr><tr><th scope=\"row\">2015/16</th><td>3&nbsp;010</td><td>3&nbsp;030</td><td>880</td><td>860</td><td>28,6&nbsp;%</td><td>1,7&nbsp;%</td></tr><tr><th scope=\"row\">2016/17</th><td>3&nbsp;030</td><td>3&nbsp;100</td><td>930</td><td>860</td><td>28,4&nbsp;%</td><td>1,5&nbsp;%</td></tr><tr><th scope=\"row\">2017/18</th><td>3&nbsp;140</td><td>3&nbsp;190</td><td>1&nbsp;020</td><td>970</td><td>30,9&nbsp;%</td><td>1,7&nbsp;%</td></tr><tr><th scope=\"row\">2018/19</th><td>3&nbsp;370</td><td>3&nbsp;360</td><td>1&nbsp;010</td><td>1&nbsp;020</td><td>30,3&nbsp;%</td><td>1,9&nbsp;%</td></tr><tr><th scope=\"row\">2019/20</th><td>3&nbsp;530</td><td>3&nbsp;430</td><td>940</td><td>1&nbsp;040</td><td>29,5&nbsp;%</td><td>1,8&nbsp;%</td></tr><tr><th scope=\"row\">2020/21</th><td>3&nbsp;640</td><td>3&nbsp;470</td><td>870</td><td>1&nbsp;040</td><td>28,6&nbsp;%</td><td>1,7&nbsp;%</td></tr><tr><th scope=\"row\">2021/22</th><td>3&nbsp;700</td><td>3&nbsp;510</td><td>840</td><td>1&nbsp;030</td><td>27,8&nbsp;%</td><td>1,4&nbsp;%</td></tr><tr><th scope=\"row\">2022/23</th><td>3&nbsp;770</td><td>3&nbsp;550</td><td>780</td><td>1&nbsp;000</td><td>26,5&nbsp;%</td><td>1,3&nbsp;%</td></tr><tr><th scope=\"row\">2023/24</th><td>3&nbsp;810</td><td>3&nbsp;500</td><td>740</td><td>1&nbsp;050</td><td>27,6&nbsp;%</td><td>1,3&nbsp;%</td></tr><tr><th scope=\"row\">2024/25</th><td>3&nbsp;790</td><td>3&nbsp;460</td><td>740</td><td>1&nbsp;070</td><td>28,2&nbsp;%</td><td>1,4&nbsp;%</td></tr><tr><th scope=\"row\">2025/26</th><td>3&nbsp;810</td><td>3&nbsp;420</td><td>750</td><td>1&nbsp;140</td><td>29,9&nbsp;%</td><td>1,2&nbsp;%</td></tr></tbody>"
+  },
+  "#tabell-program": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Startår\">Startår</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Nybörjare\">Nybörjare</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Examen inom 3 år\">Examen inom 3 år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Inom 4 år\">Inom 4 år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Inom 5 år\">Inom 5 år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Examensår\">Examensår</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Avgångselever\">Avgångselever</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Betygspoäng\">Betygspoäng</th></tr></thead><tbody><tr><th scope=\"row\">2011</th><td>94</td><td>85,1&nbsp;%</td><td>89,4&nbsp;%</td><td>89,4&nbsp;%</td><td>2014</td><td>79</td><td>16,0</td></tr><tr><th scope=\"row\">2012</th><td>94</td><td>84,0&nbsp;%</td><td>93,6&nbsp;%</td><td>93,6&nbsp;%</td><td>2015</td><td>82</td><td>15,8</td></tr><tr><th scope=\"row\">2013</th><td>86</td><td>90,7&nbsp;%</td><td>95,3&nbsp;%</td><td>95,3&nbsp;%</td><td>2016</td><td>91</td><td>15,8</td></tr><tr><th scope=\"row\">2014</th><td>93</td><td>84,9&nbsp;%</td><td>88,2&nbsp;%</td><td>88,2&nbsp;%</td><td>2017</td><td>82</td><td>16,0</td></tr><tr><th scope=\"row\">2015</th><td>100</td><td>93,0&nbsp;%</td><td>98,0&nbsp;%</td><td>98,0&nbsp;%</td><td>2018</td><td>91</td><td>16,6</td></tr><tr><th scope=\"row\">2016</th><td>110</td><td>86,4&nbsp;%</td><td>92,7&nbsp;%</td><td>93,6&nbsp;%</td><td>2019</td><td>98</td><td>16,0</td></tr><tr><th scope=\"row\">2017</th><td>112</td><td>86,6&nbsp;%</td><td>89,3&nbsp;%</td><td>89,3&nbsp;%</td><td>2020</td><td>107</td><td>16,2</td></tr><tr><th scope=\"row\">2018</th><td>121</td><td>92,6&nbsp;%</td><td>92,6&nbsp;%</td><td>92,6&nbsp;%</td><td>2021</td><td>125</td><td>16,4</td></tr><tr><th scope=\"row\">2019</th><td>125</td><td>88,8&nbsp;%</td><td>91,2&nbsp;%</td><td>91,2&nbsp;%</td><td>2022</td><td>115</td><td>16,2</td></tr><tr><th scope=\"row\">2020</th><td>100</td><td>85,0&nbsp;%</td><td>87,0&nbsp;%</td><td>87,0&nbsp;%</td><td>2023</td><td>89</td><td>16,3</td></tr><tr><th scope=\"row\">2021</th><td>91</td><td>85,7&nbsp;%</td><td>86,8&nbsp;%</td><td>..</td><td>2024</td><td>82</td><td>15,5</td></tr><tr><th scope=\"row\">2022</th><td>117</td><td>89,7&nbsp;%</td><td>..</td><td>..</td><td>2025</td><td>111</td><td>16,1</td></tr></tbody>"
+  },
+  ".meta-rad[meta-rad]": {
+   "dold": false,
+   "html": "<span>Källa: Skolverket, utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2008/09–2024/25</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2024/25</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-08-28</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  }
+ }
+}

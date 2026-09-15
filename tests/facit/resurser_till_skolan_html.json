@@ -1,0 +1,3907 @@
+{
+ "diagram": [
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderRadius": 4,
+      "borderSkipped": false,
+      "borderWidth": 0,
+      "data": [
+       -9.3,
+       -2.2,
+       9.7,
+       0.9,
+       -11.5,
+       -8.4,
+       -9.2,
+       -8.1,
+       -8.9,
+       -6.9,
+       -5.5,
+       -5.9,
+       -7.1,
+       -4.4,
+       -8.2,
+       -4.7,
+       -6.8,
+       -4.9,
+       -3.9,
+       -3.5,
+       -4.5,
+       -5.8,
+       -3.9,
+       -2.5,
+       -2.1,
+       -2.4,
+       -3,
+       -2.7
+      ],
+      "label": "Avvikelse"
+     }
+    ],
+    "labels": [
+     "1998",
+     "1999",
+     "2000",
+     "2001",
+     "2002",
+     "2003",
+     "2004",
+     "2005",
+     "2006",
+     "2007",
+     "2008",
+     "2009",
+     "2010",
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-avvikelse",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { var v = it.parsed.y; return (v > 0 ? \"+\" : \"\") + talSv(v, 1) + \" % mot referenskostnaden\"; }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": true,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "fn:function (c) { return c.tick.value === 0 ? FARG.baseline : FARG.grid; }",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": "fn:function (c) { return c.tick.value === 0 ? 2 : 1; }",
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v, 0) + \" %\"; }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Avvikelse från referenskostnaden (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 27,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "1998",
+       "varde": 0
+      },
+      {
+       "text": "2000",
+       "varde": 2
+      },
+      {
+       "text": "2002",
+       "varde": 4
+      },
+      {
+       "text": "2004",
+       "varde": 6
+      },
+      {
+       "text": "2006",
+       "varde": 8
+      },
+      {
+       "text": "2008",
+       "varde": 10
+      },
+      {
+       "text": "2010",
+       "varde": 12
+      },
+      {
+       "text": "2012",
+       "varde": 14
+      },
+      {
+       "text": "2014",
+       "varde": 16
+      },
+      {
+       "text": "2016",
+       "varde": 18
+      },
+      {
+       "text": "2018",
+       "varde": 20
+      },
+      {
+       "text": "2020",
+       "varde": 22
+      },
+      {
+       "text": "2022",
+       "varde": 24
+      },
+      {
+       "text": "2024",
+       "varde": 26
+      }
+     ]
+    },
+    "y": {
+     "max": 10,
+     "min": -15,
+     "tickar": [
+      {
+       "text": "−15 %",
+       "varde": -15
+      },
+      {
+       "text": "−10 %",
+       "varde": -10
+      },
+      {
+       "text": "−5 %",
+       "varde": -5
+      },
+      {
+       "text": "0 %",
+       "varde": 0
+      },
+      {
+       "text": "5 %",
+       "varde": 5
+      },
+      {
+       "text": "10 %",
+       "varde": 10
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderRadius": 4,
+      "borderSkipped": false,
+      "borderWidth": 0,
+      "data": [
+       -58.2,
+       -37.9,
+       -73.8,
+       -43.3,
+       -65.3,
+       -49,
+       -41,
+       -39.3,
+       -51.5,
+       -70.5,
+       -47.2,
+       -31.2,
+       -27.7,
+       -33.3,
+       -43.7,
+       -39.2
+      ],
+      "label": "Avvikelse"
+     }
+    ],
+    "labels": [
+     "2010",
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-kronor",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { var v = it.parsed.y; return (v > 0 ? \"+\" : \"\") + talSv(v, 1) + \" miljoner kronor\"; }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": true,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "fn:function (c) { return c.tick.value === 0 ? FARG.baseline : FARG.grid; }",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": "fn:function (c) { return c.tick.value === 0 ? 2 : 1; }",
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Avvikelse (miljoner kronor)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 15,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2010",
+       "varde": 0
+      },
+      {
+       "text": "2012",
+       "varde": 2
+      },
+      {
+       "text": "2014",
+       "varde": 4
+      },
+      {
+       "text": "2016",
+       "varde": 6
+      },
+      {
+       "text": "2018",
+       "varde": 8
+      },
+      {
+       "text": "2020",
+       "varde": 10
+      },
+      {
+       "text": "2022",
+       "varde": 12
+      },
+      {
+       "text": "2024",
+       "varde": 14
+      }
+     ]
+    },
+    "y": {
+     "max": 0,
+     "min": -80,
+     "tickar": [
+      {
+       "text": "−80",
+       "varde": -80
+      },
+      {
+       "text": "−70",
+       "varde": -70
+      },
+      {
+       "text": "−60",
+       "varde": -60
+      },
+      {
+       "text": "−50",
+       "varde": -50
+      },
+      {
+       "text": "−40",
+       "varde": -40
+      },
+      {
+       "text": "−30",
+       "varde": -30
+      },
+      {
+       "text": "−20",
+       "varde": -20
+      },
+      {
+       "text": "−10",
+       "varde": -10
+      },
+      {
+       "text": "0",
+       "varde": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderColor": "#2a78d6",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       93670,
+       95830,
+       98576,
+       102455,
+       106801,
+       114829,
+       120649,
+       122531
+      ],
+      "label": "Kommunens nettokostnad",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#c3c2b7",
+      "borderColor": "#c3c2b7",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       98038,
+       101764,
+       102526,
+       105049,
+       109114,
+       117669,
+       124435,
+       125965
+      ],
+      "label": "Referenskostnad",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-referens",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
+    "plugins": {
+     "legend": {
+      "display": true,
+      "onHover": "fn:function (e, post) { if (post.datasetIndex !== undefined) tona(post.datasetIndex); }",
+      "onLeave": "fn:function () { tona(null); }"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y) + \" kr\"; }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Kronor per elev"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 7,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2018",
+       "varde": 0
+      },
+      {
+       "text": "2019",
+       "varde": 1
+      },
+      {
+       "text": "2020",
+       "varde": 2
+      },
+      {
+       "text": "2021",
+       "varde": 3
+      },
+      {
+       "text": "2022",
+       "varde": 4
+      },
+      {
+       "text": "2023",
+       "varde": 5
+      },
+      {
+       "text": "2024",
+       "varde": 6
+      },
+      {
+       "text": "2025",
+       "varde": 7
+      }
+     ]
+    },
+    "y": {
+     "max": 140000,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "20 000",
+       "varde": 20000
+      },
+      {
+       "text": "40 000",
+       "varde": 40000
+      },
+      {
+       "text": "60 000",
+       "varde": 60000
+      },
+      {
+       "text": "80 000",
+       "varde": 80000
+      },
+      {
+       "text": "100 000",
+       "varde": 100000
+      },
+      {
+       "text": "120 000",
+       "varde": 120000
+      },
+      {
+       "text": "140 000",
+       "varde": 140000
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderColor": "#2a78d6",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       21.4,
+       21.7,
+       20.9,
+       21.3,
+       21.1,
+       20.1,
+       20.3,
+       21.2,
+       21.5,
+       21,
+       21.9,
+       22,
+       21.9,
+       21.4,
+       21.7,
+       21.2
+      ],
+      "label": "Kungsbacka",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       17.7,
+       17.4,
+       null,
+       null,
+       17.9,
+       17.3,
+       17.7,
+       18.3,
+       18.6,
+       19.1,
+       19.2,
+       19.3,
+       19.2,
+       19.3,
+       19.2,
+       19.1
+      ],
+      "label": "Riket",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2010",
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-andel",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
+    "plugins": {
+     "legend": {
+      "display": true,
+      "onHover": "fn:function (e, post) { if (post.datasetIndex !== undefined) tona(post.datasetIndex); }",
+      "onLeave": "fn:function () { tona(null); }"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y, 1) + \" %\"; }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v, 0) + \" %\"; }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Andel av kommunens driftkostnad (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 15,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2010",
+       "varde": 0
+      },
+      {
+       "text": "2011",
+       "varde": 1
+      },
+      {
+       "text": "2012",
+       "varde": 2
+      },
+      {
+       "text": "2013",
+       "varde": 3
+      },
+      {
+       "text": "2014",
+       "varde": 4
+      },
+      {
+       "text": "2015",
+       "varde": 5
+      },
+      {
+       "text": "2016",
+       "varde": 6
+      },
+      {
+       "text": "2017",
+       "varde": 7
+      },
+      {
+       "text": "2018",
+       "varde": 8
+      },
+      {
+       "text": "2019",
+       "varde": 9
+      },
+      {
+       "text": "2020",
+       "varde": 10
+      },
+      {
+       "text": "2021",
+       "varde": 11
+      },
+      {
+       "text": "2022",
+       "varde": 12
+      },
+      {
+       "text": "2023",
+       "varde": 13
+      },
+      {
+       "text": "2024",
+       "varde": 14
+      },
+      {
+       "text": "2025",
+       "varde": 15
+      }
+     ]
+    },
+    "y": {
+     "max": 22,
+     "min": 17,
+     "tickar": [
+      {
+       "text": "17 %",
+       "varde": 17
+      },
+      {
+       "text": "18 %",
+       "varde": 17.5
+      },
+      {
+       "text": "18 %",
+       "varde": 18
+      },
+      {
+       "text": "19 %",
+       "varde": 18.5
+      },
+      {
+       "text": "19 %",
+       "varde": 19
+      },
+      {
+       "text": "20 %",
+       "varde": 19.5
+      },
+      {
+       "text": "20 %",
+       "varde": 20
+      },
+      {
+       "text": "21 %",
+       "varde": 20.5
+      },
+      {
+       "text": "21 %",
+       "varde": 21
+      },
+      {
+       "text": "22 %",
+       "varde": 21.5
+      },
+      {
+       "text": "22 %",
+       "varde": 22
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderColor": "#2a78d6",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       100,
+       101.4,
+       97.7,
+       99.5,
+       98.6,
+       93.9,
+       94.9,
+       99.1,
+       100.5,
+       98.1,
+       102.3,
+       102.8,
+       102.3,
+       100,
+       101.4,
+       99.1
+      ],
+      "label": "Skolans andel av budgeten",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       100,
+       100.2,
+       101.8,
+       102.7,
+       104.2,
+       105.9,
+       107,
+       107.8,
+       107.2,
+       106.2,
+       105.9,
+       105.2,
+       104.2,
+       102.4,
+       101,
+       98.9
+      ],
+      "label": "Skolålderns andel av befolkningen",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2010",
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-demografi",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
+    "plugins": {
+     "legend": {
+      "display": true,
+      "onHover": "fn:function (e, post) { if (post.datasetIndex !== undefined) tona(post.datasetIndex); }",
+      "onLeave": "fn:function () { tona(null); }"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y, 1); }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v, 0); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Index, 2010 = 100"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 15,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2010",
+       "varde": 0
+      },
+      {
+       "text": "2011",
+       "varde": 1
+      },
+      {
+       "text": "2012",
+       "varde": 2
+      },
+      {
+       "text": "2013",
+       "varde": 3
+      },
+      {
+       "text": "2014",
+       "varde": 4
+      },
+      {
+       "text": "2015",
+       "varde": 5
+      },
+      {
+       "text": "2016",
+       "varde": 6
+      },
+      {
+       "text": "2017",
+       "varde": 7
+      },
+      {
+       "text": "2018",
+       "varde": 8
+      },
+      {
+       "text": "2019",
+       "varde": 9
+      },
+      {
+       "text": "2020",
+       "varde": 10
+      },
+      {
+       "text": "2021",
+       "varde": 11
+      },
+      {
+       "text": "2022",
+       "varde": 12
+      },
+      {
+       "text": "2023",
+       "varde": 13
+      },
+      {
+       "text": "2024",
+       "varde": 14
+      },
+      {
+       "text": "2025",
+       "varde": 15
+      }
+     ]
+    },
+    "y": {
+     "max": 108,
+     "min": 92,
+     "tickar": [
+      {
+       "text": "92",
+       "varde": 92
+      },
+      {
+       "text": "94",
+       "varde": 94
+      },
+      {
+       "text": "96",
+       "varde": 96
+      },
+      {
+       "text": "98",
+       "varde": 98
+      },
+      {
+       "text": "100",
+       "varde": 100
+      },
+      {
+       "text": "102",
+       "varde": 102
+      },
+      {
+       "text": "104",
+       "varde": 104
+      },
+      {
+       "text": "106",
+       "varde": 106
+      },
+      {
+       "text": "108",
+       "varde": 108
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderColor": "#2a78d6",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       2.66,
+       2.64,
+       null,
+       null,
+       null,
+       2.47,
+       2.34,
+       2.29,
+       null,
+       null,
+       2.44,
+       2.44,
+       2.57,
+       2.64,
+       2.67,
+       2.66,
+       2.74,
+       2.63,
+       2.56,
+       2.59,
+       2.59
+      ],
+      "label": "Grundskolan i riket, andel av BNP",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2004",
+     "2005",
+     "2006",
+     "2007",
+     "2008",
+     "2009",
+     "2010",
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024"
+    ]
+   },
+   "id": "diagram-bnp",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return talSv(it.parsed.y, 2) + \" % av BNP\"; }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v, 2) + \" %\"; }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Andel av BNP (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 20,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2004",
+       "varde": 0
+      },
+      {
+       "text": "2006",
+       "varde": 2
+      },
+      {
+       "text": "2008",
+       "varde": 4
+      },
+      {
+       "text": "2010",
+       "varde": 6
+      },
+      {
+       "text": "2012",
+       "varde": 8
+      },
+      {
+       "text": "2014",
+       "varde": 10
+      },
+      {
+       "text": "2016",
+       "varde": 12
+      },
+      {
+       "text": "2018",
+       "varde": 14
+      },
+      {
+       "text": "2020",
+       "varde": 16
+      },
+      {
+       "text": "2022",
+       "varde": 18
+      },
+      {
+       "text": "2024",
+       "varde": 20
+      }
+     ]
+    },
+    "y": {
+     "max": 2.75,
+     "min": 2.25,
+     "tickar": [
+      {
+       "text": "2,25 %",
+       "varde": 2.25
+      },
+      {
+       "text": "2,30 %",
+       "varde": 2.3
+      },
+      {
+       "text": "2,35 %",
+       "varde": 2.35
+      },
+      {
+       "text": "2,40 %",
+       "varde": 2.4
+      },
+      {
+       "text": "2,45 %",
+       "varde": 2.45
+      },
+      {
+       "text": "2,50 %",
+       "varde": 2.5
+      },
+      {
+       "text": "2,55 %",
+       "varde": 2.55
+      },
+      {
+       "text": "2,60 %",
+       "varde": 2.6
+      },
+      {
+       "text": "2,65 %",
+       "varde": 2.65
+      },
+      {
+       "text": "2,70 %",
+       "varde": 2.7
+      },
+      {
+       "text": "2,75 %",
+       "varde": 2.75
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "reglage": [],
+ "tabeller": [
+  {
+   "caption": null,
+   "id": "tabell-avvikelse",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Avvikelse från referenskostnaden"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "1998"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−9,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "1999"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−2,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2000"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+9,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2001"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2002"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−11,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2003"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−8,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2004"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−9,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2005"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−8,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2006"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−8,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2007"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−6,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2008"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−5,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2009"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−5,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2010"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−7,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−4,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−8,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−4,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−6,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−4,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−3,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−3,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−4,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−5,8 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−3,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−2,5 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−2,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−2,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−3,0 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−2,7 %"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-kronor",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Avvikelse (mkr)"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2010"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−58,2"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−37,9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−73,8"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−43,3"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−65,3"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−49,0"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−41,0"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−39,3"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−51,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−70,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−47,2"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−31,2"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−27,7"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−33,3"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−43,7"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−39,2"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-referens",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Nettokostnad (kr/elev)"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Referenskostnad (kr/elev)"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Skillnad"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93 670"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "98 038"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−4 368"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95 830"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "101 764"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−5 934"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "98 576"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "102 526"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−3 950"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "102 455"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "105 049"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−2 594"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "106 801"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "109 114"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−2 313"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "114 829"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "117 669"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−2 840"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "120 649"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "124 435"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−3 786"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "122 531"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "125 965"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−3 434"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-andel",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kungsbacka"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Riket"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2010"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "– %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "– %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "17,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18,6 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "22,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19,3 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19,2 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19,1 %"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-demografi",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Skolans andel av budgeten (index)"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Skolålderns andel av befolkningen (index)"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Antal 6–15-åringar"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2010"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "100,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "100,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 162"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "101,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "100,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 308"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2012"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "97,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "101,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 582"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2013"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "99,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "102,7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 764"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "98,6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "104,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 037"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "105,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 348"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "107,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 657"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "99,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "107,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 958"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "100,5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "107,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 104"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "98,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "106,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 137"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "102,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "105,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 178"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "102,8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "105,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 143"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "102,3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "104,2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 103"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "100,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "102,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 879"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "101,4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "101,0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 732"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "99,1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "98,9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 564"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-bnp",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kronor per invånare"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Totalt (mnkr)"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Andel av BNP"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2004"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8 353"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "75 271"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,66 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2005"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8 543"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "77 293"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,64 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2009"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8 777"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "81 986"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,47 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2010"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8 829"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "83 134"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,34 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2011"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8 958"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "84 947"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,29 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9 929"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96 781"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,44 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 459"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "103 031"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,44 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 306"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "113 008"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,57 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 954"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "120 976"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,64 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 482"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "127 697"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,67 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 946"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "133 697"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,66 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 242"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "137 438"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,74 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 634"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "142 508"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,63 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14 161"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "149 000"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,56 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15 060"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "158 907"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,59 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15 772"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "166 989"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,59 %"
+     }
+    ]
+   ]
+  }
+ ],
+ "text": {
+  "#diagram-andel": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-avvikelse": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-bnp": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-demografi": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-kronor": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-referens": {
+   "dold": false,
+   "html": ""
+  },
+  "#huvudinnehall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kalla-andel": {
+   "dold": false,
+   "html": "Källa: Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag. Grundskolans kostnad delad med kommunens hela driftkostnad samma år. Y-axeln börjar inte vid noll."
+  },
+  "#kalla-avvikelse": {
+   "dold": false,
+   "html": "Källa: Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag. Noll = kommunen lägger vad strukturen motiverar, vilket också är rikets värde. Streckade linjer: år då kostnadsutjämningen ändrades."
+  },
+  "#kalla-bnp": {
+   "dold": false,
+   "html": "Källor: Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag (kostnaden) och SCB, Nationalräkenskaperna (NR0103), BNP från användningssidan, samt Befolkningsstatistik (BE0101). Kostnad per invånare gånger folkmängd, delat med BNP – allt i löpande priser, samma år. Y-axeln börjar inte vid noll."
+  },
+  "#kalla-demografi": {
+   "dold": false,
+   "html": "Källor: Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag (budgetandel) och SCB, Befolkningsstatistik (BE0101), Folkmängden efter region, civilstånd, ålder och kön (6–15-åringar). Båda satta till 100 år 2010. Y-axeln börjar inte vid noll."
+  },
+  "#kalla-kronor": {
+   "dold": false,
+   "html": "Källa: Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag. Samma avvikelse som ovan, i pengar."
+  },
+  "#kalla-referens": {
+   "dold": false,
+   "html": "Källa: Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag. Grundskolan F–9. Nettokostnad = efter intäkter, avgifter och riktade statsbidrag. Linjerna jämförs år för år – aldrig mellan år, och därför behövs ingen prisomräkning."
+  },
+  "#kort-sagt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kort-sagt-lista": {
+   "dold": false,
+   "html": "<li>År 2025 låg Kungsbacka <strong>2,7&nbsp;%</strong> under sin referenskostnad för grundskolan – det utjämningssystemet räknar fram att en kommun med den här strukturen förväntas lägga.</li><li>I pengar motsvarar det <strong>39,2 miljoner kronor</strong>.</li><li>Avvikelsen har gått från −9,3&nbsp;% (1998) till −2,7&nbsp;% (2025). Kostnadsutjämningen byggdes om 2014 och 2020, vilket flyttar avvikelsen utan att kommunen gjort något.</li><li>Grundskolan tog <strong>21,2&nbsp;%</strong> av kommunens driftkostnad 2025, mot 19,1&nbsp;% i riket.</li><li>Skolans andel av budgeten och skolålderns andel av befolkningen står 2025 på index 99,1 respektive 98,9 (2010 = 100) – men de har gått isär och mötts igen under vägen, vilket syns i diagrammet.</li><li>I hela riket tog grundskolan <strong>2,59&nbsp;%</strong> av BNP år 2024. Den nivån är avvikelsen blind för – referenskostnaden räknas fram ur kommunernas egna utgifter.</li><li>Inga belopp på sidan är inflationsjusterade – varje mått jämför inom samma år, så frågan uppstår aldrig.</li>"
+  },
+  "#kort-sagt-rubrik": {
+   "dold": false,
+   "html": "Kort sagt"
+  },
+  "#lista-kallor": {
+   "dold": false,
+   "html": "<li><a href=\"https://www.kolada.se/\">Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag</a> – hämtat ur Koladas öppna API 2026-09-10.</li><li><a href=\"https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101A/BefolkningNy/\">SCB, Befolkningsstatistik (BE0101), Folkmängden efter region, civilstånd, ålder och kön</a> – Antal 6–15-åringar och deras andel av folkmängden, 31 december, hämtat 2026-08-28.</li><li><a href=\"https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__NR__NR0103__NR0103A/NR0103ENS2010T01A/\">SCB, Nationalräkenskaperna (NR0103), BNP från användningssidan, samt Befolkningsstatistik (BE0101)</a> – BNP i löpande priser och rikets folkmängd, hämtat 2026-09-10.</li><li><a href=\"https://www.riksdagen.se/sv/dokument-och-lagar/dokument/betankande/andringar-i-kostnadsutjamningen-for-kommuner-och_H701FiU18/html/\">Ändringar i kostnadsutjämningen, i kraft 1 januari 2014</a> – markeras i diagrammen.</li><li><a href=\"https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/andringar-i-kostnadsutjamningen-for-kommuner-och_H70311/html/\">Prop. 2019/20:11, Ändringar i kostnadsutjämningen för kommuner och landsting, i kraft 1 januari 2020</a> – markeras i diagrammen.</li>"
+  },
+  "#meta-rad": {
+   "dold": false,
+   "html": "<span>Källa: Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 1998–2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-10</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  },
+  "#not-avvikelse": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Ett negativt tal betyder att kommunen lägger <em>mindre</em> än referenskostnaden, inte att den lägger för lite. Referenskostnaden är vad en kommun med den här strukturen typiskt lägger – ingen norm.</div></div>"
+  },
+  "#not-bnp": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Kolada saknar rikstal för 2006, 2007, 2008, 2012 och 2013. De åren ritas som avbrott i linjen, inte som en rak sträcka mellan de år som finns.</div></div>"
+  },
+  "#not-referens": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Åren 2016 och 2017 utelämnas här. För dem ger källans nettokostnad delad med källans referenskostnad inte den avvikelse som redovisas i diagrammet ovanför – de två serierna verkar räknade på olika grund de åren. De ingår i avvikelsediagrammet, som bygger på ett publicerat tal.</div></div>"
+  },
+  "#om-uppdaterad": {
+   "dold": false,
+   "html": "Nyckeltalen hämtades 2026-09-10 och befolkningen 2026-08-28."
+  },
+  "#sektion-andel": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-avvikelse": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-bnp": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-demografi": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-ingen-prisomrakning": {
+   "dold": false,
+   "html": "\n    <h2>Varför inga belopp räknas om här</h2>\n    <p class=\"forklaring\">\n      Kostnadssidan måste räkna om varje krona till en gemensam prisnivå,\n      och därmed välja ett prisindex – ett val som i sig påverkar\n      svaret. <strong>På den här sidan uppstår aldrig den frågan.</strong>\n      Varje mått är en jämförelse inom samma år: en avvikelse mot en\n      referenskostnad för samma år, eller en andel av samma års\n      driftkostnad. Inflationen finns i båda leden och tar ut sig själv.\n      Det är det främsta skälet till att de här måtten är stabilare än\n      kronor per elev när frågan gäller vad politiken beslutat.\n    </p>\n  "
+  },
+  "#sektion-kallor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kronor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-om": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-referens": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#slutsats-andel": {
+   "dold": false,
+   "html": "<p>År 2025 gick <strong>21,2&nbsp;%</strong> av Kungsbackas driftkostnad till grundskolan, mot 19,1&nbsp;% i riket. Andelen var som högst 2021 (22,0&nbsp;%) och som lägst 2015 (20,1&nbsp;%).</p>"
+  },
+  "#slutsats-avvikelse": {
+   "dold": false,
+   "html": "<p>Av 28 redovisade år låg Kungsbacka under sin referenskostnad <strong>26</strong> år och över den 2 år. Avvikelsen har rört sig mellan −11,5&nbsp;% (2002) och +9,7&nbsp;% (2000). Senast, 2025, låg den på <strong>−2,7&nbsp;%</strong>.</p>"
+  },
+  "#slutsats-bnp": {
+   "dold": false,
+   "html": "<p>Grundskolan tog <strong>2,59&nbsp;%</strong> av BNP år 2024, mot 2,66&nbsp;% år 2004. Lägst var andelen 2011 (2,29&nbsp;%) och högst 2020 (2,74&nbsp;%). Den nationella nivån har alltså inte legat stilla under perioden.</p>"
+  },
+  "#slutsats-demografi": {
+   "dold": false,
+   "html": "<p>Sedan 2010 har skolans andel av budgeten rört sig till index <strong>99,1</strong> och skolålderns andel av befolkningen till <strong>98,9</strong> (2025) – 0,2 indexenheter isär. Vägen dit var inte rak: som mest skilde de <strong>12,1</strong> indexenheter (2016), då budgetandelen låg under barnandelen.</p>"
+  },
+  "#slutsats-kronor": {
+   "dold": false,
+   "html": "<p>År 2025 motsvarade avvikelsen <strong>39,2 miljoner kronor</strong> under referenskostnaden. Störst var den 2012 (73,8 miljoner).</p>"
+  },
+  "#slutsats-referens": {
+   "dold": false,
+   "html": "<p>År 2025 var kommunens nettokostnad <strong>122&nbsp;531 kr</strong> per elev, mot en referenskostnad på 125&nbsp;965 kr – 3&nbsp;434 kr per elev under den. Bilden visar 8 år, 2018–2025.</p>"
+  },
+  "#status": {
+   "dold": true,
+   "html": ""
+  },
+  "#tabell-andel": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kungsbacka\">Kungsbacka</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Riket\">Riket</th></tr></thead><tbody><tr><th scope=\"row\">2010</th><td>21,4&nbsp;%</td><td>17,7&nbsp;%</td></tr><tr><th scope=\"row\">2011</th><td>21,7&nbsp;%</td><td>17,4&nbsp;%</td></tr><tr><th scope=\"row\">2012</th><td>20,9&nbsp;%</td><td>–&nbsp;%</td></tr><tr><th scope=\"row\">2013</th><td>21,3&nbsp;%</td><td>–&nbsp;%</td></tr><tr><th scope=\"row\">2014</th><td>21,1&nbsp;%</td><td>17,9&nbsp;%</td></tr><tr><th scope=\"row\">2015</th><td>20,1&nbsp;%</td><td>17,3&nbsp;%</td></tr><tr><th scope=\"row\">2016</th><td>20,3&nbsp;%</td><td>17,7&nbsp;%</td></tr><tr><th scope=\"row\">2017</th><td>21,2&nbsp;%</td><td>18,3&nbsp;%</td></tr><tr><th scope=\"row\">2018</th><td>21,5&nbsp;%</td><td>18,6&nbsp;%</td></tr><tr><th scope=\"row\">2019</th><td>21,0&nbsp;%</td><td>19,1&nbsp;%</td></tr><tr><th scope=\"row\">2020</th><td>21,9&nbsp;%</td><td>19,2&nbsp;%</td></tr><tr><th scope=\"row\">2021</th><td>22,0&nbsp;%</td><td>19,3&nbsp;%</td></tr><tr><th scope=\"row\">2022</th><td>21,9&nbsp;%</td><td>19,2&nbsp;%</td></tr><tr><th scope=\"row\">2023</th><td>21,4&nbsp;%</td><td>19,3&nbsp;%</td></tr><tr><th scope=\"row\">2024</th><td>21,7&nbsp;%</td><td>19,2&nbsp;%</td></tr><tr><th scope=\"row\">2025</th><td>21,2&nbsp;%</td><td>19,1&nbsp;%</td></tr></tbody>"
+  },
+  "#tabell-avvikelse": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Avvikelse från referenskostnaden\">Avvikelse från referenskostnaden</th></tr></thead><tbody><tr><th scope=\"row\">1998</th><td>−9,3&nbsp;%</td></tr><tr><th scope=\"row\">1999</th><td>−2,2&nbsp;%</td></tr><tr><th scope=\"row\">2000</th><td>+9,7&nbsp;%</td></tr><tr><th scope=\"row\">2001</th><td>+0,9&nbsp;%</td></tr><tr><th scope=\"row\">2002</th><td>−11,5&nbsp;%</td></tr><tr><th scope=\"row\">2003</th><td>−8,4&nbsp;%</td></tr><tr><th scope=\"row\">2004</th><td>−9,2&nbsp;%</td></tr><tr><th scope=\"row\">2005</th><td>−8,1&nbsp;%</td></tr><tr><th scope=\"row\">2006</th><td>−8,9&nbsp;%</td></tr><tr><th scope=\"row\">2007</th><td>−6,9&nbsp;%</td></tr><tr><th scope=\"row\">2008</th><td>−5,5&nbsp;%</td></tr><tr><th scope=\"row\">2009</th><td>−5,9&nbsp;%</td></tr><tr><th scope=\"row\">2010</th><td>−7,1&nbsp;%</td></tr><tr><th scope=\"row\">2011</th><td>−4,4&nbsp;%</td></tr><tr><th scope=\"row\">2012</th><td>−8,2&nbsp;%</td></tr><tr><th scope=\"row\">2013</th><td>−4,7&nbsp;%</td></tr><tr><th scope=\"row\">2014</th><td>−6,8&nbsp;%</td></tr><tr><th scope=\"row\">2015</th><td>−4,9&nbsp;%</td></tr><tr><th scope=\"row\">2016</th><td>−3,9&nbsp;%</td></tr><tr><th scope=\"row\">2017</th><td>−3,5&nbsp;%</td></tr><tr><th scope=\"row\">2018</th><td>−4,5&nbsp;%</td></tr><tr><th scope=\"row\">2019</th><td>−5,8&nbsp;%</td></tr><tr><th scope=\"row\">2020</th><td>−3,9&nbsp;%</td></tr><tr><th scope=\"row\">2021</th><td>−2,5&nbsp;%</td></tr><tr><th scope=\"row\">2022</th><td>−2,1&nbsp;%</td></tr><tr><th scope=\"row\">2023</th><td>−2,4&nbsp;%</td></tr><tr><th scope=\"row\">2024</th><td>−3,0&nbsp;%</td></tr><tr><th scope=\"row\">2025</th><td>−2,7&nbsp;%</td></tr></tbody>"
+  },
+  "#tabell-bnp": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kronor per invånare\">Kronor per invånare</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Totalt (mnkr)\">Totalt (mnkr)</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Andel av BNP\">Andel av BNP</th></tr></thead><tbody><tr><th scope=\"row\">2004</th><td>8&nbsp;353</td><td>75&nbsp;271</td><td>2,66&nbsp;%</td></tr><tr><th scope=\"row\">2005</th><td>8&nbsp;543</td><td>77&nbsp;293</td><td>2,64&nbsp;%</td></tr><tr><th scope=\"row\">2009</th><td>8&nbsp;777</td><td>81&nbsp;986</td><td>2,47&nbsp;%</td></tr><tr><th scope=\"row\">2010</th><td>8&nbsp;829</td><td>83&nbsp;134</td><td>2,34&nbsp;%</td></tr><tr><th scope=\"row\">2011</th><td>8&nbsp;958</td><td>84&nbsp;947</td><td>2,29&nbsp;%</td></tr><tr><th scope=\"row\">2014</th><td>9&nbsp;929</td><td>96&nbsp;781</td><td>2,44&nbsp;%</td></tr><tr><th scope=\"row\">2015</th><td>10&nbsp;459</td><td>103&nbsp;031</td><td>2,44&nbsp;%</td></tr><tr><th scope=\"row\">2016</th><td>11&nbsp;306</td><td>113&nbsp;008</td><td>2,57&nbsp;%</td></tr><tr><th scope=\"row\">2017</th><td>11&nbsp;954</td><td>120&nbsp;976</td><td>2,64&nbsp;%</td></tr><tr><th scope=\"row\">2018</th><td>12&nbsp;482</td><td>127&nbsp;697</td><td>2,67&nbsp;%</td></tr><tr><th scope=\"row\">2019</th><td>12&nbsp;946</td><td>133&nbsp;697</td><td>2,66&nbsp;%</td></tr><tr><th scope=\"row\">2020</th><td>13&nbsp;242</td><td>137&nbsp;438</td><td>2,74&nbsp;%</td></tr><tr><th scope=\"row\">2021</th><td>13&nbsp;634</td><td>142&nbsp;508</td><td>2,63&nbsp;%</td></tr><tr><th scope=\"row\">2022</th><td>14&nbsp;161</td><td>149&nbsp;000</td><td>2,56&nbsp;%</td></tr><tr><th scope=\"row\">2023</th><td>15&nbsp;060</td><td>158&nbsp;907</td><td>2,59&nbsp;%</td></tr><tr><th scope=\"row\">2024</th><td>15&nbsp;772</td><td>166&nbsp;989</td><td>2,59&nbsp;%</td></tr></tbody>"
+  },
+  "#tabell-demografi": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skolans andel av budgeten (index)\">Skolans andel av budgeten (index)</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skolålderns andel av befolkningen (index)\">Skolålderns andel av befolkningen (index)</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Antal 6–15-åringar\">Antal 6–15-åringar</th></tr></thead><tbody><tr><th scope=\"row\">2010</th><td>100,0</td><td>100,0</td><td>10&nbsp;162</td></tr><tr><th scope=\"row\">2011</th><td>101,4</td><td>100,2</td><td>10&nbsp;308</td></tr><tr><th scope=\"row\">2012</th><td>97,7</td><td>101,8</td><td>10&nbsp;582</td></tr><tr><th scope=\"row\">2013</th><td>99,5</td><td>102,7</td><td>10&nbsp;764</td></tr><tr><th scope=\"row\">2014</th><td>98,6</td><td>104,2</td><td>11&nbsp;037</td></tr><tr><th scope=\"row\">2015</th><td>93,9</td><td>105,9</td><td>11&nbsp;348</td></tr><tr><th scope=\"row\">2016</th><td>94,9</td><td>107,0</td><td>11&nbsp;657</td></tr><tr><th scope=\"row\">2017</th><td>99,1</td><td>107,8</td><td>11&nbsp;958</td></tr><tr><th scope=\"row\">2018</th><td>100,5</td><td>107,2</td><td>12&nbsp;104</td></tr><tr><th scope=\"row\">2019</th><td>98,1</td><td>106,2</td><td>12&nbsp;137</td></tr><tr><th scope=\"row\">2020</th><td>102,3</td><td>105,9</td><td>12&nbsp;178</td></tr><tr><th scope=\"row\">2021</th><td>102,8</td><td>105,2</td><td>12&nbsp;143</td></tr><tr><th scope=\"row\">2022</th><td>102,3</td><td>104,2</td><td>12&nbsp;103</td></tr><tr><th scope=\"row\">2023</th><td>100,0</td><td>102,4</td><td>11&nbsp;879</td></tr><tr><th scope=\"row\">2024</th><td>101,4</td><td>101,0</td><td>11&nbsp;732</td></tr><tr><th scope=\"row\">2025</th><td>99,1</td><td>98,9</td><td>11&nbsp;564</td></tr></tbody>"
+  },
+  "#tabell-kronor": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Avvikelse (mkr)\">Avvikelse (mkr)</th></tr></thead><tbody><tr><th scope=\"row\">2010</th><td>−58,2</td></tr><tr><th scope=\"row\">2011</th><td>−37,9</td></tr><tr><th scope=\"row\">2012</th><td>−73,8</td></tr><tr><th scope=\"row\">2013</th><td>−43,3</td></tr><tr><th scope=\"row\">2014</th><td>−65,3</td></tr><tr><th scope=\"row\">2015</th><td>−49,0</td></tr><tr><th scope=\"row\">2016</th><td>−41,0</td></tr><tr><th scope=\"row\">2017</th><td>−39,3</td></tr><tr><th scope=\"row\">2018</th><td>−51,5</td></tr><tr><th scope=\"row\">2019</th><td>−70,5</td></tr><tr><th scope=\"row\">2020</th><td>−47,2</td></tr><tr><th scope=\"row\">2021</th><td>−31,2</td></tr><tr><th scope=\"row\">2022</th><td>−27,7</td></tr><tr><th scope=\"row\">2023</th><td>−33,3</td></tr><tr><th scope=\"row\">2024</th><td>−43,7</td></tr><tr><th scope=\"row\">2025</th><td>−39,2</td></tr></tbody>"
+  },
+  "#tabell-referens": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Nettokostnad (kr/elev)\">Nettokostnad (kr/elev)</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Referenskostnad (kr/elev)\">Referenskostnad (kr/elev)</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skillnad\">Skillnad</th></tr></thead><tbody><tr><th scope=\"row\">2018</th><td>93&nbsp;670</td><td>98&nbsp;038</td><td>−4&nbsp;368</td></tr><tr><th scope=\"row\">2019</th><td>95&nbsp;830</td><td>101&nbsp;764</td><td>−5&nbsp;934</td></tr><tr><th scope=\"row\">2020</th><td>98&nbsp;576</td><td>102&nbsp;526</td><td>−3&nbsp;950</td></tr><tr><th scope=\"row\">2021</th><td>102&nbsp;455</td><td>105&nbsp;049</td><td>−2&nbsp;594</td></tr><tr><th scope=\"row\">2022</th><td>106&nbsp;801</td><td>109&nbsp;114</td><td>−2&nbsp;313</td></tr><tr><th scope=\"row\">2023</th><td>114&nbsp;829</td><td>117&nbsp;669</td><td>−2&nbsp;840</td></tr><tr><th scope=\"row\">2024</th><td>120&nbsp;649</td><td>124&nbsp;435</td><td>−3&nbsp;786</td></tr><tr><th scope=\"row\">2025</th><td>122&nbsp;531</td><td>125&nbsp;965</td><td>−3&nbsp;434</td></tr></tbody>"
+  },
+  ".meta-rad[meta-rad]": {
+   "dold": false,
+   "html": "<span>Källa: Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur kommunernas räkenskapssammandrag</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 1998–2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-10</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  }
+ }
+}

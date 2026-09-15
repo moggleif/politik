@@ -115,7 +115,11 @@ module.exports = [
        stavfel på document i skriptets Node-del inte fångas; alternativet
        vore att bryta ut varje evaluate-funktion till en egen fil för
        lintens skull, vilket gör skripten svårare att läsa. */
-    files: ["scripts/smoke_webbplats.js", "scripts/tillganglighet.js"],
+    files: [
+      "scripts/smoke_webbplats.js",
+      "scripts/tillganglighet.js",
+      "scripts/facit_webbplats.js"
+    ],
     languageOptions: { globals: { ...NODE, ...WEBBLASARE } }
   }
 ];

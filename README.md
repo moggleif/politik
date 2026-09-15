@@ -400,6 +400,12 @@ tests/
                                 docs/gemensam.js – talformat, escapning,
                                 adressnycklar, årsskalor och seriestilar
                                 (node --test tests/*.js)
+  fixtures/data/                Fryst kopia av docs/data*.json plus tre
+                                områden ur docs/data-fortidsroster/.
+                                Facit-kontrollen serveras härifrån, aldrig
+                                ur docs/
+  facit/*.json                  Facit över varje sidläges renderade utfall,
+                                ett per sida och frågesträng
 docs/                           Själva hemsidan (serveras av GitHub Pages)
   index.html                    Startsida: en översikt med ett kort per ämne,
                                 som fylls med beräknade sammanfattningar av
@@ -683,11 +689,12 @@ presentationen: startsidan får inte visa det horisontblandade
 samlingsmåttet som ett generellt prognosfel, och kulljämförelsen får
 inte beskrivas som individuppföljning. Vid varje push och pull request
 körs testerna i GitHub Actions (`.github/workflows/test.yml`),
-tillsammans med fyra kontroller av den färdiga webbplatsen: interna
+tillsammans med fem kontroller av den färdiga webbplatsen: interna
 länkar och lokala källfiler (`scripts/kontrollera_lankar.py`),
 HTML-validering (html-validate), ett rök-test som laddar varje sida i
 webbläsare och faller på JavaScript-fel, saknade resurser eller sidor
-som inte ritar sina diagram (`scripts/smoke_webbplats.js`), och en
+som inte ritar sina diagram (`scripts/smoke_webbplats.js`), ett facit
+över vad sidorna faktiskt ritar (`scripts/facit_webbplats.js`), och en
 tillgänglighetskontroll (`scripts/tillganglighet.js`) som kör axe-core
 mot WCAG 2.1 A och AA, tabbar igenom varje sida för att se att alla
 kontroller nås och har synlig fokusmarkering, och kontrollerar att
@@ -700,6 +707,60 @@ tabell och hämtningen stannar där. `hamta_slutbetyg.py` avbryter om
 kolumnerna i exportfilen har ändrats, och `build_slutbetyg.py` varnar om ett
 skol- eller programnamn inte känns igen &ndash; ett namnbyte som inte fångas
 upp blir annars två serier i stället för en.
+
+### Facit över det sidorna ritar
+
+Sidskripten exporterar ingenting och skriver rakt i DOM:en, så det finns
+inga funktioner att enhetstesta. Det som går att låsa fast är i stället
+vad sidorna *ritar*. `scripts/facit_webbplats.js` laddar varje sidläge i
+Chromium och jämför utfallet mot ett incheckat facit i `tests/facit/`:
+
+- varje diagrams `config.data` och `config.options`, funktioner som källtext
+- de tickar och gränser Chart.js faktiskt räknade ut, inte bara indatan
+- varje tabell cell för cell
+- varje reglages alternativ och valda värde
+- varje id-satt elements markup och om det är dolt &ndash; alltså
+  `kort-sagt-lista`, `meta-rad`, `lista-kallor`, `kalla-*`, `not-*` och
+  `slutsats-*`, men också startsidans räknade kort och de sektioner som
+  visas eller göms efter vad datat säger
+
+Just den sista punkten är en regel och inte en handskriven lista med flit.
+En uppräkning av id:n missade startsidan helt &ndash; dess kort fylls i
+under `fakta-*` och `undertext-*` &ndash; och facit såg täckt ut medan det
+var tomt. Element som innehåller en tabell, ett diagram eller andra
+id-satta element bidrar bara med om de är dolda: deras innehåll fångas
+redan på annat håll.
+
+28 sidlägen täcks, frågesträngen inräknad: `?val=`, `?parti=`,
+`?distrikt=`, `?matt=` och `?omrade=` ger olika bilder och har därför
+var sitt facit.
+
+```bash
+node scripts/facit_webbplats.js              # jämför mot facit
+node scripts/facit_webbplats.js --skriv-om   # skriv om facit efter en avsedd ändring
+```
+
+**Datat är fruset.** Kontrollen serveras ur `tests/fixtures/data/`, inte ur
+`docs/`. Förtidsröstjobbet skriver om `docs/data-fortidsroster/` två gånger
+om dygnet och pushar till `main`; kördes facit mot de riktiga filerna vore
+kontrollen röd inom ett dygn och avstängd inom en vecka. Sidorna märker
+ingenting &ndash; de begär samma adresser som vanligt, och servern svarar
+med fixturen. Av samma skäl fryses klockan i webbläsaren: `fortidsrostning.js`
+och `index.js` räknar ut vilken dag som pågår vid laddning, och deras facit
+skulle annars driva varje dygn. Tidpunkten står i skriptet och hör ihop med
+fixturdatat &ndash; byts fixturerna ut ska den flyttas med.
+
+**Att skriva om facit är en avsedd handling, inte en utväg.** Faller
+kontrollen är första frågan om ändringen var menad. Var den det &ndash; en ny
+siffra i fixturen, en omskriven slutsatstext, ett nytt diagram &ndash; kör
+`--skriv-om` och låt diffen följa med i samma pull request, så att
+granskningen ser vad som flyttade sig. Var den inte det, är det en bugg.
+Skillnaderna skrivs ut med sin väg in i strukturen, så att det syns var:
+
+```
+SKILJER meritvarden.html
+     .tabeller[4].rader[1][1].text: facit "247,5 (11)" → sidan "247,48 (11)"
+```
 
 ### Granskarna
 
