@@ -532,6 +532,14 @@
       }
       return null;
     }
+    /* Sidans eget förval, läst innan adressraden får säga sitt. Det
+       behövs när besökaren går bakåt till en adress som inte nämner
+       reglaget: då är det förvalet som gäller, inte första alternativet.
+       Ämnessidan förvalde Matematik men hade Bild först i listan, så
+       bakåtknappen landade på Bild medan en färsk laddning av samma
+       adress gav Matematik – samma länk, två vyer. Har förvalet hunnit
+       försvinna ur en omfylld väljare får första alternativet duga. */
+    var forval = valjare.value;
     var start = valdOption(urlLas(nyckel));
     if (start !== null) valjare.value = start;
 
@@ -543,7 +551,10 @@
     });
     urlLyssna(function (p) {
       var v = valdOption(p.get(nyckel));
-      var nytt = v !== null ? v : (valjare.options.length ? valjare.options[0].value : "");
+      var utanVarde = valdOption(forval) !== null
+        ? forval
+        : (valjare.options.length ? valjare.options[0].value : "");
+      var nytt = v !== null ? v : utanVarde;
       if (valjare.value !== nytt) {
         valjare.value = nytt;
         ritaOm();
