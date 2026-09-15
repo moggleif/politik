@@ -7,7 +7,7 @@
  "kallaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
  "aktuellt": 2026,
  "forra": 2022,
- "senastUppdaterad": "2026-09-15T11:35+02:00",
+ "senastUppdaterad": "2026-09-15T19:15+02:00",
  "preliminarTom": "2026-09-16",
  "val": {
   "2010": {
@@ -928,7 +928,7 @@
    "kallaUrl": "https://data.val.se/filer/val2026/rostmottagning/mottagna-fortidsroster-val2026.csv",
    "sidaUrl": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
    "preliminarTom": "2026-09-16",
-   "hamtad": "2026-09-15T11:35+02:00",
+   "hamtad": "2026-09-15T19:15+02:00",
    "klart": true,
    "dagar": [
     {
@@ -1047,25 +1047,25 @@
      "datum": "2026-09-11",
      "veckodag": "fre",
      "kvar": 2,
-     "antal": 750,
-     "ack": 7194
+     "antal": 753,
+     "ack": 7197
     },
     {
      "datum": "2026-09-12",
      "veckodag": "lör",
      "kvar": 1,
-     "antal": 417,
-     "ack": 7611
+     "antal": 420,
+     "ack": 7617
     },
     {
      "datum": "2026-09-13",
      "veckodag": "sön",
      "kvar": 0,
-     "antal": 199,
-     "ack": 7810
+     "antal": 216,
+     "ack": 7833
     }
    ],
-   "total": 7810,
+   "total": 7833,
    "rostberattigade": {
     "riksdag": 17996,
     "kommun": 18485,
@@ -1083,7 +1083,7 @@
      "namn": "G:a Apoteket",
      "kommun": "Lindesberg",
      "lokalId": "1885004",
-     "total": 5017,
+     "total": 5031,
      "dagarMedRoster": 19,
      "storstaDag": 443,
      "andel": 64.2
@@ -1092,7 +1092,7 @@
      "namn": "Järnvägsstationen",
      "kommun": "Lindesberg",
      "lokalId": "1885002",
-     "total": 1279,
+     "total": 1282,
      "dagarMedRoster": 10,
      "storstaDag": 170,
      "andel": 16.4
@@ -1170,6 +1170,15 @@
      "andel": 0.3
     },
     {
+     "namn": "Ambulerande röstmottagning",
+     "kommun": "Lindesberg",
+     "lokalId": "1885006",
+     "total": 19,
+     "dagarMedRoster": 8,
+     "storstaDag": 6,
+     "andel": 0.2
+    },
+    {
      "namn": "Ekgården",
      "kommun": "Lindesberg",
      "lokalId": "1885007",
@@ -1185,15 +1194,6 @@
      "total": 14,
      "dagarMedRoster": 1,
      "storstaDag": 14,
-     "andel": 0.2
-    },
-    {
-     "namn": "Ambulerande röstmottagning",
-     "kommun": "Lindesberg",
-     "lokalId": "1885006",
-     "total": 13,
-     "dagarMedRoster": 7,
-     "storstaDag": 3,
      "andel": 0.2
     }
    ],
