@@ -129,6 +129,16 @@
     return null;
   }
 
+  /* Platserna nämnden beslutat om: ett beslut, inte ett utfall, och
+     därför en egen rad med sin egen period. */
+  function visaPlatser(data) {
+    if (!data || !data.ar || !data.ar.length) return;
+    function lasar(ar) { return ar + "/" + (Number(ar) + 1); }
+    el("undertext-platser").textContent =
+      "Nämndens utbudsbeslut, läsåren " + lasar(data.ar[0]) + "–" +
+      lasar(data.ar[data.ar.length - 1]) + ".";
+  }
+
   function visaGymnasium(merit, slut, kull) {
     var rader = [];
 
@@ -368,6 +378,7 @@
      Varje kort fylls oberoende: går en fil inte att läsa står kortets
      beskrivande text kvar. */
 
+  hamta("data-platser.json").then(visaPlatser).catch(function () {});
   hamta("data-amnesbetyg.json").then(visaAmnesbetyg).catch(function () {});
   hamta("data-befolkning.json")
     .then(function (d) { visaBarn(d, "undertext-barn"); }).catch(function () {});

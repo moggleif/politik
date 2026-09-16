@@ -28,7 +28,8 @@ const SIDOR = [
   "amnesbetyg.html", "kostnad-per-elev.html",
   "resurser-till-skolan.html",
   "nian-till-gymnasiet.html",
-  "meritvarden.html", "slutbetyg.html", "antagning-till-examen.html",
+  "platser.html", "meritvarden.html", "slutbetyg.html",
+  "antagning-till-examen.html",
   "fortidsrostning.html", "valresultat.html", "metod.html",
 ];
 

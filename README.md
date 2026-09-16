@@ -54,6 +54,13 @@ sidorna: kommunen flyttar program mellan Aranäsgymnasiet och Elof Lindälvs
 gymnasium, och en serie per skola skulle brytas av en organisationsförändring
 i stället för av att utbildningen ändrats.
 
+- [Platser på programmen](https://moggleif.github.io/politik/platser.html)
+  &ndash; hur många platser nämnden för Gymnasium & Arbetsmarknad beslutar
+  att varje program ska erbjuda, läsåren 2024/25&ndash;2027/28. Till
+  skillnad från de andra gymnasiesidorna är det här ett beslut kommunen
+  fattar, inte ett utfall: talen säger ingenting om hur många som sökte
+  eller kom in. Platserna summeras över skolorna de år ett program funnits
+  på båda &ndash; platser är additiva, till skillnad från meritvärden
 - [Meritvärden vid antagningen](https://moggleif.github.io/politik/meritvarden.html)
   &ndash; meritvärdena hos dem som antogs, ur Göteborgsregionens (GR)
   statistik över slutantagningen, 2017–2026
@@ -252,6 +259,9 @@ data/
   prognoser/varberg/prognos_<år>.json  Detsamma för Varbergs rapporter
   antagning/antagning_<år>.json Meritvärden per utbildning ur GR:s rapport
                                 efter varje års slutantagning
+  utbud/utbud_<år>.json         Platser per program och skola ur nämndens
+                                utbudsbeslut, ett läsår per fil. Året är
+                                antagningsåret, alltså läsårets första år
   slutbetyg/slutbetyg_<år>.json Avgångselevernas slutbetyg per skolenhet och
                                 program, ur Skolverkets statistik
   amnesbetyg/amnesbetyg_<år>.json Niondeklassarnas slutbetyg per ämne, hela
@@ -313,6 +323,10 @@ scripts/
   extrahera_budget.py           Läser prognostabellen ur en kommunbudget
   extrahera_antagning.py        Läser meritvärdena för Kungsbackas
                                 gymnasieskolor ur GR:s antagningsrapport
+  extrahera_utbud.py            Läser platserna per program ur nämndens
+                                utbudsbeslut; klarar handlingens tre former
+  pdftabell.py                  Rutnätsläsningen ur PDF-tabeller, delad
+                                mellan de två extraheringsskripten
   hamta_kolada.py               Hämtar grundskolans nyckeltal ur Koladas
                                 API, i två delar (--del kostnader|resurser)
   hamta_kostnader.py            Hämtar Skolverkets kostnadsstatistik för
@@ -335,6 +349,8 @@ scripts/
                                 docs/data-varberg-16-18.json
   build_meritvarden.py          Bygger docs/data-meritvarden.json, med en
                                 serie per program i stället för per skola
+  build_platser.py              Bygger docs/data-platser.json: platser per
+                                program och läsår, summerade över skolorna
   build_slutbetyg.py            Bygger docs/data-slutbetyg.json, på samma sätt
   build_kull.py                 Bygger docs/data-kull.json: antagningen år X
                                 parad med avgångseleverna år X+3, per program
@@ -422,6 +438,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   kostnad-per-elev.html         Kostnaden per elev i grundskolan, fasta priser
   resurser-till-skolan.html     Resurserna mot referenskostnaden
   nian-till-gymnasiet.html      Från nian till gymnasiet, tre mätpunkter
+  platser.html                  Platser per gymnasieprogram och läsår
   meritvarden.html              Meritvärden vid antagningen till gymnasiet
   slutbetyg.html                Slutbetyg från gymnasiet, program för program
   antagning-till-examen.html    Antagningen mot examen tre år senare

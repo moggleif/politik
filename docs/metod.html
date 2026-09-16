@@ -42,6 +42,7 @@
         <details class="navmeny">
           <summary>Gymnasiet</summary>
           <ul class="navpanel">
+            <li><a href="platser.html">Platser på programmen</a></li>
             <li><a href="meritvarden.html">Meritvärden vid antagningen</a></li>
             <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a></li>
             <li><a href="antagning-till-examen.html">Från antagning till examen</a></li>
@@ -669,7 +670,32 @@
         blev Fordonsskadeteknik och lackering. Vilket namn som gällde ett
         visst år följer med i datat och visas i diagrammens tooltip.
         Namnbytena är förtecknade i byggskripten
-        (<code>PROGRAM_ALIAS</code> och <code>NAMNBYTEN</code>).</dd>
+        (<code>PROGRAM_BYTT_NAMN</code> i <code>scripts/program.py</code> och
+        <code>INRIKTNING_BYTT_NAMN</code> i
+        <code>scripts/build_meritvarden.py</code>).</dd>
+      <dt>Analyskonvention: platserna summeras över skolorna</dt>
+      <dd>På <a href="platser.html">sidan om platser på programmen</a> blir
+        seriens värde <strong>summan</strong> av skolornas platser de år ett
+        program funnits på både Aranäsgymnasiet och Elof Lindälvs gymnasium.
+        Det är ett medvetet avsteg från meritvärdes- och slutbetygssidorna,
+        som i stället håller isär skolorna de åren. Skälet är att måtten
+        beter sig olika: två antagningspoäng går inte att slå ihop, medan
+        platser är additiva, och summan är det tal som svarar på hur många
+        som kan söka programmet i Kungsbacka. Vilka skolor som ingår ett
+        visst år följer med i datat.</dd>
+      <dt>Året är antagningsåret, inte beslutsåret</dt>
+      <dd>Nämndens utbudsbeslut i oktober år X gäller läsåret
+        X+1/X+2. Platserna märks med <strong>antagningsåret</strong>, alltså
+        läsårets första år, så att de ligger på samma år som GR:s antagning
+        till samma läsår och går att läsa mot meritvärdena. Läsåret skrivs
+        ut i etiketter och tabeller.</dd>
+      <dt>Ett år som handlingen inte nämner fylls inte i</dt>
+      <dd>Utbudshandlingarna har haft tre former, och de redovisar olika
+        mycket. Tar en handling inte upp ett program eller en inriktning
+        blir det året ett <strong>hål</strong> i serien, inte en nolla.
+        Noll platser skrivs bara ut när handlingen faktiskt säger noll, som
+        för restaurang- och livsmedelsprogrammet läsåret 2026/2027, då det
+        avvecklades.</dd>
       <dt>Analyskonvention: tre par av inriktningar räknas som en serie</dt>
       <dd>I tre program slås två inriktningar som tidigare hade var sin
         antagning och var sin antagningspoäng ihop till en enda serie från

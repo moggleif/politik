@@ -646,6 +646,115 @@ Ta bara med prognosår – rapporterna inleder ofta tabellen med föregående
 4. Kör `python3 scripts/build_data.py` och kontrollera sidan lokalt:
    `cd docs && python3 -m http.server 8000`
 
+## Platser på gymnasieprogrammen (nämndens utbudsbeslut)
+
+Varje höst fastställer **nämnden för Gymnasium & Arbetsmarknad** hur många
+platser kommunens två gymnasieskolor ska erbjuda på varje program nästa
+läsår. Talen läggs in i antagningssystemet Indra innan ansökan öppnar i
+december.
+
+Handlingarna läses med `scripts/extrahera_utbud.py` och sätts ihop till
+tidsserier med `scripts/build_platser.py`.
+
+**Talen står i handlingarna, inte i protokollet.** Protokollet återger
+inte tabellen; det belägger att beslutet fattades. Båda länkas från sidan.
+
+| Läsår | Möte | Ärende | Status | Form |
+|---|---|---|---|---|
+| 2024/2025 | 2024-11-20 | Utbudsplanering 25/26 (GA-2024-00194) | Redovisad som jämförelsekolumn | bilaga-2024 |
+| 2025/2026 | 2024-11-20 § 146 | Utbudsplanering 25/26 (GA-2024-00194) | Beslutad | bilaga-2024 |
+| 2026/2027 | 2025-10-16 § 119 | Planerat utbud på gymnasieskolorna läsår 2026/2027 (GA-2025-00040) | Beslutad | tabell-2025 |
+| 2027/2028 | 2026-09-17 | Planerat utbud på gymnasieskolorna läsår 2027/2028 (GA-2026-00039) | Planerad, beslut i oktober 2026 | lista-2026 |
+
+**Ärendet ligger inte på samma möte varje år.** 2024 hette det
+"Utbudsplanering 25/26" och låg på novembermötet; 2025 hette det "Planerat
+utbud …" med information i september och beslut i oktober; 2026 följer
+samma ordning som 2025. Leta därför i kallelsen, som är en liten fil,
+innan hela handlingarna hämtas – de är 3–33 MB.
+
+**Handlingen har haft tre former**, som alla tre läses av skriptet:
+
+- `bilaga-2024`: en bifogad tabell per skola med fem talkolumner –
+  organisationen för innevarande läsår, antalet elever i årskurs 1 i
+  oktober, den planerade organisationen för nästa läsår, och hur många av
+  platserna som är sökbara via introduktionsprogrammens programinriktade
+  val respektive yrkesintroduktion. Ger två läsår i ett dokument.
+- `tabell-2025`: en tabell per skola med två talkolumner, antal platser
+  och varav sökbara via programinriktat val.
+- `lista-2026`: samma uppgift som punktlista i löptext.
+
+De två IM-kolumnerna i `bilaga-2024` saknar eget läsår i rubriken. De står
+till höger om den planerade organisationen och läses som en del av den.
+
+**Nationell idrottsutbildning (NIU)** räknas upp i 2026 års lista men är
+inte ett program – platserna ligger inom programmen och skulle
+dubbelräknas. De läses därför inte in.
+
+**Anpassade gymnasieskolan, lärlingsprogrammet och individuellt
+alternativ** finns med i `bilaga-2024` men inte i de senare formerna. De
+läses in och redovisas för sig på sidan, utanför programserierna:
+anpassade gymnasieskolan är en egen skolform, lärlingsutbildning är en
+form snarare än ett program, och individuellt alternativ är ett
+introduktionsprogram.
+
+### Serien börjar läsåret 2024/2025
+
+Kommunens webbplats listar bara nämndens handlingar från 2024 och framåt,
+och de äldre `/download/`-noderna har tagits bort i samband med ett
+plattformsbyte – de svarar 404 i dag, också de adresser som söktjänsterna
+fortfarande har i sitt index. Kvar finns bara Internet Archive.
+
+Vad som söktes och vad som hittades:
+
+| Årgång | Status | Anmärkning |
+|---|---|---|
+| 2018 | Hittad, men tom | `handlingar/2018/publicering-2018-10-23-webb.pdf` finns i Wayback och är komplett. Mötet har inget utbudsärende alls – ärende 6 var "Utfall av antagningen till gymnasieskolan läsåret 2018/2019", och det som muntlig föredragning |
+| 2019–2020 | **Saknas** | Inga arkiverade dokumentmappar |
+| 2021 | Adresser kända, filerna inte hämtade | Wayback har `handlingar/2021/` med mötena 2021-09-15, 2021-10-13, 2021-11-10 och 2021-12-08 |
+| 2022–2023 | **Saknas** | Inga arkiverade dokumentmappar. 2023-10-18 års handlingar har en känd adress ur en söktjänsts index, men den svarar 404 live, och Wayback-kopian är tyst kapad vid 1 MiB |
+| 2024– | Inläst | Kommunens webbplats |
+
+Den formella utbudsplaneringen med platstabell tycks vara en nyare praxis:
+2024 års tjänsteskrivelse hänvisar uttryckligen till Skolverkets krav på
+regional planering och dimensionering, som trädde i kraft 2023.
+
+**Wayback är ostadig härifrån.** Anslutningen bryts oftare än den svarar,
+och kopiorna kapas ibland tyst vid 1 MiB. Kontrollera alltid att filen
+slutar med `%%EOF` innan du litar på den – annars får du en halv handling
+utan att märka det.
+
+### Göteborgsregionen duger inte som källa för platserna
+
+GR sköter antagningen och vet hur många platser varje utbildning har –
+årshjulet har både "utbildningsutbudet rapporteras från gymnasieskolorna"
+och "sista dag att rapportera ändringar i antal utbildningsplatser". Men
+av de tre publika rapporterna redovisar ingen platser per skola och
+program:
+
+| Rapport | Vad den säger om platser |
+|---|---|
+| *Sökandestatistik februari* | Söktryck per gymnasiekommun, platser bara på regionnivå |
+| *Antagningsstatistik* (prel./slut/reserv) | "Inom Göteborgsregionen erbjuds 12 615 platser", uppdelat på kommunala och fristående |
+| *Antagningspoäng och medelvärde* | Inga platser alls; från 2025 bara en fetstilsmarkering för utbildningar utan lediga platser kvar |
+
+Uppgiften per utbildning finns i GR:s verktyg **Antagningsanalys**, som
+kräver inloggning för medlemskommunerna. Kontrollerat i 2026 års
+februari- och slutantagningsrapporter.
+
+### Så läggs en årgång till
+
+1. Hitta mötet där utbudet beslutas – kallelsen listar ärendena.
+2. Hämta handlingarna och plocka ut tjänsteskrivelsens sidor med `pypdf`,
+   till `docs/rapporter/utbud-<läsår>.pdf`. Handlingarna i sin helhet är
+   för stora för repot.
+3. Kör `python3 scripts/extrahera_utbud.py docs/rapporter/utbud-<läsår>.pdf`
+   och spara utdatan som `data/utbud/utbud_<antagningsår>.json` med
+   källuppgifterna ifyllda. Har handlingen bilagans tabellform ger
+   `--kolumn innevarande` respektive `--kolumn planerad` de två läsåren.
+4. Kör `python3 scripts/build_platser.py` och kontrollera sidan lokalt:
+   `cd docs && python3 -m http.server 8000`
+
+
 ## Meritvärden på gymnasiet (GR:s antagningsstatistik)
 
 Gymnasieantagningen för Kungsbacka sköts av Göteborgsregionen (GR), som
