@@ -67,6 +67,9 @@ const SIDOR = [
   "resurser-till-skolan.html",
   "nian-till-gymnasiet.html",
   "platser.html",
+  /* Det äldre läsåret i skillnadsdiagrammet: där är de flesta staplarna
+     negativa, så både tecknet, färgvalet och summan prövas. */
+  "platser.html?year=2024",
   "meritvarden.html",
   "slutbetyg.html",
   "antagning-till-examen.html",

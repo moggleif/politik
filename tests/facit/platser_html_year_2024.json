@@ -1855,11 +1855,11 @@
        "#2a78d6",
        "#2a78d6",
        "#2a78d6",
-       "#2a78d6",
-       "#2a78d6",
-       "#2a78d6",
-       "#2a78d6",
-       "#2a78d6",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
        "#e34948",
        "#e34948",
        "#e34948",
@@ -1868,39 +1868,39 @@
       "borderRadius": 4,
       "borderSkipped": "start",
       "data": [
-       16,
-       14,
        12,
        9,
-       8,
-       7,
-       6,
        3,
        2,
-       0,
+       1,
+       -1,
        -2,
        -3,
-       -17,
-       -32
+       -4,
+       -6,
+       -6,
+       -10,
+       -21,
+       -43
       ],
       "label": "Elever i årskurs 1 minus platser",
       "maxBarThickness": 22
      }
     ],
     "labels": [
-     "Bygg- och anläggningsprogrammet",
      "Försäljnings- och serviceprogrammet",
-     "El- och energiprogrammet",
-     "Naturvetenskapsprogrammet",
      "Barn- och fritidsprogrammet",
-     "Hotell- och turismprogrammet",
-     "Fordons- och transportprogrammet",
      "Vård- och omsorgsprogrammet",
-     "International Baccalaureate",
+     "Fordons- och transportprogrammet",
+     "Naturvetenskapsprogrammet",
+     "El- och energiprogrammet",
      "Samhällsvetenskapsprogrammet",
      "Ekonomiprogrammet",
+     "Hotell- och turismprogrammet",
+     "Bygg- och anläggningsprogrammet",
      "Estetiska programmet",
      "Restaurang- och livsmedelsprogrammet",
+     "International Baccalaureate",
      "Teknikprogrammet"
     ]
    },
@@ -1981,7 +1981,7 @@
         "bottom": 4,
         "top": 4
        },
-       "text": "Elever i årskurs 1 minus platser, läsåret 2025/2026"
+       "text": "Elever i årskurs 1 minus platser, läsåret 2024/2025"
       },
       "type": "linear"
      },
@@ -2051,8 +2051,12 @@
    "skalor": {
     "x": {
      "max": 20,
-     "min": -40,
+     "min": -50,
      "tickar": [
+      {
+       "text": "−50",
+       "varde": -50
+      },
       {
        "text": "−40",
        "varde": -40
@@ -2088,55 +2092,55 @@
      "min": 0,
      "tickar": [
       {
-       "text": "Bygg- och anläggningsprogrammet",
+       "text": "Försäljnings- och serviceprogrammet",
        "varde": 0
       },
       {
-       "text": "Försäljnings- och serviceprogrammet",
+       "text": "Barn- och fritidsprogrammet",
        "varde": 1
       },
       {
-       "text": "El- och energiprogrammet",
+       "text": "Vård- och omsorgsprogrammet",
        "varde": 2
       },
       {
-       "text": "Naturvetenskapsprogrammet",
+       "text": "Fordons- och transportprogrammet",
        "varde": 3
       },
       {
-       "text": "Barn- och fritidsprogrammet",
+       "text": "Naturvetenskapsprogrammet",
        "varde": 4
       },
       {
-       "text": "Hotell- och turismprogrammet",
+       "text": "El- och energiprogrammet",
        "varde": 5
       },
       {
-       "text": "Fordons- och transportprogrammet",
+       "text": "Samhällsvetenskapsprogrammet",
        "varde": 6
       },
       {
-       "text": "Vård- och omsorgsprogrammet",
+       "text": "Ekonomiprogrammet",
        "varde": 7
       },
       {
-       "text": "International Baccalaureate",
+       "text": "Hotell- och turismprogrammet",
        "varde": 8
       },
       {
-       "text": "Samhällsvetenskapsprogrammet",
+       "text": "Bygg- och anläggningsprogrammet",
        "varde": 9
       },
       {
-       "text": "Ekonomiprogrammet",
+       "text": "Estetiska programmet",
        "varde": 10
       },
       {
-       "text": "Estetiska programmet",
+       "text": "Restaurang- och livsmedelsprogrammet",
        "varde": 11
       },
       {
-       "text": "Restaurang- och livsmedelsprogrammet",
+       "text": "International Baccalaureate",
        "varde": 12
       },
       {
@@ -2163,7 +2167,7 @@
     "2024=2024/2025"
    ],
    "id": "ar-valjare",
-   "varde": "2025"
+   "varde": "2024"
   }
  ],
  "tabeller": [
@@ -3972,7 +3976,7 @@
    ]
   },
   {
-   "caption": "Platser, elever i årskurs 1 och skillnaden mellan dem, läsåret 2025/2026. Bara de program som har båda talen.",
+   "caption": "Platser, elever i årskurs 1 och skillnaden mellan dem, läsåret 2024/2025. Bara de program som har båda talen.",
    "id": "tabell-skillnad",
    "rader": [
     [
@@ -4001,28 +4005,6 @@
      {
       "scope": "row",
       "tagg": "TH",
-      "text": "Bygg- och anläggningsprogrammet"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "32"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "48"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "+16"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
       "text": "Försäljnings- och serviceprogrammet"
      },
      {
@@ -4033,29 +4015,7 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "66"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "+14"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "El- och energiprogrammet"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "48"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "60"
+      "text": "64"
      },
      {
       "scope": null,
@@ -4067,17 +4027,17 @@
      {
       "scope": "row",
       "tagg": "TH",
-      "text": "Naturvetenskapsprogrammet"
+      "text": "Barn- och fritidsprogrammet"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "90"
+      "text": "22"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "99"
+      "text": "31"
      },
      {
       "scope": null,
@@ -4089,29 +4049,12 @@
      {
       "scope": "row",
       "tagg": "TH",
-      "text": "Barn- och fritidsprogrammet"
+      "text": "Vård- och omsorgsprogrammet"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "26"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "34"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "+8"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "Hotell- och turismprogrammet"
+      "text": "22"
      },
      {
       "scope": null,
@@ -4121,12 +4064,7 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "32"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "+7"
+      "text": "+3"
      }
     ],
     [
@@ -4143,56 +4081,56 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "46"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "+6"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "Vård- och omsorgsprogrammet"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "26"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "29"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "+3"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "International Baccalaureate"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "16"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "18"
+      "text": "42"
      },
      {
       "scope": null,
       "tagg": "TD",
       "text": "+2"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Naturvetenskapsprogrammet"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "97"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "El- och energiprogrammet"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "48"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "47"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−1"
      }
     ],
     [
@@ -4209,12 +4147,12 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "192"
+      "text": "190"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "0"
+      "text": "−2"
      }
     ],
     [
@@ -4231,12 +4169,56 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "158"
+      "text": "157"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "−2"
+      "text": "−3"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Hotell- och turismprogrammet"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−4"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Bygg- och anläggningsprogrammet"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "32"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−6"
      }
     ],
     [
@@ -4253,12 +4235,12 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "27"
+      "text": "24"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "−3"
+      "text": "−6"
      }
     ],
     [
@@ -4270,17 +4252,39 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "25"
+      "text": "23"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "8"
+      "text": "13"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "−17"
+      "text": "−10"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "International Baccalaureate"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "32"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−21"
      }
     ],
     [
@@ -4292,17 +4296,17 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "96"
+      "text": "128"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "64"
+      "text": "85"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "−32"
+      "text": "−43"
      }
     ],
     [
@@ -4314,17 +4318,17 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "858"
+      "text": "902"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "881"
+      "text": "833"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "+23"
+      "text": "−69"
      }
     ]
    ]
@@ -4483,7 +4487,7 @@
   },
   "#kalla-skillnad": {
    "dold": false,
-   "html": "Antal elever i årskurs 1 den 15 oktober minus antalet platser nämnden beslutat om, läsåret 2025/2026. Stapel åt höger (blå) = fler elever än platser, åt vänster (röd) = färre. Källor: nämndens handlingar och Skolverkets utbildningsstatistik."
+   "html": "Antal elever i årskurs 1 den 15 oktober minus antalet platser nämnden beslutat om, läsåret 2024/2025. Stapel åt höger (blå) = fler elever än platser, åt vänster (röd) = färre. Källor: nämndens handlingar och Skolverkets utbildningsstatistik."
   },
   "#kalla-total": {
    "dold": false,
@@ -4575,7 +4579,7 @@
   },
   "#slutsats-skillnad": {
    "dold": false,
-   "html": "<p>Läsåret 2025/2026 beslutade nämnden om <strong>858 platser</strong> på de 14 program som också har elevtal, och <strong>881 elever</strong> gick första året på dem. Skillnaden är <strong>+23</strong>.</p><p>9 av 14 program hade fler elever i årskurs 1 än platser, 4 hade färre och 1 lika många. Störst avstånd hade <strong>Teknikprogrammet</strong> (−32).</p>"
+   "html": "<p>Läsåret 2024/2025 beslutade nämnden om <strong>902 platser</strong> på de 14 program som också har elevtal, och <strong>833 elever</strong> gick första året på dem. Skillnaden är <strong>−69</strong>.</p><p>5 av 14 program hade fler elever i årskurs 1 än platser, 9 hade färre. Störst avstånd hade <strong>Teknikprogrammet</strong> (−43).</p>"
   },
   "#slutsats-utveckling": {
    "dold": false,
@@ -4595,7 +4599,7 @@
   },
   "#tabell-skillnad": {
    "dold": false,
-   "html": "<caption>Platser, elever i årskurs 1 och skillnaden mellan dem, läsåret 2025/2026. Bara de program som har båda talen.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Program\">Program</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Platser\">Platser</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Elever i årskurs 1\">Elever i årskurs 1</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skillnad\">Skillnad</th></tr></thead><tbody><tr><th scope=\"row\">Bygg- och anläggningsprogrammet</th><td>32</td><td>48</td><td>+16</td></tr><tr><th scope=\"row\">Försäljnings- och serviceprogrammet</th><td>52</td><td>66</td><td>+14</td></tr><tr><th scope=\"row\">El- och energiprogrammet</th><td>48</td><td>60</td><td>+12</td></tr><tr><th scope=\"row\">Naturvetenskapsprogrammet</th><td>90</td><td>99</td><td>+9</td></tr><tr><th scope=\"row\">Barn- och fritidsprogrammet</th><td>26</td><td>34</td><td>+8</td></tr><tr><th scope=\"row\">Hotell- och turismprogrammet</th><td>25</td><td>32</td><td>+7</td></tr><tr><th scope=\"row\">Fordons- och transportprogrammet</th><td>40</td><td>46</td><td>+6</td></tr><tr><th scope=\"row\">Vård- och omsorgsprogrammet</th><td>26</td><td>29</td><td>+3</td></tr><tr><th scope=\"row\">International Baccalaureate</th><td>16</td><td>18</td><td>+2</td></tr><tr><th scope=\"row\">Samhällsvetenskapsprogrammet</th><td>192</td><td>192</td><td>0</td></tr><tr><th scope=\"row\">Ekonomiprogrammet</th><td>160</td><td>158</td><td>−2</td></tr><tr><th scope=\"row\">Estetiska programmet</th><td>30</td><td>27</td><td>−3</td></tr><tr><th scope=\"row\">Restaurang- och livsmedelsprogrammet</th><td>25</td><td>8</td><td>−17</td></tr><tr><th scope=\"row\">Teknikprogrammet</th><td>96</td><td>64</td><td>−32</td></tr></tbody><tfoot><tr><th scope=\"row\">Summa</th><td>858</td><td>881</td><td>+23</td></tr></tfoot>"
+   "html": "<caption>Platser, elever i årskurs 1 och skillnaden mellan dem, läsåret 2024/2025. Bara de program som har båda talen.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Program\">Program</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Platser\">Platser</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Elever i årskurs 1\">Elever i årskurs 1</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skillnad\">Skillnad</th></tr></thead><tbody><tr><th scope=\"row\">Försäljnings- och serviceprogrammet</th><td>52</td><td>64</td><td>+12</td></tr><tr><th scope=\"row\">Barn- och fritidsprogrammet</th><td>22</td><td>31</td><td>+9</td></tr><tr><th scope=\"row\">Vård- och omsorgsprogrammet</th><td>22</td><td>25</td><td>+3</td></tr><tr><th scope=\"row\">Fordons- och transportprogrammet</th><td>40</td><td>42</td><td>+2</td></tr><tr><th scope=\"row\">Naturvetenskapsprogrammet</th><td>96</td><td>97</td><td>+1</td></tr><tr><th scope=\"row\">El- och energiprogrammet</th><td>48</td><td>47</td><td>−1</td></tr><tr><th scope=\"row\">Samhällsvetenskapsprogrammet</th><td>192</td><td>190</td><td>−2</td></tr><tr><th scope=\"row\">Ekonomiprogrammet</th><td>160</td><td>157</td><td>−3</td></tr><tr><th scope=\"row\">Hotell- och turismprogrammet</th><td>25</td><td>21</td><td>−4</td></tr><tr><th scope=\"row\">Bygg- och anläggningsprogrammet</th><td>32</td><td>26</td><td>−6</td></tr><tr><th scope=\"row\">Estetiska programmet</th><td>30</td><td>24</td><td>−6</td></tr><tr><th scope=\"row\">Restaurang- och livsmedelsprogrammet</th><td>23</td><td>13</td><td>−10</td></tr><tr><th scope=\"row\">International Baccalaureate</th><td>32</td><td>11</td><td>−21</td></tr><tr><th scope=\"row\">Teknikprogrammet</th><td>128</td><td>85</td><td>−43</td></tr></tbody><tfoot><tr><th scope=\"row\">Summa</th><td>902</td><td>833</td><td>−69</td></tr></tfoot>"
   },
   "#tabell-utveckling": {
    "dold": false,

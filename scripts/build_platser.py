@@ -48,11 +48,20 @@ inbakad i respektive program och har ingen egen rad. De tre
 utbildningarna utanför programserierna står därför kvar utan nybörjartal,
 och det är riktigare än att para dem med ett tal som betyder något annat.
 
-**Talen mäter inte samma sak.** Platserna är ett beslut fattat hösten
-innan; eleverna är en räkning gjord den 15 oktober läsåret därpå. Mellan
-dem ligger ansökan, antagningen, omvalen och avhoppen. Skillnaden är
-alltså inte "outnyttjade platser" utan avståndet mellan plan och utfall,
-och sidan skriver ut det.
+**Skillnaden räknas fram, med sin varning intill.** De år som har både
+ett utbudsbeslut och räknade elever får `skillnad` = började − platser,
+per program, och en `jamforelse` i sammanfattningen med samma subtraktion
+på totalerna. Talen mäter inte samma sak: platserna är ett beslut fattat
+hösten innan, eleverna är en räkning gjord den 15 oktober läsåret därpå,
+och mellan dem ligger ansökan, antagningen, omvalen och avhoppen.
+Skillnaden är alltså inte "outnyttjade platser" utan avståndet mellan
+plan och utfall, och sidan skriver ut det.
+
+**Jämförelsen täcker bara de program som har båda talen.** Totalerna i
+`jamforelse` summeras över samma programlista på båda sidorna – ett
+program utan elevtal det året får inte räknas med bland platserna och
+sedan saknas bland eleverna, för då vore differensen ett artefakt av
+vilka rader som fanns.
 
 Körs:  python3 scripts/build_platser.py
 """
@@ -260,14 +269,21 @@ def bygg(argangar, elevargangar=None):
     for serie in serier.values():
         varden = {}
         for ar, post in sorted(serie["varden"].items()):
+            # Hur många som gick första året på programmet det läsåret.
+            # Null när Skolverket inte publicerat läsåret än – aldrig
+            # noll, som vore påståendet att ingen började.
+            borjade = elev_per_program.get(serie["namn"], {}).get(ar)
             varden[ar] = {
                 "platser": post["platser"],
                 "varavIMV": post["varavIMV"],
                 "elever": post["elever"],
-                # Hur många som gick första året på programmet det läsåret.
-                # Null när Skolverket inte publicerat läsåret än – aldrig
-                # noll, som vore påståendet att ingen började.
-                "borjade": elev_per_program.get(serie["namn"], {}).get(ar),
+                "borjade": borjade,
+                # Avståndet mellan beslutet och utfallet: hur många fler
+                # (+) eller färre (−) som gick första året än det fanns
+                # platser. Null när elevtalet saknas – aldrig noll, som
+                # vore påståendet att beslutet träffade precis.
+                "skillnad": None if borjade is None
+                else borjade - post["platser"],
                 "skola": " + ".join(KORT[s] for s in
                                     sorted(post["skolor"], key=skolordning)),
                 "antalSkolor": len(post["skolor"]),
@@ -303,6 +319,12 @@ def bygg(argangar, elevargangar=None):
         s = str(ar)
         nationella = [p for p in program if p["typ"] != "okant" and s in p["varden"]]
         ovriga = [p for p in program if p["typ"] == "okant" and s in p["varden"]]
+        # Jämförelsen mellan beslut och utfall räknas över de program som
+        # har båda talen det året, och över dem på båda sidorna. Ett
+        # program utan elevtal får alltså inte heller sina platser med:
+        # annars vore differensen delvis ett mått på vilka rader som fanns.
+        jamforbara = [p for p in nationella
+                      if p["varden"][s]["borjade"] is not None]
         sammanfattning.append({
             "ar": ar,
             "platser": sum(p["varden"][s]["platser"] for p in nationella),
@@ -315,6 +337,14 @@ def bygg(argangar, elevargangar=None):
             # Skolverkets summering, inte summan av programserierna:
             # rapporten räknar också program som inte står i handlingen.
             "borjade": elev_summor.get(s, {}).get("nationella"),
+            # Null de år elevtalen ännu inte publicerats. Antalet program
+            # följer med: det är inte självklart lika med antalProgram.
+            "jamforelse": {
+                "antalProgram": len(jamforbara),
+                "platser": sum(p["varden"][s]["platser"] for p in jamforbara),
+                "borjade": sum(p["varden"][s]["borjade"] for p in jamforbara),
+                "skillnad": sum(p["varden"][s]["skillnad"] for p in jamforbara),
+            } if jamforbara else None,
         })
 
     return {

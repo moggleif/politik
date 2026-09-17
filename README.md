@@ -64,10 +64,12 @@ i stället för av att utbildningen ändrats.
   elever i årskurs 1 på samma program, kommunens båda gymnasieskolor,
   läsåren 2011/12&ndash;2025/26, ur Skolverkets elevstatistik. De två måtten
   har var sitt diagram och var sin tidsaxel &ndash; utbudshandlingarna går
-  bara tillbaka till 2024, elevstatistiken till 2011 &ndash; och sidan
-  räknar inte fram någon skillnad mellan dem: platserna beslutas hösten
-  innan, eleverna räknas den 15 oktober läsåret därpå, och emellan ligger
-  ansökan, antagning, omval och avhopp
+  bara tillbaka till 2024, elevstatistiken till 2011. För de läsår som har
+  båda talen visar sidan också **skillnaden** mellan dem, program för
+  program: elever i årskurs 1 minus platser, med summan räknad över de
+  program som har båda talen. Skillnaden är inte outnyttjade platser
+  &ndash; platserna beslutas hösten innan, eleverna räknas den 15 oktober
+  läsåret därpå, och emellan ligger ansökan, antagning, omval och avhopp
 - [Meritvärden vid antagningen](https://moggleif.github.io/politik/meritvarden.html)
   &ndash; meritvärdena hos dem som antogs, ur Göteborgsregionens (GR)
   statistik över slutantagningen, 2017–2026

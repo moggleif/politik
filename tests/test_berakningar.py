@@ -772,6 +772,69 @@ class TestPlatser(unittest.TestCase):
         self.assertIsNone(serie["varden"]["2027"]["borjade"])
         self.assertIsNone(data["sammanfattning"][1]["borjade"])
 
+    def test_skillnaden_ar_borjade_minus_platser(self):
+        """Fler elever än platser ger plus, färre ger minus.
+
+        Teckenvalet är hela poängen med måttet: stapeln ska peka åt det
+        håll utfallet hamnade i förhållande till beslutet.
+        """
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96),
+                                self.rad("Aranäsgymnasiet",
+                                         "Ekonomiprogrammet", 160)])],
+            [self.elevargang(2026, [("Kommunal", "Teknikprogrammet", 64),
+                                    ("Kommunal", "Ekonomiprogrammet", 171)])])
+        varden = {p["namn"]: p["varden"]["2026"] for p in data["program"]}
+        self.assertEqual(varden["Teknikprogrammet"]["skillnad"], -32)
+        self.assertEqual(varden["Ekonomiprogrammet"]["skillnad"], 11)
+
+    def test_skillnaden_blir_null_utan_elevtal_inte_noll(self):
+        """Noll skulle betyda att beslutet träffade precis."""
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96)]),
+             self.argang(2027, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96)])],
+            [self.elevargang(2026, [("Kommunal", "Teknikprogrammet", 96)])])
+        serie = [p for p in data["program"] if p["namn"] == "Teknikprogrammet"][0]
+        self.assertEqual(serie["varden"]["2026"]["skillnad"], 0)
+        self.assertIsNone(serie["varden"]["2027"]["skillnad"])
+        self.assertIsNone(data["sammanfattning"][1]["jamforelse"])
+
+    def test_jamforelsen_raknar_samma_program_pa_bada_sidorna(self):
+        """Ett program utan elevtal får inte heller sina platser räknade.
+
+        Annars vore differensen delvis ett mått på vilka rader som fanns:
+        160 platser utan elevtal skulle dras av som om ingen börjat där.
+        """
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96),
+                                self.rad("Aranäsgymnasiet",
+                                         "Ekonomiprogrammet", 160)])],
+            [self.elevargang(2026, [("Kommunal", "Teknikprogrammet", 64)])])
+        s = data["sammanfattning"][0]
+        self.assertEqual(s["platser"], 256)
+        self.assertEqual(s["antalProgram"], 2)
+        self.assertEqual(s["jamforelse"], {"antalProgram": 1, "platser": 96,
+                                           "borjade": 64, "skillnad": -32})
+
+    def test_jamforelsens_skillnad_ar_summornas_skillnad(self):
+        """Summan av programmens skillnader = summornas skillnad."""
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96),
+                                self.rad("Elof Lindälvs gymnasium",
+                                         "Vård- och omsorgsprogrammet", 26)])],
+            [self.elevargang(2026, [("Kommunal", "Teknikprogrammet", 64),
+                                    ("Kommunal",
+                                     "Vård- och omsorgsprogrammet", 29)])])
+        j = data["sammanfattning"][0]["jamforelse"]
+        self.assertEqual(j, {"antalProgram": 2, "platser": 122,
+                             "borjade": 93, "skillnad": -29})
+        self.assertEqual(j["skillnad"], j["borjade"] - j["platser"])
+
     def test_nyborjarserien_far_leva_langre_an_platsserien(self):
         """Eleverna finns från 2011, platserna från 2024.
 
@@ -2154,6 +2217,17 @@ class TestTolkningsregler(unittest.TestCase):
                            if int(a) >= 2025 and v.get("utanPlatser") is False
                            and v.get("poang") is not None]
         self.assertTrue(utan_konkurrens)
+
+    def test_skillnaden_utges_inte_for_outnyttjade_platser(self):
+        """Platserna beslutas hösten innan, eleverna räknas den 15 oktober.
+
+        Emellan ligger ansökan, antagning, omval och avhopp, och nämnden
+        får ändra antalet platser till våren. Differensen mäter avståndet
+        mellan beslut och utfall – kallas den tomma platser påstår sidan
+        något den inte kan veta.
+        """
+        for vag in ("docs/platser.html", "docs/metod.html"):
+            self.assertIn("inte outnyttjade platser", self.las(vag).lower(), vag)
 
     def test_fasta_priser_utges_inte_for_volymjusterade(self):
         """KPI mäter hushållens priser, inte kommunens kostnader.
