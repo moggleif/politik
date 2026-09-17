@@ -1,6 +1,7 @@
 /* Platser på gymnasieprogrammen – läser docs/data-platser.json och ritar
-   diagrammen. Sidan visar två saker: vad nämnden beslutar att programmen
-   ska erbjuda, och hur många som sedan faktiskt går första året där.
+   diagrammen. Sidan visar tre saker: vad nämnden beslutar att programmen
+   ska erbjuda, hur många som sedan faktiskt går första året där, och – för
+   de läsår som har båda talen – hur långt ifrån varandra de ligger.
 
    Enheten är programmet, inte skolan: kommunen flyttar program mellan sina
    två gymnasieskolor. Till skillnad från meritvärdessidan summeras
@@ -14,7 +15,11 @@
    in. Tidsaxlarna är olika långa och det är avsiktligt: platserna finns
    från läsåret 2024/2025, eftersom äldre nämndhandlingar inte går att få
    tag på, medan Skolverkets elevstatistik finns från 2011/2012. Att
-   tvinga in den korta serien i den långas skala skulle ge mest luft. */
+   tvinga in den korta serien i den långas skala skulle ge mest luft.
+
+   Skillnaden mellan måtten får ett eget avsnitt längst ned, ett läsår i
+   taget. Den subtraktionen görs inte här utan i build_platser.py – sidan
+   ritar den, bygget räknar den. */
 (function () {
   "use strict";
 
@@ -425,7 +430,7 @@
       }),
       summa: borjadeSumma
     });
-    K.sattDataNot("tabell-borjade",
+    K.sattDataNot("not-borjade",
       "Summan är programmen i tabellen. Skolverket redovisar en del år " +
       "därutöver enstaka elever på program som inte står i nämndens " +
       "utbudsbeslut – de ingår inte här.");
@@ -502,6 +507,163 @@
       "Baccalaureate, båda skolorna. Anpassade gymnasieskolan, " +
       "lärlingsprogrammet och individuellt alternativ ingår inte – de " +
       "redovisas bara i en del av handlingarna.";
+  }
+
+  /* ---------- Avsnitt 4: skillnaden mellan beslut och utfall ----------
+
+     De två måtten dragna från varandra, program för program: elever i
+     årskurs 1 minus platser, samma läsår. Subtraktionen görs i bygget
+     (fältet `skillnad`), inte här – den är ett mått och hör hemma där
+     måtten räknas och testas.
+
+     Bilden är liggande staplar, ett läsår i taget. Två skäl: med ett
+     dussin programnamn är etiketterna läsbara bara vågrätt, och ett
+     tvåpoligt mått vill ha en nollinje att vända kring, inte en
+     baslinje längst ned. Bara de läsår som har båda talen går att välja,
+     och de är färre än platsåren: elevtalen publiceras våren efter. */
+
+  function jamforelsen(a) {
+    var r = DATA.sammanfattning.filter(function (s) {
+      return s.ar === Number(a);
+    })[0];
+    return r && r.jamforelse ? r.jamforelse : null;
+  }
+
+  function skillnadsar() {
+    return DATA.ar.filter(function (a) { return jamforelsen(a) !== null; });
+  }
+
+  /* Programmen som har båda talen det läsåret, störst plus först. Samma
+     urval som jämförelsens summor: ett program utan elevtal står utanför
+     på båda sidorna. */
+  function skillnadsrader(a) {
+    return programmen().filter(function (p) {
+      return p.varden[a] && p.varden[a].skillnad !== null;
+    }).map(function (p) {
+      return {
+        namn: p.namn,
+        platser: p.varden[a].platser,
+        borjade: p.varden[a].borjade,
+        skillnad: p.varden[a].skillnad
+      };
+    }).sort(function (x, y) { return y.skillnad - x.skillnad; });
+  }
+
+  function tecknat(v) { return (v > 0 ? "+" : "") + talSv(v); }
+
+  function ritaSkillnad() {
+    var a = el("ar-valjare").value;
+    var rader = skillnadsrader(a);
+    if (!rader.length) return;
+
+    var options = K.diagramStomme({
+      pekar: "nearest",
+      legend: { display: false },
+      tooltip: {
+        label: function (it) {
+          var r = rader[it.dataIndex];
+          return [
+            talSv(r.platser) + " platser beslutade",
+            talSv(r.borjade) + (r.borjade === 1 ? " elev" : " elever") +
+              " i årskurs 1",
+            r.skillnad === 0
+              ? "Lika många elever som platser"
+              : (r.skillnad > 0 ? "Fler elever än platser: "
+                : "Färre elever än platser: ") + tecknat(r.skillnad)
+          ];
+        }
+      }
+    });
+    options.indexAxis = "y";
+    options.scales = {
+      x: K.mattAxel({
+        titel: "Elever i årskurs 1 minus platser, läsåret " + lasaret(a),
+        ticks: { callback: function (v) { return tecknat(v); } }
+      }),
+      y: K.kategoriAxel({ ticks: {} })
+    };
+    /* Nollinjen är den här bildens baslinje och ritas starkare än
+       rutnätet: det är den staplarna vänder kring. */
+    options.scales.x.grid = {
+      color: function (c) {
+        return c.tick.value === 0 ? FARG.baseline : FARG.grid;
+      }
+    };
+
+    rita("diagram-skillnad", {
+      type: "bar",
+      data: {
+        labels: rader.map(function (r) { return r.namn; }),
+        datasets: [{
+          label: "Elever i årskurs 1 minus platser",
+          data: rader.map(function (r) { return r.skillnad; }),
+          backgroundColor: rader.map(function (r) {
+            return r.skillnad >= 0 ? FARG.bla : FARG.rod;
+          }),
+          borderRadius: 4,
+          borderSkipped: "start",
+          maxBarThickness: 22
+        }]
+      },
+      options: options
+    }, Math.max(260, rader.length * 30 + 120));
+
+    el("kalla-skillnad").textContent =
+      "Antal elever i årskurs 1 den 15 oktober minus antalet platser " +
+      "nämnden beslutat om, läsåret " + lasaret(a) + ". Stapel åt höger " +
+      "(blå) = fler elever än platser, åt vänster (röd) = färre. Källor: " +
+      "nämndens handlingar och Skolverkets utbildningsstatistik.";
+
+    ritaSkillnadSlutsats(a, rader);
+    ritaSkillnadTabell(a, rader);
+  }
+
+  function ritaSkillnadSlutsats(a, rader) {
+    var j = jamforelsen(a);
+    var over = rader.filter(function (r) { return r.skillnad > 0; }).length;
+    var under = rader.filter(function (r) { return r.skillnad < 0; }).length;
+    var lika = rader.length - over - under;
+    var storst = rader.slice().sort(function (x, y) {
+      return Math.abs(y.skillnad) - Math.abs(x.skillnad);
+    })[0];
+
+    var html = "<p>Läsåret " + esc(lasaret(a)) + " beslutade nämnden om " +
+      "<strong>" + talSv(j.platser) + " platser</strong> på de " +
+      talSv(j.antalProgram) + " program som också har elevtal, och " +
+      "<strong>" + talSv(j.borjade) + " elever</strong> gick första året " +
+      "på dem. Skillnaden är <strong>" + tecknat(j.skillnad) +
+      "</strong>.</p>";
+    html += "<p>" + talSv(over) + " av " + talSv(rader.length) +
+      " program hade fler elever i årskurs 1 än platser, " + talSv(under) +
+      " hade färre" + (lika ? " och " + talSv(lika) + " lika många" : "") +
+      ". Störst avstånd hade <strong>" + esc(storst.namn) + "</strong> (" +
+      tecknat(storst.skillnad) + ").</p>";
+    el("slutsats-skillnad").innerHTML = html;
+  }
+
+  function ritaSkillnadTabell(a, rader) {
+    var j = jamforelsen(a);
+    var t = "<caption>Platser, elever i årskurs 1 och skillnaden mellan " +
+      "dem, läsåret " + esc(lasaret(a)) + ". Bara de program som har båda " +
+      "talen.</caption>";
+    t += "<thead><tr><th scope=\"col\">Program</th>" +
+      "<th scope=\"col\">Platser</th>" +
+      "<th scope=\"col\">Elever i årskurs 1</th>" +
+      "<th scope=\"col\">Skillnad</th></tr></thead><tbody>";
+    rader.forEach(function (r) {
+      t += "<tr><th scope=\"row\">" + esc(r.namn) + "</th><td>" +
+        talSv(r.platser) + "</td><td>" + talSv(r.borjade) + "</td><td>" +
+        tecknat(r.skillnad) + "</td></tr>";
+    });
+    t += "</tbody><tfoot><tr><th scope=\"row\">Summa</th><td>" +
+      talSv(j.platser) + "</td><td>" + talSv(j.borjade) + "</td><td>" +
+      tecknat(j.skillnad) + "</td></tr></tfoot>";
+    el("tabell-skillnad").innerHTML = t;
+
+    K.sattDataNot("not-skillnad",
+      "Summan täcker programmen i tabellen, på båda sidorna. Skolverkets " +
+      "egen summering för nationella program är högre: den räknar också " +
+      "program vid skolorna som inte står i nämndens utbudsbeslut.");
   }
 
   /* ---------- Kort sagt, källor, start ---------- */
@@ -619,6 +781,15 @@
       .map(function (p) { return p.namn; }));
     K.kopplaValjare(programVal, "program", ritaUtveckling);
 
+    /* Läsårsväljaren har bara de år som har båda måtten. Saknas de –
+       elevstatistiken är ett eget hämtsteg – står avsnittet kvar dolt. */
+    var jamforbaraAr = skillnadsar();
+    if (jamforbaraAr.length) {
+      K.fyllValjare(el("ar-valjare"), jamforbaraAr.slice().reverse(), lasaret);
+      K.kopplaValjare(el("ar-valjare"), "year", ritaSkillnad);
+      el("sektion-skillnad").hidden = false;
+    }
+
     el("sektion-utveckling").hidden = false;
     el("sektion-total").hidden = false;
 
@@ -628,6 +799,7 @@
     ritaBorjade();
     ritaBorjadeTotal();
     ritaTotal();
+    if (jamforbaraAr.length) ritaSkillnad();
     initOvriga();
     initKallor();
   }

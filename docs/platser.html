@@ -180,6 +180,7 @@
     <details>
       <summary>Visa siffrorna som tabell</summary>
       <div class="tabell-rull"><table id="tabell-borjade"></table></div>
+      <div id="not-borjade" hidden></div>
     </details>
   </section>
 
@@ -195,6 +196,41 @@
       <div class="diagram-wrap"><canvas id="diagram-borjade-total" aria-label="Diagram: totalt antal elever i årskurs 1 på kommunens gymnasieprogram per läsår" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-borjade-total"></p>
     </div>
+  </section>
+
+  <section id="sektion-skillnad" hidden>
+    <h2>Hur långt från utbudet hamnade utfallet?</h2>
+    <p class="forklaring">
+      De två måtten ovan, dragna från varandra: antalet elever i årskurs 1
+      minus antalet platser nämnden beslutat om, samma program och samma
+      läsår. En stapel åt höger betyder att fler gick första året än det
+      fanns platser, en stapel åt vänster att färre gjorde det. Bara de
+      läsår som har båda talen går att visa &ndash; utbudsbesluten finns
+      från 2024/2025, elevtalen till och med det senast publicerade läsåret.
+    </p>
+    <p class="forklaring">
+      <strong>Skillnaden är inte outnyttjade platser.</strong> Platserna är
+      ett beslut fattat hösten innan, eleverna en räkning gjord den 15
+      oktober läsåret därpå, och emellan ligger ansökan, antagningen,
+      omvalen och avhoppen &ndash; liksom nämndens egen möjlighet att ändra
+      antalet platser fram till våren. Talet mäter avståndet mellan beslutet
+      och utfallet, och ingenting annat: sidan säger inte om platserna stod
+      tomma, om eleverna trängdes eller varför talen skiljer sig åt.
+    </p>
+    <div class="valj-ar">
+      <label for="ar-valjare">Visa läsår:</label>
+      <select id="ar-valjare"></select>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-skillnad" aria-label="Diagram: antalet elever i årskurs 1 minus antalet platser, per gymnasieprogram" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-skillnad"></p>
+    </div>
+    <div class="slutsats" id="slutsats-skillnad"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-skillnad"></table></div>
+      <div id="not-skillnad" hidden></div>
+    </details>
   </section>
 
   <section id="sektion-ovriga" hidden>
@@ -295,6 +331,15 @@
       går tillbaka till 2024/2025. De två diagrammen har därför olika
       tidsaxlar. Det senaste läsåret saknar elevtal tills Skolverket
       publicerar det, vilket sker våren efter.
+    </p>
+    <p class="forklaring">
+      <strong>Skillnaden räknas bara där båda talen finns.</strong> Ett
+      läsår kommer med i skillnadsdiagrammet först när Skolverket
+      publicerat elevtalen för det, och ett program först när det har både
+      ett platsbeslut och ett elevtal det läsåret. Summan längst ned i
+      tabellen räknas över precis de programmen, på båda sidorna: ett
+      program utan elevtal får inte heller sina platser medräknade, för då
+      vore differensen delvis ett mått på vilka rader som fanns.
     </p>
     <p class="forklaring">
       <strong>Bara de nationella programmen har elevtal.</strong> På
