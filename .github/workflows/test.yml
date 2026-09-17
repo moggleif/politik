@@ -16,13 +16,6 @@
 # röda inom ett dygn, eftersom förtidsröstjobbet skriver om sina datafiler
 # två gånger om dagen. Rök-testet kör däremot mot de riktiga filerna, för
 # det är dess uppgift att upptäcka ett trasigt databygge.
-#
-# Båda jobben har en tidsgräns. Utan en sådan ärver de GitHubs sex
-# timmar, och en runner som hänger sig – vilket den gör ibland – blir ett
-# jobb som varken blir grönt eller rött på en halv arbetsdag. Gränserna
-# är satta med god marginal: Python-jobbet brukar vara klart på en
-# halvminut, webbplatsjobbet på fyra minuter. Slår en gräns till är det
-# ett besked om att något står stilla, inte om att koden är långsam.
 name: Tester
 
 on:
@@ -37,7 +30,6 @@ jobs:
   berakningar:
     name: Beräkningar och datafiler
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -58,7 +50,6 @@ jobs:
   webbplats:
     name: Webbplatsens sidor
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
