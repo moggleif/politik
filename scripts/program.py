@@ -41,6 +41,11 @@ YRKESPROGRAM = {
     "Bygg- och anläggningsprogrammet",
     "El- och energiprogrammet",
     "Fordons- och transportprogrammet",
+    # Eget nationellt program sedan den 1 juli 2023; dessförinnan en
+    # inriktning på hantverksprogrammet. I Kungsbacka finns det bara hos
+    # en fristående huvudman, men listan ska vara programmen som finns,
+    # inte bara de kommunen själv erbjuder.
+    "Frisör- och stylistprogrammet",
     "Försäljnings- och serviceprogrammet",
     "Hantverksprogrammet",
     "Hotell- och turismprogrammet",

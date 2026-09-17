@@ -700,6 +700,10 @@
    },
    "id": "diagram-total",
    "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
     "maintainAspectRatio": false,
     "plugins": {
      "legend": {
@@ -746,7 +750,7 @@
       "ticks": {
        "align": "center",
        "autoSkip": true,
-       "autoSkipPadding": 3,
+       "autoSkipPadding": 8,
        "backdropColor": "rgba(255, 255, 255, 0.75)",
        "backdropPadding": 2,
        "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
@@ -755,7 +759,7 @@
        "display": true,
        "labelOffset": 0,
        "major": {},
-       "maxRotation": 50,
+       "maxRotation": 0,
        "minRotation": 0,
        "minor": {},
        "mirror": false,
@@ -858,6 +862,934 @@
       {
        "text": "2027",
        "varde": 3
+      }
+     ]
+    },
+    "y": {
+     "max": 1000,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "100",
+       "varde": 100
+      },
+      {
+       "text": "200",
+       "varde": 200
+      },
+      {
+       "text": "300",
+       "varde": 300
+      },
+      {
+       "text": "400",
+       "varde": 400
+      },
+      {
+       "text": "500",
+       "varde": 500
+      },
+      {
+       "text": "600",
+       "varde": 600
+      },
+      {
+       "text": "700",
+       "varde": 700
+      },
+      {
+       "text": "800",
+       "varde": 800
+      },
+      {
+       "text": "900",
+       "varde": 900
+      },
+      {
+       "text": "1 000",
+       "varde": 1000
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 2.5,
+      "data": [
+       151,
+       168,
+       139,
+       202,
+       151,
+       155,
+       140,
+       181,
+       177,
+       216,
+       196,
+       157,
+       185,
+       190,
+       192
+      ],
+      "label": "Samhällsvetenskapsprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [],
+      "borderWidth": 2.5,
+      "data": [
+       101,
+       98,
+       102,
+       120,
+       121,
+       149,
+       151,
+       149,
+       149,
+       150,
+       160,
+       160,
+       156,
+       157,
+       158
+      ],
+      "label": "Ekonomiprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [],
+      "borderWidth": 2.5,
+      "data": [
+       99,
+       98,
+       90,
+       97,
+       104,
+       113,
+       117,
+       128,
+       127,
+       105,
+       96,
+       121,
+       96,
+       97,
+       99
+      ],
+      "label": "Naturvetenskapsprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#cc79a7",
+      "borderColor": "#cc79a7",
+      "borderDash": [],
+      "borderWidth": 2.5,
+      "data": [
+       33,
+       37,
+       45,
+       44,
+       30,
+       49,
+       52,
+       49,
+       45,
+       47,
+       57,
+       58,
+       57,
+       64,
+       66
+      ],
+      "label": "Försäljnings- och serviceprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#56b4e9",
+      "borderColor": "#56b4e9",
+      "borderDash": [],
+      "borderWidth": 2.5,
+      "data": [
+       122,
+       121,
+       123,
+       123,
+       115,
+       121,
+       157,
+       155,
+       128,
+       176,
+       158,
+       162,
+       128,
+       85,
+       64
+      ],
+      "label": "Teknikprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#d55e00",
+      "borderColor": "#d55e00",
+      "borderDash": [],
+      "borderWidth": 2.5,
+      "data": [
+       42,
+       50,
+       48,
+       47,
+       45,
+       48,
+       48,
+       47,
+       48,
+       48,
+       48,
+       60,
+       48,
+       47,
+       60
+      ],
+      "label": "El- och energiprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#7a5195",
+      "borderColor": "#7a5195",
+      "borderDash": [],
+      "borderWidth": 2.5,
+      "data": [
+       36,
+       36,
+       34,
+       39,
+       37,
+       42,
+       44,
+       42,
+       47,
+       59,
+       52,
+       53,
+       43,
+       26,
+       48
+      ],
+      "label": "Bygg- och anläggningsprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#6b8f00",
+      "borderColor": "#6b8f00",
+      "borderDash": [],
+      "borderWidth": 2.5,
+      "data": [
+       44,
+       39,
+       41,
+       38,
+       36,
+       33,
+       33,
+       46,
+       46,
+       55,
+       57,
+       56,
+       49,
+       42,
+       46
+      ],
+      "label": "Fordons- och transportprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2.5,
+      "data": [
+       37,
+       26,
+       28,
+       17,
+       16,
+       18,
+       31,
+       28,
+       34,
+       31,
+       17,
+       23,
+       7,
+       31,
+       34
+      ],
+      "label": "Barn- och fritidsprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2.5,
+      "data": [
+       26,
+       23,
+       24,
+       27,
+       29,
+       30,
+       21,
+       17,
+       16,
+       12,
+       4,
+       20,
+       19,
+       21,
+       32
+      ],
+      "label": "Hotell- och turismprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#009e73",
+      "borderColor": "#009e73",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2.5,
+      "data": [
+       27,
+       30,
+       15,
+       23,
+       21,
+       18,
+       27,
+       22,
+       26,
+       21,
+       17,
+       19,
+       25,
+       25,
+       29
+      ],
+      "label": "Vård- och omsorgsprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#cc79a7",
+      "borderColor": "#cc79a7",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2.5,
+      "data": [
+       63,
+       38,
+       61,
+       47,
+       25,
+       37,
+       40,
+       41,
+       29,
+       22,
+       20,
+       27,
+       36,
+       24,
+       27
+      ],
+      "label": "Estetiska programmet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "rectRot",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#56b4e9",
+      "borderColor": "#56b4e9",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2.5,
+      "data": [
+       14,
+       14,
+       25,
+       31,
+       19,
+       21,
+       19,
+       16,
+       21,
+       20,
+       31,
+       18,
+       15,
+       11,
+       18
+      ],
+      "label": "International Baccalaureate",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "circle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#d55e00",
+      "borderColor": "#d55e00",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2.5,
+      "data": [
+       22,
+       20,
+       14,
+       17,
+       24,
+       18,
+       4,
+       20,
+       12,
+       7,
+       10,
+       16,
+       20,
+       13,
+       8
+      ],
+      "label": "Restaurang- och livsmedelsprogrammet",
+      "pointHoverRadius": 7,
+      "pointRadius": 3.5,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-borjade",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 40
+      },
+      "onHover": "fn:function (e, post) { if (post.datasetIndex !== undefined) tona(post.datasetIndex); }",
+      "onLeave": "fn:function () { tona(null); }",
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y) + (it.parsed.y === 1 ? \" elev\" : \" elever\") + \" i årskurs 1\"; }",
+       "title": "fn:function (it) { return \"Läsår \" + lasaret(it[0].label); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 8,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": "8%",
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal elever i årskurs 1"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 14,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2011",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 500,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderWidth": 1,
+      "data": [
+       817,
+       798,
+       789,
+       872,
+       773,
+       852,
+       884,
+       941,
+       905,
+       969,
+       923,
+       950,
+       884,
+       833,
+       881
+      ],
+      "label": "Elever i årskurs 1 på kommunens gymnasieprogram"
+     }
+    ],
+    "labels": [
+     "2011",
+     "2012",
+     "2013",
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-borjade-total",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return talSv(it.parsed.y) + \" elever i årskurs 1\"; }",
+       "title": "fn:function (it) { return \"Läsår \" + lasaret(it[0].label); }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": true,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 8,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal elever i årskurs 1"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 14,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2011",
+       "varde": 0
+      },
+      {
+       "text": "2012",
+       "varde": 1
+      },
+      {
+       "text": "2013",
+       "varde": 2
+      },
+      {
+       "text": "2014",
+       "varde": 3
+      },
+      {
+       "text": "2015",
+       "varde": 4
+      },
+      {
+       "text": "2016",
+       "varde": 5
+      },
+      {
+       "text": "2017",
+       "varde": 6
+      },
+      {
+       "text": "2018",
+       "varde": 7
+      },
+      {
+       "text": "2019",
+       "varde": 8
+      },
+      {
+       "text": "2020",
+       "varde": 9
+      },
+      {
+       "text": "2021",
+       "varde": 10
+      },
+      {
+       "text": "2022",
+       "varde": 11
+      },
+      {
+       "text": "2023",
+       "varde": 12
+      },
+      {
+       "text": "2024",
+       "varde": 13
+      },
+      {
+       "text": "2025",
+       "varde": 14
       }
      ]
     },
@@ -1412,7 +2344,12 @@
    ]
   },
   {
-   "caption": "Utbildningar utanför de nationella programmen. De redovisas bara i de handlingar som har bilagans tabellform, och tomma fält betyder att handlingen inte tar upp dem – inte att de lagts ned.",
+   "caption": null,
+   "id": "tabell-borjade",
+   "rader": []
+  },
+  {
+   "caption": "Utbildningar utanför de nationella programmen. De redovisas bara i de handlingar som har bilagans tabellform, och tomma fält betyder att handlingen inte tar upp dem – inte att de lagts ned. De har inga elevtal: Skolverkets rapport redovisar dem inte som program med årskurser.",
    "id": "tabell-ovriga",
    "rader": [
     [
@@ -1527,6 +2464,14 @@
   }
  ],
  "text": {
+  "#diagram-borjade": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-borjade-total": {
+   "dold": false,
+   "html": ""
+  },
   "#diagram-total": {
    "dold": false,
    "html": ""
@@ -1538,6 +2483,14 @@
   "#huvudinnehall": {
    "dold": false,
    "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kalla-borjade": {
+   "dold": false,
+   "html": "Antal elever i årskurs 1 den 15 oktober på Aranäsgymnasiet och Elof Lindälvs gymnasium, läsåren 2011/2012–2025/2026. Källa: Skolverkets utbildningsstatistik. Peka på ett namn i teckenförklaringen så tonas de andra linjerna ned; klicka för att dölja linjen."
+  },
+  "#kalla-borjade-total": {
+   "dold": false,
+   "html": "Summan av eleverna i årskurs 1 på de program som finns i nämndens utbud, båda skolorna, läsåren 2011/2012–2025/2026. Introduktionsprogrammen och den anpassade gymnasieskolan ingår inte. Källa: Skolverkets utbildningsstatistik."
   },
   "#kalla-total": {
    "dold": false,
@@ -1553,7 +2506,7 @@
   },
   "#kort-sagt-lista": {
    "dold": false,
-   "html": "<li>Läsåret 2027/2028 erbjuder kommunens gymnasieskolor <strong>861 platser</strong> på 13 program.</li><li>Det är <strong>−41 platser</strong> jämfört med läsåret 2024/2025.</li><li>Störst rörelse har <strong>Teknikprogrammet</strong>: 64 platsers skillnad mellan periodens största och minsta utbud.</li>"
+   "html": "<li>Läsåret 2027/2028 erbjuder kommunens gymnasieskolor <strong>861 platser</strong> på 13 program.</li><li>Det är <strong>−41 platser</strong> jämfört med läsåret 2024/2025.</li><li>Läsåret 2025/2026, det senast räknade, gick <strong>881 elever</strong> i årskurs 1 på de programmen.</li><li>Störst rörelse har <strong>Teknikprogrammet</strong>: 64 platsers skillnad mellan periodens största och minsta utbud.</li>"
   },
   "#kort-sagt-rubrik": {
    "dold": false,
@@ -1563,21 +2516,33 @@
    "dold": false,
    "html": "<li><span class=\"titel\">Läsår 2027/2028: Planerat utbud på gymnasieskolorna läsår 2027/2028</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun, 2026-09-17 (GA-2026-00039)</span><div class=\"lankar\"><a href=\"rapporter/utbud-2027-2028.pdf\">Läs tjänsteskrivelsen (PDF)</a><a href=\"https://kungsbacka.se/download/18.5689acbf1a086271040226f9/1789034138535/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202026-09-17.pdf\">Hela handlingarna hos kommunen</a></div></li><li><span class=\"titel\">Läsår 2026/2027: Planerat utbud på gymnasieskolorna läsår 2026/2027</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun, 2025-10-16 § 119 (GA-2025-00040)</span><div class=\"lankar\"><a href=\"rapporter/utbud-2026-2027.pdf\">Läs tjänsteskrivelsen (PDF)</a><a href=\"https://kungsbacka.se/download/18.7d495738199c8fe75281b0dc/1760095325635/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202025-10-16.pdf\">Hela handlingarna hos kommunen</a><a href=\"https://kungsbacka.se/download/18.4ac81f8819a0f459fef1dd70/1761285111298/Protokoll%20f%C3%B6r%20n%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20%202025-10-16.pdf\">Protokollet</a></div></li><li><span class=\"titel\">Läsår 2025/2026: Utbudsplanering 25/26</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun, 2024-11-20 § 146 (GA-2024-00194)</span><div class=\"lankar\"><a href=\"rapporter/utbud-2025-2026.pdf\">Läs tjänsteskrivelsen (PDF)</a><a href=\"https://kungsbacka.se/download/18.6900ef2d1932979363732f/1731569869926/Handlingar%20till%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202024-11-20.pdf\">Hela handlingarna hos kommunen</a><a href=\"https://kungsbacka.se/download/18.5ea575a19367eedc8617d0e/1732870777532/Protokoll%20f%C3%B6r%20n%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20arbetsmarknad%202024-11-20.pdf\">Protokollet</a></div></li><li><span class=\"titel\">Läsår 2024/2025: Utbudsplanering 25/26</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun, 2024-11-20 (GA-2024-00194)</span><div class=\"lankar\"><a href=\"rapporter/utbud-2025-2026.pdf\">Läs tjänsteskrivelsen (PDF)</a><a href=\"https://kungsbacka.se/download/18.6900ef2d1932979363732f/1731569869926/Handlingar%20till%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202024-11-20.pdf\">Hela handlingarna hos kommunen</a><a href=\"https://kungsbacka.se/download/18.5ea575a19367eedc8617d0e/1732870777532/Protokoll%20f%C3%B6r%20n%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20arbetsmarknad%202024-11-20.pdf\">Protokollet</a></div></li>"
   },
+  "#lista-kallor-elever": {
+   "dold": false,
+   "html": "<li><span class=\"titel\">Gymnasieskola – Antal elever, per program</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, läsåren 2011/12–2025/26, hämtade 2026-09-17</span><div class=\"lankar\"><a href=\"https://www.skolverket.se/skolutveckling/statistik/sok-statistik-om-forskola-skola-och-vuxenutbildning\">Sök statistiken hos Skolverket</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=58&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">Uttaget för läsåret 2025/26 (CSV)</a></div></li>"
+  },
   "#meta-rad": {
    "dold": false,
-   "html": "<span>Källa: Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: läsåren 2024/2025–2027/2028</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: läsår 2027/2028</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-15</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+   "html": "<span>Källa: Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun och Skolverket</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: läsåren 2024/2025–2027/2028</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: läsår 2027/2028</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-15</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
   },
   "#om-uppdaterad": {
    "dold": false,
-   "html": "Handlingarna hämtades 2026-09-15. Sidan omfattar 4 läsår."
+   "html": "Handlingarna hämtades 2026-09-15. Sidan omfattar 4 läsårs utbudsbeslut och 15 läsårs elevstatistik."
   },
   "#program-valjare": {
    "dold": false,
    "html": "<option value=\"\">Alla program</option><option value=\"Estetiska programmet\">Estetiska programmet</option>"
   },
+  "#sektion-borjade": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-borjade-total": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
   "#sektion-forklaring": {
    "dold": false,
-   "html": "\n    <h2>Vad talen är</h2>\n    <p class=\"forklaring\">\n      Varje höst fastställer nämnden för Gymnasium &amp; Arbetsmarknad hur\n      många platser Kungsbackas två kommunala gymnasieskolor ska erbjuda på\n      varje program nästa läsår. Talen läggs in i antagningssystemet Indra\n      innan ansökan öppnar i december, och de avgör hur många niondeklassare\n      som kan antas till varje program.\n    </p>\n    <p class=\"forklaring\">\n      Det här är alltså <strong>ett beslut kommunen fattar</strong>, inte ett\n      utfall. Sidan säger ingenting om hur många som sökte, kom in eller\n      faktiskt började – bara hur många platser som ställdes fram.\n      Meritvärdena hos dem som antogs finns på\n      <a href=\"meritvarden.html\">meritvärdessidan</a>.\n    </p>\n    <p class=\"forklaring\">\n      Talen står i tjänsteskrivelsen i nämndens handlingar. Protokollet\n      återger dem inte; det belägger att beslutet fattades. Båda länkas\n      under <a href=\"#sektion-kallor\">Källor</a>.\n    </p>\n  "
+   "html": "\n    <h2>Vad talen är</h2>\n    <p class=\"forklaring\">\n      Varje höst fastställer nämnden för Gymnasium &amp; Arbetsmarknad hur\n      många platser Kungsbackas två kommunala gymnasieskolor ska erbjuda på\n      varje program nästa läsår. Talen läggs in i antagningssystemet Indra\n      innan ansökan öppnar i december, och de avgör hur många niondeklassare\n      som kan antas till varje program.\n    </p>\n    <p class=\"forklaring\">\n      Det här är alltså <strong>ett beslut kommunen fattar</strong>, inte ett\n      utfall. Hur många som sökte eller kom in säger sidan ingenting om;\n      meritvärdena hos dem som antogs finns på\n      <a href=\"meritvarden.html\">meritvärdessidan</a>. Däremot visar sidan\n      längre ned hur många som <strong>faktiskt gick första året</strong> på\n      varje program, läsår för läsår, enligt Skolverkets elevstatistik.\n    </p>\n    <p class=\"forklaring\">\n      Talen står i tjänsteskrivelsen i nämndens handlingar. Protokollet\n      återger dem inte; det belägger att beslutet fattades. Båda länkas\n      under <a href=\"#sektion-kallor\">Källor</a>.\n    </p>\n  "
   },
   "#sektion-kallor": {
    "dold": false,
@@ -1599,6 +2564,10 @@
    "dold": false,
    "innehall": "…tabell, diagram eller egna id:n"
   },
+  "#slutsats-borjade": {
+   "dold": false,
+   "html": "<p>Mellan läsåren 2011/2012 och 2025/2026 växte <strong>Ekonomiprogrammet</strong> mest (+57 elever i årskurs 1) och <strong>Teknikprogrammet</strong> krympte mest (−58 elever).</p>"
+  },
   "#slutsats-utveckling": {
    "dold": false,
    "html": "<p>Mellan läsåren 2024/2025 och 2027/2028 ökade <strong>El- och energiprogrammet</strong> mest (+12 platser) och <strong>Teknikprogrammet</strong> minskade mest (−32 platser).</p><p>6 av 13 program har lika många platser vid periodens slut som vid dess början.</p>"
@@ -1607,9 +2576,13 @@
    "dold": true,
    "html": ""
   },
+  "#tabell-borjade": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Summan är programmen i tabellen. Skolverket redovisar en del år därutöver enstaka elever på program som inte står i nämndens utbudsbeslut – de ingår inte här.</div></div>"
+  },
   "#tabell-ovriga": {
    "dold": false,
-   "html": "<caption>Utbildningar utanför de nationella programmen. De redovisas bara i de handlingar som har bilagans tabellform, och tomma fält betyder att handlingen inte tar upp dem – inte att de lagts ned.</caption><thead><tr><th scope=\"col\">Utbildning</th><th scope=\"col\">2024/2025</th><th scope=\"col\">2025/2026</th><th scope=\"col\">2026/2027</th><th scope=\"col\">2027/2028</th></tr></thead><tbody><tr><td>Anpassade gymnasieskolan</td><td>22</td><td>24</td><td>–</td><td>–</td></tr><tr><td>Individuellt alternativ</td><td>200</td><td>200</td><td>–</td><td>–</td></tr><tr><td>Lärlingsprogrammet</td><td>49</td><td>72</td><td>–</td><td>–</td></tr></tbody>"
+   "html": "<caption>Utbildningar utanför de nationella programmen. De redovisas bara i de handlingar som har bilagans tabellform, och tomma fält betyder att handlingen inte tar upp dem – inte att de lagts ned. De har inga elevtal: Skolverkets rapport redovisar dem inte som program med årskurser.</caption><thead><tr><th scope=\"col\">Utbildning</th><th scope=\"col\">2024/2025</th><th scope=\"col\">2025/2026</th><th scope=\"col\">2026/2027</th><th scope=\"col\">2027/2028</th></tr></thead><tbody><tr><td>Anpassade gymnasieskolan</td><td>22</td><td>24</td><td>–</td><td>–</td></tr><tr><td>Individuellt alternativ</td><td>200</td><td>200</td><td>–</td><td>–</td></tr><tr><td>Lärlingsprogrammet</td><td>49</td><td>72</td><td>–</td><td>–</td></tr></tbody>"
   },
   "#tabell-utveckling": {
    "dold": false,
@@ -1617,7 +2590,7 @@
   },
   ".meta-rad[meta-rad]": {
    "dold": false,
-   "html": "<span>Källa: Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: läsåren 2024/2025–2027/2028</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: läsår 2027/2028</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-15</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+   "html": "<span>Källa: Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun och Skolverket</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: läsåren 2024/2025–2027/2028</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: läsår 2027/2028</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-15</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
   }
  }
 }

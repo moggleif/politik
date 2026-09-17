@@ -107,10 +107,11 @@
     </p>
     <p class="forklaring">
       Det här är alltså <strong>ett beslut kommunen fattar</strong>, inte ett
-      utfall. Sidan säger ingenting om hur många som sökte, kom in eller
-      faktiskt började &ndash; bara hur många platser som ställdes fram.
-      Meritvärdena hos dem som antogs finns på
-      <a href="meritvarden.html">meritvärdessidan</a>.
+      utfall. Hur många som sökte eller kom in säger sidan ingenting om;
+      meritvärdena hos dem som antogs finns på
+      <a href="meritvarden.html">meritvärdessidan</a>. Däremot visar sidan
+      längre ned hur många som <strong>faktiskt gick första året</strong> på
+      varje program, läsår för läsår, enligt Skolverkets elevstatistik.
     </p>
     <p class="forklaring">
       Talen står i tjänsteskrivelsen i nämndens handlingar. Protokollet
@@ -160,6 +161,42 @@
     </div>
   </section>
 
+  <section id="sektion-borjade" hidden>
+    <h2>Hur många började på varje program?</h2>
+    <p class="forklaring">
+      Varje linje är antalet elever som gick <strong>första året</strong> på
+      programmet vid Aranäsgymnasiet och Elof Lindälvs gymnasium, räknat den
+      15 oktober. Här är <strong>bara de program kommunen har i sitt
+      utbud</strong> &ndash; samma lista som i diagrammen ovan, så att
+      besluten och utfallet går att följa program för program. Skolverket
+      redovisar en del år enstaka elever på program som aldrig stått i
+      nämndens utbud; de ingår inte.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-borjade" aria-label="Diagram: antal elever i årskurs 1 per gymnasieprogram och läsår" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-borjade"></p>
+    </div>
+    <div class="slutsats" id="slutsats-borjade"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-borjade"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-borjade-total" hidden>
+    <h2>Hur många började sammanlagt?</h2>
+    <p class="forklaring">
+      Samma tal lagda ihop: hur många som gick första året på något av
+      kommunens gymnasieprogram, läsår för läsår. Introduktionsprogrammen
+      ingår inte &ndash; där är skolår 1 ingen årskurs utan hela
+      elevgruppen.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-borjade-total" aria-label="Diagram: totalt antal elever i årskurs 1 på kommunens gymnasieprogram per läsår" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-borjade-total"></p>
+    </div>
+  </section>
+
   <section id="sektion-ovriga" hidden>
     <h2>Utanför de nationella programmen</h2>
     <p class="forklaring">
@@ -180,6 +217,13 @@
       kommunen, och protokollet där beslutet står.
     </p>
     <ul class="kallista" id="lista-kallor"></ul>
+    <h3>Eleverna i årskurs 1</h3>
+    <p class="forklaring">
+      Antalet som började kommer inte ur nämndens handlingar utan ur
+      Skolverkets utbildningsstatistik, rapporten <em>Antal elever, per
+      program</em>, ett läsår per uttag.
+    </p>
+    <ul class="kallista" id="lista-kallor-elever"></ul>
   </section>
 
   <section id="sektion-om">
@@ -228,6 +272,41 @@
       <a href="https://github.com/moggleif/politik/blob/main/data/KALLOR.md">data/KALLOR.md</a>.
     </p>
     <p class="forklaring">
+      <strong>Eleverna räknas den 15 oktober, inte vid antagningen.</strong>
+      Antalet som började är Skolverkets elevstatistik för läsåret, mätt en
+      bit in på höstterminen. Den som antogs men aldrig dök upp, eller
+      hoppade av i september, är inte med; den som kom till efter
+      antagningsbeskedet är det. Talet svarar alltså på hur många som gick
+      på programmet när terminen kommit i gång &ndash; inte hur många som
+      antogs i juni.
+    </p>
+    <p class="forklaring">
+      <strong>Elevtalen gäller kommunens egna skolor.</strong> Skolverket
+      redovisar skolor efter var de ligger, och sidan använder raderna för
+      kommunal huvudman &ndash; alltså Aranäsgymnasiet och Elof Lindälvs
+      gymnasium, precis de skolor nämndens utbudsbeslut gäller. De
+      fristående gymnasieskolorna i kommunen sätter sina egna platser och
+      ingår inte. Var eleverna bor spelar ingen roll för räkningen, lika
+      lite som platserna är förbehållna Kungsbackabor.
+    </p>
+    <p class="forklaring">
+      <strong>Elevserien är längre än platsserien.</strong> Skolverkets
+      statistik finns från läsåret 2011/2012, medan utbudshandlingarna bara
+      går tillbaka till 2024/2025. De två diagrammen har därför olika
+      tidsaxlar. Det senaste läsåret saknar elevtal tills Skolverket
+      publicerar det, vilket sker våren efter.
+    </p>
+    <p class="forklaring">
+      <strong>Bara de nationella programmen har elevtal.</strong> På
+      introduktionsprogrammen är skolår 1 ingen årskurs &ndash; individuellt
+      alternativ och språkintroduktion redovisar i praktiken hela sin
+      elevgrupp som skolår 1 varje läsår &ndash; och den anpassade
+      gymnasieskolan är en egen skolform som rapporten inte täcker.
+      Lärlingsutbildningen ligger inbakad i respektive program och har ingen
+      egen rad. Tabellen &ldquo;Utanför de nationella programmen&rdquo; har
+      därför inga elevtal.
+    </p>
+    <p class="forklaring">
       <strong>Beslutet kan ändras under året.</strong> Göteborgsregionens
       årshjul har både en sista dag att lägga ned en utbildning och en sista
       dag att ändra antalet utbildningsplatser, båda på våren. Sidan visar
@@ -248,7 +327,7 @@
         <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
       </ul>
     </nav>
-    <p class="sidfot-data">Data: Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun &ndash; utbudsbesluten i nämndens handlingar.</p>
+    <p class="sidfot-data">Data: Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun &ndash; utbudsbesluten i nämndens handlingar. Elevantalen: Skolverket, utbildningsstatistik.</p>
     <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
   </div>
 </footer>
