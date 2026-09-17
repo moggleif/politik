@@ -45,9 +45,11 @@ build_fortidsroster = ladda("build_fortidsroster")
 build_kostnader = ladda("build_kostnader")
 build_resurser = ladda("build_resurser")
 hamta_fortidsroster = ladda("hamta_fortidsroster")
+hamta_gymnasieelever = ladda("hamta_gymnasieelever")
 build_valresultat = ladda("build_valresultat")
 hamta_valresultat = ladda("hamta_valresultat")
 skolverket = ladda("skolverket")
+program_modul = ladda("program")
 val = ladda("val")
 
 
@@ -719,6 +721,143 @@ class TestPlatser(unittest.TestCase):
         self.assertEqual(okanda, {"Rymdprogrammet"})
         self.assertEqual(data["sammanfattning"][0]["platser"], 0)
 
+    def elevargang(self, ar, rader):
+        """En årgång ur Skolverkets rapport, i det format bygget läser."""
+        return {
+            "kommun": "Kungsbacka", "kommunkod": "1384",
+            "niva": "Skolkommun", "rapportTitel": "Antal elever, per program",
+            "kalla": "Skolverket", "kallaUrl": "https://exempel",
+            "statistikUrl": "https://exempel", "matpunkt": "15 oktober",
+            "koder": {}, "hamtad": "2026-09-17", "ar": ar,
+            "lasar": f"{ar}/{str(ar + 1)[-2:]}",
+            "rader": [{"huvudman": h, "program": pr, "antal": a1 + 0,
+                       "arskurs1": a1, "arskurs2": 0, "arskurs3": 0,
+                       "andelKvinnor": None, "andelUtlBakgrund": None,
+                       "andelHogutbForaldrar": None}
+                      for h, pr, a1 in rader],
+        }
+
+    def test_borjade_laggs_bredvid_platserna_samma_ar(self):
+        """Läsåret 2026/27 är 2026 i båda källorna och ska mötas där."""
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96)])],
+            [self.elevargang(2026, [("Kommunal", "Teknikprogrammet", 64)])])
+        serie = [p for p in data["program"] if p["namn"] == "Teknikprogrammet"][0]
+        self.assertEqual(serie["varden"]["2026"]["platser"], 96)
+        self.assertEqual(serie["varden"]["2026"]["borjade"], 64)
+        self.assertEqual(serie["borjade"], {"2026": 64})
+
+    def test_bara_kommunala_skolor_raknas_som_borjade(self):
+        """Utbudsbeslutet gäller kommunens skolor – de fristående står utanför."""
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96)])],
+            [self.elevargang(2026, [("Kommunal", "Teknikprogrammet", 64),
+                                    ("Enskild", "Teknikprogrammet", 25),
+                                    ("Samtliga", "Teknikprogrammet", 89)])])
+        serie = [p for p in data["program"] if p["namn"] == "Teknikprogrammet"][0]
+        self.assertEqual(serie["varden"]["2026"]["borjade"], 64)
+
+    def test_ar_utan_elevstatistik_blir_null_inte_noll(self):
+        """Läsåret publiceras våren efter. Tomt är inte detsamma som ingen."""
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96)]),
+             self.argang(2027, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96)])],
+            [self.elevargang(2026, [("Kommunal", "Teknikprogrammet", 64)])])
+        serie = [p for p in data["program"] if p["namn"] == "Teknikprogrammet"][0]
+        self.assertEqual(serie["varden"]["2026"]["borjade"], 64)
+        self.assertIsNone(serie["varden"]["2027"]["borjade"])
+        self.assertIsNone(data["sammanfattning"][1]["borjade"])
+
+    def test_nyborjarserien_far_leva_langre_an_platsserien(self):
+        """Eleverna finns från 2011, platserna från 2024.
+
+        De äldre elevåren ska följa med utan att tvinga in tomma år i
+        platsserien – annars vore platsdiagrammet mest luft.
+        """
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96)])],
+            [self.elevargang(2011, [("Kommunal", "Teknikprogrammet", 70)]),
+             self.elevargang(2026, [("Kommunal", "Teknikprogrammet", 64)])])
+        self.assertEqual(data["ar"], [2026])
+        self.assertEqual(data["borjade"]["ar"], [2011, 2026])
+        serie = [p for p in data["program"] if p["namn"] == "Teknikprogrammet"][0]
+        self.assertEqual(serie["borjade"], {"2011": 70, "2026": 64})
+        self.assertEqual(sorted(serie["varden"]), ["2026"])
+
+    def test_gammalt_programnamn_paras_med_dagens_serie(self):
+        """Handels- och administration blev Försäljning och service 2021."""
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Försäljnings- och serviceprogrammet", 52)])],
+            [self.elevargang(2011, [("Kommunal",
+                                     "Handels- och administrationsprogrammet", 40)])])
+        serie = [p for p in data["program"]
+                 if p["namn"] == "Försäljnings- och serviceprogrammet"][0]
+        self.assertEqual(serie["borjade"], {"2011": 40})
+
+    def test_bada_namnen_under_reformaret_laggs_ihop(self):
+        """2022 och 2023 har både det gamla och det nya namnet som rader.
+
+        De hör till samma serie. Skrivs den ena över den andra försvinner
+        ett helt programs elever ur året – vilket de gjorde tills detta
+        test fanns.
+        """
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Försäljnings- och serviceprogrammet", 52)])],
+            [self.elevargang(2022, [
+                ("Kommunal", "Försäljnings- och serviceprogrammet", 58),
+                ("Kommunal", "Handels- och administrationsprogrammet", 4)])])
+        serie = [p for p in data["program"]
+                 if p["namn"] == "Försäljnings- och serviceprogrammet"][0]
+        self.assertEqual(serie["borjade"], {"2022": 62})
+
+    def test_introduktionsprogrammen_ger_inga_nyborjartal(self):
+        """Där är skolår 1 ingen årskurs utan hela elevgruppen.
+
+        Individuellt alternativ redovisar år efter år samtliga sina elever
+        som skolår 1. Att kalla det "började" vore fel mått, så varken
+        summeringen eller de utbildningarna får ett tal.
+        """
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Individuellt alternativ", 200)])],
+            [self.elevargang(2026, [
+                ("Kommunal", "Introduktionsprogram, Individuellt alternativ", 136),
+                ("Kommunal", "Introduktionsprogrammen", 173),
+                ("Kommunal", "Nationella program", 892)])])
+        serie = [p for p in data["program"]
+                 if p["namn"] == "Individuellt alternativ"][0]
+        self.assertIsNone(serie["varden"]["2026"]["borjade"])
+        self.assertEqual(serie["borjade"], {})
+        summa = data["borjade"]["sammanfattning"][0]
+        self.assertEqual(summa["nationella"], 892)
+        self.assertNotIn("introduktion", summa)
+
+    def test_summeringsrader_blir_aldrig_programserier(self):
+        """"Nationella program" är en summa i rapporten, inte ett program."""
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96)])],
+            [self.elevargang(2026, [("Kommunal", "Nationella program", 892),
+                                    ("Kommunal", "Yrkesprogram", 334),
+                                    ("Kommunal", "Teknikprogrammet", 64)])])
+        self.assertEqual([p["namn"] for p in data["program"]], ["Teknikprogrammet"])
+
+    def test_bygget_klarar_sig_utan_elevstatistik(self):
+        """Hämtningen är ett eget steg; utan den ska sidan ändå gå att bygga."""
+        data, _ = build_platser.bygg(
+            [self.argang(2026, [self.rad("Aranäsgymnasiet",
+                                         "Teknikprogrammet", 96)])])
+        self.assertIsNone(data["borjade"])
+        serie = [p for p in data["program"] if p["namn"] == "Teknikprogrammet"][0]
+        self.assertIsNone(serie["varden"]["2026"]["borjade"])
+
     def test_aret_ar_antagningsaret_inte_beslutsaret(self):
         """Beslutet hösten X gäller läsåret X+1/X+2 och ligger på X+1.
 
@@ -731,6 +870,115 @@ class TestPlatser(unittest.TestCase):
             self.assertEqual(argang["antagningsar"], forsta)
             if argang["status"] != "redovisad":
                 self.assertLess(argang["mote"], f"{forsta}-07-01", argang["lasar"])
+
+
+class TestGymnasieelever(unittest.TestCase):
+    """hamta_gymnasieelever: inläsningen och de hämtade filerna.
+
+    Nybörjartalen på platssidan står och faller med att Skolverkets
+    antalskolumner betyder vad skriptet tror. Det kontrolleras både på
+    påhittade rader och på varje hämtad årgång i repot.
+    """
+
+    RUBRIK = ("Kommun;Kommun-kod;Län;Läns-kod;Typ av huvudman;Program;"
+              "Antal elever;Andel kvinnor (%);Andel m utl bakgr (%);"
+              "Andel m högutb föräldrar (%);Antal elever skolår 1;"
+              "Antal elever skolår 2;Antal elever skolår 3;")
+
+    def csv(self, *rader):
+        return ("Statistik från Skolverket\n\nGymnasieskola - Antal elever, "
+                "per program\nValt läsår: 2025/26\n\n" + self.RUBRIK + "\n"
+                + "\n".join(rader) + "\n")
+
+    def rad(self, huvudman, program, antal, ak1, ak2, ak3):
+        return (f"Kungsbacka;1384;Hallands län;13;{huvudman};{program};"
+                f"{antal};50;10;70;{ak1};{ak2};{ak3};")
+
+    def test_punkten_i_antalskolumn_lases_som_noll(self):
+        """Ett nystartat program har inga elever i årskurs 2 och 3.
+
+        Skolverket skriver punkt där, inte noll. Att punkten betyder just
+        noll är belagt: skolår 1–3 summerar till totalen i varje rad i
+        varje hämtad årgång, vilket testet nedan kontrollerar.
+        """
+        argang = hamta_gymnasieelever.las(
+            self.csv(self.rad("Kommunal", "Frisör- och stylistprogrammet",
+                              30, 30, ".", ".")), 2025)
+        post = argang["rader"][0]
+        self.assertEqual((post["arskurs1"], post["arskurs2"], post["arskurs3"]),
+                         (30, 0, 0))
+        self.assertEqual(post["antal"], 30)
+
+    def test_dubbelprickat_antal_stoppar_inlasningen(self):
+        """Antalen har aldrig prickats. Börjar de, är noll fel svar."""
+        with self.assertRaises(SystemExit) as fel:
+            hamta_gymnasieelever.las(
+                self.csv(self.rad("Kommunal", "Teknikprogrammet",
+                                  "..", "..", "..", "..")), 2025)
+        self.assertIn("dubbelprickad", str(fel.exception))
+
+    def test_arskurserna_maste_ga_ihop_med_totalen(self):
+        with self.assertRaises(SystemExit) as fel:
+            hamta_gymnasieelever.las(
+                self.csv(self.rad("Kommunal", "Teknikprogrammet",
+                                  100, 40, 30, 20)), 2025)
+        self.assertIn("summerar till 90", str(fel.exception))
+
+    def test_andelar_far_prickas_men_inte_antal(self):
+        argang = hamta_gymnasieelever.las(
+            ("Statistik från Skolverket\n\nGymnasieskola - Antal elever, per "
+             "program\nValt läsår: 2025/26\n\n" + self.RUBRIK + "\n"
+             "Kungsbacka;1384;Hallands län;13;Kommunal;Teknikprogrammet;"
+             "23;..;..;65;8;9;6;\n"), 2025)
+        post = argang["rader"][0]
+        self.assertIsNone(post["andelKvinnor"])
+        self.assertEqual(post["arskurs1"], 8)
+
+    def test_andrad_kolumnordning_stoppar_inlasningen(self):
+        with self.assertRaises(SystemExit) as fel:
+            hamta_gymnasieelever.las(
+                "Statistik\n\nGymnasieskola\n\nKommun;Kommun-kod;Program;\n"
+                "Kungsbacka;1384;Teknikprogrammet;\n", 2025)
+        self.assertIn("kolumnerna har ändrats", str(fel.exception))
+
+    def test_hamtade_argangar_gar_ihop(self):
+        """Varje rad i varje hämtad fil: skolår 1 + 2 + 3 = totalen."""
+        filer = sorted((ROT / "data" / "gymnasieelever")
+                       .glob("gymnasieelever_*.json"))
+        self.assertTrue(filer, "inga hämtade elevårgångar i data/gymnasieelever")
+        for fil in filer:
+            argang = json.loads(fil.read_text(encoding="utf-8"))
+            self.assertEqual(argang["ar"], int(fil.stem.split("_")[1]))
+            for post in argang["rader"]:
+                self.assertEqual(
+                    post["arskurs1"] + post["arskurs2"] + post["arskurs3"],
+                    post["antal"],
+                    f"{fil.name}: {post['huvudman']}, {post['program']}")
+
+    def test_varje_hamtad_argang_har_de_tre_huvudmannatyperna(self):
+        for fil in sorted((ROT / "data" / "gymnasieelever")
+                          .glob("gymnasieelever_*.json")):
+            argang = json.loads(fil.read_text(encoding="utf-8"))
+            self.assertEqual({r["huvudman"] for r in argang["rader"]},
+                             {"Samtliga", "Kommunal", "Enskild"}, fil.name)
+
+    def test_programnamnen_i_elevstatistiken_ar_kanda(self):
+        """Ett okänt namn betyder att en serie tyst skulle tappa sina år."""
+        kanda = (program_modul.HOGSKOLEFORBEREDANDE | program_modul.YRKESPROGRAM
+                 | set(program_modul.PROGRAM_BYTT_NAMN)
+                 | set(build_platser.SUMMARADER)
+                 | {"Introduktionsprogrammen", "Humanistiska programmet"})
+        okanda = set()
+        for fil in sorted((ROT / "data" / "gymnasieelever")
+                          .glob("gymnasieelever_*.json")):
+            argang = json.loads(fil.read_text(encoding="utf-8"))
+            for post in argang["rader"]:
+                namn = post["program"]
+                if namn.startswith("Introduktionsprogram"):
+                    continue
+                if namn not in kanda:
+                    okanda.add(namn)
+        self.assertEqual(okanda, set())
 
 
 class TestMeritvarden(unittest.TestCase):
@@ -1595,7 +1843,8 @@ class TestGenereradeFiler(unittest.TestCase):
 
     def test_data_platser_ar_reproducerbar(self):
         argangar = build_platser.las_argangar()
-        ombyggd, okanda = build_platser.bygg(argangar)
+        ombyggd, okanda = build_platser.bygg(argangar,
+                                             build_platser.las_elevargangar())
         self.assertEqual(okanda, set())
         self.assertEqual(ombyggd, self.las("data-platser.json"))
 

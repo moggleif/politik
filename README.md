@@ -56,11 +56,18 @@ i stället för av att utbildningen ändrats.
 
 - [Platser på programmen](https://moggleif.github.io/politik/platser.html)
   &ndash; hur många platser nämnden för Gymnasium & Arbetsmarknad beslutar
-  att varje program ska erbjuda, läsåren 2024/25&ndash;2027/28. Till
-  skillnad från de andra gymnasiesidorna är det här ett beslut kommunen
-  fattar, inte ett utfall: talen säger ingenting om hur många som sökte
-  eller kom in. Platserna summeras över skolorna de år ett program funnits
-  på båda &ndash; platser är additiva, till skillnad från meritvärden
+  att varje program ska erbjuda, läsåren 2024/25&ndash;2027/28. Det är ett
+  beslut kommunen fattar, inte ett utfall: talen säger ingenting om hur
+  många som sökte eller kom in. Platserna summeras över skolorna de år ett
+  program funnits på båda &ndash; platser är additiva, till skillnad från
+  meritvärden. Sidan visar också **hur många som faktiskt började**: antalet
+  elever i årskurs 1 på samma program, kommunens båda gymnasieskolor,
+  läsåren 2011/12&ndash;2025/26, ur Skolverkets elevstatistik. De två måtten
+  har var sitt diagram och var sin tidsaxel &ndash; utbudshandlingarna går
+  bara tillbaka till 2024, elevstatistiken till 2011 &ndash; och sidan
+  räknar inte fram någon skillnad mellan dem: platserna beslutas hösten
+  innan, eleverna räknas den 15 oktober läsåret därpå, och emellan ligger
+  ansökan, antagning, omval och avhopp
 - [Meritvärden vid antagningen](https://moggleif.github.io/politik/meritvarden.html)
   &ndash; meritvärdena hos dem som antogs, ur Göteborgsregionens (GR)
   statistik över slutantagningen, 2017–2026
@@ -259,6 +266,10 @@ data/
   prognoser/varberg/prognos_<år>.json  Detsamma för Varbergs rapporter
   antagning/antagning_<år>.json Meritvärden per utbildning ur GR:s rapport
                                 efter varje års slutantagning
+  gymnasieelever/gymnasieelever_<år>.json  Antal elever per program och
+                                årskurs i kommunens gymnasieskolor, ur
+                                Skolverkets rapport 58. Året är läsårets
+                                första år
   utbud/utbud_<år>.json         Platser per program och skola ur nämndens
                                 utbudsbeslut, ett läsår per fil. Året är
                                 antagningsåret, alltså läsårets första år
@@ -337,6 +348,12 @@ scripts/
                                 Skolverkets exporttjänst, ett läsår per fil
   hamta_amnesbetyg.py           Hämtar niondeklassarnas betyg per ämne ur
                                 samma exporttjänst, ett läsår per fil
+  hamta_gymnasieelever.py       Hämtar antalet gymnasieelever per program
+                                och årskurs (rapport 58) ur samma
+                                exporttjänst, ett läsår per fil. Kolumnen
+                                "Antal elever skolår 1" är den som svarar
+                                mot platserna. Kontrollerar för varje rad
+                                att skolår 1+2+3 går ihop med totalen
   hamta_kullkedjan.py           Hämtar de fyra rapporter som sidan om nian
                                 och gymnasiet bygger på (109, 91, 89, 61/60)
   hamta_fortidsroster.py        Hämtar Valmyndighetens mottagna förtidsröster
@@ -350,7 +367,9 @@ scripts/
   build_meritvarden.py          Bygger docs/data-meritvarden.json, med en
                                 serie per program i stället för per skola
   build_platser.py              Bygger docs/data-platser.json: platser per
-                                program och läsår, summerade över skolorna
+                                program och läsår, summerade över skolorna,
+                                och antalet elever i årskurs 1 på samma
+                                program ur data/gymnasieelever/
   build_slutbetyg.py            Bygger docs/data-slutbetyg.json, på samma sätt
   build_kull.py                 Bygger docs/data-kull.json: antagningen år X
                                 parad med avgångseleverna år X+3, per program
@@ -438,7 +457,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   kostnad-per-elev.html         Kostnaden per elev i grundskolan, fasta priser
   resurser-till-skolan.html     Resurserna mot referenskostnaden
   nian-till-gymnasiet.html      Från nian till gymnasiet, tre mätpunkter
-  platser.html                  Platser per gymnasieprogram och läsår
+  platser.html                  Platser per gymnasieprogram och läsår, och
+                                antalet som började på dem
   meritvarden.html              Meritvärden vid antagningen till gymnasiet
   slutbetyg.html                Slutbetyg från gymnasiet, program för program
   antagning-till-examen.html    Antagningen mot examen tre år senare
@@ -866,6 +886,9 @@ branch `main`, mapp `/docs`.
   ([statistiken](https://www.skolverket.se/skolutveckling/statistik/sok-statistik-om-forskola-skola-och-vuxenutbildning))
 - Skolverket, Utbildningsstatistik: *Grundskola &ndash; Slutbetyg per ämne
   årskurs 9*, ur samma exporttjänst (rapport 92, kommunnivå)
+- Skolverket, Utbildningsstatistik: *Gymnasieskola &ndash; Antal elever, per
+  program* (rapport 58), kommunnivå &ndash; antalet elever per program och
+  årskurs, varav kolumnen för skolår 1 är den som platssidan använder
 - Skolverket, Utbildningsstatistik: *Grundskola &ndash; Slutbetyg årskurs 9*
   (rapport 109), *Gymnasieskola &ndash; Genomströmning inom 3, 4 och 5 år,
   GY11* (91), *Gymnasieskola &ndash; Avgångselever, nationella program*
