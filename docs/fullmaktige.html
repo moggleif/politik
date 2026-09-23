@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Kungsbacka kommunfullmäktige – inspelade möten</title>
+<meta name="description" content="Alla inspelade sammanträden med kommunfullmäktige i Kungsbacka sedan 2022, med länkar till inspelningarna på YouTube och Screen9: längd, visningar, ärenden och inlägg per parti.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+<nav class="toppnav" aria-label="Webbplatsens sidor">
+  <div class="toppnav-inre">
+    <a class="markesnamn" href="index.html">Kungsbacka i siffror</a>
+    <ul class="navrad">
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Befolkning</summary>
+          <ul class="navpanel">
+            <li><a href="befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="barn-och-unga.html">0–15 år</a></li>
+            <li><a href="gymnasiealdern.html">16–19 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Grundskolan</summary>
+          <ul class="navpanel">
+            <li><a href="amnesbetyg.html">Betyg per ämne i nian</a></li>
+            <li><a href="kostnad-per-elev.html">Kostnad per elev</a></li>
+            <li><a href="resurser-till-skolan.html">Resurser mot referenskostnad</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Gymnasiet</summary>
+          <ul class="navpanel">
+            <li><a href="platser.html">Platser på programmen</a></li>
+            <li><a href="meritvarden.html">Meritvärden vid antagningen</a></li>
+            <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a></li>
+            <li><a href="antagning-till-examen.html">Från antagning till examen</a></li>
+            <li><a href="nian-till-gymnasiet.html">Från nian till gymnasiet</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Valen</summary>
+          <ul class="navpanel">
+            <li><a href="fortidsrostning.html">Förtidsröstningen 2026</a></li>
+            <li><a href="valresultat.html">Valresultat per distrikt</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny aktuell">
+          <summary>Kommunfullmäktige</summary>
+          <ul class="navpanel">
+            <li><a href="fullmaktige.html" aria-current="page">Inspelade möten</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Varberg</summary>
+          <ul class="navpanel">
+            <li><a href="varberg-befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="varberg-barn-och-unga.html">0–15 år</a></li>
+            <li><a href="varberg-gymnasiealdern.html">16–18 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost"><a href="metod.html">Metod</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="sidhuvud-inre">
+    <h1>Kommunfullmäktiges inspelade möten</h1>
+    <p class="ingress">
+      Kommunfullmäktige i Kungsbacka sänds direkt och går att se i
+      efterhand. Den här sidan samlar <strong>alla inspelade möten sedan
+      2022</strong> med länk till varje inspelning, och visar vad som går
+      att läsa ut ur dem: hur långa de är, hur många som sett dem på
+      YouTube, hur många ärenden som behandlades och hur många inlägg
+      varje parti gjorde. Mötena 2022&ndash;2024 ligger på kommunens
+      YouTube-kanal, mötena från 2024 och framåt på Screen9.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <section id="sektion-moten" hidden>
+    <h2>Alla möten, med länk till inspelningen</h2>
+    <p class="forklaring">
+      Ett möte per rad, det senaste först. Möten under 2024 finns både på
+      YouTube och på Screen9 och har därför två länkar. Ärenden och inlägg
+      kommer ur kapitelmarkeringarna i Screen9-sändningarna, som finns från
+      2025. Visningar finns bara för YouTube: Screen9 visar inga
+      visningstal.
+    </p>
+    <div class="kort">
+      <div class="tabell-rull"><table id="tabell-moten"></table></div>
+      <p class="kalla-rad" id="kalla-moten"></p>
+    </div>
+    <div id="not-moten" hidden></div>
+  </section>
+
+  <section id="sektion-langd" hidden>
+    <h2>Hur långa är mötena?</h2>
+    <p class="forklaring">
+      Inspelningens längd, möte för möte. Längden är hela sändningen,
+      inklusive pauser som sänts, och är inte detsamma som hur länge
+      sammanträdet pågick. För mötena 2024 finns båda inspelningarna, och
+      de är inte exakt lika långa.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-langd" aria-label="Diagram: inspelningarnas längd i timmar, möte för möte" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-langd"></p>
+    </div>
+    <div class="slutsats" id="slutsats-langd"></div>
+    <details>
+      <summary>Visa år för år som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-ar"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-visningar" hidden>
+    <h2>Hur många har sett inspelningarna på YouTube?</h2>
+    <p class="forklaring">
+      Antalet visningar för varje video, så som YouTube anger det vid
+      hämtningen. Talet räknar alla visningar sedan sändningen, direkt och
+      i efterhand, och växer så länge videon ligger uppe &ndash; en äldre
+      video har haft längre tid på sig. Det säger inget om hur länge
+      någon tittade.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-visningar" aria-label="Diagram: antal visningar på YouTube per möte" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-visningar"></p>
+    </div>
+    <div class="slutsats" id="slutsats-visningar"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-visningar"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-arenden" hidden>
+    <h2>Vad behandlades på ett möte?</h2>
+    <p class="forklaring">
+      Dagordningen för ett möte så som den är kapitelindelad i
+      Screen9-sändningen, med den tidpunkt i inspelningen där ärendet
+      börjar och antalet inlägg under det. Kapitelindelningen finns för
+      mötena från 2025.
+    </p>
+    <div class="valj-ar">
+      <label for="mote-valjare">Visa mötet:</label>
+      <select id="mote-valjare"></select>
+    </div>
+    <div class="kort">
+      <p id="mote-lank"></p>
+      <div class="tabell-rull"><table id="tabell-arenden"></table></div>
+    </div>
+  </section>
+
+  <section id="sektion-partier" hidden>
+    <h2>Hur många inlägg gjorde varje parti?</h2>
+    <p class="forklaring">
+      Antalet inlägg per parti, räknat ur kapitelmarkeringarna i
+      Screen9-sändningarna. Ett inlägg är ett anförande, en replik eller en
+      ordningsfråga. Partibeteckningen är den som står i markeringen.
+      Antalet säger inget om hur långa inläggen var, och partierna har olika
+      många ledamöter i fullmäktige.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-partier" aria-label="Diagram: antal inlägg per parti" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-partier"></p>
+    </div>
+    <div id="not-partier" hidden></div>
+    <details>
+      <summary>Visa siffrorna som tabell, år för år</summary>
+      <div class="tabell-rull"><table id="tabell-partier"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Allt på sidan är hämtat ur det kommunen och YouTube själva publicerar:
+      kommunens sida om webbsändningarna, Screen9-sändningarna den länkar
+      till och YouTube-spellistan med de äldre mötena.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Ett möte per datum.</strong> Datumet är det som står i
+      inspelningens titel och i kommunens länk. Där källorna säger olika
+      saker &ndash; en länk som leder till ett annat möte, eller en video
+      som enligt YouTube sändes en annan dag än titeln säger &ndash; står
+      det utskrivet under tabellen i stället för att rättas här.
+    </p>
+    <p class="forklaring">
+      <strong>Längden</strong> är inspelningens. Har ett möte två
+      inspelningar räknas Screen9:s, som är den kommunen länkar till i dag.
+    </p>
+    <p class="forklaring">
+      <strong>Visningarna</strong> är YouTubes eget tal vid hämtningen. Hur
+      många som tittade direkt, och hur länge, ser bara kanalens ägare.
+      Screen9 visar inga visningstal alls. De uppgifterna finns hos
+      kommunen och kan begäras ut som allmänna handlingar.
+    </p>
+    <p class="forklaring">
+      <strong>Ärenden och inlägg</strong> räknas ur Screen9:s
+      kapitelmarkeringar: ett kapitel på översta nivån är ett ärende, ett
+      kapitel under det ett inlägg. Markeringarna sätts av den som sänder
+      mötet, och sidan räknar dem som de står. Sidan säger ingenting om vad
+      som sades.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
+      beräkningar är öppna: källkoden och alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer class="sidfot">
+  <div class="sidfot-inre">
+    <nav class="sidfot-nav" aria-label="Om webbplatsen">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="metod.html">Metod och källor</a></li>
+        <li><a href="https://github.com/moggleif/politik">Källkod och data på GitHub</a></li>
+        <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
+      </ul>
+    </nav>
+    <p class="sidfot-data">Data: Kungsbacka kommuns sida om webbsändningar från kommunfullmäktige, sändningarna på Screen9 och kommunens YouTube-kanal.</p>
+    <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="fullmaktige.js"></script>
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

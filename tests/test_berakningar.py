@@ -44,6 +44,8 @@ build_slutbetyg = ladda("build_slutbetyg")
 build_fortidsroster = ladda("build_fortidsroster")
 build_kostnader = ladda("build_kostnader")
 build_resurser = ladda("build_resurser")
+build_fullmaktige = ladda("build_fullmaktige")
+hamta_fullmaktige = ladda("hamta_fullmaktige")
 hamta_fortidsroster = ladda("hamta_fortidsroster")
 hamta_gymnasieelever = ladda("hamta_gymnasieelever")
 build_valresultat = ladda("build_valresultat")
@@ -1963,6 +1965,11 @@ class TestGenereradeFiler(unittest.TestCase):
         ombyggd = json.loads(json.dumps(build_kostnader.bygg(kolada, kpi)))
         self.assertEqual(ombyggd, self.las("data-kostnader.json"))
 
+    def test_data_fullmaktige_ar_reproducerbar(self):
+        ombyggd = json.loads(json.dumps(
+            build_fullmaktige.bygg(*build_fullmaktige.las_indata())))
+        self.assertEqual(ombyggd, self.las("data-fullmaktige.json"))
+
     def test_data_resurser_ar_reproducerbar(self):
         kolada = json.loads(
             (ROT / "data" / "kolada" / "resurser_grundskola.json")
@@ -3231,6 +3238,217 @@ class TestKommunvalTroskel(unittest.TestCase):
         soder = [r for r in d["distrikt"] if r["namn"] == "Söder"][0]
         self.assertEqual(soder["roster"]["ÖVR"]["2026"], 5)
 
+class TestFullmaktige(unittest.TestCase):
+    """build_fullmaktige och hamta_fullmaktige: kommunfullmäktiges
+    inspelade möten. Små påhittade indata där facit går att räkna för
+    hand, och sedan en avstämning mot de riktiga filerna."""
+
+    # ---------- Datum, längd och inlägg ----------
+
+    def test_datum_ur_titlar_och_youtubes_sandningsrad(self):
+        f = build_fullmaktige.datum_ur_text
+        self.assertEqual(f("Kungsbacka Kommunfullmäktige 7  mars 2023"), "2023-03-07")
+        self.assertEqual(f("Kungsbacka Kommunfullmäktige 15 September 2022"), "2022-09-15")
+        self.assertEqual(f("Kommunfullmäktige 16 juni 2025 - Budgetdebatt"), "2025-06-16")
+        self.assertEqual(f("Streamades live 8 feb. 2022"), "2022-02-08")
+        self.assertIsNone(f("Kommunfullmäktige"))
+
+    def test_okand_manad_stoppar_bygget(self):
+        with self.assertRaises(SystemExit):
+            build_fullmaktige.datum_ur_text("Kommunfullmäktige 3 brumaire 2025")
+
+    def test_datum_ur_kommunens_lank_tar_aret_ur_rubriken(self):
+        self.assertEqual(
+            build_fullmaktige.datum_ur_lank("2024", "13 juni - budetdebatt"), "2024-06-13")
+        with self.assertRaises(SystemExit):
+            build_fullmaktige.datum_ur_lank("2022-2023", "5 april")
+
+    def test_langd_i_sekunder(self):
+        self.assertEqual(build_fullmaktige.sekunder("1:49:50"), 6590)
+        self.assertEqual(build_fullmaktige.sekunder("49:50"), 2990)
+        self.assertEqual(build_fullmaktige.sekunder("8:31:17"), 30677)
+
+    def test_inlaggets_parti_och_slag(self):
+        f = build_fullmaktige.tolka_inlagg
+        self.assertEqual(f("Emanuel Forsell (M)"),
+                         {"namn": "Emanuel Forsell", "parti": "M", "typ": "anforanden"})
+        self.assertEqual(f("Per Axel Landström (S) - Replik")["typ"], "repliker")
+        self.assertEqual(f("Anna Andersson (MP) – Ordningsfråga")["typ"], "ordningsfragor")
+        # Utan parentes: räknas för sig, inte som ett parti
+        self.assertEqual(f("Birgitta Litsegård")["parti"], "utan partibeteckning")
+        with self.assertRaises(SystemExit):
+            f("Anna Andersson (L) - Votering")
+
+    def test_inlagg_fore_forsta_arendet_tappas_inte_och_blir_inget_arende(self):
+        kapitel = [
+            {"titel": "Fredrik Hansson (C)", "start": 195.5, "niva": 1},
+            {"titel": "Ärende 4 - Interpellation", "start": 213.5, "niva": 0},
+            {"titel": "A (M)", "start": 230.5, "niva": 1},
+            {"titel": "B (S) - Replik", "start": 333.4, "niva": 1},
+        ]
+        a = build_fullmaktige.arenden(kapitel)
+        self.assertEqual(a, [
+            {"titel": None, "start": 196, "inlagg": 1},
+            {"titel": "Ärende 4 - Interpellation", "start": 214, "inlagg": 2},
+        ])
+
+    # ---------- Bygget ----------
+
+    @staticmethod
+    def indata():
+        kommunsidan = {"hamtad": "2026-09-23 12:00", "url": "https://kommun.example/sida",
+                       "lankar": [
+                           {"rubrik": "2025", "text": "4 november", "url": "https://qcnl.tv/p/B"},
+                           {"rubrik": "2025", "text": "7 oktober", "url": "https://qcnl.tv/p/B"},
+                           {"rubrik": "2024", "text": "13 juni - budgetdebatt",
+                            "url": "https://qcnl.tv/p/A"},
+                       ]}
+        screen9 = {"hamtad": "2026-09-23 12:00", "sandningar": [
+            {"url": "https://qcnl.tv/p/B", "titel": "Kommunfullmäktige 7 oktober 2025",
+             "sekunder": 3600.4, "kapitel": [
+                 {"titel": "1. Ärende", "start": 0.0, "niva": 0},
+                 {"titel": "A (M)", "start": 10.0, "niva": 1},
+                 {"titel": "B (S) - Replik", "start": 20.0, "niva": 1},
+                 {"titel": "2. Ärende", "start": 30.0, "niva": 0},
+                 {"titel": "C (S)", "start": 40.0, "niva": 1},
+             ]},
+            {"url": "https://qcnl.tv/p/A", "titel": "Kungsbacka Kommunfullmäktige 13 juni 2024",
+             "sekunder": 7200.0, "kapitel": []},
+        ]}
+        youtube = {"hamtad": "2026-09-23 12:00", "spellista": "https://www.youtube.com/playlist?list=X",
+                   "antalEnligtSpellistan": 3, "videor": [
+                       {"id": "a", "titel": "Kungsbacka Kommunfullmäktige 13 juni 2024",
+                        "langd": "1:59:00", "visningar": 400,
+                        "datumtext": "Streamades live 12 juni 2024"},
+                       {"id": "b", "titel": "Kungsbacka Kommunfullmäktige 8 januari 2022",
+                        "langd": "1:00:00", "visningar": 100,
+                        "datumtext": "Streamades live 8 feb. 2022"},
+                   ]}
+        return kommunsidan, screen9, youtube
+
+    def mote(self, ut, datum):
+        return next(m for m in ut["moten"] if m["datum"] == datum)
+
+    def test_lank_till_fel_mote_ger_mote_utan_inspelning_och_en_anmarkning(self):
+        ut = build_fullmaktige.bygg(*self.indata())
+        nov = self.mote(ut, "2025-11-04")
+        self.assertIsNone(nov["sekunder"])
+        self.assertIsNone(nov["screen9"])
+        self.assertEqual(nov["kommunlank"]["lederTill"], "2025-10-07")
+        self.assertIn({"datum": "2025-11-04", "slag": "kommunlank", "lederTill": "2025-10-07"},
+                      ut["anmarkningar"])
+        # Inspelningen hamnar på sitt eget datum
+        self.assertEqual(self.mote(ut, "2025-10-07")["sekunder"], 3600)
+
+    def test_titelns_datum_galler_och_sandningsdatumet_redovisas(self):
+        ut = build_fullmaktige.bygg(*self.indata())
+        jan = self.mote(ut, "2022-01-08")
+        self.assertEqual(jan["youtube"]["sandningsdatum"], "2022-02-08")
+        self.assertIn({"datum": "2022-01-08", "slag": "sandningsdatum",
+                       "sandningsdatum": "2022-02-08"}, ut["anmarkningar"])
+
+    def test_tva_inspelningar_langden_ar_screen9s(self):
+        juni = self.mote(build_fullmaktige.bygg(*self.indata()), "2024-06-13")
+        self.assertEqual(juni["sekunder"], 7200)
+        self.assertEqual(juni["plattform"], "Screen9")
+        self.assertEqual(juni["youtube"]["sekunder"], 7140)
+
+    def test_arenden_och_inlagg_rakas_ur_kapitlen(self):
+        okt = self.mote(build_fullmaktige.bygg(*self.indata()), "2025-10-07")["screen9"]
+        self.assertEqual((okt["antalArenden"], okt["antalInlagg"]), (2, 3))
+
+    def test_sandning_utan_kapitel_har_inga_arenden_i_stallet_for_noll(self):
+        juni = self.mote(build_fullmaktige.bygg(*self.indata()), "2024-06-13")["screen9"]
+        self.assertIsNone(juni["antalArenden"])
+        self.assertIsNone(juni["antalInlagg"])
+
+    def test_ar_for_ar(self):
+        ut = build_fullmaktige.bygg(*self.indata())
+        ar = {a["ar"]: a for a in ut["ar"]}
+        self.assertEqual((ar[2025]["moten"], ar[2025]["inspelade"]), (2, 1))
+        self.assertEqual(ar[2025]["sekunder"], 3600)
+        # Ett år utan YouTube har inga visningar – inte noll
+        self.assertIsNone(ar[2025]["visningar"])
+        self.assertEqual(ar[2024]["visningar"], 400)
+        self.assertEqual(ar[2022]["snittVisningar"], 100)
+
+    def test_inlagg_per_parti(self):
+        p = build_fullmaktige.bygg(*self.indata())["partier"]
+        self.assertEqual(p["ar"], [2025])
+        s = next(r for r in p["totalt"] if r["parti"] == "S")
+        self.assertEqual((s["anforanden"], s["repliker"], s["totalt"]), (1, 1, 2))
+        self.assertEqual(p["totalt"][0]["parti"], "S")    # flest inlägg först
+
+    def test_tva_sandningar_samma_dag_stoppar_bygget(self):
+        kommunsidan, screen9, youtube = self.indata()
+        screen9["sandningar"].append(dict(screen9["sandningar"][0], url="https://qcnl.tv/p/C"))
+        with self.assertRaises(SystemExit):
+            build_fullmaktige.bygg(kommunsidan, screen9, youtube)
+
+    def test_lank_till_ohamtad_sandning_stoppar_bygget(self):
+        kommunsidan, screen9, youtube = self.indata()
+        kommunsidan["lankar"].append({"rubrik": "2026", "text": "3 mars",
+                                      "url": "https://qcnl.tv/p/Z"})
+        with self.assertRaises(SystemExit):
+            build_fullmaktige.bygg(kommunsidan, screen9, youtube)
+
+    # ---------- Hämtningens tolkning ----------
+
+    def test_kommunsidans_lankar_under_arsrubrikerna(self):
+        sida = (
+            '<a href="https://qcnl.tv/p/A">Du kan även se sändningen i fullskärm</a>'
+            '<h2 class="subheading">2026</h2>'
+            '<a href="https://qcnl.tv/p/A">11 augusti<span> Länk till annan webbplats.</span></a>'
+            '<h2>2024</h2>'
+            '<a href="https://api.screen9.com/preview/B-c_1">13 juni - budetdebatt</a>'
+            '<h2>2022-2023</h2>'
+            '<a href="https://www.youtube.com/playlist?list=PLR8w9H5fc00oBGucMV-UzR7SuCO4kzfGU">'
+            'Se tidigare</a>'
+            '<h2>Relaterade sidor</h2><a href="https://qcnl.tv/p/Q">Något annat</a>')
+        self.assertEqual(hamta_fullmaktige.las_kommunsidan(sida), [
+            {"rubrik": "2026", "text": "11 augusti", "url": "https://qcnl.tv/p/A"},
+            {"rubrik": "2024", "text": "13 juni - budetdebatt",
+             "url": "https://api.screen9.com/preview/B-c_1"},
+        ])
+
+    def test_kommunsida_utan_arslankar_stoppar_hamtningen(self):
+        with self.assertRaises(SystemExit):
+            hamta_fullmaktige.las_kommunsidan("<h2>Om oss</h2><a href='x'>x</a>")
+
+    def test_screen9_langd_och_kapitel(self):
+        sida = ('<title>Kommunfullmäktige 11 augusti 2026</title>'
+                '"chapters": {"cuepoints": [{"title": "1. Svar p\\u00e5 fr\\u00e5ga", '
+                '"startTime": 0.0, "level": 0}, {"title": "A (M)", "startTime": 289.1, '
+                '"level": 1}]}, "x": {"duration": 14149.135}, "playbackRates": [1.0]')
+        s = hamta_fullmaktige.las_screen9("https://qcnl.tv/p/A", sida)
+        self.assertEqual(s["titel"], "Kommunfullmäktige 11 augusti 2026")
+        self.assertEqual(s["sekunder"], 14149.135)
+        self.assertEqual(s["kapitel"], [
+            {"titel": "1. Svar på fråga", "start": 0.0, "niva": 0},
+            {"titel": "A (M)", "start": 289.1, "niva": 1},
+        ])
+
+    def test_screen9_utan_langd_stoppar_hamtningen(self):
+        with self.assertRaises(SystemExit):
+            hamta_fullmaktige.las_screen9("u", "<title>Kommunfullmäktige</title>")
+
+    # ---------- Avstämning mot de riktiga filerna ----------
+
+    def test_inlaggen_per_parti_summerar_till_inlaggen_per_mote(self):
+        ut = json.loads((ROT / "docs" / "data-fullmaktige.json").read_text(encoding="utf-8"))
+        per_mote = sum(m["screen9"]["antalInlagg"] for m in ut["moten"]
+                       if m["screen9"] and m["screen9"]["antalInlagg"] is not None)
+        self.assertEqual(sum(r["totalt"] for r in ut["partier"]["totalt"]), per_mote)
+        for a in ut["ar"]:
+            if a["inlagg"] is not None:
+                self.assertEqual(sum(r["totalt"] for r in ut["partier"]["perAr"][str(a["ar"])]),
+                                 a["inlagg"], a["ar"])
+
+    def test_varje_hamtad_sandning_ar_lankad_fran_kommunen(self):
+        kommunsidan, screen9, youtube = build_fullmaktige.las_indata()
+        lankade = {lank["url"] for lank in kommunsidan["lankar"]}
+        self.assertEqual({s["url"] for s in screen9["sandningar"]}, lankade)
+        self.assertLessEqual(len(youtube["videor"]), youtube["antalEnligtSpellistan"])
 
 
 if __name__ == "__main__":

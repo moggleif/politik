@@ -177,6 +177,24 @@ många som röstat &ndash; inte vad de röstat på.
   [`?omrade=hallands-lan`](https://moggleif.github.io/politik/fortidsrostning.html?omrade=hallands-lan),
   [`?omrade=hela-riket`](https://moggleif.github.io/politik/fortidsrostning.html?omrade=hela-riket)
 
+**Kommunfullmäktiges inspelade möten** &ndash; alla sammanträden som
+går att se i efterhand, med länk till varje inspelning. Mötena
+2022&ndash;2024 ligger på kommunens YouTube-kanal, mötena från 2024 och
+framåt på Screen9, som kommunen länkar till från sin sida om
+webbsändningarna.
+
+- [Inspelade möten](https://moggleif.github.io/politik/fullmaktige.html)
+  &ndash; längden på varje inspelning, antalet visningar på YouTube (Screen9
+  visar inga visningstal), dagordningen för ett valt möte med den tidpunkt
+  i inspelningen där varje ärende börjar (`?mote=2026-08-11`), och antalet
+  inlägg per parti. Ärenden och inlägg räknas ur kapitelmarkeringarna i
+  Screen9-sändningarna, som finns från 2025. Där källorna inte stämmer
+  överens &ndash; en länk hos kommunen som leder till fel möte, en video
+  som enligt YouTube sändes en annan dag än titeln säger &ndash; skrivs det
+  ut på sidan i stället för att rättas. Visningarna är en ögonblicksbild
+  från hämtningen. Hur det räknas beskrivs i
+  [`scripts/build_fullmaktige.py`](scripts/build_fullmaktige.py).
+
 **Valresultat per valdistrikt** &ndash; vad väljarna röstade på, till
 skillnad från sidan ovan. Kommunfullmäktige, regionfullmäktige och
 riksdagen i Kungsbacka i de fem senaste valen, parti för parti och
@@ -469,6 +487,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   valresultat.html              Kommun-, region- och riksdagsvalets resultat
                                 per valdistrikt i Kungsbacka 2010–2026
                                 (?val=, ?parti=, ?distrikt=)
+  fullmaktige.html              Kommunfullmäktiges inspelade möten, med länk
+                                till varje inspelning (?mote=)
   kommunval.html                Sidans gamla adress; skickar vidare till
                                 valresultat.html med frågesträngen i behåll
   metod.html                    Metodsidan: källor, transformationer, viktning
@@ -709,6 +729,17 @@ uträknat för samma område och står i rutan. Prognosen ritas i orange och
 prickat, aldrig i sidans blå, som betyder uppmätt. Metoden beskrivs på
 [metodsidan](https://moggleif.github.io/politik/metod.html).
 
+Kommunfullmäktiges inspelade möten:
+
+```bash
+python3 scripts/hamta_fullmaktige.py   # kommunens sida, Screen9 och YouTube
+python3 scripts/build_fullmaktige.py   # bygger om docs/data-fullmaktige.json
+```
+
+Hämtningen väntar några sekunder mellan varje YouTube-video och försöker
+igen när YouTube svarar att det kommer för många anrop. Visningarna ändras
+varje gång, så varje körning ger en ny datafil.
+
 Kullarna (kör efter att meritvärdena och slutbetygen byggts om &ndash;
 skriptet läser de färdiga docs-filerna så att namnbyten och skolflyttar
 bara hanteras på ett ställe):
@@ -901,6 +932,9 @@ branch `main`, mapp `/docs`.
   [rådata val 2002–2022](https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-fran-val-2002-2022))
   samt *Antal röstberättigade per valdistrikt och valtyp* på
   kvalifikationsdagen
+- Kungsbacka kommun, [*Webbsändningar från kommunfullmäktige*](https://kungsbacka.se/kommun-och-politik/politik-och-demokrati/politiska-moten-och-sammantraden/kommunfullmaktiges-sammantraden/webbsandningar-fran-kommunfullmaktige),
+  sändningarna på Screen9 som sidan länkar till, och kommunens
+  YouTube-spellista [*Kungsbacka kommunfullmäktige*](https://www.youtube.com/playlist?list=PLR8w9H5fc00oBGucMV-UzR7SuCO4kzfGU)
 
 ## Gemensamma byggstenar på sidorna
 

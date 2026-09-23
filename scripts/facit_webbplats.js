@@ -97,6 +97,10 @@ const SIDOR = [
   "valresultat.html?val=riksdag&parti=kbabo",
   /* Samma parti i ett val där det ställde upp förr men inte senast. */
   "valresultat.html?val=region&parti=kbabo&matt=antal",
+
+  "fullmaktige.html",
+  /* Ett äldre möte ur adressen, med inlägg före första ärendet. */
+  "fullmaktige.html?mote=2025-02-04",
 ];
 
 /* Körs i sidan. Chart.js länkar tillbaka till diagrammet från flera håll

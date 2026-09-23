@@ -62,6 +62,7 @@ const DIAGRAMSIDOR = [
      senaste: inget tal att öppna "Kort sagt" med. Granskas närmare i
      granskaTreVal nedan. */
   "valresultat.html?val=region&parti=kbabo&matt=antal",
+  "fullmaktige.html",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
 
