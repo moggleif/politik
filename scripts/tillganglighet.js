@@ -30,7 +30,7 @@ const SIDOR = [
   "nian-till-gymnasiet.html",
   "platser.html", "meritvarden.html", "slutbetyg.html",
   "antagning-till-examen.html",
-  "fortidsrostning.html", "valresultat.html", "metod.html",
+  "fortidsrostning.html", "valresultat.html", "fullmaktige.html", "metod.html",
 ];
 
 const MIME = {

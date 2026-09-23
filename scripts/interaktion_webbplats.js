@@ -47,6 +47,7 @@ const SIDOR = [
   "antagning-till-examen.html",
   "fortidsrostning.html",
   "valresultat.html",
+  "fullmaktige.html",
 ];
 
 /* Hur många alternativ per väljare som provas. Fler ger inte mer: det som
