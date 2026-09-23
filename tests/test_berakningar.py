@@ -3131,6 +3131,23 @@ class TestTreValKontroller(unittest.TestCase):
                             self.distrikt("13840102", False)])
         self.assertFalse(hamta_valresultat.raknad(raa))
 
+    def test_parti_utan_forkortning_laggs_i_ovriga(self):
+        """Den slutliga räkningen tar med småpartier som saknar förkortning
+        – bara partibeteckningen finns. De ska tolkas på namnet, inte
+        krascha läsaren."""
+        d = self.distrikt("13840101", True)
+        d["rostfordelning"]["rosterPaverkaMandat"] = {
+            "antalRoster": 101,
+            "partiRoster": [
+                {"partiforkortning": "M", "partibeteckning": "Moderaterna",
+                 "antalRoster": 100},
+                {"partiforkortning": None,
+                 "partibeteckning": "Kalle Ankapartiet", "antalRoster": 1}]}
+        distrikt, okanda, _ = hamta_valresultat.las_2026(
+            self.zip_med([d]), {}, 2026)
+        self.assertEqual(distrikt[0]["roster"], {"M": 100, "ÖVR": 1})
+        self.assertEqual(okanda, {"Kalle Ankapartiet": 1})
+
 
 class TestKommunvalGranskning(unittest.TestCase):
     """hamta_valresultat kontrollerar varje år mot källans egna summor och

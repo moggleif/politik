@@ -670,10 +670,11 @@ python3 scripts/build_valresultat.py                # bygger om docs/data-*val.j
 ```
 
 De fyra äldre valen är färdigräknade och ändras inte; de behöver hämtas en
-enda gång. **2026 är undantaget.** Just nu ligger Valmyndighetens
-preliminära räkning i filen: den innehåller bara rapportpartier, saknar de
-små lokala partierna, och de sent inkomna förtidsrösterna och
-brevrösterna är inte med. Hämtskriptet läser
+enda gång. **2026 är undantaget.** Valmyndigheten räknar i två steg.
+Den preliminära räkningen innehåller bara rapportpartier, saknar de små
+lokala partierna, och de sent inkomna förtidsrösterna och brevrösterna
+kommer med först efter valdagen; den slutliga är den fastställda.
+Hämtskriptet läser
 `https://resultat.val.se/resultatfiler/val2026/index.md5` och tar den
 slutliga räkningen så fort den finns där *och* omfattar Kungsbackas alla
 valdistrikt &ndash; riksdagsvalets slutliga fil täcker hela riket och

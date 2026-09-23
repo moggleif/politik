@@ -443,8 +443,10 @@ def las_2026(raa: bytes, kalla: dict, ar: int):
         pm = rf.get("rosterPaverkaMandat") or {}
         d["giltiga"] = pm.get("antalRoster") or 0
         for p in pm.get("partiRoster") or []:
-            lagg_till(d, tolka_parti(p["partiforkortning"], p["antalRoster"],
-                                     0, ar, okanda),
+            # Den slutliga räkningen tar med småpartier som saknar
+            # förkortning; då får partibeteckningen tala för dem.
+            rubrik = p.get("partiforkortning") or p.get("partibeteckning")
+            lagg_till(d, tolka_parti(rubrik, p["antalRoster"], 0, ar, okanda),
                       p["antalRoster"], ar)
         lagg_till(d, OVRIGA, (pm.get("rosterOvrigaPartier") or {})
                   .get("antalRoster") or 0, ar)
