@@ -1,0 +1,4323 @@
+{
+ "diagram": [
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       3.76,
+       2.59,
+       4.49,
+       2.81,
+       7.16,
+       3.56,
+       2.4,
+       3.34,
+       1.83,
+       2.12,
+       3.48,
+       3.91,
+       4.3,
+       7.12,
+       3.96,
+       2.86,
+       3.45,
+       3.08,
+       1.3,
+       3.41,
+       3.78,
+       4.88,
+       7.14,
+       3.93
+      ],
+      "label": "Screen9",
+      "pointBackgroundColor": "#fcfcfb",
+      "pointBorderColor": "#1c5cab",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 8,
+      "pointRadius": 6,
+      "pointStyle": "circle",
+      "showLine": false,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       4.04,
+       4.22,
+       2.93,
+       3.3,
+       7.22,
+       1.33,
+       2.9,
+       3.88,
+       4,
+       2.13,
+       3.47,
+       4.36,
+       2.19,
+       8.52,
+       3.33,
+       2.43,
+       3.75,
+       3.55,
+       3.63,
+       3.76,
+       2.59,
+       4.39,
+       2.81,
+       7.16,
+       3.56,
+       2.4,
+       3.34,
+       1.83,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "YouTube",
+      "pointBackgroundColor": "#e69f00",
+      "pointBorderColor": "#e69f00",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 6,
+      "pointRadius": 4,
+      "pointStyle": "rect",
+      "showLine": false,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "8 januari 2022",
+     "8 mars 2022",
+     "5 april 2022",
+     "10 maj 2022",
+     "15 juni 2022",
+     "15 september 2022",
+     "18 oktober 2022",
+     "8 november 2022",
+     "6 december 2022",
+     "7 februari 2023",
+     "7 mars 2023",
+     "4 april 2023",
+     "9 maj 2023",
+     "14 juni 2023",
+     "15 augusti 2023",
+     "12 september 2023",
+     "10 oktober 2023",
+     "7 november 2023",
+     "14 december 2023",
+     "6 februari 2024",
+     "5 mars 2024",
+     "9 april 2024",
+     "7 maj 2024",
+     "13 juni 2024",
+     "13 augusti 2024",
+     "8 oktober 2024",
+     "5 november 2024",
+     "12 december 2024",
+     "4 februari 2025",
+     "4 mars 2025",
+     "8 april 2025",
+     "6 maj 2025",
+     "16 juni 2025",
+     "12 augusti 2025",
+     "9 september 2025",
+     "7 oktober 2025",
+     "11 december 2025",
+     "3 februari 2026",
+     "3 mars 2026",
+     "14 april 2026",
+     "5 maj 2026",
+     "9 juni 2026",
+     "11 augusti 2026"
+    ]
+   },
+   "id": "diagram-langd",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "usePointStyle": true
+      }
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + langd(Math.round(it.parsed.y * 3600)); }",
+       "title": "fn:function (it) { return \"Mötet \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Timmar"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 42,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "8 januari 2022",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 10,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderRadius": 3,
+      "data": [
+       324,
+       178,
+       245,
+       433,
+       379,
+       199,
+       369,
+       409,
+       670,
+       298,
+       390,
+       453,
+       363,
+       426,
+       273,
+       263,
+       400,
+       292,
+       516,
+       455,
+       331,
+       413,
+       325,
+       403,
+       305,
+       336,
+       338,
+       394
+      ],
+      "label": "Visningar på YouTube",
+      "maxBarThickness": 28
+     }
+    ],
+    "labels": [
+     "8 januari 2022",
+     "8 mars 2022",
+     "5 april 2022",
+     "10 maj 2022",
+     "15 juni 2022",
+     "15 september 2022",
+     "18 oktober 2022",
+     "8 november 2022",
+     "6 december 2022",
+     "7 februari 2023",
+     "7 mars 2023",
+     "4 april 2023",
+     "9 maj 2023",
+     "14 juni 2023",
+     "15 augusti 2023",
+     "12 september 2023",
+     "10 oktober 2023",
+     "7 november 2023",
+     "14 december 2023",
+     "6 februari 2024",
+     "5 mars 2024",
+     "9 april 2024",
+     "7 maj 2024",
+     "13 juni 2024",
+     "13 augusti 2024",
+     "8 oktober 2024",
+     "5 november 2024",
+     "12 december 2024"
+    ]
+   },
+   "id": "diagram-visningar",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return talSv(it.parsed.y) + \" visningar\"; }",
+       "title": "fn:function (it) { return \"Mötet \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": true,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 16,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Visningar"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 27,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "8 januari 2022",
+       "varde": 0
+      },
+      {
+       "text": "8 november 2022",
+       "varde": 7
+      },
+      {
+       "text": "15 augusti 2023",
+       "varde": 14
+      },
+      {
+       "text": "9 april 2024",
+       "varde": 21
+      }
+     ]
+    },
+    "y": {
+     "max": 700,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "100",
+       "varde": 100
+      },
+      {
+       "text": "200",
+       "varde": 200
+      },
+      {
+       "text": "300",
+       "varde": 300
+      },
+      {
+       "text": "400",
+       "varde": 400
+      },
+      {
+       "text": "500",
+       "varde": 500
+      },
+      {
+       "text": "600",
+       "varde": 600
+      },
+      {
+       "text": "700",
+       "varde": 700
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderRadius": 3,
+      "data": [
+       375,
+       334,
+       152,
+       126,
+       113,
+       92,
+       68,
+       52,
+       21,
+       4,
+       2
+      ],
+      "label": "Inlägg",
+      "maxBarThickness": 24
+     }
+    ],
+    "labels": [
+     "S",
+     "M",
+     "L",
+     "C",
+     "MP",
+     "SD",
+     "V",
+     "KD",
+     "KB",
+     "Kbabo",
+     "utan partibeteckning"
+    ]
+   },
+   "id": "diagram-partier",
+   "options": {
+    "indexAxis": "y",
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { var r = rader[it.dataIndex]; return [talSv(r.totalt) + \" inlägg\", talSv(r.anforanden) + \" anföranden, \" + talSv(r.repliker) + \" repliker, \" + talSv(r.ordningsfragor) + \" ordningsfrågor\"]; }",
+       "title": "fn:function (it) { return it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:numeric(t,e,i){if(0===t)return\"0\";const s=this.chart.options.locale;let n,o=t;if(i.length>1){const e=Math.max(Math.abs(i[0].value),Math.abs(i[i.length-1].value));(e<1e-4||e>1e15)&&(n=\"scientific\"),o=function(t,e){let i=e.length>3?e[2].value-e[1].value:e[1].value-e[0].value;Math.abs(i)>=1&&t!==Math.floor(t)&&(i=t-Math.floor(t));return i}(t,i)}const a=z(Math.abs(o)),r=isNaN(a)?1:Math.max(Math.min(-1*Math.floor(a),20),0),l={notation:n,minimumFractionDigits:r,maximumFractionDigits:r};return Object.assign(l,this.options.ticks.format),ne(t,s,l)}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal inlägg 2025–2026"
+      },
+      "type": "linear"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": true,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": false,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 400,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "50",
+       "varde": 50
+      },
+      {
+       "text": "100",
+       "varde": 100
+      },
+      {
+       "text": "150",
+       "varde": 150
+      },
+      {
+       "text": "200",
+       "varde": 200
+      },
+      {
+       "text": "250",
+       "varde": 250
+      },
+      {
+       "text": "300",
+       "varde": 300
+      },
+      {
+       "text": "350",
+       "varde": 350
+      },
+      {
+       "text": "400",
+       "varde": 400
+      }
+     ]
+    },
+    "y": {
+     "max": 10,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "S",
+       "varde": 0
+      },
+      {
+       "text": "M",
+       "varde": 1
+      },
+      {
+       "text": "L",
+       "varde": 2
+      },
+      {
+       "text": "C",
+       "varde": 3
+      },
+      {
+       "text": "MP",
+       "varde": 4
+      },
+      {
+       "text": "SD",
+       "varde": 5
+      },
+      {
+       "text": "V",
+       "varde": 6
+      },
+      {
+       "text": "KD",
+       "varde": 7
+      },
+      {
+       "text": "KB",
+       "varde": 8
+      },
+      {
+       "text": "Kbabo",
+       "varde": 9
+      },
+      {
+       "text": "utan partibeteckning",
+       "varde": 10
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "reglage": [
+  {
+   "alternativ": [
+    "2026-08-11=11 augusti 2026",
+    "2026-06-09=9 juni 2026",
+    "2026-05-05=5 maj 2026",
+    "2026-04-14=14 april 2026",
+    "2026-03-03=3 mars 2026",
+    "2026-02-03=3 februari 2026",
+    "2025-12-11=11 december 2025",
+    "2025-10-07=7 oktober 2025",
+    "2025-09-09=9 september 2025",
+    "2025-08-12=12 augusti 2025",
+    "2025-06-16=16 juni 2025",
+    "2025-05-06=6 maj 2025",
+    "2025-04-08=8 april 2025",
+    "2025-03-04=4 mars 2025",
+    "2025-02-04=4 februari 2025"
+   ],
+   "id": "mote-valjare",
+   "varde": "2025-02-04"
+  }
+ ],
+ "tabeller": [
+  {
+   "caption": null,
+   "id": "tabell-moten",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Möte"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Längd"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Ärenden"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Inlägg"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Visningar på YouTube"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Inspelning"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "11 augusti 2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 56 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "115"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "9 juni 2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 h 9 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "167"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "5 maj 2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 53 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "30"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "123"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "14 april 2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 47 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "62"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "3 mars 2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 25 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "3 februari 2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 h 18 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "34"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "11 december 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 5 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "26"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "4 november 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ingen inspelning länkad"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "7 oktober 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 27 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "9 september 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 52 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "22"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "65"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "12 augusti 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 58 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "81"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "16 juni 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 h 7 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "20"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "168"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "6 maj 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 18 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "103"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "8 april 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 54 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "59"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "4 mars 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 29 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "47"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "4 februari 2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 7 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "34"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "12 december 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 h 50 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "394"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9 · YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "5 november 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 21 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "338"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9 · YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "8 oktober 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 24 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "336"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9 · YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "13 augusti 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 33 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "305"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9 · YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "13 juni 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 h 9 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "403"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9 · YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "7 maj 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 49 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "325"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9 · YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "9 april 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 29 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "413"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9 · YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "5 mars 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 35 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "331"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9 · YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "6 februari 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 45 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "455"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Screen9 · YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "14 december 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 38 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "516"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "7 november 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 33 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "292"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "10 oktober 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 45 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "400"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "12 september 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 26 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "263"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "15 augusti 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 20 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "273"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "14 juni 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8 h 31 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "426"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "9 maj 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 11 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "363"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "4 april 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 22 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "453"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "7 mars 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 28 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "390"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "7 februari 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 8 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "298"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "6 december 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 0 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "670"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "8 november 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 53 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "409"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "18 oktober 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 54 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "369"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "15 september 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 h 20 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "199"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "15 juni 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 h 13 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "379"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "10 maj 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 18 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "433"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "5 april 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 56 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "245"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "8 mars 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 13 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "178"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "8 januari 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 2 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "324"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "YouTube"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-ar",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Möten"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Varav inspelade"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Sammanlagd längd"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Snittlängd"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Längsta mötet"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Visningar på YouTube"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Ärenden"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Inlägg"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "33 h 49 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 45 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "15 juni 2022, 7 h 13 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 206"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "37 h 21 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 44 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14 juni 2023, 8 h 31 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 674"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "31 h 56 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 33 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 juni 2024, 7 h 9 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 300"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "34 h 17 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 49 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "16 juni 2025, 7 h 7 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "201"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "744"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "24 h 26 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 4 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9 juni 2026, 7 h 9 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "124"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "595"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-visningar",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Möte"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Visningar"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Längd"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Sänd direkt"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "8 januari 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "324"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 2 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 8 februari 2022"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "8 mars 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "178"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 13 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 8 mars 2022"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "5 april 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "245"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 56 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 5 april 2022"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "10 maj 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "433"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 18 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 10 maj 2022"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "15 juni 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "379"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 h 13 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 15 juni 2022"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "15 september 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "199"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 h 20 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 15 september 2022"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "18 oktober 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "369"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 54 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 18 oktober 2022"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "8 november 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "409"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 53 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 8 november 2022"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "6 december 2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "670"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 0 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 6 december 2022"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "7 februari 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "298"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 8 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 7 februari 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "7 mars 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "390"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 28 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 7 mars 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "4 april 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "453"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 22 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 4 april 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "9 maj 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "363"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 11 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 9 maj 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "14 juni 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "426"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8 h 31 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 13 juni 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "15 augusti 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "273"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 20 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 15 augusti 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "12 september 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "263"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 26 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 12 september 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "10 oktober 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "400"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 45 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 10 oktober 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "7 november 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "292"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 33 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 7 november 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "14 december 2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "516"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 38 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 14 december 2023"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "6 februari 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "455"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 45 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 6 februari 2024"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "5 mars 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "331"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 35 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 5 mars 2024"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "9 april 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "413"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 h 23 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 9 april 2024"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "7 maj 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "325"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 49 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 7 maj 2024"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "13 juni 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "403"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 h 9 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 12 juni 2024"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "13 augusti 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "305"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 33 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 13 augusti 2024"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "8 oktober 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "336"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 h 24 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 8 oktober 2024"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "5 november 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "338"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 h 21 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 5 november 2024"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "12 december 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "394"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 h 50 min"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ja, 12 december 2024"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-arenden",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Ärende"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Börjar i inspelningen"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Inlägg"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Före första ärendet"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0:03:16"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 4 - Svar på interpellation från Ermin Škorić (S) till nämnden för Vård & Omsorgs ordförande Hravn Forsne (M) om lagen om valfrihet (LOV) inom äldreboendeverksamheten"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0:03:34"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "14"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 5 - Återrapportering av uppdrag om att ta fram kriterier för byggande av ekobyar"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0:35:29"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 6 - Återrapportering av uppdrag om att ta fram tillämpningar och anvisningar för vindkraft som prövas enligt miljöbalken"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0:37:25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 7 - Revidering av kemikalieplan 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0:38:12"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 8 - Taxa 2025 för Kungsbacka Teater och Konsertsalen Snäckan"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0:55:56"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 9 - Taxa 2025 för Kungsbacka Konsthall"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0:57:42"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 10 - Rapport från nämnden för Vård & Omsorg av ej verkställda beslut enligt socialtjänstlagen, SoL, tredje kvartalet 2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0:59:04"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 12 - Markanvisningsavtal avseende del av Gjutaren 1 och del av Kungsbacka 2:2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0:59:54"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 12 - Markanvisningsavtal avseende del av Gjutaren 1 och del av Kungsbacka 2:2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:00:29"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 13 - Plan för Kungsbacka kommuns folk-, skol- och gymnasiebibliotek 2025–2030"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:01:18"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 14 - Svar på motion från Carita Boulwén (SD) m.fl. om översyn och förbättringar av kommunfullmäktigesalen"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:31:43"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 15 - Anmälan av motion från Ermin Škorić (S) m.fl. om att utreda och presentera ett förslag på hur ett pensionärs- och seniorråd ska inrättas i Kungsbacka"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:44:14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 16 - Anmälan av eventuellt nya motioner, interpellationer och frågor"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:44:30"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 17 - Fyllnadsval för uppdrag som suppleant i styrelsen för Eksta Bostads AB samt suppleant i styrelsen för Tempohus Kungsbacka AB"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:44:43"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 18 - Entledigande och begäran om ny sammanräkning för uppdrag som ersättare i kommunfullmäktige"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:45:15"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 19 - Fyllnadsval för uppdrag som nämndeman vid Varbergs tingsrätt"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:45:50"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 20 - Entledigande och fyllnadsval för uppdrag som ersättare i nämnden för Miljö & Hälsoskydd"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:46:40"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 20 - Entledigande och fyllnadsval för uppdrag som ersättare i nämnden för Miljö & Hälsoskydd"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:46:50"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 19 - Fyllnadsval för uppdrag som nämndeman vid Varbergs tingsrätt"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:46:57"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 20 - Entledigande och fyllnadsval för uppdrag som ersättare i nämnden för Miljö & Hälsoskydd"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:47:08"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 22 - Entledigande och fyllnadsval för uppdrag som nämndeman vid Varbergs tingsrätt"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:48:23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 23 - Eventuellt nya avsägelser och val till kommunala uppdrag"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:48:59"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Ärende 24 - Redovisning av inkomna skrivelser"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1:49:14"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-partier",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Parti"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2026"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Anföranden"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Repliker"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Ordningsfrågor"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Totalt"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "S"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "205"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "170"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "267"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "104"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "375"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "M"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "169"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "165"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "255"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "79"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "334"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "L"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "95"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "57"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "117"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "35"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "152"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "C"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "78"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "48"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "115"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "126"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "MP"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "59"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "54"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "87"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "25"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "113"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "SD"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "52"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "40"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "68"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "24"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "V"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "47"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "66"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "68"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "KD"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "23"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "29"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "47"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "52"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "KB"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "19"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "21"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kbabo"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "utan partibeteckning"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2"
+     }
+    ]
+   ]
+  }
+ ],
+ "text": {
+  "#diagram-langd": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-partier": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-visningar": {
+   "dold": false,
+   "html": ""
+  },
+  "#huvudinnehall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kalla-langd": {
+   "dold": false,
+   "html": "Källa: inspelningarnas längd på Screen9 och YouTube."
+  },
+  "#kalla-moten": {
+   "dold": false,
+   "html": "Källa: Kungsbacka kommun, Screen9 och YouTube, hämtat 2026-09-23 18:29."
+  },
+  "#kalla-partier": {
+   "dold": false,
+   "html": "Källa: kapitelmarkeringarna i Screen9-sändningarna 2025–2026."
+  },
+  "#kalla-visningar": {
+   "dold": false,
+   "html": "Källa: YouTube, antalet visningar 2026-09-23 18:29."
+  },
+  "#kort-sagt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kort-sagt-lista": {
+   "dold": false,
+   "html": "<li><strong>43 möten</strong> från 8 januari 2022 till 11 augusti 2026 har en inspelning som går att se, sammanlagt <strong>162 timmar</strong>.</li><li>De 28 mötena på YouTube har mellan <strong>178 och 670</strong> visningar var.</li><li>Under 2025–2026 behandlades <strong>325 ärenden</strong> med <strong>1&nbsp;339 inlägg</strong>.</li><li>Mötet 4 november 2025 saknar länkad inspelning: kommunens länk leder till mötet 7 oktober 2025.</li>"
+  },
+  "#kort-sagt-rubrik": {
+   "dold": false,
+   "html": "Kort sagt"
+  },
+  "#lista-kallor": {
+   "dold": false,
+   "html": "<li><span class=\"titel\">Kungsbacka kommun: Webbsändningar från kommunfullmäktige</span><br><span class=\"detalj\">Länkarna till Screen9, år för år. Hämtat 2026-09-23 18:29.</span><div class=\"lankar\"><a href=\"https://kungsbacka.se/kommun-och-politik/politik-och-demokrati/politiska-moten-och-sammantraden/kommunfullmaktiges-sammantraden/webbsandningar-fran-kommunfullmaktige\">Kommunens sida</a></div></li><li><span class=\"titel\">Screen9 (QC Network): sändningarna 2024 och framåt</span><br><span class=\"detalj\">Längd och kapitelmarkeringar ur varje sändning. Länk per möte i tabellen ovan.</span></li><li><span class=\"titel\">YouTube: spellistan Kungsbacka kommunfullmäktige, 2022–2024</span><br><span class=\"detalj\">Längd, visningar och sändningsdatum för varje video. Hämtat 2026-09-23 18:29.</span><div class=\"lankar\"><a href=\"https://www.youtube.com/playlist?list=PLR8w9H5fc00oBGucMV-UzR7SuCO4kzfGU\">Spellistan på YouTube</a></div></li>"
+  },
+  "#meta-rad": {
+   "dold": false,
+   "html": "<span>Källa: Kungsbacka kommun, Screen9 och YouTube</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2022–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 11 augusti 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-23 18:29</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  },
+  "#mote-lank": {
+   "dold": false,
+   "html": "Mötet 4 februari 2025: 23 ärenden och 34 inlägg på 2&nbsp;h 7&nbsp;min. <a href=\"https://api.screen9.com/preview/mWXZh78TC1_lA-0xwMSCdKg4zb-oiNvfPctNhNtyCIGN4tD4ijvSWDdVzLd7OCKQ\">Se inspelningen på Screen9</a>."
+  },
+  "#mote-valjare": {
+   "dold": false,
+   "html": "<option value=\"2026-08-11\">11 augusti 2026</option><option value=\"2026-06-09\">9 juni 2026</option><option value=\"2026-05-05\">5 maj 2026</option><option value=\"2026-04-14\">14 april 2026</option><option value=\"2026-03-03\">3 mars 2026</option><option value=\"2026-02-03\">3 februari 2026</option><option value=\"2025-12-11\">11 december 2025</option><option value=\"2025-10-07\">7 oktober 2025</option><option value=\"2025-09-09\">9 september 2025</option><option value=\"2025-08-12\">12 augusti 2025</option><option value=\"2025-06-16\">16 juni 2025</option><option value=\"2025-05-06\">6 maj 2025</option><option value=\"2025-04-08\">8 april 2025</option><option value=\"2025-03-04\">4 mars 2025</option><option value=\"2025-02-04\">4 februari 2025</option>"
+  },
+  "#not-moten": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div><p><strong>Där källorna inte stämmer överens</strong></p><ul><li>YouTube-videon av mötet <strong>8 januari 2022</strong> har det datumet i titeln, men sändes enligt YouTube den 8 februari 2022.</li><li>YouTube-videon av mötet <strong>14 juni 2023</strong> har det datumet i titeln, men sändes enligt YouTube den 13 juni 2023.</li><li>YouTube-videon av mötet <strong>13 juni 2024</strong> har det datumet i titeln, men sändes enligt YouTube den 12 juni 2024.</li><li>Kommunens länk för mötet <strong>4 november 2025</strong> leder till inspelningen av mötet 7 oktober 2025. Någon egen inspelning av mötet 4 november 2025 är inte länkad.</li><li>Spellistan på YouTube anger 29 videor, men bara 28 går att se. Resten är dolda eller privata och finns inte med här.</li></ul></div></div>"
+  },
+  "#not-partier": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Beteckningarna står som i kapitelmarkeringarna och har inte ändrats här. Samma parti kan därför förekomma under två beteckningar. Ett inlägg utan partibeteckning räknas för sig.</div></div>"
+  },
+  "#om-uppdaterad": {
+   "dold": false,
+   "html": "Uppgifterna hämtades 2026-09-23 18:29. Visningarna på YouTube är en ögonblicksbild från det tillfället."
+  },
+  "#sektion-arenden": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kallor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-langd": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-moten": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-om": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-partier": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-visningar": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#slutsats-langd": {
+   "dold": false,
+   "html": "<p>Det längsta inspelade mötet är <strong>14 juni 2023</strong>, 8&nbsp;h 31&nbsp;min. Det kortaste är <strong>3 februari 2026</strong>, 1&nbsp;h 18&nbsp;min.</p>"
+  },
+  "#slutsats-visningar": {
+   "dold": false,
+   "html": "<p>De 28 videorna har sammanlagt <strong>10&nbsp;180</strong> visningar, från 178 till 670 per video.</p>"
+  },
+  "#status": {
+   "dold": true,
+   "html": ""
+  },
+  "#tabell-ar": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Möten\">Möten</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Varav inspelade\">Varav inspelade</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Sammanlagd längd\">Sammanlagd längd</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Snittlängd\">Snittlängd</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Längsta mötet\">Längsta mötet</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Visningar på YouTube\">Visningar på YouTube</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Ärenden\">Ärenden</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Inlägg\">Inlägg</th></tr></thead><tbody><tr><th scope=\"row\">2022</th><td>9</td><td>9</td><td>33&nbsp;h 49&nbsp;min</td><td>3&nbsp;h 45&nbsp;min</td><td>15 juni 2022, 7&nbsp;h 13&nbsp;min</td><td>3&nbsp;206</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2023</th><td>10</td><td>10</td><td>37&nbsp;h 21&nbsp;min</td><td>3&nbsp;h 44&nbsp;min</td><td>14 juni 2023, 8&nbsp;h 31&nbsp;min</td><td>3&nbsp;674</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2024</th><td>9</td><td>9</td><td>31&nbsp;h 56&nbsp;min</td><td>3&nbsp;h 33&nbsp;min</td><td>13 juni 2024, 7&nbsp;h 9&nbsp;min</td><td>3&nbsp;300</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2025</th><td>10</td><td>9</td><td>34&nbsp;h 17&nbsp;min</td><td>3&nbsp;h 49&nbsp;min</td><td>16 juni 2025, 7&nbsp;h 7&nbsp;min</td><td>–</td><td>201</td><td>744</td></tr><tr><th scope=\"row\">2026</th><td>6</td><td>6</td><td>24&nbsp;h 26&nbsp;min</td><td>4&nbsp;h 4&nbsp;min</td><td>9 juni 2026, 7&nbsp;h 9&nbsp;min</td><td>–</td><td>124</td><td>595</td></tr></tbody>"
+  },
+  "#tabell-arenden": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\">Ärende</th><th scope=\"col\">Börjar i inspelningen</th><th scope=\"col\">Inlägg</th></tr></thead><tbody><tr><td><em>Före första ärendet</em></td><td>0:03:16</td><td>1</td></tr><tr><td>Ärende 4 - Svar på interpellation från Ermin Škorić (S) till nämnden för Vård &amp; Omsorgs ordförande Hravn Forsne (M) om lagen om valfrihet (LOV) inom äldreboendeverksamheten</td><td>0:03:34</td><td>14</td></tr><tr><td>Ärende 5 - Återrapportering av uppdrag om att ta fram kriterier för byggande av ekobyar</td><td>0:35:29</td><td>1</td></tr><tr><td>Ärende 6 - Återrapportering av uppdrag om att ta fram tillämpningar och anvisningar för vindkraft som prövas enligt miljöbalken</td><td>0:37:25</td><td>0</td></tr><tr><td>Ärende 7 - Revidering av kemikalieplan 2024</td><td>0:38:12</td><td>9</td></tr><tr><td>Ärende 8 - Taxa 2025 för Kungsbacka Teater och Konsertsalen Snäckan</td><td>0:55:56</td><td>1</td></tr><tr><td>Ärende 9 - Taxa 2025 för Kungsbacka Konsthall</td><td>0:57:42</td><td>1</td></tr><tr><td>Ärende 10 - Rapport från nämnden för Vård &amp; Omsorg av ej verkställda beslut enligt socialtjänstlagen, SoL, tredje kvartalet 2024</td><td>0:59:04</td><td>0</td></tr><tr><td>Ärende 12 - Markanvisningsavtal avseende del av Gjutaren 1 och del av Kungsbacka 2:2</td><td>0:59:54</td><td>0</td></tr><tr><td>Ärende 12 - Markanvisningsavtal avseende del av Gjutaren 1 och del av Kungsbacka 2:2</td><td>1:00:29</td><td>0</td></tr><tr><td>Ärende 13 - Plan för Kungsbacka kommuns folk-, skol- och gymnasiebibliotek 2025–2030</td><td>1:01:18</td><td>5</td></tr><tr><td>Ärende 14 - Svar på motion från Carita Boulwén (SD) m.fl. om översyn och förbättringar av kommunfullmäktigesalen</td><td>1:31:43</td><td>2</td></tr><tr><td>Ärende 15 - Anmälan av motion från Ermin Škorić (S) m.fl. om att utreda och presentera ett förslag på hur ett pensionärs- och seniorråd ska inrättas i Kungsbacka</td><td>1:44:14</td><td>0</td></tr><tr><td>Ärende 16 - Anmälan av eventuellt nya motioner, interpellationer och frågor</td><td>1:44:30</td><td>0</td></tr><tr><td>Ärende 17 - Fyllnadsval för uppdrag som suppleant i styrelsen för Eksta Bostads AB samt suppleant i styrelsen för Tempohus Kungsbacka AB</td><td>1:44:43</td><td>0</td></tr><tr><td>Ärende 18 - Entledigande och begäran om ny sammanräkning för uppdrag som ersättare i kommunfullmäktige</td><td>1:45:15</td><td>0</td></tr><tr><td>Ärende 19 - Fyllnadsval för uppdrag som nämndeman vid Varbergs tingsrätt</td><td>1:45:50</td><td>0</td></tr><tr><td>Ärende 20 - Entledigande och fyllnadsval för uppdrag som ersättare i nämnden för Miljö &amp; Hälsoskydd</td><td>1:46:40</td><td>0</td></tr><tr><td>Ärende 20 - Entledigande och fyllnadsval för uppdrag som ersättare i nämnden för Miljö &amp; Hälsoskydd</td><td>1:46:50</td><td>0</td></tr><tr><td>Ärende 19 - Fyllnadsval för uppdrag som nämndeman vid Varbergs tingsrätt</td><td>1:46:57</td><td>0</td></tr><tr><td>Ärende 20 - Entledigande och fyllnadsval för uppdrag som ersättare i nämnden för Miljö &amp; Hälsoskydd</td><td>1:47:08</td><td>0</td></tr><tr><td>Ärende 22 - Entledigande och fyllnadsval för uppdrag som nämndeman vid Varbergs tingsrätt</td><td>1:48:23</td><td>0</td></tr><tr><td>Ärende 23 - Eventuellt nya avsägelser och val till kommunala uppdrag</td><td>1:48:59</td><td>0</td></tr><tr><td>Ärende 24 - Redovisning av inkomna skrivelser</td><td>1:49:14</td><td>0</td></tr></tbody>"
+  },
+  "#tabell-moten": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\">Möte</th><th scope=\"col\">Längd</th><th scope=\"col\">Ärenden</th><th scope=\"col\">Inlägg</th><th scope=\"col\">Visningar på YouTube</th><th scope=\"col\">Inspelning</th></tr></thead><tbody><tr><th scope=\"row\">11 augusti 2026</th><td>3&nbsp;h 56&nbsp;min</td><td>24</td><td>115</td><td>–</td><td><a href=\"https://qcnl.tv/p/vNArFDFqLZDmAjx9NVgJ1g\">Screen9</a></td></tr><tr><th scope=\"row\">9 juni 2026</th><td>7&nbsp;h 9&nbsp;min</td><td>11</td><td>167</td><td>–</td><td><a href=\"https://qcnl.tv/p/5iSbPbZR0N3OIJzZoTXlhg\">Screen9</a></td></tr><tr><th scope=\"row\">5 maj 2026</th><td>4&nbsp;h 53&nbsp;min</td><td>30</td><td>123</td><td>–</td><td><a href=\"https://qcnl.tv/p/3IwA5dyU4dhtvnTjVvHfNw\">Screen9</a></td></tr><tr><th scope=\"row\">14 april 2026</th><td>3&nbsp;h 47&nbsp;min</td><td>25</td><td>62</td><td>–</td><td><a href=\"https://qcnl.tv/p/QQjjGfW6mdrKJTdyABelaA\">Screen9</a></td></tr><tr><th scope=\"row\">3 mars 2026</th><td>3&nbsp;h 25&nbsp;min</td><td>18</td><td>94</td><td>–</td><td><a href=\"https://qcnl.tv/p/3GeKF9DKvEb4HRl9GNOSFg\">Screen9</a></td></tr><tr><th scope=\"row\">3 februari 2026</th><td>1&nbsp;h 18&nbsp;min</td><td>16</td><td>34</td><td>–</td><td><a href=\"https://qcnl.tv/p/mK-F6eMDF-I0ZzlqvOOtsQ\">Screen9</a></td></tr><tr><th scope=\"row\">11 december 2025</th><td>3&nbsp;h 5&nbsp;min</td><td>26</td><td>91</td><td>–</td><td><a href=\"https://qcnl.tv/p/u8Q6YsIMWPS6zSQ6pxWGwQ\">Screen9</a></td></tr><tr><th scope=\"row\">4 november 2025</th><td>–</td><td>–</td><td>–</td><td>–</td><td>Ingen inspelning länkad</td></tr><tr><th scope=\"row\">7 oktober 2025</th><td>3&nbsp;h 27&nbsp;min</td><td>22</td><td>96</td><td>–</td><td><a href=\"https://qcnl.tv/p/YPIFpSTFWm0rbNa2JPBerA\">Screen9</a></td></tr><tr><th scope=\"row\">9 september 2025</th><td>2&nbsp;h 52&nbsp;min</td><td>22</td><td>65</td><td>–</td><td><a href=\"https://qcnl.tv/p/o3Fjvo6TPBqct20gaEJtvg\">Screen9</a></td></tr><tr><th scope=\"row\">12 augusti 2025</th><td>3&nbsp;h 58&nbsp;min</td><td>23</td><td>81</td><td>–</td><td><a href=\"https://qcnl.tv/p/w_TJ7gIOnZJVmkua0WQYLw\">Screen9</a></td></tr><tr><th scope=\"row\">16 juni 2025</th><td>7&nbsp;h 7&nbsp;min</td><td>20</td><td>168</td><td>–</td><td><a href=\"https://qcnl.tv/p/_kI6OlkgjOE9rm145uotNQ\">Screen9</a></td></tr><tr><th scope=\"row\">6 maj 2025</th><td>4&nbsp;h 18&nbsp;min</td><td>29</td><td>103</td><td>–</td><td><a href=\"https://qcnl.tv/p/8W_IMBtcbyaVnnemp7aWSQ\">Screen9</a></td></tr><tr><th scope=\"row\">8 april 2025</th><td>3&nbsp;h 54&nbsp;min</td><td>11</td><td>59</td><td>–</td><td><a href=\"https://qcnl.tv/p/lnZtP7bwu25VoRjMBreroQ\">Screen9</a></td></tr><tr><th scope=\"row\">4 mars 2025</th><td>3&nbsp;h 29&nbsp;min</td><td>25</td><td>47</td><td>–</td><td><a href=\"https://api.screen9.com/preview/mHHeLIFbSc0FxFS8tF5yUGiPeNq_kTAdEUZcdDjISz0pmDUxcJSzFP_UncqYOKMU\">Screen9</a></td></tr><tr><th scope=\"row\">4 februari 2025</th><td>2&nbsp;h 7&nbsp;min</td><td>23</td><td>34</td><td>–</td><td><a href=\"https://api.screen9.com/preview/mWXZh78TC1_lA-0xwMSCdKg4zb-oiNvfPctNhNtyCIGN4tD4ijvSWDdVzLd7OCKQ\">Screen9</a></td></tr><tr><th scope=\"row\">12 december 2024</th><td>1&nbsp;h 50&nbsp;min</td><td>–</td><td>–</td><td>394</td><td><a href=\"https://api.screen9.com/preview/uBclui8eOSlJ-Gjz_tyUH6FB1TcZHY1RQ5Ynlj_IlT9NvPAQaFW7vjJBnYOOGECQ\">Screen9</a> · <a href=\"https://www.youtube.com/watch?v=2Vgz9K8ZRxI\">YouTube</a></td></tr><tr><th scope=\"row\">5 november 2024</th><td>3&nbsp;h 21&nbsp;min</td><td>–</td><td>–</td><td>338</td><td><a href=\"https://api.screen9.com/preview/Yq6X9cG6Bb2YgXjHHQKkmwWqAAisNptDq8Pwau3rxstYamHnpSbkgDGf_bUM2yoU\">Screen9</a> · <a href=\"https://www.youtube.com/watch?v=mhSzZeqEcHo\">YouTube</a></td></tr><tr><th scope=\"row\">8 oktober 2024</th><td>2&nbsp;h 24&nbsp;min</td><td>–</td><td>–</td><td>336</td><td><a href=\"https://api.screen9.com/preview/zTtozN3lJXgpPAyw5Xfr9ts_33jfkxfh9lxAN84LKaohBCsTiU2YJRXORL4X2I_6\">Screen9</a> · <a href=\"https://www.youtube.com/watch?v=MhkQfYXg_aI\">YouTube</a></td></tr><tr><th scope=\"row\">13 augusti 2024</th><td>3&nbsp;h 33&nbsp;min</td><td>–</td><td>–</td><td>305</td><td><a href=\"https://api.screen9.com/preview/e1g5OFMVKkozroysYq_B6AnG0UpnR7dobNUbiC433E1Y3NUa8qJQHkVYjKanuiwV\">Screen9</a> · <a href=\"https://www.youtube.com/watch?v=NqUlVO2RU-A\">YouTube</a></td></tr><tr><th scope=\"row\">13 juni 2024</th><td>7&nbsp;h 9&nbsp;min</td><td>–</td><td>–</td><td>403</td><td><a href=\"https://api.screen9.com/preview/GTQgoHYxDzLusCTncQqesqrT-E_XY6lnYvFtnhbuGS7zQUR-_HRtfA9RM4byRUEE\">Screen9</a> · <a href=\"https://www.youtube.com/watch?v=NxVByPp7lAo\">YouTube</a></td></tr><tr><th scope=\"row\">7 maj 2024</th><td>2&nbsp;h 49&nbsp;min</td><td>–</td><td>–</td><td>325</td><td><a href=\"https://api.screen9.com/preview/29tj1gtG7-79UBrzOYPpydXjui47L84CpUktC54zWdOghJee9Cbv0y995xjNIf3D\">Screen9</a> · <a href=\"https://www.youtube.com/watch?v=rblkvyRiHQI\">YouTube</a></td></tr><tr><th scope=\"row\">9 april 2024</th><td>4&nbsp;h 29&nbsp;min</td><td>–</td><td>–</td><td>413</td><td><a href=\"https://api.screen9.com/preview/kU1zWyb2nDRKdw54L2d1C-AX4iJAplAiMlo5Azznzcu8BMyUti_PFVUdp73BA6fG\">Screen9</a> · <a href=\"https://www.youtube.com/watch?v=02lzFGHZGeo\">YouTube</a></td></tr><tr><th scope=\"row\">5 mars 2024</th><td>2&nbsp;h 35&nbsp;min</td><td>–</td><td>–</td><td>331</td><td><a href=\"https://api.screen9.com/preview/ShfYNVMjYcDZcP5E1VoJDRNKpfNlIVNieNJc1qGeViflFFGzqHCaOlAvDX4bJpD8\">Screen9</a> · <a href=\"https://www.youtube.com/watch?v=VhIjUzRzEEQ\">YouTube</a></td></tr><tr><th scope=\"row\">6 februari 2024</th><td>3&nbsp;h 45&nbsp;min</td><td>–</td><td>–</td><td>455</td><td><a href=\"https://api.screen9.com/preview/5lfsewB-VUYnfuL9YrHoRSk00LDY51pmFNjG94AbT9wztjXd9Cwa7PuzEkekymJ2\">Screen9</a> · <a href=\"https://www.youtube.com/watch?v=LZQ91J3Qrfk\">YouTube</a></td></tr><tr><th scope=\"row\">14 december 2023</th><td>3&nbsp;h 38&nbsp;min</td><td>–</td><td>–</td><td>516</td><td><a href=\"https://www.youtube.com/watch?v=v3ogCswMux0\">YouTube</a></td></tr><tr><th scope=\"row\">7 november 2023</th><td>3&nbsp;h 33&nbsp;min</td><td>–</td><td>–</td><td>292</td><td><a href=\"https://www.youtube.com/watch?v=nP8z7v7xQuQ\">YouTube</a></td></tr><tr><th scope=\"row\">10 oktober 2023</th><td>3&nbsp;h 45&nbsp;min</td><td>–</td><td>–</td><td>400</td><td><a href=\"https://www.youtube.com/watch?v=9sa47DCZIM8\">YouTube</a></td></tr><tr><th scope=\"row\">12 september 2023</th><td>2&nbsp;h 26&nbsp;min</td><td>–</td><td>–</td><td>263</td><td><a href=\"https://www.youtube.com/watch?v=6vESb5ASK3I\">YouTube</a></td></tr><tr><th scope=\"row\">15 augusti 2023</th><td>3&nbsp;h 20&nbsp;min</td><td>–</td><td>–</td><td>273</td><td><a href=\"https://www.youtube.com/watch?v=UjcELp-B_7I\">YouTube</a></td></tr><tr><th scope=\"row\">14 juni 2023</th><td>8&nbsp;h 31&nbsp;min</td><td>–</td><td>–</td><td>426</td><td><a href=\"https://www.youtube.com/watch?v=HXyGfuHzQ70\">YouTube</a></td></tr><tr><th scope=\"row\">9 maj 2023</th><td>2&nbsp;h 11&nbsp;min</td><td>–</td><td>–</td><td>363</td><td><a href=\"https://www.youtube.com/watch?v=1CCs64lFakE\">YouTube</a></td></tr><tr><th scope=\"row\">4 april 2023</th><td>4&nbsp;h 22&nbsp;min</td><td>–</td><td>–</td><td>453</td><td><a href=\"https://www.youtube.com/watch?v=lolBIDTuPJw\">YouTube</a></td></tr><tr><th scope=\"row\">7 mars 2023</th><td>3&nbsp;h 28&nbsp;min</td><td>–</td><td>–</td><td>390</td><td><a href=\"https://www.youtube.com/watch?v=tBgJRTM5jB0\">YouTube</a></td></tr><tr><th scope=\"row\">7 februari 2023</th><td>2&nbsp;h 8&nbsp;min</td><td>–</td><td>–</td><td>298</td><td><a href=\"https://www.youtube.com/watch?v=qqfFtNXmf-I\">YouTube</a></td></tr><tr><th scope=\"row\">6 december 2022</th><td>4&nbsp;h 0&nbsp;min</td><td>–</td><td>–</td><td>670</td><td><a href=\"https://www.youtube.com/watch?v=fZzr1Dke-is\">YouTube</a></td></tr><tr><th scope=\"row\">8 november 2022</th><td>3&nbsp;h 53&nbsp;min</td><td>–</td><td>–</td><td>409</td><td><a href=\"https://www.youtube.com/watch?v=lDMikXbXK2k\">YouTube</a></td></tr><tr><th scope=\"row\">18 oktober 2022</th><td>2&nbsp;h 54&nbsp;min</td><td>–</td><td>–</td><td>369</td><td><a href=\"https://www.youtube.com/watch?v=-Ip-UPMl8E8\">YouTube</a></td></tr><tr><th scope=\"row\">15 september 2022</th><td>1&nbsp;h 20&nbsp;min</td><td>–</td><td>–</td><td>199</td><td><a href=\"https://www.youtube.com/watch?v=X-7pmTSmJZ4\">YouTube</a></td></tr><tr><th scope=\"row\">15 juni 2022</th><td>7&nbsp;h 13&nbsp;min</td><td>–</td><td>–</td><td>379</td><td><a href=\"https://www.youtube.com/watch?v=pzQ6-beZGFE\">YouTube</a></td></tr><tr><th scope=\"row\">10 maj 2022</th><td>3&nbsp;h 18&nbsp;min</td><td>–</td><td>–</td><td>433</td><td><a href=\"https://www.youtube.com/watch?v=K0kmAT5f28M\">YouTube</a></td></tr><tr><th scope=\"row\">5 april 2022</th><td>2&nbsp;h 56&nbsp;min</td><td>–</td><td>–</td><td>245</td><td><a href=\"https://www.youtube.com/watch?v=nzuBqpS0cdY\">YouTube</a></td></tr><tr><th scope=\"row\">8 mars 2022</th><td>4&nbsp;h 13&nbsp;min</td><td>–</td><td>–</td><td>178</td><td><a href=\"https://www.youtube.com/watch?v=1wbZbhCrkUA\">YouTube</a></td></tr><tr><th scope=\"row\">8 januari 2022</th><td>4&nbsp;h 2&nbsp;min</td><td>–</td><td>–</td><td>324</td><td><a href=\"https://www.youtube.com/watch?v=tba27i5pc-A\">YouTube</a></td></tr></tbody>"
+  },
+  "#tabell-partier": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Parti\">Parti</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2025\">2025</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2026\">2026</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Anföranden\">Anföranden</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Repliker\">Repliker</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Ordningsfrågor\">Ordningsfrågor</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Totalt\">Totalt</th></tr></thead><tbody><tr><th scope=\"row\">S</th><td>205</td><td>170</td><td>267</td><td>104</td><td>4</td><td>375</td></tr><tr><th scope=\"row\">M</th><td>169</td><td>165</td><td>255</td><td>79</td><td>0</td><td>334</td></tr><tr><th scope=\"row\">L</th><td>95</td><td>57</td><td>117</td><td>35</td><td>0</td><td>152</td></tr><tr><th scope=\"row\">C</th><td>78</td><td>48</td><td>115</td><td>10</td><td>1</td><td>126</td></tr><tr><th scope=\"row\">MP</th><td>59</td><td>54</td><td>87</td><td>25</td><td>1</td><td>113</td></tr><tr><th scope=\"row\">SD</th><td>52</td><td>40</td><td>68</td><td>24</td><td>0</td><td>92</td></tr><tr><th scope=\"row\">V</th><td>47</td><td>21</td><td>66</td><td>2</td><td>0</td><td>68</td></tr><tr><th scope=\"row\">KD</th><td>23</td><td>29</td><td>47</td><td>5</td><td>0</td><td>52</td></tr><tr><th scope=\"row\">KB</th><td>11</td><td>10</td><td>19</td><td>2</td><td>0</td><td>21</td></tr><tr><th scope=\"row\">Kbabo</th><td>4</td><td>–</td><td>3</td><td>1</td><td>0</td><td>4</td></tr><tr><th scope=\"row\">utan partibeteckning</th><td>1</td><td>1</td><td>2</td><td>0</td><td>0</td><td>2</td></tr></tbody>"
+  },
+  "#tabell-visningar": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Möte\">Möte</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Visningar\">Visningar</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Längd\">Längd</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Sänd direkt\">Sänd direkt</th></tr></thead><tbody><tr><th scope=\"row\">8 januari 2022</th><td>324</td><td>4&nbsp;h 2&nbsp;min</td><td>Ja, 8 februari 2022</td></tr><tr><th scope=\"row\">8 mars 2022</th><td>178</td><td>4&nbsp;h 13&nbsp;min</td><td>Ja, 8 mars 2022</td></tr><tr><th scope=\"row\">5 april 2022</th><td>245</td><td>2&nbsp;h 56&nbsp;min</td><td>Ja, 5 april 2022</td></tr><tr><th scope=\"row\">10 maj 2022</th><td>433</td><td>3&nbsp;h 18&nbsp;min</td><td>Ja, 10 maj 2022</td></tr><tr><th scope=\"row\">15 juni 2022</th><td>379</td><td>7&nbsp;h 13&nbsp;min</td><td>Ja, 15 juni 2022</td></tr><tr><th scope=\"row\">15 september 2022</th><td>199</td><td>1&nbsp;h 20&nbsp;min</td><td>Ja, 15 september 2022</td></tr><tr><th scope=\"row\">18 oktober 2022</th><td>369</td><td>2&nbsp;h 54&nbsp;min</td><td>Ja, 18 oktober 2022</td></tr><tr><th scope=\"row\">8 november 2022</th><td>409</td><td>3&nbsp;h 53&nbsp;min</td><td>Ja, 8 november 2022</td></tr><tr><th scope=\"row\">6 december 2022</th><td>670</td><td>4&nbsp;h 0&nbsp;min</td><td>Ja, 6 december 2022</td></tr><tr><th scope=\"row\">7 februari 2023</th><td>298</td><td>2&nbsp;h 8&nbsp;min</td><td>Ja, 7 februari 2023</td></tr><tr><th scope=\"row\">7 mars 2023</th><td>390</td><td>3&nbsp;h 28&nbsp;min</td><td>Ja, 7 mars 2023</td></tr><tr><th scope=\"row\">4 april 2023</th><td>453</td><td>4&nbsp;h 22&nbsp;min</td><td>Ja, 4 april 2023</td></tr><tr><th scope=\"row\">9 maj 2023</th><td>363</td><td>2&nbsp;h 11&nbsp;min</td><td>Ja, 9 maj 2023</td></tr><tr><th scope=\"row\">14 juni 2023</th><td>426</td><td>8&nbsp;h 31&nbsp;min</td><td>Ja, 13 juni 2023</td></tr><tr><th scope=\"row\">15 augusti 2023</th><td>273</td><td>3&nbsp;h 20&nbsp;min</td><td>Ja, 15 augusti 2023</td></tr><tr><th scope=\"row\">12 september 2023</th><td>263</td><td>2&nbsp;h 26&nbsp;min</td><td>Ja, 12 september 2023</td></tr><tr><th scope=\"row\">10 oktober 2023</th><td>400</td><td>3&nbsp;h 45&nbsp;min</td><td>Ja, 10 oktober 2023</td></tr><tr><th scope=\"row\">7 november 2023</th><td>292</td><td>3&nbsp;h 33&nbsp;min</td><td>Ja, 7 november 2023</td></tr><tr><th scope=\"row\">14 december 2023</th><td>516</td><td>3&nbsp;h 38&nbsp;min</td><td>Ja, 14 december 2023</td></tr><tr><th scope=\"row\">6 februari 2024</th><td>455</td><td>3&nbsp;h 45&nbsp;min</td><td>Ja, 6 februari 2024</td></tr><tr><th scope=\"row\">5 mars 2024</th><td>331</td><td>2&nbsp;h 35&nbsp;min</td><td>Ja, 5 mars 2024</td></tr><tr><th scope=\"row\">9 april 2024</th><td>413</td><td>4&nbsp;h 23&nbsp;min</td><td>Ja, 9 april 2024</td></tr><tr><th scope=\"row\">7 maj 2024</th><td>325</td><td>2&nbsp;h 49&nbsp;min</td><td>Ja, 7 maj 2024</td></tr><tr><th scope=\"row\">13 juni 2024</th><td>403</td><td>7&nbsp;h 9&nbsp;min</td><td>Ja, 12 juni 2024</td></tr><tr><th scope=\"row\">13 augusti 2024</th><td>305</td><td>3&nbsp;h 33&nbsp;min</td><td>Ja, 13 augusti 2024</td></tr><tr><th scope=\"row\">8 oktober 2024</th><td>336</td><td>2&nbsp;h 24&nbsp;min</td><td>Ja, 8 oktober 2024</td></tr><tr><th scope=\"row\">5 november 2024</th><td>338</td><td>3&nbsp;h 21&nbsp;min</td><td>Ja, 5 november 2024</td></tr><tr><th scope=\"row\">12 december 2024</th><td>394</td><td>1&nbsp;h 50&nbsp;min</td><td>Ja, 12 december 2024</td></tr></tbody>"
+  },
+  ".meta-rad[meta-rad]": {
+   "dold": false,
+   "html": "<span>Källa: Kungsbacka kommun, Screen9 och YouTube</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2022–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 11 augusti 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-23 18:29</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  }
+ }
+}

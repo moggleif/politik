@@ -25,6 +25,7 @@ och vad som återstår.
 | Ångerröster 2018 och 2022, riket (Valmyndigheten) | Klara, avskrivna |
 | Förtidsröster 2026 (Valmyndigheten) | Hämtas automatiskt två gånger om dagen t.o.m. 16 september 2026 |
 | Röstberättigade 2022 och 2026 (Valmyndigheten) | Klara |
+| Kommunfullmäktiges inspelade möten 2022–2026 (kommunen, Screen9, YouTube) | Klara, hämtas om för hand |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
 jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på nio
@@ -1314,3 +1315,49 @@ nästan exakt lika, men de har gått isär och mötts igen under vägen. Sidan
 räknar därför fram det största avståndet under perioden och skriver ut det
 bredvid ändpunkterna; ett test vaktar att den inte går tillbaka till att
 bara jämföra början och slutet.
+
+## Kommunfullmäktiges inspelade möten (kommunen, Screen9 och YouTube)
+
+Tre källor, alla publika och utan inloggning, hämtade med
+`scripts/hamta_fullmaktige.py` till `data/fullmaktige/`:
+
+- **Kommunens sida** [*Webbsändningar från kommunfullmäktige*](https://kungsbacka.se/kommun-och-politik/politik-och-demokrati/politiska-moten-och-sammantraden/kommunfullmaktiges-sammantraden/webbsandningar-fran-kommunfullmaktige)
+  har en rubrik per år (2024, 2025, 2026) med en länk per möte. Länkarna
+  går till Screen9, antingen som `qcnl.tv/p/…` eller, för de äldre,
+  `api.screen9.com/preview/…`. Under rubriken 2022–2023 finns bara en
+  länk till YouTube-spellistan. Sparas i `kommunsidan.json`.
+- **Screen9** (QC Network). Varje sändningssida skickar med spelarens
+  inställningar i klartext: sändningens längd (`duration`) och
+  kapitelmarkeringarna (`chapters.cuepoints`) med titel, starttid och
+  nivå. Nivå 0 är ett ärende, nivå 1 ett inlägg. Kapitlen finns för
+  sändningarna 2025 och framåt; 2024 års sändningar har inga. Screen9
+  visar inga visningstal publikt. Sparas i `screen9.json`.
+- **YouTube**, spellistan
+  [*Kungsbacka kommunfullmäktige*](https://www.youtube.com/playlist?list=PLR8w9H5fc00oBGucMV-UzR7SuCO4kzfGU)
+  på kanalen [@Kungsbackakommun](https://www.youtube.com/@Kungsbackakommun).
+  Längden läses ur spellistan, visningarna och sändningsdatumet ur varje
+  videos egen sida. Sparas i `youtube.json`.
+
+### Avvikelser som hittades vid första hämtningen (23 september 2026)
+
+- Kommunens länk för **4 november 2025** leder till samma sändning som
+  länken för 7 oktober 2025. Någon inspelning av mötet 4 november är
+  alltså inte länkad från kommunens sida.
+- YouTube-videon med titeln **8 januari 2022** sändes enligt YouTube
+  8 februari 2022. 8 januari 2022 var en lördag.
+- Budgetmötena **14 juni 2023** och **13 juni 2024** sändes enligt YouTube
+  dagen före datumet i titeln.
+- Spellistan anger 29 videor men visar 28. Den 29:e är dold eller privat.
+- Möten 2024 finns både på YouTube och på Screen9, och de två
+  inspelningarna av samma möte är inte exakt lika långa (9 april 2024:
+  4 h 23 min på YouTube, 4 h 29 min på Screen9).
+- Kapitelmarkeringarna skriver partiet som både "KB" och "Kbabo". De slås
+  inte ihop.
+
+Sidan redovisar avvikelserna i stället för att rätta dem.
+
+### Det som inte går att hämta
+
+Hur många som tittade direkt, hur länge de tittade och hur många som sett
+Screen9-sändningarna syns bara för kanalens ägare. Uppgifterna finns hos
+kommunen och kan begäras ut som allmänna handlingar.
