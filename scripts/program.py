@@ -90,3 +90,81 @@ def typ_av(program: str) -> str:
     if program in YRKESPROGRAM:
         return "yrkesprogram"
     return "okant"
+
+
+# ---------------------------------------------------------------------
+# Grundskolorna i årskurs 9
+#
+# Skolverket redovisar årskurs 9 per *skolenhet*, och en skola kan vara
+# flera enheter (Varlaskolan Nord/Syd/Sydväst) eller byta enhetskod när
+# den byter namn eller årskurser. Här förs enheterna ihop till de skolor
+# sidan visar. Mappningen görs för hand ur skolenhetskoderna i
+# data/grundskolor/ – koderna är det enda som är stabilt, namnen byts.
+#
+# En enhet hör till exakt en skola. build_grundskolor.py stannar om en
+# enhet i datat saknas här, hellre än att tyst släppa den ur en serie.
+#
+# Skolor som bara bytt namn, årskurser eller delats i flera enheter är
+# *samma* skola och får en obruten serie (enheterna summeras,
+# elevviktat). En skola som tas upp i en annan blir en egen, avslutad
+# serie med `foregangare` på efterträdaren: sidan ritar då en streckad
+# linje från föregångarens sista år till efterträdarens första.
+#
+# `bekraftad` säger om kopplingen är belagd. Åsa Gårds skola och Åsaskolan
+# gick samman 2024 (bekräftad av sidans beställare). Kopplingen till
+# Skårbyskolan är däremot en *gissning ur årtalen* – Hedeskolan och
+# Älvsåkersskolan upphör 2023 och Skårbyskolan dyker upp 2024 – och ska
+# inte läsas som ett beslut förrän den stämts av mot kommunens handlingar.
+GRUNDSKOLOR = [
+    {"id": "asa-gard", "namn": "Åsa Gårdsskola", "enheter": ["16824824"]},
+    {"id": "asaskolan-fore", "namn": "Åsaskolan (före sammanslagningen)",
+     "enheter": ["18035112"]},
+    {"id": "asaskolan", "namn": "Åsaskolan",
+     "enheter": ["62677187", "56285442"],
+     "foregangare": [
+         {"id": "asa-gard", "bekraftad": True,
+          "anm": "Åsa Gårdsskola gick upp i Åsaskolan 2024."},
+         {"id": "asaskolan-fore", "bekraftad": True,
+          "anm": "Åsaskolan före sammanslagningen med Åsa Gårdsskola."},
+     ]},
+    {"id": "frillesasskolan", "namn": "Frillesåsskolan",
+     "enheter": ["10927868", "67578984"]},
+    {"id": "gottskar", "namn": "Gottskär Grundskola",
+     "enheter": ["90784555"]},   # hette Onsala Montessoriskola till 2021
+    {"id": "halabacksskolan", "namn": "Hålabäcksskolan",
+     "enheter": ["99688470", "77323224", "77163912"]},
+    {"id": "hedeskolan", "namn": "Hedeskolan",
+     "enheter": ["11231816", "26372371", "27712268"]},
+    {"id": "ies", "namn": "Internationella Engelska Skolan",
+     "enheter": ["25278170"]},
+    {"id": "kapareskolan", "namn": "Kapareskolan",
+     "enheter": ["28803215", "84111198"]},
+    {"id": "kms", "namn": "KMS Kullaviks Montessoriskola",
+     "enheter": ["10902849"]},
+    {"id": "kollaskolan", "namn": "Kollaskolan", "enheter": ["47579620"]},
+    {"id": "kullaviksskolan", "namn": "Kullaviksskolan",
+     "enheter": ["75835202", "11782417", "10368319"]},
+    {"id": "maleviksskolan", "namn": "Maleviksskolan",   # Fullriggaren Malevik
+     "enheter": ["33170625", "39915890"]},
+    {"id": "nova", "namn": "Nova Montessoriskola",
+     "enheter": ["47832100", "56655808"]},
+    {"id": "skarbyskolan", "namn": "Skårbyskolan",
+     "enheter": ["39992436", "46721838"],
+     "foregangare": [
+         {"id": "hedeskolan", "bekraftad": False,
+          "anm": "Gissning ur årtalen: Hedeskolan upphör 2023 och "
+                 "Skårbyskolan börjar 2024."},
+         {"id": "alvsakersskolan", "bekraftad": False,
+          "anm": "Gissning ur årtalen: Älvsåkersskolan upphör 2023 och "
+                 "Skårbyskolan börjar 2024."},
+     ]},
+    {"id": "smedingeskolan", "namn": "Smedingeskolan",
+     "enheter": ["68861484", "29293076", "33752123", "35822371", "49555095"]},
+    {"id": "saro", "namn": "Särö skola", "enheter": ["72090315"]},
+    {"id": "torasskolan", "namn": "Toråsskolan", "enheter": ["14101582"]},
+    {"id": "varlaskolan", "namn": "Varlaskolan",
+     "enheter": ["37101902", "70143574", "28729598", "93339853", "84159690"]},
+    {"id": "vittra", "namn": "Vittra Forsgläntan", "enheter": ["42568760"]},
+    {"id": "alvsakersskolan", "namn": "Älvsåkersskolan",
+     "enheter": ["74587667"]},
+]

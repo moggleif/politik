@@ -35,6 +35,7 @@ MENY = [
         ("gymnasiealdern.html", "16–19 år"),
     ]),
     ("Grundskolan", [
+        ("grundskolor.html", "Skola för skola i nian"),
         ("amnesbetyg.html", "Betyg per ämne i nian"),
         ("kostnad-per-elev.html", "Kostnad per elev"),
         ("resurser-till-skolan.html", "Resurser mot referenskostnad"),

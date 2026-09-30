@@ -48,6 +48,20 @@
     };
   }
 
+  /* Seriestil där streckningen är tagen i anspråk av något annat. Sidor
+     som ritar en streckad linje för "samma sak, före ett brott" (skolor
+     som gått upp i varandra) kan inte också låta streckning skilja
+     serierna åt. Färgen byter då som vanligt var åttonde serie, och
+     punktformen byter i stället för streckningen: åtta färger × fyra
+     former ger trettiotvå serier som skiljer sig på färg *och* form. */
+  function serieStilPunkt(i) {
+    return {
+      farg: PALETT[i % PALETT.length],
+      streck: [],
+      punkt: PUNKT[Math.floor(i / PALETT.length) % PUNKT.length]
+    };
+  }
+
   /* Ramper för ordnade serier (årgångar): ljus = äldst. Den blå används
      för kommunens prognosårgångar, den orange för kohortframskrivningens
      – samma färgspråk som de enskilda linjerna på sidan, så att en
@@ -937,6 +951,7 @@
     FARG: FARG,
     PALETT: PALETT,
     serieStil: serieStil,
+    serieStilPunkt: serieStilPunkt,
     rampFarg: rampFarg,
     rampFargOrange: rampFargOrange,
     /* Tal, text och små hjälpare */

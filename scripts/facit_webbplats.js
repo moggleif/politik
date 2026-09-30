@@ -60,6 +60,8 @@ const SIDOR = [
   "varberg-gymnasiealdern.html",
   "varberg-barn-och-unga.html",
   "amnesbetyg.html",
+  "grundskolor.html",
+  "grundskolor.html?matt=meritvarde&visa=alla",
   "kostnad-per-elev.html",
   /* Ett annat mått ur adressen: det läget visade förvalets siffror med
      det delade måttet i väljaren tills ordningen rättades. */

@@ -32,6 +32,7 @@
         <details class="navmeny">
           <summary>Grundskolan</summary>
           <ul class="navpanel">
+            <li><a href="grundskolor.html">Skola för skola i nian</a></li>
             <li><a href="amnesbetyg.html">Betyg per ämne i nian</a></li>
             <li><a href="kostnad-per-elev.html">Kostnad per elev</a></li>
             <li><a href="resurser-till-skolan.html">Resurser mot referenskostnad</a></li>
@@ -160,6 +161,23 @@
         Här hämtas <strong>kommunnivå</strong>, inte skolenhet: den
         rapport som finns per skola skulle till stor del döljas av
         sekretessgränsen.</dd>
+      <dt>Skolverkets statistik per grundskola</dt>
+      <dd>Sidan <a href="grundskolor.html">Skola för skola i nian</a>
+        hämtar årskurs 9 per <strong>skolenhet</strong> med
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_grundskolor.py">scripts/hamta_grundskolor.py</a>
+        (rapport 139, slutbetyg årskurs 9 för samtliga elever, och rapport 5,
+        behörighet till gymnasieskolan), ett läsår per fil i
+        <a href="https://github.com/moggleif/politik/tree/main/data/grundskolor">data/grundskolor/</a>.
+        Skolenheterna förs ihop till skolor i
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/program.py">scripts/program.py</a>
+        och
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/build_grundskolor.py">build_grundskolor.py</a>
+        räknar ihop dem, elevviktat, till
+        <a href="data-grundskolor.json">data-grundskolor.json</a>.
+        Dolda värden (färre än tio elever) blir luckor; Skolverkets
+        <code>~100</code> skrivs &asymp;100&nbsp;% och ritas som 99&nbsp;%.
+        Sammanslagningen av Åsa Gårdsskola och Åsaskolan är bekräftad,
+        kopplingen till Skårbyskolan en gissning ur årtalen.</dd>
       <dt>Skolverkets kedja nian &rarr; gymnasiet</dt>
       <dd>Sidan <a href="nian-till-gymnasiet.html">Från nian till
         gymnasiet</a> bygger på fyra rapporter till ur samma exporttjänst,
@@ -890,6 +908,7 @@ python3 scripts/build_meritvarden.py  # meritvärdessidan
 python3 scripts/build_slutbetyg.py    # slutbetygssidan
 python3 scripts/build_kull.py         # antagning till examen
 python3 scripts/build_amnesbetyg.py   # ämnesbetygen i årskurs 9
+python3 scripts/build_grundskolor.py  # årskurs 9 skola för skola
 python3 scripts/build_befolkning.py   # barn och unga 0–15 år
 python3 scripts/build_nian_gymnasiet.py  # från nian till gymnasiet
 python3 scripts/build_kostnader.py    # kostnaden per elev i grundskolan
