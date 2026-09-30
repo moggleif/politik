@@ -1759,17 +1759,7 @@
     "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
     "plugins": {
      "legend": {
-      "display": true,
-      "labels": {
-       "boxWidth": 10,
-       "filter": "fn:function (post, data) { return !data.datasets[post.datasetIndex].koppling; }",
-       "padding": 12,
-       "usePointStyle": true
-      },
-      "onClick": "fn:function klickaLegend(e, post, legend) { var chart = legend.chart; var ds = chart.data.datasets[post.datasetIndex]; var synlig = chart.isDatasetVisible(post.datasetIndex); chart.setDatasetVisibility(post.datasetIndex, !synlig); dolda[ds.skolId] = synlig; uppdateraKopplingar(chart); chart.update(); }",
-      "onHover": "fn:function (e, post) { if (post.datasetIndex !== undefined) tona(post.datasetIndex); }",
-      "onLeave": "fn:function () { tona(null); }",
-      "position": "bottom"
+      "display": false
      },
      "tooltip": {
       "callbacks": {
@@ -3698,11 +3688,11 @@
   },
   "#knapp-dolj-alla": {
    "dold": false,
-   "html": "Dölj alla skolor"
+   "html": "Dölj alla"
   },
   "#knapp-visa-alla": {
    "dold": false,
-   "html": "Visa alla skolor"
+   "html": "Visa alla"
   },
   "#kort-sagt": {
    "dold": false,
@@ -3771,6 +3761,102 @@
   "#senaste-lasar": {
    "dold": false,
    "html": "2025/26"
+  },
+  "#skola-alvsakersskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-asa-gard": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-asaskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-asaskolan-fore": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-frillesasskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-gottskar": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-halabacksskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-hedeskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-ies": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-kapareskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-kms": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-kollaskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-kullaviksskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-maleviksskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-nova": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-saro": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-skarbyskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-smedingeskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-torasskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-varlaskolan": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-vittra": {
+   "dold": false,
+   "html": ""
+  },
+  "#skolval": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#skolval-antal": {
+   "dold": false,
+   "html": "21 av 21 skolor visas"
+  },
+  "#skolval-rutor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
   },
   "#slutsats-trend": {
    "dold": false,

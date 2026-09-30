@@ -113,9 +113,10 @@
     <h2>Hur har varje skola utvecklats?</h2>
     <p class="forklaring">
       Välj mått och vilka skolor som ska visas. Valen syns i adressraden,
-      så att en länk till sidan visar samma vy. <strong>Klicka på en skola i
-      teckenförklaringen</strong> för att dölja eller visa just den linjen;
-      peka på en linje för att tona ned de andra.
+      så att en länk till sidan visar samma vy. <strong>Bocka för eller av skolorna
+      under väljarna</strong> för att visa eller dölja just den linjen. Färgen
+      och formen framför namnet är samma som på linjens punkter. Peka på en
+      linje för att tona ned de andra.
     </p>
     <p class="forklaring">
       En <strong>streckad linje</strong> går från en nedlagd skolas sista år
@@ -130,11 +131,15 @@
       <label for="visa-valjare">Skolor:</label>
       <select id="visa-valjare"></select>
     </div>
-    <div class="diagram-knappar">
-      <button type="button" id="knapp-dolj-alla">Dölj alla skolor</button>
-      <button type="button" id="knapp-visa-alla">Visa alla skolor</button>
-      <span class="tabell-tips">Klicka sedan på skolorna i teckenförklaringen för att välja ut några.</span>
-    </div>
+    <fieldset class="distriktval" id="skolval">
+      <legend>Skolor i diagrammet</legend>
+      <div class="distriktval-knappar">
+        <button type="button" id="knapp-dolj-alla">Dölj alla</button>
+        <button type="button" id="knapp-visa-alla">Visa alla</button>
+        <span class="distriktval-antal" id="skolval-antal" role="status" aria-live="polite"></span>
+      </div>
+      <div class="distriktval-rutor" id="skolval-rutor"></div>
+    </fieldset>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-trend" aria-label="Diagram: valt mått över tid, en linje per skola" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-trend"></p>

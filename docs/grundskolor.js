@@ -134,14 +134,60 @@
     });
   }
 
-  function klickaLegend(e, post, legend) {
-    var chart = legend.chart;
-    var ds = chart.data.datasets[post.datasetIndex];
-    var synlig = chart.isDatasetVisible(post.datasetIndex);
-    chart.setDatasetVisibility(post.datasetIndex, !synlig);
-    dolda[ds.skolId] = synlig;
-    uppdateraKopplingar(chart);
-    chart.update();
+  /* Skolorna väljs med riktiga kryssrutor under väljarna, inte i
+     diagrammets teckenförklaring: Chart.js släpper de poster som inte
+     ryms, och med en tjugotal skolor försvann några – då gick de inte att
+     välja alls. Markören framför namnet har linjens färg och punktform.
+     Färgen sätts via style-egenskapen i DOM:en; sidans CSP tillåter inte
+     style-attribut i markup. */
+  var MARKE = { circle: "\u25CF", rect: "\u25A0", triangle: "\u25B2", rectRot: "\u25C6" };
+
+  function uppdateraSkolval() {
+    var rutor = el("skolval-rutor").querySelectorAll("input[type=checkbox]");
+    var pa = 0;
+    Array.prototype.forEach.call(rutor, function (r) { if (r.checked) pa++; });
+    el("skolval-antal").textContent = pa + " av " + rutor.length + " skolor visas";
+  }
+
+  function ritaSkolval(skolor) {
+    var plats = el("skolval-rutor");
+    plats.innerHTML = "";
+    skolor.forEach(function (s) {
+      var stil = K.serieStilPunkt(STILNR[s.id]);
+      var ruta = document.createElement("div");
+      ruta.className = "distriktval-ruta";
+      var ruta_id = "skola-" + s.id;
+      var kryss = document.createElement("input");
+      kryss.type = "checkbox";
+      kryss.id = ruta_id;
+      kryss.checked = !dolda[s.id];
+      kryss.addEventListener("change", function () { vaxlaSkola(s.id, kryss.checked); });
+      var etikett = document.createElement("label");
+      etikett.htmlFor = ruta_id;
+      var marke = document.createElement("span");
+      marke.setAttribute("aria-hidden", "true");
+      marke.style.color = stil.farg;
+      marke.textContent = (MARKE[stil.punkt] || MARKE.circle) + " ";
+      etikett.appendChild(marke);
+      etikett.appendChild(document.createTextNode(s.namn));
+      ruta.appendChild(kryss);
+      ruta.appendChild(etikett);
+      plats.appendChild(ruta);
+    });
+    uppdateraSkolval();
+  }
+
+  function vaxlaSkola(id, synlig) {
+    dolda[id] = !synlig;
+    var chart = K.diagramFor("diagram-trend");
+    if (chart) {
+      chart.data.datasets.forEach(function (ds, i) {
+        if (!ds.koppling && ds.skolId === id) chart.setDatasetVisibility(i, synlig);
+      });
+      uppdateraKopplingar(chart);
+      chart.update();
+    }
+    uppdateraSkolval();
   }
 
   function ritaTrend() {
@@ -230,17 +276,7 @@
       return "Läsåret " + lasar(Number(it[0].label));
     };
     opt.plugins.tooltip.filter = function (it) { return !it.dataset.koppling; };
-    opt.plugins.legend = {
-      display: true,
-      position: "bottom",
-      onClick: klickaLegend,
-      labels: {
-        usePointStyle: true,
-        boxWidth: 10,
-        padding: 12,
-        filter: function (post, data) { return !data.datasets[post.datasetIndex].koppling; }
-      }
-    };
+    opt.plugins.legend = { display: false };
     opt.scales.x.title = {
       display: true,
       color: FARG.muted,
@@ -253,7 +289,8 @@
       data: { labels: ar.map(String), datasets: serier.concat(kopplingar) },
       options: opt
     }, 560);
-    K.aktiveraToning(chart);
+    K.aktiveraToning(chart, false);
+    ritaSkolval(skolor);
 
     el("kalla-trend").textContent =
       "Källa: Skolverket, läsåren " + lasar(ar[0]) + "–" + lasar(sistaAr()) +
