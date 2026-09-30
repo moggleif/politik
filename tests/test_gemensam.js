@@ -188,6 +188,19 @@ test("serieStil börjar strecka när paletten tar slut", () => {
   assert.equal(K.serieStil(1).punkt, "rect");
 });
 
+test("serieStilPunkt byter form i stället för streckning", () => {
+  const set = new Set();
+  for (let i = 0; i < 32; i++) {
+    const s = K.serieStilPunkt(i);
+    assert.deepEqual(s.streck, [], "aldrig streckad: streck är reserverat");
+    set.add(s.farg + "/" + s.punkt);
+  }
+  assert.equal(set.size, 32, "trettiotvå serier, trettiotvå olika märken");
+  assert.equal(K.serieStilPunkt(0).punkt, "circle");
+  assert.equal(K.serieStilPunkt(8).farg, K.PALETT[0]);
+  assert.equal(K.serieStilPunkt(8).punkt, "rect");
+});
+
 test("rampFarg går från ljust till mörkt över antalet årgångar", () => {
   assert.equal(K.rampFarg(0, 5), "#86b6ef");
   assert.equal(K.rampFarg(4, 5), "#104281");

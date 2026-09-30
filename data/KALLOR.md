@@ -16,6 +16,7 @@ och vad som återstår.
 | Meritvärden 2017 och 2019–2026 (GR) | Klara, 2018 saknas |
 | Slutbetyg 2014–2025 (Skolverket) | Klara, samtliga läsår |
 | Ämnesbetyg åk 9, 2013–2025 (Skolverket) | Klara, samtliga läsår |
+| Årskurs 9 per skolenhet, 2017–2026 (Skolverket) | Klara, samtliga läsår |
 | Grundskolans kostnader 1998–2025, Kungsbacka och riket (Kolada) | Klara |
 | Grundskolans kostnader 2002–2024, Kungsbacka (Skolverket, kontrollkälla) | Klara |
 | Konsumentprisindex 1980–2025, fastställda årsmedeltal (SCB) | Klart |
@@ -1031,6 +1032,72 @@ ovägda snittet ligger mycket nära ett elevviktat.
 
 **Två mått, två skalor.** Betygspoäng (0–20) och andel med A–E (0–100 %)
 visas aldrig i samma diagram.
+
+## Årskurs 9 per skolenhet (Skolverkets utbildningsstatistik)
+
+Meritvärde och behörighet till gymnasiet för varje skolenhet i Kungsbacka,
+läsåren 2016/17–2025/26 (utgångsåren 2017–2026). Filerna hämtas med
+`scripts/hamta_grundskolor.py` och sätts ihop till skolor med
+`scripts/build_grundskolor.py`; `scripts/program.py` (`GRUNDSKOLOR`) säger
+vilka enheter som hör ihop.
+
+### Hämtningen
+
+Två rapporter i samma exporttjänst som ämnesbetygen:
+
+```
+https://siris.skolverket.se/siris/reports/export_api/runexport/
+    ?pFormat=csv&pExportID=<rapport>&pAr=<år>&pKommun=1384&pFlikar=0
+```
+
+| Rapport | Innehåll |
+|---|---|
+| 139 | Slutbetyg årskurs 9, samtliga elever, per skolenhet: antal elever, meritvärde (17 ämnen), andel behöriga till yrkesprogram |
+| 5 | Behörighet till gymnasieskolan, per skolenhet och kön; raden Samtliga: yrkesprogram och de tre högskoleförberedande programgrupperna |
+
+Rapport 139 ("samtliga elever") tar med nyinvandrade. Rapport 110, som
+ger samma mått *utan* nyinvandrade och elever med okänd bakgrund, används
+inte här: siffrorna i skolornas och tidningarnas tabeller är de med alla
+elever. Kontrollerat mot läsåret 2025/26: 139 ger exakt de tal som
+Skolverkets skoltabeller visar (till exempel Internationella Engelska
+Skolan 265,5, KMS Kullaviks Montessoriskola 274,0, Maleviksskolan 270,9).
+
+### Vad som behövde hanteras
+
+**Skolenheter är inte skolor.** Skolverket redovisar per enhet. Varlaskolan
+var Varlaskolan norra/södra till 2022 och Nord/Syd/Sydväst från 2023;
+Skårbyskolan är två enheter; Hålabäcks-, Kullaviks- och Hedeskolans enheter
+växlar mellan jämna och udda år. Enhetskoderna byts också när en skola byter
+namn eller årskurser (Åsaskolan 4-9 → 6-9 → 7-9 → 7-9AD/7-9FI), men inte
+alltid: Gottskär Grundskola heter Onsala Montessoriskola till 2021 med
+samma kod, medan Fullriggaren Malevik blir Maleviksskolan med ny kod 2025.
+Mappningen är därför gjord för hand ur koderna.
+
+**Enheter räknas samman elevviktat**, så att Varlaskolans meritvärde 2025/26
+blir 240,3 och Skårbyskolans 217,4. Är någon enhets värde dolt blir skolans
+värde dolt.
+
+**Ett år utan rad är inte ett dolt värde.** Skolenheter utan årskurs 9 ett
+visst år saknas helt i rapporten, och skolan får då ingen post för året.
+Det är något annat än `..` (färre än tio elever) och visas som ett
+tankstreck i stället för en lucka med förklaring.
+
+**`~100`.** I rapport 5 och 139 skrivs `~100` när 1–4 elever saknade
+behörigheten. Det gäller 63 av skolornas årsvärden för yrkesbehörigheten,
+både fristående och kommunala skolor. Sidan skriver ≈100 % men ritar 99 %. Det verkliga värdet
+ligger över 100 − 4/n och under 100 %.
+
+**Sammanslagningar.** Åsa Gårdsskola (16824824) och den gamla Åsaskolan
+(18035112) upphör i datat 2023; Åsaskolan 7-9AD/7-9FI börjar 2024. Att det
+är en sammanslagning är bekräftat av sidans beställare. Kopplingen Hedeskolan
+och Älvsåkersskolan → Skårbyskolan är en **gissning**: båda upphör 2023 och
+Skårbyskolan börjar 2024. Den är inte kontrollerad mot kommunens handlingar
+och märks så på sidan (`bekraftad: false` i `program.GRUNDSKOLOR`).
+Toråsskolan upphör 2022 och har ingen efterträdare i datat.
+
+**Kontroller i hämtningen.** Kolumnrubrikerna jämförs mot de förväntade;
+båda rapporterna ska redovisa samma enheter, och andelen behöriga till
+yrkesprogram ska vara densamma i båda. Avviker något stannar hämtningen.
 
 ## Kostnaden per elev i grundskolan (Kolada, SCB och Skolverket)
 

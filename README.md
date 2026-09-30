@@ -108,6 +108,20 @@ finns per ämne.
 - [Slutbetyg per ämne i årskurs 9](https://moggleif.github.io/politik/amnesbetyg.html)
   &ndash; betygspoäng och andel godkända per ämne, hela kommunen,
   läsåren 2012/13&ndash;2024/25, ur Skolverkets statistik
+- [Skola för skola i nian](https://moggleif.github.io/politik/grundskolor.html)
+  &ndash; meritvärde och andel behöriga till gymnasiet (yrkesprogram och de
+  tre högskoleförberedande programgrupperna) för varje grundskola med
+  årskurs 9 i Kungsbacka, läsåren 2016/17&ndash;2025/26, ur Skolverkets
+  statistik per skolenhet. Året är det år eleverna gick ut nian. Skolor
+  med flera enheter (Varlaskolan Nord/Syd/Sydväst) räknas samman,
+  elevviktat; värden som bygger på färre än tio elever är luckor, aldrig
+  nollor. Skolorna som gått upp i varandra &ndash; Åsa Gårdsskola och
+  Åsaskolan 2024 &ndash; ritas som egna linjer före sammanslagningen, med
+  en **streckad linje** till den nya skolan. Kopplingen Hedeskolan och
+  Älvsåkersskolan till Skårbyskolan är en gissning ur årtalen och
+  markeras så på sidan. Skolverkets `~100` (1&ndash;4 elever saknade
+  behörigheten) skrivs &asymp;100&nbsp;% men ritas som 99&nbsp;%. Vilka
+  skolenheter som hör till vilken skola står i `scripts/program.py`
 
 **Vad grundskolan kostar** &ndash; hur mycket pengar som går åt per elev,
 år för år, i pengar som går att jämföra mellan åren. Beloppen räknas om
@@ -297,6 +311,9 @@ data/
                                 program, ur Skolverkets statistik
   amnesbetyg/amnesbetyg_<år>.json Niondeklassarnas slutbetyg per ämne, hela
                                 kommunen, ur Skolverkets statistik
+  grundskolor/grundskolor_<år>.json  Årskurs 9 per skolenhet i Kungsbacka:
+                                meritvärde och behörighet, med prickningen
+                                bevarad, ur Skolverkets statistik
   arskurs9/arskurs9_<år>.json   Meritvärde och behörighet i årskurs 9,
                                 kommunnivå, ur Skolverkets statistik
   genomstromning/genomstromning_<år>.json  Andel med gymnasieexamen inom
@@ -368,6 +385,8 @@ scripts/
                                 Skolverkets exporttjänst, ett läsår per fil
   hamta_amnesbetyg.py           Hämtar niondeklassarnas betyg per ämne ur
                                 samma exporttjänst, ett läsår per fil
+  hamta_grundskolor.py          Hämtar årskurs 9 per skolenhet (rapport 139
+                                och 5) ur samma exporttjänst
   hamta_gymnasieelever.py       Hämtar antalet gymnasieelever per program
                                 och årskurs (rapport 58) ur samma
                                 exporttjänst, ett läsår per fil. Kolumnen
@@ -395,6 +414,9 @@ scripts/
                                 parad med avgångseleverna år X+3, per program
   build_amnesbetyg.py           Bygger docs/data-amnesbetyg.json, en serie per
                                 ämne i årskurs 9
+  build_grundskolor.py          Bygger docs/data-grundskolor.json: skolenheterna
+                                förda ihop till skolor (program.GRUNDSKOLOR),
+                                en serie per skola
   build_befolkning.py           Bygger docs/data-befolkning.json och
                                 docs/data-varberg-befolkning.json: folkmängden
                                 efter ålder, enbart faktiskt utfall
@@ -474,6 +496,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   varberg-befolkningsprognos.html, varberg-gymnasiealdern.html,
   varberg-barn-och-unga.html    Samma tre sidor för Varberg (16–18 år)
   amnesbetyg.html               Slutbetyg per ämne i årskurs 9
+  grundskolor.html              Årskurs 9 skola för skola: meritvärde och
+                                behörighet
   kostnad-per-elev.html         Kostnaden per elev i grundskolan, fasta priser
   resurser-till-skolan.html     Resurserna mot referenskostnaden
   nian-till-gymnasiet.html      Från nian till gymnasiet, tre mätpunkter
@@ -505,6 +529,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   slutbetyg.js                  Driver slutbetygssidan
   kull.js                       Driver antagning-till-examen-sidan
   amnen.js                      Driver ämnesbetygssidan
+  grundskolor.js                Driver skolsidan; måttet och urvalet ligger i
+                                adressen (?matt=, ?visa=)
   kostnader.js                  Driver kostnadssidan; måttet ligger i
                                 adressen (?matt=)
   resurser.js                   Driver resurssidan
@@ -526,6 +552,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   data-slutbetyg.json           Data till slutbetygssidan (genereras)
   data-kull.json                Data till antagning-till-examen (genereras)
   data-amnesbetyg.json          Data till ämnesbetygssidan (genereras)
+  data-grundskolor.json         Data till skolsidan (genereras)
   data-nian-gymnasiet.json      Data till sidan om nian och gymnasiet (genereras)
   data-befolkning.json          Data till sidan om barn och unga (genereras)
   data-kostnader.json           Data till kostnadssidan (genereras)
@@ -598,6 +625,17 @@ Betygen per ämne i årskurs 9:
 python3 scripts/hamta_amnesbetyg.py   # hämtar alla läsår från Skolverket
 python3 scripts/build_amnesbetyg.py   # bygger om docs/data-amnesbetyg.json
 ```
+
+Årskurs 9 skola för skola:
+
+```bash
+python3 scripts/hamta_grundskolor.py  # hämtar läsårena 2016/17– från Skolverket
+python3 scripts/build_grundskolor.py  # bygger om docs/data-grundskolor.json
+```
+
+Hämtningen stannar om kolumnrubrikerna ändrats eller om de två rapporterna
+inte stämmer överens; bygget stannar om en skolenhet saknas i
+`program.GRUNDSKOLOR`. Ny enhet: lägg till koden där.
 
 Samma exporttjänst som slutbetygen, men rapport 92 i stället för 88, och på
 kommunnivå i stället för per skolenhet. Skriptet stannar av sig själv på ett

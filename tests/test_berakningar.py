@@ -48,6 +48,8 @@ build_fullmaktige = ladda("build_fullmaktige")
 hamta_fullmaktige = ladda("hamta_fullmaktige")
 hamta_fortidsroster = ladda("hamta_fortidsroster")
 hamta_gymnasieelever = ladda("hamta_gymnasieelever")
+build_grundskolor = ladda("build_grundskolor")
+hamta_grundskolor = ladda("hamta_grundskolor")
 build_valresultat = ladda("build_valresultat")
 hamta_valresultat = ladda("hamta_valresultat")
 skolverket = ladda("skolverket")
@@ -3641,3 +3643,233 @@ class TestHarkomst(unittest.TestCase):
         for kod, post in h["distrikt"].items():
             summa = sum(f["andelAvNytt"] for f in post["fran"])
             self.assertAlmostEqual(summa, 100.0, 0, f"{post['namn']} ({kod})")
+
+
+class TestGrundskolor(unittest.TestCase):
+    """build_grundskolor och hamta_grundskolor: enheter blir skolor."""
+
+    @staticmethod
+    def enhet(kod, namn, antal, merit, yrkes=None, markor=None, antal_beh=None):
+        return {
+            "kod": kod, "namn": namn, "huvudman": "Kommunal", "huvudmanNamn": "K",
+            "antal": antal, "meritvarde": merit, "alleAmnen": None,
+            "behorigYrkes": yrkes, "antalBehorighet": antal_beh or antal,
+            "behorigEstetiskt": yrkes, "behorigEkoHumSam": yrkes,
+            "behorigNaturTeknik": yrkes, "markor": markor or {},
+        }
+
+    def test_meritvardet_vags_med_elevantal(self):
+        # (240·30 + 220·10) / 40 = 235,0 – ett ovägt medel vore 230,0
+        ut = build_grundskolor.slå_ihop(
+            [self.enhet("a", "A", 30, 240.0), self.enhet("b", "B", 10, 220.0)],
+            "meritvarde", "antal")
+        self.assertEqual(ut, {"v": 235.0, "mark": None})
+
+    def test_avrundningen_ar_halva_uppat(self):
+        """217,35 är exakt (237,7 + 197,0)/2 och ska bli 217,4 som
+        Skolverket skriver – round() ger 217,3."""
+        ut = build_grundskolor.slå_ihop(
+            [self.enhet("a", "A", 54, 237.7), self.enhet("b", "B", 54, 197.0)],
+            "meritvarde", "antal")
+        self.assertEqual(ut["v"], 217.4)
+
+    def test_dold_enhet_ger_dolt_varde_inte_ett_delmedel(self):
+        ut = build_grundskolor.slå_ihop(
+            [self.enhet("a", "A", 30, 240.0),
+             self.enhet("b", "B", None, None, markor={"meritvarde": ".."})],
+            "meritvarde", "antal")
+        self.assertEqual(ut, {"v": None, "mark": "dolt"})
+
+    def test_saknad_vikt_i_flera_enheter_ger_dolt(self):
+        ut = build_grundskolor.slå_ihop(
+            [self.enhet("a", "A", 30, 240.0), self.enhet("b", "B", None, 220.0)],
+            "meritvarde", "antal")
+        self.assertEqual(ut["mark"], "dolt")
+
+    def test_ensam_enhet_klarar_sig_utan_vikt(self):
+        ut = build_grundskolor.slå_ihop(
+            [self.enhet("a", "A", None, 240.0)], "meritvarde", "antal")
+        self.assertEqual(ut, {"v": 240.0, "mark": None})
+
+    def test_cirka_100_ritas_som_99_och_markeras(self):
+        ut = build_grundskolor.slå_ihop(
+            [self.enhet("a", "A", 30, None, markor={"behorigYrkes": "~100"})],
+            "behorigYrkes", "antalBehorighet")
+        self.assertEqual(ut, {"v": 99.0, "mark": "ca100"})
+
+    def test_cirka_100_i_en_av_flera_enheter_ar_ungefar(self):
+        # (99·50 + 90·50) / 100 = 94,5
+        ut = build_grundskolor.slå_ihop(
+            [self.enhet("a", "A", 50, None, markor={"behorigYrkes": "~100"}),
+             self.enhet("b", "B", 50, None, yrkes=90.0)],
+            "behorigYrkes", "antalBehorighet")
+        self.assertEqual(ut, {"v": 94.5, "mark": "ungefar"})
+
+    def test_ett_exakt_hundra_ar_inte_cirka(self):
+        ut = build_grundskolor.slå_ihop(
+            [self.enhet("a", "A", 30, None, yrkes=100.0)],
+            "behorigYrkes", "antalBehorighet")
+        self.assertEqual(ut, {"v": 100.0, "mark": None})
+
+    def arsfil(self, ar, enheter):
+        return {"ar": ar, "lasar": f"{ar - 1}/{str(ar)[2:]}", "kommun": "Kungsbacka",
+                "niva": "n", "enheter": enheter}
+
+    def test_enhet_utan_mappning_stoppar_bygget(self):
+        fil = self.arsfil(2026, [self.enhet("000", "Okänd", 30, 240.0)])
+        with self.assertRaises(SystemExit):
+            build_grundskolor.bygg([fil])
+
+    def test_enhet_i_tva_skolor_stoppar(self):
+        from unittest import mock
+        dubbel = [{"id": "x", "namn": "X", "enheter": ["1"]},
+                  {"id": "y", "namn": "Y", "enheter": ["1"]}]
+        with mock.patch.object(build_grundskolor, "GRUNDSKOLOR", dubbel):
+            with self.assertRaises(SystemExit):
+                build_grundskolor.kopplingar()
+
+    def test_ar_utan_rad_blir_ingen_post_och_inte_en_nolla(self):
+        """Hålabäcksskolans A och B växlar mellan jämna och udda år: ett
+        år utan rad är inte ett dolt värde, och ska inte bli något alls."""
+        from unittest import mock
+        skolor = [{"id": "s", "namn": "S", "enheter": ["1", "2"]},
+                  {"id": "t", "namn": "T", "enheter": ["3"]}]
+        filer = [self.arsfil(2025, [self.enhet("1", "S A", 30, 240.0),
+                                    self.enhet("3", "T", 20, 230.0)]),
+                 self.arsfil(2026, [self.enhet("3", "T", 20, 231.0)]),
+                 self.arsfil(2027, [self.enhet("2", "S B", 40, 250.0),
+                                    self.enhet("3", "T", 20, 232.0)])]
+        with mock.patch.object(build_grundskolor, "GRUNDSKOLOR", skolor):
+            ut = build_grundskolor.bygg(filer)
+        s_ = next(x for x in ut["skolor"] if x["id"] == "s")
+        self.assertEqual(list(s_["varden"]), ["2025", "2027"])
+        self.assertEqual(s_["varden"]["2027"]["meritvarde"]["v"], 250.0)
+
+    def test_foregangare_ar_avslutade_fore_eftertradaren(self):
+        ids = [s["id"] for s in program_modul.GRUNDSKOLOR]
+        self.assertEqual(len(ids), len(set(ids)))
+        ut = json.loads((ROT / "docs" / "data-grundskolor.json")
+                        .read_text(encoding="utf-8"))
+        per_id = {s["id"]: s for s in ut["skolor"]}
+        for s in ut["skolor"]:
+            for f in s["foregangare"]:
+                self.assertLess(per_id[f["id"]]["sistaAr"], s["forstaAr"], s["namn"])
+                self.assertFalse(per_id[f["id"]]["aktuell"], s["namn"])
+        asa = per_id["asaskolan"]
+        self.assertEqual([f["id"] for f in asa["foregangare"]],
+                         ["asa-gard", "asaskolan-fore"])
+        self.assertTrue(all(f["bekraftad"] for f in asa["foregangare"]))
+
+    def test_data_grundskolor_ar_reproducerbar(self):
+        arsfiler = [json.loads(f.read_text(encoding="utf-8")) for f in
+                    sorted((ROT / "data" / "grundskolor").glob("grundskolor_*.json"))]
+        ombyggd = json.loads(json.dumps(build_grundskolor.bygg(arsfiler)))
+        self.assertEqual(ombyggd, json.loads(
+            (ROT / "docs" / "data-grundskolor.json").read_text(encoding="utf-8")))
+
+    def test_2026_stammer_med_skolverkets_publicerade_tal(self):
+        """Tabellerna i Skolverkets egen redovisning för läsåret 2025/26.
+        Skolor med flera enheter (Varla-, Skårby-, Kapare- och Åsaskolan)
+        prövar viktningen mot ett facit som inte räknats fram här."""
+        ut = json.loads((ROT / "docs" / "data-grundskolor.json")
+                        .read_text(encoding="utf-8"))
+        nu = {s["namn"]: s["varden"]["2026"] for s in ut["skolor"]
+              if "2026" in s["varden"]}
+        facit_merit = {
+            "Internationella Engelska Skolan": 265.5,
+            "KMS Kullaviks Montessoriskola": 274.0,
+            "Maleviksskolan": 270.9,
+            "Nova Montessoriskola": 265.6,
+            "Gottskär Grundskola": 258.8,
+            "Varlaskolan": 240.3,
+            "Särö skola": 263.3,
+            "Hålabäcksskolan": 230.3,
+            "Skårbyskolan": 217.4,
+            "Kullaviksskolan": 250.4,
+            "Frillesåsskolan": 223.7,
+            "Vittra Forsgläntan": 252.4,
+            "Kollaskolan": 222.5,
+            "Smedingeskolan": 215.0,
+            "Åsaskolan": 216.0,
+        }
+        for namn, merit in facit_merit.items():
+            self.assertEqual(nu[namn]["meritvarde"]["v"], merit, namn)
+        # Kapareskolan: (246,9·100 + 232,7·72) / 172 = 240,96
+        self.assertEqual(nu["Kapareskolan"]["meritvarde"]["v"], 241.0)
+        self.assertEqual(len(nu), 16)
+        self.assertEqual(nu["Åsaskolan"]["behorigYrkes"]["v"], 75.8)
+        self.assertEqual(nu["Kullaviksskolan"]["behorigYrkes"]["v"], 88.3)
+        self.assertEqual(nu["Maleviksskolan"]["behorigYrkes"],
+                         {"v": 99.0, "mark": "ca100"})
+
+    def test_varje_vardemarke_ar_ett_kant_markte(self):
+        ut = json.loads((ROT / "docs" / "data-grundskolor.json")
+                        .read_text(encoding="utf-8"))
+        for s in ut["skolor"]:
+            for a, post in s["varden"].items():
+                for matt in ("meritvarde", "behorigYrkes", "behorigEstetiskt",
+                             "behorigEkoHumSam", "behorigNaturTeknik"):
+                    m = post[matt]
+                    self.assertIn(m["mark"], (None, "dolt", "ca100", "ungefar"))
+                    # Tomt är inte noll: dolt ⇔ inget värde
+                    self.assertEqual(m["v"] is None, m["mark"] == "dolt",
+                                     (s["namn"], a, matt))
+
+    RUBRIK = ("Skola;Skol-enhetskod;Skolkommun;Kommun-kod;Typ av huvudman;"
+              "Huvudman;Huvudman orgnr;Antal elever;{alla};"
+              "Andel (%) elever behöriga till yrkesprog.;"
+              "Genomsnittligt meritvärde (17 ämnen);\n")
+
+    def rader(self, *rader, alla="Andel som uppnått kunskapskraven i alla ämnen"):
+        text = ("Statistik\n\nGrundskola\nValt läsår: 2025/26\n\n"
+                + self.RUBRIK.format(alla=alla) + "\n".join(rader) + "\n")
+        return skolverket.rader_i(text)
+
+    def test_hamtningen_bevarar_prickningen(self):
+        rader = self.rader(
+            "Skola A;11;Kungsbacka;1384;Kommunal;Kungsbacka kommun;212;66;77,3;~100;223,7;",
+            "Skola B;22;Kungsbacka;1384;Enskild;Ab;556;..;..;..;..;",
+            "Skola C;33;Annan;9999;Kommunal;X;1;10;50,0;50,0;200,0;")
+        ut = hamta_grundskolor.lasa_rapport(
+            rader, hamta_grundskolor.RUBRIK_BETYG, hamta_grundskolor.FALT_BETYG, 139)
+        self.assertEqual(sorted(ut), ["11", "22"])      # bara Kungsbacka
+        self.assertEqual(ut["11"]["meritvarde"], 223.7)
+        self.assertIsNone(ut["11"]["behorigYrkes"])
+        self.assertEqual(ut["11"]["markor"], {"behorigYrkes": "~100"})
+        self.assertEqual(ut["22"]["markor"]["meritvarde"], "..")
+        self.assertIsNone(ut["22"]["antal"])
+
+    def test_bada_rubrikformerna_for_alla_amnen_godtas(self):
+        for alla in ("Andel som uppnått kunskapskraven i alla ämnen",
+                     "Andel (%) elever som uppfyllt betygskriterierna i alla ämnen"):
+            rader = self.rader(
+                "A;1;Kungsbacka;1384;Kommunal;K;2;50;80,0;90,0;230,0;", alla=alla)
+            ut = hamta_grundskolor.lasa_rapport(
+                rader, hamta_grundskolor.RUBRIK_BETYG,
+                hamta_grundskolor.FALT_BETYG, 139)
+            self.assertEqual(ut["1"]["meritvarde"], 230.0)
+
+    def test_ändrad_kolumnlayout_stoppar_hamtningen(self):
+        rader = self.rader(
+            "A;1;Kungsbacka;1384;Kommunal;K;2;50;80,0;90,0;230,0;",
+            alla="En helt annan kolumn")
+        with self.assertRaises(SystemExit):
+            hamta_grundskolor.lasa_rapport(
+                rader, hamta_grundskolor.RUBRIK_BETYG,
+                hamta_grundskolor.FALT_BETYG, 139)
+
+    def test_upprepad_rad_med_annat_innehall_stoppar(self):
+        rader = self.rader(
+            "A;1;Kungsbacka;1384;Kommunal;K;2;50;80,0;90,0;230,0;",
+            "A;1;Kungsbacka;1384;Kommunal;K;2;50;80,0;90,0;231,0;")
+        with self.assertRaises(SystemExit):
+            hamta_grundskolor.lasa_rapport(
+                rader, hamta_grundskolor.RUBRIK_BETYG,
+                hamta_grundskolor.FALT_BETYG, 139)
+
+    def test_identisk_upprepning_raknas_en_gang(self):
+        rad = "A;1;Kungsbacka;1384;Kommunal;K;2;50;80,0;90,0;230,0;"
+        ut = hamta_grundskolor.lasa_rapport(
+            self.rader(rad, rad), hamta_grundskolor.RUBRIK_BETYG,
+            hamta_grundskolor.FALT_BETYG, 139)
+        self.assertEqual(list(ut), ["1"])

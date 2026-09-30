@@ -39,6 +39,7 @@ const SIDOR = [
   "varberg-befolkningsprognos.html",
   "varberg-gymnasiealdern.html",
   "amnesbetyg.html",
+  "grundskolor.html",
   "kostnad-per-elev.html",
   "nian-till-gymnasiet.html",
   "platser.html",
