@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Elevenkäter i Kungsbackas skolor</title>
+<meta name="description" content="Resultat från Skolenkäten och den regiongemensamma elevenkäten för skolorna i Kungsbacka, 2015–2026: elever, lärare och vårdnadshavare, skola för skola.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+<nav class="toppnav" aria-label="Webbplatsens sidor">
+  <div class="toppnav-inre">
+    <a class="markesnamn" href="index.html">Kungsbacka i siffror</a>
+    <ul class="navrad">
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Befolkning</summary>
+          <ul class="navpanel">
+            <li><a href="befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="barn-och-unga.html">0–15 år</a></li>
+            <li><a href="gymnasiealdern.html">16–19 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Grundskolan</summary>
+          <ul class="navpanel">
+            <li><a href="grundskolor.html">Skola för skola i nian</a></li>
+            <li><a href="amnesbetyg.html">Betyg per ämne i nian</a></li>
+            <li><a href="kostnad-per-elev.html">Kostnad per elev</a></li>
+            <li><a href="resurser-till-skolan.html">Resurser mot referenskostnad</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Gymnasiet</summary>
+          <ul class="navpanel">
+            <li><a href="platser.html">Platser på programmen</a></li>
+            <li><a href="meritvarden.html">Meritvärden vid antagningen</a></li>
+            <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a></li>
+            <li><a href="antagning-till-examen.html">Från antagning till examen</a></li>
+            <li><a href="nian-till-gymnasiet.html">Från nian till gymnasiet</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Valen</summary>
+          <ul class="navpanel">
+            <li><a href="fortidsrostning.html">Förtidsröstningen 2026</a></li>
+            <li><a href="valresultat.html">Valresultat per distrikt</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny aktuell">
+          <summary>Elevenkäter</summary>
+          <ul class="navpanel">
+            <li><a href="enkater.html" aria-current="page">Skola för skola</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Kommunfullmäktige</summary>
+          <ul class="navpanel">
+            <li><a href="fullmaktige.html">Inspelade möten</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Varberg</summary>
+          <ul class="navpanel">
+            <li><a href="varberg-befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="varberg-barn-och-unga.html">0–15 år</a></li>
+            <li><a href="varberg-gymnasiealdern.html">16–18 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost"><a href="metod.html">Metod</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="sidhuvud-inre">
+    <h1>Elevenkäter i Kungsbackas skolor</h1>
+    <p class="ingress">
+      Vad eleverna, lärarna och vårdnadshavarna svarat i två enkäter:
+      Skolinspektionens <em>Skolenkät</em>, som varje skola besvarar vartannat
+      år, och Göteborgsregionens <em>regiongemensamma elevenkät</em>, som
+      Kungsbacka besvarar de år Skolinspektionen inte mäter. Skolenkäten
+      redovisas skola för skola, kommunala som fristående, sedan hösten 2015.
+      Göteborgsregionens enkät finns publikt bara för Kungsbacka som helhet.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <div id="not-brott" hidden></div>
+
+  <section id="sektion-oversikt" hidden>
+    <h2>Alla skolor, senaste mätningen</h2>
+    <p class="forklaring">
+      Skolenkätens senaste resultat för varje skola som har svar i vald
+      grupp, index 0&ndash;10 där högre är bättre. Kolumnen &rdquo;Mätår&rdquo;
+      säger vilket år siffrorna är från: skolorna mäts vartannat år, och en
+      skola som lagts ned eller bytt kod har sin senaste mätning kvar. Klicka
+      på en kolumnrubrik för att sortera. Valen syns i adressraden.
+    </p>
+    <div class="valj-ar">
+      <label for="grupp-valjare">Svarande:</label>
+      <select id="grupp-valjare"></select>
+      <label for="huvudman-valjare">Huvudman:</label>
+      <select id="huvudman-valjare"></select>
+      <label for="skolform-valjare">Skolform:</label>
+      <select id="skolform-valjare"></select>
+    </div>
+    <div id="not-oversikt" hidden></div>
+    <details open>
+      <summary>Tabell</summary>
+      <div class="tabell-rull"><table id="tabell-oversikt"></table></div>
+    </details>
+    <p class="kalla-rad" id="kalla-oversikt"></p>
+  </section>
+
+  <section id="sektion-skola" hidden>
+    <h2>En skola över tid</h2>
+    <p class="forklaring">
+      Ett diagram per frågeområde. <strong>Blå linje med cirkel</strong> är
+      skolens resultat i Skolenkäten. De tunna linjerna är jämförelser:
+      <strong>Kungsbacka kommun</strong> (streckad) och <strong>riket</strong>
+      (prickad) i Skolenkäten, och i <strong>orange med triangel</strong>
+      Kungsbacka kommun respektive Göteborgsregionen i den regiongemensamma
+      enkäten. Göteborgsregionens enkät finns bara för kommunen som helhet,
+      inte per skola. <strong>Linjerna bryts</strong> där enkäten bytt frågor
+      eller skala, där ett värde är dolt eller där det gått mer än två år
+      mellan mätningarna &ndash; inget räknas ut för åren däremellan.
+    </p>
+    <div class="valj-ar">
+      <label for="skola-valjare">Skola:</label>
+      <select id="skola-valjare"></select>
+      <label for="skolgrupp-valjare">Svarande:</label>
+      <select id="skolgrupp-valjare"></select>
+    </div>
+    <div id="not-skola" hidden></div>
+    <div class="diagramrutnat" id="diagram-rutnat"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-skola"></table></div>
+    </details>
+    <p class="kalla-rad" id="kalla-skola"></p>
+  </section>
+
+  <section id="sektion-jamfor" hidden>
+    <h2>Jämför skolor</h2>
+    <p class="forklaring">
+      Välj ett frågeområde och bocka för de skolor som ska jämföras. Varje
+      skola har egen färg och punktform; den tunna streckade linjen är
+      Kungsbacka kommun i Skolenkäten. Bara Skolenkäten visas här, eftersom
+      den regiongemensamma enkäten inte har några skolvärden att jämföra.
+    </p>
+    <div class="valj-ar">
+      <label for="jamforgrupp-valjare">Svarande:</label>
+      <select id="jamforgrupp-valjare"></select>
+      <label for="omrade-valjare">Frågeområde:</label>
+      <select id="omrade-valjare"></select>
+    </div>
+    <fieldset class="distriktval" id="jamforval">
+      <legend>Skolor i diagrammet</legend>
+      <div class="distriktval-knappar">
+        <button type="button" id="knapp-jamfor-rensa">Dölj alla</button>
+        <button type="button" id="knapp-jamfor-alla">Visa alla</button>
+        <span class="distriktval-antal" id="jamforval-antal" role="status" aria-live="polite"></span>
+      </div>
+      <div class="distriktval-rutor" id="jamforval-rutor"></div>
+    </fieldset>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-jamfor" aria-label="Diagram: valt frågeområde över tid, en linje per skola" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-jamfor"></p>
+    </div>
+    <div id="not-jamfor" hidden></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-jamfor"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-ladda" hidden>
+    <h2>Ladda ner datat</h2>
+    <p class="forklaring">
+      Den rensade filen med alla rader som sidan bygger på &ndash; en rad per
+      källa, mätår, skola, svarande, årskurs och frågeområde, med
+      originalskala, antal svar, svarsfrekvens och en kommentar där ett värde
+      saknas eller är omräknat: <a href="enkater.csv">enkater.csv</a>
+      (UTF-8, kommaavgränsad). Kolumnerna förklaras i README.
+    </p>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Skolenkätens Excelfiler hos Skolinspektionen och den regiongemensamma
+      enkätens rapporter hos Göteborgsregionen. Varje länk går direkt till
+      filen, så att varje siffra på sidan går att kontrollera.
+    </p>
+    <details>
+      <summary>Visa källfilerna</summary>
+      <ul class="kallista" id="lista-kallor"></ul>
+    </details>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Två enkäter, två mått.</strong> Skolenkäten är Skolinspektionens
+      nationella enkät. Varje huvudman deltar vartannat år, och resultatet
+      redovisas per skolenhet som ett index 0&ndash;10 per frågeområde.
+      Den regiongemensamma elevenkäten görs av Göteborgsregionens
+      medlemskommuner, där Kungsbacka ingår: årskurs 2 varje år, årskurs 5 och
+      8 samt gymnasiets år 2 de år då Skolinspektionen inte mäter. Den
+      publiceras som PDF-rapporter för regionen, med en rad per kommun.
+      Frågorna är <strong>inte identiska</strong> i de två enkäterna, även om
+      områdena har liknande namn: se hur områdena kopplats ihop under
+      &rdquo;Frågeområden&rdquo; nedan och i <a href="metod.html">metodsidan</a>.
+    </p>
+    <p class="forklaring">
+      <strong>Skalan.</strong> Skolenkäten är alltid på 0&ndash;10. Den
+      regiongemensamma enkäten redovisades på 0&ndash;100 till och med 2022,
+      på 0&ndash;10 (&rdquo;likt Skolinspektionens enkät&rdquo;) 2023 och
+      på 0&ndash;100 igen 2024&ndash;2026. På sidan är allt omräknat till
+      0&ndash;10 (de tal som är på 0&ndash;100 delat med 10), men
+      <strong>omräkningen gör inte åren jämförbara</strong>: rapporten bytte
+      också ord från &rdquo;Indexvärde&rdquo; till &rdquo;Medelvärde&rdquo;, och
+      ingen linje dras över ett skalbyte.
+    </p>
+    <p class="forklaring">
+      <strong>Frågeområden.</strong> Skolenkäten bytte frågor två gånger
+      (hösten 2018 och 2022), och bytte samtidigt några områden mot sammanslagna
+      eller nya. Varje frågeområde har ett märke över de frågor som ingår;
+      byter märket delas linjen. Områden som inte har någon rimlig motsvarighet
+      i de andra omgångarna lämnas utan gemensamt namn och visas under &rdquo;Övriga
+      områden&rdquo; i stället för att gissas ihop. Åk 5 har bara index från
+      hösten 2018; äldre omgångar redovisar medelvärden per fråga.
+    </p>
+    <p class="forklaring">
+      <strong>Skolor som flera enheter.</strong> En skola kan vara flera
+      skolenheter i Skolverkets register, och en enhet byter kod när skolan
+      byter namn eller årskurser. Enheterna förs ihop för hand till skolor
+      (<code>program.ENKATSKOLOR</code>); har en skola flera enheter ett år är
+      dess värde ett medelvärde vägt med antal svar, och är något av enhetens
+      värden dolt blir skolans dolt. Åsaskolan 7&ndash;9 fick Åsa Gårdsskolas
+      högstadieelever 2022 men räknas som samma skola. Aranäsgymnasiets
+      enheter är inriktningar och räknas samman.
+    </p>
+    <p class="forklaring">
+      <strong>Årskurs 8 och 9.</strong> Skolenkäten frågade årskurs 9 till och
+      med 2021 och årskurs 8 från 2022. Det är olika elevgrupper och olika
+      serier.
+    </p>
+    <p class="forklaring">
+      <strong>Dolt är inte noll.</strong> Skolenkäten redovisar inte resultat
+      för färre än fem svar, GR inte för färre än sju. Sådana värden ritas som
+      luckor och skrivs &rdquo;..&rdquo; i tabellerna.
+    </p>
+    <p class="forklaring">
+      <strong>Vårdnadshavarnas svar är mindre tillförlitliga.</strong> Varje
+      skolenhet har en gemensam inloggning för alla vårdnadshavare i stället
+      för en per person, så samma person kan svara flera gånger och
+      svarsfrekvensen är bara uppskattad. Den är dessutom låg: i riket svarade
+      knappt en tredjedel av vårdnadshavarna 2025. Svaren visas, men är
+      märkta och bör läsas med försiktighet. Skolinspektionen själv
+      påpekar att resultaten inte är lika reliabla som för elever och lärare.
+    </p>
+    <p class="forklaring">
+      <strong>Det som saknas.</strong> Skolinspektionen har publicerat
+      resultat per skola först från hösten 2015, och Göteborgsregionens
+      skolrapporter går till kommunen men publiceras inte. Äldre
+      GR-rapporter (före 2022) har tagits bort från GR:s webbplats.
+      Rapporten för årskurs 5 och 8 från 2025 har en Kungsbacka-rad som
+      avviker kraftigt och som uteslutits (se listan under &rdquo;Kort sagt&rdquo;).
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
+      beräkningar är öppna: källkoden och alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+</main>
+
+<footer class="sidfot">
+  <div class="sidfot-inre">
+    <nav class="sidfot-nav" aria-label="Om webbplatsen">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="metod.html">Metod och källor</a></li>
+        <li><a href="https://github.com/moggleif/politik">Källkod och data på GitHub</a></li>
+        <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
+      </ul>
+    </nav>
+    <p class="sidfot-data">Data: Skolinspektionens Skolenkät, Göteborgsregionens regiongemensamma elevenkät och Skolverkets skolenhetsregister.</p>
+    <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="enkater.js"></script>
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

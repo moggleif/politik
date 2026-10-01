@@ -40,6 +40,7 @@ const SIDOR = [
   "varberg-gymnasiealdern.html",
   "amnesbetyg.html",
   "grundskolor.html",
+  "enkater.html",
   "kostnad-per-elev.html",
   "nian-till-gymnasiet.html",
   "platser.html",

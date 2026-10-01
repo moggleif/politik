@@ -108,6 +108,16 @@ finns per ämne.
 - [Slutbetyg per ämne i årskurs 9](https://moggleif.github.io/politik/amnesbetyg.html)
   &ndash; betygspoäng och andel godkända per ämne, hela kommunen,
   läsåren 2012/13&ndash;2024/25, ur Skolverkets statistik
+- [Elevenkäter i Kungsbackas skolor](https://moggleif.github.io/politik/enkater.html)
+  &ndash; Skolinspektionens Skolenkät (elever, lärare och vårdnadshavare,
+  skola för skola, hösten 2015&ndash;2025) och Göteborgsregionens
+  regiongemensamma elevenkät (Kungsbacka som helhet mot GR, 2022&ndash;2026),
+  i två färger och punktformer i samma diagram. Linjerna bryts där skalan
+  eller frågorna ändrats, där ett värde är dolt eller där mer än två år
+  saknas; inget interpoleras. Vårdnadshavarsvar är märkta som mindre
+  tillförlitliga. Översikt med filter, en skola över tid, jämförelse av
+  flera skolor och nedladdning av den rensade filen
+  (`docs/enkater.csv`).
 - [Skola för skola i nian](https://moggleif.github.io/politik/grundskolor.html)
   &ndash; meritvärde och andel behöriga till gymnasiet (yrkesprogram och de
   tre högskoleförberedande programgrupperna) för varje grundskola med
@@ -314,6 +324,15 @@ data/
                                 program, ur Skolverkets statistik
   amnesbetyg/amnesbetyg_<år>.json Niondeklassarnas slutbetyg per ämne, hela
                                 kommunen, ur Skolverkets statistik
+  enkater/                      Elevenkäter. raw/ (inte incheckad) har
+                                Skolinspektionens Excelfiler och GR:s PDF:er
+                                orörda; KALLFILER.csv säger var varje fil
+                                hämtats och dess kontrollsumma;
+                                skolenheter_kungsbacka_skolverket.json är
+                                Skolverkets register; mapping_fragomraden.csv
+                                kopplar frågeområden mellan källor och år;
+                                clean/enkater.csv är den rensade tidy-filen;
+                                INVENTERING.md är inventeringen av källorna
   grundskolor/grundskolor_<år>.json  Årskurs 9 per skolenhet i Kungsbacka:
                                 meritvärde och behörighet, med prickningen
                                 bevarad, ur Skolverkets statistik
@@ -391,6 +410,14 @@ scripts/
   hamta_grundskolor.py          Hämtar årskurs 9 per skolenhet (rapport 139
                                 och 5) och kommunsnitten (138 och 53) ur samma
                                 exporttjänst
+  hamta_enkater.py              Hämtar Skolenkäten (Excel), GR:s elevenkät
+                                (PDF) och skolenhetsregistret; skriver aldrig
+                                över en råfil
+  extrahera_enkater.py          Läser råfilerna till data/enkater/clean/
+                                enkater.csv; stannar om ett frågeområde
+                                saknas i mappningen
+  build_enkater.py              Bygger docs/data-enkater.json och
+                                docs/enkater.csv: skolor, serier och brott
   hamta_gymnasieelever.py       Hämtar antalet gymnasieelever per program
                                 och årskurs (rapport 58) ur samma
                                 exporttjänst, ett läsår per fil. Kolumnen
@@ -502,6 +529,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   amnesbetyg.html               Slutbetyg per ämne i årskurs 9
   grundskolor.html              Årskurs 9 skola för skola: meritvärde och
                                 behörighet
+  enkater.html                  Elevenkäter: översikt, en skola över tid och
+                                jämförelse av skolor
   kostnad-per-elev.html         Kostnaden per elev i grundskolan, fasta priser
   resurser-till-skolan.html     Resurserna mot referenskostnaden
   nian-till-gymnasiet.html      Från nian till gymnasiet, tre mätpunkter
@@ -629,6 +658,47 @@ Betygen per ämne i årskurs 9:
 python3 scripts/hamta_amnesbetyg.py   # hämtar alla läsår från Skolverket
 python3 scripts/build_amnesbetyg.py   # bygger om docs/data-amnesbetyg.json
 ```
+
+Elevenkäter (Skolenkäten och den regiongemensamma enkäten):
+
+```bash
+python3 scripts/hamta_enkater.py       # hämtar nya råfiler, skriver aldrig över
+python3 scripts/extrahera_enkater.py   # data/enkater/clean/enkater.csv
+python3 scripts/build_enkater.py       # docs/data-enkater.json, docs/enkater.csv
+cp docs/data-enkater.json tests/fixtures/data/   # facit serveras ur fixturerna
+```
+
+**Lägga till ett nytt års data.** Skolenkäten publiceras i april–juni
+(en sida per år hos Skolinspektionen) och GR:s rapporter i maj.
+
+1. Lägg till året i `SI_AR` (Skolenkäten) eller `GR_SIDOR` (GR, med
+   sidans adress) i `scripts/hamta_enkater.py` och kör skriptet.
+   Skolenkäten: Skolinspektionens sidor har ofta nya filnamn, men
+   skriptet läser länkarna ur sidan. Det stannar om en sida saknar filer.
+2. För GR: lägg in årets skala i `SKALOR` i `extrahera_enkater.py`
+   (rapporten säger den under "Om undersökningen").
+3. Kör `extrahera_enkater.py`. Finns ett frågeområde som inte är mappat
+   lägger skriptet till det i `data/enkater/mapping_fragomraden.csv` med
+   `?` och stannar. Fyll i den harmoniserade kolumnen (lämna den tom om
+   området saknar rimlig motsvarighet, hellre än att gissa) och ev. `serie`,
+   och kör igen. Har skolor tillkommit eller bytt kod stannar skriptet med
+   "saknas i program.ENKATSKOLOR": lägg till koden där. Rader med
+   Kungsbacka som lägeskommun men okänd kod hamnar i
+   `data/enkater/clean/omatchade.csv` – kontrollera den.
+4. Kör `build_enkater.py`. Bygget stannar om kommunens antal svar eller
+   viktat index inte går ihop med skolornas.
+5. Kopiera `docs/data-enkater.json` till `tests/fixtures/data/`, kör
+   `node scripts/facit_webbplats.js --skriv-om` och granska diffen.
+
+Kolumnerna i `enkater.csv`: `källa` (Skolenkäten/GR-enkäten), `år`,
+`omgång` (HT 2015, VT 2017, 2021 …), `nivå` (skola, kommun, riket, region),
+`skolenhetskod`, `skola_id`, `skolnamn_vid_tillfället`, `huvudman`,
+`respondentgrupp`, `årskurs`, `frågeområde_original`,
+`frågeområde_harmoniserat` (tom = inte harmoniserat), `serie`,
+`index_0_10`, `index_original`, `skala_original`, `antal_svar`,
+`svarsfrekvens`, `frågesats` (märke över frågorna – ändras det bryts
+trendlinjen), `kommentar` och `källfil`. GR-värden på 0–100 är delade med
+10 i `index_0_10` och flaggade i `kommentar`.
 
 Årskurs 9 skola för skola:
 

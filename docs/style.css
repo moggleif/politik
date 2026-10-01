@@ -1028,3 +1028,14 @@ tr.rad-markerad > th, tr.rad-markerad > td {
 @media (max-width: 30rem) {
   .smadiagram-rutnat { grid-template-columns: 1fr; }
 }
+
+/* Elevenkäter: ett litet diagram per frågeområde, så många som ryms bredvid
+   varandra och ett per rad på smal skärm. */
+.diagramrutnat {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.diagramkort { margin-top: 0; }
+.diagramkort h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
