@@ -4131,6 +4131,11 @@ class TestEnkaterBygge(unittest.TestCase):
         # (8·30 + 6·10) / 40 = 7,5 – ett ovägt medel vore 7,0
         self.assertEqual(build_enkater.slut_ihop([(8.0, 30), (6.0, 10)]), (7.5, 40))
 
+    def test_medelvardet_avrundas_exakt_uppat_pa_halvor(self):
+        # (7,70 + 7,75) / 2 = 7,725 exakt -> 7,73; med flyttal gav det 7,72 eller
+        # 7,73 beroende på maskin, och CI blev röd mot en lokalt byggd fil.
+        self.assertEqual(build_enkater.slut_ihop([(7.7, 1), (7.75, 1)]), (7.73, 2))
+
     def test_dolt_varde_gor_skolans_varde_dolt(self):
         self.assertEqual(build_enkater.slut_ihop([(8.0, 30), (None, 10)]), (None, 40))
 

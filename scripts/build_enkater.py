@@ -13,7 +13,8 @@ som heter olika i olika år men är samma sak i mappningstabellen
 
 **Skolor med flera enheter.** Skolverkets enheter byter kod när en skola
 byter namn eller delas (program.ENKATSKOLOR). Har en skola flera enheter ett
-år blir dess värde ett medelvärde av enheternas, vägt med antal svar. Är
+år blir dess värde ett medelvärde av enheternas, vägt med antal svar (exakt, med
+Decimal, och avrundat till två decimaler). Är
 något av enhetens värden dolt – färre än fem svar – blir skolans värde
 dolt: ett medelvärde av det som syns vore ett annat mått. En enhet utan
 några svar alls räknas inte med; den har inget värde att dölja.
@@ -51,6 +52,7 @@ import json
 import shutil
 import sys
 from collections import defaultdict
+from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 from program import enkatskolor
@@ -140,7 +142,12 @@ def slut_ihop(enheter):
     n_tot = sum(n for _, n in med)
     if any(v is None for v, _ in med):
         return None, n_tot
-    return round(sum(v * n for v, n in med) / n_tot, 2), n_tot
+    # Decimal i stället för flyttal: värdena är decimaltal ur CSV:en och
+    # medelvärdet ska avrundas till två decimaler på samma sätt på varje
+    # dator och Python-version (ett flyttalsmedel som hamnar på 7,725 gav
+    # 7,72 på en maskin och 7,73 på en annan).
+    summa = sum(Decimal(repr(v)) * n for v, n in med)
+    return float((summa / n_tot).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)), n_tot
 
 
 def dela_i_segment(punkter):
