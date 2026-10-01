@@ -3759,6 +3759,12 @@ class TestGrundskolor(unittest.TestCase):
         self.assertEqual([f["id"] for f in asa["foregangare"]],
                          ["asa-gard", "asaskolan-fore"])
         self.assertTrue(all(f["bekraftad"] for f in asa["foregangare"]))
+        # En koppling som ritas ska ha en källa, eller markeras som gissning.
+        for s in ut["skolor"]:
+            for f in s["foregangare"]:
+                self.assertTrue(f["kalla"] or not f["bekraftad"], s["namn"])
+                if f["kalla"]:
+                    self.assertTrue(f["kalla"].startswith("https://"), s["namn"])
 
     def test_data_grundskolor_ar_reproducerbar(self):
         arsfiler = [json.loads(f.read_text(encoding="utf-8")) for f in

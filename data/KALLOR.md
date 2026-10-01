@@ -1087,13 +1087,27 @@ behörigheten. Det gäller 63 av skolornas årsvärden för yrkesbehörigheten,
 både fristående och kommunala skolor. Sidan skriver ≈100 % men ritar 99 %. Det verkliga värdet
 ligger över 100 − 4/n och under 100 %.
 
-**Sammanslagningar.** Åsa Gårdsskola (16824824) och den gamla Åsaskolan
-(18035112) upphör i datat 2023; Åsaskolan 7-9AD/7-9FI börjar 2024. Att det
-är en sammanslagning är bekräftat av sidans beställare. Kopplingen Hedeskolan
-och Älvsåkersskolan → Skårbyskolan är en **gissning**: båda upphör 2023 och
-Skårbyskolan börjar 2024. Den är inte kontrollerad mot kommunens handlingar
-och märks så på sidan (`bekraftad: false` i `program.GRUNDSKOLOR`).
-Toråsskolan upphör 2022 och har ingen efterträdare i datat.
+**Skolor som inte längre har årskurs 9.** De är sällan nedlagda; skolan har
+oftast bara tappat högstadiet. Belagt i kommunens pressmeddelanden
+(länkade från `program.GRUNDSKOLOR`, fältet `kalla`):
+
+- **Åsa Gårdsskola** (16824824): högstadiet avvecklades och flyttades till
+  Åsaskolan (beslut juni 2021; flytt av alla samtidigt utreddes nov 2021,
+  pressmeddelande 10 nov 2021). Skolan finns kvar som F–6. Serien slutar
+  2023; Åsaskolan 7-9AD/7-9FI börjar 2024. Vilket läsår flytten gjordes och
+  när de två enheterna infördes har inte kontrollerats mot nämndens protokoll.
+- **Hedeskolan** och **Älvsåkersskolan** blev F–6 när Skårbyskolan (4–9)
+  öppnade hösten 2023; deras högstadium finns där (pressmeddelande 11 jan
+  2022). Björkris skola (F–3) skickar också elever dit men har ingen
+  årskurs 9, och ingår därför inte.
+- **Toråsskolan** blev F–6 hösten 2022 och dess elever i årskurs 7–9 fick
+  Varlaskolan (pressmeddelande 19 aug 2020). Varlaskolans serie är obruten,
+  så ingen streckad linje – bara en anmärkning.
+
+Att Onsala Montessoriskola blev Gottskär Grundskola (samma enhetskod) och
+Fullriggaren Malevik Maleviksskolan (ny enhetskod 2025) är härlett ur
+Skolverkets koder och namn, inte belagt i handlingar. Maleviksskolan är och
+förblir F–9.
 
 **Kontroller i hämtningen.** Kolumnrubrikerna jämförs mot de förväntade;
 båda rapporterna ska redovisa samma enheter, och andelen behöriga till

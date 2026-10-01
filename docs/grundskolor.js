@@ -46,7 +46,7 @@
 
   var VISA = [
     { id: "nuvarande", namn: "Skolor som finns i dag, med föregångare" },
-    { id: "alla", namn: "Alla skolor, även nedlagda" },
+    { id: "alla", namn: "Alla skolor, även de som inte längre har årskurs 9" },
     { id: "kommunala", namn: "Kommunala skolor" },
     { id: "fristaende", namn: "Fristående skolor" }
   ];
@@ -396,13 +396,20 @@
       }).join("; ");
       var fore = s.foregangare.map(function (f) {
         return SKOLA[f.id].namn + " – " +
-          (f.bekraftad ? "bekräftad: " : "gissning: ") + f.anm;
+          (f.bekraftad ? "" : "gissning: ") + f.anm;
       }).join(" ");
+      var lankar = [];
+      if (s.kalla) lankar.push([s.kalla, "Kommunens pressmeddelande"]);
+      s.foregangare.forEach(function (f) {
+        if (f.kalla) lankar.push([f.kalla, "Källa: " + SKOLA[f.id].namn]);
+      });
       return K.kallpost({
         titel: s.namn,
         detalj: huvudmannaNamn(s) + ", utgångsåren " + s.forstaAr + "–" +
           s.sistaAr + ". Skolenheter: " + enheter + "." +
-          (fore ? " Föregångare: " + fore : "")
+          (s.anm ? " " + s.anm : "") +
+          (fore ? " Föregångare: " + fore : ""),
+        lankar: lankar
       });
     }).join("");
   }
@@ -451,8 +458,8 @@
     }
     punkter.push("Datat omfattar <strong>" + DATA.skolor.length + " skolor</strong>: " +
       nu.length + " med årskurs 9 senaste läsåret och " + upphorda.length +
-      " som upphört. " + kopplade.length + " av de upphörda har en efterträdare och " +
-      "kopplas till den med en streckad linje.");
+      " som inte längre har det. " + kopplade.length + " av de senare har en " +
+      "efterträdare och kopplas till den med en streckad linje.");
     K.visaKortSagt(punkter);
   }
 
@@ -470,9 +477,8 @@
       });
     });
     K.sattDataNot("not-gissning", gissade.length
-      ? "<strong>Kopplingar som inte är kontrollerade:</strong> " + esc(gissade.join("; ")) +
-        ". De är en gissning ur årtalen (den äldre skolan upphör året innan den " +
-        "nya dyker upp) och inte ett belagt beslut."
+      ? "<strong>Kopplingar som inte är belagda:</strong> " + esc(gissade.join("; ")) +
+        ". De är en gissning ur årtalen."
       : "");
   }
 

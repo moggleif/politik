@@ -158,7 +158,9 @@ def bygg(arsfiler: list) -> dict:
             "sistaAr": ar_med[-1],
             "aktuell": ar_med[-1] == ar[-1],
             "enheter": koder,
-            "foregangare": s.get("foregangare", []),
+            "foregangare": [{"kalla": None, **f} for f in s.get("foregangare", [])],
+            "anm": s.get("anm"),
+            "kalla": s.get("kalla"),
             "varden": varden,
         })
 

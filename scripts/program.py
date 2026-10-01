@@ -110,22 +110,45 @@ def typ_av(program: str) -> str:
 # serie med `foregangare` på efterträdaren: sidan ritar då en streckad
 # linje från föregångarens sista år till efterträdarens första.
 #
-# `bekraftad` säger om kopplingen är belagd. Åsa Gårds skola och Åsaskolan
-# gick samman 2024 (bekräftad av sidans beställare). Kopplingen till
-# Skårbyskolan är däremot en *gissning ur årtalen* – Hedeskolan och
-# Älvsåkersskolan upphör 2023 och Skårbyskolan dyker upp 2024 – och ska
-# inte läsas som ett beslut förrän den stämts av mot kommunens handlingar.
+# `bekraftad` säger om kopplingen är belagd, och `kalla` var. Båda är
+# belagda i kommunens pressmeddelanden:
+#
+#  * Åsa Gårdsskolas högstadium avvecklades och flyttades till Åsaskolan
+#    (beslut juni 2021; en flytt av alla samtidigt utreddes nov 2021).
+#    Åsa Gårdsskola finns kvar, som F–6, men har inte längre årskurs 9 –
+#    serien slutar därför, utan att skolan lagts ned.
+#  * När Skårbyskolan (4–9) öppnade hösten 2023 fick Hedeskolan och
+#    Älvsåkersskolan, som blev F–6, sitt högstadium där; Björkris skola
+#    (F–3) skickar också elever dit men har ingen årskurs 9.
+#
+# `anm` är en rad om skolan som visas på sidan. Toråsskolan är F–6 sedan
+# hösten 2022 och dess elever i årskurs 7–9 går på Varlaskolan; Varlaskolans
+# serie är obruten och får ingen streckad koppling, bara en anmärkning.
+_MND = "https://www.mynewsdesk.com/se/kungsbacka-kommun/pressreleases/"
+KALLA_ASA = _MND + ("vi-undersoeker-moejligheten-att-laata-alla-hoegstadieelever-"
+                    "i-aasa-faa-sin-skolgaang-paa-aasaskolan-fraan-"
+                    "laesaarsstart-2022-3143012")
+KALLA_SKARBY = _MND + ("foerslag-om-ny-organisation-foer-hedeskolan-bjoerkris-"
+                       "skola-samt-aelvsaakersskolan-naer-skaarbyskolan-"
+                       "oeppnar-hoesten-2023-3154181")
+KALLA_TORAS = _MND + "ny-organisering-av-toraasskolan-fraan-hoestterminen-2022-3027521"
+
 GRUNDSKOLOR = [
-    {"id": "asa-gard", "namn": "Åsa Gårdsskola", "enheter": ["16824824"]},
+    {"id": "asa-gard", "namn": "Åsa Gårdsskola", "enheter": ["16824824"],
+     "anm": "Högstadiet flyttades till Åsaskolan. Skolan finns kvar som "
+            "F–6 men har inte längre årskurs 9."},
     {"id": "asaskolan-fore", "namn": "Åsaskolan (före sammanslagningen)",
      "enheter": ["18035112"]},
     {"id": "asaskolan", "namn": "Åsaskolan",
      "enheter": ["62677187", "56285442"],
      "foregangare": [
          {"id": "asa-gard", "bekraftad": True,
-          "anm": "Åsa Gårdsskola gick upp i Åsaskolan 2024."},
+          "anm": "Åsa Gårdsskolas högstadium flyttades till Åsaskolan.",
+          "kalla": KALLA_ASA},
          {"id": "asaskolan-fore", "bekraftad": True,
-          "anm": "Åsaskolan före sammanslagningen med Åsa Gårdsskola."},
+          "anm": "Åsaskolan före sammanslagningen med Åsa Gårdsskolas "
+                 "högstadium.",
+          "kalla": KALLA_ASA},
      ]},
     {"id": "frillesasskolan", "namn": "Frillesåsskolan",
      "enheter": ["10927868", "67578984"]},
@@ -134,7 +157,8 @@ GRUNDSKOLOR = [
     {"id": "halabacksskolan", "namn": "Hålabäcksskolan",
      "enheter": ["99688470", "77323224", "77163912"]},
     {"id": "hedeskolan", "namn": "Hedeskolan",
-     "enheter": ["11231816", "26372371", "27712268"]},
+     "enheter": ["11231816", "26372371", "27712268"],
+     "anm": "Blev F–6 när Skårbyskolan öppnade; högstadiet finns där."},
     {"id": "ies", "namn": "Internationella Engelska Skolan",
      "enheter": ["25278170"]},
     {"id": "kapareskolan", "namn": "Kapareskolan",
@@ -151,20 +175,25 @@ GRUNDSKOLOR = [
     {"id": "skarbyskolan", "namn": "Skårbyskolan",
      "enheter": ["39992436", "46721838"],
      "foregangare": [
-         {"id": "hedeskolan", "bekraftad": False,
-          "anm": "Gissning ur årtalen: Hedeskolan upphör 2023 och "
-                 "Skårbyskolan börjar 2024."},
-         {"id": "alvsakersskolan", "bekraftad": False,
-          "anm": "Gissning ur årtalen: Älvsåkersskolan upphör 2023 och "
-                 "Skårbyskolan börjar 2024."},
+         {"id": "hedeskolan", "bekraftad": True,
+          "anm": "Hedeskolans högstadieelever fick Skårbyskolan när den "
+                 "öppnade hösten 2023.",
+          "kalla": KALLA_SKARBY},
+         {"id": "alvsakersskolan", "bekraftad": True,
+          "anm": "Älvsåkersskolans högstadieelever fick Skårbyskolan när "
+                 "den öppnade hösten 2023.",
+          "kalla": KALLA_SKARBY},
      ]},
     {"id": "smedingeskolan", "namn": "Smedingeskolan",
      "enheter": ["68861484", "29293076", "33752123", "35822371", "49555095"]},
     {"id": "saro", "namn": "Särö skola", "enheter": ["72090315"]},
-    {"id": "torasskolan", "namn": "Toråsskolan", "enheter": ["14101582"]},
+    {"id": "torasskolan", "namn": "Toråsskolan", "enheter": ["14101582"],
+     "anm": "F–6 sedan hösten 2022; elever i årskurs 7–9 går på "
+            "Varlaskolan.", "kalla": KALLA_TORAS},
     {"id": "varlaskolan", "namn": "Varlaskolan",
      "enheter": ["37101902", "70143574", "28729598", "93339853", "84159690"]},
     {"id": "vittra", "namn": "Vittra Forsgläntan", "enheter": ["42568760"]},
     {"id": "alvsakersskolan", "namn": "Älvsåkersskolan",
-     "enheter": ["74587667"]},
+     "enheter": ["74587667"],
+     "anm": "Blev F–6 när Skårbyskolan öppnade; högstadiet finns där."},
 ]
