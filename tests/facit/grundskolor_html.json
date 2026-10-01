@@ -1542,6 +1542,252 @@
       "tension": 0
      },
      {
+      "antal": [
+       1105,
+       1165,
+       1160,
+       1164,
+       1223,
+       1264,
+       1259,
+       1214,
+       1299,
+       1293
+      ],
+      "backgroundColor": "#0b0b0b",
+      "borderColor": "#0b0b0b",
+      "borderWidth": 3,
+      "data": [
+       87.3,
+       91.4,
+       90.1,
+       93,
+       90.6,
+       89.2,
+       90.2,
+       90.4,
+       87.8,
+       86.9
+      ],
+      "hidden": false,
+      "label": "Kungsbacka, alla skolor",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 8,
+      "pointRadius": 5,
+      "pointStyle": "crossRot",
+      "punkter": [
+       {
+        "mark": null,
+        "v": 87.3
+       },
+       {
+        "mark": null,
+        "v": 91.4
+       },
+       {
+        "mark": null,
+        "v": 90.1
+       },
+       {
+        "mark": null,
+        "v": 93
+       },
+       {
+        "mark": null,
+        "v": 90.6
+       },
+       {
+        "mark": null,
+        "v": 89.2
+       },
+       {
+        "mark": null,
+        "v": 90.2
+       },
+       {
+        "mark": null,
+        "v": 90.4
+       },
+       {
+        "mark": null,
+        "v": 87.8
+       },
+       {
+        "mark": null,
+        "v": 86.9
+       }
+      ],
+      "skolId": "kommun-alla",
+      "snitt": true,
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "antal": [
+       1011,
+       1054,
+       1041,
+       1040,
+       1091,
+       1140,
+       1130,
+       994,
+       1097,
+       1067
+      ],
+      "backgroundColor": "#52514e",
+      "borderColor": "#52514e",
+      "borderWidth": 3,
+      "data": [
+       86.3,
+       90.6,
+       89,
+       92.5,
+       89.9,
+       88.7,
+       89.1,
+       89,
+       86.1,
+       85.7
+      ],
+      "hidden": false,
+      "label": "Kungsbacka, kommunala skolor",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 8,
+      "pointRadius": 5,
+      "pointStyle": "cross",
+      "punkter": [
+       {
+        "mark": null,
+        "v": 86.3
+       },
+       {
+        "mark": null,
+        "v": 90.6
+       },
+       {
+        "mark": null,
+        "v": 89
+       },
+       {
+        "mark": null,
+        "v": 92.5
+       },
+       {
+        "mark": null,
+        "v": 89.9
+       },
+       {
+        "mark": null,
+        "v": 88.7
+       },
+       {
+        "mark": null,
+        "v": 89.1
+       },
+       {
+        "mark": null,
+        "v": 89
+       },
+       {
+        "mark": null,
+        "v": 86.1
+       },
+       {
+        "mark": null,
+        "v": 85.7
+       }
+      ],
+      "skolId": "kommun-kommunala",
+      "snitt": true,
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
+      "antal": [
+       94,
+       111,
+       119,
+       124,
+       132,
+       124,
+       129,
+       220,
+       202,
+       226
+      ],
+      "backgroundColor": "#6e6c66",
+      "borderColor": "#6e6c66",
+      "borderWidth": 3,
+      "data": [
+       99,
+       99,
+       99,
+       99,
+       96.2,
+       94.4,
+       99,
+       96.4,
+       96.5,
+       92.5
+      ],
+      "hidden": false,
+      "label": "Kungsbacka, fristående skolor",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 1,
+      "pointHoverRadius": 8,
+      "pointRadius": 5,
+      "pointStyle": "star",
+      "punkter": [
+       {
+        "mark": "ca100",
+        "v": 99
+       },
+       {
+        "mark": "ca100",
+        "v": 99
+       },
+       {
+        "mark": "ca100",
+        "v": 99
+       },
+       {
+        "mark": "ca100",
+        "v": 99
+       },
+       {
+        "mark": null,
+        "v": 96.2
+       },
+       {
+        "mark": null,
+        "v": 94.4
+       },
+       {
+        "mark": "ca100",
+        "v": 99
+       },
+       {
+        "mark": null,
+        "v": 96.4
+       },
+       {
+        "mark": null,
+        "v": 96.5
+       },
+       {
+        "mark": null,
+        "v": 92.5
+       }
+      ],
+      "skolId": "kommun-fristaende",
+      "snitt": true,
+      "spanGaps": false,
+      "tension": 0
+     },
+     {
       "backgroundColor": "#cc79a7",
       "borderColor": "#cc79a7",
       "borderDash": [
@@ -1933,6 +2179,177 @@
       "scope": "col",
       "tagg": "TH",
       "text": "2025/26"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kungsbacka, alla skolor (snitt)"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "87,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "91,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "93,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "87,8 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,9 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kungsbacka, kommunala skolor (snitt)"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "90,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "88,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "89,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "85,7 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kungsbacka, fristående skolor (snitt)"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "≈100 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "≈100 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "≈100 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "≈100 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "94,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "≈100 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "96,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,5 %"
      }
     ],
     [
@@ -3112,6 +3529,87 @@
      {
       "scope": "row",
       "tagg": "TH",
+      "text": "Kungsbacka, alla skolor (snitt)"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Snitt"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1293"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "86,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "239,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kungsbacka, kommunala skolor (snitt)"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Snitt"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1067"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "85,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "234,5"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kungsbacka, fristående skolor (snitt)"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Snitt"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "226"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "92,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "263,3"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
       "text": "KMS Kullaviks Montessoriskola"
      },
      {
@@ -3574,7 +4072,7 @@
   },
   "#kort-sagt-lista": {
    "dold": false,
-   "html": "<li>Läsåret 2025/26 hade <strong>16 skolor</strong> elever i årskurs 9. Meritvärdet låg mellan <strong>215,0</strong> (Smedingeskolan) och <strong>274,0</strong> (KMS Kullaviks Montessoriskola) av högst 340.</li><li>Andelen behöriga till yrkesprogram var bland skolorna med exakt redovisat tal som lägst <strong>75,8&nbsp;%</strong> (Åsaskolan) och som högst <strong>100,0&nbsp;%</strong> (Internationella Engelska Skolan). 4 skolor redovisas som ≈100&nbsp;%: 1–4 elever klarade inte behörigheten.</li><li>Datat omfattar <strong>21 skolor</strong>: 16 med årskurs 9 senaste läsåret och 5 som inte längre har det. 4 av de senare har en efterträdare och kopplas till den med en streckad linje.</li>"
+   "html": "<li>Skolverkets snitt för Kungsbacka läsåret 2025/26: meritvärdet var <strong>239,5</strong> för alla skolor, <strong>234,5</strong> för de kommunala och <strong>263,3</strong> för de fristående. Andelen behöriga till yrkesprogram var 86,9&nbsp;%, 85,7&nbsp;% respektive 92,5&nbsp;%.</li><li>Läsåret 2025/26 hade <strong>16 skolor</strong> elever i årskurs 9. Meritvärdet låg mellan <strong>215,0</strong> (Smedingeskolan) och <strong>274,0</strong> (KMS Kullaviks Montessoriskola) av högst 340.</li><li>Andelen behöriga till yrkesprogram var bland skolorna med exakt redovisat tal som lägst <strong>75,8&nbsp;%</strong> (Åsaskolan) och som högst <strong>100,0&nbsp;%</strong> (Internationella Engelska Skolan). 4 skolor redovisas som ≈100&nbsp;%: 1–4 elever klarade inte behörigheten.</li><li>Datat omfattar <strong>21 skolor</strong>: 16 med årskurs 9 senaste läsåret och 5 som inte längre har det. 4 av de senare har en efterträdare och kopplas till den med en streckad linje.</li>"
   },
   "#kort-sagt-rubrik": {
    "dold": false,
@@ -3582,7 +4080,7 @@
   },
   "#lista-kallor": {
    "dold": false,
-   "html": "<li><span class=\"titel\">Läsåret 2025/26</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2026&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2026&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li><li><span class=\"titel\">Läsåret 2024/25</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li><li><span class=\"titel\">Läsåret 2023/24</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li><li><span class=\"titel\">Läsåret 2022/23</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li><li><span class=\"titel\">Läsåret 2021/22</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li><li><span class=\"titel\">Läsåret 2020/21</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li><li><span class=\"titel\">Läsåret 2019/20</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li><li><span class=\"titel\">Läsåret 2018/19</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li><li><span class=\"titel\">Läsåret 2017/18</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li><li><span class=\"titel\">Läsåret 2016/17</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-09-30</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a></div></li>"
+   "html": "<li><span class=\"titel\">Läsåret 2025/26</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2026&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2026&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2026&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2026&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li><li><span class=\"titel\">Läsåret 2024/25</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2025&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li><li><span class=\"titel\">Läsåret 2023/24</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2024&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li><li><span class=\"titel\">Läsåret 2022/23</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2023&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li><li><span class=\"titel\">Läsåret 2021/22</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2022&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li><li><span class=\"titel\">Läsåret 2020/21</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2021&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li><li><span class=\"titel\">Läsåret 2019/20</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2020&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li><li><span class=\"titel\">Läsåret 2018/19</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2019&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li><li><span class=\"titel\">Läsåret 2017/18</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2018&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li><li><span class=\"titel\">Läsåret 2016/17</span><br><span class=\"detalj\">Skolverket, utbildningsstatistik, hämtad 2026-10-01</span><div class=\"lankar\"><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=139&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=5&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=138&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)</a><a href=\"https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&amp;pExportID=53&amp;pAr=2017&amp;pKommun=1384&amp;pFlikar=0\">Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)</a></div></li>"
   },
   "#lista-skolor": {
    "dold": false,
@@ -3594,7 +4092,7 @@
   },
   "#meta-rad": {
    "dold": false,
-   "html": "<span>Källa: Skolverket, utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2016/17–2025/26</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2025/26</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-30</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+   "html": "<span>Källa: Skolverket, utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2016/17–2025/26</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2025/26</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-10-01</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
   },
   "#not-ca100": {
    "dold": false,
@@ -3606,11 +4104,11 @@
   },
   "#not-trend": {
    "dold": false,
-   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>61 punkter är <strong>≈100&nbsp;%</strong> eller innehåller en sådan enhet. De ritas som 99&nbsp;% och skrivs med ≈ i tabellen och pekrutan. Se ”Om den här sidan”.</div></div>"
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>66 punkter är <strong>≈100&nbsp;%</strong> eller innehåller en sådan enhet. De ritas som 99&nbsp;% och skrivs med ≈ i tabellen och pekrutan. Se ”Om den här sidan”.</div></div>"
   },
   "#om-uppdaterad": {
    "dold": false,
-   "html": "Datat på den här sidan hämtades 2026-09-30."
+   "html": "Datat på den här sidan hämtades 2026-10-01."
   },
   "#sektion-kallor": {
    "dold": false,
@@ -3684,6 +4182,18 @@
    "dold": false,
    "html": ""
   },
+  "#skola-kommun-alla": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-kommun-fristaende": {
+   "dold": false,
+   "html": ""
+  },
+  "#skola-kommun-kommunala": {
+   "dold": false,
+   "html": ""
+  },
   "#skola-kullaviksskolan": {
    "dold": false,
    "html": ""
@@ -3722,7 +4232,7 @@
   },
   "#skolval-antal": {
    "dold": false,
-   "html": "20 av 20 skolor visas"
+   "html": "23 av 23 skolor visas"
   },
   "#skolval-rutor": {
    "dold": false,
@@ -3738,11 +4248,11 @@
   },
   "#tabell-senaste": {
    "dold": false,
-   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skola\">Skola</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Huvudman\">Huvudman</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Elever\">Elever</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Behöriga till yrkesprogram\">Behöriga till yrkesprogram</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Meritvärde\">Meritvärde</th></tr></thead><tbody><tr><th scope=\"row\">KMS Kullaviks Montessoriskola</th><td>Fristående</td><td>32</td><td>≈100&nbsp;%</td><td>274,0</td></tr><tr><th scope=\"row\">Maleviksskolan</th><td>Kommunal</td><td>40</td><td>≈100&nbsp;%</td><td>270,9</td></tr><tr><th scope=\"row\">Nova Montessoriskola</th><td>Fristående</td><td>29</td><td>≈100&nbsp;%</td><td>265,6</td></tr><tr><th scope=\"row\">Internationella Engelska Skolan</th><td>Fristående</td><td>93</td><td>100,0&nbsp;%</td><td>265,5</td></tr><tr><th scope=\"row\">Särö skola</th><td>Kommunal</td><td>67</td><td>91,0&nbsp;%</td><td>263,3</td></tr><tr><th scope=\"row\">Gottskär Grundskola</th><td>Fristående</td><td>22</td><td>≈100&nbsp;%</td><td>258,8</td></tr><tr><th scope=\"row\">Vittra Forsgläntan</th><td>Fristående</td><td>50</td><td>82,0&nbsp;%</td><td>252,4</td></tr><tr><th scope=\"row\">Kullaviksskolan</th><td>Kommunal</td><td>77</td><td>88,3&nbsp;%</td><td>250,4</td></tr><tr><th scope=\"row\">Kapareskolan</th><td>Kommunal</td><td>172</td><td>87,8&nbsp;%</td><td>241,0</td></tr><tr><th scope=\"row\">Varlaskolan</th><td>Kommunal</td><td>224</td><td>91,5&nbsp;%</td><td>240,3</td></tr><tr><th scope=\"row\">Hålabäcksskolan</th><td>Kommunal</td><td>57</td><td>89,5&nbsp;%</td><td>230,3</td></tr><tr><th scope=\"row\">Frillesåsskolan</th><td>Kommunal</td><td>66</td><td>83,3&nbsp;%</td><td>223,7</td></tr><tr><th scope=\"row\">Kollaskolan</th><td>Kommunal</td><td>79</td><td>81,0&nbsp;%</td><td>222,5</td></tr><tr><th scope=\"row\">Skårbyskolan</th><td>Kommunal</td><td>108</td><td>77,8&nbsp;%</td><td>217,4</td></tr><tr><th scope=\"row\">Åsaskolan</th><td>Kommunal</td><td>95</td><td>75,8&nbsp;%</td><td>216,0</td></tr><tr><th scope=\"row\">Smedingeskolan</th><td>Kommunal</td><td>82</td><td>79,3&nbsp;%</td><td>215,0</td></tr></tbody>"
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skola\">Skola</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Huvudman\">Huvudman</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Elever\">Elever</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Behöriga till yrkesprogram\">Behöriga till yrkesprogram</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Meritvärde\">Meritvärde</th></tr></thead><tbody><tr><th scope=\"row\">Kungsbacka, alla skolor (snitt)</th><td>Snitt</td><td>1293</td><td>86,9&nbsp;%</td><td>239,5</td></tr><tr><th scope=\"row\">Kungsbacka, kommunala skolor (snitt)</th><td>Snitt</td><td>1067</td><td>85,7&nbsp;%</td><td>234,5</td></tr><tr><th scope=\"row\">Kungsbacka, fristående skolor (snitt)</th><td>Snitt</td><td>226</td><td>92,5&nbsp;%</td><td>263,3</td></tr><tr><th scope=\"row\">KMS Kullaviks Montessoriskola</th><td>Fristående</td><td>32</td><td>≈100&nbsp;%</td><td>274,0</td></tr><tr><th scope=\"row\">Maleviksskolan</th><td>Kommunal</td><td>40</td><td>≈100&nbsp;%</td><td>270,9</td></tr><tr><th scope=\"row\">Nova Montessoriskola</th><td>Fristående</td><td>29</td><td>≈100&nbsp;%</td><td>265,6</td></tr><tr><th scope=\"row\">Internationella Engelska Skolan</th><td>Fristående</td><td>93</td><td>100,0&nbsp;%</td><td>265,5</td></tr><tr><th scope=\"row\">Särö skola</th><td>Kommunal</td><td>67</td><td>91,0&nbsp;%</td><td>263,3</td></tr><tr><th scope=\"row\">Gottskär Grundskola</th><td>Fristående</td><td>22</td><td>≈100&nbsp;%</td><td>258,8</td></tr><tr><th scope=\"row\">Vittra Forsgläntan</th><td>Fristående</td><td>50</td><td>82,0&nbsp;%</td><td>252,4</td></tr><tr><th scope=\"row\">Kullaviksskolan</th><td>Kommunal</td><td>77</td><td>88,3&nbsp;%</td><td>250,4</td></tr><tr><th scope=\"row\">Kapareskolan</th><td>Kommunal</td><td>172</td><td>87,8&nbsp;%</td><td>241,0</td></tr><tr><th scope=\"row\">Varlaskolan</th><td>Kommunal</td><td>224</td><td>91,5&nbsp;%</td><td>240,3</td></tr><tr><th scope=\"row\">Hålabäcksskolan</th><td>Kommunal</td><td>57</td><td>89,5&nbsp;%</td><td>230,3</td></tr><tr><th scope=\"row\">Frillesåsskolan</th><td>Kommunal</td><td>66</td><td>83,3&nbsp;%</td><td>223,7</td></tr><tr><th scope=\"row\">Kollaskolan</th><td>Kommunal</td><td>79</td><td>81,0&nbsp;%</td><td>222,5</td></tr><tr><th scope=\"row\">Skårbyskolan</th><td>Kommunal</td><td>108</td><td>77,8&nbsp;%</td><td>217,4</td></tr><tr><th scope=\"row\">Åsaskolan</th><td>Kommunal</td><td>95</td><td>75,8&nbsp;%</td><td>216,0</td></tr><tr><th scope=\"row\">Smedingeskolan</th><td>Kommunal</td><td>82</td><td>79,3&nbsp;%</td><td>215,0</td></tr></tbody>"
   },
   "#tabell-trend": {
    "dold": false,
-   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skola\">Skola</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2016/17\">2016/17</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2017/18\">2017/18</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2018/19\">2018/19</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2019/20\">2019/20</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2020/21\">2020/21</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2021/22\">2021/22</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2022/23\">2022/23</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2023/24\">2023/24</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2024/25\">2024/25</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2025/26\">2025/26</th></tr></thead><tbody><tr><th scope=\"row\">Frillesåsskolan</th><td>86,3&nbsp;%</td><td>86,8&nbsp;%</td><td>85,4&nbsp;%</td><td>88,0&nbsp;%</td><td>86,4&nbsp;%</td><td>≈100&nbsp;%</td><td>88,4&nbsp;%</td><td>86,8&nbsp;%</td><td>90,6&nbsp;%</td><td>83,3&nbsp;%</td></tr><tr><th scope=\"row\">Gottskär Grundskola</th><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td></tr><tr><th scope=\"row\">Hedeskolan</th><td>82,1&nbsp;%</td><td>≈100&nbsp;%</td><td>86,7&nbsp;%</td><td>≈100&nbsp;%</td><td>88,0&nbsp;%</td><td>85,5&nbsp;%</td><td>80,6&nbsp;%</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Hålabäcksskolan</th><td>79,7&nbsp;%</td><td>81,2&nbsp;%</td><td>85,9&nbsp;%</td><td>85,5&nbsp;%</td><td>83,9&nbsp;%</td><td>77,8&nbsp;%</td><td>91,9&nbsp;%</td><td>92,3&nbsp;%</td><td>79,4&nbsp;%</td><td>89,5&nbsp;%</td></tr><tr><th scope=\"row\">Internationella Engelska Skolan</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td></tr><tr><th scope=\"row\">KMS Kullaviks Montessoriskola</th><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td></tr><tr><th scope=\"row\">Kapareskolan</th><td>86,3&nbsp;%</td><td>≈94,5&nbsp;%</td><td>85,4&nbsp;%</td><td>≈95,7&nbsp;%</td><td>≈94,9&nbsp;%</td><td>89,7&nbsp;%</td><td>92,2&nbsp;%</td><td>89,0&nbsp;%</td><td>90,7&nbsp;%</td><td>87,8&nbsp;%</td></tr><tr><th scope=\"row\">Kollaskolan</th><td>–</td><td>92,4&nbsp;%</td><td>≈100&nbsp;%</td><td>84,2&nbsp;%</td><td>88,6&nbsp;%</td><td>86,4&nbsp;%</td><td>82,3&nbsp;%</td><td>92,3&nbsp;%</td><td>83,6&nbsp;%</td><td>81,0&nbsp;%</td></tr><tr><th scope=\"row\">Kullaviksskolan</th><td>≈100&nbsp;%</td><td>94,3&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>91,9&nbsp;%</td><td>88,3&nbsp;%</td></tr><tr><th scope=\"row\">Maleviksskolan</th><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td></tr><tr><th scope=\"row\">Nova Montessoriskola</th><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td></tr><tr><th scope=\"row\">Skårbyskolan</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>87,1&nbsp;%</td><td>≈84,0&nbsp;%</td><td>77,8&nbsp;%</td></tr><tr><th scope=\"row\">Smedingeskolan</th><td>89,5&nbsp;%</td><td>84,5&nbsp;%</td><td>79,3&nbsp;%</td><td>93,2&nbsp;%</td><td>82,6&nbsp;%</td><td>91,1&nbsp;%</td><td>81,8&nbsp;%</td><td>81,7&nbsp;%</td><td>88,5&nbsp;%</td><td>79,3&nbsp;%</td></tr><tr><th scope=\"row\">Särö skola</th><td>89,4&nbsp;%</td><td>82,6&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>93,2&nbsp;%</td><td>94,0&nbsp;%</td><td>89,6&nbsp;%</td><td>88,7&nbsp;%</td><td>≈100&nbsp;%</td><td>91,0&nbsp;%</td></tr><tr><th scope=\"row\">Varlaskolan</th><td>84,0&nbsp;%</td><td>≈94,4&nbsp;%</td><td>91,7&nbsp;%</td><td>≈94,2&nbsp;%</td><td>92,4&nbsp;%</td><td>87,4&nbsp;%</td><td>≈95,7&nbsp;%</td><td>88,4&nbsp;%</td><td>83,9&nbsp;%</td><td>91,5&nbsp;%</td></tr><tr><th scope=\"row\">Vittra Forsgläntan</th><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>82,0&nbsp;%</td></tr><tr><th scope=\"row\">Älvsåkersskolan</th><td>70,5&nbsp;%</td><td>87,2&nbsp;%</td><td>71,2&nbsp;%</td><td>≈100&nbsp;%</td><td>75,0&nbsp;%</td><td>81,0&nbsp;%</td><td>79,3&nbsp;%</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Åsa Gårdsskola</th><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>86,5&nbsp;%</td><td>100,0&nbsp;%</td><td>68,8&nbsp;%</td><td>≈100&nbsp;%</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Åsaskolan</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>≈88,4&nbsp;%</td><td>78,7&nbsp;%</td><td>75,8&nbsp;%</td></tr><tr><th scope=\"row\">Åsaskolan (före sammanslagningen)</th><td>82,1&nbsp;%</td><td>≈100&nbsp;%</td><td>91,2&nbsp;%</td><td>≈100&nbsp;%</td><td>88,2&nbsp;%</td><td>85,7&nbsp;%</td><td>90,9&nbsp;%</td><td>–</td><td>–</td><td>–</td></tr></tbody>"
+   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skola\">Skola</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2016/17\">2016/17</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2017/18\">2017/18</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2018/19\">2018/19</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2019/20\">2019/20</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2020/21\">2020/21</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2021/22\">2021/22</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2022/23\">2022/23</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2023/24\">2023/24</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2024/25\">2024/25</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på 2025/26\">2025/26</th></tr></thead><tbody><tr><th scope=\"row\">Kungsbacka, alla skolor (snitt)</th><td>87,3&nbsp;%</td><td>91,4&nbsp;%</td><td>90,1&nbsp;%</td><td>93,0&nbsp;%</td><td>90,6&nbsp;%</td><td>89,2&nbsp;%</td><td>90,2&nbsp;%</td><td>90,4&nbsp;%</td><td>87,8&nbsp;%</td><td>86,9&nbsp;%</td></tr><tr><th scope=\"row\">Kungsbacka, kommunala skolor (snitt)</th><td>86,3&nbsp;%</td><td>90,6&nbsp;%</td><td>89,0&nbsp;%</td><td>92,5&nbsp;%</td><td>89,9&nbsp;%</td><td>88,7&nbsp;%</td><td>89,1&nbsp;%</td><td>89,0&nbsp;%</td><td>86,1&nbsp;%</td><td>85,7&nbsp;%</td></tr><tr><th scope=\"row\">Kungsbacka, fristående skolor (snitt)</th><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>96,2&nbsp;%</td><td>94,4&nbsp;%</td><td>≈100&nbsp;%</td><td>96,4&nbsp;%</td><td>96,5&nbsp;%</td><td>92,5&nbsp;%</td></tr><tr><th scope=\"row\">Frillesåsskolan</th><td>86,3&nbsp;%</td><td>86,8&nbsp;%</td><td>85,4&nbsp;%</td><td>88,0&nbsp;%</td><td>86,4&nbsp;%</td><td>≈100&nbsp;%</td><td>88,4&nbsp;%</td><td>86,8&nbsp;%</td><td>90,6&nbsp;%</td><td>83,3&nbsp;%</td></tr><tr><th scope=\"row\">Gottskär Grundskola</th><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td></tr><tr><th scope=\"row\">Hedeskolan</th><td>82,1&nbsp;%</td><td>≈100&nbsp;%</td><td>86,7&nbsp;%</td><td>≈100&nbsp;%</td><td>88,0&nbsp;%</td><td>85,5&nbsp;%</td><td>80,6&nbsp;%</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Hålabäcksskolan</th><td>79,7&nbsp;%</td><td>81,2&nbsp;%</td><td>85,9&nbsp;%</td><td>85,5&nbsp;%</td><td>83,9&nbsp;%</td><td>77,8&nbsp;%</td><td>91,9&nbsp;%</td><td>92,3&nbsp;%</td><td>79,4&nbsp;%</td><td>89,5&nbsp;%</td></tr><tr><th scope=\"row\">Internationella Engelska Skolan</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td></tr><tr><th scope=\"row\">KMS Kullaviks Montessoriskola</th><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td></tr><tr><th scope=\"row\">Kapareskolan</th><td>86,3&nbsp;%</td><td>≈94,5&nbsp;%</td><td>85,4&nbsp;%</td><td>≈95,7&nbsp;%</td><td>≈94,9&nbsp;%</td><td>89,7&nbsp;%</td><td>92,2&nbsp;%</td><td>89,0&nbsp;%</td><td>90,7&nbsp;%</td><td>87,8&nbsp;%</td></tr><tr><th scope=\"row\">Kollaskolan</th><td>–</td><td>92,4&nbsp;%</td><td>≈100&nbsp;%</td><td>84,2&nbsp;%</td><td>88,6&nbsp;%</td><td>86,4&nbsp;%</td><td>82,3&nbsp;%</td><td>92,3&nbsp;%</td><td>83,6&nbsp;%</td><td>81,0&nbsp;%</td></tr><tr><th scope=\"row\">Kullaviksskolan</th><td>≈100&nbsp;%</td><td>94,3&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>91,9&nbsp;%</td><td>88,3&nbsp;%</td></tr><tr><th scope=\"row\">Maleviksskolan</th><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td></tr><tr><th scope=\"row\">Nova Montessoriskola</th><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td></tr><tr><th scope=\"row\">Skårbyskolan</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>87,1&nbsp;%</td><td>≈84,0&nbsp;%</td><td>77,8&nbsp;%</td></tr><tr><th scope=\"row\">Smedingeskolan</th><td>89,5&nbsp;%</td><td>84,5&nbsp;%</td><td>79,3&nbsp;%</td><td>93,2&nbsp;%</td><td>82,6&nbsp;%</td><td>91,1&nbsp;%</td><td>81,8&nbsp;%</td><td>81,7&nbsp;%</td><td>88,5&nbsp;%</td><td>79,3&nbsp;%</td></tr><tr><th scope=\"row\">Särö skola</th><td>89,4&nbsp;%</td><td>82,6&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>93,2&nbsp;%</td><td>94,0&nbsp;%</td><td>89,6&nbsp;%</td><td>88,7&nbsp;%</td><td>≈100&nbsp;%</td><td>91,0&nbsp;%</td></tr><tr><th scope=\"row\">Varlaskolan</th><td>84,0&nbsp;%</td><td>≈94,4&nbsp;%</td><td>91,7&nbsp;%</td><td>≈94,2&nbsp;%</td><td>92,4&nbsp;%</td><td>87,4&nbsp;%</td><td>≈95,7&nbsp;%</td><td>88,4&nbsp;%</td><td>83,9&nbsp;%</td><td>91,5&nbsp;%</td></tr><tr><th scope=\"row\">Vittra Forsgläntan</th><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>100,0&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>82,0&nbsp;%</td></tr><tr><th scope=\"row\">Älvsåkersskolan</th><td>70,5&nbsp;%</td><td>87,2&nbsp;%</td><td>71,2&nbsp;%</td><td>≈100&nbsp;%</td><td>75,0&nbsp;%</td><td>81,0&nbsp;%</td><td>79,3&nbsp;%</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Åsa Gårdsskola</th><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>≈100&nbsp;%</td><td>86,5&nbsp;%</td><td>100,0&nbsp;%</td><td>68,8&nbsp;%</td><td>≈100&nbsp;%</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Åsaskolan</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>≈88,4&nbsp;%</td><td>78,7&nbsp;%</td><td>75,8&nbsp;%</td></tr><tr><th scope=\"row\">Åsaskolan (före sammanslagningen)</th><td>82,1&nbsp;%</td><td>≈100&nbsp;%</td><td>91,2&nbsp;%</td><td>≈100&nbsp;%</td><td>88,2&nbsp;%</td><td>85,7&nbsp;%</td><td>90,9&nbsp;%</td><td>–</td><td>–</td><td>–</td></tr></tbody>"
   },
   "#visa-valjare": {
    "dold": false,
@@ -3750,7 +4260,7 @@
   },
   ".meta-rad[meta-rad]": {
    "dold": false,
-   "html": "<span>Källa: Skolverket, utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2016/17–2025/26</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2025/26</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-09-30</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+   "html": "<span>Källa: Skolverket, utbildningsstatistik</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2016/17–2025/26</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2025/26</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-10-01</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
   }
  }
 }

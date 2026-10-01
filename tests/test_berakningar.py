@@ -3712,8 +3712,16 @@ class TestGrundskolor(unittest.TestCase):
         self.assertEqual(ut, {"v": 100.0, "mark": None})
 
     def arsfil(self, ar, enheter):
+        """En årsfil vars kommunsnitt är det enheterna ger, så att
+        kontrollen mot snittet går igenom när testet gäller något annat."""
+        snitt = {}
+        for typ in ("Samtliga", "Kommunal", "Enskild"):
+            us = [e for e in enheter if typ == "Samtliga" or e["huvudman"] == typ]
+            n = sum(e["antal"] for e in us)
+            snitt[typ] = self.snittrad(
+                n, round(sum(e["antal"] * e["meritvarde"] for e in us) / n, 1) if n else 0.0)
         return {"ar": ar, "lasar": f"{ar - 1}/{str(ar)[2:]}", "kommun": "Kungsbacka",
-                "niva": "n", "enheter": enheter}
+                "niva": "n", "enheter": enheter, "snitt": snitt}
 
     def test_enhet_utan_mappning_stoppar_bygget(self):
         fil = self.arsfil(2026, [self.enhet("000", "Okänd", 30, 240.0)])
@@ -3820,6 +3828,64 @@ class TestGrundskolor(unittest.TestCase):
                     # Tomt är inte noll: dolt ⇔ inget värde
                     self.assertEqual(m["v"] is None, m["mark"] == "dolt",
                                      (s["namn"], a, matt))
+
+    def arsfil_med_snitt(self, enheter, snitt):
+        fil = {"ar": 2026, "lasar": "2025/26", "kommun": "Kungsbacka",
+               "niva": "n", "enheter": enheter, "snitt": snitt}
+        return fil
+
+    @staticmethod
+    def snittrad(antal, merit):
+        return {"antal": antal, "meritvarde": merit, "markor": {}}
+
+    def test_snittet_stammer_med_enheterna(self):
+        """Två enheter, 30 elever à 240,0 och 10 à 220,0: viktat 235,0. Kommunal
+        och fristående delas av huvudmannatypen."""
+        e1 = self.enhet("1", "A", 30, 240.0)
+        e2 = self.enhet("2", "B", 10, 220.0)
+        e2["huvudman"] = "Enskild"
+        fil = self.arsfil_med_snitt([e1, e2], {
+            "Samtliga": self.snittrad(40, 235.0),
+            "Kommunal": self.snittrad(30, 240.0),
+            "Enskild": self.snittrad(10, 220.0)})
+        build_grundskolor.kontrollera_snitt(fil)      # ska inte stoppa
+
+    def test_snittet_stoppar_bygget_nar_en_enhet_saknas(self):
+        e1 = self.enhet("1", "A", 30, 240.0)
+        fil = self.arsfil_med_snitt([e1], {
+            "Samtliga": self.snittrad(40, 235.0),    # kommunen har 10 till
+            "Kommunal": self.snittrad(40, 235.0),
+            "Enskild": self.snittrad(0, 0.0)})
+        with self.assertRaises(SystemExit):
+            build_grundskolor.kontrollera_snitt(fil)
+
+    def test_snittet_stoppar_vid_for_stor_meritavvikelse(self):
+        e1 = self.enhet("1", "A", 40, 240.0)
+        fil = self.arsfil_med_snitt([e1], {
+            "Samtliga": self.snittrad(40, 241.0),
+            "Kommunal": self.snittrad(40, 241.0),
+            "Enskild": self.snittrad(0, 0.0)})
+        with self.assertRaises(SystemExit):
+            build_grundskolor.kontrollera_snitt(fil)
+
+    def test_snitten_for_kungsbacka_2026(self):
+        """Skolverkets kommunrad för läsåret 2025/26: 239,5 / 234,5 / 263,3."""
+        ut = json.loads((ROT / "docs" / "data-grundskolor.json")
+                        .read_text(encoding="utf-8"))
+        s = {x["id"]: x["varden"]["2026"] for x in ut["snitt"]}
+        self.assertEqual(s["kommun-alla"]["meritvarde"]["v"], 239.5)
+        self.assertEqual(s["kommun-kommunala"]["meritvarde"]["v"], 234.5)
+        self.assertEqual(s["kommun-fristaende"]["meritvarde"]["v"], 263.3)
+        self.assertEqual(s["kommun-alla"]["antal"], 1293)
+        self.assertEqual(s["kommun-alla"]["behorigYrkes"]["v"], 86.9)
+        # 2017: fristående skolor ≈100 – ritas som 99, märkt
+        f17 = next(x for x in ut["snitt"] if x["id"] == "kommun-fristaende")["varden"]["2017"]
+        self.assertEqual(f17["behorigYrkes"], {"v": 99.0, "mark": "ca100"})
+
+    def test_alla_arsfiler_har_ett_snitt_som_stammer_med_enheterna(self):
+        for f in sorted((ROT / "data" / "grundskolor").glob("grundskolor_*.json")):
+            build_grundskolor.kontrollera_snitt(
+                json.loads(f.read_text(encoding="utf-8")))
 
     RUBRIK = ("Skola;Skol-enhetskod;Skolkommun;Kommun-kod;Typ av huvudman;"
               "Huvudman;Huvudman orgnr;Antal elever;{alla};"

@@ -1055,6 +1055,17 @@ https://siris.skolverket.se/siris/reports/export_api/runexport/
 | 139 | Slutbetyg årskurs 9, samtliga elever, per skolenhet: antal elever, meritvärde (17 ämnen), andel behöriga till yrkesprogram |
 | 5 | Behörighet till gymnasieskolan, per skolenhet och kön; raden Samtliga: yrkesprogram och de tre högskoleförberedande programgrupperna |
 
+| 138 | Samma som 139 men för Kungsbacka som helhet: en rad för samtliga, kommunala och fristående skolor |
+| 53 | Samma som 5 men för Kungsbacka som helhet, per huvudmannatyp |
+
+138 och 53 ger sidans **kommunsnitt**. De är Skolverkets egna tal, inte ett
+medelvärde av skolorna, och bygget använder dem som kontroll: summan av
+enheternas elevantal är exakt kommunens varje år (1 105 till 1 293 elever,
+alla huvudmannatyper) och det elevviktade meritvärdet ligger högst 0,14 från
+kommunens – avrundningen. Det bekräftar både att inga enheter saknas i
+`program.GRUNDSKOLOR` och att viktningen är rätt. Rikssnitt finns inte som
+egen rad i exporten och hämtas inte.
+
 Rapport 139 ("samtliga elever") tar med nyinvandrade. Rapport 110, som
 ger samma mått *utan* nyinvandrade och elever med okänd bakgrund, används
 inte här: siffrorna i skolornas och tidningarnas tabeller är de med alla

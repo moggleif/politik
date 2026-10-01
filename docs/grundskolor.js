@@ -140,7 +140,50 @@
      välja alls. Markören framför namnet har linjens färg och punktform.
      Färgen sätts via style-egenskapen i DOM:en; sidans CSP tillåter inte
      style-attribut i markup. */
-  var MARKE = { circle: "\u25CF", rect: "\u25A0", triangle: "\u25B2", rectRot: "\u25C6" };
+  var MARKE = {
+    circle: "\u25CF", rect: "\u25A0", triangle: "\u25B2", rectRot: "\u25C6",
+    cross: "\u271A", crossRot: "\u2716", star: "\u2605"
+  };
+
+  /* Kommunsnitten är Skolverkets egna tal för Kungsbacka som helhet. De
+     ritas tjockare, i neutrala toner och med egna punktformer, så att de
+     går att skilja från skolorna på form och inte bara på färg. Streckning
+     används inte: den är reserverad för kopplingarna mellan skolor. */
+  function snittStil(i) {
+    return [
+      { farg: FARG.ink, punkt: "crossRot" },
+      { farg: FARG.ink2, punkt: "cross" },
+      { farg: FARG.muted, punkt: "star" }
+    ][i];
+  }
+
+  function snittSerie(s, i, matt) {
+    var stil = snittStil(i);
+    return {
+      label: s.namn,
+      skolId: s.id,
+      snitt: true,
+      data: DATA.ar.map(function (a) { return vardet(s, a, matt.falt); }),
+      punkter: DATA.ar.map(function (a) { return punkt(s, a, matt.falt); }),
+      antal: DATA.ar.map(function (a) {
+        var post = s.varden[String(a)];
+        return post ? post.antal : null;
+      }),
+      borderColor: stil.farg,
+      backgroundColor: stil.farg,
+      pointStyle: stil.punkt,
+      borderWidth: 3,
+      pointRadius: 6,
+      pointHoverRadius: 9,
+      /* Korsen och stjärnan är streckfigurer: en ljus kant skulle äta upp
+         dem, så kanten har linjens egen färg. */
+      pointBorderColor: stil.farg,
+      pointBorderWidth: 2,
+      spanGaps: false,
+      tension: 0,
+      hidden: !!dolda[s.id]
+    };
+  }
 
   function uppdateraSkolval() {
     var rutor = el("skolval-rutor").querySelectorAll("input[type=checkbox]");
@@ -152,8 +195,13 @@
   function ritaSkolval(skolor) {
     var plats = el("skolval-rutor");
     plats.innerHTML = "";
-    skolor.forEach(function (s) {
-      var stil = K.serieStilPunkt(STILNR[s.id]);
+    var poster = skolor.map(function (s) {
+      return { id: s.id, namn: s.namn, stil: K.serieStilPunkt(STILNR[s.id]) };
+    }).concat(DATA.snitt.map(function (s, i) {
+      return { id: s.id, namn: s.namn + " (snitt)", stil: snittStil(i) };
+    }));
+    poster.forEach(function (s) {
+      var stil = s.stil;
       var ruta = document.createElement("div");
       ruta.className = "distriktval-ruta";
       var ruta_id = "skola-" + s.id;
@@ -284,9 +332,10 @@
     };
     if (matt.andel) opt.scales.y.max = 100;
 
+    var snittserier = DATA.snitt.map(function (s, i) { return snittSerie(s, i, matt); });
     var chart = K.rita("diagram-trend", {
       type: "line",
-      data: { labels: ar.map(String), datasets: serier.concat(kopplingar) },
+      data: { labels: ar.map(String), datasets: serier.concat(snittserier, kopplingar) },
       options: opt
     }, 560);
     K.aktiveraToning(chart, false);
@@ -308,18 +357,20 @@
       ar.map(function (a) {
         return "<th scope=\"col\">" + esc(lasar(a)) + "</th>";
       }).join("") + "</tr></thead><tbody>" +
-      skolor.map(function (s) {
-        return "<tr><th scope=\"row\">" + esc(s.namn) + "</th>" +
-          ar.map(function (a) {
-            return "<td>" + esc(text(punkt(s, a, matt.falt), matt)) + "</td>";
-          }).join("") + "</tr>";
-      }).join("") + "</tbody>";
+      DATA.snitt.map(function (s) { return [s, s.namn + " (snitt)"]; })
+        .concat(skolor.map(function (s) { return [s, s.namn]; }))
+        .map(function (par) {
+          return "<tr><th scope=\"row\">" + esc(par[1]) + "</th>" +
+            ar.map(function (a) {
+              return "<td>" + esc(text(punkt(par[0], a, matt.falt), matt)) + "</td>";
+            }).join("") + "</tr>";
+        }).join("") + "</tbody>";
   }
 
   function noterTrend(skolor, matt) {
     var dolt = [];
     var cirka = 0;
-    skolor.forEach(function (s) {
+    skolor.concat(DATA.snitt).forEach(function (s) {
       DATA.ar.forEach(function (a) {
         var p = punkt(s, a, matt.falt);
         if (p && p.mark === "dolt") dolt.push(s.namn + " " + lasar(a));
@@ -355,7 +406,9 @@
 
   function sattAllaSynliga(visa) {
     if (visa) dolda = {};
-    else synliga().forEach(function (s) { dolda[s.id] = true; });
+    else {
+      synliga().concat(DATA.snitt).forEach(function (s) { dolda[s.id] = true; });
+    }
     ritaTrend();
   }
 
@@ -373,10 +426,13 @@
       "<thead><tr><th scope=\"col\">Skola</th><th scope=\"col\">Huvudman</th>" +
       "<th scope=\"col\">Elever</th><th scope=\"col\">Behöriga till yrkesprogram</th>" +
       "<th scope=\"col\">Meritvärde</th></tr></thead><tbody>" +
-      rader.map(function (s) {
+      DATA.snitt.map(function (s) { return [s, s.namn + " (snitt)", "Snitt"]; })
+        .concat(rader.map(function (s) { return [s, s.namn, huvudmannaNamn(s)]; }))
+        .map(function (par) {
+        var s = par[0];
         var post = s.varden[String(ar)];
-        return "<tr><th scope=\"row\">" + esc(s.namn) + "</th><td>" +
-          esc(huvudmannaNamn(s)) + "</td><td>" +
+        return "<tr><th scope=\"row\">" + esc(par[1]) + "</th><td>" +
+          esc(par[2]) + "</td><td>" +
           (post.antal === null ? ".." : esc(post.antal)) + "</td><td>" +
           esc(text(post.behorigYrkes, yrkes)) + "</td><td>" +
           esc(text(post.meritvarde, merit)) + "</td></tr>";
@@ -439,6 +495,19 @@
     });
 
     var punkter = [];
+    var sn = {};
+    DATA.snitt.forEach(function (s) { sn[s.id] = s.varden[String(ar)]; });
+    if (sn["kommun-alla"]) {
+      punkter.push("Skolverkets snitt för Kungsbacka läsåret " + esc(lasar(ar)) +
+        ": meritvärdet var <strong>" + talSv(sn["kommun-alla"].meritvarde.v, 1) +
+        "</strong> för alla skolor, <strong>" + talSv(sn["kommun-kommunala"].meritvarde.v, 1) +
+        "</strong> för de kommunala och <strong>" +
+        talSv(sn["kommun-fristaende"].meritvarde.v, 1) + "</strong> för de fristående. " +
+        "Andelen behöriga till yrkesprogram var " +
+        talSv(sn["kommun-alla"].behorigYrkes.v, 1) + "&nbsp;%, " +
+        talSv(sn["kommun-kommunala"].behorigYrkes.v, 1) + "&nbsp;% respektive " +
+        talSv(sn["kommun-fristaende"].behorigYrkes.v, 1) + "&nbsp;%.");
+    }
     if (merit.length) {
       punkter.push("Läsåret " + esc(lasar(ar)) + " hade <strong>" + nu.length +
         " skolor</strong> elever i årskurs 9. Meritvärdet låg mellan <strong>" +

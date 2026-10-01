@@ -35,6 +35,14 @@ exakta) följer med så att sidan kan säga det. Det sanna värdet ligger
 under 100 men över 100 − 4/n för en skola med n elever, och kan för en
 liten skola alltså vara klart lägre än 99.
 
+**Kommunsnitt.** Skolverkets egna tal för Kungsbacka som helhet – alla,
+kommunala och fristående skolor – följer med som `snitt`, med samma mått.
+De är inte ett medelvärde av skolorna utan en egen rad i Skolverkets
+kommunrapporter, och används därför också som kontroll: summan av enheternas
+elevantal ska vara exakt kommunens, och det elevviktade meritvärdet över
+enheterna ska ligga inom avrundningen (0,2) från kommunens. Avviker något
+stannar bygget – då har en enhet fallit bort eller hamnat i fel skola.
+
 Körs:  python3 scripts/build_grundskolor.py
 """
 
@@ -57,6 +65,14 @@ MATT = [
 ]
 
 CIRKA_100 = 99.0      # hur ~100 ritas – se modul-docstringen
+MERIT_TOLERANS = 0.2  # avrundning: enheternas tal har en decimal vardera
+
+# (huvudmannatyp i Skolverkets rapport, id, namn)
+SNITT = [
+    ("Samtliga", "kommun-alla", "Kungsbacka, alla skolor"),
+    ("Kommunal", "kommun-kommunala", "Kungsbacka, kommunala skolor"),
+    ("Enskild", "kommun-fristaende", "Kungsbacka, fristående skolor"),
+]
 
 
 def lasa_json(p: Path):
@@ -108,11 +124,44 @@ def slå_ihop(enheter: list, falt: str, vikt: str) -> dict:
     return {"v": avrunda(v), "mark": mark}
 
 
+def kontrollera_snitt(arsfil: dict) -> None:
+    """Enheterna ska gå ihop med Skolverkets kommunrad, per huvudmannatyp."""
+    for typ, _, namn in SNITT:
+        enheter = [e for e in arsfil["enheter"] if typ == "Samtliga" or e["huvudman"] == typ]
+        snitt = arsfil["snitt"][typ]
+        antal = [e["antal"] for e in enheter]
+        if None in antal or sum(antal) != snitt["antal"]:
+            raise SystemExit(f"{arsfil['ar']} {namn}: enheternas elevantal "
+                             f"({sum(a or 0 for a in antal)}) går inte ihop med "
+                             f"kommunens ({snitt['antal']}) – saknas en enhet?")
+        if not antal:
+            continue            # ingen enhet av den typen: inget att väga
+        vagt = math.fsum(e["antal"] * e["meritvarde"] for e in enheter) / sum(antal)
+        if abs(vagt - snitt["meritvarde"]) > MERIT_TOLERANS:
+            raise SystemExit(f"{arsfil['ar']} {namn}: elevviktat meritvärde över "
+                             f"enheterna ({vagt:.2f}) avviker från kommunens "
+                             f"({snitt['meritvarde']})")
+
+
+def bygg_snitt(arsfiler: list) -> list:
+    ut = []
+    for typ, id_, namn in SNITT:
+        varden = {}
+        for d in arsfiler:
+            post = d["snitt"][typ]
+            varden[str(d["ar"])] = {"antal": post["antal"], **{
+                m: slå_ihop([post], falt, vikt) for m, falt, vikt in MATT}}
+        ut.append({"id": id_, "namn": namn, "huvudman": typ, "varden": varden})
+    return ut
+
+
 def bygg(arsfiler: list) -> dict:
     """Hela utdatan som en ren funktion av årsfilerna, så att den går att
     kontrollräkna i testerna utan att skriva någon fil."""
     skol_av = kopplingar()
     ar = [d["ar"] for d in arsfiler]
+    for d in arsfiler:
+        kontrollera_snitt(d)
 
     per_skola = {s["id"]: {} for s in GRUNDSKOLOR}
     enhetsnamn = {}
@@ -179,6 +228,7 @@ def bygg(arsfiler: list) -> dict:
         "ar": ar,
         "lasar": {d["ar"]: d.get("lasar") for d in arsfiler},
         "skolor": skolor,
+        "snitt": bygg_snitt(arsfiler),
         "kallor": [{"ar": d["ar"], "lasar": d.get("lasar"),
                     "kalla": d.get("kalla"), "statistikUrl": d.get("statistikUrl"),
                     "hamtad": d.get("hamtad"), "rapporter": d.get("kallor")}
