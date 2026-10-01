@@ -116,10 +116,13 @@ finns per ämne.
   med flera enheter (Varlaskolan Nord/Syd/Sydväst) räknas samman,
   elevviktat; värden som bygger på färre än tio elever är luckor, aldrig
   nollor. Skolorna som gått upp i varandra &ndash; Åsa Gårdsskola och
-  Åsaskolan 2024 &ndash; ritas som egna linjer före sammanslagningen, med
-  en **streckad linje** till den nya skolan. Kopplingen Hedeskolan och
-  Älvsåkersskolan till Skårbyskolan är en gissning ur årtalen och
-  markeras så på sidan. Skolverkets `~100` (1&ndash;4 elever saknade
+  Åsaskolan (högstadiet flyttades) samt Hedeskolan och Älvsåkersskolan
+  till Skårbyskolan &ndash; ritas som egna linjer, med en **streckad
+  linje** till efterträdaren. Kopplingarna är belagda i kommunens
+  pressmeddelanden, som länkas på sidan. Tre tjocka linjer visar
+  Skolverkets eget snitt för Kungsbacka som helhet &ndash; alla, kommunala
+  och fristående skolor &ndash; och bygget kontrollerar att skolorna går ihop
+  med snittet. Skolverkets `~100` (1&ndash;4 elever saknade
   behörigheten) skrivs &asymp;100&nbsp;% men ritas som 99&nbsp;%. Vilka
   skolenheter som hör till vilken skola står i `scripts/program.py`
 
@@ -386,7 +389,8 @@ scripts/
   hamta_amnesbetyg.py           Hämtar niondeklassarnas betyg per ämne ur
                                 samma exporttjänst, ett läsår per fil
   hamta_grundskolor.py          Hämtar årskurs 9 per skolenhet (rapport 139
-                                och 5) ur samma exporttjänst
+                                och 5) och kommunsnitten (138 och 53) ur samma
+                                exporttjänst
   hamta_gymnasieelever.py       Hämtar antalet gymnasieelever per program
                                 och årskurs (rapport 58) ur samma
                                 exporttjänst, ett läsår per fil. Kolumnen

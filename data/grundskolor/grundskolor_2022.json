@@ -14,11 +14,56 @@
    "rapport": 5,
    "rapportTitel": "Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011",
    "kallaUrl": "https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&pExportID=5&pAr=2022&pKommun=1384&pFlikar=0"
+  },
+  {
+   "rapport": 138,
+   "rapportTitel": "Grundskola – Slutbetyg årskurs 9, samtliga elever (Kungsbacka som helhet)",
+   "kallaUrl": "https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&pExportID=138&pAr=2022&pKommun=1384&pFlikar=0"
+  },
+  {
+   "rapport": 53,
+   "rapportTitel": "Grundskola – Behörighet till gymnasieskolan (Kungsbacka som helhet)",
+   "kallaUrl": "https://siris.skolverket.se/siris/reports/export_api/runexport/?pFormat=csv&pExportID=53&pAr=2022&pKommun=1384&pFlikar=0"
   }
  ],
+ "snitt": {
+  "Samtliga": {
+   "antal": 1264,
+   "alleAmnen": 82.9,
+   "behorigYrkes": 89.2,
+   "meritvarde": 238.5,
+   "antalBehorighet": 1264,
+   "behorigEstetiskt": 88.1,
+   "behorigEkoHumSam": 86.8,
+   "behorigNaturTeknik": 86.4,
+   "markor": {}
+  },
+  "Kommunal": {
+   "antal": 1140,
+   "alleAmnen": 82.0,
+   "behorigYrkes": 88.7,
+   "meritvarde": 237.0,
+   "antalBehorighet": 1140,
+   "behorigEstetiskt": 87.5,
+   "behorigEkoHumSam": 86.1,
+   "behorigNaturTeknik": 85.6,
+   "markor": {}
+  },
+  "Enskild": {
+   "antal": 124,
+   "alleAmnen": 91.1,
+   "behorigYrkes": 94.4,
+   "meritvarde": 252.6,
+   "antalBehorighet": 124,
+   "behorigEstetiskt": 94.4,
+   "behorigEkoHumSam": 92.7,
+   "behorigNaturTeknik": 93.5,
+   "markor": {}
+  }
+ },
  "kalla": "Skolverket, utbildningsstatistik",
  "statistikUrl": "https://www.skolverket.se/skolutveckling/statistik/sok-statistik-om-forskola-skola-och-vuxenutbildning",
- "hamtad": "2026-09-30",
+ "hamtad": "2026-10-01",
  "enheter": [
   {
    "kod": "67578984",

@@ -37,6 +37,12 @@ Hellre stanna än spara fel: kolumnrubrikerna kontrolleras mot de
 förväntade, och de två rapporterna kontrolleras mot varandra (samma
 enhet ska ha samma andel behöriga till yrkesprogram i båda).
 
+**Kommunsnitt.** Rapport 138 och 53 är motsvarigheterna till 139 och 5 på
+kommunnivå, med en rad för samtliga skolor i Kungsbacka och en för de
+kommunala respektive fristående. De sparas under `snitt` och används som
+snittlinjer: Skolverkets eget tal, inte ett medelvärde av skolorna. Rikssnitt
+finns inte som egen rad i exporten och hämtas inte.
+
 Filerna sparas som data/grundskolor/grundskolor_<år>.json.
 
 Körs:  python3 scripts/hamta_grundskolor.py            (alla år)
@@ -55,17 +61,22 @@ ROT = Path(__file__).resolve().parent.parent
 
 BETYG_ID = 139
 BEHORIGHET_ID = 5
+KOMMUN_BETYG_ID = 138
+KOMMUN_BEHORIGHET_ID = 53
 FORSTA_AR = 2017          # tio läsår: 2016/17–2025/26
 
 # Kolumnrubrikerna som måste stå där de förväntas. Hellre ett tydligt
 # stopp än att läsa fel kolumn under tystnad.
+# Rubriken för andelen som klarat alla ämnen har bytt ordalydelse mellan år
+# och rapporter (kunskapskrav → kriterier) men är samma mått; alla former
+# godtas.
+ALLA_AMNEN = ("Andel (%) elever som uppfyllt betygskriterierna i alla ämnen",
+              "Andel som uppnått kunskapskraven i alla ämnen",
+              "Andel (%) som uppnått kunskapskraven i alla ämnen")
 RUBRIK_BETYG = [
     "Skola", "Skol-enhetskod", "Skolkommun", "Kommun-kod", "Typ av huvudman",
     "Huvudman", "Huvudman orgnr", "Antal elever",
-    # Rubriken har bytt ordalydelse mellan åren (kunskapskrav → kriterier)
-    # men är samma mått, så båda formerna godtas.
-    ("Andel (%) elever som uppfyllt betygskriterierna i alla ämnen",
-     "Andel som uppnått kunskapskraven i alla ämnen"),
+    ALLA_AMNEN,
     "Andel (%) elever behöriga till yrkesprog.",
     "Genomsnittligt meritvärde (17 ämnen)",
 ]
@@ -78,6 +89,29 @@ RUBRIK_BEHORIGHET = [
     "samhällsvetenskaps- program",
     "Andel (%) elever behöriga till Naturvetenskapligt och tekniskt program",
 ]
+
+# Kommunrapporterna: samma mått, men en rad per huvudmannatyp i stället för
+# per skolenhet, och rubrikerna är skrivna något annorlunda.
+RUBRIK_KOMMUN_BETYG = [
+    "Kommun", "Kommun-kod", "Län", "Läns-kod", "Typ av huvudman", "Antal elever",
+    ALLA_AMNEN, "Andel (%) elever behöriga till yrkesprog.",
+    "Genomsnittligt meritvärde (17 ämnen)",
+]
+RUBRIK_KOMMUN_BEHORIGHET = [
+    "Kommun", "Kommun-kod", "Län", "Läns-kod", "Typ av huvudman", "Kön",
+    "Antal elever",
+    ("Andel (%) elever behöriga till yrkesprog.",
+     "Andel elever (%) behöriga till yrkesprog."),
+    ("Andel (%) elever behöriga till estetiskt program",
+     "Andel elever (%) behöriga till estetiskt program"),
+    ("Andel (%) elever behöriga till Ekonomi-, humanistiska och "
+     "samhällsvetenskaps- program",
+     "Andel elever (%) behöriga till Ekonomi-, humanistiska och "
+     "samhällsvetenskaps- program"),
+    ("Andel (%) elever behöriga till Naturvetenskapligt och tekniskt program",
+     "Andel elever (%) behöriga till Naturvetenskapligt och tekniskt program"),
+]
+HUVUDMAN = ["Samtliga", "Kommunal", "Enskild"]
 
 # Ordningen i rapporterna, efter de sju identifierande kolumnerna.
 FALT_BETYG = ["antal", "alleAmnen", "behorigYrkes", "meritvarde"]
@@ -93,8 +127,9 @@ def markor(text: str):
     return t if t and tal(t) is None else None
 
 
-def kontrollera_rubrik(rader: list, forvantad: list, rapport: int) -> int:
-    i = skolverket.rubrikrad(rader, "Skola")
+def kontrollera_rubrik(rader: list, forvantad: list, rapport: int,
+                       forsta: str = "Skola") -> int:
+    i = skolverket.rubrikrad(rader, forsta)
     har = [c.strip() for c in rader[i]]
     # Rubriken kan ha radbrytningar i sig; jämför utan blanksteg.
     def norm(c):
@@ -144,6 +179,56 @@ def lasa_rapport(rader: list, forvantad: list, falt: list, rapport: int,
                                  "med olika innehåll")
             continue
         ut[kod] = post
+    return ut
+
+
+def lasa_kommun(ar: int, lasar: str) -> dict:
+    """Kungsbacka som helhet, per huvudmannatyp: raderna för Samtliga,
+    Kommunal och Enskild ur rapport 138 och 53 (kön: Samtliga)."""
+    rader_b = skolverket.rader_i(skolverket.hamta_csv(KOMMUN_BETYG_ID, ar))
+    rader_h = skolverket.rader_i(skolverket.hamta_csv(KOMMUN_BEHORIGHET_ID, ar))
+    for rader, rapport in ((rader_b, KOMMUN_BETYG_ID), (rader_h, KOMMUN_BEHORIGHET_ID)):
+        if skolverket.lasar_ur(rader, "Valt läsår") != lasar:
+            raise SystemExit(f"{ar}: rapport {rapport} gäller ett annat läsår")
+    kontrollera_rubrik(rader_b, RUBRIK_KOMMUN_BETYG, KOMMUN_BETYG_ID, "Kommun")
+    kontrollera_rubrik(rader_h, RUBRIK_KOMMUN_BEHORIGHET, KOMMUN_BEHORIGHET_ID, "Kommun")
+
+    def rad_for(rader, huvudman, kon=None):
+        traffar = [r for r in rader
+                   if len(r) > 6 and r[0] == KOMMUNNAMN and r[1] == KOMMUN
+                   and r[4].strip() == huvudman and (kon is None or r[5].strip() == kon)]
+        if len(traffar) != 1:
+            raise SystemExit(f"{ar}: väntade en rad för {huvudman}"
+                             f"{'/' + kon if kon else ''}, hittade {len(traffar)}")
+        return traffar[0]
+
+    ut = {}
+    for h in HUVUDMAN:
+        b = rad_for(rader_b, h)
+        k = rad_for(rader_h, h, "Samtliga")
+        post, ms = {}, {}
+        for falt, text in (("antal", b[5]), ("alleAmnen", b[6]),
+                           ("behorigYrkes", b[7]), ("meritvarde", b[8]),
+                           ("antalBehorighet", k[6]), ("behorigYrkes5", k[7]),
+                           ("behorigEstetiskt", k[8]), ("behorigEkoHumSam", k[9]),
+                           ("behorigNaturTeknik", k[10])):
+            post[falt] = tal(text)
+            if markor(text):
+                ms[falt] = markor(text)
+        # Samma tal i båda rapporterna, annars har någon kolumn flyttat sig.
+        if (post["behorigYrkes"] is None) != (post["behorigYrkes5"] is None) or (
+                post["behorigYrkes"] is not None
+                and abs(post["behorigYrkes"] - post["behorigYrkes5"]) > TOLERANS):
+            raise SystemExit(f"{ar} {h}: yrkesbehörigheten skiljer mellan "
+                             "rapport 138 och 53")
+        if post["antal"] != post["antalBehorighet"]:
+            raise SystemExit(f"{ar} {h}: elevantalet skiljer mellan rapport 138 och 53")
+        if ms.get("behorigYrkes") != ms.get("behorigYrkes5"):
+            raise SystemExit(f"{ar} {h}: prickningen skiljer mellan rapport 138 och 53")
+        del post["behorigYrkes5"]
+        ms.pop("behorigYrkes5", None)
+        post["markor"] = ms
+        ut[h] = post
     return ut
 
 
@@ -201,6 +286,7 @@ def lasa_ar(ar: int) -> dict | None:
         post["markor"] = ms
         enheter.append(post)
 
+    snitt = lasa_kommun(ar, lasar)
     return {
         "ar": ar,
         "lasar": lasar,
@@ -214,7 +300,16 @@ def lasa_ar(ar: int) -> dict | None:
             {"rapport": BEHORIGHET_ID,
              "rapportTitel": "Grundskola – Behörighet till gymnasieskolan, fr.o.m. 2011",
              "kallaUrl": skolverket.export_url(BEHORIGHET_ID, ar)},
+            {"rapport": KOMMUN_BETYG_ID,
+             "rapportTitel": "Grundskola – Slutbetyg årskurs 9, samtliga elever "
+                             "(Kungsbacka som helhet)",
+             "kallaUrl": skolverket.export_url(KOMMUN_BETYG_ID, ar)},
+            {"rapport": KOMMUN_BEHORIGHET_ID,
+             "rapportTitel": "Grundskola – Behörighet till gymnasieskolan "
+                             "(Kungsbacka som helhet)",
+             "kallaUrl": skolverket.export_url(KOMMUN_BEHORIGHET_ID, ar)},
         ],
+        "snitt": snitt,
         "kalla": "Skolverket, utbildningsstatistik",
         "statistikUrl": skolverket.STATISTIK_URL,
         "hamtad": date.today().isoformat(),
