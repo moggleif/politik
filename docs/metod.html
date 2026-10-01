@@ -62,6 +62,14 @@
       </li>
       <li class="navpost">
         <details class="navmeny">
+          <summary>Elevenkäter</summary>
+          <ul class="navpanel">
+            <li><a href="enkater.html">Skola för skola</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
           <summary>Kommunfullmäktige</summary>
           <ul class="navpanel">
             <li><a href="fullmaktige.html">Inspelade möten</a></li>
@@ -182,6 +190,38 @@
         Kopplingarna mellan skolor (Åsa Gårdsskola och Åsaskolan,
         Hedeskolan och Älvsåkersskolan till Skårbyskolan) är belagda i
         kommunens pressmeddelanden, som länkas på sidan.</dd>
+      <dt>Elevenkäter: Skolenkäten och den regiongemensamma enkäten</dt>
+      <dd>Sidan <a href="enkater.html">Elevenkäter i Kungsbackas skolor</a>
+        bygger på två enkäter. <strong>Skolenkäten</strong> hämtas som
+        Excelfiler från
+        <a href="https://www.skolinspektionen.se/skolenkaten/resultat-fran-skolenkaten/">Skolinspektionen</a>
+        (en fil per respondentgrupp och omgång, hösten 2015 och framåt) och
+        <strong>den regiongemensamma elevenkäten</strong> som PDF-rapporter
+        från
+        <a href="https://goteborgsregionen.se/kunskapsbank/regiongemensamelevenkat2026.5.53bd5b1e19ddcc4211c50f2.html">Göteborgsregionen</a>
+        (2022 och framåt; äldre rapporter är borttagna från deras
+        webbplats). Skolenheterna matchas mot
+        <a href="https://api.skolverket.se/skolenhetsregistret/v2/">Skolverkets skolenhetsregister</a>
+        och förs ihop till skolor i
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/program.py">scripts/program.py</a>.
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_enkater.py">hamta_enkater.py</a>
+        hämtar och sparar råfilerna orörda,
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/extrahera_enkater.py">extrahera_enkater.py</a>
+        läser dem till en rensad tabell,
+        <a href="https://github.com/moggleif/politik/blob/main/data/enkater/clean/enkater.csv">data/enkater/clean/enkater.csv</a>,
+        och
+        <a href="https://github.com/moggleif/politik/blob/main/scripts/build_enkater.py">build_enkater.py</a>
+        bygger <a href="data-enkater.json">data-enkater.json</a>.
+        Vilka frågeområden som kopplats ihop står i
+        <a href="https://github.com/moggleif/politik/blob/main/data/enkater/mapping_fragomraden.csv">mapping_fragomraden.csv</a>.
+        <strong>Enkäterna går inte att slå ihop:</strong> frågorna skiljer sig,
+        Skolenkäten är på 0&ndash;10 medan GR:s rapporter är på 0&ndash;100
+        (förutom 2023, då de var på 0&ndash;10), och Skolenkäten bytte frågor
+        2018 och 2022. Sidan drar därför aldrig en linje över ett skalbyte
+        eller ett frågebyte, och interpolerar aldrig över ett saknat år.
+        Vårdnadshavarnas svar är mindre tillförlitliga (en gemensam
+        inloggning per skolenhet, låg svarsfrekvens) och är märkta så.
+        Svar under fem (Skolenkäten) respektive sju (GR) redovisas inte.</dd>
       <dt>Skolverkets kedja nian &rarr; gymnasiet</dt>
       <dd>Sidan <a href="nian-till-gymnasiet.html">Från nian till
         gymnasiet</a> bygger på fyra rapporter till ur samma exporttjänst,
@@ -913,6 +953,7 @@ python3 scripts/build_slutbetyg.py    # slutbetygssidan
 python3 scripts/build_kull.py         # antagning till examen
 python3 scripts/build_amnesbetyg.py   # ämnesbetygen i årskurs 9
 python3 scripts/build_grundskolor.py  # årskurs 9 skola för skola
+python3 scripts/build_enkater.py      # elevenkäter (ur data/enkater/clean/)
 python3 scripts/build_befolkning.py   # barn och unga 0–15 år
 python3 scripts/build_nian_gymnasiet.py  # från nian till gymnasiet
 python3 scripts/build_kostnader.py    # kostnaden per elev i grundskolan

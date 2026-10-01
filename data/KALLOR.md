@@ -1453,3 +1453,29 @@ Sidan redovisar avvikelserna i stället för att rätta dem.
 Hur många som tittade direkt, hur länge de tittade och hur många som sett
 Screen9-sändningarna syns bara för kanalens ägare. Uppgifterna finns hos
 kommunen och kan begäras ut som allmänna handlingar.
+
+
+## Elevenkäter (Skolinspektionen, Göteborgsregionen, Skolverket)
+
+Inventeringen av vad som finns, för vilka år och på vilken nivå, står i
+`data/enkater/INVENTERING.md`. Varje hämtad fil, med adress och
+kontrollsumma, står i `data/enkater/KALLFILER.csv`.
+
+- **Skolenkäten**: Excelfiler per respondentgrupp, hösten 2015–2026, på
+  <https://www.skolinspektionen.se/skolenkaten/resultat-fran-skolenkaten/>.
+  Kungsbacka och dess skolor finns HT 2015, VT 2017, VT 2019, 2021, 2023 och
+  2025; fristående gymnasier har egen cykel. Före HT 2015 finns inget
+  publicerat per skola. Index 0–10. Elever i åk 5 har index först från
+  HT 2018.
+- **Regiongemensam elevenkät (GR)**: PDF-rapporter 2022–2026 på
+  <https://goteborgsregionen.se/kunskapsbank/>; Kungsbacka som en rad
+  bland GR:s kommuner i tabellen "Frågeområde per enhet". Skolrapporter
+  publiceras inte. Skalan: 2022 0–100, 2023 0–10, 2024– 0–100. Kungsbacka-
+  raden för åk 5 och åk 8 2025 är utesluten (se `build_enkater.py`).
+- **Skolenhetsregistret (Skolverket)**:
+  <https://api.skolverket.se/skolenhetsregistret/v2/school-units?municipality_code=1384>
+  – 135 enheter. Registret har inga efterträdarfält; sammanslagningar förs
+  för hand i `scripts/program.py` (`ENKATSKOLOR`).
+- **Nämndhandlingar**: nämnden för Förskola & Grundskola redovisar
+  kommunnivå (protokoll 2025-06-11 §67; delårsrapport augusti 2025). Inga
+  skolvärden från GR-enkäten har hittats i handlingarna.

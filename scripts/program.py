@@ -197,3 +197,134 @@ GRUNDSKOLOR = [
      "enheter": ["74587667"],
      "anm": "Blev F–6 när Skårbyskolan öppnade; högstadiet finns där."},
 ]
+
+
+# ---------------------------------------------------------------------
+# Skolorna i elevenkäterna
+#
+# Elevenkäterna redovisas per skolenhet, och enhetskoderna byts när en
+# skola byter namn, delas eller slås ihop (se GRUNDSKOLOR ovan). För
+# enkätsidan förs enheterna ihop till skolor efter namn och historik i
+# Skolverkets register (data/enkater/skolenheter_kungsbacka_skolverket.json):
+# en skola är en rad här, och har den flera enheter ett år blir dess värde
+# ett medelvärde av enheternas, vägt med antal svar (build_enkater.py).
+#
+# Det här är en förenkling med ett pris: Åsaskolan 7–9 fick Åsa
+# Gårdsskolas högstadieelever 2022 och räknas ändå som samma skola, och
+# Aranäsgymnasiets sju "enheter" är inriktningar, inte skolor. Frågesatsen
+# (se extrahera_enkater.py) och årskursen bryter trendlinjerna där
+# enkäten själv byter; skolornas egna sammanslagningar gör det inte.
+#
+# LBS Kreativa Gymnasiet och Praktiska Gymnasiet Kungsbacka heter i
+# registret i dag "Drottning Blankas Gymnasieskola Kungsbacka 2" och "3".
+# Namnet i varje enkätomgång är det som stod i filen
+# (skolnamn_vid_tillfället), och huvudmännen skiljer sig åt, så de är
+# egna skolor här.
+#
+# En enhet som saknas i tabellen stoppar bygget (skola_av_enhet): hellre
+# det än att en skola tyst släpps ur en serie.
+KOMMUN_ORGNR = "2120001256"
+
+ENKATSKOLOR = [
+    ('aranasgymnasiet', 'Aranäsgymnasiet',
+     ['15567070', '41358402', '56021320', '58191646', '68640992', '69859216', '76860623', '80405898']),
+    ('aranas-sar', 'Aranäsgymnasiet gymnasiesärskola',
+     ['46056119']),
+    ('beda-hallberg', 'Beda Hallbergs gymnasium',
+     ['63179610']),
+    ('bjorkris', 'Björkris skola',
+     ['51445699', '65390344']),
+    ('drottning-blanka', 'Drottning Blankas Gymnasieskola Kungsbacka',
+     ['64569393']),
+    ('lbs', 'LBS Kreativa Gymnasiet Kungsbacka',
+     ['86888278']),
+    ('praktiska', 'Praktiska Gymnasiet Kungsbacka',
+     ['23457902']),
+    ('elof-lindalv', 'Elof Lindälvs Gymnasium',
+     ['41844601', '48217580', '50228904', '51620045', '61252599', '64160122', '87262566']),
+    ('fjordskolan', 'Fjordskolan',
+     ['36470223', '44247625', '48791537', '79252996']),
+    ('fjaras-bracka', 'Fjärås Bräckaskolan',
+     ['19922386', '22251626', '22938661', '93665842']),
+    ('frillesasskolan', 'Frillesåsskolan',
+     ['10927868', '67578984', '67682956', '99043601']),
+    ('maleviksskolan', 'Maleviksskolan',
+     ['33170625', '39915890', '96836168']),
+    ('furulidsskolan', 'Furulidsskolan',
+     ['59624096']),
+    ('gottskar', 'Gottskär Grundskola',
+     ['90784555']),
+    ('gullregnsskolan', 'Gullregnsskolan',
+     ['13789284', '24479132', '70505032']),
+    ('gallingeskolan', 'Gällingeskolan',
+     ['15914381', '15968044', '16454364', '44593023', '94552753']),
+    ('hedeskolan', 'Hedeskolan',
+     ['11231816', '26372371', '27712268', '29443968']),
+    ('halabacksskolan', 'Hålabäcksskolan',
+     ['77163912', '77323224', '99688470']),
+    ('ies', 'Internationella Engelska Skolan Kungsbacka',
+     ['25278170']),
+    ('iseraasskolan', 'Iseråsskolan',
+     ['53535119', '54466386', '55913658', '62941799', '65922396']),
+    ('kms', 'KMS Kullaviks Montessoriskola',
+     ['10902849']),
+    ('kapareskolan', 'Kapareskolan',
+     ['28803215', '84111198']),
+    ('kollaskolan-agr', 'Kollaskolan, anpassad grundskola',
+     ['30143047', '51563299', '69389523', '78189734']),
+    ('kollaskolan', 'Kollaskolan',
+     ['10220991', '21047778', '47579620', '55017747', '68864563', '98037942']),
+    ('kullaviksskolan', 'Kullaviksskolan',
+     ['10368319', '11782417', '16481707', '40745095', '75835202']),
+    ('nova', 'Nova Montessoriskola',
+     ['47832100', '56655808']),
+    ('pontos', 'Pontos Grundskola',
+     ['70319074']),
+    ('presseskolan', 'Presseskolan',
+     ['27211026', '67641022']),
+    ('skarbyskolan', 'Skårbyskolan',
+     ['39992436', '46721838', '77647085']),
+    ('smedingeskolan', 'Smedingeskolan',
+     ['29293076', '33752123', '35822371', '49555095', '68861484']),
+    ('ridgymnasiet', 'Sveriges Ridgymnasium Kungsbacka',
+     ['27597104']),
+    ('saro-montessori', 'Särö Montessoriskola Daggdroppen',
+     ['57869288']),
+    ('saro-skola', 'Särö skola',
+     ['32837182', '72090315']),
+    ('tingbergsskolan', 'Tingbergsskolan',
+     ['50013979', '69028103']),
+    ('torasskolan', 'Toråsskolan',
+     ['14101582', '17237309', '27963955', '67978353']),
+    ('varlaskolan-sar', 'Varlaskolan, grundsärskola',
+     ['24375194']),
+    ('varlaskolan', 'Varlaskolan',
+     ['28729598', '37101902', '70143574', '84159690', '93339853']),
+    ('vittra', 'Vittra Forsgläntan',
+     ['42568760']),
+    ('alvsakersskolan', 'Älvsåkersskolan',
+     ['16772632', '38174928', '53651817', '55524589', '74587667', '84583942']),
+    ('asa-gard', 'Åsa Gårdsskola',
+     ['16824824', '38085441', '41877112']),
+    ('asaskolan', 'Åsaskolan',
+     ['18035112', '24981372', '44974182', '56285442', '62677187']),
+    ('resursskolan-angen', 'Resursskolan Ängen', ['10234292']),
+    ('sprakintroduktion', 'Språkintroduktion Kungsbacka', ['30375335']),
+    ('kullenskolan', 'Kullenskolan', ['77574230']),
+]
+
+_ENKAT_ENHET = {kod: (id_, namn)
+                for id_, namn, koder in ENKATSKOLOR for kod in koder}
+
+
+def skola_av_enhet(kod: str) -> str:
+    """Skolans id för en enhetskod, eller KeyError om koden saknas."""
+    try:
+        return _ENKAT_ENHET[kod][0]
+    except KeyError:
+        raise KeyError(f"enhetskod {kod} saknas i program.ENKATSKOLOR") from None
+
+
+def enkatskolor():
+    """{id: namn} över skolorna i elevenkäterna."""
+    return {id_: namn for id_, namn, _ in ENKATSKOLOR}

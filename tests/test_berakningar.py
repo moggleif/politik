@@ -3945,3 +3945,472 @@ class TestGrundskolor(unittest.TestCase):
             self.rader(rad, rad), hamta_grundskolor.RUBRIK_BETYG,
             hamta_grundskolor.FALT_BETYG, 139)
         self.assertEqual(list(ut), ["1"])
+
+
+extrahera_enkater = ladda("extrahera_enkater")
+build_enkater = ladda("build_enkater")
+
+
+class TestEnkaterExtrahering(unittest.TestCase):
+    """extrahera_enkater: Excelbladen och GR:s tabell tolkas rätt."""
+
+    REG = {"47579620": {"kod": "47579620"}, "42568760": {"kod": "42568760"}}
+
+    def test_layout_hittar_omraden_och_kolumner(self):
+        rubrik = [
+            ["Skolenkäten 2021 - Elever årskurs 5"] + [None] * 7
+            + ["1. Trygghet", "Jag är trygg", None, None, "2. Studiero", "Det är lugnt", None, None],
+            ["Orgnummer", "Huvudman", "Kommun", "Skolenhetskod", "Skolenhet",
+             "Antal i gruppen", "Antal", "Svarsfrekvens"] + [None] * 8,
+            [None] * 8 + ["Index", "Medelvärde", "Antal", "Andel",
+                          "Index", "Medelvärde", "Antal", "Andel"],
+        ]
+        lay = extrahera_enkater.Layout(rubrik)
+        self.assertEqual((lay.n, lay.c_svar, lay.c_frek), (5, 6, 7))
+        self.assertEqual([(c, n) for c, n, _ in lay.omraden],
+                         [(8, "1. Trygghet"), (12, "2. Studiero")])
+        self.assertEqual(lay.omraden[0][2], ["Jag är trygg"])
+        self.assertEqual(lay.databorjan, 3)
+
+    def bladrader(self, data):
+        rubrik = [
+            ["Skolenkäten 2021 - Elever årskurs 5"] + [None] * 7
+            + ["1. Trygghet", "Jag är trygg", None, None,
+               "2. Övergripande nöjdhet (bildar ej index)", "Nöjd", None, None],
+            ["Orgnummer", "Huvudman", "Kommun", "Skolenhetskod", "Skolenhet",
+             "Antal i gruppen", "Antal", "Svarsfrekvens"] + [None] * 8,
+            [None] * 8 + ["Index", "Medelvärde", "Antal", "Andel",
+                          "Index", "Medelvärde", "Antal", "Andel"],
+        ]
+        return rubrik + data
+
+    def tolka(self, data, titel="Resultat elever åk 5 2021"):
+        return extrahera_enkater.tolka_blad(
+            self.bladrader(data), titel, "2021", self.REG, "skolenkaten/2021/x.xlsx")
+
+    def test_rader_far_ratt_niva_och_varden(self):
+        data = [
+            [None, "Samtliga deltagande skolor", None, None, None, 1000, 900, 0.9,
+             7.5, 8.0, 5, 0.5, 6.0, 6.5, 5, 0.5],
+            [2120001256, "Kungsbacka kommun", None, None, None, 100, 80, 0.8,
+             8.2, 8.5, 5, 0.5, 6.0, 6.5, 5, 0.5],
+            [2120001256, "Kungsbacka kommun", "Kungsbacka", 47579620, "Skolan A", 50, 40, 0.8,
+             8.0, 8.5, 5, 0.5, 6.0, 6.5, 5, 0.5],
+            ["5560000000", "Friskola AB", "Kungsbacka", 42568760, "Skolan B", 10, 4, 0.4,
+             "-", "-", "-", "-", 6.0, 6.5, 5, 0.5],
+            [2120000019, "Annan kommun", "Upplands Väsby", 99999999, "Någon annan", 10, 8, 0.8,
+             9.9, 9.9, 5, 0.5, 6.0, 6.5, 5, 0.5],
+        ]
+        poster, omatchade = self.tolka(data)
+        self.assertEqual(omatchade, [])
+        niva = [(p["nivå"], p["skolnamn_vid_tillfället"], p["index_0_10"]) for p in poster]
+        # 'bildar ej index'-området är bortfiltrerat; en annan kommun likaså
+        self.assertEqual(niva, [("riket", "Samtliga deltagande skolor", "7.5"),
+                                ("kommun", "Kungsbacka kommun", "8.2"),
+                                ("skola", "Skolan A", "8"),
+                                ("skola", "Skolan B", "")])
+        skolb = poster[3]
+        self.assertEqual(skolb["kommentar"], "ej redovisat (färre än fem svar eller prickat)")
+        self.assertEqual(skolb["antal_svar"], "4")        # tomt är inte noll
+        self.assertEqual(poster[2]["huvudman"], "Kungsbacka kommun")
+        self.assertEqual(skolb["huvudman"], "Friskola AB")
+        self.assertEqual(poster[2]["frågeområde_original"], "Trygghet")
+
+    def test_okand_kod_med_kungsbacka_som_kommun_loggas(self):
+        data = [[2120001256, "Kungsbacka kommun", "Kungsbacka", 33333333, "Ny skola", 10, 8, 0.8,
+                 8.0, 8.5, 5, 0.5, 6.0, 6.5, 5, 0.5]]
+        poster, omatchade = self.tolka(data)
+        self.assertEqual(poster, [])
+        self.assertEqual([(o["kod"], o["namn"]) for o in omatchade],
+                         [("33333333", "Ny skola")])
+
+    def test_enhet_utan_svar_ger_inga_svar_inte_dolt(self):
+        data = [[2120001256, "Kungsbacka kommun", "Kungsbacka", 47579620, "Tom", 5, 0, 0,
+                 None, None, None, None, None, None, None, None]]
+        poster = self.tolka(data)[0]
+        self.assertEqual(poster, [])        # inget index i filen alls -> området utgår
+        data.append([2120001256, "Kungsbacka kommun", "Kungsbacka", 42568760, "Fylld", 5, 5, 1,
+                     7.0, 7, 5, 0.5, 6, 6, 5, 0.5])
+        poster = self.tolka(data)[0]
+        tom = [p for p in poster if p["skolnamn_vid_tillfället"] == "Tom"][0]
+        self.assertEqual(tom["kommentar"], "inga svar")
+
+    def test_fragesatsen_foljer_frageorden(self):
+        a = extrahera_enkater.frasatsmarke(["Jag är trygg", "Jag är  rädd"])
+        self.assertEqual(a, extrahera_enkater.frasatsmarke(["jag är trygg", "Jag är rädd"]))
+        self.assertNotEqual(a, extrahera_enkater.frasatsmarke(["Jag är trygg"]))
+        self.assertNotEqual(a, extrahera_enkater.frasatsmarke(["Jag är rädd", "Jag är trygg"]))
+
+    def test_respondentgrupp_ur_rubrikcellerna(self):
+        r = extrahera_enkater.respondentgrupp
+        self.assertEqual(r("Skolenkäten 2021 - Elever årskurs 9"), ("Elever", "åk 9"))
+        self.assertEqual(r("Skolenkäten HT 2015 - Elever år 2 gymnasiet"),
+                         ("Elever", "gymnasiet år 2"))
+        self.assertEqual(r("Skolenkäten 2025 - Undervisande lärare Gymnasieskola"),
+                         ("Undervisande lärare", "gymnasieskola"))
+        self.assertEqual(r("Skolenkäten HT 2015 - Pedagogisk personal grundskola"),
+                         ("Undervisande lärare", "grundskola"))
+        self.assertEqual(r("Skolenkäten 2025 - Vårdnadshavare Anpassad grundskola"),
+                         ("Vårdnadshavare", "anpassad grundskola"))
+        self.assertEqual(r("Skolenkäten HT 2015 - Vårdnadshavare grundsärskola"),
+                         ("Vårdnadshavare", "anpassad grundskola"))
+        with self.assertRaises(ValueError):
+            r("Något helt annat")
+
+    def test_gr_arskurs_ur_ascii_sakrade_filnamn(self):
+        f = extrahera_enkater.gr_arskurs
+        self.assertEqual(f("Regiongemensam_elevenka_t_-_Grundskola_a_k_5_2024.pdf"), "åk 5")
+        self.assertEqual(f("Regiongemensam_elevenk_t_rskurs_8_2023.pdf"), "åk 8")
+        self.assertEqual(f("Regiongemensam_elevenka_t_gymnasieskolan_a_r_2_2022.pdf"),
+                         "gymnasiet år 2")
+        self.assertIsNone(f("Regiongemensam_elevenka_t_-_Anpassad_grundskola_2024.pdf"))
+        self.assertIsNone(f("Regiongemensam_elevenk_t_gymnasies_rskolan_2023.pdf"))
+
+    @staticmethod
+    def ord_(text, x0, x1, top):
+        return {"text": text, "x0": x0, "x1": x1, "top": top, "bottom": top + 8}
+
+    def test_gr_tabellen_rubrik_per_kolumn_och_inledningen_hoppas_over(self):
+        o = self.ord_
+        ord_ = [
+            o("Frågeområde", 50, 200, 30),
+            # inledningsmeningen börjar vid vänstermarginalen: ingen rubrik
+            o("Medelvärde", 50, 100, 76), o("per", 110, 130, 76),
+            # rubriker, centrerade över sina talkolumner
+            o("Trygghet", 230, 270, 106), o("Bemötande", 290, 340, 102),
+            o("-", 360, 365, 102), o("lärare", 300, 330, 111),
+            # raderna
+            o("GR", 60, 75, 133), o("85", 240, 255, 133), o("72", 305, 320, 133),
+            o("Ale", 60, 75, 150), o("87", 240, 255, 150), o("75", 305, 320, 150),
+            o("Kungsbacka", 60, 110, 199), o("84", 240, 255, 199), o("73", 305, 320, 199),
+        ]
+        rubr, varden = extrahera_enkater.tolka_enhetssida(ord_)
+        self.assertEqual(rubr, ["Trygghet", "Bemötande - lärare"])
+        self.assertEqual(varden, {"GR": [85.0, 72.0], "Kungsbacka": [84.0, 73.0]})
+
+    def test_gr_region_heter_goteborgsregionen_2022(self):
+        o = self.ord_
+        ord_ = [o("Frågeområde", 50, 200, 30), o("Trygghet", 230, 270, 106),
+                o("Göteborgsregionen", 20, 100, 133), o("86", 240, 255, 133),
+                o("Kungsbacka", 20, 70, 199), o("88", 240, 255, 199)]
+        _, varden = extrahera_enkater.tolka_enhetssida(ord_)
+        self.assertEqual(varden, {"GR": [86.0], "Kungsbacka": [88.0]})
+
+    def test_gr_antal_tal_ska_motsvara_kolumnerna(self):
+        o = self.ord_
+        ord_ = [o("Frågeområde", 50, 200, 30), o("A", 230, 270, 106), o("B", 300, 340, 106),
+                o("GR", 20, 40, 133), o("86", 240, 255, 133), o("80", 310, 325, 133),
+                o("Kungsbacka", 20, 70, 199), o("88", 240, 255, 199)]
+        with self.assertRaises(ValueError):
+            extrahera_enkater.tolka_enhetssida(ord_)
+
+    def test_mappning_ar_per_ar_och_stannar_vid_okant(self):
+        kart = {("Skolenkäten", "Elever", "trygghet"): [(2015, 2021, "trygghet", ""),
+                                                         (2022, 2030, "trygghet", "Trygghet 2")]}
+        p = {"källa": "Skolenkäten", "respondentgrupp": "Elever",
+             "frågeområde_original": "Trygghet", "år": 2023}
+        self.assertEqual(extrahera_enkater.harmonisera(p, kart), ("trygghet", "Trygghet 2"))
+        p["år"] = 2014
+        with self.assertRaises(KeyError):
+            extrahera_enkater.harmonisera(p, kart)
+
+    def test_skala_100_delas_med_10_men_behaller_originalet(self):
+        # 2022 (0–100): 85 -> 8,5; 2023 (0–10) oförändrat.
+        self.assertEqual(extrahera_enkater.SKALOR[2022][0], "0-100")
+        self.assertEqual(extrahera_enkater.SKALOR[2023][0], "0-10")
+        self.assertEqual(extrahera_enkater.SKALOR[2024][0], "0-100")
+        self.assertEqual(extrahera_enkater.fmt(85 / 10.0), "8.5")
+        self.assertEqual(extrahera_enkater.fmt(None), "")
+        self.assertEqual(extrahera_enkater.fmt(0.0), "0")
+
+
+class TestEnkaterBygge(unittest.TestCase):
+    """build_enkater: skolor blir serier, serier delas där de inte är samma mått."""
+
+    def test_enheter_vags_med_antal_svar(self):
+        # (8·30 + 6·10) / 40 = 7,5 – ett ovägt medel vore 7,0
+        self.assertEqual(build_enkater.slut_ihop([(8.0, 30), (6.0, 10)]), (7.5, 40))
+
+    def test_medelvardet_avrundas_exakt_uppat_pa_halvor(self):
+        # (7,70 + 7,75) / 2 = 7,725 exakt -> 7,73; med flyttal gav det 7,72 eller
+        # 7,73 beroende på maskin, och CI blev röd mot en lokalt byggd fil.
+        self.assertEqual(build_enkater.slut_ihop([(7.7, 1), (7.75, 1)]), (7.73, 2))
+
+    def test_dolt_varde_gor_skolans_varde_dolt(self):
+        self.assertEqual(build_enkater.slut_ihop([(8.0, 30), (None, 10)]), (None, 40))
+
+    def test_enhet_utan_svar_ar_inte_dolt(self):
+        self.assertEqual(build_enkater.slut_ihop([(8.0, 30), (None, 0)]), (8.0, 30))
+        self.assertEqual(build_enkater.slut_ihop([(None, 0)]), (None, 0))
+
+    @staticmethod
+    def pkt(ar, v, sats="a", skala="0-10", n=10):
+        return {"ar": ar, "v": v, "n": n, "sats": sats, "skala": skala}
+
+    def test_segment_delas_vid_skala_fragor_glapp_och_dolt(self):
+        d = build_enkater.dela_i_segment
+        # vartannat år är normalt: ett segment
+        ut, brott = d([self.pkt(2019, 8), self.pkt(2021, 8), self.pkt(2023, 8)])
+        self.assertEqual([p[3] for p in ut], [0, 0, 0])
+        self.assertEqual(brott, [])
+        # nya frågor
+        ut, brott = d([self.pkt(2021, 8), self.pkt(2023, 8, "b")])
+        self.assertEqual([p[3] for p in ut], [0, 1])
+        self.assertEqual(brott, [[2023, "fragor"]])
+        # skalbyte går före frågebyte som orsak
+        ut, brott = d([self.pkt(2022, 8, "x", "0-100"), self.pkt(2023, 8, "y", "0-10")])
+        self.assertEqual(brott, [[2023, "skala"]])
+        # tre år utan mätning är ett glapp
+        ut, brott = d([self.pkt(2015, 8), self.pkt(2018, 8)])
+        self.assertEqual(brott, [[2018, "glapp"]])
+        # ett dolt värde är en lucka: grannarna binds inte ihop över det
+        ut, brott = d([self.pkt(2019, 8), self.pkt(2021, None), self.pkt(2023, 8)])
+        self.assertEqual([p[3] for p in ut], [0, 1, 2])
+        self.assertEqual(brott, [])
+
+    def rad(self, **kw):
+        r = {"källa": "Skolenkäten", "år": "2021", "omgång": "2021", "nivå": "skola",
+             "skolenhetskod": "47579620", "skola_id": "kollaskolan",
+             "skolnamn_vid_tillfället": "Kollaskolan 7-9", "huvudman": "Kungsbacka kommun",
+             "respondentgrupp": "Elever", "årskurs": "åk 9",
+             "frågeområde_original": "Trygghet", "frågeområde_harmoniserat": "trygghet",
+             "serie": "Trygghet", "index_0_10": "8", "index_original": "8",
+             "skala_original": "0-10", "antal_svar": "30", "svarsfrekvens": "0.9",
+             "frågesats": "s1", "kommentar": "", "källfil": "f.xlsx"}
+        r.update(kw)
+        return r
+
+    def test_bygg_slar_ihop_enheter_och_bryter_vid_ny_fragesats(self):
+        rader = [
+            self.rad(),
+            self.rad(skolenhetskod="55017747", antal_svar="10", index_0_10="6"),
+            self.rad(år="2023", omgång="2023", frågesats="s2"),
+            self.rad(nivå="kommun", skolenhetskod="", skola_id="", antal_svar="100",
+                     skolnamn_vid_tillfället="Kungsbacka kommun"),
+        ]
+        d = build_enkater.bygg(rader)
+        serie = d["serier"]["kollaskolan"]["elever-ak9"][0]
+        self.assertEqual(serie["punkter"], [[2021, 7.5, 40, 0], [2023, 8.0, 30, 1]])
+        self.assertEqual(serie["brott"], [[2023, "fragor"]])
+        self.assertEqual(d["serier"]["kungsbacka"]["elever-ak9"][0]["punkter"][0][:3],
+                         [2021, 8.0, 100])
+        self.assertEqual([s["id"] for s in d["skolor"]], ["kollaskolan"])
+        self.assertEqual(d["skolor"][0]["huvudman"], "Kommunal")
+
+    def test_bygg_stannar_vid_index_utanfor_skalan(self):
+        with self.assertRaises(SystemExit):
+            build_enkater.bygg([self.rad(index_0_10="11")])
+
+    def test_bygg_stannar_vid_dubbla_rader(self):
+        with self.assertRaises(SystemExit):
+            build_enkater.bygg([self.rad(), self.rad()])
+
+    def test_gr_2025_kungsbacka_i_ak5_och_ak8_tas_inte_med(self):
+        gr = dict(källa="GR-enkäten", år="2025", omgång="2025", nivå="kommun",
+                  skolenhetskod="", skola_id="", årskurs="åk 5", serie="Trygghet",
+                  skala_original="0-100", antal_svar="", frågesats="gr-0-100-medelvärde")
+        d = build_enkater.bygg([self.rad(**gr)])
+        self.assertEqual(d["serier"], {})
+
+    def test_riket_hor_till_kommunens_omgang(self):
+        riket = self.rad(nivå="riket", skolenhetskod="", skola_id="", omgång="VT 2019",
+                         år="2019")
+        kom = self.rad(nivå="kommun", skolenhetskod="", skola_id="", omgång="VT 2019",
+                       år="2019")
+        andra = self.rad(nivå="riket", skolenhetskod="", skola_id="", omgång="HT 2019",
+                         år="2019")
+        d = build_enkater.bygg([riket, kom, andra])
+        self.assertEqual(len(d["serier"]["riket"]["elever-ak9"][0]["punkter"]), 1)
+
+    def test_kommunraden_stammer_av_mot_enheterna(self):
+        rader = [self.rad(), self.rad(skolenhetskod="55017747", antal_svar="10", index_0_10="6"),
+                 self.rad(nivå="kommun", skolenhetskod="", skola_id="", antal_svar="40",
+                          index_0_10="7.5")]
+        build_enkater.bygg(rader)                       # 7,5 stämmer
+        rader[2]["index_0_10"] = "9.0"
+        with self.assertRaises(SystemExit):
+            build_enkater.bygg(rader)
+        rader[2]["antal_svar"] = "30"                   # fler svar i enheterna än i kommunen
+        with self.assertRaises(SystemExit):
+            build_enkater.bygg(rader)
+
+    def test_dolt_varde_i_en_enhet_hoppar_over_avstamningen(self):
+        # kommunens tal kan inte räknas om när en enhets värde saknas
+        rader = [self.rad(), self.rad(skolenhetskod="55017747", antal_svar="10", index_0_10=""),
+                 self.rad(nivå="kommun", skolenhetskod="", skola_id="", antal_svar="40",
+                          index_0_10="5.0")]
+        build_enkater.bygg(rader)
+
+
+# Handavlästa stickprov: (enhet, grupp, serie, år, index 0–10). Skolenkäten
+# är avläst direkt i Skolinspektionens Excelfiler, GR i rapporternas tabell
+# "Frågeområde per enhet" (tal på 0–100 delade med 10; 2023 redan på 0–10).
+# Bara skolor med en enda enhet det året: en sammanslagen skola är en
+# beräkning, inte en avläsning.
+STICKPROV_SI = [
+    ("kollaskolan", "elever-ak5", "Trygghet", 2021, 7.6),
+    ("kollaskolan", "elever-ak5", "Trygghet", 2023, 8.2),
+    ("kollaskolan", "elever-ak5", "Trygghet", 2025, 8.1),
+    ("kullaviksskolan", "elever-ak9", "Trygghet", 2019, 7.9),
+    ("kullaviksskolan", "elever-ak9", "Trygghet", 2021, 7.6),
+    ("gottskar", "elever-ak8", "Studiero", 2023, 5.4),
+    ("gottskar", "elever-ak8", "Studiero", 2025, 7.1),
+    ("gottskar", "vh-grundskola", "Trygghet", 2025, 8.3),
+]
+STICKPROV_GR = [
+    ("kungsbacka", "elever-ak5", "Trygghet", 2024, 8.5),
+    ("gr", "elever-ak5", "Trygghet", 2024, 8.5),
+    ("kungsbacka", "elever-ak8", "Trygghet", 2026, 8.2),
+    ("kungsbacka", "elever-gy2", "Trygghet", 2023, 8.8),
+    ("kungsbacka", "elever-ak2", "Anpassning efter elevens behov", 2022, 8.8),
+]
+
+
+class TestEnkaterRiktigaFiler(unittest.TestCase):
+    """De färdiga filerna ska vara vad skripten ger av data/enkater/."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.rader = build_enkater.las_rader()
+        with open(ROT / "data" / "enkater" / "KALLFILER.csv", encoding="utf-8",
+                  newline="") as f:
+            import csv as _csv
+            cls.kallfiler = {r["fil"]: r for r in _csv.DictReader(f)}
+        cls.ut = json.loads((ROT / "docs" / "data-enkater.json").read_text(encoding="utf-8"))
+
+    def test_data_enkater_ar_reproducerbar(self):
+        ombyggd = json.loads(json.dumps(build_enkater.bygg(self.rader, self.kallfiler)))
+        self.assertEqual(ombyggd, self.ut)
+
+    def test_csv_for_nedladdning_ar_den_rensade_filen(self):
+        self.assertEqual((ROT / "docs" / "enkater.csv").read_bytes(),
+                         (ROT / "data" / "enkater" / "clean" / "enkater.csv").read_bytes())
+
+    def test_fixturen_ar_datafilen(self):
+        self.assertEqual(
+            (ROT / "tests" / "fixtures" / "data" / "data-enkater.json").read_bytes(),
+            (ROT / "docs" / "data-enkater.json").read_bytes())
+
+    def test_kolumnerna_ar_de_utlovade(self):
+        self.assertEqual(list(self.rader[0].keys()), extrahera_enkater.KOLUMNER)
+
+    def test_varje_enhetskod_har_en_skola_och_varje_skola_ett_namn(self):
+        skolor = program_modul.enkatskolor()
+        for r in self.rader:
+            if r["nivå"] == "skola":
+                self.assertTrue(r["skola_id"], r)
+                self.assertIn(r["skola_id"], skolor)
+                self.assertEqual(program_modul.skola_av_enhet(r["skolenhetskod"]), r["skola_id"])
+
+    def test_en_enhet_hor_till_en_skola(self):
+        sett = {}
+        for id_, _, koder in program_modul.ENKATSKOLOR:
+            for k in koder:
+                self.assertNotIn(k, sett, f"{k} i både {sett.get(k)} och {id_}")
+                sett[k] = id_
+
+    def test_alla_enheter_i_registret_har_en_skola(self):
+        register = extrahera_enkater.las_register()
+        saknas = [k for k, r in register.items()
+                  if set(r["typer"] or []) & {"GR", "GY", "FKLASS", "GRAN", "GYAN"}
+                  and k not in {k for _, _, ks in program_modul.ENKATSKOLOR for k in ks}]
+        self.assertEqual(saknas, [])
+
+    def test_inga_omatchade_skolor(self):
+        with open(ROT / "data" / "enkater" / "clean" / "omatchade.csv", encoding="utf-8") as f:
+            self.assertEqual(len(f.read().strip().splitlines()), 1)     # bara rubriken
+
+    def test_mappningen_ar_fardig_och_tacker_alla_omraden(self):
+        kart = extrahera_enkater.las_mappning()
+        for r in self.rader:
+            self.assertNotEqual(r["frågeområde_harmoniserat"], "?")
+            harm, serie = extrahera_enkater.harmonisera(
+                {"källa": r["källa"], "respondentgrupp": r["respondentgrupp"],
+                 "frågeområde_original": r["frågeområde_original"], "år": int(r["år"])}, kart)
+            self.assertEqual((harm, serie), (r["frågeområde_harmoniserat"], r["serie"]))
+
+    def test_alla_index_ligger_mellan_0_och_10_och_gr_ar_omrakning_av_originalet(self):
+        for r in self.rader:
+            if r["index_0_10"] == "":
+                continue
+            v = float(r["index_0_10"])
+            self.assertTrue(0 <= v <= 10, r)
+            if r["skala_original"] == "0-100":
+                self.assertAlmostEqual(v, float(r["index_original"]) / 10, 3)
+                self.assertIn("skalbyte", r["kommentar"])
+            else:
+                self.assertEqual(r["index_0_10"], r["index_original"])
+
+    def test_gr_skalan_per_ar(self):
+        skala = {(r["år"], r["skala_original"]) for r in self.rader if r["källa"] == "GR-enkäten"}
+        self.assertEqual(skala, {("2022", "0-100"), ("2023", "0-10"), ("2024", "0-100"),
+                                 ("2025", "0-100"), ("2026", "0-100")})
+
+    def test_ingen_serie_binder_ihop_olika_skalor_eller_frageuppsattningar(self):
+        for enhet, grupper in self.ut["serier"].items():
+            for grupp, lista in grupper.items():
+                for s in lista:
+                    per_seg = {}
+                    for ar, v, n, seg in s["punkter"]:
+                        per_seg.setdefault(seg, []).append(ar)
+                    for ar_lista in per_seg.values():
+                        for a, b in zip(ar_lista, ar_lista[1:]):
+                            self.assertLessEqual(b - a, 2, (enhet, grupp, s["serie"]))
+                    for ar, orsak in s.get("brott", []):
+                        self.assertIn(orsak, ("skala", "fragor", "glapp"))
+
+    def test_gr_2023_ar_eget_segment(self):
+        # 2022 (0–100), 2023 (0–10) och 2024– (0–100) får aldrig dela segment
+        for s in self.ut["serier"]["kungsbacka"]["elever-ak2"]:
+            if s["kalla"] != "GR":
+                continue
+            seg = {p[0]: p[3] for p in s["punkter"]}
+            if 2022 in seg and 2023 in seg:
+                self.assertNotEqual(seg[2022], seg[2023])
+            if 2023 in seg and 2024 in seg:
+                self.assertNotEqual(seg[2023], seg[2024])
+
+    def test_gr_ar_bara_kommun_och_region_aldrig_skola(self):
+        for enhet, grupper in self.ut["serier"].items():
+            for lista in grupper.values():
+                for s in lista:
+                    if s["kalla"] == "GR":
+                        self.assertIn(enhet, ("kungsbacka", "gr"))
+
+    def test_uteslutna_gr_rader_finns_inte_i_serierna(self):
+        for g in ("elever-ak5", "elever-ak8"):
+            for s in self.ut["serier"]["kungsbacka"][g]:
+                if s["kalla"] == "GR":
+                    self.assertNotIn(2025, [p[0] for p in s["punkter"]])
+        self.assertEqual(len(self.ut["uteslutna"]), 2)
+
+    def test_vardnadshavare_ar_markta_som_svagare(self):
+        for g in self.ut["grupper"]:
+            self.assertEqual(g["svagare"], g["respondentgrupp"] == "Vårdnadshavare")
+
+    def test_kallfilerna_har_kontrollsumma_och_adress(self):
+        for fil, k in self.kallfiler.items():
+            self.assertEqual(len(k["sha256"]), 64, fil)
+            self.assertTrue(k["url"].startswith("https://"), fil)
+        for k in self.ut["kallor"]:
+            self.assertIn(k["fil"], self.kallfiler)
+
+    def test_stickprov_mot_kallfilerna(self):
+        """Handavlästa värden ur källdokumenten: minst tre skolor och tre år
+        per källa. Värdena är avlästa direkt i Excelfilerna respektive PDF:erna
+        och inte hämtade ur bygget."""
+        def varde(enhet, grupp, kalla, serie, ar):
+            for s in self.ut["serier"][enhet][grupp]:
+                if s["kalla"] == kalla and s["serie"] == serie:
+                    for p in s["punkter"]:
+                        if p[0] == ar:
+                            return p[1]
+            return "saknas"
+        # Skolenkäten (Excel)
+        for enhet, grupp, serie, ar, facit in STICKPROV_SI:
+            self.assertEqual(varde(enhet, grupp, "SI", serie, ar), facit, (enhet, ar))
+        # GR (PDF, "Frågeområde per enhet")
+        for enhet, grupp, serie, ar, facit in STICKPROV_GR:
+            self.assertEqual(varde(enhet, grupp, "GR", serie, ar), facit, (enhet, ar))
+
+

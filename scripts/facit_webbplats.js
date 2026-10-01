@@ -62,6 +62,13 @@ const SIDOR = [
   "amnesbetyg.html",
   "grundskolor.html",
   "grundskolor.html?matt=meritvarde&visa=alla",
+  /* Elevenkäterna: förvalet, en skola med årskurs 9 (annan serie än åk 8),
+     en grupp där skolorna saknar värden men kommunen har (åk 2 finns bara
+     i GR:s enkät) och vårdnadshavare, som är märkta som mindre tillförlitliga. */
+  "enkater.html",
+  "enkater.html?skola=kollaskolan&sgrupp=elever-ak9&grupp=elever-ak9&huvudman=kommunal",
+  "enkater.html?skola=asaskolan&sgrupp=elever-ak2&jgrupp=elever-gy2&omrade=studiero",
+  "enkater.html?skola=gottskar&sgrupp=vh-grundskola&grupp=vh-grundskola&skolform=grundskola",
   "kostnad-per-elev.html",
   /* Ett annat mått ur adressen: det läget visade förvalets siffror med
      det delade måttet i väljaren tills ordningen rättades. */

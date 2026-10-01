@@ -28,7 +28,7 @@ const DIAGRAMSIDOR = [
   "befolkningsprognos.html", "gymnasiealdern.html", "barn-och-unga.html",
   "varberg-befolkningsprognos.html", "varberg-gymnasiealdern.html",
   "varberg-barn-och-unga.html",
-  "amnesbetyg.html", "grundskolor.html",
+  "amnesbetyg.html", "grundskolor.html", "enkater.html",
   "kostnad-per-elev.html", "resurser-till-skolan.html",
   "nian-till-gymnasiet.html",
   "platser.html",
