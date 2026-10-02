@@ -66,6 +66,9 @@ const DIAGRAMSIDOR = [
   "fullmaktige.html",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
+/* Sidor vars innehåll är en tabell och inget diagram: matrisen ska ritas,
+   men något canvas finns inte att kräva. */
+const TABELLSIDOR = ["rodalinjer.html"];
 
 /* Diagram med regimmarkeringar, och de år markeringarna gäller. Åren står
    här och hämtas inte ur sidan – annars skulle testet bekräfta det koden
@@ -113,7 +116,7 @@ async function stubbaGoatcounter(page) {
   });
 }
 
-async function granska(browser, bas, sida, medDiagram) {
+async function granska(browser, bas, sida, medDiagram, medTabell) {
   const page = await browser.newPage();
   const fel = [];
   page.on("console", function (m) { if (m.type() === "error") fel.push("konsol: " + m.text()); });
@@ -156,6 +159,8 @@ async function granska(browser, bas, sida, medDiagram) {
   if (medDiagram) {
     if (inneh.canvas === 0) fel.push("inga diagram ritade");
     if (inneh.tabellrader === 0) fel.push("inga tabellrader ritade");
+  } else if (medTabell && inneh.tabellrader === 0) {
+    fel.push("inga tabellrader ritade");
   }
   await page.close();
   return fel;
@@ -708,9 +713,10 @@ async function granskaFlyttad(browser, bas) {
 
   let antalFel = 0;
   const sidor = DIAGRAMSIDOR.map(function (s) { return [s, true]; })
+    .concat(TABELLSIDOR.map(function (s) { return [s, false, true]; }))
     .concat(TEXTSIDOR.map(function (s) { return [s, false]; }));
   for (const par of sidor) {
-    const fel = await granska(browser, bas, par[0], par[1]);
+    const fel = await granska(browser, bas, par[0], par[1], par[2]);
     console.log((fel.length ? "FEL " : "ok  ") + par[0]);
     fel.forEach(function (f) { console.log("     " + f); });
     antalFel += fel.length;

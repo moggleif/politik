@@ -1479,3 +1479,44 @@ kontrollsumma, står i `data/enkater/KALLFILER.csv`.
 - **Nämndhandlingar**: nämnden för Förskola & Grundskola redovisar
   kommunnivå (protokoll 2025-06-11 §67; delårsrapport augusti 2025). Inga
   skolvärden från GR-enkäten har hittats i handlingarna.
+
+## Röda linjer i regeringsfrågan (partiernas uttalanden)
+
+Inga filer hämtas automatiskt. `data/rodalinjer/besked.json` skrivs för
+hand, och varje ja och nej har en eller flera källor med adress, utgivare
+och datum. `scripts/build_rodalinjer.py` bygger matrisen och stannar om ett
+besked saknar källa. Det som inte har något besked i filen visas som ?.
+
+Hur beskeden lästes:
+
+- **Frågorna** är två: *I regering* och *Samarbeta*, där samarbeta betyder
+  att partiet röstar ja till och stödjer en regering som innehåller det
+  andra partiet. Partierna använder inte orden lika. Där en källa bara
+  säger att partiet "kan samarbeta" (S, C) står det som det sagts, utan
+  att sidan lägger till att partiet röstar ja; läsaren ser formuleringen i
+  källans anmärkning.
+- **Källorna är olika sorter.** Partiets egen text (Centerpartiet), nyhets-
+  rapportering (SVT, TV4, Altinget, Placera/TT), en löpande sammanställning
+  (Valresultatet.se) och Wikipedia som sammanställning. Wikipedia används
+  för V:s och MP:s besked om SD, där den hänvisar till Sveriges Radio
+  (18 april 2026) och SVT (10 augusti 2026); de originalen är inte lästa.
+  De bör ersättas med originalen när de hittats.
+- **TV4-artikeln om M och SD** (1 april 2026) har rubriken "Uppgifter" men
+  återger i texten en gemensam pressträff, och räknas därför som besked.
+- **Thand Ringqvist i SVT** anger inget datum i den text som lästes, och
+  datumet står därför som saknat.
+- **Det som är oklart:** KD har hållit frågan om SD i regering öppen
+  (Busch 8 september 2026). Allt annat som saknas har inte hittats i någon
+  källa, vilket inte betyder att partiet inte sagt något.
+- **Dessutom:** flera sökningar i den här omgången gav sammanfattningar
+  som inte går ihop med varandra, och alla besked bygger därför på sidor
+  som lästes direkt. Läget är den 2 oktober 2026.
+- **Valkompassen (L) och Corren (V):** Liberalernas svar i SVT:s valkompass
+  anger V, MP och S som partier L absolut inte vill se i regeringen, och
+  Gabrielssons uttalande (28 september 2026) gäller bara att V inte röstar
+  på Kristersson som statsminister. Det senare förs in som "samarbeta: nej"
+  för V mot M, med noten, och inte som ett nej till att sitta i regering.
+- **Det som inte har ett besked:** inget parti bland M, KD och SD har hittats
+  utesluta S, V eller MP. Statsvetares bedömning att blockgränsen är svår att
+  korsa (Oscarsson, Bjereld) och ledarsidors åsikter räknas inte som besked
+  från partierna, och ger därför inget ja eller nej.
