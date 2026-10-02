@@ -45,6 +45,7 @@ build_fortidsroster = ladda("build_fortidsroster")
 build_kostnader = ladda("build_kostnader")
 build_resurser = ladda("build_resurser")
 build_fullmaktige = ladda("build_fullmaktige")
+build_rodalinjer = ladda("build_rodalinjer")
 hamta_fullmaktige = ladda("hamta_fullmaktige")
 hamta_fortidsroster = ladda("hamta_fortidsroster")
 hamta_gymnasieelever = ladda("hamta_gymnasieelever")
@@ -1972,6 +1973,11 @@ class TestGenereradeFiler(unittest.TestCase):
             build_fullmaktige.bygg(*build_fullmaktige.las_indata())))
         self.assertEqual(ombyggd, self.las("data-fullmaktige.json"))
 
+    def test_data_rodalinjer_ar_reproducerbar(self):
+        ombyggd = json.loads(json.dumps(
+            build_rodalinjer.bygg(build_rodalinjer.las_indata())))
+        self.assertEqual(ombyggd, self.las("data-rodalinjer.json"))
+
     def test_data_resurser_ar_reproducerbar(self):
         kolada = json.loads(
             (ROT / "data" / "kolada" / "resurser_grundskola.json")
@@ -3468,6 +3474,111 @@ class TestFullmaktige(unittest.TestCase):
         lankade = {lank["url"] for lank in kommunsidan["lankar"]}
         self.assertEqual({s["url"] for s in screen9["sandningar"]}, lankade)
         self.assertLessEqual(len(youtube["videor"]), youtube["antalEnligtSpellistan"])
+
+
+class TestRodalinjer(unittest.TestCase):
+    """Matrisen över röda linjer: tre parti-par med påhittade besked, där
+    facit går att räkna för hand."""
+
+    def indata(self, besked=None):
+        return {
+            "hamtad": "2026-10-02", "lage": "x",
+            "kallor": [
+                {"id": "a", "rubrik": "A", "utgivare": "U", "url": "https://a.se",
+                 "datum": "2026-01-01", "anmarkning": "n"},
+                {"id": "b", "rubrik": "B", "utgivare": "U", "url": "https://b.se",
+                 "datum": None, "anmarkning": "n"},
+            ],
+            "besked": besked if besked is not None else [
+                {"parti": "s", "om": "sd", "fraga": "regera", "svar": "nej",
+                 "kallor": ["b"], "not": ""},
+                {"parti": "c", "om": "v", "fraga": "regera", "svar": "nej",
+                 "kallor": ["a"], "not": ""},
+                {"parti": "s", "om": "c", "fraga": "samarbeta", "svar": "ja",
+                 "kallor": ["a", "b"], "not": ""},
+            ],
+        }
+
+    def cell(self, ut, parti, om, fraga):
+        return [c for c in ut["celler"] if (c["parti"], c["om"], c["fraga"]) == (parti, om, fraga)][0]
+
+    def test_matrisen_har_alla_par_men_inte_diagonalen(self):
+        ut = build_rodalinjer.bygg(self.indata())
+        self.assertEqual(len(ut["celler"]), 2 * 8 * 7)
+        self.assertFalse([c for c in ut["celler"] if c["parti"] == c["om"]])
+
+    def test_det_som_saknas_ar_oklart_och_inte_nej(self):
+        ut = build_rodalinjer.bygg(self.indata())
+        self.assertEqual(self.cell(ut, "m", "v", "regera")["svar"], "oklart")
+        # Ett nej om regering är inget besked om samarbete
+        self.assertEqual(self.cell(ut, "s", "sd", "samarbeta")["svar"], "oklart")
+        # Och ett besked gäller bara åt ett håll
+        self.assertEqual(self.cell(ut, "sd", "s", "regera")["svar"], "oklart")
+
+    def test_antalen_stammer(self):
+        ut = build_rodalinjer.bygg(self.indata())
+        self.assertEqual(ut["antal"]["regera"], {"ja": 0, "nej": 2, "oklart": 54})
+        self.assertEqual(ut["antal"]["samarbeta"], {"ja": 1, "nej": 0, "oklart": 55})
+
+    def test_kallorna_numreras_i_den_ordning_de_forst_anvands(self):
+        ut = build_rodalinjer.bygg(self.indata())
+        self.assertEqual(self.cell(ut, "s", "sd", "regera")["kallor"], [1])    # b först
+        self.assertEqual(self.cell(ut, "c", "v", "regera")["kallor"], [2])
+        self.assertEqual(self.cell(ut, "s", "c", "samarbeta")["kallor"], [2, 1])
+        self.assertEqual([k["rubrik"] for k in ut["kallor"]], ["B", "A"])
+
+    def test_bygget_stannar_vid_besked_som_inte_haller(self):
+        def b(**kw):
+            bas = {"parti": "s", "om": "sd", "fraga": "regera", "svar": "nej",
+                   "kallor": ["a"], "not": ""}
+            return [bas | kw, {"parti": "c", "om": "v", "fraga": "regera",
+                               "svar": "ja", "kallor": ["b"], "not": ""}]
+        for besked in [
+            b(kallor=[]),                      # nej utan källa
+            b(kallor=["finns-inte"]),          # okänd källa
+            b(om="s"),                         # parti om sig självt
+            b(parti="xx"),                     # okänt parti
+            b(fraga="rosta"),                  # okänd fråga
+            b(svar="kanske"),                  # okänt svar
+            b() + b(),                         # samma ruta två gånger
+            b()[:1] + [                        # regera ja men samarbeta nej
+                {"parti": "c", "om": "v", "fraga": "regera", "svar": "ja", "kallor": ["b"], "not": ""},
+                {"parti": "c", "om": "v", "fraga": "samarbeta", "svar": "nej", "kallor": ["b"], "not": ""}],
+        ]:
+            with self.assertRaises(SystemExit, msg=besked):
+                build_rodalinjer.bygg(self.indata(besked))
+
+    def test_oanvand_kalla_stoppar_bygget(self):
+        with self.assertRaises(SystemExit):
+            build_rodalinjer.bygg(self.indata(self.indata()["besked"][:1]))
+
+    def test_oklart_far_ha_kalla(self):
+        ut = build_rodalinjer.bygg(self.indata([
+            {"parti": "kd", "om": "sd", "fraga": "regera", "svar": "oklart",
+             "kallor": ["a"], "not": "öppen"},
+            {"parti": "c", "om": "v", "fraga": "regera", "svar": "nej",
+             "kallor": ["b"], "not": ""}]))
+        c = self.cell(ut, "kd", "sd", "regera")
+        self.assertEqual((c["svar"], c["kallor"], c["not"]), ("oklart", [2], "öppen"))
+
+    def test_de_riktiga_beskeden_ger_samma_svar_som_anvandarens_exempel(self):
+        ut = json.loads((ROT / "docs" / "data-rodalinjer.json").read_text(encoding="utf-8"))
+        def svar(p, om, f):
+            return self.cell(ut, p, om, f)["svar"]
+        # C: nej till V och SD i regering. S: samarbete med alla utom SD.
+        self.assertEqual((svar("c", "v", "regera"), svar("c", "sd", "regera")), ("nej", "nej"))
+        self.assertEqual({svar("s", om, "samarbeta") for om in ["v", "mp", "c", "l", "kd", "m"]}, {"ja"})
+        self.assertEqual((svar("s", "sd", "samarbeta"), svar("s", "sd", "regera")), ("nej", "nej"))
+        # Tidö: SD stödde, och sitter nu i en gemensam planerad regering
+        self.assertEqual(svar("m", "sd", "samarbeta"), "ja")
+        self.assertEqual(svar("kd", "sd", "regera"), "oklart")
+
+    def test_varje_ja_och_nej_i_de_riktiga_beskeden_har_kalla(self):
+        ut = json.loads((ROT / "docs" / "data-rodalinjer.json").read_text(encoding="utf-8"))
+        for c in ut["celler"]:
+            if c["svar"] != "oklart":
+                self.assertTrue(c["kallor"], c)
+        self.assertEqual(sum(sum(a.values()) for a in ut["antal"].values()), len(ut["celler"]))
 
 
 if __name__ == "__main__":

@@ -1039,3 +1039,23 @@ tr.rad-markerad > th, tr.rad-markerad > td {
 }
 .diagramkort { margin-top: 0; }
 .diagramkort h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+
+/* ---------- Matris: röda linjer ----------
+   Svaret bärs av tecken och ord; bakgrunden förstärker bara. */
+
+table.matris td { text-align: center; white-space: nowrap; }
+table.matris th:first-child { white-space: nowrap; }
+.matris-ja { background: #e3eefb; }
+.matris-nej { background: #fbe3e2; }
+.matris-oklart { background: var(--neutral-mid); color: var(--ink-2); }
+.matris-sjalv { color: var(--muted); }
+.matris-tecken { font-weight: 700; }
+a.fotnot { font-size: 0.8em; vertical-align: super; line-height: 1; }
+.matris-stjarna { font-weight: 700; margin-left: 0.1em; }
+ul.matris-noter { list-style: none; padding: 0; margin: 0.75rem 0 0; font-size: 0.95rem; color: var(--ink-2); }
+/* De dolda texterna ligger absolutpositionerade; utan ett positionerat
+   omslag räknas de in i sidans bredd och får sidan att rulla i sidled. */
+.matris-rull { position: relative; }
+table.matris { font-size: 0.9rem; }
+table.matris th, table.matris td { padding: 0.45rem 0.35rem; }
+table.matris thead th:first-child { white-space: normal; min-width: 5.5rem; }

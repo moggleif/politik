@@ -301,6 +301,25 @@ valdistrikt för valdistrikt, ur Valmyndighetens öppna data.
   väljarandel, vilket gör *andelen* pålitlig &ndash; den ärvs från det
   gamla distriktet &ndash; men *antalet* röster grovt.
 
+**Röda linjer i regeringsfrågan** &ndash; vilka riksdagspartier som kan
+sitta i samma regering, och vilka som kan samarbeta kring en regering
+utan att sitta i den (som SD under 2022&ndash;2026). Vad partierna sagt,
+inte vad de gör.
+
+- [Röda linjer i regeringsfrågan](https://moggleif.github.io/politik/rodalinjer.html)
+  &ndash; två matriser, en per fråga, med de åtta riksdagspartierna i både
+  rader och kolumner. Raden är partiet som svarar, kolumnen partiet frågan
+  gäller; matrisen behöver inte vara symmetrisk. Svaret är **ja**, **nej**
+  eller **?**. Ett ja eller nej finns bara där en källa säger det för just
+  den frågan och just det partiet, och källan länkas i rutan. Allt annat
+  är ?, som alltså betyder oklart eller inget besked funnet &ndash; inte
+  nej. Inget härleds: att ett parti vill regera med ett annat räknas inte
+  som ett ja på samarbetsfrågan. Beskeden skrivs för hand i
+  `data/rodalinjer/besked.json` och byggs till matrisen av
+  [`scripts/build_rodalinjer.py`](scripts/build_rodalinjer.py), som stannar
+  vid ett besked utan källa eller ett som motsäger ett annat. Läget är
+  den 2 oktober 2026, mitt i regeringsbildningen efter valet.
+
 Hur allting hämtas, räknas och kan reproduceras beskrivs på
 [metodsidan](https://moggleif.github.io/politik/metod.html).
 
@@ -368,6 +387,8 @@ data/
                                 september 2026 vid tio dagar kvar, för
                                 riket och Kungsbacka. Skrivs en gång och
                                 ändras inte (se gor_prognos.py)
+  rodalinjer/besked.json        Partiernas besked om regering och samarbete,
+                                ett per rad, med länkade källor
   kommunval/<år>.json           Kommunvalets resultat per valdistrikt i
   regionval/<år>.json           Kungsbacka, parti för parti (2010, 2014,
   riksdagsval/<år>.json         2018, 2022, 2026) – ett val per mapp. Bara

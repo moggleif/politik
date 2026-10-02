@@ -1,0 +1,982 @@
+{
+ "diagram": [],
+ "reglage": [],
+ "tabeller": [
+  {
+   "caption": "Rad: partiet som svarar. Kolumn: partiet frågan gäller.",
+   "id": "matris-regera",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "PartiRad ↓ om kolumn →"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "V"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "S"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "MP"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "C"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "L"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "KD"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "M"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "SD"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "V"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [1]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [1]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [2]*"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✗ Nej [3]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "S"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✗ Nej [4]*"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "MP"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [1]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [1]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [1]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✗ Nej [3]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "C"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✗ Nej [5][6]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [6]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [6]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [6]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✗ Nej [5][6]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "L"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [7]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "KD"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart [8]*"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "M"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [9]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [9]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [9]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "SD"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [9]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [9]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [9]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "Rad: partiet som svarar. Kolumn: partiet frågan gäller.",
+   "id": "matris-samarbeta",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "PartiRad ↓ om kolumn →"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "V"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "S"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "MP"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "C"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "L"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "KD"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "M"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "SD"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "V"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [2]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✗ Nej [3]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "S"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [4]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [4]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [4]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [4]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [4]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [4]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✗ Nej [4]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "MP"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✗ Nej [3]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "C"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [5]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [5]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [5]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [5]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [5]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✗ Nej [5][6]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "L"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [7]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "KD"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "M"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "SD"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "? Oklart"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "✓ Ja [3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–Samma parti"
+     }
+    ]
+   ]
+  }
+ ],
+ "text": {
+  "#fraga-regera": {
+   "dold": false,
+   "html": "Kan partiet i raden sitta i samma regering som partiet i kolumnen?"
+  },
+  "#fraga-samarbeta": {
+   "dold": false,
+   "html": "Kan partiet i raden samarbeta med partiet i kolumnen kring en regering, utan att sitta i den – stödja den, förhandla med den eller ha en överenskommelse med den?"
+  },
+  "#huvudinnehall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kalla-1": {
+   "dold": false,
+   "html": "<span class=\"titel\">[1] Bilda ny regering – regeringsbildningen efter valet 2026</span><br><span class=\"detalj\">Valresultatet.se, 23 september 2026. Löpande sammanställning av beskeden under regeringsbildningen 18–23 september 2026: V kräver plats i regeringen, MP bekräftar platsfördelningen med S, V och C.</span><div class=\"lankar\"><a href=\"https://www.valresultatet.se/val/2026/koalitioner/\">Läs källan</a></div>"
+  },
+  "#kalla-2": {
+   "dold": false,
+   "html": "<span class=\"titel\">[2] Vänsterpartiet: Inga samtal med C</span><br><span class=\"detalj\">SVT Nyheter (direktrapport), 16 september 2026. V:s vice partiledare Ida Gabrielsson: V säger ja till C, men bara som del av en bred regering med alla oppositionspartier bakom Magdalena Andersson.</span><div class=\"lankar\"><a href=\"https://www.svt.se/nyheter/inrikes/senaste-nytt-om-val-2026?inlagg=d1e8677037ed1580f773d66cc146572a\">Läs källan</a></div>"
+  },
+  "#kalla-3": {
+   "dold": false,
+   "html": "<span class=\"titel\">[3] Riksdagsvalet i Sverige 2026</span><br><span class=\"detalj\">Wikipedia (sammanställning), datum saknas. Sammanställning, hämtad 2 oktober 2026: Tidöpartierna (M, KD, L, SD) vill kunna regera tillsammans; V (Sveriges Radio 18 april 2026) och MP (SVT 10 augusti 2026) utesluter samarbete med SD.</span><div class=\"lankar\"><a href=\"https://sv.wikipedia.org/wiki/Riksdagsvalet_i_Sverige_2026\">Läs källan</a></div>"
+  },
+  "#kalla-4": {
+   "dold": false,
+   "html": "<span class=\"titel\">[4] Därför undviker Andersson besked i regeringsfrågan</span><br><span class=\"detalj\">Altinget, 17 juni 2026. Socialdemokraterna kan tänka sig att efter valet samarbeta med alla partier utom Sverigedemokraterna. Artikelns datum; uttalandet återges som något Andersson upprepat.</span><div class=\"lankar\"><a href=\"https://www.altinget.se/artikel/darfor-undviker-andersson-besked-i-regeringsfraagan\">Läs källan</a></div>"
+  },
+  "#kalla-5": {
+   "dold": false,
+   "html": "<span class=\"titel\">[5] Vi tänker aldrig släppa in Vänsterpartiet i en regering</span><br><span class=\"detalj\">Centerpartiet (partiets egen sida), 30 januari 2026. Partiets egen text. C kan regera eller samarbeta med M, KD, L, S och MP, accepterar aldrig V i regering och stödjer inte en regering som är beroende av SD.</span><div class=\"lankar\"><a href=\"https://www.centerpartiet.se/centerpartiet-lokalt/orebro-lan/orebro-lan/nyheter/nyhetsarkiv/2026-01-30-vi-tanker-aldrig-slappa-in-vansterpartiet-i-en-regering\">Läs källan</a></div>"
+  },
+  "#kalla-6": {
+   "dold": false,
+   "html": "<span class=\"titel\">[6] Thand Ringqvist: Hellre extraval än V i regering</span><br><span class=\"detalj\">SVT Nyheter, datum saknas. C säger tydligt nej till V i regering, vill se en regering av S, C, KD och MP och utesluter samarbete med SD. Artikeln anger inget datum i den text som lästes.</span><div class=\"lankar\"><a href=\"https://www.svt.se/nyheter/inrikes/thand-ringqvist-hellre-extraval-an-v-i-regering\">Läs källan</a></div>"
+  },
+  "#kalla-7": {
+   "dold": false,
+   "html": "<span class=\"titel\">[7] Liberalerna vänder: Säger ja till SD i regering</span><br><span class=\"detalj\">Altinget, 13 mars 2026. L och SD överens om hur de ska sitta i regering tillsammans (Sverigelöftet, 15 punkter).</span><div class=\"lankar\"><a href=\"https://www.altinget.se/artikel/liberalerna-vander-sager-ja-till-sd-i-regering\">Läs källan</a></div>"
+  },
+  "#kalla-8": {
+   "dold": false,
+   "html": "<span class=\"titel\">[8] Busch: Inte givet att SD får ministerposter</span><br><span class=\"detalj\">Placera (TT-telegram), 8 september 2026. KD:s Ebba Busch: förhandlingarna börjar på valdagen, en blågul regering kan ha mellan ett och fyra partier och inga ministerposter är utlovade.</span><div class=\"lankar\"><a href=\"https://www.placera.se/telegram/politik-busch-tycker-ej-det-ar-givet-att-sd-far-ministerposter-20260908\">Läs källan</a></div>"
+  },
+  "#kalla-9": {
+   "dold": false,
+   "html": "<span class=\"titel\">[9] Uppgifter: Moderaterna släpper in SD i regering efter valet</span><br><span class=\"detalj\">TV4, 1 april 2026. Rubriken säger uppgifter, men texten återger Kristerssons och Åkessons gemensamma pressträff: en fyrpartiregering med SD i regeringen.</span><div class=\"lankar\"><a href=\"https://www.tv4.se/artikel/3YyULIehxT1GocPqU1rAye/uppgifter-moderaterna-slaepper-in-sd-i-regering-efter-valet\">Läs källan</a></div>"
+  },
+  "#kort-sagt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kort-sagt-lista": {
+   "dold": false,
+   "html": "<li><strong>Sitta i samma regering:</strong> 20 ja, 5 nej och 31 oklara av 56 möjliga svar.</li><li><strong>Samarbeta kring en regering:</strong> 24 ja, 4 nej och 28 oklara av 56 möjliga svar.</li>"
+  },
+  "#kort-sagt-rubrik": {
+   "dold": false,
+   "html": "Kort sagt"
+  },
+  "#lista-kallor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#matris-regera": {
+   "dold": false,
+   "html": "<caption class=\"dold\">Rad: partiet som svarar. Kolumn: partiet frågan gäller.</caption><thead><tr><th scope=\"col\"><span class=\"dold\">Parti</span><span aria-hidden=\"true\">Rad ↓ om kolumn →</span></th><th scope=\"col\"><abbr title=\"Vänsterpartiet\">V</abbr></th><th scope=\"col\"><abbr title=\"Socialdemokraterna\">S</abbr></th><th scope=\"col\"><abbr title=\"Miljöpartiet\">MP</abbr></th><th scope=\"col\"><abbr title=\"Centerpartiet\">C</abbr></th><th scope=\"col\"><abbr title=\"Liberalerna\">L</abbr></th><th scope=\"col\"><abbr title=\"Kristdemokraterna\">KD</abbr></th><th scope=\"col\"><abbr title=\"Moderaterna\">M</abbr></th><th scope=\"col\"><abbr title=\"Sverigedemokraterna\">SD</abbr></th></tr></thead><tbody><tr><th scope=\"row\"><abbr title=\"Vänsterpartiet\">V</abbr></th><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Vänsterpartiet om Socialdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></td><td class=\"matris-ja\" title=\"Vänsterpartiet om Miljöpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></td><td class=\"matris-ja\" title=\"Vänsterpartiet om Centerpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a><span class=\"matris-stjarna\" aria-hidden=\"true\">*</span></td><td class=\"matris-oklart\" title=\"Vänsterpartiet om Liberalerna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Vänsterpartiet om Kristdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Vänsterpartiet om Moderaterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-nej\" title=\"Vänsterpartiet om Sverigedemokraterna: nej\"><span class=\"matris-tecken\" aria-hidden=\"true\">✗</span> <span class=\"matris-ord\">Nej</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Socialdemokraterna\">S</abbr></th><td class=\"matris-oklart\" title=\"Socialdemokraterna om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-oklart\" title=\"Socialdemokraterna om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Socialdemokraterna om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Socialdemokraterna om Liberalerna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Socialdemokraterna om Kristdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Socialdemokraterna om Moderaterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-nej\" title=\"Socialdemokraterna om Sverigedemokraterna: nej\"><span class=\"matris-tecken\" aria-hidden=\"true\">✗</span> <span class=\"matris-ord\">Nej</span> <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a><span class=\"matris-stjarna\" aria-hidden=\"true\">*</span></td></tr><tr><th scope=\"row\"><abbr title=\"Miljöpartiet\">MP</abbr></th><td class=\"matris-ja\" title=\"Miljöpartiet om Vänsterpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></td><td class=\"matris-ja\" title=\"Miljöpartiet om Socialdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Miljöpartiet om Centerpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></td><td class=\"matris-oklart\" title=\"Miljöpartiet om Liberalerna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Miljöpartiet om Kristdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Miljöpartiet om Moderaterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-nej\" title=\"Miljöpartiet om Sverigedemokraterna: nej\"><span class=\"matris-tecken\" aria-hidden=\"true\">✗</span> <span class=\"matris-ord\">Nej</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Centerpartiet\">C</abbr></th><td class=\"matris-nej\" title=\"Centerpartiet om Vänsterpartiet: nej\"><span class=\"matris-tecken\" aria-hidden=\"true\">✗</span> <span class=\"matris-ord\">Nej</span> <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a><a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></td><td class=\"matris-ja\" title=\"Centerpartiet om Socialdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></td><td class=\"matris-ja\" title=\"Centerpartiet om Miljöpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-oklart\" title=\"Centerpartiet om Liberalerna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-ja\" title=\"Centerpartiet om Kristdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></td><td class=\"matris-oklart\" title=\"Centerpartiet om Moderaterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-nej\" title=\"Centerpartiet om Sverigedemokraterna: nej\"><span class=\"matris-tecken\" aria-hidden=\"true\">✗</span> <span class=\"matris-ord\">Nej</span> <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a><a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Liberalerna\">L</abbr></th><td class=\"matris-oklart\" title=\"Liberalerna om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Liberalerna om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Liberalerna om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Liberalerna om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Liberalerna om Kristdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-ja\" title=\"Liberalerna om Moderaterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-ja\" title=\"Liberalerna om Sverigedemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Kristdemokraterna\">KD</abbr></th><td class=\"matris-oklart\" title=\"Kristdemokraterna om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Kristdemokraterna om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Kristdemokraterna om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Kristdemokraterna om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-ja\" title=\"Kristdemokraterna om Liberalerna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Kristdemokraterna om Moderaterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-oklart\" title=\"Kristdemokraterna om Sverigedemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span> <a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a><span class=\"matris-stjarna\" aria-hidden=\"true\">*</span></td></tr><tr><th scope=\"row\"><abbr title=\"Moderaterna\">M</abbr></th><td class=\"matris-oklart\" title=\"Moderaterna om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Moderaterna om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Moderaterna om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Moderaterna om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-ja\" title=\"Moderaterna om Liberalerna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></td><td class=\"matris-ja\" title=\"Moderaterna om Kristdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Moderaterna om Sverigedemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Sverigedemokraterna\">SD</abbr></th><td class=\"matris-oklart\" title=\"Sverigedemokraterna om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Sverigedemokraterna om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Sverigedemokraterna om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Sverigedemokraterna om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-ja\" title=\"Sverigedemokraterna om Liberalerna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></td><td class=\"matris-ja\" title=\"Sverigedemokraterna om Kristdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></td><td class=\"matris-ja\" title=\"Sverigedemokraterna om Moderaterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td></tr></tbody>"
+  },
+  "#matris-samarbeta": {
+   "dold": false,
+   "html": "<caption class=\"dold\">Rad: partiet som svarar. Kolumn: partiet frågan gäller.</caption><thead><tr><th scope=\"col\"><span class=\"dold\">Parti</span><span aria-hidden=\"true\">Rad ↓ om kolumn →</span></th><th scope=\"col\"><abbr title=\"Vänsterpartiet\">V</abbr></th><th scope=\"col\"><abbr title=\"Socialdemokraterna\">S</abbr></th><th scope=\"col\"><abbr title=\"Miljöpartiet\">MP</abbr></th><th scope=\"col\"><abbr title=\"Centerpartiet\">C</abbr></th><th scope=\"col\"><abbr title=\"Liberalerna\">L</abbr></th><th scope=\"col\"><abbr title=\"Kristdemokraterna\">KD</abbr></th><th scope=\"col\"><abbr title=\"Moderaterna\">M</abbr></th><th scope=\"col\"><abbr title=\"Sverigedemokraterna\">SD</abbr></th></tr></thead><tbody><tr><th scope=\"row\"><abbr title=\"Vänsterpartiet\">V</abbr></th><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-oklart\" title=\"Vänsterpartiet om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Vänsterpartiet om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-ja\" title=\"Vänsterpartiet om Centerpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a></td><td class=\"matris-oklart\" title=\"Vänsterpartiet om Liberalerna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Vänsterpartiet om Kristdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Vänsterpartiet om Moderaterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-nej\" title=\"Vänsterpartiet om Sverigedemokraterna: nej\"><span class=\"matris-tecken\" aria-hidden=\"true\">✗</span> <span class=\"matris-ord\">Nej</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Socialdemokraterna\">S</abbr></th><td class=\"matris-ja\" title=\"Socialdemokraterna om Vänsterpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Socialdemokraterna om Miljöpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td class=\"matris-ja\" title=\"Socialdemokraterna om Centerpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td class=\"matris-ja\" title=\"Socialdemokraterna om Liberalerna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td class=\"matris-ja\" title=\"Socialdemokraterna om Kristdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td class=\"matris-ja\" title=\"Socialdemokraterna om Moderaterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td class=\"matris-nej\" title=\"Socialdemokraterna om Sverigedemokraterna: nej\"><span class=\"matris-tecken\" aria-hidden=\"true\">✗</span> <span class=\"matris-ord\">Nej</span> <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Miljöpartiet\">MP</abbr></th><td class=\"matris-oklart\" title=\"Miljöpartiet om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Miljöpartiet om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-oklart\" title=\"Miljöpartiet om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Miljöpartiet om Liberalerna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Miljöpartiet om Kristdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Miljöpartiet om Moderaterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-nej\" title=\"Miljöpartiet om Sverigedemokraterna: nej\"><span class=\"matris-tecken\" aria-hidden=\"true\">✗</span> <span class=\"matris-ord\">Nej</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Centerpartiet\">C</abbr></th><td class=\"matris-oklart\" title=\"Centerpartiet om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-ja\" title=\"Centerpartiet om Socialdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></td><td class=\"matris-ja\" title=\"Centerpartiet om Miljöpartiet: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Centerpartiet om Liberalerna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></td><td class=\"matris-ja\" title=\"Centerpartiet om Kristdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></td><td class=\"matris-ja\" title=\"Centerpartiet om Moderaterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></td><td class=\"matris-nej\" title=\"Centerpartiet om Sverigedemokraterna: nej\"><span class=\"matris-tecken\" aria-hidden=\"true\">✗</span> <span class=\"matris-ord\">Nej</span> <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a><a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Liberalerna\">L</abbr></th><td class=\"matris-oklart\" title=\"Liberalerna om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Liberalerna om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Liberalerna om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Liberalerna om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Liberalerna om Kristdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-ja\" title=\"Liberalerna om Moderaterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-ja\" title=\"Liberalerna om Sverigedemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Kristdemokraterna\">KD</abbr></th><td class=\"matris-oklart\" title=\"Kristdemokraterna om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Kristdemokraterna om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Kristdemokraterna om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Kristdemokraterna om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-ja\" title=\"Kristdemokraterna om Liberalerna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Kristdemokraterna om Moderaterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-ja\" title=\"Kristdemokraterna om Sverigedemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Moderaterna\">M</abbr></th><td class=\"matris-oklart\" title=\"Moderaterna om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Moderaterna om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Moderaterna om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Moderaterna om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-ja\" title=\"Moderaterna om Liberalerna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-ja\" title=\"Moderaterna om Kristdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td><td class=\"matris-ja\" title=\"Moderaterna om Sverigedemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td></tr><tr><th scope=\"row\"><abbr title=\"Sverigedemokraterna\">SD</abbr></th><td class=\"matris-oklart\" title=\"Sverigedemokraterna om Vänsterpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Sverigedemokraterna om Socialdemokraterna: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Sverigedemokraterna om Miljöpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-oklart\" title=\"Sverigedemokraterna om Centerpartiet: oklart\"><span class=\"matris-tecken\" aria-hidden=\"true\">?</span> <span class=\"matris-ord\">Oklart</span></td><td class=\"matris-ja\" title=\"Sverigedemokraterna om Liberalerna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-ja\" title=\"Sverigedemokraterna om Kristdemokraterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-ja\" title=\"Sverigedemokraterna om Moderaterna: ja\"><span class=\"matris-tecken\" aria-hidden=\"true\">✓</span> <span class=\"matris-ord\">Ja</span> <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td class=\"matris-sjalv\"><span aria-hidden=\"true\">–</span><span class=\"dold\">Samma parti</span></td></tr></tbody>"
+  },
+  "#meta-rad": {
+   "dold": false,
+   "html": "<span>Källa: Partiernas uttalanden, med länk till varje källa</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2 oktober 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2 oktober 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  },
+  "#not-lage": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div><p>Besked fram till och med den 2 oktober 2026. Regeringsbildningen efter valet 13 september pågår, och beskeden kan ändras.</p></div></div>"
+  },
+  "#noter-regera": {
+   "dold": false,
+   "html": "<li>* V om C: Bara som del av en bred regering med alla oppositionspartier.</li><li>* S om SD: Följer av att S utesluter allt samarbete med SD.</li><li>* KD om SD: Frågan har hållits öppen: Busch har inte utlovat ministerposter åt någon.</li>"
+  },
+  "#noter-samarbeta": {
+   "dold": true,
+   "html": ""
+  },
+  "#om-uppdaterad": {
+   "dold": false,
+   "html": "Beskeden samlades 2 oktober 2026."
+  },
+  "#sektion-kallor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-om": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-regera": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-samarbeta": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#status": {
+   "dold": true,
+   "html": ""
+  },
+  ".meta-rad[meta-rad]": {
+   "dold": false,
+   "html": "<span>Källa: Partiernas uttalanden, med länk till varje källa</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: 2 oktober 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2 oktober 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  }
+ }
+}
