@@ -3572,6 +3572,11 @@ class TestRodalinjer(unittest.TestCase):
         # Tidö: SD stödde, och sitter nu i en gemensam planerad regering
         self.assertEqual(svar("m", "sd", "samarbeta"), "ja")
         self.assertEqual(svar("kd", "sd", "regera"), "oklart")
+        # L utesluter V, MP och S i regering; V säger nej till Kristersson
+        self.assertEqual({svar("l", om, "regera") for om in ["v", "mp", "s"]}, {"nej"})
+        self.assertEqual(svar("v", "m", "samarbeta"), "nej")
+        # Men ett uteblivet besked är inte ett nej: M och KD om V
+        self.assertEqual((svar("m", "v", "regera"), svar("kd", "v", "regera")), ("oklart", "oklart"))
 
     def test_varje_ja_och_nej_i_de_riktiga_beskeden_har_kalla(self):
         ut = json.loads((ROT / "docs" / "data-rodalinjer.json").read_text(encoding="utf-8"))

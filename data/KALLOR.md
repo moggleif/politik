@@ -1509,3 +1509,12 @@ Hur beskeden lästes:
 - **Dessutom:** flera sökningar i den här omgången gav sammanfattningar
   som inte går ihop med varandra, och alla besked bygger därför på sidor
   som lästes direkt. Läget är den 2 oktober 2026.
+- **Valkompassen (L) och Corren (V):** Liberalernas svar i SVT:s valkompass
+  anger V, MP och S som partier L absolut inte vill se i regeringen, och
+  Gabrielssons uttalande (28 september 2026) gäller bara att V inte röstar
+  på Kristersson som statsminister. Det senare förs in som "samarbeta: nej"
+  för V mot M, med noten, och inte som ett nej till att sitta i regering.
+- **Det som inte har ett besked:** inget parti bland M, KD och SD har hittats
+  utesluta S, V eller MP. Statsvetares bedömning att blockgränsen är svår att
+  korsa (Oscarsson, Bjereld) och ledarsidors åsikter räknas inte som besked
+  från partierna, och ger därför inget ja eller nej.

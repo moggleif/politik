@@ -314,25 +314,31 @@
    "parti": "l",
    "om": "v",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
+   "svar": "nej",
+   "kallor": [
+    7
+   ],
+   "not": "Svar på valkompassens fråga om partier L absolut inte vill se i regeringen."
   },
   {
    "parti": "l",
    "om": "s",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
+   "svar": "nej",
+   "kallor": [
+    7
+   ],
+   "not": "Svar på valkompassens fråga om partier L absolut inte vill se i regeringen."
   },
   {
    "parti": "l",
    "om": "mp",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
+   "svar": "nej",
+   "kallor": [
+    7
+   ],
+   "not": "Svar på valkompassens fråga om partier L absolut inte vill se i regeringen."
   },
   {
    "parti": "l",
@@ -368,7 +374,7 @@
    "fraga": "regera",
    "svar": "ja",
    "kallor": [
-    7
+    8
    ],
    "not": null
   },
@@ -430,7 +436,7 @@
    "fraga": "regera",
    "svar": "oklart",
    "kallor": [
-    8
+    9
    ],
    "not": "Frågan har hållits öppen: Busch har inte utlovat ministerposter åt någon."
   },
@@ -472,7 +478,7 @@
    "fraga": "regera",
    "svar": "ja",
    "kallor": [
-    9
+    10
    ],
    "not": null
   },
@@ -482,7 +488,7 @@
    "fraga": "regera",
    "svar": "ja",
    "kallor": [
-    9
+    10
    ],
    "not": null
   },
@@ -492,7 +498,7 @@
    "fraga": "regera",
    "svar": "ja",
    "kallor": [
-    9
+    10
    ],
    "not": null
   },
@@ -534,7 +540,7 @@
    "fraga": "regera",
    "svar": "ja",
    "kallor": [
-    9
+    10
    ],
    "not": null
   },
@@ -544,7 +550,7 @@
    "fraga": "regera",
    "svar": "ja",
    "kallor": [
-    9
+    10
    ],
    "not": null
   },
@@ -554,7 +560,7 @@
    "fraga": "regera",
    "svar": "ja",
    "kallor": [
-    9
+    10
    ],
    "not": null
   },
@@ -604,9 +610,11 @@
    "parti": "v",
    "om": "m",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
+   "svar": "nej",
+   "kallor": [
+    11
+   ],
+   "not": "Gäller att rösta på Kristersson som statsminister; V har inte uttalat sig om att sitta i regering med M."
   },
   {
    "parti": "v",
@@ -873,7 +881,7 @@
    "fraga": "samarbeta",
    "svar": "ja",
    "kallor": [
-    7
+    8
    ],
    "not": null
   },
@@ -1067,13 +1075,13 @@
  "antal": {
   "regera": {
    "ja": 20,
-   "nej": 5,
-   "oklart": 31
+   "nej": 8,
+   "oklart": 28
   },
   "samarbeta": {
    "ja": 24,
-   "nej": 4,
-   "oklart": 28
+   "nej": 5,
+   "oklart": 27
   }
  },
  "kallor": [
@@ -1127,6 +1135,14 @@
   },
   {
    "nr": 7,
+   "rubrik": "Liberalerna i SVT:s valkompass 2026",
+   "utgivare": "SVT Valkompass",
+   "url": "https://valkompass.svt.se/2026/parti/liberalerna/",
+   "datum": null,
+   "anmarkning": "På frågan om det finns partier L absolut inte vill se i regeringen efter nästa val svarar L: Vänsterpartiet, Miljöpartiet, Socialdemokraterna. Sidan anger inget datum i den text som lästes."
+  },
+  {
+   "nr": 8,
    "rubrik": "Liberalerna vänder: Säger ja till SD i regering",
    "utgivare": "Altinget",
    "url": "https://www.altinget.se/artikel/liberalerna-vander-sager-ja-till-sd-i-regering",
@@ -1134,7 +1150,7 @@
    "anmarkning": "L och SD överens om hur de ska sitta i regering tillsammans (Sverigelöftet, 15 punkter)."
   },
   {
-   "nr": 8,
+   "nr": 9,
    "rubrik": "Busch: Inte givet att SD får ministerposter",
    "utgivare": "Placera (TT-telegram)",
    "url": "https://www.placera.se/telegram/politik-busch-tycker-ej-det-ar-givet-att-sd-far-ministerposter-20260908",
@@ -1142,12 +1158,20 @@
    "anmarkning": "KD:s Ebba Busch: förhandlingarna börjar på valdagen, en blågul regering kan ha mellan ett och fyra partier och inga ministerposter är utlovade."
   },
   {
-   "nr": 9,
+   "nr": 10,
    "rubrik": "Uppgifter: Moderaterna släpper in SD i regering efter valet",
    "utgivare": "TV4",
    "url": "https://www.tv4.se/artikel/3YyULIehxT1GocPqU1rAye/uppgifter-moderaterna-slaepper-in-sd-i-regering-efter-valet",
    "datum": "2026-04-01",
    "anmarkning": "Rubriken säger uppgifter, men texten återger Kristerssons och Åkessons gemensamma pressträff: en fyrpartiregering med SD i regeringen."
+  },
+  {
+   "nr": 11,
+   "rubrik": "V slår tillbaka: Kommer aldrig rösta på Kristersson",
+   "utgivare": "Corren (TT)",
+   "url": "https://www.corren.se/nyheter/inrikes/politik/artikel/v-slar-tillbaka-kommer-aldrig-rosta-pa-kristersson/lqpvp48r",
+   "datum": "2026-09-28",
+   "anmarkning": "V:s vice partiledare Ida Gabrielsson: V kommer aldrig att rösta på Ulf Kristersson som statsminister. Sagt som svar på anklagelsen att V samarbetar med Moderaterna sedan V röstat på Norlén (M) som talman."
   }
  ]
 }
