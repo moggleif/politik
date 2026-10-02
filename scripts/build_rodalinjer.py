@@ -12,10 +12,11 @@ Skriver:
 svar på vardera frågan:
 
   regera      Kan partiet sitta i samma regering som det andra?
-  samarbeta   Kan partiet samarbeta med det andra kring en regering –
-              stödja den, förhandla med den eller ha en överenskommelse
-              med den, utan att sitta i den? Tidöavtalet 2022–2026, där SD
-              stödde en regering av M, KD och L, är exemplet.
+  samarbeta   Kan partiet rösta ja till och stödja en regering som
+              innehåller det andra? Det är bara vad partiet *gör* vid
+              regeringsomröstningen som räknas, inte om det förhandlar
+              eller pratar med det andra partiet. SD:s stöd 2022–2026 till
+              en regering av M, KD och L är exemplet på ett ja.
 
 **Tre svar:** `ja`, `nej` och `oklart`. Ett `ja` eller `nej` finns bara
 där en källa säger det för just den frågan och just det partiet. Allt som
@@ -28,7 +29,7 @@ besked i filen, med en källa som visar *varför* det är oklart.
 räknas inte om till ett svar på samarbetsfrågan, och att S utesluter
 samarbete med SD räknas inte om till något om V. Varje ja och nej bär sina
 egna källor. Partierna lägger inte samma betydelse i "samarbeta", och
-sidan lägger inte heller in någon.
+sidan använder bara den som står ovan.
 
 Bygget stannar hellre än sparar något som inte går ihop: okänt parti eller
 fråga, ett parti som svarar om sig självt, två besked för samma ruta, ett
@@ -61,12 +62,11 @@ PARTIER = [
 KODER = [p[0] for p in PARTIER]
 
 FRAGOR = [
-    ("regera", "Sitta i samma regering",
+    ("regera", "I regering",
      "Kan partiet i raden sitta i samma regering som partiet i kolumnen?"),
-    ("samarbeta", "Samarbeta kring en regering",
-     "Kan partiet i raden samarbeta med partiet i kolumnen kring en regering, "
-     "utan att sitta i den – stödja den, förhandla med den eller ha en "
-     "överenskommelse med den?"),
+    ("samarbeta", "Samarbeta",
+     "Kan partiet i raden rösta ja till och stödja en regering som innehåller "
+     "partiet i kolumnen?"),
 ]
 FRAGEKODER = [f[0] for f in FRAGOR]
 SVAR = ("ja", "nej", "oklart")

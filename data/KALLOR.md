@@ -1489,10 +1489,12 @@ besked saknar källa. Det som inte har något besked i filen visas som ?.
 
 Hur beskeden lästes:
 
-- **Frågorna** är två: *sitta i samma regering* och *samarbeta kring en
-  regering utan att sitta i den* (stöd, förhandling eller överenskommelse,
-  som Tidöavtalet). Partierna använder inte orden lika, och en källa som
-  bara säger "samarbeta" räknas som samarbete, inte som regeringsfråga.
+- **Frågorna** är två: *I regering* och *Samarbeta*, där samarbeta betyder
+  att partiet röstar ja till och stödjer en regering som innehåller det
+  andra partiet. Partierna använder inte orden lika. Där en källa bara
+  säger att partiet "kan samarbeta" (S, C) står det som det sagts, utan
+  att sidan lägger till att partiet röstar ja; läsaren ser formuleringen i
+  källans anmärkning.
 - **Källorna är olika sorter.** Partiets egen text (Centerpartiet), nyhets-
   rapportering (SVT, TV4, Altinget, Placera/TT), en löpande sammanställning
   (Valresultatet.se) och Wikipedia som sammanställning. Wikipedia används

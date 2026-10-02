@@ -46,13 +46,13 @@
  "fragor": [
   {
    "id": "regera",
-   "rubrik": "Sitta i samma regering",
+   "rubrik": "I regering",
    "fraga": "Kan partiet i raden sitta i samma regering som partiet i kolumnen?"
   },
   {
    "id": "samarbeta",
-   "rubrik": "Samarbeta kring en regering",
-   "fraga": "Kan partiet i raden samarbeta med partiet i kolumnen kring en regering, utan att sitta i den – stödja den, förhandla med den eller ha en överenskommelse med den?"
+   "rubrik": "Samarbeta",
+   "fraga": "Kan partiet i raden rösta ja till och stödja en regering som innehåller partiet i kolumnen?"
   }
  ],
  "celler": [
@@ -941,11 +941,11 @@
    "parti": "kd",
    "om": "sd",
    "fraga": "samarbeta",
-   "svar": "ja",
+   "svar": "oklart",
    "kallor": [
-    3
+    9
    ],
-   "not": null
+   "not": "KD har inte sagt att partiet röstar ja till en regering som innehåller SD. Tidöstödet var SD:s stöd till en regering utan SD."
   },
   {
    "parti": "m",
@@ -1079,9 +1079,9 @@
    "oklart": 28
   },
   "samarbeta": {
-   "ja": 24,
+   "ja": 23,
    "nej": 5,
-   "oklart": 27
+   "oklart": 28
   }
  },
  "kallor": [

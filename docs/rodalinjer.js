@@ -1,5 +1,6 @@
 /* Riksdagspartiernas röda linjer i regeringsfrågan — en matris över två
-   frågor: sitta i samma regering, och samarbeta kring en regering.
+   frågor: I regering, och Samarbeta (rösta ja till och stödja en
+   regering som innehåller det andra partiet).
    Läser docs/data-rodalinjer.json, byggd av scripts/build_rodalinjer.py
    ur data/rodalinjer/besked.json.
 

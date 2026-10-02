@@ -302,8 +302,9 @@ valdistrikt för valdistrikt, ur Valmyndighetens öppna data.
   gamla distriktet &ndash; men *antalet* röster grovt.
 
 **Röda linjer i regeringsfrågan** &ndash; vilka riksdagspartier som kan
-sitta i samma regering, och vilka som kan samarbeta kring en regering
-utan att sitta i den (som SD under 2022&ndash;2026). Vad partierna sagt,
+sitta i samma regering, och vilka som kan **samarbeta**, alltså rösta ja
+till och stödja en regering som innehåller det andra partiet (som SD
+under 2022&ndash;2026). Vad partierna sagt,
 inte vad de gör.
 
 - [Röda linjer i regeringsfrågan](https://moggleif.github.io/politik/rodalinjer.html)
