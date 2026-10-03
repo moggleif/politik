@@ -52,9 +52,14 @@
   function ruta(c) {
     var p = parti(c.parti), om = parti(c.om);
     var etikett = p.namn + " om " + om.namn + ": " + ORD[c.svar].toLowerCase();
-    var html = '<td class="matris-' + esc(c.svar) + '" title="' + esc(etikett) + '">' +
+    var bed = c.grund === "bedomning";
+    if (bed) etikett += " (bedömning, inte ett uttalande från partiet)";
+    var html = '<td class="matris-' + esc(c.svar) + (bed ? " matris-bedomning" : "") +
+      '" title="' + esc(etikett) + '">' +
       '<span class="matris-tecken" aria-hidden="true">' + TECKEN[c.svar] + "</span> " +
-      '<span class="matris-ord">' + ORD[c.svar] + "</span>";
+      '<span class="matris-ord">' + ORD[c.svar] + "</span>" +
+      (bed ? '<span class="matris-dagger" aria-hidden="true">\u2020</span>' +
+        '<span class="dold"> (bedömning, inte ett uttalande från partiet)</span>' : "");
     if (c.kallor.length) html += " " + fotnoter(c.kallor);
     if (c["not"]) html += '<span class="matris-stjarna" aria-hidden="true">*</span>';
     return html + "</td>";
@@ -99,7 +104,8 @@
     data.fragor.forEach(function (f) {
       var a = data.antal[f.id];
       punkter.push("<strong>" + esc(f.rubrik) + ":</strong> " +
-        talSv(a.ja) + " ja, " + talSv(a.nej) + " nej och " +
+        talSv(a.ja) + " ja, " + talSv(a.nej) + " nej (varav " + talSv(a.bedomning) +
+        " bedömningar, inte uttalanden) och " +
         talSv(a.oklart) + " oklara av " +
         talSv(a.ja + a.nej + a.oklart) + " möjliga svar.");
     });

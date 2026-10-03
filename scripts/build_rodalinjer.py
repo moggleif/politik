@@ -18,8 +18,16 @@ svar på vardera frågan:
               eller pratar med det andra partiet. SD:s stöd 2022–2026 till
               en regering av M, KD och L är exemplet på ett ja.
 
-**Tre svar:** `ja`, `nej` och `oklart`. Ett `ja` eller `nej` finns bara
-där en källa säger det för just den frågan och just det partiet. Allt som
+**Tre svar:** `ja`, `nej` och `oklart`. Ett `ja` eller `nej` har en av två
+grunder, och grunden följer med till sidan:
+
+  besked      en källa återger vad partiet självt sagt, för just den
+              frågan och just det partiet
+  bedomning   ett nej som bygger på en bedömning av blockpolitiken, med
+              statsvetares eller liknande källor. Partiet har inte själv
+              sagt nej, och sidan märker rutan så
+
+Ett `ja` har alltid grunden `besked`. Allt som
 inte har ett besked i filen blir `oklart` – partiet har inte sagt något vi
 funnit, eller har hållit frågan öppen. Det är inte samma sak som ett nej,
 och sidan ritar det därför som ett eget läge. Ett `oklart` kan ändå ha ett
@@ -70,6 +78,7 @@ FRAGOR = [
 ]
 FRAGEKODER = [f[0] for f in FRAGOR]
 SVAR = ("ja", "nej", "oklart")
+GRUNDER = ("besked", "bedomning")
 ISO = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
@@ -99,6 +108,10 @@ def kontrollera(indata):
             raise SystemExit(f"{namn}: okänd fråga")
         if b["svar"] not in SVAR:
             raise SystemExit(f"{namn}: svaret ska vara ja, nej eller oklart")
+        if b.get("grund") not in GRUNDER:
+            raise SystemExit(f"{namn}: grunden ska vara besked eller bedomning")
+        if b["grund"] == "bedomning" and b["svar"] != "nej":
+            raise SystemExit(f"{namn}: bara ett nej kan bygga på en bedömning")
         nyckel = (b["parti"], b["om"], b["fraga"])
         if nyckel in sedda:
             raise SystemExit(f"{namn}: två besked för samma ruta")
@@ -141,12 +154,15 @@ def bygg(indata):
                 celler.append({
                     "parti": p, "om": om, "fraga": f,
                     "svar": b["svar"] if b else "oklart",
+                    "grund": b["grund"] if b else None,
                     "kallor": [nummer[k] for k in ks],
                     "not": b["not"] if b and b.get("not") else None,
                 })
-    raknare = {f: {s: 0 for s in SVAR} for f in FRAGEKODER}
+    raknare = {f: dict.fromkeys(SVAR, 0) | {"bedomning": 0} for f in FRAGEKODER}
     for c in celler:
         raknare[c["fraga"]][c["svar"]] += 1
+        if c["grund"] == "bedomning":
+            raknare[c["fraga"]]["bedomning"] += 1
     return {
         "hamtad": indata["hamtad"],
         "lage": indata["lage"],
@@ -168,7 +184,8 @@ def main():
     UT.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     a = ut["antal"]
     print(f"Skrev {UT.relative_to(ROT)}: " + "; ".join(
-        f"{f}: {a[f]['ja']} ja, {a[f]['nej']} nej, {a[f]['oklart']} oklart" for f in a))
+        f"{f}: {a[f]['ja']} ja, {a[f]['nej']} nej (varav {a[f]['bedomning']} bedömning), "
+        f"{a[f]['oklart']} oklart" for f in a))
 
 
 if __name__ == "__main__":

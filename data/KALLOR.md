@@ -1516,7 +1516,13 @@ Hur beskeden lästes:
   Gabrielssons uttalande (28 september 2026) gäller bara att V inte röstar
   på Kristersson som statsminister. Det senare förs in som "samarbeta: nej"
   för V mot M, med noten, och inte som ett nej till att sitta i regering.
-- **Det som inte har ett besked:** inget parti bland M, KD och SD har hittats
-  utesluta S, V eller MP. Statsvetares bedömning att blockgränsen är svår att
-  korsa (Oscarsson, Bjereld) och ledarsidors åsikter räknas inte som besked
-  från partierna, och ger därför inget ja eller nej.
+- **Nej med grunden `bedomning` (nej†):** inget parti bland M, KD och SD har
+  hittats utesluta V eller MP, och inte heller V och MP utesluta M och KD
+  (utöver V mot M i samarbetsfrågan och V och MP mot SD, som är besked). På
+  uppdrag av projektets ägare står de rutorna som nej, men märkta som en
+  bedömning och inte som ett partibesked. Källorna är svaga och säger det
+  själva: Oscarsson (Altinget, 13 mars 2018) om att en storkoalition är
+  osannolik och Bjereld (Dagens Arena, 13 september 2022) om två polariserade
+  block. Ingen av dem handlar om något visst partipar och ingen säger att
+  partierna sagt nej. Ledarsidors åsikter räknas inte. Ersätts en bedömning
+  av ett uttalande ska rutan få grunden `besked` och uttalandet som källa.

@@ -61,6 +61,7 @@
    "om": "s",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
     1
    ],
@@ -71,6 +72,7 @@
    "om": "mp",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
     1
    ],
@@ -81,6 +83,7 @@
    "om": "c",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
     2
    ],
@@ -91,6 +94,7 @@
    "om": "l",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -98,16 +102,24 @@
    "parti": "v",
    "om": "kd",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
    "parti": "v",
    "om": "m",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -115,8 +127,9 @@
    "om": "sd",
    "fraga": "regera",
    "svar": "nej",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -125,6 +138,7 @@
    "om": "v",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -133,6 +147,7 @@
    "om": "mp",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -141,6 +156,7 @@
    "om": "c",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -149,6 +165,7 @@
    "om": "l",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -157,6 +174,7 @@
    "om": "kd",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -165,6 +183,7 @@
    "om": "m",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -173,8 +192,9 @@
    "om": "sd",
    "fraga": "regera",
    "svar": "nej",
+   "grund": "besked",
    "kallor": [
-    4
+    6
    ],
    "not": "Följer av att S utesluter allt samarbete med SD."
   },
@@ -183,6 +203,7 @@
    "om": "v",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
     1
    ],
@@ -193,6 +214,7 @@
    "om": "s",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
     1
    ],
@@ -203,6 +225,7 @@
    "om": "c",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
     1
    ],
@@ -213,6 +236,7 @@
    "om": "l",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -220,16 +244,24 @@
    "parti": "mp",
    "om": "kd",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
    "parti": "mp",
    "om": "m",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -237,8 +269,9 @@
    "om": "sd",
    "fraga": "regera",
    "svar": "nej",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -247,9 +280,10 @@
    "om": "v",
    "fraga": "regera",
    "svar": "nej",
+   "grund": "besked",
    "kallor": [
-    5,
-    6
+    7,
+    8
    ],
    "not": null
   },
@@ -258,132 +292,149 @@
    "om": "s",
    "fraga": "regera",
    "svar": "ja",
-   "kallor": [
-    6
-   ],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "mp",
-   "fraga": "regera",
-   "svar": "ja",
-   "kallor": [
-    6
-   ],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "l",
-   "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "kd",
-   "fraga": "regera",
-   "svar": "ja",
-   "kallor": [
-    6
-   ],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "m",
-   "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "sd",
-   "fraga": "regera",
-   "svar": "nej",
-   "kallor": [
-    5,
-    6
-   ],
-   "not": null
-  },
-  {
-   "parti": "l",
-   "om": "v",
-   "fraga": "regera",
-   "svar": "nej",
-   "kallor": [
-    7
-   ],
-   "not": "Svar på valkompassens fråga om partier L absolut inte vill se i regeringen."
-  },
-  {
-   "parti": "l",
-   "om": "s",
-   "fraga": "regera",
-   "svar": "nej",
-   "kallor": [
-    7
-   ],
-   "not": "Svar på valkompassens fråga om partier L absolut inte vill se i regeringen."
-  },
-  {
-   "parti": "l",
-   "om": "mp",
-   "fraga": "regera",
-   "svar": "nej",
-   "kallor": [
-    7
-   ],
-   "not": "Svar på valkompassens fråga om partier L absolut inte vill se i regeringen."
-  },
-  {
-   "parti": "l",
-   "om": "c",
-   "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "l",
-   "om": "kd",
-   "fraga": "regera",
-   "svar": "ja",
-   "kallor": [
-    3
-   ],
-   "not": null
-  },
-  {
-   "parti": "l",
-   "om": "m",
-   "fraga": "regera",
-   "svar": "ja",
-   "kallor": [
-    3
-   ],
-   "not": null
-  },
-  {
-   "parti": "l",
-   "om": "sd",
-   "fraga": "regera",
-   "svar": "ja",
+   "grund": "besked",
    "kallor": [
     8
    ],
    "not": null
   },
   {
+   "parti": "c",
+   "om": "mp",
+   "fraga": "regera",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    8
+   ],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "l",
+   "fraga": "regera",
+   "svar": "oklart",
+   "grund": null,
+   "kallor": [],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "kd",
+   "fraga": "regera",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    8
+   ],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "m",
+   "fraga": "regera",
+   "svar": "oklart",
+   "grund": null,
+   "kallor": [],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "sd",
+   "fraga": "regera",
+   "svar": "nej",
+   "grund": "besked",
+   "kallor": [
+    7,
+    8
+   ],
+   "not": null
+  },
+  {
+   "parti": "l",
+   "om": "v",
+   "fraga": "regera",
+   "svar": "nej",
+   "grund": "besked",
+   "kallor": [
+    9
+   ],
+   "not": "Svar på valkompassens fråga om partier L absolut inte vill se i regeringen."
+  },
+  {
+   "parti": "l",
+   "om": "s",
+   "fraga": "regera",
+   "svar": "nej",
+   "grund": "besked",
+   "kallor": [
+    9
+   ],
+   "not": "Svar på valkompassens fråga om partier L absolut inte vill se i regeringen."
+  },
+  {
+   "parti": "l",
+   "om": "mp",
+   "fraga": "regera",
+   "svar": "nej",
+   "grund": "besked",
+   "kallor": [
+    9
+   ],
+   "not": "Svar på valkompassens fråga om partier L absolut inte vill se i regeringen."
+  },
+  {
+   "parti": "l",
+   "om": "c",
+   "fraga": "regera",
+   "svar": "oklart",
+   "grund": null,
+   "kallor": [],
+   "not": null
+  },
+  {
+   "parti": "l",
+   "om": "kd",
+   "fraga": "regera",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    5
+   ],
+   "not": null
+  },
+  {
+   "parti": "l",
+   "om": "m",
+   "fraga": "regera",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    5
+   ],
+   "not": null
+  },
+  {
+   "parti": "l",
+   "om": "sd",
+   "fraga": "regera",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    10
+   ],
+   "not": null
+  },
+  {
    "parti": "kd",
    "om": "v",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -391,6 +442,7 @@
    "om": "s",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -398,8 +450,12 @@
    "parti": "kd",
    "om": "mp",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -407,6 +463,7 @@
    "om": "c",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -415,8 +472,9 @@
    "om": "l",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -425,8 +483,9 @@
    "om": "m",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -435,8 +494,9 @@
    "om": "sd",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": "besked",
    "kallor": [
-    9
+    11
    ],
    "not": "Frågan har hållits öppen: Busch har inte utlovat ministerposter åt någon."
   },
@@ -444,8 +504,12 @@
    "parti": "m",
    "om": "v",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -453,6 +517,7 @@
    "om": "s",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -460,8 +525,12 @@
    "parti": "m",
    "om": "mp",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -469,6 +538,7 @@
    "om": "c",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -477,8 +547,9 @@
    "om": "l",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    10
+    12
    ],
    "not": null
   },
@@ -487,8 +558,9 @@
    "om": "kd",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    10
+    12
    ],
    "not": null
   },
@@ -497,8 +569,9 @@
    "om": "sd",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    10
+    12
    ],
    "not": null
   },
@@ -506,8 +579,12 @@
    "parti": "sd",
    "om": "v",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -515,6 +592,7 @@
    "om": "s",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -522,8 +600,12 @@
    "parti": "sd",
    "om": "mp",
    "fraga": "regera",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -531,6 +613,7 @@
    "om": "c",
    "fraga": "regera",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -539,8 +622,9 @@
    "om": "l",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    10
+    12
    ],
    "not": null
   },
@@ -549,8 +633,9 @@
    "om": "kd",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    10
+    12
    ],
    "not": null
   },
@@ -559,8 +644,9 @@
    "om": "m",
    "fraga": "regera",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    10
+    12
    ],
    "not": null
   },
@@ -569,6 +655,7 @@
    "om": "s",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -577,6 +664,7 @@
    "om": "mp",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -585,6 +673,7 @@
    "om": "c",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
     2
    ],
@@ -595,6 +684,7 @@
    "om": "l",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -602,8 +692,12 @@
    "parti": "v",
    "om": "kd",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -611,8 +705,9 @@
    "om": "m",
    "fraga": "samarbeta",
    "svar": "nej",
+   "grund": "besked",
    "kallor": [
-    11
+    13
    ],
    "not": "Gäller att rösta på Kristersson som statsminister; V har inte uttalat sig om att sitta i regering med M."
   },
@@ -621,8 +716,9 @@
    "om": "sd",
    "fraga": "samarbeta",
    "svar": "nej",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -631,203 +727,231 @@
    "om": "v",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    4
-   ],
-   "not": null
-  },
-  {
-   "parti": "s",
-   "om": "mp",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    4
-   ],
-   "not": null
-  },
-  {
-   "parti": "s",
-   "om": "c",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    4
-   ],
-   "not": null
-  },
-  {
-   "parti": "s",
-   "om": "l",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    4
-   ],
-   "not": null
-  },
-  {
-   "parti": "s",
-   "om": "kd",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    4
-   ],
-   "not": null
-  },
-  {
-   "parti": "s",
-   "om": "m",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    4
-   ],
-   "not": null
-  },
-  {
-   "parti": "s",
-   "om": "sd",
-   "fraga": "samarbeta",
-   "svar": "nej",
-   "kallor": [
-    4
-   ],
-   "not": null
-  },
-  {
-   "parti": "mp",
-   "om": "v",
-   "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "mp",
-   "om": "s",
-   "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "mp",
-   "om": "c",
-   "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "mp",
-   "om": "l",
-   "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "mp",
-   "om": "kd",
-   "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "mp",
-   "om": "m",
-   "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "mp",
-   "om": "sd",
-   "fraga": "samarbeta",
-   "svar": "nej",
-   "kallor": [
-    3
-   ],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "v",
-   "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "s",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    5
-   ],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "mp",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    5
-   ],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "l",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    5
-   ],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "kd",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    5
-   ],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "m",
-   "fraga": "samarbeta",
-   "svar": "ja",
-   "kallor": [
-    5
-   ],
-   "not": null
-  },
-  {
-   "parti": "c",
-   "om": "sd",
-   "fraga": "samarbeta",
-   "svar": "nej",
-   "kallor": [
-    5,
     6
    ],
    "not": null
   },
   {
+   "parti": "s",
+   "om": "mp",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    6
+   ],
+   "not": null
+  },
+  {
+   "parti": "s",
+   "om": "c",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    6
+   ],
+   "not": null
+  },
+  {
+   "parti": "s",
+   "om": "l",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    6
+   ],
+   "not": null
+  },
+  {
+   "parti": "s",
+   "om": "kd",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    6
+   ],
+   "not": null
+  },
+  {
+   "parti": "s",
+   "om": "m",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    6
+   ],
+   "not": null
+  },
+  {
+   "parti": "s",
+   "om": "sd",
+   "fraga": "samarbeta",
+   "svar": "nej",
+   "grund": "besked",
+   "kallor": [
+    6
+   ],
+   "not": null
+  },
+  {
+   "parti": "mp",
+   "om": "v",
+   "fraga": "samarbeta",
+   "svar": "oklart",
+   "grund": null,
+   "kallor": [],
+   "not": null
+  },
+  {
+   "parti": "mp",
+   "om": "s",
+   "fraga": "samarbeta",
+   "svar": "oklart",
+   "grund": null,
+   "kallor": [],
+   "not": null
+  },
+  {
+   "parti": "mp",
+   "om": "c",
+   "fraga": "samarbeta",
+   "svar": "oklart",
+   "grund": null,
+   "kallor": [],
+   "not": null
+  },
+  {
+   "parti": "mp",
+   "om": "l",
+   "fraga": "samarbeta",
+   "svar": "oklart",
+   "grund": null,
+   "kallor": [],
+   "not": null
+  },
+  {
+   "parti": "mp",
+   "om": "kd",
+   "fraga": "samarbeta",
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
+   "not": null
+  },
+  {
+   "parti": "mp",
+   "om": "m",
+   "fraga": "samarbeta",
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
+   "not": null
+  },
+  {
+   "parti": "mp",
+   "om": "sd",
+   "fraga": "samarbeta",
+   "svar": "nej",
+   "grund": "besked",
+   "kallor": [
+    5
+   ],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "v",
+   "fraga": "samarbeta",
+   "svar": "oklart",
+   "grund": null,
+   "kallor": [],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "s",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    7
+   ],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "mp",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    7
+   ],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "l",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    7
+   ],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "kd",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    7
+   ],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "m",
+   "fraga": "samarbeta",
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    7
+   ],
+   "not": null
+  },
+  {
+   "parti": "c",
+   "om": "sd",
+   "fraga": "samarbeta",
+   "svar": "nej",
+   "grund": "besked",
+   "kallor": [
+    7,
+    8
+   ],
+   "not": null
+  },
+  {
    "parti": "l",
    "om": "v",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -836,6 +960,7 @@
    "om": "s",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -844,6 +969,7 @@
    "om": "mp",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -852,6 +978,7 @@
    "om": "c",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -860,8 +987,9 @@
    "om": "kd",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -870,8 +998,9 @@
    "om": "m",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -880,8 +1009,9 @@
    "om": "sd",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    8
+    10
    ],
    "not": null
   },
@@ -889,8 +1019,12 @@
    "parti": "kd",
    "om": "v",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -898,6 +1032,7 @@
    "om": "s",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -905,8 +1040,12 @@
    "parti": "kd",
    "om": "mp",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -914,6 +1053,7 @@
    "om": "c",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -922,8 +1062,9 @@
    "om": "l",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -932,8 +1073,9 @@
    "om": "m",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -942,8 +1084,9 @@
    "om": "sd",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": "besked",
    "kallor": [
-    9
+    11
    ],
    "not": "KD har inte sagt att partiet röstar ja till en regering som innehåller SD. Tidöstödet var SD:s stöd till en regering utan SD."
   },
@@ -951,8 +1094,12 @@
    "parti": "m",
    "om": "v",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -960,6 +1107,7 @@
    "om": "s",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -967,8 +1115,12 @@
    "parti": "m",
    "om": "mp",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -976,6 +1128,7 @@
    "om": "c",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -984,8 +1137,9 @@
    "om": "l",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -994,8 +1148,9 @@
    "om": "kd",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -1004,8 +1159,9 @@
    "om": "sd",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -1013,8 +1169,12 @@
    "parti": "sd",
    "om": "v",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -1022,6 +1182,7 @@
    "om": "s",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -1029,8 +1190,12 @@
    "parti": "sd",
    "om": "mp",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -1038,6 +1203,7 @@
    "om": "c",
    "fraga": "samarbeta",
    "svar": "oklart",
+   "grund": null,
    "kallor": [],
    "not": null
   },
@@ -1046,8 +1212,9 @@
    "om": "l",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -1056,8 +1223,9 @@
    "om": "kd",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   },
@@ -1066,8 +1234,9 @@
    "om": "m",
    "fraga": "samarbeta",
    "svar": "ja",
+   "grund": "besked",
    "kallor": [
-    3
+    5
    ],
    "not": null
   }
@@ -1075,13 +1244,15 @@
  "antal": {
   "regera": {
    "ja": 20,
-   "nej": 8,
-   "oklart": 28
+   "nej": 18,
+   "oklart": 18,
+   "bedomning": 10
   },
   "samarbeta": {
    "ja": 23,
-   "nej": 5,
-   "oklart": 28
+   "nej": 14,
+   "oklart": 19,
+   "bedomning": 9
   }
  },
  "kallor": [
@@ -1103,6 +1274,22 @@
   },
   {
    "nr": 3,
+   "rubrik": "En stor koalition i Sverige osannolik",
+   "utgivare": "Altinget (statsvetaren Henrik Ekengren Oscarsson)",
+   "url": "https://www.altinget.se/artikel/en-stor-koalition-i-sverige-osannolik-men-i-tyskland-fungerar-det",
+   "datum": "2018-03-13",
+   "anmarkning": "Bedömning, inte ett partibesked. Oscarsson: Sverige har en maktdelningsprincip där makten ska växla mellan rött och blått, och en regering över blockgränsen kräver ett ganska allvarligt krisläge. Artikeln handlar om en storkoalition och är från 2018."
+  },
+  {
+   "nr": 4,
+   "rubrik": "Statsvetare: Vi har två polariserade block där få partier trivs",
+   "utgivare": "Dagens Arena (statsvetaren Ulf Bjereld)",
+   "url": "https://www.dagensarena.se/innehall/statsvetare-vi-har-tva-polariserade-block-dar-fa-partier-trivs/",
+   "datum": "2022-09-13",
+   "anmarkning": "Bedömning, inte ett partibesked. Bjereld: Sverige har två polariserade block, och partierna är nödda och tvungna att stanna i dem. Intervjun är från valet 2022."
+  },
+  {
+   "nr": 5,
    "rubrik": "Riksdagsvalet i Sverige 2026",
    "utgivare": "Wikipedia (sammanställning)",
    "url": "https://sv.wikipedia.org/wiki/Riksdagsvalet_i_Sverige_2026",
@@ -1110,7 +1297,7 @@
    "anmarkning": "Sammanställning, hämtad 2 oktober 2026: Tidöpartierna (M, KD, L, SD) vill kunna regera tillsammans; V (Sveriges Radio 18 april 2026) och MP (SVT 10 augusti 2026) utesluter samarbete med SD."
   },
   {
-   "nr": 4,
+   "nr": 6,
    "rubrik": "Därför undviker Andersson besked i regeringsfrågan",
    "utgivare": "Altinget",
    "url": "https://www.altinget.se/artikel/darfor-undviker-andersson-besked-i-regeringsfraagan",
@@ -1118,7 +1305,7 @@
    "anmarkning": "Socialdemokraterna kan tänka sig att efter valet samarbeta med alla partier utom Sverigedemokraterna. Artikelns datum; uttalandet återges som något Andersson upprepat."
   },
   {
-   "nr": 5,
+   "nr": 7,
    "rubrik": "Vi tänker aldrig släppa in Vänsterpartiet i en regering",
    "utgivare": "Centerpartiet (partiets egen sida)",
    "url": "https://www.centerpartiet.se/centerpartiet-lokalt/orebro-lan/orebro-lan/nyheter/nyhetsarkiv/2026-01-30-vi-tanker-aldrig-slappa-in-vansterpartiet-i-en-regering",
@@ -1126,7 +1313,7 @@
    "anmarkning": "Partiets egen text. C kan regera eller samarbeta med M, KD, L, S och MP, accepterar aldrig V i regering och stödjer inte en regering som är beroende av SD."
   },
   {
-   "nr": 6,
+   "nr": 8,
    "rubrik": "Thand Ringqvist: Hellre extraval än V i regering",
    "utgivare": "SVT Nyheter",
    "url": "https://www.svt.se/nyheter/inrikes/thand-ringqvist-hellre-extraval-an-v-i-regering",
@@ -1134,7 +1321,7 @@
    "anmarkning": "C säger tydligt nej till V i regering, vill se en regering av S, C, KD och MP och utesluter samarbete med SD. Artikeln anger inget datum i den text som lästes."
   },
   {
-   "nr": 7,
+   "nr": 9,
    "rubrik": "Liberalerna i SVT:s valkompass 2026",
    "utgivare": "SVT Valkompass",
    "url": "https://valkompass.svt.se/2026/parti/liberalerna/",
@@ -1142,7 +1329,7 @@
    "anmarkning": "På frågan om det finns partier L absolut inte vill se i regeringen efter nästa val svarar L: Vänsterpartiet, Miljöpartiet, Socialdemokraterna. Sidan anger inget datum i den text som lästes."
   },
   {
-   "nr": 8,
+   "nr": 10,
    "rubrik": "Liberalerna vänder: Säger ja till SD i regering",
    "utgivare": "Altinget",
    "url": "https://www.altinget.se/artikel/liberalerna-vander-sager-ja-till-sd-i-regering",
@@ -1150,7 +1337,7 @@
    "anmarkning": "L och SD överens om hur de ska sitta i regering tillsammans (Sverigelöftet, 15 punkter)."
   },
   {
-   "nr": 9,
+   "nr": 11,
    "rubrik": "Busch: Inte givet att SD får ministerposter",
    "utgivare": "Placera (TT-telegram)",
    "url": "https://www.placera.se/telegram/politik-busch-tycker-ej-det-ar-givet-att-sd-far-ministerposter-20260908",
@@ -1158,7 +1345,7 @@
    "anmarkning": "KD:s Ebba Busch: förhandlingarna börjar på valdagen, en blågul regering kan ha mellan ett och fyra partier och inga ministerposter är utlovade."
   },
   {
-   "nr": 10,
+   "nr": 12,
    "rubrik": "Uppgifter: Moderaterna släpper in SD i regering efter valet",
    "utgivare": "TV4",
    "url": "https://www.tv4.se/artikel/3YyULIehxT1GocPqU1rAye/uppgifter-moderaterna-slaepper-in-sd-i-regering-efter-valet",
@@ -1166,7 +1353,7 @@
    "anmarkning": "Rubriken säger uppgifter, men texten återger Kristerssons och Åkessons gemensamma pressträff: en fyrpartiregering med SD i regeringen."
   },
   {
-   "nr": 11,
+   "nr": 13,
    "rubrik": "V slår tillbaka: Kommer aldrig rösta på Kristersson",
    "utgivare": "Corren (TT)",
    "url": "https://www.corren.se/nyheter/inrikes/politik/artikel/v-slar-tillbaka-kommer-aldrig-rosta-pa-kristersson/lqpvp48r",

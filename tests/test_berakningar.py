@@ -3491,11 +3491,11 @@ class TestRodalinjer(unittest.TestCase):
             ],
             "besked": besked if besked is not None else [
                 {"parti": "s", "om": "sd", "fraga": "regera", "svar": "nej",
-                 "kallor": ["b"], "not": ""},
+                 "kallor": ["b"], "not": "", "grund": "besked"},
                 {"parti": "c", "om": "v", "fraga": "regera", "svar": "nej",
-                 "kallor": ["a"], "not": ""},
+                 "kallor": ["a"], "not": "", "grund": "besked"},
                 {"parti": "s", "om": "c", "fraga": "samarbeta", "svar": "ja",
-                 "kallor": ["a", "b"], "not": ""},
+                 "kallor": ["a", "b"], "not": "", "grund": "besked"},
             ],
         }
 
@@ -3517,8 +3517,8 @@ class TestRodalinjer(unittest.TestCase):
 
     def test_antalen_stammer(self):
         ut = build_rodalinjer.bygg(self.indata())
-        self.assertEqual(ut["antal"]["regera"], {"ja": 0, "nej": 2, "oklart": 54})
-        self.assertEqual(ut["antal"]["samarbeta"], {"ja": 1, "nej": 0, "oklart": 55})
+        self.assertEqual(ut["antal"]["regera"], {"ja": 0, "nej": 2, "oklart": 54, "bedomning": 0})
+        self.assertEqual(ut["antal"]["samarbeta"], {"ja": 1, "nej": 0, "oklart": 55, "bedomning": 0})
 
     def test_kallorna_numreras_i_den_ordning_de_forst_anvands(self):
         ut = build_rodalinjer.bygg(self.indata())
@@ -3530,9 +3530,9 @@ class TestRodalinjer(unittest.TestCase):
     def test_bygget_stannar_vid_besked_som_inte_haller(self):
         def b(**kw):
             bas = {"parti": "s", "om": "sd", "fraga": "regera", "svar": "nej",
-                   "kallor": ["a"], "not": ""}
+                   "kallor": ["a"], "not": "", "grund": "besked"}
             return [bas | kw, {"parti": "c", "om": "v", "fraga": "regera",
-                               "svar": "ja", "kallor": ["b"], "not": ""}]
+                               "svar": "ja", "kallor": ["b"], "not": "", "grund": "besked"}]
         for besked in [
             b(kallor=[]),                      # nej utan källa
             b(kallor=["finns-inte"]),          # okänd källa
@@ -3540,10 +3540,12 @@ class TestRodalinjer(unittest.TestCase):
             b(parti="xx"),                     # okänt parti
             b(fraga="rosta"),                  # okänd fråga
             b(svar="kanske"),                  # okänt svar
+            b(grund="gissning"),               # okänd grund
+            b(svar="ja", grund="bedomning"),   # ett ja kan inte vara en bedömning
             b() + b(),                         # samma ruta två gånger
             b()[:1] + [                        # regera ja men samarbeta nej
-                {"parti": "c", "om": "v", "fraga": "regera", "svar": "ja", "kallor": ["b"], "not": ""},
-                {"parti": "c", "om": "v", "fraga": "samarbeta", "svar": "nej", "kallor": ["b"], "not": ""}],
+                {"parti": "c", "om": "v", "fraga": "regera", "svar": "ja", "kallor": ["b"], "not": "", "grund": "besked"},
+                {"parti": "c", "om": "v", "fraga": "samarbeta", "svar": "nej", "kallor": ["b"], "not": "", "grund": "besked"}],
         ]:
             with self.assertRaises(SystemExit, msg=besked):
                 build_rodalinjer.bygg(self.indata(besked))
@@ -3555,9 +3557,9 @@ class TestRodalinjer(unittest.TestCase):
     def test_oklart_far_ha_kalla(self):
         ut = build_rodalinjer.bygg(self.indata([
             {"parti": "kd", "om": "sd", "fraga": "regera", "svar": "oklart",
-             "kallor": ["a"], "not": "öppen"},
+             "kallor": ["a"], "not": "öppen", "grund": "besked"},
             {"parti": "c", "om": "v", "fraga": "regera", "svar": "nej",
-             "kallor": ["b"], "not": ""}]))
+             "kallor": ["b"], "not": "", "grund": "besked"}]))
         c = self.cell(ut, "kd", "sd", "regera")
         self.assertEqual((c["svar"], c["kallor"], c["not"]), ("oklart", [2], "öppen"))
 
@@ -3578,15 +3580,43 @@ class TestRodalinjer(unittest.TestCase):
         # L utesluter V, MP och S i regering; V säger nej till Kristersson
         self.assertEqual({svar("l", om, "regera") for om in ["v", "mp", "s"]}, {"nej"})
         self.assertEqual(svar("v", "m", "samarbeta"), "nej")
-        # Men ett uteblivet besked är inte ett nej: M och KD om V
-        self.assertEqual((svar("m", "v", "regera"), svar("kd", "v", "regera")), ("oklart", "oklart"))
+        # M, KD och SD mot V och MP, och V och MP mot M och KD: nej, men som
+        # bedömning – inget parti har uttalat det. Ett nej som partiet själv
+        # sagt har grunden besked.
+        def grund(p, om, f):
+            return self.cell(ut, p, om, f)["grund"]
+        for f in ("regera", "samarbeta"):
+            for p in ("m", "kd", "sd"):
+                for om in ("v", "mp"):
+                    self.assertEqual(svar(p, om, f), "nej", (p, om, f))
+            for p in ("v", "mp"):
+                for om in ("m", "kd"):
+                    self.assertEqual(svar(p, om, f), "nej", (p, om, f))
+        self.assertEqual(grund("m", "v", "regera"), "bedomning")
+        self.assertEqual(grund("kd", "mp", "samarbeta"), "bedomning")
+        self.assertEqual(grund("v", "m", "samarbeta"), "besked")    # Gabrielsson
+        self.assertEqual(grund("v", "sd", "regera"), "besked")
+        self.assertEqual(grund("c", "v", "regera"), "besked")
+
+    def test_en_bedomning_ar_bara_ett_nej_och_har_alltid_kalla(self):
+        ut = json.loads((ROT / "docs" / "data-rodalinjer.json").read_text(encoding="utf-8"))
+        for c in ut["celler"]:
+            if c["grund"] == "bedomning":
+                self.assertEqual(c["svar"], "nej", c)
+                self.assertTrue(c["kallor"], c)
+            if c["svar"] == "ja":
+                self.assertEqual(c["grund"], "besked", c)
+        for f, a in ut["antal"].items():
+            self.assertEqual(a["bedomning"], len([c for c in ut["celler"]
+                             if c["fraga"] == f and c["grund"] == "bedomning"]))
 
     def test_varje_ja_och_nej_i_de_riktiga_beskeden_har_kalla(self):
         ut = json.loads((ROT / "docs" / "data-rodalinjer.json").read_text(encoding="utf-8"))
         for c in ut["celler"]:
             if c["svar"] != "oklart":
                 self.assertTrue(c["kallor"], c)
-        self.assertEqual(sum(sum(a.values()) for a in ut["antal"].values()), len(ut["celler"]))
+        self.assertEqual(sum(a["ja"] + a["nej"] + a["oklart"] for a in ut["antal"].values()),
+                         len(ut["celler"]))
 
 
 if __name__ == "__main__":

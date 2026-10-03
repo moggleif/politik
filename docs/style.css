@@ -1044,6 +1044,9 @@ tr.rad-markerad > th, tr.rad-markerad > td {
    Svaret bärs av tecken och ord; bakgrunden förstärker bara. */
 
 table.matris td { text-align: center; white-space: nowrap; }
+.matris-bedomning { box-shadow: inset 0 0 0 2px var(--baseline); }
+.matris-dagger { font-weight: 700; margin-left: 0.1em; }
+.teckenforklaring { list-style: none; padding: 0; margin: 0.75rem 0 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
 table.matris th:first-child { white-space: nowrap; }
 .matris-ja { background: #e3eefb; }
 .matris-nej { background: #fbe3e2; }
