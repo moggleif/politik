@@ -1517,9 +1517,12 @@ Hur beskeden lästes:
   på Kristersson som statsminister. Det senare förs in som "samarbeta: nej"
   för V mot M, med noten, och inte som ett nej till att sitta i regering.
 - **Nej med grunden `bedomning` (nej†):** inget parti bland M, KD och SD har
-  hittats utesluta V eller MP, och M har inte uttalat sig om S (SvD-artikeln
-  "Om M får försöka" gick inte att hämta; TT-versionen hos Bohuslänningen
-  utesluter inte S, bara Anderssons budget), och inte heller V och MP utesluta M och KD
+  hittats utesluta V eller MP, och M har bara uttalat sig om S i regeringsfrågan (Kristersson i SvD:
+  en samlingsregering med S och M i täten kommer bara i fråga vid krig eller
+  krigsfara, ett besked med det undantaget). SvD gick inte att hämta, så
+  citatet är inklistrat av projektets ägare. I samarbetsfrågan har M inte
+  sagt något om S, och den rutan är en bedömning. TT-versionen hos
+  Bohuslänningen utesluter inte S, bara Anderssons budget, och inte heller V och MP utesluta M och KD
   (utöver V mot M i samarbetsfrågan och V och MP mot SD, som är besked). På
   uppdrag av projektets ägare står de rutorna som nej, men märkta som en
   bedömning och inte som ett partibesked. Källorna är svaga och säger det
