@@ -93,8 +93,8 @@
    "parti": "v",
    "om": "l",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -137,8 +137,8 @@
    "parti": "s",
    "om": "v",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -146,8 +146,8 @@
    "parti": "s",
    "om": "mp",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -155,8 +155,8 @@
    "parti": "s",
    "om": "c",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -164,8 +164,8 @@
    "parti": "s",
    "om": "l",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -173,8 +173,8 @@
    "parti": "s",
    "om": "kd",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -182,8 +182,8 @@
    "parti": "s",
    "om": "m",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -235,8 +235,8 @@
    "parti": "mp",
    "om": "l",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -313,8 +313,8 @@
    "parti": "c",
    "om": "l",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -333,8 +333,8 @@
    "parti": "c",
    "om": "m",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -443,8 +443,8 @@
    "parti": "kd",
    "om": "s",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -464,8 +464,8 @@
    "parti": "kd",
    "om": "c",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -598,8 +598,8 @@
    "parti": "sd",
    "om": "s",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -619,8 +619,8 @@
    "parti": "sd",
    "om": "c",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -661,18 +661,22 @@
    "parti": "v",
    "om": "s",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
+   "svar": "ja",
+   "grund": "foljer",
+   "kallor": [
+    1
+   ],
    "not": null
   },
   {
    "parti": "v",
    "om": "mp",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
+   "svar": "ja",
+   "grund": "foljer",
+   "kallor": [
+    1
+   ],
    "not": null
   },
   {
@@ -690,8 +694,8 @@
    "parti": "v",
    "om": "l",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -810,35 +814,41 @@
    "parti": "mp",
    "om": "v",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
+   "svar": "ja",
+   "grund": "foljer",
+   "kallor": [
+    1
+   ],
    "not": null
   },
   {
    "parti": "mp",
    "om": "s",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
+   "svar": "ja",
+   "grund": "foljer",
+   "kallor": [
+    1
+   ],
    "not": null
   },
   {
    "parti": "mp",
    "om": "c",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
+   "svar": "ja",
+   "grund": "foljer",
+   "kallor": [
+    1
+   ],
    "not": null
   },
   {
    "parti": "mp",
    "om": "l",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -881,8 +891,8 @@
    "parti": "c",
    "om": "v",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -957,8 +967,8 @@
    "parti": "l",
    "om": "v",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -966,8 +976,8 @@
    "parti": "l",
    "om": "s",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -975,8 +985,8 @@
    "parti": "l",
    "om": "mp",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -984,9 +994,11 @@
    "parti": "l",
    "om": "c",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
+   "svar": "ja",
+   "grund": "foljer",
+   "kallor": [
+    10
+   ],
    "not": null
   },
   {
@@ -1038,8 +1050,8 @@
    "parti": "kd",
    "om": "s",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -1059,8 +1071,8 @@
    "parti": "kd",
    "om": "c",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -1137,9 +1149,12 @@
    "parti": "m",
    "om": "c",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
+   "svar": "ja",
+   "grund": "foljer",
+   "kallor": [
+    14,
+    15
+   ],
    "not": null
   },
   {
@@ -1191,8 +1206,8 @@
    "parti": "sd",
    "om": "s",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -1212,8 +1227,8 @@
    "parti": "sd",
    "om": "c",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
+   "svar": "nej",
+   "grund": "inget_ja",
    "kallor": [],
    "not": null
   },
@@ -1254,15 +1269,19 @@
  "antal": {
   "regera": {
    "ja": 21,
-   "nej": 19,
-   "oklart": 16,
-   "bedomning": 10
+   "nej": 33,
+   "oklart": 2,
+   "bedomning": 10,
+   "inget_ja": 14,
+   "foljer": 0
   },
   "samarbeta": {
-   "ja": 23,
-   "nej": 15,
-   "oklart": 18,
-   "bedomning": 10
+   "ja": 30,
+   "nej": 25,
+   "oklart": 1,
+   "bedomning": 10,
+   "inget_ja": 10,
+   "foljer": 7
   }
  },
  "kallor": [

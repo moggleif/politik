@@ -18,7 +18,7 @@ svar på vardera frågan:
               eller pratar med det andra partiet. SD:s stöd 2022–2026 till
               en regering av M, KD och L är exemplet på ett ja.
 
-**Tre svar:** `ja`, `nej` och `oklart`. Ett `ja` eller `nej` har en av två
+**Svar:** `ja`, `nej` och `oklart`. Ett `ja` eller `nej` har en av två
 grunder, och grunden följer med till sidan:
 
   besked      en källa återger vad partiet självt sagt, för just den
@@ -27,15 +27,27 @@ grunder, och grunden följer med till sidan:
               statsvetares eller liknande källor. Partiet har inte själv
               sagt nej, och sidan märker rutan så
 
-Ett `ja` har alltid grunden `besked`. Allt som
+Ett `ja` har alltid grunden `besked`.
+
+**Inget ja funnet är ett nej.** En ruta utan besked i filen blir `nej` med
+grunden `inget_ja` – ingen källa, och märkt så på sidan. Det är en
+konvention och inte ett påstående om att partiet sagt nej. Enda
+undantaget är de rutor som har ett besked i filen med svaret `oklart`, där
+ett parti faktiskt hållit frågan öppen (KD om SD, M om SD i regering): de
+stannar `oklart`, med sin not och källa.
+
+**Ett ja på att regera följer med till samarbeta.** Ett parti som sitter i
+samma regering som ett annat röstar också ja till den. En samarbeta-ruta
+utan eget besked blir därför `ja` med grunden `foljer`, med regera-rutans
+källor, när regera-rutan är `ja`. Annars skulle regel ett göra V till nej
+mot S i samarbetsfrågan fast V vill sitta i regeringen med S. Allt som
 inte har ett besked i filen blir `oklart` – partiet har inte sagt något vi
 funnit, eller har hållit frågan öppen. Det är inte samma sak som ett nej,
 och sidan ritar det därför som ett eget läge. Ett `oklart` kan ändå ha ett
 besked i filen, med en källa som visar *varför* det är oklart.
 
-**Inget härleds.** Att ett parti vill sitta i regering med ett annat
-räknas inte om till ett svar på samarbetsfrågan, och att S utesluter
-samarbete med SD räknas inte om till något om V. Varje ja och nej bär sina
+**Inget annat härleds.** Att S utesluter samarbete med SD räknas inte om
+till något om V. Varje ja och nej bär sina
 egna källor. Partierna lägger inte samma betydelse i "samarbeta", och
 sidan använder bara den som står ovan.
 
@@ -148,21 +160,25 @@ def bygg(indata):
                 if p == om:
                     continue
                 b = sedda.get((p, om, f))
-                ks = list(b["kallor"]) if b else []
+                r = sedda.get((p, om, "regera"))
+                if b:
+                    svar, grund, ks, nt = b["svar"], b["grund"], list(b["kallor"]), b.get("not") or None
+                elif f == "samarbeta" and r and r["svar"] == "ja":
+                    svar, grund, ks, nt = "ja", "foljer", list(r["kallor"]), None
+                else:
+                    svar, grund, ks, nt = "nej", "inget_ja", [], None
                 for k in ks:
                     nummer.setdefault(k, len(nummer) + 1)
                 celler.append({
-                    "parti": p, "om": om, "fraga": f,
-                    "svar": b["svar"] if b else "oklart",
-                    "grund": b["grund"] if b else None,
-                    "kallor": [nummer[k] for k in ks],
-                    "not": b["not"] if b and b.get("not") else None,
+                    "parti": p, "om": om, "fraga": f, "svar": svar, "grund": grund,
+                    "kallor": [nummer[k] for k in ks], "not": nt,
                 })
-    raknare = {f: dict.fromkeys(SVAR, 0) | {"bedomning": 0} for f in FRAGEKODER}
+    raknare = {f: dict.fromkeys(SVAR, 0) | {"bedomning": 0, "inget_ja": 0, "foljer": 0}
+               for f in FRAGEKODER}
     for c in celler:
         raknare[c["fraga"]][c["svar"]] += 1
-        if c["grund"] == "bedomning":
-            raknare[c["fraga"]]["bedomning"] += 1
+        if c["grund"] in ("bedomning", "inget_ja", "foljer"):
+            raknare[c["fraga"]][c["grund"]] += 1
     return {
         "hamtad": indata["hamtad"],
         "lage": indata["lage"],
@@ -184,7 +200,8 @@ def main():
     UT.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     a = ut["antal"]
     print(f"Skrev {UT.relative_to(ROT)}: " + "; ".join(
-        f"{f}: {a[f]['ja']} ja, {a[f]['nej']} nej (varav {a[f]['bedomning']} bedömning), "
+        f"{f}: {a[f]['ja']} ja (varav {a[f]['foljer']} följer), {a[f]['nej']} nej "
+        f"(varav {a[f]['bedomning']} bedömning, {a[f]['inget_ja']} inget ja), "
         f"{a[f]['oklart']} oklart" for f in a))
 
 

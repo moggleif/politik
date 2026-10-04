@@ -1541,3 +1541,11 @@ Hur beskeden lästes:
   får plats i regeringen. Inget ja hittades för KD mot S, MP eller C (Busch
   har sagt att hon kan tänka sig att välkomna C, men den artikeln var
   bakom betalvägg och rubriken är inte tillräcklig), och inget för SD mot C.
+- **Inget ja funnet är ett nej (grunden `inget_ja`):** på projektägarens
+  uppdrag står en ruta utan besked som nej†, utan källa och märkt så. Det är
+  en konvention och inte ett påstående om att partiet sagt nej. Dessutom
+  följer ett ja på samarbetsfrågan av ett ja på regeringsfrågan (grunden
+  `foljer`, ja‡), eftersom den som sitter i regeringen röstar ja till den.
+  Det som stannar `oklart` är de tre rutor där ett parti uttryckligen hållit
+  frågan öppen: KD om SD i regeringen och i samarbetsfrågan, och M om SD i
+  regeringen (Kristersson 28 september).

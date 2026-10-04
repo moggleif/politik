@@ -52,14 +52,19 @@
   function ruta(c) {
     var p = parti(c.parti), om = parti(c.om);
     var etikett = p.namn + " om " + om.namn + ": " + ORD[c.svar].toLowerCase();
-    var bed = c.grund === "bedomning";
-    if (bed) etikett += " (bedömning, inte ett uttalande från partiet)";
+    var NOT = {
+      bedomning: ["\u2020", "bedömning, inte ett uttalande från partiet"],
+      inget_ja: ["\u2020", "inget ja funnet, partiet har inte uttalat ett nej"],
+      foljer: ["\u2021", "följer av att partiet sitter i samma regering"]
+    };
+    var bed = NOT[c.grund];
+    if (bed) etikett += " (" + bed[1] + ")";
     var html = '<td class="matris-' + esc(c.svar) + (bed ? " matris-bedomning" : "") +
       '" title="' + esc(etikett) + '">' +
       '<span class="matris-tecken" aria-hidden="true">' + TECKEN[c.svar] + "</span> " +
       '<span class="matris-ord">' + ORD[c.svar] + "</span>" +
-      (bed ? '<span class="matris-dagger" aria-hidden="true">\u2020</span>' +
-        '<span class="dold"> (bedömning, inte ett uttalande från partiet)</span>' : "");
+      (bed ? '<span class="matris-dagger" aria-hidden="true">' + bed[0] + "</span>" +
+        '<span class="dold"> (' + esc(bed[1]) + ")</span>" : "");
     if (c.kallor.length) html += " " + fotnoter(c.kallor);
     if (c["not"]) html += '<span class="matris-stjarna" aria-hidden="true">*</span>';
     return html + "</td>";
@@ -104,8 +109,9 @@
     data.fragor.forEach(function (f) {
       var a = data.antal[f.id];
       punkter.push("<strong>" + esc(f.rubrik) + ":</strong> " +
-        talSv(a.ja) + " ja, " + talSv(a.nej) + " nej (varav " + talSv(a.bedomning) +
-        " bedömningar, inte uttalanden) och " +
+        talSv(a.ja) + " ja (varav " + talSv(a.foljer) + " följer av att partiet sitter i " +
+        "regeringen), " + talSv(a.nej) + " nej (varav " +
+        talSv(a.bedomning + a.inget_ja) + " inte uttalade: bedömningar eller inget ja funnet) och " +
         talSv(a.oklart) + " oklara av " +
         talSv(a.ja + a.nej + a.oklart) + " möjliga svar.");
     });

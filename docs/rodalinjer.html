@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Riksdagspartiernas röda linjer i regeringsfrågan</title>
-<meta name="description" content="Vilka riksdagspartier som kan sitta i samma regering och vilka som kan rösta ja till en regering med det andra partiet, i en matris med ja, nej och oklart – varje besked med länkad källa.">
+<meta name="description" content="Vilka riksdagspartier som kan sitta i samma regering och vilka som kan rösta ja till en regering med det andra partiet, i en matris med ja och nej: där inget ja hittats står nej, märkt som inte uttalat. Varje besked har länkad källa.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -97,10 +97,10 @@
       Två frågor om varje par av riksdagspartier: <strong>kan de sitta i
       samma regering</strong>, och <strong>kan de samarbeta</strong>, det
       vill säga rösta ja till och stödja en regering som innehåller det
-      andra partiet &ndash; som SD gjorde under förra mandatperioden. Svaret är <em>ja</em>, <em>nej</em> eller
-      <em>?</em>, där ett frågetecken betyder att beskedet är oklart eller
-      att partiet inte sagt något vi hittat. Varje ja och nej har en
-      länkad källa.
+      andra partiet &ndash; som SD gjorde under förra mandatperioden. Svaret är <em>ja</em> eller <em>nej</em>. Där
+      inget ja hittats står nej, märkt med &dagger; så att det syns att
+      partiet inte själv sagt det. Ett <em>?</em> betyder att partiet hållit
+      frågan öppen.
     </p>
     <p class="meta-rad" id="meta-rad" hidden></p>
   </div>
@@ -120,9 +120,10 @@
 
   <ul class="teckenforklaring">
     <li><span aria-hidden="true">&#10003;</span> <strong>Ja</strong> &ndash; partiet har sagt det</li>
+    <li><span aria-hidden="true">&#10003;&Dagger;</span> <strong>Ja&Dagger;</strong> &ndash; följer av att partiet sitter i samma regering</li>
     <li><span aria-hidden="true">&#10007;</span> <strong>Nej</strong> &ndash; partiet har sagt det</li>
-    <li><span aria-hidden="true">&#10007;&dagger;</span> <strong>Nej&dagger;</strong> &ndash; bedömning, inte ett uttalande</li>
-    <li><span aria-hidden="true">?</span> <strong>Oklart</strong> &ndash; inget besked funnet, inte detsamma som &rdquo;kanske&rdquo;</li>
+    <li><span aria-hidden="true">&#10007;&dagger;</span> <strong>Nej&dagger;</strong> &ndash; inte uttalat: bedömning eller inget ja funnet</li>
+    <li><span aria-hidden="true">?</span> <strong>Oklart</strong> &ndash; partiet har hållit frågan öppen</li>
   </ul>
 
   <section id="sektion-regera" hidden>
@@ -164,31 +165,34 @@
       vill.
     </p>
     <p class="forklaring">
-      <strong>Tre lägen.</strong> <em>Ja</em> och <em>nej</em> (utom
-      <em>nej&dagger;</em>, se nedan) står bara där en källa återger vad
-      partiet sagt för just den frågan och just det partiet. Allt annat
-      är <em>?</em>. Ett frågetecken är inte ett nej: partiet kan ha hållit
-      frågan öppen, eller aldrig ha blivit tillfrågat. Ett frågetecken som
-      har en källa visar varför det är oklart.
+      <strong>Fyra sorters svar.</strong> <em>Ja</em> och <em>nej</em> utan
+      märke återger vad partiet självt sagt, för just den frågan och just det
+      partiet, med källan länkad. Resten är märkt. <em>Nej&dagger;</em> är ett
+      nej som inget parti uttalat, av två skäl: <strong>inget ja har
+      hittats</strong>, eller så bygger det på en <strong>bedömning</strong>.
+      <em>Ja&Dagger;</em> är ett ja på samarbetsfrågan som följer av att
+      partiet sitter i samma regering som det andra &ndash; den som sitter i
+      regeringen röstar också ja till den. <em>?</em> är kvar bara där ett
+      parti faktiskt hållit frågan öppen, som KD om SD i regeringen.
     </p>
     <p class="forklaring">
-      <strong>Nej&dagger; är en bedömning.</strong> För M, KD och SD mot V
-      och MP, M mot S (samarbete), och V och MP mot M och KD, har inget parti uttalat ett nej.
-      Rutorna står som nej &ndash; markerade med &dagger; &ndash; på
-      statsvetares bedömning att blockgränsen är svår att korsa. Källorna
-      är en intervju från 2018 om storkoalitioner och en från valet 2022
-      om blockpolitiken: de säger att det är osannolikt, inte att partierna
-      sagt nej, och de handlar inte om något visst partipar. Bedömningen är
-      därför en annan sort än ett besked och ritas som en annan sort.
+      <strong>Inget ja funnet är ett nej.</strong> Det är sidans regel och
+      inte ett påstående om vad partiet sagt. En ruta utan besked står som
+      nej&dagger; i stället för som ett frågetecken, och det betyder att jag
+      inte hittat något ja, inte att jag hittat ett nej. För M, KD och SD mot
+      V och MP, M mot S i samarbetsfrågan, och V och MP mot M och KD bygger
+      nejet i stället på statsvetares bedömning att blockgränsen är svår att
+      korsa. Källorna är en intervju från 2018 om storkoalitioner och en från
+      valet 2022 om blockpolitiken: de säger att det är osannolikt, inte att
+      partierna sagt nej, och de handlar inte om något visst partipar.
     </p>
     <p class="forklaring">
-      <strong>Inget annat räknas om.</strong> Att ett parti vill regera med ett
-      annat läses inte som ett ja på samarbetsfrågan, och ett besked om SD
-      läses inte som ett besked om något annat parti. Partierna lägger inte
-      samma betydelse i ordet &rdquo;samarbeta&rdquo;. Sidan använder bara
-      den som står ovanför matrisen: att rösta ja till och stödja en regering
-      som innehåller partiet. Ett besked om att &rdquo;kunna samarbeta&rdquo;
-      visas som det partiet sagt, med den formuleringen i källan.
+      <strong>Samarbeta.</strong> Partierna lägger inte samma betydelse i ordet
+      &rdquo;samarbeta&rdquo;. Sidan använder bara den som står ovanför
+      matrisen: att rösta ja till och stödja en regering som innehåller
+      partiet. Ett besked om att &rdquo;kunna samarbeta&rdquo; visas som det
+      partiet sagt, med den formuleringen i källan, och ett besked om SD läses
+      inte som ett besked om något annat parti.
     </p>
     <p class="forklaring">
       <strong>Beskeden är dagsfärska och kan ändras.</strong> De flesta är
