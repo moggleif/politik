@@ -3574,6 +3574,10 @@ class TestRodalinjer(unittest.TestCase):
         # Tidö: SD stödde, och sitter nu i en gemensam planerad regering
         self.assertEqual(svar("m", "sd", "samarbeta"), "ja")
         self.assertEqual(svar("kd", "sd", "regera"), "oklart")
+        # Kristersson 28 september: inte givet att SD får plats i regeringen,
+        # och han vill försöka med fem partier som inkluderar C
+        self.assertEqual(svar("m", "sd", "regera"), "oklart")
+        self.assertEqual((svar("m", "c", "regera"), svar("l", "c", "regera")), ("ja", "ja"))
         # Tidö var SD:s stöd till en regering utan SD: KD:s ja till en
         # regering med SD i har ingen källa
         self.assertEqual(svar("kd", "sd", "samarbeta"), "oklart")

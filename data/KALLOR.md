@@ -1531,3 +1531,13 @@ Hur beskeden lästes:
   block. Ingen av dem handlar om något visst partipar och ingen säger att
   partierna sagt nej. Ledarsidors åsikter räknas inte. Ersätts en bedömning
   av ett uttalande ska rutan få grunden `besked` och uttalandet som källa.
+
+- **Sökning efter fler ja bland Tidöpartierna (4 oktober 2026):** två nya ja,
+  M mot C och L mot C i regeringsfrågan (Kristersson 28 september om fem
+  partier; Mohamsson 14 september, "min famn är alltid öppen"). Båda
+  bygger delvis på Hurbra, en sammanställning, och ska ersättas med
+  originalen. M mot SD i regeringsfrågan gick samtidigt från ja till
+  oklart, eftersom Kristersson 28 september sa att det inte är givet att SD
+  får plats i regeringen. Inget ja hittades för KD mot S, MP eller C (Busch
+  har sagt att hon kan tänka sig att välkomna C, men den artikeln var
+  bakom betalvägg och rubriken är inte tillräcklig), och inget för SD mot C.

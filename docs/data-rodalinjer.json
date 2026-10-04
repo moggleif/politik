@@ -387,10 +387,12 @@
    "parti": "l",
    "om": "c",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
-   "not": null
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    10
+   ],
+   "not": "Mohamsson: \"Min famn är alltid öppen\" på frågan om L gett upp att nå C. L avvisar samtidigt C:s egen regering."
   },
   {
    "parti": "l",
@@ -421,7 +423,7 @@
    "svar": "ja",
    "grund": "besked",
    "kallor": [
-    10
+    11
    ],
    "not": null
   },
@@ -496,7 +498,7 @@
    "svar": "oklart",
    "grund": "besked",
    "kallor": [
-    11
+    12
    ],
    "not": "Frågan har hållits öppen: Busch har inte utlovat ministerposter åt någon."
   },
@@ -519,7 +521,7 @@
    "svar": "nej",
    "grund": "besked",
    "kallor": [
-    12
+    13
    ],
    "not": "Utom vid krig eller krigsfara: en samlingsregering med S och M i täten kommer enligt Kristersson bara i fråga då."
   },
@@ -539,10 +541,13 @@
    "parti": "m",
    "om": "c",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
-   "not": null
+   "svar": "ja",
+   "grund": "besked",
+   "kallor": [
+    14,
+    15
+   ],
+   "not": "Kristersson vill försöka med fem partier, bland dem C, om Andersson misslyckas. Ingen färdig regering är presenterad."
   },
   {
    "parti": "m",
@@ -551,7 +556,7 @@
    "svar": "ja",
    "grund": "besked",
    "kallor": [
-    13
+    16
    ],
    "not": null
   },
@@ -562,7 +567,7 @@
    "svar": "ja",
    "grund": "besked",
    "kallor": [
-    13
+    16
    ],
    "not": null
   },
@@ -570,12 +575,12 @@
    "parti": "m",
    "om": "sd",
    "fraga": "regera",
-   "svar": "ja",
+   "svar": "oklart",
    "grund": "besked",
    "kallor": [
-    13
+    14
    ],
-   "not": null
+   "not": "Kristersson 28 september: det är inte givet att SD får plats i regeringen. Det tidigare beskedet (1 april) var att SD skulle sitta i regeringen."
   },
   {
    "parti": "sd",
@@ -626,7 +631,7 @@
    "svar": "ja",
    "grund": "besked",
    "kallor": [
-    13
+    16
    ],
    "not": null
   },
@@ -637,7 +642,7 @@
    "svar": "ja",
    "grund": "besked",
    "kallor": [
-    13
+    16
    ],
    "not": null
   },
@@ -648,7 +653,7 @@
    "svar": "ja",
    "grund": "besked",
    "kallor": [
-    13
+    16
    ],
    "not": null
   },
@@ -709,7 +714,7 @@
    "svar": "nej",
    "grund": "besked",
    "kallor": [
-    14
+    17
    ],
    "not": "Gäller att rösta på Kristersson som statsminister; V har inte uttalat sig om att sitta i regering med M."
   },
@@ -1013,7 +1018,7 @@
    "svar": "ja",
    "grund": "besked",
    "kallor": [
-    10
+    11
    ],
    "not": null
   },
@@ -1088,7 +1093,7 @@
    "svar": "oklart",
    "grund": "besked",
    "kallor": [
-    11
+    12
    ],
    "not": "KD har inte sagt att partiet röstar ja till en regering som innehåller SD. Tidöstödet var SD:s stöd till en regering utan SD."
   },
@@ -1248,9 +1253,9 @@
  ],
  "antal": {
   "regera": {
-   "ja": 20,
+   "ja": 21,
    "nej": 19,
-   "oklart": 17,
+   "oklart": 16,
    "bedomning": 10
   },
   "samarbeta": {
@@ -1335,6 +1340,14 @@
   },
   {
    "nr": 10,
+   "rubrik": "Tidöpartierna efter valet 2026",
+   "utgivare": "Hurbra (nyhetssammanställning)",
+   "url": "https://hurbra.se/tidopartierna-efter-valet-2026/",
+   "datum": "2026-09-14",
+   "anmarkning": "Sammanställning. På frågan om L gett upp att nå Centerpartiet svarar Simona Mohamsson: \"Min famn är alltid öppen.\" Hon avvisade samtidigt (9 september) att gå med i Centerpartiets egen regering."
+  },
+  {
+   "nr": 11,
    "rubrik": "Liberalerna vänder: Säger ja till SD i regering",
    "utgivare": "Altinget",
    "url": "https://www.altinget.se/artikel/liberalerna-vander-sager-ja-till-sd-i-regering",
@@ -1342,7 +1355,7 @@
    "anmarkning": "L och SD överens om hur de ska sitta i regering tillsammans (Sverigelöftet, 15 punkter)."
   },
   {
-   "nr": 11,
+   "nr": 12,
    "rubrik": "Busch: Inte givet att SD får ministerposter",
    "utgivare": "Placera (TT-telegram)",
    "url": "https://www.placera.se/telegram/politik-busch-tycker-ej-det-ar-givet-att-sd-far-ministerposter-20260908",
@@ -1350,7 +1363,7 @@
    "anmarkning": "KD:s Ebba Busch: förhandlingarna börjar på valdagen, en blågul regering kan ha mellan ett och fyra partier och inga ministerposter är utlovade."
   },
   {
-   "nr": 12,
+   "nr": 13,
    "rubrik": "Om M får försöka: inte givet med SD i regering",
    "utgivare": "Svenska Dagbladet (Ulf Kristersson)",
    "url": "https://www.svd.se/a/3pvPl9/om-m-far-forsoka-inte-givet-med-sd-i-regering",
@@ -1358,7 +1371,23 @@
    "anmarkning": "Citatet är inklistrat av projektets ägare; SvD gick inte att hämta härifrån. Kristersson: en samlingsregering med S och M i täten kommer bara i fråga vid krig eller krigsfara, och det sade han också till Magdalena Andersson när hon bad att få tala med honom. Datumet är det som gäller TT-versionen av samma artikel."
   },
   {
-   "nr": 13,
+   "nr": 14,
+   "rubrik": "Om M får försöka: inte givet med SD i regering",
+   "utgivare": "GP (TT, Ulf Kristersson)",
+   "url": "https://www.gp.se/nyheter/sverige/om-m-far-forsoka-inte-givet-med-sd-i-regering.3acf6b14-806b-5413-a38a-e11cb745499c",
+   "datum": "2026-09-28",
+   "anmarkning": "Kristersson vill, om Andersson misslyckas, försöka med fem partier kring en gemensam ekonomisk politik. Han säger också: \"Det är inte givet att Sverigedemokraterna då får plats i regeringen.\" Artikeln namnger inte alla fem partierna; det gör Hurbra, se nästa källa."
+  },
+  {
+   "nr": 15,
+   "rubrik": "Kristersson om Tidö och SD: Ingen given regeringsplats",
+   "utgivare": "Hurbra (nyhetssammanställning)",
+   "url": "https://hurbra.se/kristersson-tido-sd-regering-28-september-2026/",
+   "datum": "2026-09-28",
+   "anmarkning": "Sammanställning som anger att Kristersson med fem partier menar M, SD, C, KD och L, och att han vill försöka samla dem kring ekonomisk politik men inte har presenterat en färdig fempartiregering."
+  },
+  {
+   "nr": 16,
    "rubrik": "Uppgifter: Moderaterna släpper in SD i regering efter valet",
    "utgivare": "TV4",
    "url": "https://www.tv4.se/artikel/3YyULIehxT1GocPqU1rAye/uppgifter-moderaterna-slaepper-in-sd-i-regering-efter-valet",
@@ -1366,7 +1395,7 @@
    "anmarkning": "Rubriken säger uppgifter, men texten återger Kristerssons och Åkessons gemensamma pressträff: en fyrpartiregering med SD i regeringen."
   },
   {
-   "nr": 14,
+   "nr": 17,
    "rubrik": "V slår tillbaka: Kommer aldrig rösta på Kristersson",
    "utgivare": "Corren (TT)",
    "url": "https://www.corren.se/nyheter/inrikes/politik/artikel/v-slar-tillbaka-kommer-aldrig-rosta-pa-kristersson/lqpvp48r",

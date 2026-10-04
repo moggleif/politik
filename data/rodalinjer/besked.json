@@ -113,6 +113,30 @@
    "url": "https://www.svd.se/a/3pvPl9/om-m-far-forsoka-inte-givet-med-sd-i-regering",
    "datum": "2026-09-28",
    "anmarkning": "Citatet är inklistrat av projektets ägare; SvD gick inte att hämta härifrån. Kristersson: en samlingsregering med S och M i täten kommer bara i fråga vid krig eller krigsfara, och det sade han också till Magdalena Andersson när hon bad att få tala med honom. Datumet är det som gäller TT-versionen av samma artikel."
+  },
+  {
+   "id": "k15",
+   "rubrik": "Om M får försöka: inte givet med SD i regering",
+   "utgivare": "GP (TT, Ulf Kristersson)",
+   "url": "https://www.gp.se/nyheter/sverige/om-m-far-forsoka-inte-givet-med-sd-i-regering.3acf6b14-806b-5413-a38a-e11cb745499c",
+   "datum": "2026-09-28",
+   "anmarkning": "Kristersson vill, om Andersson misslyckas, försöka med fem partier kring en gemensam ekonomisk politik. Han säger också: \"Det är inte givet att Sverigedemokraterna då får plats i regeringen.\" Artikeln namnger inte alla fem partierna; det gör Hurbra, se nästa källa."
+  },
+  {
+   "id": "k16",
+   "rubrik": "Kristersson om Tidö och SD: Ingen given regeringsplats",
+   "utgivare": "Hurbra (nyhetssammanställning)",
+   "url": "https://hurbra.se/kristersson-tido-sd-regering-28-september-2026/",
+   "datum": "2026-09-28",
+   "anmarkning": "Sammanställning som anger att Kristersson med fem partier menar M, SD, C, KD och L, och att han vill försöka samla dem kring ekonomisk politik men inte har presenterat en färdig fempartiregering."
+  },
+  {
+   "id": "k17",
+   "rubrik": "Tidöpartierna efter valet 2026",
+   "utgivare": "Hurbra (nyhetssammanställning)",
+   "url": "https://hurbra.se/tidopartierna-efter-valet-2026/",
+   "datum": "2026-09-14",
+   "anmarkning": "Sammanställning. På frågan om L gett upp att nå Centerpartiet svarar Simona Mohamsson: \"Min famn är alltid öppen.\" Hon avvisade samtidigt (9 september) att gå med i Centerpartiets egen regering."
   }
  ],
  "besked": [
@@ -541,11 +565,11 @@
    "parti": "m",
    "om": "sd",
    "fraga": "regera",
-   "svar": "ja",
+   "svar": "oklart",
    "kallor": [
-    "k7"
+    "k15"
    ],
-   "not": "",
+   "not": "Kristersson 28 september: det är inte givet att SD får plats i regeringen. Det tidigare beskedet (1 april) var att SD skulle sitta i regeringen.",
    "grund": "besked"
   },
   {
@@ -1007,6 +1031,29 @@
    ],
    "not": "",
    "grund": "bedomning"
+  },
+  {
+   "parti": "m",
+   "om": "c",
+   "fraga": "regera",
+   "svar": "ja",
+   "kallor": [
+    "k15",
+    "k16"
+   ],
+   "not": "Kristersson vill försöka med fem partier, bland dem C, om Andersson misslyckas. Ingen färdig regering är presenterad.",
+   "grund": "besked"
+  },
+  {
+   "parti": "l",
+   "om": "c",
+   "fraga": "regera",
+   "svar": "ja",
+   "kallor": [
+    "k17"
+   ],
+   "not": "Mohamsson: \"Min famn är alltid öppen\" på frågan om L gett upp att nå C. L avvisar samtidigt C:s egen regering.",
+   "grund": "besked"
   }
  ]
 }
