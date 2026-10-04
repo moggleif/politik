@@ -516,9 +516,12 @@
    "parti": "m",
    "om": "s",
    "fraga": "regera",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -1106,9 +1109,12 @@
    "parti": "m",
    "om": "s",
    "fraga": "samarbeta",
-   "svar": "oklart",
-   "grund": null,
-   "kallor": [],
+   "svar": "nej",
+   "grund": "bedomning",
+   "kallor": [
+    3,
+    4
+   ],
    "not": null
   },
   {
@@ -1244,15 +1250,15 @@
  "antal": {
   "regera": {
    "ja": 20,
-   "nej": 18,
-   "oklart": 18,
-   "bedomning": 10
+   "nej": 19,
+   "oklart": 17,
+   "bedomning": 11
   },
   "samarbeta": {
    "ja": 23,
-   "nej": 14,
-   "oklart": 19,
-   "bedomning": 9
+   "nej": 15,
+   "oklart": 18,
+   "bedomning": 10
   }
  },
  "kallor": [

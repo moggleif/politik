@@ -315,7 +315,7 @@ inte vad de gör.
   partiet sagt för just den frågan och just det partiet, och källan länkas
   i rutan. Allt annat är ?, som alltså betyder oklart eller inget besked
   funnet &ndash; inte nej. Undantaget är **nej&dagger;**: M, KD och SD mot V
-  och MP, och V och MP mot M och KD, där inget parti uttalat ett nej. Där
+  och MP, M mot S, och V och MP mot M och KD, där inget parti uttalat ett nej. Där
   står nej på statsvetares bedömning att blockgränsen är svår att korsa
   (Oscarsson 2018, Bjereld 2022), och rutorna är märkta med &dagger; och en
   egen ram. Bedömningen är en annan sort än ett besked, och byggskriptet

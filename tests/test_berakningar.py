@@ -3592,6 +3592,8 @@ class TestRodalinjer(unittest.TestCase):
             for p in ("v", "mp"):
                 for om in ("m", "kd"):
                     self.assertEqual(svar(p, om, f), "nej", (p, om, f))
+        self.assertEqual((svar("m", "s", "regera"), svar("m", "s", "samarbeta")), ("nej", "nej"))
+        self.assertEqual(grund("m", "s", "regera"), "bedomning")
         self.assertEqual(grund("m", "v", "regera"), "bedomning")
         self.assertEqual(grund("kd", "mp", "samarbeta"), "bedomning")
         self.assertEqual(grund("v", "m", "samarbeta"), "besked")    # Gabrielsson
