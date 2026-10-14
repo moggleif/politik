@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Hur träffsäkra är prognoserna för 6–15-åringarna i Kungsbacka?</title>
+<meta name="description" content="Jämförelse av Kungsbacka kommuns prognoser för åldersgruppen 6–15 år, förskoleklass och grundskola, med det faktiska utfallet enligt SCB.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-datafil="data-6-15.json" data-enhet="barn" data-enhet-lang="Antal 6–15-åringar" data-jamforfil="data.json" data-jamforserie="hela befolkningen">
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+<nav class="toppnav" aria-label="Webbplatsens sidor">
+  <div class="toppnav-inre">
+    <a class="markesnamn" href="index.html">Kungsbacka i siffror</a>
+    <ul class="navrad">
+      <li class="navpost">
+        <details class="navmeny aktuell">
+          <summary>Befolkning</summary>
+          <ul class="navpanel">
+            <li><a href="befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="barn-och-unga.html">0–15 år</a></li>
+            <li><a href="grundskolealdern.html" aria-current="page">6–15 år</a></li>
+            <li><a href="gymnasiealdern.html">16–19 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Grundskolan</summary>
+          <ul class="navpanel">
+            <li><a href="grundskolor.html">Skola för skola i nian</a></li>
+            <li><a href="amnesbetyg.html">Betyg per ämne i nian</a></li>
+            <li><a href="kostnad-per-elev.html">Kostnad per elev</a></li>
+            <li><a href="resurser-till-skolan.html">Resurser mot referenskostnad</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Gymnasiet</summary>
+          <ul class="navpanel">
+            <li><a href="platser.html">Platser på programmen</a></li>
+            <li><a href="meritvarden.html">Meritvärden vid antagningen</a></li>
+            <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a></li>
+            <li><a href="antagning-till-examen.html">Från antagning till examen</a></li>
+            <li><a href="nian-till-gymnasiet.html">Från nian till gymnasiet</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Valen</summary>
+          <ul class="navpanel">
+            <li><a href="fortidsrostning.html">Förtidsröstningen 2026</a></li>
+            <li><a href="valresultat.html">Valresultat per distrikt</a></li>
+            <li><a href="rodalinjer.html">Röda linjer i regeringsfrågan</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Elevenkäter</summary>
+          <ul class="navpanel">
+            <li><a href="enkater.html">Skola för skola</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Kommunfullmäktige</summary>
+          <ul class="navpanel">
+            <li><a href="fullmaktige.html">Inspelade möten</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Varberg</summary>
+          <ul class="navpanel">
+            <li><a href="varberg-befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="varberg-barn-och-unga.html">0–15 år</a></li>
+            <li><a href="varberg-gymnasiealdern.html">16–18 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost"><a href="metod.html">Metod</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="sidhuvud-inre">
+    <h1>Hur träffsäkra är prognoserna för 6&ndash;15-åringarna?</h1>
+    <p class="ingress">
+      Sex- till femtonåringarna är åldrarna för förskoleklass och
+      grundskola. Antalet är ett av underlagen när kommunen planerar
+      skolplatser &ndash; men inte hela svaret: en del av barnen går i
+      fristående skolor eller i skolor i andra kommuner. Den här sidan
+      visar vad Kungsbacka kommuns prognoser sa om just den åldersgruppen
+      &ndash; och hur det faktiskt blev, enligt Statistiska centralbyrån
+      (SCB).
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil
+      och uppdateras när datat uppdateras.</p>
+  </section>
+
+  <div id="not-argangar" hidden></div>
+
+  <section id="sektion-malar" hidden>
+    <h2>Vad sa prognoserna om ett visst år?</h2>
+    <p class="forklaring">
+      Välj ett år. Diagrammet visar hur mycket varje års prognos räknade fel
+      för just det året. En stapel åt höger betyder att prognosen trodde på
+      <em>fler</em> barn än det blev. En stapel åt vänster betyder att
+      prognosen trodde på <em>färre</em>.
+    </p>
+    <div class="valj-ar">
+      <label for="ar-valjare">Visa året:</label>
+      <select id="ar-valjare"></select>
+    </div>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-malar" aria-label="Diagram: prognosernas avvikelse för valt år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-malar"></p>
+    </div>
+    <div class="slutsats" id="slutsats-malar"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-malar"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-avstand" hidden>
+    <h2>Hur stora har felen varit vid olika avstånd i tiden?</h2>
+    <p class="forklaring">
+      Här har vi räknat ihop alla prognoser. Diagrammet visar hur stort felet
+      i genomsnitt har varit, grupperat efter hur många kalenderår i förväg
+      prognosen gjordes. Felet mäts i procent av det faktiska antalet
+      6&ndash;15-åringar.
+    </p>
+    <p class="forklaring">
+      Diagrammet beskriver hur felen sett ut vid olika kalenderårsavstånd i
+      det historiska materialet. Det identifierar inte hur mycket större fel
+      som orsakas av en längre prognoshorisont. Grupperna innehåller olika
+      prognosårgångar &ndash; ett långt avstånd kan bara mätas för de äldsta
+      prognoserna &ndash; och årgångarna skiljer sig också åt i prognoslängd
+      och i vilka målår de träffar.
+      Vilka årgångar som ligger bakom varje stapel står i tabellen.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-avstand" aria-label="Diagram: genomsnittligt absolut prognosfel per antal år i förväg" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-avstand"></p>
+    </div>
+    <div class="slutsats" id="slutsats-avstand"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-avstand"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-skevhet" hidden>
+    <h2>Är felen slumpmässiga &ndash; eller systematiska?</h2>
+    <p class="forklaring">
+      Föregående diagram visar hur <em>stora</em> felen varit. Det här visar åt
+      vilket <em>håll</em> de lutar: fel som växlar tecken mellan årgångarna
+      tar ut varandra i genomsnittet, medan fel som gång på gång drar åt
+      samma håll ligger kvar som ett riktat genomsnitt. Vad ett riktat fel
+      beror på &ndash; och om modellen går att justera för det &ndash;
+      framgår inte av de här siffrorna.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-skevhet" aria-label="Diagram: genomsnittligt fel med riktning, per antal år i förväg" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-skevhet"></p>
+    </div>
+    <div class="slutsats" id="slutsats-skevhet"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-skevhet"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-spagetti" hidden>
+    <h2>Alla prognoser i en bild</h2>
+    <p class="forklaring">
+      Den svarta linjen visar hur antalet 6&ndash;15-åringar faktiskt har
+      utvecklats. Varje blå linje är en av kommunens årliga prognoser &ndash;
+      ju mörkare linje, desto senare är prognosen gjord. Den orange linjen är
+      kohortframskrivningen från <a href="#sektion-kohort">avsnittet längst
+      ned</a>, som räcker några år längre fram än prognoserna. Peka på en linje för att se vilken det är.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-spagetti" aria-label="Diagram: faktiskt antal 6–15-åringar och alla prognoser" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-spagetti"></p>
+    </div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-spagetti"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-utfall" hidden>
+    <h2>Samma bild, inzoomad på åren vi har facit för</h2>
+    <p class="forklaring">
+      Samma linjer som ovan, men bara fram till sista året med känt utfall.
+      I diagrammet ovanför måste skalan rymma prognoserna ända till 2050,
+      vilket trycker ihop kurvorna. Här syns i detalj hur nära prognoserna
+      låg antalet 6&ndash;15-åringar år för år.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-utfall" aria-label="Diagram: prognoserna mot utfallet, inzoomat" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-utfall"></p>
+    </div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-utfall"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kohort" hidden>
+    <h2>Vad som redan är fött</h2>
+    <p class="forklaring">
+      De barn som bor i Kungsbacka i dag blir ett år äldre varje år. Antalet
+      6&ndash;15-åringar om k år är därför helt enkelt summan av dagens
+      6&nbsp;&minus;&nbsp;k till 15&nbsp;&minus;&nbsp;k-åringar &ndash; en
+      ren <strong>kohortframskrivning</strong> ur SCB:s faktiska siffror per
+      enskild ålder. Den innehåller ingen modell och inga födelsetal, men
+      den är inte antagandefri: att bära varje kohort rakt fram
+      förutsätter att nettoflyttningen är noll och att ingen faller bort.
+      Det är ett enkelt och genomskådligt antagande &ndash; inte
+      frånvaron av ett. Den <em>orange</em> linjen är den
+      framskrivningen; den blå är kommunens senaste prognos.
+      Framskrivningen räcker sex år fram: längre fram ingår barn som ännu
+      inte är födda.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kohort" aria-label="Diagram: faktiskt utfall, kohortframskrivning och kommunens senaste prognos för antalet 6–15-åringar" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kohort"></p>
+    </div>
+    <div id="not-kohort" hidden></div>
+    <div class="slutsats" id="slutsats-kohort"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kohort"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kohortalla" hidden>
+    <h2>En framskrivning per år &ndash; alla i samma bild</h2>
+    <p class="forklaring">
+      Kommunen gör en ny prognos varje år. Kohortmodellen kan göra
+      detsamma: varje årsskifte ger nya åldersklasser att skriva fram ur.
+      Här är alla årgångar &ndash; ju mörkare orange, desto senare gjord.
+      Diagrammet innehåller <em>bara</em> framskrivningar; kommunens
+      prognoser ligger i <a href="#sektion-spagetti">sitt eget diagram</a>,
+      eftersom två linjeknippen i samma bild inte går att skilja åt.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kohortalla" aria-label="Diagram: en kohortframskrivning per basår, tillsammans med det faktiska utfallet" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kohortalla"></p>
+    </div>
+    <div class="slutsats" id="slutsats-kohortalla"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kohortalla"></table></div>
+    </details>
+  </section>
+
+
+
+
+  <section id="sektion-kohortfel" hidden>
+    <h2>Kommunens prognos och framskrivningen vid samma horisont</h2>
+    <p class="forklaring">
+      Båda går att pröva mot facit: utgå från ett år där utfallet är känt,
+      räkna fram, och jämför. Diagrammet ställer dem mot varandra vid
+      <em>samma</em> horisont, så att de mäts på samma sak.
+      Framskrivningen får samma utgångspunkt som kommunen hade när
+      prognosen gjordes &ndash; folkmängden vid det senast passerade
+      årsskiftet.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-kohortfel" aria-label="Diagram: genomsnittligt fel för kommunens prognos och för kohortframskrivningen, per antal år i förväg" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-kohortfel"></p>
+    </div>
+    <div class="slutsats" id="slutsats-kohortfel"></div>
+    <details>
+      <summary>Visa siffrorna som tabell</summary>
+      <div class="tabell-rull"><table id="tabell-kohortfel"></table></div>
+    </details>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Alla siffror på den här sidan kommer från kommunens egna prognosrapporter
+      och från SCB:s officiella befolkningsstatistik. Här kan du läsa
+      rapporterna själv.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om">
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      Siffrorna är hämtade ur åldersgruppstabellen i varje prognosrapport.
+      Ingen rapport redovisar 6&ndash;15 år som en egen rad, och
+      årgångarna delar in åldrarna olika: kommunbudgetarna i 6&ndash;12 och
+      13&ndash;15 år, Sweco-rapporten 2021 i 6&ndash;9, 10&ndash;12 och
+      13&ndash;15 år, rapporterna från 2022 och framåt i 6, 7&ndash;9,
+      10&ndash;12 och 13&ndash;15 år. Raderna summeras här till 6&ndash;15
+      år; vilka rader som summerats står vid varje rapport i källistan.
+      Utfallet är SCB:s folkmängd i åldrarna 6&ndash;15 år den 31 december.
+    </p>
+    <p class="forklaring">
+      Rapporterna innehåller också en prognos per delområde, till exempel
+      Onsala, men för skolåldrarna bara som diagram utan utskrivna tal.
+      Därför finns delområdena inte med här.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av Kungsbacka kommun. Alla
+      beräkningar är öppna: källkoden och alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Hittar du ett fel? Lämna gärna en rättelse där.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer class="sidfot">
+  <div class="sidfot-inre">
+    <nav class="sidfot-nav" aria-label="Om webbplatsen">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="metod.html">Metod och källor</a></li>
+        <li><a href="https://github.com/moggleif/politik">Källkod och data på GitHub</a></li>
+        <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
+      </ul>
+    </nav>
+    <p class="sidfot-data">Data: Kungsbacka kommuns befolkningsprognoser samt SCB:s befolkningsstatistik.</p>
+    <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="kohort.js"></script>
+<script src="app.js"></script>
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

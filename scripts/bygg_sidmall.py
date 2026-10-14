@@ -32,6 +32,7 @@ MENY = [
     ("Befolkning", [
         ("befolkningsprognos.html", "Hela befolkningen"),
         ("barn-och-unga.html", "0–15 år"),
+        ("grundskolealdern.html", "6–15 år"),
         ("gymnasiealdern.html", "16–19 år"),
     ]),
     ("Grundskolan", [

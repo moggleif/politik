@@ -25,7 +25,8 @@ const DOCS = path.join(__dirname, "..", "docs");
 /* Sidor med diagram och tabeller; metod.html och index.html är rena
    textsidor (startsidans fakta fylls i men ritar inga diagram). */
 const DIAGRAMSIDOR = [
-  "befolkningsprognos.html", "gymnasiealdern.html", "barn-och-unga.html",
+  "befolkningsprognos.html", "gymnasiealdern.html", "grundskolealdern.html",
+  "barn-och-unga.html",
   "varberg-befolkningsprognos.html", "varberg-gymnasiealdern.html",
   "varberg-barn-och-unga.html",
   "amnesbetyg.html", "grundskolor.html", "enkater.html",

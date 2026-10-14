@@ -54,10 +54,13 @@ Siffrorna är dubbelkontrollerade mot kommunens egna årsredovisningar, som
 anger exakt samma folkmängd (2021: 85 301, 2022: 85 801, 2023: 85 653,
 2024: 85 792, 2025: 86 332).
 
-Två åldersgrupper hämtas vid sidan av totalen, båda summerade ur SCB:s
-ettårsklasser: **16–19 år** (gymnasieåldern) och **0–15 år** (förskole- och
-grundskoleåldern). 0–15 hämtas medvetet som en enda grupp och bryts inte ned
-på förskole-, låg-, mellan- och högstadieålder.
+Tre åldersgrupper hämtas vid sidan av totalen, alla summerade ur SCB:s
+ettårsklasser: **16–19 år** (gymnasieåldern), **0–15 år** (förskole- och
+grundskoleåldern) och **6–15 år** (förskoleklass och grundskola). 0–15
+hämtas medvetet som en enda grupp och bryts inte ned på förskole-, låg-,
+mellan- och högstadieålder. 6–15 år är jämförelsegruppen för
+prognossidan `grundskolealdern.html`: det är den grupp kommunens
+prognosrapporter går att summera till i alla årgångar.
 
 Sidan `barn-och-unga.html` bygger enbart på det här utfallet. Den innehåller
 inga prognossiffror alls, och ett test i `tests/` stämmer av att ordet
@@ -409,6 +412,31 @@ kommunledningskontoret i april 2016 – alltså internt. Först 2021 anlitades
 konsult (Sweco). Det förklarar varför inga fristående rapporter
 publicerades före hösten 2020: prognosen var ett internt planeringsunderlag
 som redovisades i budgeten.
+
+## Åldersgruppen 6–15 år (förskoleklass och grundskola)
+
+Utfallet hämtas från samma SCB-tabell, summerat över ettårsklasserna
+6–15. Ingen rapport redovisar 6–15 år som en rad, så prognosfilerna
+återger raderna så som de står i varje rapport, och `build_data.py`
+summerar dem:
+
+| Rapporter | Rader | Tabell |
+|---|---|---|
+| Kommunbudgetarna (2015–2020, 2023) | 6–12, 13–15 | Befolkningsprognosen i budgeten |
+| Sweco 2021 | 6–9, 10–12, 13–15 | Folkmängd: planeringsåldersklasser |
+| 2022, 2024–2026 | 6, 7–9, 10–12, 13–15 | Antal per åldersgrupp |
+
+Raderna lästes med `extrahera_budget.py` och `extrahera_prognos.py`, för
+samma år som 16–19-raderna (som lästes om och stämde exakt med de
+befintliga). Alla tolv årgångar kan därför vara med.
+
+Kontroll mot SCB av rapporternas första kolumn, som är utfall: raderna
+summerade till 6–15 år stämmer **exakt** i alla tolv årgångar (till
+exempel 2026 års rapport, utfallsår 2025: 11 564 i båda).
+
+Delområdesprognosen (bland annat Onsala) redovisar skolåldrarna 0–5,
+6–9 och 10–15 år bara i diagram, utan utskrivna tal. Den finns därför
+inte med.
 
 ## Åldersgruppen 16–19 år (gymnasieåldern)
 

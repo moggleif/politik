@@ -19,6 +19,14 @@ prognosrapporter och jämförs med den faktiska folkmängden enligt SCB:s
 officiella befolkningsstatistik.
 
 - [Hela befolkningen](https://moggleif.github.io/politik/befolkningsprognos.html)
+- [6–15 år, förskoleklass och grundskola](https://moggleif.github.io/politik/grundskolealdern.html)
+  &ndash; samma jämförelse och samma kohortframskrivning, sex år fram.
+  Ingen rapport redovisar 6&ndash;15 år som en rad; gruppen summeras ur de
+  rader som tillsammans täcker åldrarna (6&ndash;12 och 13&ndash;15 i
+  budgetarna, 6, 7&ndash;9, 10&ndash;12 och 13&ndash;15 i de senare
+  rapporterna), så alla tolv årgångar ingår. Rapporternas prognos per
+  delområde, till exempel Onsala, finns för skolåldrarna bara som diagram
+  utan utskrivna tal och ingår inte.
 - [16–19 år, gymnasieåldern](https://moggleif.github.io/politik/gymnasiealdern.html)
   &ndash; innehåller också en **kohortframskrivning**: de barn som redan bor i
   kommunen blir ett år äldre varje år, så antalet 16&ndash;19-åringar om
@@ -452,8 +460,9 @@ scripts/
                                 för hela landet och sparar filen orörd
   hamta_rostberattigade.py      Hämtar antalet röstberättigade per kommun,
                                 län och rike ur Valmyndighetens Excel-filer
-  build_data.py                 Bygger docs/data.json och docs/data-16-19.json,
-                                inklusive kohortframskrivningen för 16–19 år
+  build_data.py                 Bygger docs/data.json, docs/data-16-19.json
+                                och docs/data-6-15.json, inklusive
+                                kohortframskrivningen för båda grupperna
                                 – och för Varberg docs/data-varberg.json och
                                 docs/data-varberg-16-18.json
   build_meritvarden.py          Bygger docs/data-meritvarden.json, med en
@@ -544,6 +553,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 index.js. Navigeringen ligger i sidhuvudet,
                                 som på alla andra sidor
   befolkningsprognos.html       Befolkningsprognoser, hela befolkningen
+  grundskolealdern.html         Befolkningsprognoser, åldersgruppen 6–15 år
   gymnasiealdern.html           Befolkningsprognoser, åldersgruppen 16–19 år
   barn-och-unga.html            Barn och unga 0–15 år, enbart faktiskt utfall
   varberg-befolkningsprognos.html, varberg-gymnasiealdern.html,
@@ -602,7 +612,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 vidare; GitHub Pages kan inte svara med en
                                 omdirigering
   index.js                      Driver startsidans sammanfattningar
-  data.json, data-16-19.json    Data till prognossidorna (genereras)
+  data.json, data-16-19.json,   Data till prognossidorna (genereras)
+  data-6-15.json
   data-meritvarden.json         Data till meritvärdessidan (genereras)
   data-slutbetyg.json           Data till slutbetygssidan (genereras)
   data-kull.json                Data till antagning-till-examen (genereras)
@@ -757,7 +768,7 @@ position.
 Barn och unga 0&ndash;15 år (enbart utfall, inga prognoser):
 
 ```bash
-python3 scripts/hamta_scb.py          # hämtar 0–15 och 16–19 samtidigt
+python3 scripts/hamta_scb.py          # hämtar 0–15, 6–15 och 16–19 samtidigt
 python3 scripts/build_befolkning.py   # bygger om docs/data-befolkning.json
                                       # och docs/data-varberg-befolkning.json
 ```

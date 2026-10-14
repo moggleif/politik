@@ -8,6 +8,8 @@ Läser, för varje kommun i KOMMUNER:
 Skriver en fil per serie och kommun:
   docs/data.json                 Kungsbacka, hela befolkningen
   docs/data-16-19.json           Kungsbacka, 16–19 år (gymnasieåldern)
+  docs/data-6-15.json            Kungsbacka, 6–15 år (förskoleklass och
+                                 grundskola)
   docs/data-varberg.json         Varberg, hela befolkningen
   docs/data-varberg-16-18.json   Varberg, 16–18 år (gymnasieåldern så som
                                  Varbergs prognoser delar in den)
@@ -23,6 +25,14 @@ bära varje kohort rakt fram förutsätter noll nettoflyttning och ingen
 dödlighet. Hur mycket den historiskt avvikit från utfallet, och hur den
 står sig mot kommunens egen modell vid samma horisont, räknas fram här
 och redovisas på sidan.
+
+Rapporterna redovisar inte 6–15 år som en rad. Årgångarna delar in
+åldrarna olika – budgetarna i 6–12 och 13–15, Sweco-rapporten 2021 i 6–9,
+10–12 och 13–15, rapporterna från 2022 i 6, 7–9, 10–12 och 13–15 – och
+prognosfilerna återger raderna så som de står. Gruppen 6–15 räknas fram
+här som summan av de rader som tillsammans täcker exakt 6–15 år, utan
+överlapp. Täcker raderna inte hela spannet ett år räknas det året inte;
+en summa av halva gruppen skulle se ut som en tvär nedgång.
 
 Körs:  python3 scripts/build_data.py [--kommun kungsbacka|varberg]
 """
@@ -47,6 +57,7 @@ KOMMUNER = {
         "serier": {
             "total": ("data.json", "Hela befolkningen", None, None),
             "16-19": ("data-16-19.json", "16–19 år", "16-19", (16, 19)),
+            "6-15": ("data-6-15.json", "6–15 år", "6-15", (6, 15)),
         },
     },
     "varberg": {
@@ -65,10 +76,43 @@ def lasa_json(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
+def spann(grupp: str) -> tuple:
+    """"6-12" -> (6, 12), "6" -> (6, 6)."""
+    lag, _, hog = grupp.partition("-")
+    return int(lag), int(hog or lag)
+
+
+def delrader(grupper: dict, grupp: str) -> list:
+    """De rader i rapporten som tillsammans täcker exakt åldrarna i grupp.
+
+    Raderna får inte överlappa och måste fylla spannet utan lucka; annars
+    finns ingen delning och listan är tom."""
+    lag, hog = spann(grupp)
+    delar = sorted((g for g in grupper if g != grupp
+                    and lag <= spann(g)[0] <= spann(g)[1] <= hog),
+                   key=spann)
+    nasta = lag
+    for g in delar:
+        if spann(g)[0] != nasta:
+            return []
+        nasta = spann(g)[1] + 1
+    return delar if nasta == hog + 1 else []
+
+
+def summerad(grupper: dict, delar: list) -> dict:
+    """Summan av raderna, bara de år där varje rad har ett värde."""
+    ar = set.intersection(*(set(grupper[g]) for g in delar))
+    return {a: sum(grupper[g][a] for g in delar) for a in sorted(ar, key=int)}
+
+
 def serie_ur_rapport(rapport: dict, grupp) -> dict:
     if grupp is None:
         return rapport["prognos"]
-    return rapport.get("aldersgrupper", {}).get(grupp, {})
+    grupper = rapport.get("aldersgrupper", {})
+    if grupp in grupper:
+        return grupper[grupp]
+    delar = delrader(grupper, grupp)
+    return summerad(grupper, delar) if delar else {}
 
 
 def per_alder(scb: dict) -> dict:
@@ -310,6 +354,14 @@ def bygg(scb: dict, rapporter: list, utfall: dict, grupp, etikett: str,
             p["sidhanvisning"] = rapport.get("sidhanvisningAldersgrupp") or (
                 f'Tabellen "Antal per åldersgrupp" i rapportens bilaga, raden {grupp} år'
             )
+            delar = ([] if grupp in rapport.get("aldersgrupper", {})
+                     else delrader(rapport.get("aldersgrupper", {}), grupp))
+            if delar:
+                p["sidhanvisning"] = (
+                    "Åldersgruppstabellen i rapporten, raderna "
+                    + ", ".join(d.replace("-", "–") for d in delar)
+                    + " år, summerade")
+                p["delrader"] = delar
         p["prognos"] = {str(k): v for k, v in sorted(prognos.items())}
         p["avvikelser"] = {str(k): v for k, v in sorted(avvikelser.items())}
         prognoser.append(p)

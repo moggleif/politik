@@ -45,7 +45,9 @@ def serier_for(scb: dict) -> list:
     0–15 först, sedan gymnasieåldern så som SCB-filen har den (16–19 eller
     16–18), sist hela folkmängden – samma ordning oavsett kommun."""
     grupper = scb.get("aldersgrupper", {})
-    gymnasie = [g for g in grupper if g != "0-15"]
+    # SCB-filen har också 6–15 år, för prognossidan; den sidan visar
+    # gymnasieåldern som enda delgrupp vid sidan av 0–15
+    gymnasie = [g for g in grupper if g.startswith("16-")]
     ut = [("0-15", "0–15 år", "aldersgrupper")]
     for g in gymnasie:
         ut.append((g, g.replace("-", "–") + " år", "aldersgrupper"))

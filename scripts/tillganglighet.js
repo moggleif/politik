@@ -23,6 +23,7 @@ const AXE = require.resolve("axe-core/axe.min.js");
 
 const SIDOR = [
   "index.html", "befolkningsprognos.html", "gymnasiealdern.html",
+  "grundskolealdern.html",
   "barn-och-unga.html", "varberg-befolkningsprognos.html",
   "varberg-gymnasiealdern.html", "varberg-barn-och-unga.html",
   "amnesbetyg.html", "grundskolor.html", "enkater.html", "kostnad-per-elev.html",

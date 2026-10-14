@@ -74,24 +74,35 @@ def ar_rad_och_vardesrad(text: str) -> dict:
 GRUPPTAL = re.compile(r"\d{1,2}[  ]?\d{3}|\d{3,5}")
 
 
+def grupprad(grupp: str) -> re.Pattern:
+    """Radmönstret för en åldersgrupp: "16-19" eller en enskild ålder "6".
+
+    Rapporterna från 2022 och framåt redovisar förskoleklassåldern som en
+    egen rad ("6") före 7–9, 10–12 och 13–15."""
+    if "-" in grupp:
+        lag, hog = grupp.split("-")
+        etikett = rf"{lag}[ \t]*[-–][ \t]*{hog}"
+    else:
+        etikett = grupp
+    return re.compile(rf"^[ \t]*{etikett}[ \t]+([\d  ]{{10,}})$", re.M)
+
+
 def aldersgrupp(lasare, grupp: str) -> dict:
     """Läser en åldersgrupps rad ur bilagans tabell "Antal per åldersgrupp".
 
     Den tabellen används framför tabellerna i löptexten: den har en egen
     årsrubrik och dess kolumner summerar till totalprognosen. Första året
-    är rapportens utfallsår.
+    är rapportens utfallsår. Sweco-rapporten 2021 kallar samma tabell
+    "Folkmängd: planeringsåldersklasser".
     """
-    lag, hog = grupp.split("-")
-    radmonster = re.compile(
-        rf"^[ \t]*{lag}[ \t]*[-–][ \t]*{hog}[ \t]+([\d  ]{{10,}})$", re.M
-    )
+    radmonster = grupprad(grupp)
     arsmonster = re.compile(
         r"(?i)^[ \t]*Ålder[ \t]+((?:20\d\d[ \t]+)+20\d\d)[ \t]*$", re.M
     )
 
     for sida in lasare.pages:
         t = sida.extract_text() or ""
-        if not re.search(r"(?i)antal per ålder", t):
+        if not re.search(r"(?i)antal per ålder|planeringsålder", t):
             continue
         m_ar, m_rad = arsmonster.search(t), radmonster.search(t)
         if not (m_ar and m_rad):

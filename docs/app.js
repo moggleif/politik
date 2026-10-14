@@ -507,7 +507,7 @@
       });
     });
     var glesa = data.prognoser.filter(harLuckor);
-    /* Kohortlinjen ritas bara när 16–19-sidans kohort.js är inläst */
+    /* Kohortlinjen ritas bara när åldersgruppssidornas kohort.js är inläst */
     if (data.kohort && K.kohortDataset) dataset.push(K.kohortDataset(data, ar, 2));
     dataset.push(K.utfallDataset(data, ar));
 
@@ -920,7 +920,7 @@
       initMalar(data);
       initAvstand(data);
       initSkevhet(data);
-      /* Kohortsektionerna finns bara på 16–19-sidan; den läser in
+      /* Kohortsektionerna finns bara på åldersgruppssidorna; de läser in
          kohort.js, som registrerar initieraren. */
       if (K.kohortInit) K.kohortInit(data);
       initSpagetti(data);

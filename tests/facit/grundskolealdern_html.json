@@ -1,0 +1,7846 @@
+{
+ "diagram": [
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": [
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948"
+      ],
+      "borderRadius": 4,
+      "borderSkipped": "start",
+      "data": [
+       1149,
+       1035,
+       916,
+       623,
+       476,
+       320,
+       215,
+       17
+      ],
+      "maxBarThickness": 24
+     }
+    ],
+    "labels": [
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-malar",
+   "options": {
+    "indexAxis": "y",
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { var a = punkter[it.dataIndex].avv; return [ \"Prognosen sa: \" + talSv(a.prognos) + \" \" + ENHET, \"Det blev: \" + talSv(a.utfall) + \" \" + ENHET, (a.diff >= 0 ? \"För högt: \" : \"För lågt: \") + talSv(Math.abs(a.diff)) + \" personer (\" + talSv(Math.abs(a.pct), 1) + \" %)\" ]; }",
+       "title": "fn:function (it) { return \"Prognosen gjord \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": true,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Avvikelse mot utfallet, antal personer"
+      },
+      "type": "linear"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": true,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Prognos gjord år"
+      },
+      "type": "category"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 1200,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      },
+      {
+       "text": "200",
+       "varde": 200
+      },
+      {
+       "text": "400",
+       "varde": 400
+      },
+      {
+       "text": "600",
+       "varde": 600
+      },
+      {
+       "text": "800",
+       "varde": 800
+      },
+      {
+       "text": "1 000",
+       "varde": 1000
+      },
+      {
+       "text": "1 200",
+       "varde": 1200
+      }
+     ]
+    },
+    "y": {
+     "max": 7,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2018",
+       "varde": 0
+      },
+      {
+       "text": "2019",
+       "varde": 1
+      },
+      {
+       "text": "2020",
+       "varde": 2
+      },
+      {
+       "text": "2021",
+       "varde": 3
+      },
+      {
+       "text": "2022",
+       "varde": 4
+      },
+      {
+       "text": "2023",
+       "varde": 5
+      },
+      {
+       "text": "2024",
+       "varde": 6
+      },
+      {
+       "text": "2025",
+       "varde": 7
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderRadius": 4,
+      "borderSkipped": "start",
+      "data": [
+       0.43,
+       1.11,
+       1.85,
+       2.58,
+       3.41,
+       4.2,
+       6.32,
+       7.25
+      ],
+      "maxBarThickness": 24
+     }
+    ],
+    "labels": [
+     "Samma år",
+     "1 år före",
+     "2 år före",
+     "3 år före",
+     "4 år före",
+     "5 år före",
+     "6 år före",
+     "7 år före"
+    ]
+   },
+   "id": "diagram-avstand",
+   "options": {
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { var r = rader[it.dataIndex]; var rad = [ \"Genomsnittligt absolut fel: \" + talSv(r.medelAbsPct, 1) + \" %\", \"Största fel: \" + talSv(r.maxAbsPct, 1) + \" %\", \"Bygger på \" + r.antal + \" prognosvärden\" ]; if (r.argangar && r.argangar.length) { rad.push(\"Prognosårgångar: \" + r.argangar.join(\", \")); } return rad; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": true,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Kalenderår mellan prognosårgång och målår"
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v, 1) + \" %\"; }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Genomsnittligt absolut fel i procent"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 7,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "Samma år",
+       "varde": 0
+      },
+      {
+       "text": "1 år före",
+       "varde": 1
+      },
+      {
+       "text": "2 år före",
+       "varde": 2
+      },
+      {
+       "text": "3 år före",
+       "varde": 3
+      },
+      {
+       "text": "4 år före",
+       "varde": 4
+      },
+      {
+       "text": "5 år före",
+       "varde": 5
+      },
+      {
+       "text": "6 år före",
+       "varde": 6
+      },
+      {
+       "text": "7 år före",
+       "varde": 7
+      }
+     ]
+    },
+    "y": {
+     "max": 8,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0,0 %",
+       "varde": 0
+      },
+      {
+       "text": "1,0 %",
+       "varde": 1
+      },
+      {
+       "text": "2,0 %",
+       "varde": 2
+      },
+      {
+       "text": "3,0 %",
+       "varde": 3
+      },
+      {
+       "text": "4,0 %",
+       "varde": 4
+      },
+      {
+       "text": "5,0 %",
+       "varde": 5
+      },
+      {
+       "text": "6,0 %",
+       "varde": 6
+      },
+      {
+       "text": "7,0 %",
+       "varde": 7
+      },
+      {
+       "text": "8,0 %",
+       "varde": 8
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": [
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948",
+       "#e34948"
+      ],
+      "borderRadius": 4,
+      "borderSkipped": "start",
+      "data": [
+       0.23,
+       0.59,
+       0.88,
+       1.36,
+       2.79,
+       3.76,
+       6.32,
+       7.25
+      ],
+      "maxBarThickness": 24
+     }
+    ],
+    "labels": [
+     "Samma år",
+     "1 år före",
+     "2 år före",
+     "3 år före",
+     "4 år före",
+     "5 år före",
+     "6 år före",
+     "7 år före"
+    ]
+   },
+   "id": "diagram-skevhet",
+   "options": {
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": false
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { var r = rader[it.dataIndex]; return [ \"Genomsnittligt fel med riktning: \" + (r.medelPct >= 0 ? \"+\" : \"−\") + talSv(Math.abs(r.medelPct), 1) + \" %\", r.antalOver + \" av \" + r.antal + \" prognoser låg för högt\" ]; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": true,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Kalenderår mellan prognosårgång och målår"
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return (v > 0 ? \"+\" : \"\") + talSv(v, 1) + \" %\"; }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Genomsnittligt fel, med riktning"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 7,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "Samma år",
+       "varde": 0
+      },
+      {
+       "text": "1 år före",
+       "varde": 1
+      },
+      {
+       "text": "2 år före",
+       "varde": 2
+      },
+      {
+       "text": "3 år före",
+       "varde": 3
+      },
+      {
+       "text": "4 år före",
+       "varde": 4
+      },
+      {
+       "text": "5 år före",
+       "varde": 5
+      },
+      {
+       "text": "6 år före",
+       "varde": 6
+      },
+      {
+       "text": "7 år före",
+       "varde": 7
+      }
+     ]
+    },
+    "y": {
+     "max": 8,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0,0 %",
+       "varde": 0
+      },
+      {
+       "text": "+1,0 %",
+       "varde": 1
+      },
+      {
+       "text": "+2,0 %",
+       "varde": 2
+      },
+      {
+       "text": "+3,0 %",
+       "varde": 3
+      },
+      {
+       "text": "+4,0 %",
+       "varde": 4
+      },
+      {
+       "text": "+5,0 %",
+       "varde": 5
+      },
+      {
+       "text": "+6,0 %",
+       "varde": 6
+      },
+      {
+       "text": "+7,0 %",
+       "varde": 7
+      },
+      {
+       "text": "+8,0 %",
+       "varde": 8
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#86b6ef",
+      "borderColor": "#86b6ef",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       11371,
+       11629,
+       11766,
+       11797,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2015",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#86b6ef",
+      "borderColor": "#86b6ef",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       11647,
+       11820,
+       11918,
+       11965,
+       12021,
+       12032,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2016",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#5598e7",
+      "borderColor": "#5598e7",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       11850,
+       11958,
+       11990,
+       12068,
+       12072,
+       12077,
+       12160,
+       12268,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2017",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#5598e7",
+      "borderColor": "#5598e7",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       12090,
+       12157,
+       12269,
+       12330,
+       12423,
+       12490,
+       12629,
+       12713,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2018",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#5598e7",
+      "borderColor": "#5598e7",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       12168,
+       12284,
+       12324,
+       12371,
+       12426,
+       12535,
+       12599,
+       12680,
+       12860,
+       13070,
+       13355,
+       13602,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2019",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#2a78d6",
+      "borderColor": "#2a78d6",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       12227,
+       12256,
+       12307,
+       12350,
+       12435,
+       12480,
+       12551,
+       12710,
+       12911,
+       13193,
+       13418,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2020",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#2a78d6",
+      "borderColor": "#2a78d6",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       12164,
+       12192,
+       12167,
+       12195,
+       12187,
+       12158,
+       12224,
+       12339,
+       12513,
+       12658,
+       12870,
+       13068,
+       13354,
+       13615,
+       13885
+      ],
+      "label": "Prognos 2021",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       12148,
+       12085,
+       12100,
+       12040,
+       11983,
+       12006,
+       12046,
+       12164,
+       12254,
+       12401,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2022",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       12008,
+       11986,
+       11884,
+       11771,
+       11733,
+       11696,
+       11725,
+       11695,
+       11703,
+       11681,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2023",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11845,
+       11779,
+       11626,
+       11607,
+       11574,
+       11610,
+       11609,
+       11636,
+       11647,
+       11729,
+       null,
+       null
+      ],
+      "label": "Prognos 2024",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#104281",
+      "borderColor": "#104281",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11581,
+       11349,
+       11230,
+       11055,
+       10946,
+       10843,
+       10781,
+       10675,
+       10653,
+       10615,
+       null
+      ],
+      "label": "Prognos 2025",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#104281",
+      "borderColor": "#104281",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11333,
+       11216,
+       11032,
+       10915,
+       10783,
+       10658,
+       10487,
+       10397,
+       10302,
+       10218
+      ],
+      "label": "Prognos 2026",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11264,
+       11044,
+       10733,
+       10452,
+       10090,
+       9653,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Kohortframskrivning (SCB 2025)",
+      "pointHoverRadius": 6,
+      "pointRadius": 0,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#0b0b0b",
+      "borderColor": "#0b0b0b",
+      "borderWidth": 3,
+      "data": [
+       11348,
+       11657,
+       11958,
+       12104,
+       12137,
+       12178,
+       12143,
+       12103,
+       11879,
+       11732,
+       11564,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Faktiskt utfall (SCB)",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025",
+     "2026",
+     "2027",
+     "2028",
+     "2029",
+     "2030",
+     "2031",
+     "2032",
+     "2033",
+     "2034",
+     "2035"
+    ]
+   },
+   "id": "diagram-spagetti",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "generateLabels": "fn:function () { var n = data.prognoser.length; var poster = [{ text: \"Faktiskt utfall (SCB)\", strokeStyle: FARG.ink, fillStyle: FARG.ink, lineWidth: 3 }]; if (data.kohort) { poster.push({ text: \"Kohortframskrivning (SCB \" + data.kohort.basAr + \")\", strokeStyle: FARG.orange, fillStyle: FARG.orange, lineWidth: 2 }); } if (n > 1) { poster.push({ text: \"Äldsta prognosen (\" + data.prognoser[0].prognosAr + \")\", strokeStyle: rampFarg(0, n), fillStyle: rampFarg(0, n), lineWidth: 2 }); poster.push({ text: \"Senaste prognosen (\" + data.prognoser[n - 1].prognosAr + \")\", strokeStyle: rampFarg(n - 1, n), fillStyle: rampFarg(n - 1, n), lineWidth: 2 }); } else if (n === 1) { poster.push({ text: \"Prognos \" + data.prognoser[0].prognosAr, strokeStyle: rampFarg(0, 1), fillStyle: rampFarg(0, 1), lineWidth: 2 }); } return poster; }"
+      }
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y) + \" \" + ENHET; }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal 6–15-åringar"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 20,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2015",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 20000,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#86b6ef",
+      "borderColor": "#86b6ef",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       11371,
+       11629,
+       11766,
+       11797,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2015",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#86b6ef",
+      "borderColor": "#86b6ef",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       11647,
+       11820,
+       11918,
+       11965,
+       12021,
+       12032,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Prognos 2016",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#5598e7",
+      "borderColor": "#5598e7",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       11850,
+       11958,
+       11990,
+       12068,
+       12072,
+       12077,
+       12160,
+       12268,
+       null
+      ],
+      "label": "Prognos 2017",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#5598e7",
+      "borderColor": "#5598e7",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       12090,
+       12157,
+       12269,
+       12330,
+       12423,
+       12490,
+       12629,
+       12713
+      ],
+      "label": "Prognos 2018",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#5598e7",
+      "borderColor": "#5598e7",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       12168,
+       12284,
+       12324,
+       12371,
+       12426,
+       12535,
+       12599
+      ],
+      "label": "Prognos 2019",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#2a78d6",
+      "borderColor": "#2a78d6",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       12227,
+       12256,
+       12307,
+       12350,
+       12435,
+       12480
+      ],
+      "label": "Prognos 2020",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#2a78d6",
+      "borderColor": "#2a78d6",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       12164,
+       12192,
+       12167,
+       12195,
+       12187
+      ],
+      "label": "Prognos 2021",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       12148,
+       12085,
+       12100,
+       12040
+      ],
+      "label": "Prognos 2022",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       12008,
+       11986,
+       11884
+      ],
+      "label": "Prognos 2023",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#1c5cab",
+      "borderColor": "#1c5cab",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11845,
+       11779
+      ],
+      "label": "Prognos 2024",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#104281",
+      "borderColor": "#104281",
+      "borderDash": [],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11581
+      ],
+      "label": "Prognos 2025",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#0b0b0b",
+      "borderColor": "#0b0b0b",
+      "borderWidth": 3,
+      "data": [
+       11348,
+       11657,
+       11958,
+       12104,
+       12137,
+       12178,
+       12143,
+       12103,
+       11879,
+       11732,
+       11564
+      ],
+      "label": "Faktiskt utfall (SCB)",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 7,
+      "pointRadius": 4,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025"
+    ]
+   },
+   "id": "diagram-utfall",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "generateLabels": "fn:function () { var poster = [{ text: \"Faktiskt utfall (SCB)\", strokeStyle: FARG.ink, fillStyle: FARG.ink, lineWidth: 3 }]; if (n > 1) { poster.push({ text: \"Äldsta prognosen (\" + data.prognoser[0].prognosAr + \")\", strokeStyle: rampFarg(0, n), fillStyle: rampFarg(0, n), lineWidth: 2 }); poster.push({ text: \"Senaste prognosen (\" + data.prognoser[n - 1].prognosAr + \")\", strokeStyle: rampFarg(n - 1, n), fillStyle: rampFarg(n - 1, n), lineWidth: 2 }); } return poster; }"
+      }
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y) + \" \" + ENHET; }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": "8%",
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal 6–15-åringar"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 10,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2015",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 15000,
+     "min": 10000,
+     "tickar": [
+      {
+       "text": "10 000",
+       "varde": 10000
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#0b0b0b",
+      "borderColor": "#0b0b0b",
+      "borderWidth": 3,
+      "data": [
+       11958,
+       12104,
+       12137,
+       12178,
+       12143,
+       12103,
+       11879,
+       11732,
+       11564,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Faktiskt utfall (SCB)",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#2a78d6",
+      "borderColor": "#2a78d6",
+      "borderDash": [
+       7,
+       4
+      ],
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11333,
+       11216,
+       11032,
+       10915,
+       10783,
+       10658
+      ],
+      "label": "Kommunens prognos 2026",
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "rect",
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderWidth": 3,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11264,
+       11044,
+       10733,
+       10452,
+       10090,
+       9653
+      ],
+      "label": "Kohortframskrivning (SCB 2025)",
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "pointStyle": "triangle",
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025",
+     "2026",
+     "2027",
+     "2028",
+     "2029",
+     "2030",
+     "2031"
+    ]
+   },
+   "id": "diagram-kohort",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22,
+       "usePointStyle": true
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + (it.parsed.y === null ? \"–\" : talSv(it.parsed.y) + \" \" + ENHET); }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal 6–15-åringar"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 14,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2017",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 20000,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#f2d08a",
+      "borderColor": "#f2d08a",
+      "borderWidth": 2,
+      "data": [
+       null,
+       11268,
+       11392,
+       11361,
+       11177,
+       10905,
+       10583,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2014",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#f2d08a",
+      "borderColor": "#f2d08a",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       11505,
+       11502,
+       11381,
+       11162,
+       10893,
+       10518,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2015",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#eab54a",
+      "borderColor": "#eab54a",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       11699,
+       11622,
+       11432,
+       11242,
+       10923,
+       10547,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2016",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#eab54a",
+      "borderColor": "#eab54a",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       11896,
+       11738,
+       11587,
+       11330,
+       11037,
+       10635,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2017",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#eab54a",
+      "borderColor": "#eab54a",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       11967,
+       11854,
+       11626,
+       11365,
+       11042,
+       10702,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2018",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       12036,
+       11840,
+       11623,
+       11342,
+       11041,
+       10620,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2019",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderColor": "#e69f00",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11989,
+       11789,
+       11508,
+       11250,
+       10872,
+       10401,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2020",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#b57c00",
+      "borderColor": "#b57c00",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11967,
+       11714,
+       11484,
+       11133,
+       10731,
+       10319,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2021",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#b57c00",
+      "borderColor": "#b57c00",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11872,
+       11680,
+       11368,
+       10986,
+       10662,
+       10245,
+       null,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2022",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#b57c00",
+      "borderColor": "#b57c00",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11702,
+       11435,
+       11079,
+       10803,
+       10419,
+       10025,
+       null,
+       null
+      ],
+      "label": "Framskrivning från 2023",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#845a00",
+      "borderColor": "#845a00",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11482,
+       11155,
+       10909,
+       10560,
+       10214,
+       9788,
+       null
+      ],
+      "label": "Framskrivning från 2024",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#845a00",
+      "borderColor": "#845a00",
+      "borderWidth": 2,
+      "data": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null,
+       11264,
+       11044,
+       10733,
+       10452,
+       10090,
+       9653
+      ],
+      "label": "Framskrivning från 2025",
+      "pointHoverRadius": 5,
+      "pointRadius": 0,
+      "spanGaps": false,
+      "tension": 0.1
+     },
+     {
+      "backgroundColor": "#0b0b0b",
+      "borderColor": "#0b0b0b",
+      "borderWidth": 3,
+      "data": [
+       11037,
+       11348,
+       11657,
+       11958,
+       12104,
+       12137,
+       12178,
+       12143,
+       12103,
+       11879,
+       11732,
+       11564,
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ],
+      "label": "Faktiskt utfall (SCB)",
+      "pointBorderColor": "#fcfcfb",
+      "pointBorderWidth": 2,
+      "pointHoverRadius": 6,
+      "pointRadius": 3,
+      "spanGaps": false,
+      "tension": 0.1
+     }
+    ],
+    "labels": [
+     "2014",
+     "2015",
+     "2016",
+     "2017",
+     "2018",
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024",
+     "2025",
+     "2026",
+     "2027",
+     "2028",
+     "2029",
+     "2030",
+     "2031"
+    ]
+   },
+   "id": "diagram-kohortalla",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "nearest"
+    },
+    "maintainAspectRatio": false,
+    "onHover": "fn:function (e) { var traffar = chart.getElementsAtEventForMode(e, \"nearest\", { intersect: false }, true); if (!traffar.length) { tona(null); return; } var t = traffar[0]; /* \"nearest\" träffar alltid något — kräv att pekaren faktiskt är nära punkten, annars tonas inget. */ var dx = (e.x || 0) - t.element.x, dy = (e.y || 0) - t.element.y; tona(Math.sqrt(dx * dx + dy * dy) < 40 ? t.datasetIndex : null); }",
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "generateLabels": "fn:function () { var n = argangar.length; return [ { text: \"Faktiskt utfall (SCB)\", strokeStyle: FARG.ink, fillStyle: FARG.ink, lineWidth: 3 }, { text: \"Äldsta framskrivningen (\" + argangar[0].basAr + \")\", strokeStyle: K.rampFargOrange(0, n), fillStyle: K.rampFargOrange(0, n), lineWidth: 2 }, { text: \"Senaste framskrivningen (\" + argangar[n - 1].basAr + \")\", strokeStyle: K.rampFargOrange(n - 1, n), fillStyle: K.rampFargOrange(n - 1, n), lineWidth: 2 } ]; }"
+      }
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y) + \" \" + ENHET; }",
+       "title": "fn:function (it) { return \"År \" + it[0].label; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": false,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 12,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 0,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#52514e",
+       "display": false,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": ""
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v); }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal 6–15-åringar"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 17,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "2014",
+       "varde": 0
+      }
+     ]
+    },
+    "y": {
+     "max": 20000,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0",
+       "varde": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "data": {
+    "datasets": [
+     {
+      "backgroundColor": "#2a78d6",
+      "borderRadius": 4,
+      "borderWidth": 0,
+      "data": [
+       0.43,
+       1.11,
+       1.85,
+       2.58,
+       3.42,
+       4.21
+      ],
+      "label": "Kommunens prognos"
+     },
+     {
+      "backgroundColor": "#e69f00",
+      "borderRadius": 4,
+      "borderWidth": 0,
+      "data": [
+       1.08,
+       2.41,
+       4.09,
+       6.07,
+       8.05,
+       10.73
+      ],
+      "label": "Enkel framskrivning"
+     }
+    ],
+    "labels": [
+     "Samma år",
+     "1 år",
+     "2 år",
+     "3 år",
+     "4 år",
+     "5 år"
+    ]
+   },
+   "id": "diagram-kohortfel",
+   "options": {
+    "interaction": {
+     "intersect": false,
+     "mode": "index"
+    },
+    "maintainAspectRatio": false,
+    "plugins": {
+     "legend": {
+      "display": true,
+      "labels": {
+       "boxWidth": 22
+      },
+      "position": "bottom"
+     },
+     "tooltip": {
+      "callbacks": {
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y, 1) + \" % fel\"; }",
+       "title": "fn:function (it) { var r = rader[it[0].dataIndex]; return (r.avstand === 0 ? \"Samma år\" : r.avstand + \" år i förväg\") + \" (\" + r.antal + \" jämförelser)\"; }"
+      }
+     }
+    },
+    "responsive": true,
+    "scales": {
+     "x": {
+      "axis": "x",
+      "beginAtZero": false,
+      "border": {
+       "color": "#c3c2b7",
+       "dash": [],
+       "dashOffset": 0,
+       "display": true,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": false,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": true,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "x",
+      "offset": true,
+      "position": "bottom",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function mo(t){const e=this.getLabels();return t>=0&&t<e.length?e[t]:t}",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Antal år i förväg"
+      },
+      "type": "category"
+     },
+     "y": {
+      "axis": "y",
+      "beginAtZero": true,
+      "border": {
+       "color": "#e1e0d9",
+       "dash": [],
+       "dashOffset": 0,
+       "display": false,
+       "width": 1
+      },
+      "bounds": "ticks",
+      "clip": true,
+      "display": true,
+      "grace": 0,
+      "grid": {
+       "color": "#e1e0d9",
+       "display": true,
+       "drawOnChartArea": true,
+       "drawTicks": true,
+       "lineWidth": 1,
+       "offset": false,
+       "tickColor": "fn:(t,e)=>e.color",
+       "tickLength": 8,
+       "tickWidth": "fn:(t,e)=>e.lineWidth"
+      },
+      "id": "y",
+      "offset": false,
+      "position": "left",
+      "reverse": false,
+      "ticks": {
+       "align": "center",
+       "autoSkip": true,
+       "autoSkipPadding": 3,
+       "backdropColor": "rgba(255, 255, 255, 0.75)",
+       "backdropPadding": 2,
+       "callback": "fn:function (v) { return talSv(v, 1) + \" %\"; }",
+       "color": "#52514e",
+       "crossAlign": "near",
+       "display": true,
+       "labelOffset": 0,
+       "major": {},
+       "maxRotation": 50,
+       "minRotation": 0,
+       "minor": {},
+       "mirror": false,
+       "padding": 3,
+       "showLabelBackdrop": false,
+       "textStrokeColor": "",
+       "textStrokeWidth": 0
+      },
+      "title": {
+       "color": "#6e6c66",
+       "display": true,
+       "padding": {
+        "bottom": 4,
+        "top": 4
+       },
+       "text": "Genomsnittligt absolut fel (%)"
+      },
+      "type": "linear"
+     }
+    }
+   },
+   "skalor": {
+    "x": {
+     "max": 5,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "Samma år",
+       "varde": 0
+      },
+      {
+       "text": "1 år",
+       "varde": 1
+      },
+      {
+       "text": "2 år",
+       "varde": 2
+      },
+      {
+       "text": "3 år",
+       "varde": 3
+      },
+      {
+       "text": "4 år",
+       "varde": 4
+      },
+      {
+       "text": "5 år",
+       "varde": 5
+      }
+     ]
+    },
+    "y": {
+     "max": 12,
+     "min": 0,
+     "tickar": [
+      {
+       "text": "0,0 %",
+       "varde": 0
+      },
+      {
+       "text": "2,0 %",
+       "varde": 2
+      },
+      {
+       "text": "4,0 %",
+       "varde": 4
+      },
+      {
+       "text": "6,0 %",
+       "varde": 6
+      },
+      {
+       "text": "8,0 %",
+       "varde": 8
+      },
+      {
+       "text": "10,0 %",
+       "varde": 10
+      },
+      {
+       "text": "12,0 %",
+       "varde": 12
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "reglage": [
+  {
+   "alternativ": [
+    "2025=2025",
+    "2024=2024",
+    "2023=2023",
+    "2022=2022",
+    "2021=2021",
+    "2020=2020",
+    "2019=2019",
+    "2018=2018",
+    "2017=2017",
+    "2016=2016",
+    "2015=2015"
+   ],
+   "id": "ar-valjare",
+   "varde": "2025"
+  }
+ ],
+ "tabeller": [
+  {
+   "caption": "Prognoser för år 2025 jämfört med utfallet 11 564 barn.",
+   "id": "tabell-malar",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos gjord år"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognosen sa"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Skillnad (personer)"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Fel i procent"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 713"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1 149"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9,9 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 599"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1 035"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9,0 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 480"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+916"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7,9 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 187"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+623"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5,4 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 040"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+476"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4,1 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 884"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+320"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,8 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 779"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+215"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,9 %"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 581"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+17"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0,2 %"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "Genomsnittligt absolut prognosfel per antal år i förväg, med de prognosårgångar varje rad bygger på.",
+   "id": "tabell-avstand",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kalenderår före målåret"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Genomsnittligt absolut fel"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Största fel"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Antal prognosvärden"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognosårgångar"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Samma år"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2016, 2017, 2018, 2019, 2020, 2021"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2016, 2017, 2018, 2019, 2020"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2017, 2018, 2019"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2017, 2018"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "Genomsnittligt fel med riktning, per antal år i förväg. Plus betyder att prognosen låg för högt.",
+   "id": "tabell-skevhet",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kalenderår före målåret"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Genomsnittligt fel med riktning"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Antal för höga"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Antal prognosvärden"
+     }
+    ],
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos gjord år"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Fel ett år framåt"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Genomsnitt, alla år"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prövad t.o.m."
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Samma år"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+2,8 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+3,8 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+6,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 år före"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+7,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−0,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−1,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−1,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−1,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−1,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+3,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "7 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+3,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+3,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+2,5 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,7 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+2,3 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+2,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+2,0 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 år framåt"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+0,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "samma år"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "Faktiskt utfall och samtliga prognoser, antal barn.",
+   "id": "tabell-spagetti",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Utfall (SCB)"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kohortframskrivning"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2015"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2016"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2017"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2018"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2019"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2020"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2021"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2022"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2023"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2024"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2025"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Prognos 2026"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 348"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 371"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 657"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 629"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 647"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 958"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 766"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 820"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 850"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 104"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 797"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 918"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 958"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 090"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 137"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 965"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 990"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 157"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 168"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 178"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 068"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 269"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 284"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 227"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 143"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 032"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 072"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 330"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 324"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 256"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 164"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 103"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 077"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 423"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 371"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 307"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 192"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 148"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 879"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 160"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 490"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 426"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 350"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 167"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 085"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 008"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 732"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 268"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 629"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 535"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 435"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 195"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 100"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 986"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 845"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 564"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 713"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 599"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 480"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 187"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 040"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 884"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 779"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 581"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 264"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 680"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 551"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 158"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 983"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 771"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 626"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 349"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 333"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2027"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 044"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 860"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 710"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 224"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 006"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 733"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 607"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 230"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 216"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2028"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 733"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 070"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 911"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 339"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 046"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 696"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 574"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 055"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 032"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2029"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 452"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 355"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 193"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 513"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 164"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 725"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 610"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 946"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 915"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2030"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 090"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 602"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 418"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 658"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 254"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 695"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 609"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 843"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 783"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2031"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9 653"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 870"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 401"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 703"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 636"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 781"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 658"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2032"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 068"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 681"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 647"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 675"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 487"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2033"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 354"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 729"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 653"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 397"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2034"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 615"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 615"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 302"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2035"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "13 885"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 218"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "6–15 år. Folkmängd 31 december respektive år enligt SCB. Hämtad 2026-10-14.",
+   "id": "tabell-utfall",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Utfall"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Förändring"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 348"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+311"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 657"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+309"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 958"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+301"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 104"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+146"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 137"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+33"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 178"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+41"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 143"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−35"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 103"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−40"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 879"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−224"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 732"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−147"
+     }
+    ],
+    [
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 564"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "−168"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "Kohortframskrivningen jämförd med kommunens senaste prognos, antal barn.",
+   "id": "tabell-kohort",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kohortframskrivning"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Åldrar 2025"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kommunens prognos"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Skillnad"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 264"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5–14 år"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 333"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+69"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2027"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 044"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4–13 år"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 216"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+172"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2028"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 733"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3–12 år"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 032"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+299"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2029"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 452"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2–11 år"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 915"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+463"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2030"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 090"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1–10 år"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 783"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+693"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2031"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9 653"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0–9 år"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 658"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "+1 005"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "Faktiskt utfall och samtliga kohortframskrivningar, antal barn.",
+   "id": "tabell-kohortalla",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Utfall (SCB)"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2014"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2015"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2016"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2017"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2018"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2019"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2020"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2021"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2022"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2023"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2024"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Från 2025"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2014"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 037"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2015"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 348"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 268"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2016"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 657"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 392"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 505"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2017"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 958"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 361"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 502"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 699"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2018"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 104"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 177"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 381"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 622"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 896"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2019"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 137"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 905"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 162"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 432"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 738"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 967"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 178"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 583"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 893"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 242"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 587"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 854"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 036"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 143"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 518"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 923"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 330"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 626"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 840"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 989"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "12 103"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 547"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 037"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 365"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 623"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 789"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 967"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 879"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 635"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 042"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 342"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 508"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 714"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 872"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 732"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 702"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 041"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 250"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 484"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 680"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 702"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 564"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 620"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 872"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 133"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 368"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 435"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 482"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2026"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 401"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 731"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 986"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 079"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 155"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 264"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2027"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 319"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 662"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 803"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 909"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11 044"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2028"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 245"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 419"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 560"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 733"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2029"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 214"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 452"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2030"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9 788"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10 090"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2031"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9 653"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": "Genomsnittligt fel utan tecken, per antal år i förväg.",
+   "id": "tabell-kohortfel",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "År i förväg"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Jämförelser"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Kommunens prognos"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Framskrivning"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "0"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "11"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "0,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "1"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,1 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,4 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "9"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1,9 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "3"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "2,6 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "4"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "6"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "3,4 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8,1 %"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "5"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4,2 %"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "10,7 %"
+     }
+    ]
+   ]
+  }
+ ],
+ "text": {
+  "#ar-valjare": {
+   "dold": false,
+   "html": "<option value=\"2025\">2025</option><option value=\"2024\">2024</option><option value=\"2023\">2023</option><option value=\"2022\">2022</option><option value=\"2021\">2021</option><option value=\"2020\">2020</option><option value=\"2019\">2019</option><option value=\"2018\">2018</option><option value=\"2017\">2017</option><option value=\"2016\">2016</option><option value=\"2015\">2015</option>"
+  },
+  "#diagram-avstand": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-kohort": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-kohortalla": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-kohortfel": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-malar": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-skevhet": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-spagetti": {
+   "dold": false,
+   "html": ""
+  },
+  "#diagram-utfall": {
+   "dold": false,
+   "html": ""
+  },
+  "#huvudinnehall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kalla-avstand": {
+   "dold": false,
+   "html": "Genomsnitt av felet (utan hänsyn till riktning) för alla prognoser och år där utfall finns. Avståndet är antalet kalenderår mellan prognosårgången och målåret. Rapporterna publiceras vid olika tider på året, så ”samma år” betyder en prognos gjord någon gång under målåret – inte vid dess slut. Staplarna bygger på olika prognosårgångar och beskriver materialet; de mäter inte vad en längre prognoshorisont orsakar."
+  },
+  "#kalla-kohort": {
+   "dold": false,
+   "html": "Orange linje: SCB:s folkmängd per enskild ålder den 31 december 2025, framskriven ett år i taget. Sista året som går att skriva fram är 2031 – då är det 2025 års nyfödda som fyller 15."
+  },
+  "#kalla-kohortalla": {
+   "dold": false,
+   "html": "Varje orange linje är dagens åldersklasser ett visst år, framskrivna ett år i taget. Årgångarna börjar 2014 – det är folkmängden kommunens första prognos hade att utgå från. Peka på en linje så tonas de övriga ned."
+  },
+  "#kalla-kohortfel": {
+   "dold": false,
+   "html": "Genomsnittligt fel utan tecken, i procent av det faktiska antalet. Bara målår där båda har ett värde och facit finns; antalet jämförelser per stapel står i tooltipen."
+  },
+  "#kalla-malar": {
+   "dold": false,
+   "html": "Utfall 2025: 11&nbsp;564 barn (SCB). Röd stapel = prognosen för hög, blå = för låg. Källor: se längst ned."
+  },
+  "#kalla-skevhet": {
+   "dold": false,
+   "html": "Staplar över nollstrecket = prognosen låg för högt, under = för lågt. Slumpmässiga fel skulle ge staplar på båda sidor, nära noll."
+  },
+  "#kalla-spagetti": {
+   "dold": false,
+   "html": "Svart linje: SCB:s faktiska siffror 31 december. Blå linjer: kommunens prognoser – ju mörkare linje, desto senare är prognosen gjord. Peka på en linje så tonas de övriga ned. Orange linje: kohortframskrivningen ur åldersklasserna 2025."
+  },
+  "#kalla-utfall": {
+   "dold": false,
+   "html": "Svart linje: SCB:s faktiska siffror. Blå linjer: kommunens prognoser, klippta vid 2025. Skalan börjar inte på noll, utan följer kurvorna – det gör skillnaderna synliga, men får dem också att se större ut. Peka på en linje så tonas de övriga ned."
+  },
+  "#kort-sagt": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#kort-sagt-lista": {
+   "dold": false,
+   "html": "<li>I de <strong>54 jämförelser</strong> som kan göras har prognoserna i genomsnitt avvikit <strong>2,4 %</strong> från utfallet – alla prognoshorisonter sammanräknade. Felet per horisont, som är det jämförbara måttet, visas i diagrammet nedan.</li><li>Felen går åt båda hållen: 38 av 54 prognosvärden låg över utfallet, 16 under.</li><li>Felet är i snitt 0,4 % för prognoser gjorda samma år och 7,3 % för dem gjorda 7 år i förväg. Talen bygger på olika prognosårgångar och säger inte vad horisonten orsakar.</li><li>Mätt på samma sikt – ett år framåt – har prognosen från <strong>2018</strong> hittills varit träffsäkrast (+0,2 %).</li><li>Mätt vid samma horisont – tre år framåt – har det absoluta felet varit <strong>mindre</strong> för den här åldersgruppen än för hela befolkningen: 2,6 % mot 2,7 %.</li><li>De barn som redan bor i kommunen räcker till <strong>11&nbsp;264</strong> barn i åldern 6–15 år 2026 och <strong>9&nbsp;653</strong> år 2031, om kohorterna vore oförändrade – en ren framskrivning av dagens åldersklasser.</li>"
+  },
+  "#kort-sagt-rubrik": {
+   "dold": false,
+   "html": "Kort sagt"
+  },
+  "#lista-kallor": {
+   "dold": false,
+   "html": "<li><span class=\"titel\">Befolkningsprognos 2015–2018 (i Kommunbudget 2016)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/kommunbudget-2016.pdf\">Läs rapporten (PDF)</a><a href=\"https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/mal-och-resultat/kommunbudget/kungsbacka_budget2016_web.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20220319193931id_/https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/mal-och-resultat/kommunbudget/kungsbacka_budget2016_web.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2016–2021 (i Kommunbudget 2017–2019)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/kommunbudget-2017.pdf\">Läs rapporten (PDF)</a><a href=\"https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/fakta-om-kommunen/ekonomi/kommunbudget_2017_2019.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20220319185700id_/https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/fakta-om-kommunen/ekonomi/kommunbudget_2017_2019.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2017–2024 (i Kommunbudget 2018)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/kommunbudget-2018.pdf\">Läs rapporten (PDF)</a><a href=\"https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/mal-och-resultat/kommunbudget/kba_kommunbudget_2018.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20220320003959id_/https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/mal-och-resultat/kommunbudget/kba_kommunbudget_2018.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2018–2025 (i Kommunbudget 2019)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/kommunbudget-2019.pdf\">Läs rapporten (PDF)</a><a href=\"https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/mal-och-resultat/kommunbudget-2019kf-beslutad180614-slutlig.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20220319194231id_/https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/mal-och-resultat/kommunbudget-2019kf-beslutad180614-slutlig.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2019–2030 (i Kommunbudget 2020)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/kommunbudget-2020.pdf\">Läs rapporten (PDF)</a><a href=\"https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/moten-handlingar-och-protokoll/kommunstyrelsen/handlingar/2019/2019-05-28/arende-4---kommunbudget-2020-plan-2021-2022.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20191231081501id_/https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/moten-handlingar-och-protokoll/kommunstyrelsen/handlingar/2019/2019-05-28/arende-4---kommunbudget-2020-plan-2021-2022.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2020–2030 (i Kommunbudget 2021)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/kommunbudget-2021.pdf\">Läs rapporten (PDF)</a><a href=\"https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/fakta-om-kommunen/ekonomi/kommunbudget_2021_.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20220319191151id_/https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/fakta-om-kommunen/ekonomi/kommunbudget_2021_.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2021–2050 (framtagen av Sweco)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6–9, 10–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/befolkningsprognos-2021.pdf\">Läs rapporten (PDF)</a><a href=\"https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/fakta-om-kommunen/kungsbacka-i-siffror/befolkningsprognos-2021-2050.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20220319184943/https://www.kungsbacka.se/globalassets/kommun-och-politik/dokument/fakta-om-kommunen/kungsbacka-i-siffror/befolkningsprognos-2021-2050.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2022–2050</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6, 7–9, 10–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/befolkningsprognos-2022.pdf\">Läs rapporten (PDF)</a><a href=\"https://kungsbacka.se/download/18.719c774e18125ee06dc23a6b/1655131375380/Befolkningsprognos%20Kungsbacka%20kommun%202022-2031.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20220628170245/https://kungsbacka.se/download/18.719c774e18125ee06dc23a6b/1655131375380/Befolkningsprognos%20Kungsbacka%20kommun%202022-2031.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2023–2032 (i Kommunbudget 2024)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/kommunbudget-2024.pdf\">Läs rapporten (PDF)</a><a href=\"https://kungsbacka.se/download/18.3681ec99188bdbf7b0022f6/1750763170648/Kommunbudget%202024.pdf\">Original hos källan</a></div></li><li><span class=\"titel\">Befolkningsprognos 2024–2033 (med framskrivning till 2050)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6, 7–9, 10–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/befolkningsprognos-2024.pdf\">Läs rapporten (PDF)</a><a href=\"https://kungsbacka.se/download/18.6582e5c2191974ffda7f5b0/1725610769180/Befolkningsprognos%202024-2050.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20240915010414/https://kungsbacka.se/download/18.6582e5c2191974ffda7f5b0/1725610769180/Befolkningsprognos%202024-2050.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2025–2034 (med framskrivning till 2050)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6, 7–9, 10–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/befolkningsprognos-2025.pdf\">Läs rapporten (PDF)</a><a href=\"https://kungsbacka.se/download/18.3ae5986a198e623c951df996/1756727320521/Befolkningsprognos%202025-2050%20total-%20och%20delomr%C3%A5desprognos.pdf\">Original hos källan</a><a href=\"https://web.archive.org/web/20260105080128/https://kungsbacka.se/download/18.3ae5986a198e623c951df996/1756727320521/Befolkningsprognos%202025-2050%20total-%20och%20delomr%C3%A5desprognos.pdf\">Arkiverad kopia</a></div></li><li><span class=\"titel\">Befolkningsprognos 2026–2035 (med framskrivning till 2050)</span><br><span class=\"detalj\">Siffrorna hämtade ur: Åldersgruppstabellen i rapporten, raderna 6, 7–9, 10–12, 13–15 år, summerade</span><div class=\"lankar\"><a href=\"rapporter/befolkningsprognos-2026-2035.pdf\">Läs rapporten (PDF)</a><a href=\"https://kungsbacka.se/download/18.3ae5986a198e623c951df996/1782303262032/Befolkningsprognos%202025-2050%20total-%20och%20delomr%C3%A5desprognos.pdf\">Original hos källan</a></div></li><li><span class=\"titel\">Faktisk folkmängd: SCB, Befolkningsstatistik (BE0101), Folkmängden efter region, civilstånd, ålder och kön</span><br><span class=\"detalj\">Folkmängd 31 december respektive år. Hämtad 2026-10-14.</span><div class=\"lankar\"><a href=\"https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101A/BefolkningNy/\">Öppna tabellen hos SCB</a></div></li>"
+  },
+  "#meta-rad": {
+   "dold": false,
+   "html": "<span>Källa: Kungsbacka kommuns prognosrapporter och SCB</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: prognoser 2015–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: utfall t.o.m. 2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-10-14</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  },
+  "#not-argangar": {
+   "dold": true,
+   "html": ""
+  },
+  "#not-kohort": {
+   "dold": false,
+   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div>Framskrivningen räknar <strong>varken in- eller utflyttning</strong> och ingen dödlighet. Den säger hur många som skulle bli 6–15 år om kohorterna vore oförändrade. Historiskt har den missat med i snitt 1,0 % ett år framåt och 10,2 % 6 år framåt. Riktningen är densamma på båda sikterna: ett år framåt har den legat för lågt (−1,0 %), 6 år framåt för lågt (−10,2 %) – på den sikten har nettoförändringen i kohorterna varit positiv, alltså lagt till fler än framskrivningen räknar med, så den har <em>historiskt tenderat att underskatta</em> utfallet. Det är ingen undre gräns för framtiden: blir nettoförändringen negativ kan utfallet lika gärna hamna under.</div></div>"
+  },
+  "#om-uppdaterad": {
+   "dold": false,
+   "html": "Utfallssiffrorna hämtades från SCB 2026-10-14."
+  },
+  "#sektion-avstand": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kallor": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kohort": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kohortalla": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-kohortfel": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-malar": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-om": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-skevhet": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-spagetti": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-utfall": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#slutsats-avstand": {
+   "dold": false,
+   "html": "<p>I genomsnitt har prognoserna som gjorts <strong>7 år i förväg</strong> missat med 7,3 % (2 årgångar, 2017–2018), medan de som gjorts <strong>samma år</strong> missat med 0,4 % (11 årgångar, 2015–2025). Det är olika prognosårgångar bakom de två talen.</p><p>Staplarna för 7 år före bygger på färre än tre prognosvärden. Antalet bakom varje stapel syns när du pekar på den, och i tabellen nedan.</p>"
+  },
+  "#slutsats-kohort": {
+   "dold": false,
+   "html": "<p>Om kohorterna vore oförändrade skulle Kungsbacka ha <strong>11&nbsp;264</strong> barn i åldern 6–15 år 2026 – de finns redan i kommunen, de är bara yngre än så. År 2031 är samma tal <strong>9&nbsp;653</strong>, en minskning med 14 %.</p>"
+  },
+  "#slutsats-kohortalla": {
+   "dold": false,
+   "html": "<p><strong>12</strong> årgångar, en per årsskifte från 2014 till 2025. Den äldsta (2014) går att pröva 6 år framåt och har då missat med i snitt 6,5 %; 2023 års årgång är den träffsäkraste så här långt (0,7 %).</p><p>Linjerna ligger på rad under varandra: varje årgång saknar det som hann hända med kohorterna efter dess basår. Avståndet mellan två årgångar är därför inte modellfel utan den nettoförändring framskrivningen utelämnar – flyttning, dödlighet och ändringar i folkbokföringen tillsammans, i de proportioner datat inte visar. Ju längre höger i diagrammet, desto mer hinner samlas.</p>"
+  },
+  "#slutsats-kohortfel": {
+   "dold": false,
+   "html": "<p>Diagrammet ställer kommunens prognos mot framskrivningen vid samma horisont: båda utgår från samma basår, och bara målår där båda har ett värde och facit finns räknas. Staplarna vid de längsta horisonterna bygger på färre jämförelser än de korta – antalet står i tabellen nedan.</p>"
+  },
+  "#slutsats-malar": {
+   "dold": false,
+   "html": "<p><strong>Tidigaste prognosen</strong> (gjord 2018, 7 år i förväg) trodde på 12&nbsp;713 barn år 2025. Det blev 11&nbsp;564 – prognosen låg 1&nbsp;149 personer för högt (9,9 %).</p><p><strong>Senaste prognosen</strong> (gjord 2025, samma år) trodde på 11&nbsp;581. Den låg 17 personer för högt (0,2 %).</p>"
+  },
+  "#slutsats-skevhet": {
+   "dold": false,
+   "html": "<p><strong>38 av 54</strong> jämförelser ligger för högt.</p><p>Genomsnittet över alla jämförelser är <strong>+1,8 %</strong>.</p><p>Felen fördelar sig åt båda håll utan någon tydlig övervikt. Notera att jämförelserna inte är oberoende: samma utfallsår ingår i flera prognosårgångar, och alla prognoshorisonter är sammanräknade.</p><p><strong>Riktningen skiljer sig mellan årgångar.</strong> Prognoserna från 2015, 2016 låg i genomsnitt för lågt, medan de från 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 låg för högt. Vad skillnaden beror på går inte att avgöra ur de här siffrorna. Den kan spegla något i modellen, men lika gärna att åren i sig varit olika svåra att förutsäga – och med så få årgångar kan enstaka teckenbyten vara slumpmässiga.</p><p><strong>Har det blivit bättre?</strong> Frågan kräver att årgångarna jämförs på samma sikt – en gammal prognos har hunnit prövas många år framåt, en ny bara på kort sikt. Mätt <em>ett år framåt</em> har felet i de 10 årgångar som går att mäta legat mellan 0,2 och 2,2 procent, och den senaste mätbara (2024) hamnade på +1,9 %. Värdena hoppar upp och ned mellan årgångarna. Så få mätpunkter räcker inte för att avgöra om prognoserna blivit bättre eller sämre över tid – hela serien står i tabellen nedan.</p><p>Fördelningen bygger på 54 jämförelser.</p>"
+  },
+  "#status": {
+   "dold": true,
+   "html": ""
+  },
+  "#tabell-avstand": {
+   "dold": false,
+   "html": "<caption>Genomsnittligt absolut prognosfel per antal år i förväg, med de prognosårgångar varje rad bygger på.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kalenderår före målåret\">Kalenderår före målåret</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Genomsnittligt absolut fel\">Genomsnittligt absolut fel</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Största fel\">Största fel</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Antal prognosvärden\">Antal prognosvärden</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognosårgångar\">Prognosårgångar</th></tr></thead><tbody><tr><td>Samma år</td><td>0,4 %</td><td>1,1 %</td><td>11</td><td>2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td></tr><tr><td>1 år före</td><td>1,1 %</td><td>2,2 %</td><td>10</td><td>2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024</td></tr><tr><td>2 år före</td><td>1,9 %</td><td>3,1 %</td><td>9</td><td>2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023</td></tr><tr><td>3 år före</td><td>2,6 %</td><td>4,1 %</td><td>8</td><td>2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022</td></tr><tr><td>4 år före</td><td>3,4 %</td><td>6,0 %</td><td>6</td><td>2016, 2017, 2018, 2019, 2020, 2021</td></tr><tr><td>5 år före</td><td>4,2 %</td><td>7,9 %</td><td>5</td><td>2016, 2017, 2018, 2019, 2020</td></tr><tr><td>6 år före</td><td>6,3 %</td><td>9,0 %</td><td>3</td><td>2017, 2018, 2019</td></tr><tr><td>7 år före</td><td>7,3 %</td><td>9,9 %</td><td>2</td><td>2017, 2018</td></tr></tbody>"
+  },
+  "#tabell-kohort": {
+   "dold": false,
+   "html": "<caption>Kohortframskrivningen jämförd med kommunens senaste prognos, antal barn.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kohortframskrivning\">Kohortframskrivning</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Åldrar 2025\">Åldrar 2025</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kommunens prognos\">Kommunens prognos</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skillnad\">Skillnad</th></tr></thead><tbody><tr><th scope=\"row\">2026</th><td>11&nbsp;264</td><td>5–14 år</td><td>11&nbsp;333</td><td>+69</td></tr><tr><th scope=\"row\">2027</th><td>11&nbsp;044</td><td>4–13 år</td><td>11&nbsp;216</td><td>+172</td></tr><tr><th scope=\"row\">2028</th><td>10&nbsp;733</td><td>3–12 år</td><td>11&nbsp;032</td><td>+299</td></tr><tr><th scope=\"row\">2029</th><td>10&nbsp;452</td><td>2–11 år</td><td>10&nbsp;915</td><td>+463</td></tr><tr><th scope=\"row\">2030</th><td>10&nbsp;090</td><td>1–10 år</td><td>10&nbsp;783</td><td>+693</td></tr><tr><th scope=\"row\">2031</th><td>9&nbsp;653</td><td>0–9 år</td><td>10&nbsp;658</td><td>+1&nbsp;005</td></tr></tbody>"
+  },
+  "#tabell-kohortalla": {
+   "dold": false,
+   "html": "<caption>Faktiskt utfall och samtliga kohortframskrivningar, antal barn.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Utfall (SCB)\">Utfall (SCB)</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2014\">Från 2014</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2015\">Från 2015</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2016\">Från 2016</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2017\">Från 2017</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2018\">Från 2018</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2019\">Från 2019</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2020\">Från 2020</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2021\">Från 2021</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2022\">Från 2022</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2023\">Från 2023</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2024\">Från 2024</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Från 2025\">Från 2025</th></tr></thead><tbody><tr><th scope=\"row\">2014</th><td>11&nbsp;037</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2015</th><td>11&nbsp;348</td><td>11&nbsp;268</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2016</th><td>11&nbsp;657</td><td>11&nbsp;392</td><td>11&nbsp;505</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2017</th><td>11&nbsp;958</td><td>11&nbsp;361</td><td>11&nbsp;502</td><td>11&nbsp;699</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2018</th><td>12&nbsp;104</td><td>11&nbsp;177</td><td>11&nbsp;381</td><td>11&nbsp;622</td><td>11&nbsp;896</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2019</th><td>12&nbsp;137</td><td>10&nbsp;905</td><td>11&nbsp;162</td><td>11&nbsp;432</td><td>11&nbsp;738</td><td>11&nbsp;967</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2020</th><td>12&nbsp;178</td><td>10&nbsp;583</td><td>10&nbsp;893</td><td>11&nbsp;242</td><td>11&nbsp;587</td><td>11&nbsp;854</td><td>12&nbsp;036</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2021</th><td>12&nbsp;143</td><td>–</td><td>10&nbsp;518</td><td>10&nbsp;923</td><td>11&nbsp;330</td><td>11&nbsp;626</td><td>11&nbsp;840</td><td>11&nbsp;989</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2022</th><td>12&nbsp;103</td><td>–</td><td>–</td><td>10&nbsp;547</td><td>11&nbsp;037</td><td>11&nbsp;365</td><td>11&nbsp;623</td><td>11&nbsp;789</td><td>11&nbsp;967</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2023</th><td>11&nbsp;879</td><td>–</td><td>–</td><td>–</td><td>10&nbsp;635</td><td>11&nbsp;042</td><td>11&nbsp;342</td><td>11&nbsp;508</td><td>11&nbsp;714</td><td>11&nbsp;872</td><td>–</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2024</th><td>11&nbsp;732</td><td>–</td><td>–</td><td>–</td><td>–</td><td>10&nbsp;702</td><td>11&nbsp;041</td><td>11&nbsp;250</td><td>11&nbsp;484</td><td>11&nbsp;680</td><td>11&nbsp;702</td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2025</th><td>11&nbsp;564</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>10&nbsp;620</td><td>10&nbsp;872</td><td>11&nbsp;133</td><td>11&nbsp;368</td><td>11&nbsp;435</td><td>11&nbsp;482</td><td>–</td></tr><tr><th scope=\"row\">2026</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>10&nbsp;401</td><td>10&nbsp;731</td><td>10&nbsp;986</td><td>11&nbsp;079</td><td>11&nbsp;155</td><td>11&nbsp;264</td></tr><tr><th scope=\"row\">2027</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>10&nbsp;319</td><td>10&nbsp;662</td><td>10&nbsp;803</td><td>10&nbsp;909</td><td>11&nbsp;044</td></tr><tr><th scope=\"row\">2028</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>10&nbsp;245</td><td>10&nbsp;419</td><td>10&nbsp;560</td><td>10&nbsp;733</td></tr><tr><th scope=\"row\">2029</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>10&nbsp;025</td><td>10&nbsp;214</td><td>10&nbsp;452</td></tr><tr><th scope=\"row\">2030</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>9&nbsp;788</td><td>10&nbsp;090</td></tr><tr><th scope=\"row\">2031</th><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>9&nbsp;653</td></tr></tbody>"
+  },
+  "#tabell-kohortfel": {
+   "dold": false,
+   "html": "<caption>Genomsnittligt fel utan tecken, per antal år i förväg.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År i förväg\">År i förväg</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Jämförelser\">Jämförelser</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kommunens prognos\">Kommunens prognos</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Framskrivning\">Framskrivning</th></tr></thead><tbody><tr><th scope=\"row\">0</th><td>11</td><td>0,4 %</td><td>1,1 %</td></tr><tr><th scope=\"row\">1</th><td>10</td><td>1,1 %</td><td>2,4 %</td></tr><tr><th scope=\"row\">2</th><td>9</td><td>1,9 %</td><td>4,1 %</td></tr><tr><th scope=\"row\">3</th><td>8</td><td>2,6 %</td><td>6,1 %</td></tr><tr><th scope=\"row\">4</th><td>6</td><td>3,4 %</td><td>8,1 %</td></tr><tr><th scope=\"row\">5</th><td>5</td><td>4,2 %</td><td>10,7 %</td></tr></tbody>"
+  },
+  "#tabell-malar": {
+   "dold": false,
+   "html": "<caption>Prognoser för år 2025 jämfört med utfallet 11&nbsp;564 barn.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos gjord år\">Prognos gjord år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognosen sa\">Prognosen sa</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Skillnad (personer)\">Skillnad (personer)</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Fel i procent\">Fel i procent</th></tr></thead><tbody><tr><td>2018</td><td>12&nbsp;713</td><td>+1&nbsp;149</td><td>9,9 %</td></tr><tr><td>2019</td><td>12&nbsp;599</td><td>+1&nbsp;035</td><td>9,0 %</td></tr><tr><td>2020</td><td>12&nbsp;480</td><td>+916</td><td>7,9 %</td></tr><tr><td>2021</td><td>12&nbsp;187</td><td>+623</td><td>5,4 %</td></tr><tr><td>2022</td><td>12&nbsp;040</td><td>+476</td><td>4,1 %</td></tr><tr><td>2023</td><td>11&nbsp;884</td><td>+320</td><td>2,8 %</td></tr><tr><td>2024</td><td>11&nbsp;779</td><td>+215</td><td>1,9 %</td></tr><tr><td>2025</td><td>11&nbsp;581</td><td>+17</td><td>0,2 %</td></tr></tbody>"
+  },
+  "#tabell-skevhet": {
+   "dold": false,
+   "html": "<caption>Genomsnittligt fel med riktning, per antal år i förväg. Plus betyder att prognosen låg för högt.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kalenderår före målåret\">Kalenderår före målåret</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Genomsnittligt fel med riktning\">Genomsnittligt fel med riktning</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Antal för höga\">Antal för höga</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Antal prognosvärden\">Antal prognosvärden</th></tr></thead><tbody><tr><td>Samma år</td><td>+0,2 %</td><td>8</td><td>11</td></tr><tr><td>1 år före</td><td>+0,6 %</td><td>7</td><td>10</td></tr><tr><td>2 år före</td><td>+0,9 %</td><td>6</td><td>9</td></tr><tr><td>3 år före</td><td>+1,4 %</td><td>5</td><td>8</td></tr><tr><td>4 år före</td><td>+2,8 %</td><td>4</td><td>6</td></tr><tr><td>5 år före</td><td>+3,8 %</td><td>3</td><td>5</td></tr><tr><td>6 år före</td><td>+6,3 %</td><td>3</td><td>3</td></tr><tr><td>7 år före</td><td>+7,3 %</td><td>2</td><td>2</td></tr></tbody><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos gjord år\">Prognos gjord år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Fel ett år framåt\">Fel ett år framåt</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Genomsnitt, alla år\">Genomsnitt, alla år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prövad t.o.m.\">Prövad t.o.m.</th></tr></thead><tbody><tr><td>2015</td><td>−0,2 %</td><td>−1,1 %</td><td>3 år framåt</td></tr><tr><td>2016</td><td>−1,2 %</td><td>−1,1 %</td><td>5 år framåt</td></tr><tr><td>2017</td><td>−1,2 %</td><td>+0,2 %</td><td>7 år framåt</td></tr><tr><td>2018</td><td>+0,2 %</td><td>+3,5 %</td><td>7 år framåt</td></tr><tr><td>2019</td><td>+0,9 %</td><td>+3,6 %</td><td>6 år framåt</td></tr><tr><td>2020</td><td>+0,9 %</td><td>+3,5 %</td><td>5 år framåt</td></tr><tr><td>2021</td><td>+0,7 %</td><td>+2,5 %</td><td>4 år framåt</td></tr><tr><td>2022</td><td>+1,7 %</td><td>+2,3 %</td><td>3 år framåt</td></tr><tr><td>2023</td><td>+2,2 %</td><td>+2,0 %</td><td>2 år framåt</td></tr><tr><td>2024</td><td>+1,9 %</td><td>+1,4 %</td><td>1 år framåt</td></tr><tr><td>2025</td><td>–</td><td>+0,2 %</td><td>samma år</td></tr></tbody>"
+  },
+  "#tabell-spagetti": {
+   "dold": false,
+   "html": "<caption>Faktiskt utfall och samtliga prognoser, antal barn.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Utfall (SCB)\">Utfall (SCB)</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kohortframskrivning\">Kohortframskrivning</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2015\">Prognos 2015</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2016\">Prognos 2016</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2017\">Prognos 2017</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2018\">Prognos 2018</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2019\">Prognos 2019</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2020\">Prognos 2020</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2021\">Prognos 2021</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2022\">Prognos 2022</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2023\">Prognos 2023</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2024\">Prognos 2024</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2025\">Prognos 2025</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos 2026\">Prognos 2026</th></tr></thead><tbody><tr><td>2015</td><td>11&nbsp;348</td><td>–</td><td>11&nbsp;371</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2016</td><td>11&nbsp;657</td><td>–</td><td>11&nbsp;629</td><td>11&nbsp;647</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2017</td><td>11&nbsp;958</td><td>–</td><td>11&nbsp;766</td><td>11&nbsp;820</td><td>11&nbsp;850</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2018</td><td>12&nbsp;104</td><td>–</td><td>11&nbsp;797</td><td>11&nbsp;918</td><td>11&nbsp;958</td><td>12&nbsp;090</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2019</td><td>12&nbsp;137</td><td>–</td><td>–</td><td>11&nbsp;965</td><td>11&nbsp;990</td><td>12&nbsp;157</td><td>12&nbsp;168</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2020</td><td>12&nbsp;178</td><td>–</td><td>–</td><td>12&nbsp;021</td><td>12&nbsp;068</td><td>12&nbsp;269</td><td>12&nbsp;284</td><td>12&nbsp;227</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2021</td><td>12&nbsp;143</td><td>–</td><td>–</td><td>12&nbsp;032</td><td>12&nbsp;072</td><td>12&nbsp;330</td><td>12&nbsp;324</td><td>12&nbsp;256</td><td>12&nbsp;164</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2022</td><td>12&nbsp;103</td><td>–</td><td>–</td><td>–</td><td>12&nbsp;077</td><td>12&nbsp;423</td><td>12&nbsp;371</td><td>12&nbsp;307</td><td>12&nbsp;192</td><td>12&nbsp;148</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2023</td><td>11&nbsp;879</td><td>–</td><td>–</td><td>–</td><td>12&nbsp;160</td><td>12&nbsp;490</td><td>12&nbsp;426</td><td>12&nbsp;350</td><td>12&nbsp;167</td><td>12&nbsp;085</td><td>12&nbsp;008</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2024</td><td>11&nbsp;732</td><td>–</td><td>–</td><td>–</td><td>12&nbsp;268</td><td>12&nbsp;629</td><td>12&nbsp;535</td><td>12&nbsp;435</td><td>12&nbsp;195</td><td>12&nbsp;100</td><td>11&nbsp;986</td><td>11&nbsp;845</td><td>–</td><td>–</td></tr><tr><td>2025</td><td>11&nbsp;564</td><td>–</td><td>–</td><td>–</td><td>–</td><td>12&nbsp;713</td><td>12&nbsp;599</td><td>12&nbsp;480</td><td>12&nbsp;187</td><td>12&nbsp;040</td><td>11&nbsp;884</td><td>11&nbsp;779</td><td>11&nbsp;581</td><td>–</td></tr><tr><td>2026</td><td>–</td><td>11&nbsp;264</td><td>–</td><td>–</td><td>–</td><td>–</td><td>12&nbsp;680</td><td>12&nbsp;551</td><td>12&nbsp;158</td><td>11&nbsp;983</td><td>11&nbsp;771</td><td>11&nbsp;626</td><td>11&nbsp;349</td><td>11&nbsp;333</td></tr><tr><td>2027</td><td>–</td><td>11&nbsp;044</td><td>–</td><td>–</td><td>–</td><td>–</td><td>12&nbsp;860</td><td>12&nbsp;710</td><td>12&nbsp;224</td><td>12&nbsp;006</td><td>11&nbsp;733</td><td>11&nbsp;607</td><td>11&nbsp;230</td><td>11&nbsp;216</td></tr><tr><td>2028</td><td>–</td><td>10&nbsp;733</td><td>–</td><td>–</td><td>–</td><td>–</td><td>13&nbsp;070</td><td>12&nbsp;911</td><td>12&nbsp;339</td><td>12&nbsp;046</td><td>11&nbsp;696</td><td>11&nbsp;574</td><td>11&nbsp;055</td><td>11&nbsp;032</td></tr><tr><td>2029</td><td>–</td><td>10&nbsp;452</td><td>–</td><td>–</td><td>–</td><td>–</td><td>13&nbsp;355</td><td>13&nbsp;193</td><td>12&nbsp;513</td><td>12&nbsp;164</td><td>11&nbsp;725</td><td>11&nbsp;610</td><td>10&nbsp;946</td><td>10&nbsp;915</td></tr><tr><td>2030</td><td>–</td><td>10&nbsp;090</td><td>–</td><td>–</td><td>–</td><td>–</td><td>13&nbsp;602</td><td>13&nbsp;418</td><td>12&nbsp;658</td><td>12&nbsp;254</td><td>11&nbsp;695</td><td>11&nbsp;609</td><td>10&nbsp;843</td><td>10&nbsp;783</td></tr><tr><td>2031</td><td>–</td><td>9&nbsp;653</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>12&nbsp;870</td><td>12&nbsp;401</td><td>11&nbsp;703</td><td>11&nbsp;636</td><td>10&nbsp;781</td><td>10&nbsp;658</td></tr><tr><td>2032</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>13&nbsp;068</td><td>–</td><td>11&nbsp;681</td><td>11&nbsp;647</td><td>10&nbsp;675</td><td>10&nbsp;487</td></tr><tr><td>2033</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>13&nbsp;354</td><td>–</td><td>–</td><td>11&nbsp;729</td><td>10&nbsp;653</td><td>10&nbsp;397</td></tr><tr><td>2034</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>13&nbsp;615</td><td>–</td><td>–</td><td>–</td><td>10&nbsp;615</td><td>10&nbsp;302</td></tr><tr><td>2035</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>13&nbsp;885</td><td>–</td><td>–</td><td>–</td><td>–</td><td>10&nbsp;218</td></tr></tbody>"
+  },
+  "#tabell-utfall": {
+   "dold": false,
+   "html": "<caption>6–15 år. Folkmängd 31 december respektive år enligt SCB. Hämtad 2026-10-14.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Utfall\">Utfall</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Förändring\">Förändring</th></tr></thead><tbody><tr><td>2015</td><td>11&nbsp;348</td><td>+311</td></tr><tr><td>2016</td><td>11&nbsp;657</td><td>+309</td></tr><tr><td>2017</td><td>11&nbsp;958</td><td>+301</td></tr><tr><td>2018</td><td>12&nbsp;104</td><td>+146</td></tr><tr><td>2019</td><td>12&nbsp;137</td><td>+33</td></tr><tr><td>2020</td><td>12&nbsp;178</td><td>+41</td></tr><tr><td>2021</td><td>12&nbsp;143</td><td>−35</td></tr><tr><td>2022</td><td>12&nbsp;103</td><td>−40</td></tr><tr><td>2023</td><td>11&nbsp;879</td><td>−224</td></tr><tr><td>2024</td><td>11&nbsp;732</td><td>−147</td></tr><tr><td>2025</td><td>11&nbsp;564</td><td>−168</td></tr></tbody>"
+  },
+  ".meta-rad[meta-rad]": {
+   "dold": false,
+   "html": "<span>Källa: Kungsbacka kommuns prognosrapporter och SCB</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: prognoser 2015–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Senaste data: utfall t.o.m. 2025</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 2026-10-14</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+  }
+ }
+}

@@ -466,6 +466,74 @@ class TestKohortframskrivning(unittest.TestCase):
         self.assertEqual([r["avstand"] for r in rader], [0])
 
 
+class TestSummeradeAldersgrupper(unittest.TestCase):
+    """6–15 år finns inte som rad i någon rapport utan summeras ur de rader
+    som tillsammans täcker exakt 6–15 år."""
+
+    def test_budgetens_tva_rader(self):
+        grupper = {"6-12": {"2020": 8000}, "13-15": {"2020": 3500},
+                   "16-19": {"2020": 4000}}
+        self.assertEqual(build_data.delrader(grupper, "6-15"), ["6-12", "13-15"])
+        self.assertEqual(build_data.serie_ur_rapport(
+            {"aldersgrupper": grupper}, "6-15"), {"2020": 11500})
+
+    def test_enskild_alder_som_rad(self):
+        grupper = {"6": {"2026": 1016}, "7-9": {"2026": 3261},
+                   "10-12": {"2026": 3475}, "13-15": {"2026": 3581}}
+        self.assertEqual(build_data.serie_ur_rapport(
+            {"aldersgrupper": grupper}, "6-15"), {"2026": 11333})
+
+    def test_lucka_ger_ingen_serie(self):
+        """Saknas 10–12 täcker raderna inte spannet – halva gruppen vore
+        värre än ingen."""
+        grupper = {"6-9": {"2021": 4524}, "13-15": {"2021": 3809}}
+        self.assertEqual(build_data.delrader(grupper, "6-15"), [])
+        self.assertEqual(build_data.serie_ur_rapport(
+            {"aldersgrupper": grupper}, "6-15"), {})
+
+    def test_overlapp_ger_ingen_serie(self):
+        grupper = {"6-12": {"2020": 1}, "6": {"2020": 1}, "7-9": {"2020": 1},
+                   "10-12": {"2020": 1}, "13-15": {"2020": 1}}
+        self.assertEqual(build_data.delrader(grupper, "6-15"), [])
+
+    def test_bara_ar_dar_alla_rader_finns(self):
+        grupper = {"6-12": {"2020": 8000, "2021": 8100},
+                   "13-15": {"2020": 3500}}
+        self.assertEqual(build_data.serie_ur_rapport(
+            {"aldersgrupper": grupper}, "6-15"), {"2020": 11500})
+
+    def test_befintlig_rad_anvands_som_den_star(self):
+        grupper = {"16-19": {"2020": 4000}, "16-18": {"2020": 3000}}
+        self.assertEqual(build_data.serie_ur_rapport(
+            {"aldersgrupper": grupper}, "16-19"), {"2020": 4000})
+
+    def test_riktiga_rapporter(self):
+        """Alla tolv årgångar ger 6–15 år, och 2026 års första prognosår
+        stämmer med raderna 6, 7–9, 10–12 och 13–15 i rapportens Tabell 9,
+        summerade för hand."""
+        rapporter = {
+            f.stem: json.loads(f.read_text(encoding="utf-8"))
+            for f in sorted((ROT / "data" / "prognoser").glob("prognos_*.json"))
+        }
+        for namn, rapport in rapporter.items():
+            serie = build_data.serie_ur_rapport(rapport, "6-15")
+            self.assertTrue(serie, namn)
+            self.assertEqual(min(serie, key=int), str(rapport["prognosAr"]), namn)
+        self.assertEqual(build_data.serie_ur_rapport(
+            rapporter["prognos_2026"], "6-15")["2026"],
+            1016 + 3261 + 3475 + 3581)
+        # Kommunbudget 2024, sid 30: 6–12 och 13–15 år 2023
+        self.assertEqual(build_data.serie_ur_rapport(
+            rapporter["prognos_2023"], "6-15")["2023"], 8101 + 3907)
+
+    def test_utfallet_ar_summan_av_ettarsklasserna(self):
+        scb = json.loads((ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+                         .read_text(encoding="utf-8"))
+        for ar, rad in scb["perAlder"].items():
+            self.assertEqual(sum(rad[str(a)] for a in range(6, 16)),
+                             scb["aldersgrupper"]["6-15"][ar], ar)
+
+
 class TestNianTillGymnasiet(unittest.TestCase):
     """build_nian_gymnasiet: kullkedjan, meritvärdesbrottet, korrelationen
     och pendlingens kontrollsumma."""
@@ -1873,6 +1941,20 @@ class TestGenereradeFiler(unittest.TestCase):
         ombyggd = build_data.bygg(scb, rapporter, utfall, "16-19",
                                   "16–19 år", (16, 19))
         self.assertEqual(ombyggd, self.las("data-16-19.json"))
+
+    def test_data_6_15_ar_reproducerbar(self):
+        scb = json.loads(
+            (ROT / "data" / "scb" / "folkmangd_kungsbacka.json")
+            .read_text(encoding="utf-8"))
+        rapporter = [
+            json.loads(f.read_text(encoding="utf-8"))
+            for f in sorted((ROT / "data" / "prognoser").glob("prognos_*.json"))
+        ]
+        utfall = {int(a): v
+                  for a, v in scb["aldersgrupper"]["6-15"].items()}
+        ombyggd = build_data.bygg(scb, rapporter, utfall, "6-15",
+                                  "6–15 år", (6, 15))
+        self.assertEqual(ombyggd, self.las("data-6-15.json"))
 
     def test_data_varberg_ar_reproducerbar(self):
         """Varbergs två prognosfiler byggs av samma kod ur data/prognoser/varberg/

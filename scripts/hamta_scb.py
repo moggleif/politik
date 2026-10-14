@@ -3,9 +3,10 @@
 
 Kungsbacka är standard; Varberg hämtas med  --kommun varberg.
 
-Hämtar tre serier: hela befolkningen, åldersgruppen 16–19 år
-(gymnasieåldern) och åldersgruppen 0–15 år (förskole- och
-grundskoleåldern), den senare som en enda grupp.
+Hämtar fyra serier: hela befolkningen, åldersgruppen 16–19 år
+(gymnasieåldern), åldersgruppen 0–15 år (förskole- och grundskoleåldern)
+som en enda grupp och åldersgruppen 6–15 år (förskoleklass och grundskola),
+den grupp kommunens prognoser går att summera till.
 
 Dessutom hämtas folkmängden **per enskild ålder 0–19 år**. Den behövs för
 kohortframskrivningen på gymnasiesidan: barnen som redan bor i kommunen
@@ -65,6 +66,7 @@ def aldersgrupper(gymnasie: tuple) -> dict:
     return {
         f"{lag}-{hog}": [str(a) for a in range(lag, hog + 1)],
         "0-15": [str(a) for a in range(0, 16)],
+        "6-15": [str(a) for a in range(6, 16)],
     }
 
 

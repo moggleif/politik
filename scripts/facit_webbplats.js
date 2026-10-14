@@ -55,6 +55,7 @@ const SIDOR = [
 
   "befolkningsprognos.html",
   "gymnasiealdern.html",
+  "grundskolealdern.html",
   "barn-och-unga.html",
   "varberg-befolkningsprognos.html",
   "varberg-gymnasiealdern.html",

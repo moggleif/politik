@@ -1,5 +1,6 @@
-/* Kohortframskrivningen på 16–19-årssidan – läses bara av
-   gymnasiealdern.html, efter gemensam.js och före app.js. Registrerar
+/* Kohortframskrivningen på åldersgruppssidorna – läses av
+   gymnasiealdern.html och grundskolealdern.html, efter gemensam.js och
+   före app.js. Registrerar
    K.kohortInit, som app.js anropar när datat är läst; på sidor utan
    den här filen (totalsidan) finns varken funktionen eller kohortdatat,
    och app.js hoppar då över den. */

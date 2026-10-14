@@ -24,6 +24,7 @@
           <ul class="navpanel">
             <li><a href="befolkningsprognos.html">Hela befolkningen</a></li>
             <li><a href="barn-och-unga.html">0–15 år</a></li>
+            <li><a href="grundskolealdern.html">6–15 år</a></li>
             <li><a href="gymnasiealdern.html">16–19 år</a></li>
           </ul>
         </details>
@@ -133,7 +134,7 @@
         <a href="https://github.com/moggleif/politik/blob/main/data/KALLOR.md">data/KALLOR.md</a>.</dd>
       <dt>SCB:s befolkningsstatistik</dt>
       <dd>Det faktiska utfallet &ndash; folkmängden 31 december per år,
-        totalt och för åldersgrupperna 0&ndash;15 och 16&ndash;19 år
+        totalt och för åldersgrupperna 0&ndash;15, 6&ndash;15 och 16&ndash;19 år
         (16&ndash;18 år för Varberg), summerade ur SCB:s ettårsklasser
         &ndash; hämtas från SCB:s öppna PxWeb-API med skriptet
         <a href="https://github.com/moggleif/politik/blob/main/scripts/hamta_scb.py">scripts/hamta_scb.py</a>
@@ -410,11 +411,17 @@
         följer med i datat, eftersom de skiljer sig åt: ett långt avstånd
         kan bara mätas för de äldsta prognoserna, prognoslängden har
         ändrats över tid, och för 16&ndash;19-åringarna saknas 2021 års
-        rapport eftersom den använde en annan åldersindelning. Sammanställ&shy;ningen
+        rapport eftersom den använde en annan åldersindelning. Ingen
+        rapport redovisar 6&ndash;15 år som en egen rad; gruppen räknas
+        fram som summan av de rader som tillsammans täcker exakt
+        6&ndash;15 år (6&ndash;12 och 13&ndash;15 i budgetarna, 6, 7&ndash;9,
+        10&ndash;12 och 13&ndash;15 i de senare rapporterna).
+        Sammanställ&shy;ningen
         per horisont beskriver därför materialet &ndash; den identifierar
         inte vad en längre prognoshorisont orsakar. Skriver
-        <a href="data.json">data.json</a> och
-        <a href="data-16-19.json">data-16-19.json</a> &ndash; och för
+        <a href="data.json">data.json</a>,
+        <a href="data-16-19.json">data-16-19.json</a> och
+        <a href="data-6-15.json">data-6-15.json</a> &ndash; och för
         Varberg, med samma kod, <a href="data-varberg.json">data-varberg.json</a>
         och <a href="data-varberg-16-18.json">data-varberg-16-18.json</a>.
         En prognos som bara redovisar vissa år (Varbergs budgettabeller) får

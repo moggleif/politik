@@ -36,6 +36,7 @@ const { startaServer, nySida } = require("./testserver");
 const SIDOR = [
   "befolkningsprognos.html",
   "gymnasiealdern.html",
+  "grundskolealdern.html",
   "varberg-befolkningsprognos.html",
   "varberg-gymnasiealdern.html",
   "amnesbetyg.html",
