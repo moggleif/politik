@@ -1563,3 +1563,33 @@ Det som inte fanns:
 - Handlingarna från 2021 och 2022 finns bara i Internet Archive, och två
   av adresserna där är avklippta i poolen. De länkas därför bara till
   datapoolen.
+
+### Övriga sommarjobb (nämnden för Vård & Omsorg)
+
+Ur `data/kungsbacka/vo/` i datapoolen, på samma sätt som feriejobben.
+Kommunens andra nämnder redovisar inga antal sommarvikarier eller
+sommaranställda unga i sina handlingar (sökt 2023–2026).
+
+- **Årsredovisningen** (februari), avsnittet *Attrahera/rekrytera* under
+  kompetensförsörjning: 17-åringar och riktade lovjobb för året.
+  Delårsrapporten augusti 2023 har 2023 års 17-åringar (40); årsredovisningen
+  skriver "ett fyrtiotal".
+- **Utvärderingen av sommaren** (oktober; 2026-10-15 sidan 347):
+  förbokade vikarier beställda och tillsatta 2024–2025 och månadsanställda
+  vikarier 2024–2026. Samma tabeller står i utvärderingarna 2024-09-19 och
+  2025-10-16.
+- **Tjänsteskrivelsen om sommarbemanningen** 2023-06-15: behov och
+  anställda semestervikarier i slutet av maj 2023.
+- **Svaret på revisionens granskning** 2023-04-20: att också 16-åringar
+  som fyllde 17 under 2023 anställdes.
+
+Det som inte förs in:
+
+- Kommunstyrelsens och fullmäktiges delårsrapport 2023 skriver "ett
+  femtiotal 17-åringar", mot nämndens egna 40.
+- Delårsrapporternas lovjobbstal (16 år 2023, 14 år 2024) gäller året
+  dittills; årsredovisningens tal för helåret förs in.
+- Revisionens "cirka 100 av 500 sommarvikarier" gäller utbildningen 2021
+  och är ett ungefärligt tal.
+- Timvikarietimmar och årsarbetare per månad (utvärderingen 2026) mäter
+  arbetad tid, inte personer.

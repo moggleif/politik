@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Feriejobb för gymnasieettorna i Kungsbacka</title>
-<meta name="description" content="Kommunens feriejobb år för år sedan 2020: hur många som sökte, hur många som fick ett jobb och hur många platser verksamheterna anmälde – varje tal med källa i nämndens handlingar.">
+<meta name="description" content="Kommunens feriejobb år för år sedan 2020: hur många som sökte, hur många som fick ett jobb och hur många platser verksamheterna anmälde, och Vård &amp; Omsorgs övriga sommarjobb för unga – varje tal med källa i nämndernas handlingar.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -97,11 +97,10 @@
     <p class="ingress">
       Varje sommar kan elever som går första året på gymnasiet och är
       folkbokförda i Kungsbacka söka ett feriejobb i kommunens egna
-      verksamheter: tre veckor, sex timmar om dagen. Här är
-      <strong>hur många som sökte</strong>, <strong>hur många som fick ett
-      jobb</strong> och <strong>hur många platser verksamheterna
-      anmälde</strong>, år för år, så som nämnden för Gymnasium &amp;
-      Arbetsmarknad redovisat det. Varje tal har en länkad källa.
+      verksamheter: tre veckor, sex timmar om dagen. Här är hur många som
+      sökte, hur många som fick ett jobb och hur många platser
+      verksamheterna anmälde, år för år &ndash; och de andra sommarjobb för
+      unga som kommunen redovisar. Varje tal har en länkad källa.
     </p>
     <p class="meta-rad" id="meta-rad" hidden></p>
   </div>
@@ -118,41 +117,76 @@
   </section>
 
   <section id="sektion-utveckling" hidden>
-    <h2>Sökande och jobb år för år</h2>
+    <h2>Sökande och feriejobb år för år</h2>
     <p class="forklaring">
-      Linjerna går genom de år där handlingarna anger ett tal. Där två
-      handlingar anger olika tal för samma år ritas spannet mellan dem som
-      ett lodrätt streck, utan någon punkt: sidan väljer inte vilket av
-      talen som stämmer. Ett år utan uppgift är en lucka i linjen.
+      Antal per sommar. Ett lodstreck betyder att två handlingar anger
+      olika tal för samma år. En lucka betyder att uppgift saknas.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-utveckling" aria-label="Diagram: sökande, tillsatta feriejobb och anmälda platser per år" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-utveckling"></p>
     </div>
     <div id="not-luckor" hidden></div>
-  </section>
-
-  <section id="sektion-tabell" hidden>
-    <h2>Talen och deras källor</h2>
-    <p class="forklaring" id="forklaring-matt"></p>
-    <div class="kort">
+    <details>
+      <summary>Visa talen och deras källor som tabell</summary>
       <div class="tabell-rull"><table id="tabell-ar"></table></div>
       <p class="kalla-rad">Siffrorna inom hakparentes är källor, se listan längre ned. Två tal i samma ruta betyder att källorna säger olika.</p>
-    </div>
+    </details>
+    <details>
+      <summary>Läs mer om måtten</summary>
+      <p class="forklaring" id="forklaring-matt"></p>
+      <p class="forklaring">
+        Där två handlingar anger olika tal för samma år visas båda. Sidan
+        väljer inte vilket av dem som stämmer och räknar inte fram något
+        mellanting, och linjen går bara genom de år där talet är ett.
+        Kommunen har en budget för omkring 200 jobb om året, och de anmälda
+        platserna kan därför vara fler än jobben.
+      </p>
+    </details>
   </section>
 
   <section id="sektion-enkat" hidden>
     <h2>Vad feriearbetarna svarade</h2>
     <p class="forklaring">
-      Efter sommaren får feriearbetarna en enkät från kommunen. Tabellen
-      visar medelvärdet för varje fråga på en skala från 1 (inte alls) till
-      5 (i högsta grad), som nämnden redovisat det i sin kvalitetsberättelse.
-      Hur många som svarade står inte i handlingarna, utom för 2020.
+      Medelvärden i kommunens enkät efter sommaren, på en skala från 1
+      (inte alls) till 5 (i högsta grad).
     </p>
     <div class="kort">
       <div class="tabell-rull"><table id="tabell-enkat"></table></div>
       <p class="kalla-rad" id="kalla-enkat"></p>
     </div>
+    <details>
+      <summary>Läs mer om enkäten</summary>
+      <p class="forklaring">
+        Medelvärdena är så som nämnden redovisat dem i sin
+        kvalitetsberättelse, med så många decimaler som där. Hur många som
+        svarade står inte i handlingarna, utom för 2020.
+      </p>
+    </details>
+  </section>
+
+  <section id="sektion-sommarjobb" hidden>
+    <h2>Andra sommarjobb för unga</h2>
+    <p class="forklaring">
+      Feriejobben är inte alla jobb kommunen har för unga på sommaren.
+      Nämnden för Vård &amp; Omsorg anställer också 17-åringar,
+      gymnasieelever i riktade lovjobb och sommarvikarier. Det är den enda
+      förvaltning vars handlingar redovisar hur många.
+    </p>
+    <div class="kort">
+      <div class="tabell-rull"><table id="tabell-sommarjobb"></table></div>
+      <p class="kalla-rad">Siffrorna inom hakparentes är källor. Grupperna räknas på olika sätt och går inte att lägga ihop.</p>
+    </div>
+    <details>
+      <summary>Läs mer om grupperna</summary>
+      <dl class="metod-lista" id="forklaring-grupper"></dl>
+      <p class="forklaring">
+        Förvaltningarna tar också emot feriearbetare &ndash; Vård &amp;
+        Omsorg, Service, Kultur &amp; Fritid och andra &ndash; men de
+        räknas redan in i feriejobben ovan. Övriga förvaltningars egna
+        sommarvikarier redovisas inte med antal i nämndernas handlingar.
+      </p>
+    </details>
   </section>
 
   <section id="sektion-kallor" hidden>
@@ -170,33 +204,40 @@
     <h2>Om den här sidan</h2>
     <p class="forklaring">
       <strong>Varje tal är ett citat.</strong> Talen är inlästa för hand ur
-      nämndens delårsrapporter, årsredovisningar, kvalitetsberättelser och
-      protokoll. För varje tal sparas meningen där det står, ordagrant, och
-      bygget stannar om talet inte finns i meningen. Ett tal som är en summa
-      &ndash; 2026 års 224 jobb, som i handlingarna är &rdquo;200 samt 24
-      extra platser&rdquo; &ndash; är räknat ur sina delar.
+      nämndernas delårsrapporter, årsredovisningar, kvalitetsberättelser,
+      tjänsteskrivelser och protokoll. För varje tal sparas meningen där
+      det står, ordagrant, och bygget stannar om talet inte finns i
+      meningen.
     </p>
-    <p class="forklaring">
-      <strong>Tre mått, så som handlingarna skriver dem.</strong> Sökande
-      är i texterna omväxlande ungdomar som &rdquo;fullföljde sin
-      ansökan&rdquo;, &rdquo;ansökte&rdquo; och &rdquo;sökte&rdquo;, och
-      kan vara räknade på olika sätt. Tillsatta är jobb som tillsattes och
-      ungdomar som anställdes, matchades eller placerades. Anmälda platser
-      är de platser verksamheterna erbjöd, som kan vara fler än jobben;
-      kommunen har en budget för omkring 200 jobb om året.
-    </p>
-    <p class="forklaring">
-      <strong>Där handlingarna säger olika</strong> visas båda talen. Det
-      gäller tillsatta 2020 (183 eller 180) och sökande 2024 och 2025. Sidan
-      väljer inget av dem och räknar inte fram något mellanting.
-    </p>
-    <p class="forklaring">
-      <strong>Luckorna.</strong> Nämndens handlingar från 2015&ndash;2019
-      och 2023 finns inte eller kunde inte hämtas i datapoolen, och därför
-      saknas kvalitetsberättelsen för 2022 och de flesta tal före 2020.
-      Kostnaden, könsfördelningen och fördelningen på arbetsplatser
-      redovisas bara enstaka år och finns inte med här.
-    </p>
+    <details>
+      <summary>Läs mer om hur talen lästs in</summary>
+      <p class="forklaring">
+        <strong>Summor.</strong> Ett tal som är en summa &ndash; 2026 års
+        224 jobb, som i handlingarna är &rdquo;200 samt 24 extra
+        platser&rdquo; &ndash; är räknat ur sina delar.
+      </p>
+      <p class="forklaring">
+        <strong>Tre mått, så som handlingarna skriver dem.</strong> Sökande
+        är i texterna omväxlande ungdomar som &rdquo;fullföljde sin
+        ansökan&rdquo;, &rdquo;ansökte&rdquo; och &rdquo;sökte&rdquo;, och
+        kan vara räknade på olika sätt. Tillsatta är jobb som tillsattes och
+        ungdomar som anställdes, matchades eller placerades.
+      </p>
+      <p class="forklaring">
+        <strong>Luckorna.</strong> Nämndens handlingar från 2015&ndash;2019
+        och 2023 finns inte eller kunde inte hämtas i datapoolen, och därför
+        saknas kvalitetsberättelsen för 2022 och de flesta tal före 2020.
+        Kostnaden, könsfördelningen och fördelningen på arbetsplatser
+        redovisas bara enstaka år och finns inte med här.
+      </p>
+      <p class="forklaring">
+        <strong>Vård &amp; Omsorgs sommarjobb</strong> kommer ur nämndens
+        årsredovisningar, delårsrapporter och utvärderingar av
+        sommarbemanningen. Vikarierna på schema 2023 är läget i slutet av
+        maj, före sommaren; 2024 och 2025 är hela sommaren. Åldern står med
+        där handlingarna anger den.
+      </p>
+    </details>
     <p class="forklaring">
       Sidan är fristående och drivs inte av kommunen. Alla beräkningar är
       öppna: källkoden och alla data finns på
@@ -219,7 +260,7 @@
         <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
       </ul>
     </nav>
-    <p class="sidfot-data">Data: nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun &ndash; delårsrapporter, årsredovisningar, kvalitetsberättelser och protokoll 2021&ndash;2026, via datapoolen kommunhandlingar.</p>
+    <p class="sidfot-data">Data: nämnderna för Gymnasium &amp; Arbetsmarknad och Vård &amp; Omsorg, Kungsbacka kommun &ndash; delårsrapporter, årsredovisningar, kvalitetsberättelser, tjänsteskrivelser och protokoll 2021&ndash;2026, via datapoolen kommunhandlingar.</p>
     <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
   </div>
 </footer>

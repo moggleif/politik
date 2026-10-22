@@ -206,6 +206,8 @@ th, td {
 }
 
 th:first-child, td:first-child { text-align: left; }
+/* En förklarande rad under en radrubrik är text, inte rubrik */
+th small { font-weight: normal; }
 
 thead th {
   border-bottom: 2px solid var(--baseline);

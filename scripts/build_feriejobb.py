@@ -31,10 +31,24 @@ kan vara fler än de jobb som tillsattes. Ett år utan uppgift är `null`.
 
 Enkäten är nämndens egen: medelvärden på en skala 1–5, en källa per år.
 
+**Övriga sommarjobb.** Feriejobben är inte alla jobb kommunen har för
+unga på sommaren. Nämnden för Vård & Omsorg anställer också 17-åringar,
+gymnasieelever i riktade lovjobb och sommarvikarier, och är den enda
+förvaltning vars handlingar redovisar hur många. Grupperna och deras
+ålder står i indatat, ålder med citat där handlingen anger den. Varje
+tal är ett citat på samma sätt som feriejobben; för vikarierna kan en
+uppgift också ha hur många verksamheterna beställde (`behov`) och hur
+många som bara anmält sig tillgängliga (`tillganglighet`), och de talen
+ska stå i samma citat. Grupperna räknas inte ihop med feriejobben eller
+med varandra: de mäts på olika sätt och vid olika tidpunkter, vilket en
+`anmarkning` på uppgiften säger där det behövs. En grupp har en uppgift
+per år.
+
 Bygget stannar hellre än sparar något som inte går ihop: okänt mått eller
 okänd källa, ett tal som inte står i sitt citat, delar som inte summerar
 till talet, en källa som ger två tal för samma år och mått, en källa som
-inte används, och enkätvärden utanför skalan eller för okända frågor.
+inte används, enkätvärden utanför skalan eller för okända frågor, och en
+sommarjobbsgrupp som är okänd eller har två uppgifter för samma år.
 
 Körs:  python3 scripts/build_feriejobb.py
 """
@@ -78,6 +92,8 @@ def kontrollera_kallor(kallor):
             raise SystemExit(f"Källan {k['id']} saknar https-adress")
         if k["original"] is not None and not k["original"].startswith("https://"):
             raise SystemExit(f"Källan {k['id']}: originalet ska vara en https-adress eller null")
+        if not k.get("namnd"):
+            raise SystemExit(f"Källan {k['id']} saknar nämnd")
         if not ISO.match(k["mote"]):
             raise SystemExit(f"Källan {k['id']}: mötet ska vara ÅÅÅÅ-MM-DD")
         ut[k["id"]] = k
@@ -116,6 +132,40 @@ def kontrollera_enkat(enkat, kallor):
                 raise SystemExit(f"Enkäten {a['ar']}: {v} ligger utanför skalan 1–5")
 
 
+def kontrollera_grupper(grupper, kallor):
+    ut = set()
+    for g in grupper:
+        if g["id"] in ut:
+            raise SystemExit(f"Gruppen {g['id']} finns två gånger")
+        ut.add(g["id"])
+        if (g["alder_kalla"] is None) != (g["alder_citat"] is None):
+            raise SystemExit(f"Gruppen {g['id']}: åldern har källa utan citat eller tvärtom")
+        if g["alder_kalla"] is not None and g["alder_kalla"] not in kallor:
+            raise SystemExit(f"Gruppen {g['id']}: ålderskällan finns inte")
+    return ut
+
+
+def kontrollera_sommarjobb(sj, kallor):
+    grupper = kontrollera_grupper(sj["grupper"], kallor)
+    sedda = set()
+    for u in sj["uppgifter"]:
+        namn = f"{u.get('ar')} {u.get('grupp')} ({u.get('kalla')})"
+        if u["grupp"] not in grupper:
+            raise SystemExit(f"{namn}: okänd grupp")
+        if u["kalla"] not in kallor:
+            raise SystemExit(f"{namn}: källan finns inte")
+        if (u["ar"], u["grupp"]) in sedda:
+            raise SystemExit(f"{namn}: gruppen har redan en uppgift det året")
+        sedda.add((u["ar"], u["grupp"]))
+        for falt in ("varde", "behov", "tillganglighet"):
+            if falt not in u:
+                continue
+            if not isinstance(u[falt], int) or u[falt] < 0:
+                raise SystemExit(f"{namn}: {falt} ska vara ett heltal")
+            if not star_i(u[falt], u["citat"]):
+                raise SystemExit(f"{namn}: {u[falt]} står inte i citatet")
+
+
 def kontrollera(indata):
     kallor = kontrollera_kallor(indata["kallor"])
     sedda = {}
@@ -126,7 +176,11 @@ def kontrollera(indata):
             raise SystemExit(f"{u['ar']} {u['matt']}: källan {u['kalla']} ger två tal")
         sedda[nyckel] = u
     kontrollera_enkat(indata["enkat"], kallor)
-    anvanda = {u["kalla"] for u in indata["uppgifter"]} | {a["kalla"] for a in indata["enkat"]["ar"]}
+    kontrollera_sommarjobb(indata["sommarjobb"], kallor)
+    sj = indata["sommarjobb"]
+    anvanda = ({u["kalla"] for u in indata["uppgifter"]} | {a["kalla"] for a in indata["enkat"]["ar"]}
+               | {u["kalla"] for u in sj["uppgifter"]}
+               | {g["alder_kalla"] for g in sj["grupper"] if g["alder_kalla"]})
     for k in kallor:
         if k not in anvanda:
             raise SystemExit(f"Källan {k} används inte")
@@ -164,14 +218,35 @@ def bygg(indata):
         "ar": [{"ar": a["ar"], "kalla": nr(a["kalla"]), "medel": a["medel"]}
                for a in sorted(indata["enkat"]["ar"], key=lambda a: a["ar"])],
     }
+    sj = indata["sommarjobb"]
+    sj_ar = sorted({u["ar"] for u in sj["uppgifter"]})
+    sj_ar = list(range(sj_ar[0], sj_ar[-1] + 1))
+    # Tabellen läses grupp för grupp, så numreras källorna också så.
+    sj_varden = {}
+    for g in sj["grupper"]:
+        sj_varden[g["id"]] = {}
+        for a in sj_ar:
+            u = next((u for u in sj["uppgifter"] if u["grupp"] == g["id"] and u["ar"] == a), None)
+            sj_varden[g["id"]][str(a)] = u and {
+                "varde": u["varde"], "behov": u.get("behov"),
+                "tillganglighet": u.get("tillganglighet"),
+                "anmarkning": u.get("anmarkning"), "kalla": nr(u["kalla"]),
+            }
+    grupper = [
+        {"id": g["id"], "namn": g["namn"], "forklaring": g["forklaring"], "alder": g["alder"],
+         "alder_kalla": nr(g["alder_kalla"]) if g["alder_kalla"] else None}
+        for g in sj["grupper"]
+    ]
     return {
         "hamtad": indata["hamtad"],
         "ar": ar,
         "matt": [{"id": i, "namn": n, "forklaring": f} for i, n, f in MATT],
         "varden": varden,
         "enkat": enkat,
+        "sommarjobb": {"ar": sj_ar, "grupper": grupper, "varden": sj_varden},
         "kallor": [
-            {"nr": nummer[k], "rubrik": kallor[k]["rubrik"], "mote": kallor[k]["mote"],
+            {"nr": nummer[k], "namnd": kallor[k]["namnd"], "rubrik": kallor[k]["rubrik"],
+             "mote": kallor[k]["mote"],
              "sida": kallor[k]["sida"], "url": kallor[k]["url"],
              "original": kallor[k]["original"]}
             for k in sorted(nummer, key=nummer.get)
