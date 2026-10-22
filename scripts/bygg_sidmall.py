@@ -46,6 +46,7 @@ MENY = [
         ("slutbetyg.html", "Slutbetyg från gymnasiet"),
         ("antagning-till-examen.html", "Från antagning till examen"),
         ("nian-till-gymnasiet.html", "Från nian till gymnasiet"),
+        ("feriejobb.html", "Feriejobb för ettorna"),
     ]),
     ("Valen", [
         ("fortidsrostning.html", "Förtidsröstningen 2026"),

@@ -1,0 +1,465 @@
+{
+ "hamtad": "2026-10-22",
+ "ar": [
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025,
+  2026
+ ],
+ "matt": [
+  {
+   "id": "sokande",
+   "namn": "Sökande",
+   "forklaring": "Ungdomar som sökte feriejobb – i källorna omväxlande de som fullföljde sin ansökan, ansökte eller sökte."
+  },
+  {
+   "id": "tillsatta",
+   "namn": "Tillsatta feriejobb",
+   "forklaring": "Ungdomar som fick ett feriejobb – i källorna tillsattes, anställdes, matchades eller placerades."
+  },
+  {
+   "id": "platser",
+   "namn": "Anmälda platser",
+   "forklaring": "Platser som kommunens verksamheter erbjöd inför sommaren."
+  }
+ ],
+ "varden": {
+  "sokande": {
+   "2020": {
+    "lag": 200,
+    "hog": 200,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 200,
+      "kallor": [
+       1
+      ]
+     }
+    ]
+   },
+   "2021": {
+    "lag": 356,
+    "hog": 356,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 356,
+      "kallor": [
+       2,
+       3
+      ]
+     }
+    ]
+   },
+   "2022": {
+    "lag": 326,
+    "hog": 326,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 326,
+      "kallor": [
+       4
+      ]
+     }
+    ]
+   },
+   "2023": {
+    "lag": 310,
+    "hog": 310,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 310,
+      "kallor": [
+       4
+      ]
+     }
+    ]
+   },
+   "2024": {
+    "lag": 273,
+    "hog": 321,
+    "olika": true,
+    "uppgifter": [
+     {
+      "varde": 273,
+      "kallor": [
+       5,
+       6
+      ]
+     },
+     {
+      "varde": 321,
+      "kallor": [
+       7
+      ]
+     }
+    ]
+   },
+   "2025": {
+    "lag": 403,
+    "hog": 422,
+    "olika": true,
+    "uppgifter": [
+     {
+      "varde": 403,
+      "kallor": [
+       8
+      ]
+     },
+     {
+      "varde": 422,
+      "kallor": [
+       9,
+       10,
+       11
+      ]
+     }
+    ]
+   },
+   "2026": null
+  },
+  "tillsatta": {
+   "2020": {
+    "lag": 180,
+    "hog": 183,
+    "olika": true,
+    "uppgifter": [
+     {
+      "varde": 180,
+      "kallor": [
+       2
+      ]
+     },
+     {
+      "varde": 183,
+      "kallor": [
+       1
+      ]
+     }
+    ]
+   },
+   "2021": {
+    "lag": 281,
+    "hog": 281,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 281,
+      "kallor": [
+       2,
+       3
+      ]
+     }
+    ]
+   },
+   "2022": null,
+   "2023": {
+    "lag": 199,
+    "hog": 199,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 199,
+      "kallor": [
+       4
+      ]
+     }
+    ]
+   },
+   "2024": {
+    "lag": 200,
+    "hog": 200,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 200,
+      "kallor": [
+       5,
+       6,
+       7
+      ]
+     }
+    ]
+   },
+   "2025": {
+    "lag": 200,
+    "hog": 200,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 200,
+      "kallor": [
+       8,
+       11
+      ]
+     }
+    ]
+   },
+   "2026": {
+    "lag": 224,
+    "hog": 224,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 224,
+      "kallor": [
+       12,
+       13
+      ]
+     }
+    ]
+   }
+  },
+  "platser": {
+   "2020": null,
+   "2021": null,
+   "2022": null,
+   "2023": null,
+   "2024": {
+    "lag": 247,
+    "hog": 247,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 247,
+      "kallor": [
+       5,
+       6
+      ]
+     }
+    ]
+   },
+   "2025": {
+    "lag": 229,
+    "hog": 229,
+    "olika": false,
+    "uppgifter": [
+     {
+      "varde": 229,
+      "kallor": [
+       8,
+       9,
+       10,
+       11
+      ]
+     }
+    ]
+   },
+   "2026": null
+  }
+ },
+ "enkat": {
+  "fragor": [
+   {
+    "id": "positivt",
+    "fraga": "Tycker du att det var positivt att feriearbeta i Kungsbacka kommun?"
+   },
+   {
+    "id": "ansoka",
+    "fraga": "Tycker du att det var lätt att ansöka om feriejobb?"
+   },
+   {
+    "id": "information",
+    "fraga": "Tycker du att du fick nödvändig information om feriejobbet innan start?"
+   },
+   {
+    "id": "introduktion",
+    "fraga": "Tycker du att du fick en bra introduktion på arbetsplatsen?"
+   },
+   {
+    "id": "tidrapport",
+    "fraga": "Tycker du att det var lätt att tidsrapportera?"
+   },
+   {
+    "id": "igen",
+    "fraga": "Kan du tänka dig att arbeta i Kungsbacka kommun igen i framtiden?"
+   }
+  ],
+  "ar": [
+   {
+    "ar": 2020,
+    "kalla": 1,
+    "medel": {
+     "positivt": 4.33,
+     "ansoka": 4.16,
+     "information": 3.41,
+     "introduktion": 4.18,
+     "tidrapport": 3.85,
+     "igen": 3.82
+    }
+   },
+   {
+    "ar": 2021,
+    "kalla": 4,
+    "medel": {
+     "positivt": 4.5,
+     "ansoka": 4.35,
+     "information": 3.85,
+     "introduktion": 4.4,
+     "tidrapport": 3.8,
+     "igen": 4.1
+    }
+   },
+   {
+    "ar": 2022,
+    "kalla": 4,
+    "medel": {
+     "positivt": 4,
+     "ansoka": 4,
+     "information": 4,
+     "introduktion": 4,
+     "tidrapport": 4,
+     "igen": 4
+    }
+   },
+   {
+    "ar": 2023,
+    "kalla": 4,
+    "medel": {
+     "positivt": 4,
+     "ansoka": 4,
+     "information": 4,
+     "introduktion": 4,
+     "tidrapport": 4,
+     "igen": 4
+    }
+   },
+   {
+    "ar": 2024,
+    "kalla": 7,
+    "medel": {
+     "positivt": 4.3,
+     "ansoka": 4.3,
+     "information": 3.8,
+     "introduktion": 4.2,
+     "tidrapport": 3.8,
+     "igen": 3.5
+    }
+   },
+   {
+    "ar": 2025,
+    "kalla": 11,
+    "medel": {
+     "positivt": 4.5,
+     "ansoka": 4.4,
+     "information": 3.7,
+     "introduktion": 4.3,
+     "tidrapport": 4.3,
+     "igen": 4.1
+    }
+   }
+  ]
+ },
+ "kallor": [
+  {
+   "nr": 1,
+   "rubrik": "Kvalitetsberättelse 2020",
+   "mote": "2021-04-14",
+   "sida": 37,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2021/2021-04-14/handlingar.html#sida-37",
+   "original": null
+  },
+  {
+   "nr": 2,
+   "rubrik": "Nämndens årsredovisning 2021",
+   "mote": "2022-02-23",
+   "sida": 20,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2022/2022-02-23/handlingar.html#sida-20",
+   "original": null
+  },
+  {
+   "nr": 3,
+   "rubrik": "Delårsrapport augusti 2021",
+   "mote": "2021-09-15",
+   "sida": 18,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2021/2021-09-15/handlingar.html#sida-18",
+   "original": null
+  },
+  {
+   "nr": 4,
+   "rubrik": "Kvalitetsberättelse 2023",
+   "mote": "2024-04-17",
+   "sida": 10,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-04-17/handlingar.html#sida-10",
+   "original": "https://kungsbacka.se/download/18.2f18dd4b18ecb6094451bb/1712815146255/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202024-04-17.pdf#page=10"
+  },
+  {
+   "nr": 5,
+   "rubrik": "Delårsrapport augusti 2024",
+   "mote": "2024-09-26",
+   "sida": 17,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-09-26/handlingar.html#sida-17",
+   "original": "https://kungsbacka.se/download/18.33d6d97191e4f00c90e0aef/1726726178075/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202024-09-26.pdf#page=17"
+  },
+  {
+   "nr": 6,
+   "rubrik": "Nämndens årsredovisning 2024",
+   "mote": "2025-02-20",
+   "sida": 56,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-02-20/handlingar.html#sida-56",
+   "original": "https://kungsbacka.se/download/18.6725411a194d849cc4beb87a/1739522774953/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202025-02-20.pdf#page=56"
+  },
+  {
+   "nr": 7,
+   "rubrik": "Kvalitetsberättelse 2024",
+   "mote": "2025-04-24",
+   "sida": 28,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-04-24/handlingar.html#sida-28",
+   "original": "https://kungsbacka.se/download/18.5b0e44671961df388b27f8e4/1744873104622/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202025-04-24.pdf#page=28"
+  },
+  {
+   "nr": 8,
+   "rubrik": "Protokoll, § 116 Återrapport feriejobb 2025",
+   "mote": "2025-10-16",
+   "sida": 6,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-10-16/protokoll.html#sida-6",
+   "original": "https://kungsbacka.se/download/18.4ac81f8819a0f459fef1dd70/1761285111298/Protokoll%20f%C3%B6r%20n%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20%202025-10-16.pdf#page=6"
+  },
+  {
+   "nr": 9,
+   "rubrik": "Delårsrapport augusti 2025",
+   "mote": "2025-09-25",
+   "sida": 38,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-09-25/handlingar.html#sida-38",
+   "original": "https://kungsbacka.se/download/18.32f2dc5a1995b7e9114b14/1758178242517/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202025-09-25.pdf#page=38"
+  },
+  {
+   "nr": 10,
+   "rubrik": "Nämndens årsredovisning 2025",
+   "mote": "2026-02-19",
+   "sida": 111,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-02-19/handlingar.html#sida-111",
+   "original": "https://kungsbacka.se/download/18.46db326b19c4795e0085ada9/1770984948457/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202026-02-19.pdf#page=111"
+  },
+  {
+   "nr": 11,
+   "rubrik": "Kvalitetsberättelse 2025",
+   "mote": "2026-04-16",
+   "sida": 12,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-04-16/handlingar.html#sida-12",
+   "original": "https://kungsbacka.se/download/18.7118072419d9a48ae7711df/1776415201363/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202026-04-16%20(3).pdf#page=12"
+  },
+  {
+   "nr": 12,
+   "rubrik": "Uppföljning arbetsmarknadsprocess, kvartal 2 2026",
+   "mote": "2026-08-27",
+   "sida": 23,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-08-27/handlingar.html#sida-23",
+   "original": "https://kungsbacka.se/download/18.4d978f5f1a01d631f6a7d63/1787228558248/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202026-08-27%20(1).pdf#page=23"
+  },
+  {
+   "nr": 13,
+   "rubrik": "Delårsrapport augusti 2026",
+   "mote": "2026-09-17",
+   "sida": 14,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-09-17/handlingar.html#sida-14",
+   "original": "https://kungsbacka.se/download/18.65c780211a0adcd46dd258bb/1789724895272/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202026-09-17%20(1).pdf#page=14"
+  }
+ ]
+}

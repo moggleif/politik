@@ -100,6 +100,23 @@ gymnasieelever läser i en annan kommun, och ungefär var femte elev i
 kommunens gymnasieskolor kommer utifrån. I grundskolan är motsvarande
 rörlighet drygt en procent.
 
+**Feriejobb för ettorna** &ndash; kommunens feriejobb för elever i
+årskurs 1 på gymnasiet, så som nämnden för Gymnasium & Arbetsmarknad
+redovisat dem i sina handlingar.
+
+- [Feriejobb för ettorna](https://moggleif.github.io/politik/feriejobb.html)
+  &ndash; sökande, tillsatta jobb och anmälda platser år för år sedan 2020,
+  och feriearbetarnas svar i kommunens enkät 2020&ndash;2025. Varje tal är
+  inläst för hand ur en delårsrapport, årsredovisning, kvalitetsberättelse
+  eller ett protokoll, med meningen där det står sparad ordagrant i
+  `data/feriejobb/uppgifter.json`.
+  [`scripts/build_feriejobb.py`](scripts/build_feriejobb.py) stannar om ett
+  tal inte står i sin mening. Där två handlingar anger olika tal för samma
+  år visas båda, och diagrammet ritar spannet mellan dem i stället för en
+  punkt. Källorna länkas till datapoolen
+  [kommunhandlingar](https://github.com/moggleif/kommunhandlingar) och till
+  kommunens egen PDF där den finns kvar.
+
 **Betygen i grundskolan** &ndash; vad niondeklassarna i Kungsbacka fick,
 ämne för ämne. Den gymnasiestatistik på skol- och programnivå som används
 här redovisar resultaten som samlad betygspoäng; grundskolestatistiken
@@ -388,6 +405,8 @@ data/
                                 september 2026 vid tio dagar kvar, för
                                 riket och Kungsbacka. Skrivs en gång och
                                 ändras inte (se gor_prognos.py)
+  feriejobb/uppgifter.json      Feriejobben år för år: varje tal med sin
+                                mening ur nämndens handlingar, och enkäten
   rodalinjer/besked.json        Partiernas besked om regering och samarbete,
                                 ett per rad, med länkade källor
   kommunval/<år>.json           Kommunvalets resultat per valdistrikt i
@@ -556,6 +575,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   kostnad-per-elev.html         Kostnaden per elev i grundskolan, fasta priser
   resurser-till-skolan.html     Resurserna mot referenskostnaden
   nian-till-gymnasiet.html      Från nian till gymnasiet, tre mätpunkter
+  feriejobb.html                Feriejobb för gymnasieettorna år för år
   platser.html                  Platser per gymnasieprogram och läsår, och
                                 antalet som började på dem
   meritvarden.html              Meritvärden vid antagningen till gymnasiet
