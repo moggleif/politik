@@ -1,11 +1,12 @@
 /* Feriejobb för gymnasieettorna — sökande, tillsatta jobb och anmälda
-   platser år för år, och feriearbetarnas svar i kommunens enkät.
+   platser år för år, feriearbetarnas svar i kommunens enkät och de
+   sommarjobb för unga som Vård & Omsorg har utöver feriejobben.
    Läser docs/data-feriejobb.json, byggd av scripts/build_feriejobb.py
    ur data/feriejobb/uppgifter.json.
 
    Ett år där handlingarna anger olika tal har inget eget värde: linjen
-   bryts där, och spannet mellan talen ritas som en smal stapel från det
-   lägsta till det högsta. Sidan väljer aldrig ett av talen. */
+   bryts där, och ett lodstreck går från det lägsta till det högsta
+   talet. Sidan väljer aldrig ett av talen. */
 (function () {
   "use strict";
 
@@ -51,61 +52,126 @@
     return delar.slice(0, -1).join(", ") + " och " + delar[delar.length - 1];
   }
 
-  /* ---------- Diagrammet ---------- */
+  /* ---------- Diagrammet ----------
+     Sökande är den blå linjen, tillsatta jobb en mörkgrå streckad och de
+     anmälda platserna ihåliga romber utan linje – färg, streckning och
+     punktform skiljer måtten åt var för sig. Varje punkt bär sitt tal,
+     så att diagrammet går att läsa utan att peka. */
+
+  var STIL = {
+    sokande: { farg: K.FARG.bla, text: K.FARG.blaMork, streck: [], punkt: "circle", lage: "over" },
+    tillsatta: { farg: K.FARG.ink2, text: K.FARG.ink2, streck: [7, 4], punkt: "rect", lage: "under" },
+    platser: { farg: K.FARG.muted, text: K.FARG.muted, streck: [], punkt: "rectRot", lage: "hoger", ihalig: true }
+  };
+
+  /* Talet bredvid punkten: ovanför, under eller till höger. */
+  function skrivTal(rit, text, x, y, lage) {
+    if (lage === "hoger") {
+      rit.textAlign = "left";
+      rit.textBaseline = "middle";
+      rit.fillText(text, x + 9, y);
+    } else {
+      rit.textAlign = "center";
+      rit.textBaseline = lage === "over" ? "bottom" : "top";
+      rit.fillText(text, x, lage === "over" ? y - 8 : y + 8);
+    }
+  }
+
+  /* Ett lodstreck med tvärslåar från det lägsta till det högsta talet. */
+  function ritaSpann(rit, x, y1, y2) {
+    rit.beginPath();
+    rit.moveTo(x, y1);
+    rit.lineTo(x, y2);
+    rit.moveTo(x - 5, y1);
+    rit.lineTo(x + 5, y1);
+    rit.moveTo(x - 5, y2);
+    rit.lineTo(x + 5, y2);
+    rit.stroke();
+  }
+
+  /* Chart.js-plugin utan externt beroende: talen och spannen ritas ovanpå
+     linjerna. Det som ritats sparas i chart.$etiketter, så att det går att
+     kontrollera i test – en canvas går annars inte att läsa utifrån. */
+  var talEtiketter = {
+    id: "talEtiketter",
+    afterDatasetsDraw: function (chart) {
+      var rit = chart.ctx;
+      var x = chart.scales.x, y = chart.scales.y;
+      chart.$etiketter = [];
+      rit.save();
+      rit.font = "600 " + (chart.width < 500 ? 10 : 12) + "px system-ui, sans-serif";
+      rit.lineWidth = 2;
+      chart.data.datasets.forEach(function (ds, i) {
+        if (!chart.isDatasetVisible(i)) return;
+        var stil = STIL[ds.matt];
+        rit.fillStyle = stil.text;
+        rit.strokeStyle = stil.farg;
+        data.ar.forEach(function (a, j) {
+          var v = varde(ds.matt, a);
+          if (!v) return;
+          var px = x.getPixelForValue(j);
+          var text = v.olika ? talSv(v.lag) + "–" + talSv(v.hog) : talSv(v.lag);
+          var lag = y.getPixelForValue(v.lag), hog = y.getPixelForValue(v.hog);
+          if (v.olika) ritaSpann(rit, px, lag, hog);
+          skrivTal(rit, text, px, stil.lage === "under" ? lag : hog, stil.lage);
+          chart.$etiketter.push({ matt: ds.matt, ar: a, text: text });
+        });
+      });
+      rit.restore();
+    }
+  };
 
   function ritaUtveckling() {
-    var dataset = [];
-    data.matt.forEach(function (m, i) {
-      var stil = K.serieStil(i);
+    var dataset = data.matt.map(function (m) {
+      var stil = STIL[m.id];
       var linje = K.linjeSerie(m.namn, stil.farg, data.ar.map(function (a) {
         var v = varde(m.id, a);
         return v && !v.olika ? v.lag : null;
       }), stil.streck);
-      /* Få år: varje punkt syns, och formen skiljer serierna åt utan färg. */
+      linje.matt = m.id;
       linje.pointStyle = stil.punkt;
       linje.pointRadius = 5;
-      dataset.push(linje);
-      var spann = data.ar.map(function (a) {
-        var v = varde(m.id, a);
-        return v && v.olika ? [v.lag, v.hog] : null;
-      });
-      if (spann.some(function (s) { return s; })) {
-        dataset.push({
-          type: "bar",
-          label: m.namn + ", källorna säger olika",
-          data: spann,
-          backgroundColor: stil.farg,
-          borderColor: stil.farg,
-          barThickness: 6,
-          grouped: false,
-          borderWidth: 3,
-          pointStyle: "line"
-        });
+      linje.pointHoverRadius = 7;
+      if (stil.ihalig) {
+        linje.showLine = false;
+        linje.pointRadius = 6;
+        linje.pointBackgroundColor = K.FARG.surface;
+        linje.pointBorderColor = stil.farg;
+        linje.backgroundColor = K.FARG.surface;
       }
+      return linje;
     });
 
     var opt = K.arsOptions({
       ytitel: "Antal",
-      etikett: function (it) {
-        if (Array.isArray(it.raw)) {
-          return it.dataset.label + ": " + talSv(it.raw[0]) + " eller " + talSv(it.raw[1]);
-        }
-        return it.dataset.label + ": " + talSv(it.parsed.y);
-      }
+      etikett: function (it) { return it.dataset.label + ": " + talSv(it.parsed.y); }
     });
     opt.scales.y.beginAtZero = true;
+    /* Första och sista året en bit in från kanten, så att talen inte
+       hamnar över axeln. */
+    opt.scales.x.offset = true;
+    /* Luft ovanför den högsta punkten, så att dess tal får plats. */
+    var hogst = 0;
+    data.matt.forEach(function (m) {
+      data.ar.forEach(function (a) {
+        var v = varde(m.id, a);
+        if (v) hogst = Math.max(hogst, v.hog);
+      });
+    });
+    opt.scales.y.suggestedMax = hogst * 1.12;
     /* Teckenförklaringen visar punktformen, inte bara färgen. */
     opt.plugins.legend.labels = { usePointStyle: true };
 
     K.rita("diagram-utveckling", {
       type: "line",
       data: { labels: data.ar.map(String), datasets: dataset },
-      options: opt
-    }, 380);
+      options: opt,
+      plugins: [talEtiketter]
+    }, 400);
 
     el("kalla-utveckling").textContent =
       "Källa: nämnden för Gymnasium & Arbetsmarknad, Kungsbacka kommun. " +
-      "Varje tal har sin källa i tabellen nedan.";
+      "Varje tal har sin källa i tabellen under diagrammet.";
   }
 
   /* Åren utan uppgift, mått för mått, i klartext under diagrammet. */
@@ -161,11 +227,54 @@
       "Medelvärden på skalan 1–5. Siffrorna inom hakparentes är källor.";
   }
 
+  /* ---------- Övriga sommarjobb ----------
+     Grupperna räknas inte ihop med feriejobben eller med varandra: de
+     mäts på olika sätt och vid olika tidpunkter. Feriejobben står överst
+     för jämförelsens skull, med samma tal som tabellen ovan. */
+
+  function sommarCell(v) {
+    if (!v) return "<td>&ndash;</td>";
+    var html = talSv(v.varde);
+    if (v.behov !== null) html += " av " + talSv(v.behov) + " beställda";
+    html += " " + fotnoter([v.kalla]);
+    if (v.tillganglighet !== null) {
+      html += "<br><small>och omkring " + talSv(v.tillganglighet) +
+        " som bara anmält sig tillgängliga</small>";
+    }
+    if (v.anmarkning) html += "<br><small>" + esc(v.anmarkning) + "</small>";
+    return "<td>" + html + "</td>";
+  }
+
+  function ritaSommarjobb() {
+    var sj = data.sommarjobb;
+    var huvud = sj.ar.map(function (a) { return '<th scope="col">' + esc(a) + "</th>"; }).join("");
+    var ferie = '<tr><th scope="row">Feriejobb, tillsatta i hela kommunen' +
+      "<br><small>Gymnasieettor</small></th>" + sj.ar.map(function (a) {
+        var v = data.varden.tillsatta[String(a)];
+        if (!v) return "<td>&ndash;</td>";
+        return "<td>" + v.uppgifter.map(function (u) {
+          return talSv(u.varde) + " " + fotnoter(u.kallor);
+        }).join(" eller ") + "</td>";
+      }).join("") + "</tr>";
+    var rader = sj.grupper.map(function (g) {
+      var alder = esc(g.alder) + (g.alder_kalla ? " " + fotnoter([g.alder_kalla]) : "");
+      return '<tr><th scope="row">' + esc(g.namn) + "<br><small>Ålder: " + alder + "</small></th>" +
+        sj.ar.map(function (a) { return sommarCell(sj.varden[g.id][String(a)]); }).join("") +
+        "</tr>";
+    }).join("");
+    el("tabell-sommarjobb").innerHTML =
+      '<thead><tr><th scope="col">Grupp och ålder</th>' + huvud +
+      "</tr></thead><tbody>" + ferie + rader + "</tbody>";
+    el("forklaring-grupper").innerHTML = sj.grupper.map(function (g) {
+      return "<dt>" + esc(g.namn) + "</dt><dd>" + esc(g.forklaring) + "</dd>";
+    }).join("");
+  }
+
   function visaKallor() {
     el("lista-kallor").innerHTML = data.kallor.map(function (k) {
       var html = K.kallpost({
         titel: "[" + k.nr + "] " + k.rubrik,
-        detalj: "Nämnden för Gymnasium & Arbetsmarknad, mötet den " +
+        detalj: "Nämnden för " + k.namnd + ", mötet den " +
           datumSv(k.mote) + ", sidan " + k.sida + " i handlingen.",
         lankar: [[k.url, "Läs i datapoolen"], [k.original || "", "Kommunens PDF"]]
       });
@@ -213,6 +322,13 @@
       punkter.push("Handlingarna anger olika tal för " + esc(upprakning(olika)) +
         ". Båda talen visas.");
     }
+
+    var unga = data.sommarjobb.varden["17-aringar"];
+    var au = data.sommarjobb.ar.filter(function (x) { return unga[String(x)]; }).pop();
+    if (au) {
+      punkter.push("Utöver feriejobben anställde Vård &amp; Omsorg <strong>" +
+        talSv(unga[String(au)].varde) + "</strong> 17-åringar för sommaren " + esc(au) + ".");
+    }
     K.visaKortSagt(punkter);
   }
 
@@ -230,8 +346,9 @@
     visaLuckor();
     ritaTabell();
     ritaEnkat();
+    ritaSommarjobb();
     visaKallor();
-    ["utveckling", "tabell", "enkat", "kallor", "om"].forEach(function (id) {
+    ["utveckling", "enkat", "sommarjobb", "kallor", "om"].forEach(function (id) {
       el("sektion-" + id).hidden = false;
     });
     el("om-uppdaterad").textContent = "Talen lästes in " + datumSv(data.hamtad) + ".";

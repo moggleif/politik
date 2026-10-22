@@ -3599,13 +3599,13 @@ class TestFeriejobb(unittest.TestCase):
     """Feriejobben år för år: påhittade uppgifter där facit går att räkna
     för hand, och de riktiga mot handlingarnas egna tal."""
 
-    def indata(self, uppgifter=None, enkat=None):
+    def indata(self, uppgifter=None, enkat=None, sommarjobb=None):
         return {
             "hamtad": "2026-10-22",
             "kallor": [
-                {"id": "a", "rubrik": "A", "mote": "2025-01-01", "sida": 1,
+                {"id": "a", "namnd": "N", "rubrik": "A", "mote": "2025-01-01", "sida": 1,
                  "url": "https://a.se", "original": None},
-                {"id": "b", "rubrik": "B", "mote": "2025-02-01", "sida": 2,
+                {"id": "b", "namnd": "N", "rubrik": "B", "mote": "2025-02-01", "sida": 2,
                  "url": "https://b.se", "original": "https://b.se/b.pdf#page=2"},
             ],
             "uppgifter": uppgifter if uppgifter is not None else [
@@ -3621,6 +3621,20 @@ class TestFeriejobb(unittest.TestCase):
             "enkat": enkat if enkat is not None else {
                 "fragor": [{"id": "positivt", "fraga": "Positivt?"}],
                 "ar": [{"ar": 2022, "kalla": "a", "medel": {"positivt": 4.2}}],
+            },
+            "sommarjobb": sommarjobb if sommarjobb is not None else {
+                "grupper": [
+                    {"id": "unga", "namn": "Unga", "forklaring": "", "alder": "17 år",
+                     "alder_kalla": "a", "alder_citat": "17 år"},
+                    {"id": "vik", "namn": "Vikarier", "forklaring": "", "alder": "Anges inte",
+                     "alder_kalla": None, "alder_citat": None},
+                ],
+                "uppgifter": [
+                    {"ar": 2024, "grupp": "vik", "varde": 375, "behov": 380, "kalla": "b",
+                     "citat": "beställda 380, tillsatta 375"},
+                    {"ar": 2022, "grupp": "unga", "varde": 40, "kalla": "b",
+                     "citat": "anställt 40 stycken 17-åringar"},
+                ],
             },
         }
 
@@ -3685,11 +3699,47 @@ class TestFeriejobb(unittest.TestCase):
                     "fragor": [{"id": "positivt", "fraga": "?"}], "ar": ar}))
 
     def test_oanvand_kalla_stoppar_bygget(self):
+        sj = self.indata()["sommarjobb"]
+        bara_a = {"grupper": sj["grupper"][:1], "uppgifter": [sj["uppgifter"][1] | {"kalla": "a"}]}
         with self.assertRaises(SystemExit):
-            build_feriejobb.bygg(self.indata(self.indata()["uppgifter"][1:2]))
+            build_feriejobb.bygg(self.indata(self.indata()["uppgifter"][1:2], sommarjobb=bara_a))
+
+    def test_sommarjobben_ar_grupp_for_grupp_och_tomt_ar_null(self):
+        sj = build_feriejobb.bygg(self.indata())["sommarjobb"]
+        self.assertEqual(sj["ar"], [2022, 2023, 2024])
+        self.assertIsNone(sj["varden"]["unga"]["2023"])
+        self.assertIsNone(sj["varden"]["vik"]["2022"])
+        v = sj["varden"]["vik"]["2024"]
+        self.assertEqual((v["varde"], v["behov"], v["tillganglighet"]), (375, 380, None))
+        # Feriejobben använder a och b; åldern står efter tabellens tal
+        self.assertEqual(sj["grupper"][0]["alder_kalla"], 1)
+        self.assertIsNone(sj["grupper"][1]["alder_kalla"])
+
+    def test_bygget_stannar_vid_sommarjobb_som_inte_haller(self):
+        bas = self.indata()["sommarjobb"]
+
+        def med(**kw):
+            return {"grupper": bas["grupper"], "uppgifter": [bas["uppgifter"][0] | kw]}
+        for sj in [
+            med(varde=370),                          # talet står inte i citatet
+            med(behov=390),                          # behovet står inte i citatet
+            med(grupp="okand"),                      # okänd grupp
+            med(kalla="c"),                          # okänd källa
+            {"grupper": bas["grupper"],
+             "uppgifter": bas["uppgifter"] + [bas["uppgifter"][0] | {"varde": 380}]},  # två uppgifter samma år
+            {"grupper": [bas["grupper"][0] | {"alder_citat": None}],
+             "uppgifter": [bas["uppgifter"][1]]},    # ålderskälla utan citat
+        ]:
+            with self.assertRaises(SystemExit, msg=sj):
+                build_feriejobb.bygg(self.indata(sommarjobb=sj))
 
     def test_de_riktiga_talen(self):
         ut = json.loads((ROT / "docs" / "data-feriejobb.json").read_text(encoding="utf-8"))
+        sj = ut["sommarjobb"]["varden"]
+        # Vård & Omsorgs 17-åringar och sommarvikarier, ur nämndens egna handlingar
+        self.assertEqual([sj["17-aringar"][a]["varde"] for a in ["2023", "2024", "2025"]], [40, 58, 50])
+        self.assertEqual((sj["vikarier"]["2025"]["varde"], sj["vikarier"]["2025"]["behov"]), (515, 522))
+        self.assertIsNone(sj["17-aringar"]["2026"])
         v = ut["varden"]
         # Tillsatta: 281 med statliga medel 2021, 200 per år sedan 2024
         self.assertEqual(v["tillsatta"]["2021"]["lag"], 281)

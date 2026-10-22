@@ -115,7 +115,10 @@ redovisat dem i sina handlingar.
   år visas båda, och diagrammet ritar spannet mellan dem i stället för en
   punkt. Källorna länkas till datapoolen
   [kommunhandlingar](https://github.com/moggleif/kommunhandlingar) och till
-  kommunens egen PDF där den finns kvar.
+  kommunens egen PDF där den finns kvar. Samma sida visar de andra
+  sommarjobb för unga som nämnden för Vård & Omsorg redovisar &ndash;
+  17-åringar, riktade lovjobb och sommarvikarier 2023&ndash;2026, med
+  ålder där handlingarna anger den &ndash; ur samma fil och på samma sätt.
 
 **Betygen i grundskolan** &ndash; vad niondeklassarna i Kungsbacka fick,
 ämne för ämne. Den gymnasiestatistik på skol- och programnivå som används
@@ -406,7 +409,8 @@ data/
                                 riket och Kungsbacka. Skrivs en gång och
                                 ändras inte (se gor_prognos.py)
   feriejobb/uppgifter.json      Feriejobben år för år: varje tal med sin
-                                mening ur nämndens handlingar, och enkäten
+                                mening ur nämndens handlingar, enkäten och
+                                Vård & Omsorgs övriga sommarjobb
   rodalinjer/besked.json        Partiernas besked om regering och samarbete,
                                 ett per rad, med länkade källor
   kommunval/<år>.json           Kommunvalets resultat per valdistrikt i

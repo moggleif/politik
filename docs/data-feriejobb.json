@@ -356,9 +356,140 @@
    }
   ]
  },
+ "sommarjobb": {
+  "ar": [
+   2023,
+   2024,
+   2025,
+   2026
+  ],
+  "grupper": [
+   {
+    "id": "17-aringar",
+    "namn": "17-åringar",
+    "forklaring": "Ungdomar som anställs för sommaren, främst på vård- och omsorgsboenden men också i hemtjänsten. De gör serviceuppgifter som avlastar personalen.",
+    "alder": "17 år; inför sommaren 2023 också 16-åringar som fyllde 17 under året",
+    "alder_kalla": 20
+   },
+   {
+    "id": "lovjobb",
+    "namn": "Riktade lovjobb",
+    "forklaring": "Gymnasieelever på Vård- och omsorgsprogrammet som arbetar i förvaltningen under loven, inte bara på sommaren. Talet gäller hela året.",
+    "alder": "gymnasieelever, åldern anges inte",
+    "alder_kalla": null
+   },
+   {
+    "id": "vikarier",
+    "namn": "Sommarvikarier på schema",
+    "forklaring": "Timvikarier inom omvårdnaden som fått förbokade veckor och pass under sommaren, av dem verksamheterna beställde. Vikarier som bara anmält sig tillgängliga för enstaka pass räknas inte in, men står inom parentes där de redovisats.",
+    "alder": "anges inte i handlingarna",
+    "alder_kalla": null
+   },
+   {
+    "id": "manadsanstallda",
+    "namn": "Månadsanställda sommarvikarier",
+    "forklaring": "Vikarier som fick en månadsanställning över sommaren i stället för ett timvikariat. Hur mycket de arbetade är inte redovisat.",
+    "alder": "anges inte i handlingarna",
+    "alder_kalla": null
+   }
+  ],
+  "varden": {
+   "17-aringar": {
+    "2023": {
+     "varde": 40,
+     "behov": null,
+     "tillganglighet": null,
+     "anmarkning": null,
+     "kalla": 14
+    },
+    "2024": {
+     "varde": 58,
+     "behov": null,
+     "tillganglighet": null,
+     "anmarkning": null,
+     "kalla": 15
+    },
+    "2025": {
+     "varde": 50,
+     "behov": null,
+     "tillganglighet": null,
+     "anmarkning": null,
+     "kalla": 16
+    },
+    "2026": null
+   },
+   "lovjobb": {
+    "2023": {
+     "varde": 19,
+     "behov": null,
+     "tillganglighet": null,
+     "anmarkning": null,
+     "kalla": 17
+    },
+    "2024": {
+     "varde": 12,
+     "behov": null,
+     "tillganglighet": null,
+     "anmarkning": null,
+     "kalla": 15
+    },
+    "2025": null,
+    "2026": null
+   },
+   "vikarier": {
+    "2023": {
+     "varde": 312,
+     "behov": 437,
+     "tillganglighet": 300,
+     "anmarkning": "Läget i slutet av maj 2023, före sommaren.",
+     "kalla": 18
+    },
+    "2024": {
+     "varde": 375,
+     "behov": 380,
+     "tillganglighet": null,
+     "anmarkning": null,
+     "kalla": 19
+    },
+    "2025": {
+     "varde": 515,
+     "behov": 522,
+     "tillganglighet": 310,
+     "anmarkning": null,
+     "kalla": 19
+    },
+    "2026": null
+   },
+   "manadsanstallda": {
+    "2023": null,
+    "2024": {
+     "varde": 60,
+     "behov": null,
+     "tillganglighet": null,
+     "anmarkning": null,
+     "kalla": 19
+    },
+    "2025": {
+     "varde": 49,
+     "behov": null,
+     "tillganglighet": null,
+     "anmarkning": null,
+     "kalla": 19
+    },
+    "2026": {
+     "varde": 70,
+     "behov": null,
+     "tillganglighet": null,
+     "anmarkning": null,
+     "kalla": 19
+    }
+   }
+  }
+ },
  "kallor": [
   {
    "nr": 1,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Kvalitetsberättelse 2020",
    "mote": "2021-04-14",
    "sida": 37,
@@ -367,6 +498,7 @@
   },
   {
    "nr": 2,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Nämndens årsredovisning 2021",
    "mote": "2022-02-23",
    "sida": 20,
@@ -375,6 +507,7 @@
   },
   {
    "nr": 3,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Delårsrapport augusti 2021",
    "mote": "2021-09-15",
    "sida": 18,
@@ -383,6 +516,7 @@
   },
   {
    "nr": 4,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Kvalitetsberättelse 2023",
    "mote": "2024-04-17",
    "sida": 10,
@@ -391,6 +525,7 @@
   },
   {
    "nr": 5,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Delårsrapport augusti 2024",
    "mote": "2024-09-26",
    "sida": 17,
@@ -399,6 +534,7 @@
   },
   {
    "nr": 6,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Nämndens årsredovisning 2024",
    "mote": "2025-02-20",
    "sida": 56,
@@ -407,6 +543,7 @@
   },
   {
    "nr": 7,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Kvalitetsberättelse 2024",
    "mote": "2025-04-24",
    "sida": 28,
@@ -415,6 +552,7 @@
   },
   {
    "nr": 8,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Protokoll, § 116 Återrapport feriejobb 2025",
    "mote": "2025-10-16",
    "sida": 6,
@@ -423,6 +561,7 @@
   },
   {
    "nr": 9,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Delårsrapport augusti 2025",
    "mote": "2025-09-25",
    "sida": 38,
@@ -431,6 +570,7 @@
   },
   {
    "nr": 10,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Nämndens årsredovisning 2025",
    "mote": "2026-02-19",
    "sida": 111,
@@ -439,6 +579,7 @@
   },
   {
    "nr": 11,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Kvalitetsberättelse 2025",
    "mote": "2026-04-16",
    "sida": 12,
@@ -447,6 +588,7 @@
   },
   {
    "nr": 12,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Uppföljning arbetsmarknadsprocess, kvartal 2 2026",
    "mote": "2026-08-27",
    "sida": 23,
@@ -455,11 +597,75 @@
   },
   {
    "nr": 13,
+   "namnd": "Gymnasium & Arbetsmarknad",
    "rubrik": "Delårsrapport augusti 2026",
    "mote": "2026-09-17",
    "sida": 14,
    "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-09-17/handlingar.html#sida-14",
    "original": "https://kungsbacka.se/download/18.65c780211a0adcd46dd258bb/1789724895272/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&%20Arbetsmarknad%20den%202026-09-17%20(1).pdf#page=14"
+  },
+  {
+   "nr": 14,
+   "namnd": "Vård & Omsorg",
+   "rubrik": "Delårsrapport augusti 2023",
+   "mote": "2023-09-21",
+   "sida": 141,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2023/2023-09-21/handlingar.html#sida-141",
+   "original": null
+  },
+  {
+   "nr": 15,
+   "namnd": "Vård & Omsorg",
+   "rubrik": "Nämndens årsredovisning 2024",
+   "mote": "2025-02-20",
+   "sida": 25,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2025/2025-02-20/handlingar.html#sida-25",
+   "original": "https://kungsbacka.se/download/18.4a9fcfaa1950506f02663282/1739794588550/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&%20Omsorg%20handlingar%202025-02-20.pdf#page=25"
+  },
+  {
+   "nr": 16,
+   "namnd": "Vård & Omsorg",
+   "rubrik": "Nämndens årsredovisning 2025",
+   "mote": "2026-02-19",
+   "sida": 52,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2026/2026-02-19/handlingar.html#sida-52",
+   "original": "https://kungsbacka.se/download/18.4dbd19e519c47bd57e6e4956/1771312646588/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&%20Omsorg%20handlingar%20%202026-02-19.pdf#page=52"
+  },
+  {
+   "nr": 17,
+   "namnd": "Vård & Omsorg",
+   "rubrik": "Nämndens årsredovisning 2023",
+   "mote": "2024-02-22",
+   "sida": 23,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2024/2024-02-22/handlingar.html#sida-23",
+   "original": "https://kungsbacka.se/download/18.366666ef18d873f2cac23599/1708354939519/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&%20Omsorg%20handlingar%202024-02-22.pdf#page=23"
+  },
+  {
+   "nr": 18,
+   "namnd": "Vård & Omsorg",
+   "rubrik": "Tjänsteskrivelse om sommarbemanningen 2023",
+   "mote": "2023-06-15",
+   "sida": 114,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2023/2023-06-15/handlingar.html#sida-114",
+   "original": null
+  },
+  {
+   "nr": 19,
+   "namnd": "Vård & Omsorg",
+   "rubrik": "Utvärdering av sommaren 2026",
+   "mote": "2026-10-15",
+   "sida": 347,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2026/2026-10-15/handlingar.html#sida-347",
+   "original": "https://kungsbacka.se/download/18.dedd4261a115a113768e09a/1791809251201/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&%20Omsorg%20handlingar%20%202026-10-15.pdf#page=347"
+  },
+  {
+   "nr": 20,
+   "namnd": "Vård & Omsorg",
+   "rubrik": "Svar på kommunrevisionens granskning av vikarieplaneringen",
+   "mote": "2023-04-20",
+   "sida": 73,
+   "url": "https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2023/2023-04-20/handlingar.html#sida-73",
+   "original": null
   }
  ]
 }
