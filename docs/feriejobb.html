@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://moderat.goatcounter.com; img-src 'self' data: https://moderat.goatcounter.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Feriejobb för gymnasieettorna i Kungsbacka</title>
+<meta name="description" content="Kommunens feriejobb år för år sedan 2020: hur många som sökte, hur många som fick ett jobb och hur många platser verksamheterna anmälde – varje tal med källa i nämndens handlingar.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="hoppa" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header class="sidhuvud">
+<nav class="toppnav" aria-label="Webbplatsens sidor">
+  <div class="toppnav-inre">
+    <a class="markesnamn" href="index.html">Kungsbacka i siffror</a>
+    <ul class="navrad">
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Befolkning</summary>
+          <ul class="navpanel">
+            <li><a href="befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="barn-och-unga.html">0–15 år</a></li>
+            <li><a href="gymnasiealdern.html">16–19 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Grundskolan</summary>
+          <ul class="navpanel">
+            <li><a href="grundskolor.html">Skola för skola i nian</a></li>
+            <li><a href="amnesbetyg.html">Betyg per ämne i nian</a></li>
+            <li><a href="kostnad-per-elev.html">Kostnad per elev</a></li>
+            <li><a href="resurser-till-skolan.html">Resurser mot referenskostnad</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny aktuell">
+          <summary>Gymnasiet</summary>
+          <ul class="navpanel">
+            <li><a href="platser.html">Platser på programmen</a></li>
+            <li><a href="meritvarden.html">Meritvärden vid antagningen</a></li>
+            <li><a href="slutbetyg.html">Slutbetyg från gymnasiet</a></li>
+            <li><a href="antagning-till-examen.html">Från antagning till examen</a></li>
+            <li><a href="nian-till-gymnasiet.html">Från nian till gymnasiet</a></li>
+            <li><a href="feriejobb.html" aria-current="page">Feriejobb för ettorna</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Valen</summary>
+          <ul class="navpanel">
+            <li><a href="fortidsrostning.html">Förtidsröstningen 2026</a></li>
+            <li><a href="valresultat.html">Valresultat per distrikt</a></li>
+            <li><a href="rodalinjer.html">Röda linjer i regeringsfrågan</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Elevenkäter</summary>
+          <ul class="navpanel">
+            <li><a href="enkater.html">Skola för skola</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Kommunfullmäktige</summary>
+          <ul class="navpanel">
+            <li><a href="fullmaktige.html">Inspelade möten</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost">
+        <details class="navmeny">
+          <summary>Varberg</summary>
+          <ul class="navpanel">
+            <li><a href="varberg-befolkningsprognos.html">Hela befolkningen</a></li>
+            <li><a href="varberg-barn-och-unga.html">0–15 år</a></li>
+            <li><a href="varberg-gymnasiealdern.html">16–18 år</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="navpost"><a href="metod.html">Metod</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="sidhuvud-inre">
+    <h1>Feriejobb för gymnasieettorna</h1>
+    <p class="ingress">
+      Varje sommar kan elever som går första året på gymnasiet och är
+      folkbokförda i Kungsbacka söka ett feriejobb i kommunens egna
+      verksamheter: tre veckor, sex timmar om dagen. Här är
+      <strong>hur många som sökte</strong>, <strong>hur många som fick ett
+      jobb</strong> och <strong>hur många platser verksamheterna
+      anmälde</strong>, år för år, så som nämnden för Gymnasium &amp;
+      Arbetsmarknad redovisat det. Varje tal har en länkad källa.
+    </p>
+    <p class="meta-rad" id="meta-rad" hidden></p>
+  </div>
+</header>
+
+<main id="huvudinnehall">
+
+  <div id="status" class="status-ruta" hidden></div>
+
+  <section id="kort-sagt" class="kort-sagt" aria-labelledby="kort-sagt-rubrik" hidden>
+    <h2 id="kort-sagt-rubrik">Kort sagt</h2>
+    <ul id="kort-sagt-lista"></ul>
+    <p class="kort-sagt-not">Punkterna är beräknade direkt ur sidans datafil.</p>
+  </section>
+
+  <section id="sektion-utveckling" hidden>
+    <h2>Sökande och jobb år för år</h2>
+    <p class="forklaring">
+      Linjerna går genom de år där handlingarna anger ett tal. Där två
+      handlingar anger olika tal för samma år ritas spannet mellan dem som
+      ett lodrätt streck, utan någon punkt: sidan väljer inte vilket av
+      talen som stämmer. Ett år utan uppgift är en lucka i linjen.
+    </p>
+    <div class="kort">
+      <div class="diagram-wrap"><canvas id="diagram-utveckling" aria-label="Diagram: sökande, tillsatta feriejobb och anmälda platser per år" role="img"></canvas></div>
+      <p class="kalla-rad" id="kalla-utveckling"></p>
+    </div>
+    <div id="not-luckor" hidden></div>
+  </section>
+
+  <section id="sektion-tabell" hidden>
+    <h2>Talen och deras källor</h2>
+    <p class="forklaring" id="forklaring-matt"></p>
+    <div class="kort">
+      <div class="tabell-rull"><table id="tabell-ar"></table></div>
+      <p class="kalla-rad">Siffrorna inom hakparentes är källor, se listan längre ned. Två tal i samma ruta betyder att källorna säger olika.</p>
+    </div>
+  </section>
+
+  <section id="sektion-enkat" hidden>
+    <h2>Vad feriearbetarna svarade</h2>
+    <p class="forklaring">
+      Efter sommaren får feriearbetarna en enkät från kommunen. Tabellen
+      visar medelvärdet för varje fråga på en skala från 1 (inte alls) till
+      5 (i högsta grad), som nämnden redovisat det i sin kvalitetsberättelse.
+      Hur många som svarade står inte i handlingarna, utom för 2020.
+    </p>
+    <div class="kort">
+      <div class="tabell-rull"><table id="tabell-enkat"></table></div>
+      <p class="kalla-rad" id="kalla-enkat"></p>
+    </div>
+  </section>
+
+  <section id="sektion-kallor" hidden>
+    <h2>Källor</h2>
+    <p class="forklaring">
+      Numren är de som står i tabellerna. Varje källa länkar till sidan i
+      datapoolen <a href="https://moggleif.github.io/kommunhandlingar/">kommunhandlingar</a>,
+      där handlingen finns som text, och till kommunens egen PDF där den
+      fortfarande ligger kvar på kungsbacka.se.
+    </p>
+    <ul class="kallista" id="lista-kallor"></ul>
+  </section>
+
+  <section id="sektion-om" hidden>
+    <h2>Om den här sidan</h2>
+    <p class="forklaring">
+      <strong>Varje tal är ett citat.</strong> Talen är inlästa för hand ur
+      nämndens delårsrapporter, årsredovisningar, kvalitetsberättelser och
+      protokoll. För varje tal sparas meningen där det står, ordagrant, och
+      bygget stannar om talet inte finns i meningen. Ett tal som är en summa
+      &ndash; 2026 års 224 jobb, som i handlingarna är &rdquo;200 samt 24
+      extra platser&rdquo; &ndash; är räknat ur sina delar.
+    </p>
+    <p class="forklaring">
+      <strong>Tre mått, så som handlingarna skriver dem.</strong> Sökande
+      är i texterna omväxlande ungdomar som &rdquo;fullföljde sin
+      ansökan&rdquo;, &rdquo;ansökte&rdquo; och &rdquo;sökte&rdquo;, och
+      kan vara räknade på olika sätt. Tillsatta är jobb som tillsattes och
+      ungdomar som anställdes, matchades eller placerades. Anmälda platser
+      är de platser verksamheterna erbjöd, som kan vara fler än jobben;
+      kommunen har en budget för omkring 200 jobb om året.
+    </p>
+    <p class="forklaring">
+      <strong>Där handlingarna säger olika</strong> visas båda talen. Det
+      gäller tillsatta 2020 (183 eller 180) och sökande 2024 och 2025. Sidan
+      väljer inget av dem och räknar inte fram något mellanting.
+    </p>
+    <p class="forklaring">
+      <strong>Luckorna.</strong> Nämndens handlingar från 2015&ndash;2019
+      och 2023 finns inte eller kunde inte hämtas i datapoolen, och därför
+      saknas kvalitetsberättelsen för 2022 och de flesta tal före 2020.
+      Kostnaden, könsfördelningen och fördelningen på arbetsplatser
+      redovisas bara enstaka år och finns inte med här.
+    </p>
+    <p class="forklaring">
+      Sidan är fristående och drivs inte av kommunen. Alla beräkningar är
+      öppna: källkoden och alla data finns på
+      <a href="https://github.com/moggleif/politik">GitHub (moggleif/politik)</a>.
+      Saknas ett år eller är något fel? Lämna gärna en rättelse där, med
+      länk till handlingen.
+    </p>
+    <p class="forklaring" id="om-uppdaterad"></p>
+  </section>
+
+</main>
+
+<footer class="sidfot">
+  <div class="sidfot-inre">
+    <nav class="sidfot-nav" aria-label="Om webbplatsen">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="metod.html">Metod och källor</a></li>
+        <li><a href="https://github.com/moggleif/politik">Källkod och data på GitHub</a></li>
+        <li><a href="https://github.com/moggleif/politik/issues">Hittade du ett fel?</a></li>
+      </ul>
+    </nav>
+    <p class="sidfot-data">Data: nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun &ndash; delårsrapporter, årsredovisningar, kvalitetsberättelser och protokoll 2021&ndash;2026, via datapoolen kommunhandlingar.</p>
+    <p class="sidfot-not">Fristående sammanställning av offentliga siffror &ndash; sidorna drivs inte av Kungsbacka kommun. Alla beräkningar är öppna och koden är MIT-licensierad.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.js"></script>
+<script src="gemensam.js"></script>
+<script src="feriejobb.js"></script>
+<script data-goatcounter="https://moderat.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

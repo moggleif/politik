@@ -46,6 +46,7 @@ build_kostnader = ladda("build_kostnader")
 build_resurser = ladda("build_resurser")
 build_fullmaktige = ladda("build_fullmaktige")
 build_rodalinjer = ladda("build_rodalinjer")
+build_feriejobb = ladda("build_feriejobb")
 hamta_fullmaktige = ladda("hamta_fullmaktige")
 hamta_fortidsroster = ladda("hamta_fortidsroster")
 hamta_gymnasieelever = ladda("hamta_gymnasieelever")
@@ -1978,6 +1979,11 @@ class TestGenereradeFiler(unittest.TestCase):
             build_rodalinjer.bygg(build_rodalinjer.las_indata())))
         self.assertEqual(ombyggd, self.las("data-rodalinjer.json"))
 
+    def test_data_feriejobb_ar_reproducerbar(self):
+        ombyggd = json.loads(json.dumps(
+            build_feriejobb.bygg(build_feriejobb.las_indata())))
+        self.assertEqual(ombyggd, self.las("data-feriejobb.json"))
+
     def test_data_resurser_ar_reproducerbar(self):
         kolada = json.loads(
             (ROT / "data" / "kolada" / "resurser_grundskola.json")
@@ -3587,6 +3593,114 @@ class TestRodalinjer(unittest.TestCase):
             if c["svar"] != "oklart":
                 self.assertTrue(c["kallor"], c)
         self.assertEqual(sum(sum(a.values()) for a in ut["antal"].values()), len(ut["celler"]))
+
+
+class TestFeriejobb(unittest.TestCase):
+    """Feriejobben år för år: påhittade uppgifter där facit går att räkna
+    för hand, och de riktiga mot handlingarnas egna tal."""
+
+    def indata(self, uppgifter=None, enkat=None):
+        return {
+            "hamtad": "2026-10-22",
+            "kallor": [
+                {"id": "a", "rubrik": "A", "mote": "2025-01-01", "sida": 1,
+                 "url": "https://a.se", "original": None},
+                {"id": "b", "rubrik": "B", "mote": "2025-02-01", "sida": 2,
+                 "url": "https://b.se", "original": "https://b.se/b.pdf#page=2"},
+            ],
+            "uppgifter": uppgifter if uppgifter is not None else [
+                {"ar": 2022, "matt": "sokande", "varde": 300, "kalla": "b",
+                 "citat": "300 sökte"},
+                {"ar": 2020, "matt": "sokande", "varde": 210, "kalla": "a",
+                 "citat": "totalt 210 sökande"},
+                {"ar": 2022, "matt": "sokande", "varde": 280, "kalla": "a",
+                 "citat": "280 ungdomar ansökte"},
+                {"ar": 2022, "matt": "tillsatta", "varde": 224, "delar": [200, 24],
+                 "kalla": "b", "citat": "200 samt 24 extra platser"},
+            ],
+            "enkat": enkat if enkat is not None else {
+                "fragor": [{"id": "positivt", "fraga": "Positivt?"}],
+                "ar": [{"ar": 2022, "kalla": "a", "medel": {"positivt": 4.2}}],
+            },
+        }
+
+    def test_ett_ar_utan_uppgift_ar_null_och_inte_noll(self):
+        ut = build_feriejobb.bygg(self.indata())
+        self.assertEqual(ut["ar"], [2020, 2021, 2022])
+        self.assertIsNone(ut["varden"]["sokande"]["2021"])
+        self.assertIsNone(ut["varden"]["tillsatta"]["2020"])
+        self.assertIsNone(ut["varden"]["platser"]["2022"])
+
+    def test_kallor_som_sager_olika_ger_ett_spann_och_inget_valt_tal(self):
+        v = build_feriejobb.bygg(self.indata())["varden"]["sokande"]["2022"]
+        self.assertEqual((v["lag"], v["hog"], v["olika"]), (280, 300, True))
+        self.assertEqual([u["varde"] for u in v["uppgifter"]], [280, 300])
+
+    def test_samma_tal_ur_flera_kallor_ar_en_uppgift(self):
+        ut = build_feriejobb.bygg(self.indata([
+            {"ar": 2020, "matt": "sokande", "varde": 210, "kalla": "a", "citat": "210"},
+            {"ar": 2020, "matt": "sokande", "varde": 210, "kalla": "b", "citat": "210"},
+        ], {"fragor": [], "ar": []}))
+        v = ut["varden"]["sokande"]["2020"]
+        self.assertFalse(v["olika"])
+        self.assertEqual(v["uppgifter"], [{"varde": 210, "kallor": [1, 2]}])
+
+    def test_kallorna_numreras_i_den_ordning_de_forst_anvands(self):
+        ut = build_feriejobb.bygg(self.indata())
+        # 2020 använder a först, 2022 b efter
+        self.assertEqual([k["rubrik"] for k in ut["kallor"]], ["A", "B"])
+        self.assertEqual(ut["varden"]["sokande"]["2022"]["uppgifter"][1]["kallor"], [2])
+        self.assertEqual(ut["enkat"]["ar"][0]["kalla"], 1)
+
+    def test_summan_av_delar_ar_talet(self):
+        v = build_feriejobb.bygg(self.indata())["varden"]["tillsatta"]["2022"]
+        self.assertEqual((v["lag"], v["hog"]), (224, 224))
+
+    def test_bygget_stannar_vid_uppgifter_som_inte_haller(self):
+        def u(**kw):
+            bas = {"ar": 2020, "matt": "sokande", "varde": 210, "kalla": "a",
+                   "citat": "totalt 210 sökande"}
+            return [bas | kw, {"ar": 2020, "matt": "tillsatta", "varde": 2,
+                               "kalla": "b", "citat": "2"}]
+        for uppgifter in [
+            u(citat="totalt 2100 sökande"),          # talet står inte i citatet
+            u(matt="ansokningar"),                   # okänt mått
+            u(kalla="c"),                            # okänd källa
+            u(varde=224, delar=[200, 20], citat="200 och 20"),  # delarna blir inte talet
+            u(varde=224, delar=[200, 24], citat="200 platser"), # en del saknas i citatet
+            u() + [{"ar": 2020, "matt": "sokande", "varde": 211, "kalla": "a",
+                    "citat": "211"}],                # samma källa, två tal
+        ]:
+            with self.assertRaises(SystemExit, msg=uppgifter):
+                build_feriejobb.bygg(self.indata(uppgifter))
+
+    def test_bygget_stannar_vid_enkat_som_inte_haller(self):
+        for ar in [
+            [{"ar": 2022, "kalla": "a", "medel": {"positivt": 5.5}}],   # utanför skalan
+            [{"ar": 2022, "kalla": "a", "medel": {"annat": 4}}],        # okänd fråga
+            [{"ar": 2022, "kalla": "x", "medel": {"positivt": 4}}],     # okänd källa
+        ]:
+            with self.assertRaises(SystemExit, msg=ar):
+                build_feriejobb.bygg(self.indata(enkat={
+                    "fragor": [{"id": "positivt", "fraga": "?"}], "ar": ar}))
+
+    def test_oanvand_kalla_stoppar_bygget(self):
+        with self.assertRaises(SystemExit):
+            build_feriejobb.bygg(self.indata(self.indata()["uppgifter"][1:2]))
+
+    def test_de_riktiga_talen(self):
+        ut = json.loads((ROT / "docs" / "data-feriejobb.json").read_text(encoding="utf-8"))
+        v = ut["varden"]
+        # Tillsatta: 281 med statliga medel 2021, 200 per år sedan 2024
+        self.assertEqual(v["tillsatta"]["2021"]["lag"], 281)
+        self.assertEqual([v["tillsatta"][a]["lag"] for a in ["2024", "2025", "2026"]], [200, 200, 224])
+        self.assertIsNone(v["tillsatta"]["2022"])
+        # Där handlingarna säger olika står båda talen kvar
+        self.assertEqual({(m, a) for m in v for a in v[m] if v[m][a] and v[m][a]["olika"]},
+                         {("tillsatta", "2020"), ("sokande", "2024"), ("sokande", "2025")})
+        self.assertEqual((v["sokande"]["2025"]["lag"], v["sokande"]["2025"]["hog"]), (403, 422))
+        # Platser finns bara där handlingarna säger anmälda eller tillgängliga platser
+        self.assertEqual({a for a in v["platser"] if v["platser"][a]}, {"2024", "2025"})
 
 
 if __name__ == "__main__":

@@ -64,6 +64,7 @@ const DIAGRAMSIDOR = [
      granskaTreVal nedan. */
   "valresultat.html?val=region&parti=kbabo&matt=antal",
   "fullmaktige.html",
+  "feriejobb.html",
 ];
 const TEXTSIDOR = ["index.html", "metod.html"];
 /* Sidor vars innehåll är en tabell och inget diagram: matrisen ska ritas,

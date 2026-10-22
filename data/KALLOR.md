@@ -1524,3 +1524,42 @@ Hur beskeden lästes:
   utesluta S, V eller MP. Statsvetares bedömning att blockgränsen är svår att
   korsa (Oscarsson, Bjereld) och ledarsidors åsikter räknas inte som besked
   från partierna, och ger därför inget ja eller nej.
+
+## Feriejobb för ettorna (nämnden för Gymnasium & Arbetsmarknad)
+
+Inga filer hämtas automatiskt. `data/feriejobb/uppgifter.json` skrivs för
+hand ur nämndens handlingar, så som de finns som text i datapoolen
+[kommunhandlingar](https://github.com/moggleif/kommunhandlingar)
+(`data/kungsbacka/ga/`). Varje tal har mötesdatum, sida och meningen där
+det står. `scripts/build_feriejobb.py` stannar om talet inte finns i
+meningen.
+
+Var talen hittades:
+
+- **Kvalitetsberättelsen** (april, avsnittet *Feriearbetsplatser* under
+  *Brukarundersökningar*): sökande, tillsatta och enkätens medelvärden.
+  Kvalitetsberättelsen för 2023 har enkätens värden bakåt till 2020; den
+  för 2020 (mötet 2021-04-14) har antal svarande och kön, som inte förs in.
+- **Delårsrapporten** (augusti) och **årsredovisningen**: ett stycke
+  *Feriejobb(en)* under arbetsmarknad. Årsredovisningen upprepar oftast
+  delårsrapportens mening ordagrant.
+- **Protokollet 2025-10-16 § 116** (Återrapport feriejobb 2025) och
+  **uppföljningen av arbetsmarknadsprocessen** kvartal 2 2026.
+
+Det som inte fanns:
+
+- Nämndens handlingar 2015–2017 och 2019 finns inte i datapoolen, och
+  2023 års handlingar kunde mest inte hämtas. Kvalitetsberättelsen för
+  2022 saknas därför; 2022 års sökande står i den för 2023.
+- Protokollet 2014-04-15 § 34 beslutar om 150 feriejobb för sommaren 2014,
+  men något utfall har inte hittats i poolen. Året förs inte in.
+- Uppföljningen april 2021 säger att platserna utökades från 200 till 262.
+  Det är ett planerat antal, inte anmälda platser, och förs inte in.
+- Protokollet 2024-10-23 § 123 säger att "200 ungdomar har sökt arbete".
+  Talet stämmer med de tillsatta, inte de sökande, och förs inte in.
+- Kultur & Fritid (cirka 50 feriearbetare 2025) och Vård & Omsorg (41
+  2024) redovisar sina egna feriearbetare i sina handlingar. Det är delar
+  av kommunens total och förs inte in.
+- Handlingarna från 2021 och 2022 finns bara i Internet Archive, och två
+  av adresserna där är avklippta i poolen. De länkas därför bara till
+  datapoolen.

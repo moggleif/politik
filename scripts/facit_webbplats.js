@@ -111,6 +111,7 @@ const SIDOR = [
   /* Ett äldre möte ur adressen, med inlägg före första ärendet. */
   "fullmaktige.html?mote=2025-02-04",
   "rodalinjer.html",
+  "feriejobb.html",
 ];
 
 /* Körs i sidan. Chart.js länkar tillbaka till diagrammet från flera håll
