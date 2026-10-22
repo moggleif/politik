@@ -666,13 +666,17 @@ inte tabellen; det belägger att beslutet fattades. Båda länkas från sidan.
 | 2024/2025 | 2024-11-20 | Utbudsplanering 25/26 (GA-2024-00194) | Redovisad som jämförelsekolumn | bilaga-2024 |
 | 2025/2026 | 2024-11-20 § 146 | Utbudsplanering 25/26 (GA-2024-00194) | Beslutad | bilaga-2024 |
 | 2026/2027 | 2025-10-16 § 119 | Planerat utbud på gymnasieskolorna läsår 2026/2027 (GA-2025-00040) | Beslutad | tabell-2025 |
-| 2027/2028 | 2026-09-17 | Planerat utbud på gymnasieskolorna läsår 2027/2028 (GA-2026-00039) | Planerad, beslut i oktober 2026 | lista-2026 |
+| 2027/2028 | 2026-10-22 | Planerat utbud på gymnasieskolorna läsår 2027/2028 (GA-2026-00039) | Förslag till beslut; protokollet inte publicerat än | lista-2026 |
 
 **Ärendet ligger inte på samma möte varje år.** 2024 hette det
 "Utbudsplanering 25/26" och låg på novembermötet; 2025 hette det "Planerat
 utbud …" med information i september och beslut i oktober; 2026 följer
 samma ordning som 2025. Leta därför i kallelsen, som är en liten fil,
 innan hela handlingarna hämtas – de är 3–33 MB.
+
+**Tjänsteskrivelsen kan ändras mellan mötena.** 2026 hade Försäljnings- och
+serviceprogrammet 52 platser i septemberhandlingen och 64 i
+oktoberhandlingen. Läs alltid in den senaste.
 
 **Handlingen har haft tre former**, som alla tre läses av skriptet:
 
