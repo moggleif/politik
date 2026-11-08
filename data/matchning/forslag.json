@@ -65,6 +65,30 @@
    "plats": 12,
    "namn": "Charlotte Wallenstein",
    "notering": "59 år, kvinna, Integrationshandläggare, Onsala. Uppdragsgivaren: Charlotte Wallenstein är kvinna; plats 12 är den enda kvinnoplatsen av de fem lediga M-platserna. Stämmer med ett sökutdrag ur länsstyrelsens protokoll 2018 (plats 12, 53 personröster)."
+  },
+  {
+   "val": 2018,
+   "parti": "M",
+   "plats": 7,
+   "namn": "Ulric Björck",
+   "sakerhet": "trolig (uppdragsgivaren: ca 90 %)",
+   "notering": "48 år, Fil. dr, Kungsbacka. Sökutdrag ur länsstyrelsens protokoll 2018 (plats 7, 101 personröster); KF 2019-08-13 entledigar honom som ledamot från 2019-08-23. Platserna 7 och 8 kan i princip vara omkastade."
+  },
+  {
+   "val": 2018,
+   "parti": "M",
+   "plats": 8,
+   "namn": "Kalle Påsse Sundvall",
+   "sakerhet": "trolig (uppdragsgivaren: ca 90 %)",
+   "notering": "48 år, Administrativ chef, Onsala. Sökutdrag (plats 8, 69 personröster). Att Björck och Påsse har olika ålder idag är förenligt med att båda var 48 år på valdagen 2018-09-09."
+  },
+  {
+   "val": 2018,
+   "parti": "M",
+   "plats": 15,
+   "namn": "Franklin Eck",
+   "sakerhet": "trolig (uppdragsgivaren: ca 90 %)",
+   "notering": "73 år, Herr, Särö. 2014 plats 9 'herr, 69 år, Särö'; i fullmäktiges logg 2014; sökutdrag (plats 15, 62 personröster)."
   }
  ],
  "platser_totalt": {
@@ -80,13 +104,13 @@
   },
   "2014": {
    "möjlig": 29,
-   "stark": 35,
+   "stark": 37,
    "bestämd": 1
   },
   "2018": {
    "möjlig": 37,
    "stark": 75,
-   "bestämd": 6
+   "bestämd": 9
   }
  },
  "spar": [
@@ -7221,6 +7245,51 @@
   },
   {
    "parti": "M",
+   "namn": "Franklin Eck",
+   "namnkonflikt": null,
+   "sakerhet_bakat": "stark",
+   "lankar": [
+    {
+     "från": 2014,
+     "till": 2018,
+     "grad": "stark",
+     "poäng": 8.0
+    }
+   ],
+   "platser": [
+    {
+     "val": 2014,
+     "plats": 9,
+     "alder": 69,
+     "kon": "M",
+     "sakerhet": "stark",
+     "uppgift": "herr, 69 år, Särö",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2014-11-11",
+      "närvaro Kommunfullmäktige 2017-02-07",
+      "närvaro Kommunstyrelsen 2015-01-20"
+     ]
+    },
+    {
+     "val": 2018,
+     "plats": 15,
+     "alder": 73,
+     "kon": "M",
+     "sakerhet": "bestämd",
+     "uppgift": "73 år, Herr, Särö",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2019-08-13"
+     ]
+    }
+   ],
+   "avvisad_av_protokoll": false
+  },
+  {
+   "parti": "M",
    "namn": "Anders Ekström",
    "namnkonflikt": null,
    "sakerhet_bakat": "stark",
@@ -7683,6 +7752,49 @@
   },
   {
    "parti": "M",
+   "namn": "Kalle Påsse Sundvall",
+   "namnkonflikt": null,
+   "sakerhet_bakat": "stark",
+   "lankar": [
+    {
+     "från": 2014,
+     "till": 2018,
+     "grad": "stark",
+     "poäng": 8.0
+    }
+   ],
+   "platser": [
+    {
+     "val": 2014,
+     "plats": 28,
+     "alder": 44,
+     "kon": "M",
+     "sakerhet": "stark",
+     "uppgift": "administrativ chef, 44 år, Onsala",
+     "namn_i_kallan": null,
+     "i_protokoll": false,
+     "protokollkallor": []
+    },
+    {
+     "val": 2018,
+     "plats": 8,
+     "alder": 48,
+     "kon": "M",
+     "sakerhet": "bestämd",
+     "uppgift": "48 år, Administrativ chef, Onsala",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2019-08-13",
+      "närvaro Kommunstyrelsen 2021-01-19",
+      "närvaro Nämnden för Individ & Familjeomsorg 2020-04-16"
+     ]
+    }
+   ],
+   "avvisad_av_protokoll": false
+  },
+  {
+   "parti": "M",
    "namn": "Per-Axel Carlsson",
    "namnkonflikt": null,
    "sakerhet_bakat": "stark",
@@ -7833,6 +7945,30 @@
      "namn_i_kallan": "Marianne Wallengren",
      "i_protokoll": false,
      "protokollkallor": []
+    }
+   ],
+   "avvisad_av_protokoll": false
+  },
+  {
+   "parti": "M",
+   "namn": "Ulric Björck",
+   "namnkonflikt": null,
+   "sakerhet_bakat": "säker",
+   "lankar": [],
+   "platser": [
+    {
+     "val": 2018,
+     "plats": 7,
+     "alder": 48,
+     "kon": "M",
+     "sakerhet": "bestämd",
+     "uppgift": "48 år, Fil. dr, Kungsbacka",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2019-08-13",
+      "närvaro Nämnden för Vård & Omsorg 2019-02-20"
+     ]
     }
    ],
    "avvisad_av_protokoll": false
@@ -16852,7 +16988,6 @@
     "mojliga_namn": [
      "Bengt Adolfsson",
      "Christina Äng",
-     "Franklin Eck",
      "Frida Schill Örne",
      "Lars Thelén",
      "Lena Reimertz Thelén",
@@ -16911,20 +17046,9 @@
     "kon": "M",
     "mandat": 9,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Adolfsson",
-     "Christina Äng",
-     "Franklin Eck",
-     "Frida Schill Örne",
-     "Lars Thelén",
-     "Lena Reimertz Thelén",
-     "Marianne Kierkemann",
-     "Thure Sandén",
-     "Ulla Krantz"
-    ]
+    "namn_forslag": "Franklin Eck",
+    "sakerhet": "stark",
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "M",
@@ -16950,7 +17074,6 @@
     "mojliga_namn": [
      "Bengt Adolfsson",
      "Christina Äng",
-     "Franklin Eck",
      "Frida Schill Örne",
      "Lars Thelén",
      "Lena Reimertz Thelén",
@@ -16972,7 +17095,6 @@
     "mojliga_namn": [
      "Bengt Adolfsson",
      "Christina Äng",
-     "Franklin Eck",
      "Frida Schill Örne",
      "Lars Thelén",
      "Lena Reimertz Thelén",
@@ -17004,7 +17126,6 @@
     "mojliga_namn": [
      "Bengt Adolfsson",
      "Christina Äng",
-     "Franklin Eck",
      "Frida Schill Örne",
      "Lars Thelén",
      "Lena Reimertz Thelén",
@@ -17026,7 +17147,6 @@
     "mojliga_namn": [
      "Bengt Adolfsson",
      "Christina Äng",
-     "Franklin Eck",
      "Frida Schill Örne",
      "Lars Thelén",
      "Lena Reimertz Thelén",
@@ -17058,7 +17178,6 @@
     "mojliga_namn": [
      "Bengt Adolfsson",
      "Christina Äng",
-     "Franklin Eck",
      "Frida Schill Örne",
      "Lars Thelén",
      "Lena Reimertz Thelén",
@@ -17091,7 +17210,6 @@
     "mojliga_namn": [
      "Bengt Adolfsson",
      "Christina Äng",
-     "Franklin Eck",
      "Frida Schill Örne",
      "Lars Thelén",
      "Lena Reimertz Thelén",
@@ -17113,7 +17231,6 @@
     "mojliga_namn": [
      "Bengt Adolfsson",
      "Christina Äng",
-     "Franklin Eck",
      "Frida Schill Örne",
      "Lars Thelén",
      "Lena Reimertz Thelén",
@@ -17703,15 +17820,9 @@
     "kon": "M",
     "mandat": null,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Ann-Helene Reimertz",
-     "Franklin Eck",
-     "Kalle Påsse Sundvall",
-     "Ulric Björck"
-    ]
+    "namn_forslag": "Ulric Björck",
+    "sakerhet": "bestämd",
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "M",
@@ -17720,15 +17831,9 @@
     "kon": "M",
     "mandat": null,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Ann-Helene Reimertz",
-     "Franklin Eck",
-     "Kalle Påsse Sundvall",
-     "Ulric Björck"
-    ]
+    "namn_forslag": "Kalle Påsse Sundvall",
+    "sakerhet": "bestämd",
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "M",
@@ -17803,15 +17908,9 @@
     "kon": "M",
     "mandat": null,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Ann-Helene Reimertz",
-     "Franklin Eck",
-     "Kalle Påsse Sundvall",
-     "Ulric Björck"
-    ]
+    "namn_forslag": "Franklin Eck",
+    "sakerhet": "bestämd",
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "M",
@@ -17842,15 +17941,9 @@
     "kon": "M",
     "mandat": null,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Ann-Helene Reimertz",
-     "Franklin Eck",
-     "Kalle Påsse Sundvall",
-     "Ulric Björck"
-    ]
+    "namn_forslag": "Ann-Helene Reimertz",
+    "sakerhet": "möjlig",
+    "grund": "unikt par namn–plats (ålder)"
    },
    {
     "parti": "M",

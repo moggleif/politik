@@ -2001,4 +2001,11 @@ plats 7 och 8 (båda 48 år, född 1970), som sökutdraget angav; den av dem som
 rykte upp (ordinarie i loggen 2019-08-13); en ursprunglig innehavare av en av platserna 7, 8,
 18 hade då lämnat. Ålder på Ratsit slogs inte upp av skriptet/assistenten (sökverktyget
 avböjde uppslag av privatpersoners ålder).
+**Uppdatering:** uppdragsgivaren bedömer att sökutdragets placering stämmer till ca 90 %:
+plats 7 Ulric Björck, plats 8 Kalle Påsse Sundvall, plats 15 Franklin Eck lades in som
+`trolig (uppdragsgivaren: ca 90 %)` (platserna 7/8 kan i princip vara omkastade). Dagens
+åldersskillnad mellan Björck och Påsse är förenlig med att båda var 48 år på valdagen.
+Plats 18 (64 år, Civilekonom, Kullavik) är kvar utan namn: ursprunglig innehavare okänd
+(lämnade före loggen 2019-08-13; Ann-Helene Reimertz rykte upp). Personuppslag på
+Ratsit/Hitta/Mrkoll gjordes inte.
 
