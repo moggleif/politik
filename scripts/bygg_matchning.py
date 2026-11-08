@@ -465,7 +465,7 @@ def tillampa_loggordning(ar: int, ut: list, valda: list, logg: list) -> list:
     return ut
 
 
-def skriv_bekraftade(namngivna: list, valda: dict) -> None:
+def skriv_bekraftade(namngivna: list, valda: dict, bara_ar: int | None = None) -> None:
     """Fryser nuvarande förslag som bekräftade (görs bara med --bekrafta, efter
     att uppdragsgivaren godkänt dem). Avvisade förslag tas inte med."""
     poster = {}
@@ -477,16 +477,22 @@ def skriv_bekraftade(namngivna: list, valda: dict) -> None:
         if sp["avvisad_av_protokoll"]:
             continue
         for pl in sp["platser"]:
-            if pl["namn_i_kallan"] is None:
+            if pl["namn_i_kallan"] is None and (bara_ar is None or pl["val"] == bara_ar):
                 poster.setdefault((sp["parti"], pl["val"], pl["plats"]), {
                     "parti": sp["parti"], "val": pl["val"], "plats": pl["plats"], "namn": sp["namn"],
                     "sakerhet": pl["sakerhet"], "grund": "spår"})
     for ar, rs in valda.items():
+        if bara_ar is not None and ar != bara_ar:
+            continue
         for r in rs:
             if r["namn_forslag"] and (r["parti"], ar, r["listplats"]) not in poster:
                 poster[(r["parti"], ar, r["listplats"])] = {
                     "parti": r["parti"], "val": ar, "plats": r["listplats"], "namn": r["namn_forslag"],
                     "sakerhet": r["sakerhet"], "grund": r["grund"]}
+                if r["grund"].startswith("loggordning"):
+                    poster[(r["parti"], ar, r["listplats"])]["status"] = (
+                        "härledd ur fullmäktiges loggordning (valkrets, mandat), verifierad; frusen enligt "
+                        "uppdragsgivarens val 2026-11-08")
     (UT / "bekraftade.json").write_text(json.dumps({
         "forklaring": "Namnförslag som uppdragsgivaren bekräftat (\"alla namn du har stämmer\", 2026-11-08). "
                       "Frysta: byggs inte om av bygg_matchning.py utan --bekrafta. Avvisade förslag ingår inte.",
@@ -531,8 +537,11 @@ def main() -> None:
     for ar, rs in valda.items():
         print(f"Valda {ar}: {sum(1 for r in rs if r['namn_forslag'])}/{len(rs)} med namnförslag", dict(Counter(r["grund"] for r in rs)))
     UT.mkdir(parents=True, exist_ok=True)
-    if "--bekrafta" in sys.argv:
-        skriv_bekraftade(namngivna, valda)
+    for arg in sys.argv[1:]:
+        if arg == "--bekrafta":
+            skriv_bekraftade(namngivna, valda)
+        elif arg.startswith("--bekrafta="):
+            skriv_bekraftade(namngivna, valda, int(arg.split("=")[1]))
     (UT / "forslag.json").write_text(json.dumps({
         "byggd": date.today().isoformat(),
         "forklaring": "Förslag, inte fakta. Se scripts/bygg_matchning.py. Säkerhet: säker (namn i båda valen), stark, möjlig.",

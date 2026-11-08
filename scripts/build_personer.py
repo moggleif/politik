@@ -179,7 +179,7 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
             "val": b["val"], "listnamn": lista["listor"][0]["listnamn"], "listnummer": lista["listor"][0]["listnummer"],
             "plats": b["plats"], "samtycke": None, "uppgift": k.get("uppgift"),
             "alder": k.get("alder"), "kon": k.get("kon"),
-            "kalla": "matchning, bekräftad av uppdragsgivaren", "sakerhet": b["sakerhet"]})
+            "kalla": b.get("status") or "matchning, bekräftad av uppdragsgivaren", "sakerhet": b["sakerhet"]})
     for datum, fil in sorted(valbeslut.items()):
         ar = next(a for a, (_, d, _) in VAL.items() if datum in d)
         period = VAL[ar][0]

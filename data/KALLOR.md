@@ -2046,3 +2046,9 @@ Eck, 10 Anders Ekström, 11 Ulla Krantz, 12 Frida Schill Örne, 13 Per Stenberg,
 Sandén, 20 Bengt Adolfsson, 21 Marianne Pleijel. Franklin Eck på 9 och Per Ödman på 5 stämmer
 med oberoende bedömningar (kandidatspår respektive uppdragsgivaren).
 
+**Fryst 2026-11-08 (uppdragsgivarens val, alternativ 1):** de loggordningsbaserade namnen för valda 2014
+frystes i `data/matchning/bekraftade.json` (`bygg_matchning.py --bekrafta=2014`, additivt; 243 platser
+totalt). De 20 loggordningsposterna har `status: "härledd ur fullmäktiges loggordning (valkrets, mandat),
+verifierad; frusen enligt uppdragsgivarens val"` och skiljs därmed från namn uppdragsgivaren själv
+bekräftat. Oberoende kontroll: alla 10 åldersjämförelser mot 2018/2022/2026 stämde.
+
