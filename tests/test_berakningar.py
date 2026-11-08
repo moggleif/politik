@@ -4930,8 +4930,9 @@ class TestNarvarolista(unittest.TestCase):
         titlar = {x["namn"]: x["titel"] for x in self.u}
         self.assertEqual(titlar["Thure Sandén"], "ordförande")
         self.assertEqual(titlar["Heinrich Kaufmann"], "vice ordförande")
-        # Titeln "andra vice / ordförande" bröts över två rader: tolkas inte, finns i blocket.
-        self.assertIsNone(titlar["Maj-Britt Rane Andersson"])
+        # Titeln "andra vice / ordförande" bryts över två rader och läses som hela titeln
+        # (tidigare begränsning, rättad 2026-11-08 när hamta_narvaro fick stöd för brutna titlar).
+        self.assertEqual(titlar["Maj-Britt Rane Andersson"], "2:e vice ordförande")
 
     def test_brutet_efternamn_blir_inte_en_person(self):
         self.assertNotIn("Wallin", [x["namn"] for x in self.u])
