@@ -4890,3 +4890,52 @@ class TestPersonfil(unittest.TestCase):
         self.assertEqual({k["val"] for k in lisa["kandidaturer"]}, {2022, 2026})
         self.assertIn(("Kommunstyrelsen", "ordförande", "2023–2026"),
                       {(u["organisation"], u["roll"], u["mandatperiod"]) for u in lisa["uppdrag"]})
+
+
+hamta_narvaro = ladda("hamta_narvaro")
+
+NARV_BLOCK = """Beslutande Ledamöter Tjänstgörande ersättare
+Thure Sandén (M), Ordförande Richard Hansson (C) ersätter Mårten
+Heinrich Kaufmann (C), Vice ordförande Carlquist (M)
+Per Stenberg (M)
+Thomas Lindqvist (L) ersätter Kenth
+Daniel Hognert (M)
+Wallin (SD)
+Maj-Britt Rane Andersson (S), andra vice
+ordförande
+Eirik Langjord (L)"""
+
+
+class TestNarvarolista(unittest.TestCase):
+    """Närvarolistan i två kolumner: facit räknat för hand."""
+
+    def setUp(self):
+        self.u = hamta_narvaro.utlasning(NARV_BLOCK)
+
+    def namn(self, roll):
+        return [x["namn"] for x in self.u if x["roll"] == roll]
+
+    def test_ledamoter_och_ersattare(self):
+        self.assertEqual(self.namn("ledamot"), ["Thure Sandén", "Heinrich Kaufmann", "Per Stenberg",
+                                                "Daniel Hognert", "Maj-Britt Rane Andersson", "Eirik Langjord"])
+        # Raden där bara högerkolumnen finns ("… ersätter …") är en tjänstgörande ersättare.
+        self.assertIn("Thomas Lindqvist", self.namn("tjänstgörande ersättare"))
+        self.assertIn("Richard Hansson", self.namn("tjänstgörande ersättare"))
+
+    def test_titel_bara_nar_den_star_efter_namnet(self):
+        titlar = {x["namn"]: x["titel"] for x in self.u}
+        self.assertEqual(titlar["Thure Sandén"], "ordförande")
+        self.assertEqual(titlar["Heinrich Kaufmann"], "vice ordförande")
+        # Titeln "andra vice / ordförande" bröts över två rader: tolkas inte, finns i blocket.
+        self.assertIsNone(titlar["Maj-Britt Rane Andersson"])
+
+    def test_brutet_efternamn_blir_inte_en_person(self):
+        self.assertNotIn("Wallin", [x["namn"] for x in self.u])
+
+    def test_sparad_fil_stammer_med_valbeslut(self):
+        d = json.loads((ROT / "data" / "uppdrag" / "narvaro.json").read_text(encoding="utf-8"))
+        ks = next(p for p in d["poster"] if p["organ"] == "Kommunstyrelsen" and p["period"] == "2023–2026")
+        self.assertEqual([x["namn"] for x in ks["utlasning"] if x["titel"] == "ordförande"], ["Lisa Andersson"])
+        ks19 = next(p for p in d["poster"] if p["organ"] == "Kommunstyrelsen" and p["period"] == "2019–2022")
+        self.assertTrue(ks19["datum"])
+        self.assertEqual([x["namn"] for x in ks19["utlasning"] if x["titel"] == "ordförande"], ["Lisa Andersson"])

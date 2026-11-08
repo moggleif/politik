@@ -1754,3 +1754,41 @@ Arkivets egna källor är kommunens mötessida och Internet Archive.
   SD 9, C 8, L 6, KD 4, MP 2, V 2, KB 2), inga ordförande.
 - Centerpartiets PDF om representation 2019–2022 (november 2018) ger 404.
 
+### Närvarolistor som ersättningskälla (2011–2014 och 2019–2022)
+
+Valbesluten saknas för de två perioderna. `scripts/hamta_narvaro.py` hämtar
+därför närvarolistan ("Beslutande") ur **första protokollet med text** för
+varje organ och mandatperiod (`data/uppdrag/narvaro.json`): kommunstyrelsen,
+arbetsutskott och nämnder, alltså även alla nämnder. Blocket sparas
+ordagrant tillsammans med en försiktig utläsning (ledamot, tjänstgörande
+ersättare, ordförande/vice ordförande när titeln står direkt efter namnet).
+Personfilen tar med dem för perioder utan valbeslut, märkta
+`kalla: "närvarolista"`.
+
+**Kontroll mot valbesluten.** Samma hämtning gjordes för 2015–2018 och
+2023–2026 och jämfördes med besluten: i alla jämförbara fall (KS, KSAU och
+12 nämnder) är ordföranden i närvarolistan samma person som i beslutet, och
+90–100 % av de utlästa ledamöterna finns i beslutet (avvikelser: en
+ledamot som inte fanns i beslutet, troligen ersatt eller felutläst).
+
+**Begränsningar**
+
+- Närvarolistan visar de närvarande vid *ett* möte. Ersättare som
+  tjänstgjorde kan stå som tjänstgörande, och en ledamot som var frånvarande
+  syns inte. Ledamöter utan titel är därför ledamöter vid det mötet, inte
+  nödvändigtvis hela periodens.
+- Första protokollet med text ligger ibland långt in i perioden (2019–2022:
+  KS 2021-01-19, KSAU 2021-01-05, Gymnasium & Arbetsmarknad 2020-11-04,
+  Service 2021-01-21, Miljö & Hälsoskydd 2021-02-18, Valnämnden 2021-02-22).
+  Då kan sammansättningen ha ändrats sedan valet. Datumet står i varje post.
+- Arkivet saknar sidor för organ som hette annat före 2015 (Fritid &
+  Folkhälsa, Funktionsstöd, Äldreomsorg, Kultur & Turism m.fl.), och flera
+  nämnder saknar protokoll med text 2011–2014: Förskola & Grundskola,
+  Individ & Familjeomsorg, Kultur & Fritid, Teknik, Valnämnden,
+  Kommunrevisionen. KSAU 2011–2014 och 2015–2018 och KSAU:s arbetsutskott
+  Förskola & Grundskola 2011–2014 saknar protokoll med text.
+- Kommunfullmäktiges närvarolista (alla ledamöter) hämtas inte: protokollen
+  har inte den layouten för alla perioder.
+- Namn med brutna efternamn i listan (t.ex. "Kenth / Wallin (SD)") och
+  titlar som hamnat på en egen rad läses inte ut; de finns i `block`.
+

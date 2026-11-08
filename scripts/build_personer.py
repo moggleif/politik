@@ -7,6 +7,9 @@ Indata (alla i data/, inget annat):
   uppdrag/<organ>_val_<datum>.json  valbeslut i fullmäktiges decemberprotokoll (kf)
                                och kommunstyrelsens första möte (ks)
   uppdrag/troman_<datum>.json  kommunens register – bara som bekräftelse
+  uppdrag/narvaro.json         närvarolistor ur första protokollet med text
+                               per organ och period – ersättningskälla för
+                               perioder utan valbeslut (2011–2014, 2019–2022)
 
 Det som sparas är det källorna säger, ihopparat på namn *inom partiet*:
 
@@ -108,7 +111,8 @@ def troman_index(troman: dict) -> dict:
     return ut
 
 
-def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: dict) -> dict:
+def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: dict,
+         narvaro: dict | None = None) -> dict:
     """kandidater: {år: kandidatfil}, valbeslut: {datum: kf_val-fil}."""
     P = Personer()
     for ar, fil in sorted(kandidater.items()):
@@ -144,6 +148,26 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
                 if k in sedda and organisation(b["rubrik"]):
                     P.tvetydiga.append({"namn": r["namn"], "var": f"{datum} § {b['paragraf']} ({r['roll']})"})
                 sedda[k] = True
+    # Perioder utan valbeslut: närvarolistan på organets första protokoll med
+    # text är ersättningskälla. Märks `kalla: "närvarolista"` så att den aldrig
+    # förväxlas med ett fastställt val.
+    for post in (narvaro or {}).get("poster", []):
+        ar = next((a for a, (per, _, _) in VAL.items() if per == post["period"]), None)
+        if ar is None or not post.get("datum"):
+            continue
+        if VAL[ar][1] and all(d in valbeslut for d in VAL[ar][1]):
+            continue   # perioden har valbeslut; närvarolistan behövs inte
+        for u in post["utlasning"]:
+            if u["parti"] != kort:
+                continue
+            roll = u["titel"] or u["roll"]
+            P.finns(u["namn"])["uppdrag"].append({
+                "mandatperiod": post["period"], "val": ar, "protokoll": post["datum"],
+                "kalla": "närvarolista", "organisation": post["organ"], "roll": roll,
+                "rubrik": None, "paragraf": None, "ordning": None})
+    for p in P.perso.values():
+        for u in p["uppdrag"]:
+            u.setdefault("kalla", "valbeslut")
     tidx = troman_index(troman)
     for k, p in P.perso.items():
         t = tidx.get(k)
@@ -164,6 +188,8 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
             "valbeslut": ("finns" if datum and all(d in valbeslut for d in datum)
                           else "valbeslut ej fattat" if ar == 2026 else "saknas"),
             "protokoll": datum,
+            "narvarolista": sum(1 for q in (narvaro or {}).get("poster", [])
+                                if q["period"] == period and q.get("datum")),
             "anledning": None if (ar in kandidater and datum and all(d in valbeslut for d in datum)) else orsak})
     personer = sorted(P.perso.values(), key=lambda p: nyckel(p["namn"]))
     for i, p in enumerate(personer, 1):
@@ -191,7 +217,8 @@ def main(argv: list) -> None:
     trom = sorted((DATA / "uppdrag").glob("troman_*.json"))
     if not trom:
         sys.exit("Ingen Troman-fil i data/uppdrag/ – kör hamta_uppdrag.py")
-    ut = bygg(partinamn, kort, kandidater, valbeslut, las_json(trom[-1]))
+    narvaro = las_json(DATA / "uppdrag" / "narvaro.json") if (DATA / "uppdrag" / "narvaro.json").exists() else None
+    ut = bygg(partinamn, kort, kandidater, valbeslut, las_json(trom[-1]), narvaro)
     UT.mkdir(parents=True, exist_ok=True)
     fil = UT / f"{partinamn.lower()}.json"
     fil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
