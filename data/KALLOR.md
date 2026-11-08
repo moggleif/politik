@@ -2052,3 +2052,24 @@ totalt). De 20 loggordningsposterna har `status: "härledd ur fullmäktiges logg
 verifierad; frusen enligt uppdragsgivarens val"` och skiljs därmed från namn uppdragsgivaren själv
 bekräftat. Oberoende kontroll: alla 10 åldersjämförelser mot 2018/2022/2026 stämde.
 
+### 2018: loggplats-regeln (listplatsordning i senare logg), frusen 2026-11-08
+
+2018 hade en enda valkrets, och fullmäktiges logg 2019-08-13 ligger inom varje parti i
+listplatsordning: den n:te i loggen sitter på partiets n:te valda listplats (50 av 52 kända namn
+stämmer; de två avvikelserna är en stavning, Knutas Erik/Eric, och en ersättare, KD plats 4).
+Loggen visar dock vem som *satt* på platsen vid mötet. Ett namn vars ålder i andra val strider mot
+platsen behandlas därför som `ersättare på platsen` och sparas som `innehavare_logg`, inte som vald:
+
+| Plats | Innehavare i loggen 2019-08-13 | Varför ersättare |
+|---|---|---|
+| C 4 (55 år, K) | Henrik Arnesson | 52 år 2022 → 48 år 2018 |
+| L 2 (58 år, M) | Max Ramström | 37 år 2018 (samma person som M-Ramström) |
+| S 6 (42 år, M) | Kent Stenhammar | 74 år 2022 → 70 år 2018 |
+| M 18 (64 år, M) | Ann-Helene Reimertz | sökutdrag: ersättare; ej frusen |
+
+Frysta (alternativ 1, härledda): S 2 Johan Tolinsson och SD 9 Thord Brynielsson (stark; ålder i andra
+val stämmer), S 7 Sara Heikkinen Breitholtz, S 8 Rickard Wäst, SD 5 Roger Krantz, SD 6 Bengt Fransson
+(möjlig; ingen ålder att kontrollera mot). Dessutom frystes V 3 Jon Thorbjörnson (möjlig; spår: 2014
+plats 2, 38 år → 2018 plats 3, 42 år; 2022 "riksdagsledamot, Vallda"). M 18 är undantagen
+(`UTESLUTNA` i bygg_matchning.py).
+

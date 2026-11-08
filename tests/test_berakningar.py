@@ -5087,3 +5087,15 @@ class TestMatchning(unittest.TestCase):
         self.assertEqual(sum(1 for r in v if r["namn_forslag"]), 61)
         m = {r["listplats"]: r["namn_forslag"] for r in v if r["parti"] == "M"}
         self.assertEqual((m[5], m[9], m[19]), ("Per Ödman", "Franklin Eck", "Thure Sandén"))
+
+
+    def test_loggplats_2018_ersattare_ar_inte_valda(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        v = {(r["parti"], r["listplats"]): r for r in d["valda"]["2018"]}
+        self.assertEqual(v[("S", 2)]["namn_forslag"], "Johan Tolinsson")
+        self.assertEqual(v[("SD", 9)]["namn_forslag"], "Thord Brynielsson")
+        for plats, innehavare in ((("C", 4), "Henrik Arnesson"), (("L", 2), "Max Ramström"), (("S", 6), "Kent Stenhammar")):
+            self.assertIsNone(v[plats]["namn_forslag"])             # ersättare: ingen vald, bara innehavare
+            self.assertEqual(v[plats]["innehavare_logg"], innehavare)
+        kontroll = d["loggordning_kontroll"]["2018"]
+        self.assertGreaterEqual(kontroll["stammer"] / kontroll["kanda"], 0.9)

@@ -284,6 +284,23 @@ def namnge(spar: dict, pn: dict) -> list:
     return ut
 
 
+def SAMMA_PERSON():
+    """({(parti, namn): kanonisk nyckel}, kanon-funktion) ur data/kopplingar.json:
+    personer som uppdragsgivaren avgjort är samma i flera partier delar ålder."""
+    samma = {}
+    kopp_fil = DATA / "kopplingar.json"
+    if kopp_fil.exists():
+        for kp in json.loads(kopp_fil.read_text(encoding="utf-8"))["kopplingar"]:
+            if kp["avgorande"] == "samma":
+                forst = (kp["poster"][0]["parti"], nyckel(kp["poster"][0]["namn"]))
+                for po in kp["poster"]:
+                    samma[(po["parti"], nyckel(po["namn"]))] = forst
+
+    def kanon(parti, namn):
+        return samma.get((parti, nyckel(namn)), (parti, nyckel(namn)))
+    return samma, kanon
+
+
 class FuzzyNamn:
     """Slår upp namn mot en lista med tolerans för stavningsskillnader
     ("Thorbjörnson"/"Thorbjörnsson"). `in` och `[]` följer nyckel-jämförelsen."""
@@ -328,17 +345,7 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
     obestamda = [r["namn"] for r in logg if r["parti"] == "-"]
     # Personer som uppdragsgivaren avgjort är samma i flera partier (data/kopplingar.json) delar
     # ålder; övriga namn i flera partier behandlas som olika personer.
-    samma = {}
-    kopp_fil = DATA / "kopplingar.json"
-    if kopp_fil.exists():
-        for kp in json.loads(kopp_fil.read_text(encoding="utf-8"))["kopplingar"]:
-            if kp["avgorande"] == "samma":
-                forst = (kp["poster"][0]["parti"], nyckel(kp["poster"][0]["namn"]))
-                for po in kp["poster"]:
-                    samma[(po["parti"], nyckel(po["namn"]))] = forst
-
-    def kanon(parti, namn):
-        return samma.get((parti, nyckel(namn)), (parti, nyckel(namn)))
+    samma, kanon = SAMMA_PERSON()
     # Åldrar för namngivna personer ur andra val än det som löses: namnlistorna 2022/2026 och
     # de platser som uppdragsgivaren bekräftat för övriga val. alder_senare[namn] = [(år, ålder)].
     alder_senare = {}
@@ -427,6 +434,50 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
             ut.append(post)
     if exhaustiv and all(r.get("mandat") for r in valda):
         ut = tillampa_loggordning(ar, ut, valda, logg)
+    elif not exhaustiv and len({r.get("valkrets") for r in valda}) <= 2:
+        ut = tillampa_loggplats(ar, ut, valda, logg, villkor, alder_senare)
+    return ut
+
+
+def tillampa_loggplats(ar, ut, valda, logg, villkor, alder_senare):
+    kanon = SAMMA_PERSON()[1]
+    """Senare logg (inte första mötet): inom partiet ligger ledamöterna i listplatsordning,
+    så den n:te i loggen sitter på partiets n:te valda listplats. Loggen visar vem som *satt*
+    på platsen vid mötet, inte vem som valdes: har en ersättare tagit över stämmer namnets
+    ålder i andra val inte med platsen. Regeln används bara om den stämmer för minst 90 %
+    av de kända namnen; ett namn vars ålder strider mot platsen blir `ersättare på platsen`
+    (sparas som `innehavare_logg`, inte som vald)."""
+    namn = {(r["parti"], r["listplats"]): r for r in ut}
+    par_per_parti = {}
+    for parti in sorted({r["parti"] for r in valda}):
+        vs = sorted((r for r in valda if r["parti"] == parti), key=lambda r: r["listplats"])
+        ln = [r["namn"] for r in logg if r["parti"] == parti]
+        if len(vs) != len(ln):
+            return ut
+        par_per_parti[parti] = list(zip(vs, ln))
+    kanda = stammer = 0
+    for parti, par in par_per_parti.items():
+        for r, n in par:
+            post = namn[(parti, r["listplats"])]
+            if post["namn_forslag"]:
+                kanda += 1
+                stammer += FuzzyNamn([n]).hitta(post["namn_forslag"]) is not None
+    LOGGORDNING_KONTROLL[ar] = {"kanda": kanda, "stammer": stammer, "regel": "listplatsordning, senare logg"}
+    if kanda == 0 or stammer / kanda < 0.9:
+        return ut
+    for parti, par in par_per_parti.items():
+        for r, n in par:
+            post = namn[(parti, r["listplats"])]
+            if post["namn_forslag"]:
+                continue
+            kand_alder = alder_senare.get(kanon(parti, n), [])
+            if not villkor(n, r):
+                post.update({"namn_forslag": None, "sakerhet": None, "grund": "ersättare på platsen (ålder stämmer inte)",
+                             "innehavare_logg": n})
+            else:
+                post.update({"namn_forslag": n, "sakerhet": "stark" if kand_alder else "möjlig",
+                             "grund": "loggplats (listplatsordning, senare logg)" + (" + ålder" if kand_alder else "")})
+            post.pop("mojliga_namn", None)
     return ut
 
 
@@ -465,6 +516,13 @@ def tillampa_loggordning(ar: int, ut: list, valda: list, logg: list) -> list:
     return ut
 
 
+# Platser där ett föreslaget namn inte ska fryssas som kandidatur, med skälet.
+UTESLUTNA = {
+    ("M", 2018, 18): "Ann-Helene Reimertz är den enda lediga ledamoten i loggen 2019-08-13, men ett sökutdrag "
+                     "anger henne som ersättare (som rykte upp); hon har sannolikt inte stått på plats 18.",
+}
+
+
 def skriv_bekraftade(namngivna: list, valda: dict, bara_ar: int | None = None) -> None:
     """Fryser nuvarande förslag som bekräftade (görs bara med --bekrafta, efter
     att uppdragsgivaren godkänt dem). Avvisade förslag tas inte med."""
@@ -489,10 +547,12 @@ def skriv_bekraftade(namngivna: list, valda: dict, bara_ar: int | None = None) -
                 poster[(r["parti"], ar, r["listplats"])] = {
                     "parti": r["parti"], "val": ar, "plats": r["listplats"], "namn": r["namn_forslag"],
                     "sakerhet": r["sakerhet"], "grund": r["grund"]}
-                if r["grund"].startswith("loggordning"):
+                if r["grund"].startswith(("loggordning", "loggplats")):
                     poster[(r["parti"], ar, r["listplats"])]["status"] = (
-                        "härledd ur fullmäktiges loggordning (valkrets, mandat), verifierad; frusen enligt "
+                        "härledd ur fullmäktiges loggordning, verifierad mot kända namn; frusen enligt "
                         "uppdragsgivarens val 2026-11-08")
+    for k in UTESLUTNA:
+        poster.pop(k, None)
     (UT / "bekraftade.json").write_text(json.dumps({
         "forklaring": "Namnförslag som uppdragsgivaren bekräftat (\"alla namn du har stämmer\", 2026-11-08). "
                       "Frysta: byggs inte om av bygg_matchning.py utan --bekrafta. Avvisade förslag ingår inte.",
