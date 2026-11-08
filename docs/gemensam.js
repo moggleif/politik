@@ -413,6 +413,95 @@
     };
   }
 
+  /* ---------- Liggande staplar, en per utbildning ----------
+     Meritvärdes- och slutbetygssidan ritar samma bild två gånger var:
+     rangordningen ett år och förändringen över mätperioden (#66). Bilden
+     är densamma – det som skiljer är talen, färgerna, axelns rubrik och
+     tickformat och vad tooltipen berättar.
+
+     Axlarna är en egen parning och inte kategoriAxel och mattAxel: när
+     staplarna ligger ner är det x som bär siffran, och den får baslinjen
+     som staplarna växer ut från. Stommen används inte heller: dess
+     pekning (`index`, utan träff) gäller tidsserierna, medan en stapel
+     här ska träffas för att visa sin tooltip. */
+  function liggandeStaplar(inst) {
+    var x = {
+      title: { display: true, text: inst.titel, color: FARG.muted },
+      grid: { color: FARG.grid },
+      border: { color: FARG.baseline },
+      ticks: { callback: inst.tick }
+    };
+    if (inst.franNoll) x.beginAtZero = true;
+    if (inst.max !== undefined) x.max = inst.max;
+    return {
+      type: "bar",
+      data: {
+        labels: inst.etiketter,
+        datasets: [{
+          data: inst.varden,
+          backgroundColor: inst.farger,
+          borderRadius: 4,
+          borderSkipped: "start",
+          maxBarThickness: 22
+        }]
+      },
+      options: {
+        indexAxis: "y",
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: inst.etikett } }
+        },
+        scales: {
+          x: x,
+          y: { grid: { display: false }, border: { color: FARG.baseline } }
+        }
+      }
+    };
+  }
+
+  /* Höjden växer med antalet staplar. `marginal` är platsen för axeln
+     och dess rubrik; rangordningen och förändringen har olika, och de
+     skickas därför in i stället för att jämnas ut. */
+  function stapelhojd(antal, marginal) {
+    return Math.max(260, antal * 30 + marginal);
+  }
+
+  /* Linjerna i diagrammet över programgrupperna: en per grupp, den
+     första mörk. `falt` är måttet i årsvärdet – meritvärdessidan läser
+     "medel", slutbetygssidan "betygspoang". Antalet bakom varje punkt
+     följer med för tooltipen. */
+  function typserier(grupper, ar, falt) {
+    return grupper.map(function (r, i) {
+      function ur(nyckel) {
+        return ar.map(function (a) {
+          var v = r.varden[String(a)];
+          return v ? v[nyckel] : null;
+        });
+      }
+      var farg = i === 0 ? FARG.blaMork : FARG.bla;
+      return {
+        label: TYPNAMN[r.typ] || r.typ,
+        data: ur(falt),
+        antal: ur("antal"),
+        borderColor: farg,
+        backgroundColor: farg,
+        borderWidth: 3,
+        pointRadius: 4,
+        pointHoverRadius: 7,
+        spanGaps: false,
+        tension: 0.1
+      };
+    });
+  }
+
+  /* "+1,5" och "−0,3" med riktigt minustecken; noll skrivs med plus.
+     Inte samma sak som axlarnas tickar, där talSv själv skriver minus. */
+  function medTecken(v, decimaler) {
+    return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), decimaler);
+  }
+
   /* ---------- Serier som inte är lika långa ----------
      Riket börjar senare än kommunen, skolskjutsen senare än båda. Ett år
      utan värde ska bli ett tankstreck i tabellen, inte ett undantag mitt
@@ -959,6 +1048,7 @@
     idagSv: idagSv,
     talSv: talSv,
     visaTal: visaTal,
+    medTecken: medTecken,
     esc: esc,
     sakerUrl: sakerUrl,
     slug: slug,
@@ -979,6 +1069,9 @@
     mattAxel: mattAxel,
     arsOptions: arsOptions,
     linjeSerie: linjeSerie,
+    liggandeStaplar: liggandeStaplar,
+    stapelhojd: stapelhojd,
+    typserier: typserier,
     regimmarkering: regimmarkering,
     utfallDataset: utfallDataset,
     aktiveraToning: aktiveraToning,

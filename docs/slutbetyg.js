@@ -175,6 +175,13 @@
 
   /* ---------- Avsnitt 1: utvecklingen program för program ---------- */
 
+  /* Syskonsidan merit.js har funktioner med samma namn. Det de delar –
+     de liggande staplarna, programgruppernas linjer och förändringens
+     tecken – ligger i gemensam.js (#66). Utvecklingen program för
+     program, dess slutsatstext och dess tabell lämnades medvetet kvar:
+     de ritar olika mått på olika skalor, här med sekretessprickning och skolbyten, och likheten är
+     formen, inte innehållet. Slå inte ihop dem för likhetens skull. */
+
   function ritaUtveckling() {
     var matt = mattMed(el("matt-valjare").value);
     var ar = arsskala();
@@ -413,61 +420,34 @@
     }
     el("sektion-rangordning").hidden = false;
 
-    rita("diagram-rangordning", {
-      type: "bar",
-      data: {
-        labels: rader.map(function (r) { return r.u.namn; }),
-        datasets: [{
-          data: rader.map(function (r) { return r.v.betygspoang; }),
-          backgroundColor: rader.map(function (r) {
-            return r.u.typ === "hogskoleforberedande" ? FARG.blaMork : FARG.bla;
-          }),
-          borderRadius: 4,
-          borderSkipped: "start",
-          maxBarThickness: 22
-        }]
-      },
-      options: {
-        indexAxis: "y",
-        maintainAspectRatio: false,
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function (it) {
-                var r = rader[it.dataIndex];
-                var rad = [
-                  r.v.skola,
-                  "Betygspoäng: " + visaTal(r.v.betygspoang, HUVUDMATT),
-                  "Avgångselever: " + (r.v.antal === null ? "–" : r.v.antal)
-                ];
-                if (r.v.andelExamen !== null) {
-                  rad.push("Med examen: " + talSv(r.v.andelExamen, 1) + " %");
-                }
-                if (r.v.andelGrundlBehorighet !== null) {
-                  rad.push("Med högskolebehörighet: " +
-                    talSv(r.v.andelGrundlBehorighet, 1) + " %");
-                }
-                rad.push(TYPNAMN[r.u.typ] || r.u.typ);
-                return rad;
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            title: { display: true, text: HUVUDMATT.axel, color: FARG.muted },
-            grid: { color: FARG.grid },
-            border: { color: FARG.baseline },
-            beginAtZero: true,
-            max: DATA.maxPoang,
-            ticks: { callback: function (v) { return talSv(v); } }
-          },
-          y: { grid: { display: false }, border: { color: FARG.baseline } }
+    rita("diagram-rangordning", K.liggandeStaplar({
+      etiketter: rader.map(function (r) { return r.u.namn; }),
+      varden: rader.map(function (r) { return r.v.betygspoang; }),
+      farger: rader.map(function (r) {
+        return r.u.typ === "hogskoleforberedande" ? FARG.blaMork : FARG.bla;
+      }),
+      titel: HUVUDMATT.axel,
+      franNoll: true,
+      max: DATA.maxPoang,
+      tick: function (v) { return talSv(v); },
+      etikett: function (it) {
+        var r = rader[it.dataIndex];
+        var rad = [
+          r.v.skola,
+          "Betygspoäng: " + visaTal(r.v.betygspoang, HUVUDMATT),
+          "Avgångselever: " + (r.v.antal === null ? "–" : r.v.antal)
+        ];
+        if (r.v.andelExamen !== null) {
+          rad.push("Med examen: " + talSv(r.v.andelExamen, 1) + " %");
         }
+        if (r.v.andelGrundlBehorighet !== null) {
+          rad.push("Med högskolebehörighet: " +
+            talSv(r.v.andelGrundlBehorighet, 1) + " %");
+        }
+        rad.push(TYPNAMN[r.u.typ] || r.u.typ);
+        return rad;
       }
-    }, Math.max(260, rader.length * 30 + 90));
+    }), K.stapelhojd(rader.length, 90));
 
     el("kalla-rangordning").textContent =
       "Mörk stapel = högskoleförberedande program, ljus = yrkesprogram. " +
@@ -535,58 +515,27 @@
     }
     el("sektion-forandring").hidden = false;
 
-    rita("diagram-forandring", {
-      type: "bar",
-      data: {
-        labels: rader.map(function (u) { return u.namn; }),
-        datasets: [{
-          data: rader.map(function (u) { return u.forandring; }),
-          backgroundColor: rader.map(function (u) {
-            return u.forandring >= 0 ? FARG.bla : FARG.rod;
-          }),
-          borderRadius: 4,
-          borderSkipped: "start",
-          maxBarThickness: 22
-        }]
-      },
-      options: {
-        indexAxis: "y",
-        maintainAspectRatio: false,
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function (it) {
-                var u = rader[it.dataIndex];
-                var flyttat = harFlyttat(u);
-                return [
-                  u.forstaAr + ": " + talSv(u.forsta, 1) +
-                    (flyttat ? " (" + kort(u.forstaSkola) + ")" : ""),
-                  u.sistaAr + ": " + talSv(u.sista, 1) +
-                    (flyttat ? " (" + kort(u.sistaSkola) + ")" : ""),
-                  (u.forandring >= 0 ? "Upp " : "Ner ") +
-                    talSv(Math.abs(u.forandring), 1) + " betygspoäng"
-                ];
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Förändring i betygspoäng, första till sista mätår",
-              color: FARG.muted
-            },
-            grid: { color: FARG.grid },
-            border: { color: FARG.baseline },
-            ticks: { callback: function (v) { return (v > 0 ? "+" : "") + talSv(v, 1); } }
-          },
-          y: { grid: { display: false }, border: { color: FARG.baseline } }
-        }
+    rita("diagram-forandring", K.liggandeStaplar({
+      etiketter: rader.map(function (u) { return u.namn; }),
+      varden: rader.map(function (u) { return u.forandring; }),
+      farger: rader.map(function (u) {
+        return u.forandring >= 0 ? FARG.bla : FARG.rod;
+      }),
+      titel: "Förändring i betygspoäng, första till sista mätår",
+      tick: function (v) { return (v > 0 ? "+" : "") + talSv(v, 1); },
+      etikett: function (it) {
+        var u = rader[it.dataIndex];
+        var flyttat = harFlyttat(u);
+        return [
+          u.forstaAr + ": " + talSv(u.forsta, 1) +
+            (flyttat ? " (" + kort(u.forstaSkola) + ")" : ""),
+          u.sistaAr + ": " + talSv(u.sista, 1) +
+            (flyttat ? " (" + kort(u.sistaSkola) + ")" : ""),
+          (u.forandring >= 0 ? "Upp " : "Ner ") +
+            talSv(Math.abs(u.forandring), 1) + " betygspoäng"
+        ];
       }
-    }, Math.max(260, rader.length * 30 + 100));
+    }), K.stapelhojd(rader.length, 100));
 
     el("kalla-forandring").textContent =
       "Blå stapel = högre betygspoäng vid sista mätåret än vid det första, " +
@@ -621,7 +570,7 @@
       t += "<tr><td>" + esc(u.namn) + "</td><td>" + esc(skolText(u)) + "</td><td>" +
         esc(u.forstaAr) + ": " + talSv(u.forsta, 1) +
         "</td><td>" + esc(u.sistaAr) + ": " + talSv(u.sista, 1) + "</td><td>" +
-        (u.forandring >= 0 ? "+" : "−") + talSv(Math.abs(u.forandring), 1) +
+        K.medTecken(u.forandring, 1) +
         "</td><td>" + esc(u.antalArMedPoang) + "</td></tr>";
     });
     t += "</tbody>";
@@ -753,26 +702,7 @@
       type: "line",
       data: {
         labels: ar.map(String),
-        datasets: rader.map(function (r, i) {
-          return {
-            label: TYPNAMN[r.typ] || r.typ,
-            data: ar.map(function (a) {
-              var v = r.varden[String(a)];
-              return v ? v.betygspoang : null;
-            }),
-            antal: ar.map(function (a) {
-              var v = r.varden[String(a)];
-              return v ? v.antal : null;
-            }),
-            borderColor: i === 0 ? FARG.blaMork : FARG.bla,
-            backgroundColor: i === 0 ? FARG.blaMork : FARG.bla,
-            borderWidth: 3,
-            pointRadius: 4,
-            pointHoverRadius: 7,
-            spanGaps: false,
-            tension: 0.1
-          };
-        })
+        datasets: K.typserier(rader, ar, "betygspoang")
       },
       options: {
         maintainAspectRatio: false,

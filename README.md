@@ -1184,6 +1184,10 @@ komponenter (docs/gemensam.js):
   sätts en gång för alla diagram &ndash; så att ett antal skrivs
   &rdquo;15&nbsp;000&rdquo; och inte &rdquo;15,000&rdquo;, och ett
   decimaltal &rdquo;12,4&rdquo; och inte &rdquo;12.4&rdquo;.
+- **Samma staplar på syskonsidorna.** Meritvärdes- och slutbetygssidan
+  ritar rangordningen och förändringen med `K.liggandeStaplar` och
+  programgruppernas linjer med `K.typserier`, så att de två sidorna inte
+  kan glida isär i hur samma bild ser ut.
 - **Besöksstatistik**: sidvisningarna räknas med
   [GoatCounter](https://www.goatcounter.com/) &ndash; öppen källkod,
   inga kakor, inga sparade IP-adresser &ndash; via count.js-taggen sist

@@ -115,6 +115,13 @@
     });
   }
 
+  /* Syskonsidan slutbetyg.js har funktioner med samma namn. Det de delar –
+     de liggande staplarna, programgruppernas linjer och förändringens
+     tecken – ligger i gemensam.js (#66). Utvecklingen program för
+     program, dess slutsatstext och dess tabell lämnades medvetet kvar:
+     de ritar olika mått på olika skalor, här med namnbyten och sist antagnas poäng, och likheten är
+     formen, inte innehållet. Slå inte ihop dem för likhetens skull. */
+
   function ritaUtveckling() {
     var valt = el("program-valjare").value;
     var ar = arsskala();
@@ -390,66 +397,39 @@
     }
     el("sektion-rangordning").hidden = false;
 
-    rita("diagram-rangordning", {
-      type: "bar",
-      data: {
-        labels: rader.map(function (r) { return utbildningsetikett(r.u); }),
-        datasets: [{
-          data: rader.map(function (r) { return r.v.medel; }),
-          backgroundColor: rader.map(function (r) {
-            return r.u.typ === "hogskoleforberedande" ? FARG.blaMork : FARG.bla;
-          }),
-          borderRadius: 4,
-          borderSkipped: "start",
-          maxBarThickness: 22
-        }]
-      },
-      options: {
-        indexAxis: "y",
-        maintainAspectRatio: false,
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function (it) {
-                var r = rader[it.dataIndex];
-                var rad = ["Medelmeritvärde: " + talSv(r.v.medel, 1)];
-                if (r.v.namn) rad.push("Hette då " + r.v.namn);
-                if (r.u.inriktningNu && r.u.inriktningNu !== r.u.inriktning) {
-                  rad.push("Heter i dag " + r.u.inriktningNu);
-                }
-                if (r.v.poang !== null) {
-                  rad.push("Sist antagna elev: " + talSv(r.v.poang, 1));
-                }
-                if (r.v.kod === "1") {
-                  rad.push("Alla behöriga sökande antogs");
-                } else if (r.v.utanPlatser === true) {
-                  rad.push("Inga lediga platser kvar");
-                } else if (r.v.utanPlatser === false) {
-                  rad.push("Lediga platser fanns kvar");
-                }
-                rad.push(r.u.skola);
-                rad.push(r.u.typ === "hogskoleforberedande"
-                  ? "Högskoleförberedande program" : "Yrkesprogram");
-                return rad;
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            title: { display: true, text: "Medelmeritvärde", color: FARG.muted },
-            grid: { color: FARG.grid },
-            border: { color: FARG.baseline },
-            beginAtZero: true,
-            max: DATA.meritMax || 340,
-            ticks: { callback: function (v) { return talSv(v); } }
-          },
-          y: { grid: { display: false }, border: { color: FARG.baseline } }
+    rita("diagram-rangordning", K.liggandeStaplar({
+      etiketter: rader.map(function (r) { return utbildningsetikett(r.u); }),
+      varden: rader.map(function (r) { return r.v.medel; }),
+      farger: rader.map(function (r) {
+        return r.u.typ === "hogskoleforberedande" ? FARG.blaMork : FARG.bla;
+      }),
+      titel: "Medelmeritvärde",
+      franNoll: true,
+      max: DATA.meritMax || 340,
+      tick: function (v) { return talSv(v); },
+      etikett: function (it) {
+        var r = rader[it.dataIndex];
+        var rad = ["Medelmeritvärde: " + talSv(r.v.medel, 1)];
+        if (r.v.namn) rad.push("Hette då " + r.v.namn);
+        if (r.u.inriktningNu && r.u.inriktningNu !== r.u.inriktning) {
+          rad.push("Heter i dag " + r.u.inriktningNu);
         }
+        if (r.v.poang !== null) {
+          rad.push("Sist antagna elev: " + talSv(r.v.poang, 1));
+        }
+        if (r.v.kod === "1") {
+          rad.push("Alla behöriga sökande antogs");
+        } else if (r.v.utanPlatser === true) {
+          rad.push("Inga lediga platser kvar");
+        } else if (r.v.utanPlatser === false) {
+          rad.push("Lediga platser fanns kvar");
+        }
+        rad.push(r.u.skola);
+        rad.push(r.u.typ === "hogskoleforberedande"
+          ? "Högskoleförberedande program" : "Yrkesprogram");
+        return rad;
       }
-    }, Math.max(260, rader.length * 30 + 90));
+    }), K.stapelhojd(rader.length, 90));
 
     el("kalla-rangordning").textContent =
       "Mörk stapel = högskoleförberedande program, ljus = yrkesprogram. " +
@@ -502,57 +482,26 @@
     }
     el("sektion-forandring").hidden = false;
 
-    rita("diagram-forandring", {
-      type: "bar",
-      data: {
-        labels: rader.map(function (p) {
-          return [p.etikett, p.forstaAr + "–" + p.sistaAr];
-        }),
-        datasets: [{
-          data: rader.map(function (p) { return p.forandring; }),
-          backgroundColor: rader.map(function (p) {
-            return p.forandring >= 0 ? FARG.bla : FARG.rod;
-          }),
-          borderRadius: 4,
-          borderSkipped: "start",
-          maxBarThickness: 22
-        }]
-      },
-      options: {
-        indexAxis: "y",
-        maintainAspectRatio: false,
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function (it) {
-                var p = rader[it.dataIndex];
-                return [
-                  p.forstaAr + ": " + talSv(p.forsta, 1),
-                  p.sistaAr + ": " + talSv(p.sista, 1),
-                  (p.forandring >= 0 ? "Upp " : "Ner ") +
-                    talSv(Math.abs(p.forandring), 1) + " meritpoäng"
-                ];
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Förändring i ovägt inriktningssnitt, första till sista mätår",
-              color: FARG.muted
-            },
-            grid: { color: FARG.grid },
-            border: { color: FARG.baseline },
-            ticks: { callback: function (v) { return (v > 0 ? "+" : "") + talSv(v); } }
-          },
-          y: { grid: { display: false }, border: { color: FARG.baseline } }
-        }
+    rita("diagram-forandring", K.liggandeStaplar({
+      etiketter: rader.map(function (p) {
+        return [p.etikett, p.forstaAr + "–" + p.sistaAr];
+      }),
+      varden: rader.map(function (p) { return p.forandring; }),
+      farger: rader.map(function (p) {
+        return p.forandring >= 0 ? FARG.bla : FARG.rod;
+      }),
+      titel: "Förändring i ovägt inriktningssnitt, första till sista mätår",
+      tick: function (v) { return (v > 0 ? "+" : "") + talSv(v); },
+      etikett: function (it) {
+        var p = rader[it.dataIndex];
+        return [
+          p.forstaAr + ": " + talSv(p.forsta, 1),
+          p.sistaAr + ": " + talSv(p.sista, 1),
+          (p.forandring >= 0 ? "Upp " : "Ner ") +
+            talSv(Math.abs(p.forandring), 1) + " meritpoäng"
+        ];
       }
-    }, Math.max(260, rader.length * 30 + 100));
+    }), K.stapelhojd(rader.length, 100));
 
     el("kalla-forandring").textContent =
       "Blå stapel = högre värde vid sista mätåret än vid det första, " +
@@ -590,8 +539,7 @@
     rader.forEach(function (p) {
       t += "<tr><td>" + esc(p.etikett) + "</td><td>" + esc(p.forstaAr) + ": " +
         talSv(p.forsta, 1) + "</td><td>" + esc(p.sistaAr) + ": " + talSv(p.sista, 1) +
-        "</td><td>" + (p.forandring >= 0 ? "+" : "−") +
-        talSv(Math.abs(p.forandring), 1) + "</td><td>" +
+        "</td><td>" + K.medTecken(p.forandring, 1) + "</td><td>" +
         esc(p.sistaAr - p.forstaAr) + "</td><td>" + esc(p.antalArMedMedel) +
         "</td></tr>";
     });
@@ -728,26 +676,7 @@
       type: "line",
       data: {
         labels: ar.map(String),
-        datasets: rader.map(function (r, i) {
-          return {
-            label: TYPNAMN[r.typ] || r.typ,
-            data: ar.map(function (a) {
-              var v = r.varden[String(a)];
-              return v ? v.medel : null;
-            }),
-            antal: ar.map(function (a) {
-              var v = r.varden[String(a)];
-              return v ? v.antal : null;
-            }),
-            borderColor: i === 0 ? FARG.blaMork : FARG.bla,
-            backgroundColor: i === 0 ? FARG.blaMork : FARG.bla,
-            borderWidth: 3,
-            pointRadius: 4,
-            pointHoverRadius: 7,
-            spanGaps: false,
-            tension: 0.1
-          };
-        })
+        datasets: K.typserier(rader, ar, "medel")
       },
       options: {
         maintainAspectRatio: false,
