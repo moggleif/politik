@@ -551,8 +551,8 @@ scripts/
   bygg_matchning.py             Föreslår namn på platserna 2010-2018 (namnen är
                                 gallrade) via länkar mellan valen, kontrollerade
                                 mot protokollen, till data/matchning/forslag.json
-  hamta_kf_logg.py              Hämtar fullmäktiges närvarologg (61 ledamöter)
-                                2014 och 2022
+  hamta_kf_logg.py              Hämtar fullmäktiges närvarologg (61 ledamöter),
+                                första loggen i arkivet för varje mandatperiod
   hamta_narvaro.py              Hämtar närvarolistan ur första protokollet med
                                 text per organ och period till
                                 data/uppdrag/narvaro.json (ersättningskälla för

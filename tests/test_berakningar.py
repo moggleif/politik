@@ -5043,6 +5043,7 @@ class TestMatchning(unittest.TestCase):
     def test_logg_med_och_utan_lopnummer(self):
         text = "Närvarologg för ledamöter\n1 Lisa Andersson (M)\n2 Emanuel Forsell (M)\n3 Ulrika Landergren (FP)\n"
         hamta_kf_logg = ladda("hamta_kf_logg")
+        text = text.replace("Närvarologg för ledamöter", "Närvarologg för ledamöter")
         self.assertEqual([(p["namn"], p["parti"]) for p in hamta_kf_logg.logg(text)],
                          [("Lisa Andersson", "M"), ("Emanuel Forsell", "M"), ("Ulrika Landergren", "L")])
 
@@ -5050,8 +5051,8 @@ class TestMatchning(unittest.TestCase):
         d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
         s = d["kalibrering"]["stark"]
         self.assertGreaterEqual(s["rätt"] / s["totalt"], 0.9)       # 'stark' ska ha minst 90 % rätt mot facit
-        avvisade = {(r["parti"], r["listplats"]) for r in d["valda_2014"] if "avvisat_forslag" in r}
+        avvisade = {(r["parti"], r["listplats"]) for r in d["valda"]["2014"] if "avvisat_forslag" in r}
         self.assertEqual(avvisade, {("L", 5), ("M", 20), ("V", 2)})
-        for r in d["valda_2014"]:
+        for r in d["valda"]["2014"]:
             if r["grund"] == "spår + närvarologg":
                 self.assertTrue(r["namn_forslag"])

@@ -34,6 +34,7 @@ Körs: python3 scripts/bygg_matchning.py
 import json
 import re
 import unicodedata
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -194,9 +195,8 @@ def protokollnamn() -> dict:
                      f"valbeslut {d['protokoll']['organ']} {d['protokoll']['datum']}")
     for f in sorted((DATA / "uppdrag").glob("kf_logg_*.json")):
         d = json.loads(f.read_text(encoding="utf-8"))
-        period = PERIOD_AV_PROTOKOLL_AR.get(int(d["datum"][:4]))
         for r in d["ledamoter"]:
-            lagg(r["parti"], period, r["namn"], f"fullmäktiges närvarologg {d['datum']}")
+            lagg(r["parti"], d["mandatperiod"], r["namn"], f"fullmäktiges närvarologg {d['datum']}")
     narv = DATA / "uppdrag" / "narvaro.json"
     if narv.exists():
         for post in json.loads(narv.read_text(encoding="utf-8"))["poster"]:
@@ -266,78 +266,95 @@ def namnge(spar: dict, pn: dict) -> list:
     return ut
 
 
-def valda_2014(spar_namn: list, kand: dict) -> list:
-    """De 61 valda 2014: namn ur spåren där de finns, resten fördelas bland
-    fullmäktiges loggade namn som inte är placerade, med ålder som villkor."""
-    valda = json.loads((DATA / "valda" / "2014.json").read_text(encoding="utf-8"))["ledamoter"]
-    logg_fil = DATA / "uppdrag" / "kf_logg_2014-11-11.json"
-    if not logg_fil.exists():
+def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
+    """De 61 valda ett år: namn ur spåren där de finns, kontrollerade mot
+    fullmäktiges närvarologg för perioden (första loggen i arkivet).
+
+    Är loggen från *första mötet efter valet* (2014) är den en uttömmande
+    lista över de valda: ett spårnamn som inte finns där avvisas, och övriga
+    namn fördelas på platserna med ålder som villkor. Är den senare (2010,
+    2018) kan ledamöter ha ersatts, så ett spårnamn som saknas i loggen
+    avvisas inte (märks bara `ej_i_loggen`), och fördelningen sker inte
+    annat än när både namn och plats är unika för varandra (`möjlig`).
+    """
+    valda = json.loads((DATA / "valda" / f"{ar}.json").read_text(encoding="utf-8"))["ledamoter"]
+    period = PERIOD_AV_VAL[ar]
+    logg_fil = next((f for f in sorted((DATA / "uppdrag").glob("kf_logg_*.json"))
+                     if json.loads(f.read_text(encoding="utf-8"))["mandatperiod"] == period), None)
+    if logg_fil is None:
         return []
-    logg = json.loads(logg_fil.read_text(encoding="utf-8"))["ledamoter"]
+    lg = json.loads(logg_fil.read_text(encoding="utf-8"))
+    exhaustiv = lg["forsta_motet_efter_valet"]
+    logg = lg["ledamoter"]
+    obestamda = [r["namn"] for r in logg if r["parti"] == "-"]
     alder_senare = {}
-    for ar in (2022, 2026):
-        for parti, lista in kand.get(ar, {}).items():
+    for sen in (2022, 2026):
+        for lista in kand.get(sen, {}).values():
             for k in lista:
                 if k["alder"] is not None and k["namn"]:
-                    alder_senare.setdefault(nyckel(k["namn"]), []).append((ar, k["alder"]))
+                    alder_senare.setdefault(nyckel(k["namn"]), []).append((sen, k["alder"]))
     namn_i_spar = {}
     for sp in spar_namn:
+        if sp["avvisad_av_protokoll"]:
+            continue
         for pl in sp["platser"]:
-            if pl["val"] == 2014:
+            if pl["val"] == ar:
                 namn_i_spar[(sp["parti"], pl["plats"])] = (sp["namn"], sp["sakerhet_bakat"])
+
+    def villkor(namn, r):
+        return all(abs((a - (sen - ar)) - r["alder"]) <= 1 for sen, a in alder_senare.get(nyckel(namn), []))
     ut = []
     for parti in sorted({r["parti"] for r in valda}):
         pos = [r for r in valda if r["parti"] == parti]
         namnlista = [r["namn"] for r in logg if r["parti"] == parti]
+        if len(namnlista) < len(pos):
+            namnlista += obestamda   # ledamöter utan parti i loggen kan höra hit
         nycklar = {nyckel(n): n for n in namnlista}
         fasta, rest_pos, avvisade = {}, [], {}
         for r in pos:
             fn = namn_i_spar.get((parti, r["listplats"]))
             if fn and nyckel(fn[0]) in nycklar:
                 fasta[r["listplats"]] = (nycklar[nyckel(fn[0])], fn[1], "spår + närvarologg")
+            elif fn and not exhaustiv:
+                fasta[r["listplats"]] = (fn[0], fn[1], "spår, ej i loggen (kan ha lämnat)")
             else:
                 if fn:
-                    # Namnet finns inte bland fullmäktiges 61 ordinarie ledamöter 2014, så
-                    # länken är fel för den här platsen: förslaget avvisas och platsen
-                    # fördelas som om spåret inte funnits.
-                    avvisade[r["listplats"]] = fn[0]
+                    avvisade[r["listplats"]] = fn[0]   # finns inte bland de 61 valda: länken är fel
                 rest_pos.append(r)
         kvar = [n for n in namnlista if nyckel(n) not in {nyckel(v[0]) for v in fasta.values()}]
-
-        def villkor(namn, r):
-            for ar, a in alder_senare.get(nyckel(namn), []):
-                if abs((a - (ar - 2014)) - r["alder"]) > 1:
-                    return False
-            return True
         kandidater = {n: [r["listplats"] for r in rest_pos if villkor(n, r)] for n in kvar}
         tilldelat = {}
-        ändrat = True
-        while ändrat:
-            ändrat = False
-            for n, ps in list(kandidater.items()):
-                ps = [p for p in ps if p not in tilldelat]
-                kandidater[n] = ps
-                if len(ps) == 1 and n not in tilldelat.values():
-                    tilldelat[ps[0]] = n
-                    ändrat = True
-            for r in rest_pos:
-                if r["listplats"] in tilldelat:
-                    continue
-                möjliga = [n for n in kvar if n not in tilldelat.values() and r["listplats"] in kandidater[n]]
-                if len(möjliga) == 1:
-                    tilldelat[r["listplats"]] = möjliga[0]
-                    ändrat = True
+        if exhaustiv:
+            ändrat = True
+            while ändrat:
+                ändrat = False
+                for n, ps in list(kandidater.items()):
+                    ps = [q for q in ps if q not in tilldelat]
+                    kandidater[n] = ps
+                    if len(ps) == 1 and n not in tilldelat.values():
+                        tilldelat[ps[0]] = n
+                        ändrat = True
+                for r in rest_pos:
+                    if r["listplats"] in tilldelat:
+                        continue
+                    möjliga = [n for n in kvar if n not in tilldelat.values() and r["listplats"] in kandidater[n]]
+                    if len(möjliga) == 1:
+                        tilldelat[r["listplats"]] = möjliga[0]
+                        ändrat = True
         for r in pos:
             pl = r["listplats"]
             post = {"parti": parti, "listplats": pl, "alder": r["alder"], "kon": r["kon"], "mandat": r["mandat"],
                     "personvald": r["personvald"]}
+            möj = sorted(n for n in kvar if n not in tilldelat.values() and pl in kandidater[n])
             if pl in fasta:
                 post.update({"namn_forslag": fasta[pl][0], "sakerhet": fasta[pl][1], "grund": fasta[pl][2]})
             elif pl in tilldelat:
                 post.update({"namn_forslag": tilldelat[pl], "sakerhet": "stark", "grund":
                              "närvarologgens namn + ålder utesluter övriga platser"})
+            elif not exhaustiv and len(möj) == 1 and sum(1 for q in rest_pos if möj[0] in
+                                                          [n for n in kvar if q["listplats"] in kandidater[n]]) == 1:
+                post.update({"namn_forslag": möj[0], "sakerhet": "möjlig", "grund": "unikt par namn–plats (ålder)"})
             else:
-                möj = sorted(n for n in kvar if n not in tilldelat.values() and pl in kandidater[n])
                 post.update({"namn_forslag": None, "sakerhet": None, "grund": "flera möjliga namn", "mojliga_namn": möj})
             if pl in avvisade:
                 post["avvisat_forslag"] = avvisade[pl]
@@ -351,12 +368,17 @@ def main() -> None:
     pn = protokollnamn()
     spar = bygg_spar(kand)
     namngivna = namnge(spar, pn)
-    v14 = valda_2014(namngivna, kand)
-    avvisade = {(r["parti"], r["listplats"], r["avvisat_forslag"]) for r in v14 if "avvisat_forslag" in r}
+    for sp in namngivna:
+        sp["avvisad_av_protokoll"] = False
+    valda = {2014: valda_val(2014, namngivna, kand)}
+    avvisade = {(r["parti"], r["listplats"], r["avvisat_forslag"]) for r in valda[2014] if "avvisat_forslag" in r}
     for sp in namngivna:
         # En länk som protokollet visat vara fel för 2014 smittar resten av spåret.
         sp["avvisad_av_protokoll"] = any((sp["parti"], pl["plats"], sp["namn"]) in avvisade
                                          for pl in sp["platser"] if pl["val"] == 2014)
+    valda[2010] = valda_val(2010, namngivna, kand)
+    valda[2018] = valda_val(2018, namngivna, kand)
+    valda = {ar: valda[ar] for ar in (2010, 2014, 2018)}
     # statistik
     stat = {}
     for sp in namngivna:
@@ -370,14 +392,14 @@ def main() -> None:
     print("Kalibrering 2022→2026:", json.dumps(kal, ensure_ascii=False))
     for ar in (2010, 2014, 2018):
         print(f"{ar}: {totalt[ar]} platser; med namnförslag {sum(stat.get(ar, {}).values())} {stat.get(ar, {})}")
-    namnade14 = sum(1 for r in v14 if r["namn_forslag"])
-    print(f"Valda 2014: {namnade14}/{len(v14)} med namnförslag")
+    for ar, rs in valda.items():
+        print(f"Valda {ar}: {sum(1 for r in rs if r['namn_forslag'])}/{len(rs)} med namnförslag", dict(Counter(r["grund"] for r in rs)))
     UT.mkdir(parents=True, exist_ok=True)
     (UT / "forslag.json").write_text(json.dumps({
         "byggd": date.today().isoformat(),
         "forklaring": "Förslag, inte fakta. Se scripts/bygg_matchning.py. Säkerhet: säker (namn i båda valen), stark, möjlig.",
         "kalibrering": kal, "platser_totalt": totalt, "statistik_namnforslag": stat,
-        "spar": [{k: v for k, v in sp.items()} for sp in namngivna], "valda_2014": v14},
+        "spar": [{k: v for k, v in sp.items()} for sp in namngivna], "valda": {str(a): r for a, r in valda.items()}},
         ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 

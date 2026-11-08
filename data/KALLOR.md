@@ -1906,21 +1906,39 @@ inlagt i personfilerna. Metoden (detaljer i skriptets docstring):
 personer som stod båda gångerna gav metoden "stark" länk för 102, varav 98
 (96 %) rätt, och "möjlig" länk för 26, varav 17 (65 %) rätt.
 
-**Protokollkontroll av spåren 2014:** av 29 valda 2014 som fick namn via
-spåren fanns 26 (90 %) i fullmäktiges närvarologg; de tre som inte gjorde
-det (Madelene Höök, L plats 5; Ulrika Nyhlén, M plats 20; Jon Thorbjörnson,
-V plats 2) är avvisade och spåren märkta `avvisad_av_protokoll`.
+**Fullmäktiges närvarologg som kontroll (första loggen i arkivet för varje
+period, `scripts/hamta_kf_logg.py`, `data/uppdrag/kf_logg_<datum>.json`):**
 
-| Val | Platser | Med namnförslag | Varav stark |
+| Val | Logg | Dagar efter valet | Använd som |
 |---|---|---|---|
-| 2010 | 266 | 24 | 0 |
-| 2014 | 240 | 59 | 32 |
-| 2018 | 280 | 112 | 75 |
+| 2010 | 2013-10-08 | 1 115 | bekräftelse (5 ledamöter saknar parti i loggen) |
+| 2014 | 2014-11-11 | 58 | **uttömmande** lista över de 61 valda |
+| 2018 | 2019-08-13 | 338 | bekräftelse (ledamöter kan ha ersatts) |
+| 2022 | 2022-10-18 | 37 | (namn finns redan) |
 
-Av de 61 valda 2014 har 36 namnförslag: 26 via spår som loggen bekräftar
-och 10 där loggens namn och ålder utesluter övriga platser. 25 har flera
-möjliga namn (listade). **Begränsningar:** (a) 2018 och 2010 har ingen
-fullmäktigelogg, så de valda där kontrolleras bara mot närvarolistorna;
+Alla fyra loggar har exakt 61 ordinarie ledamöter, och partifördelningen
+stämmer med kommunens mandatfördelning för 2014, 2018 och 2022.
+
+*2014 (loggen är första mötet):* av 29 valda som fick namn via spåren fanns
+26 (90 %) i loggen; de tre som inte gjorde det (Madelene Höök, L plats 5;
+Ulrika Nyhlén, M plats 20; Jon Thorbjörnson, V plats 2) är avvisade och
+spåren märkta `avvisad_av_protokoll`. *2018:* av 37 valda med namn via
+spåren fanns 35 (95 %) i loggen; de två som inte fanns där kan ha lämnat
+innan 2019-08-13 och är märkta `spår, ej i loggen (kan ha lämnat)`, inte
+avvisade.
+
+| Val | Platser | Med namnförslag | Varav stark | Valda med namnförslag |
+|---|---|---|---|---|
+| 2010 | 266 | 24 | 0 | 13 av 61 |
+| 2014 | 240 | 59 | 32 | 36 av 61 |
+| 2018 | 280 | 112 | 75 | 42 av 61 |
+
+Valda 2014: 26 via spår som loggen bekräftar, 10 där loggens namn och ålder
+utesluter övriga platser, 25 med flera möjliga namn. Valda 2018: 35 via
+spår som loggen bekräftar, 5 unika par namn–plats, 2 spår som saknas i
+loggen, 19 med flera möjliga namn. Valda 2010: 10 bekräftade, 3 unika par.
+**Begränsningar:** (a) loggarna 2010 och 2018 är från ett senare möte än det första, så ledamöter kan
+ha ersatts och loggen kan inte användas som uttömmande lista där;
 (b) 2022 och 2026 års listor saknar kön, så kön används sällan; (c) Socialdemokraterna
 (2022 har inget yrke) och Kungsbackaborna (2022 har bara ort) matchar
 svagare; (d) den som hoppar över ett val (stod 2014 och 2022 men inte 2018)
