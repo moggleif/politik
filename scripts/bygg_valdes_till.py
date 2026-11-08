@@ -14,8 +14,9 @@ platsen blev ett mandat i fullmäktige) och från protokollen:
 
 Beslut anger vilka som valdes (ledamot, ersättare, ordförande, vice ordförande);
 närvarolistor anger bara vem som satt vid ett möte (och titeln om den står
-efter namnet), så de ger ordförande, vice ordförande och närvarande ledamöter
-men aldrig ersättare. Varje uppdrag har `kalla` (beslut eller närvaro) och
+efter namnet), så de ger ordförande, vice ordförande och närvarande ledamöter.
+Ersättare i KS och KSAU syns bara när de tjänstgjort vid något av mötena
+(roll "ersättare", källa närvarolista); de ordinarie ersättarlistorna är okända. Varje uppdrag har `kalla` (beslut eller närvaro) och
 datum, så att läsaren ser hur säkert det är.
 
 En person som i protokollet inte går att knyta till en plats på valsedeln
@@ -104,8 +105,8 @@ def uppdrag_ur_beslut(filer: list) -> list:
 
 
 def uppdrag_ur_narvaro(period: str) -> list:
-    """Närvarolistor: ordförande/vice (titel efter namnet) och närvarande ledamöter i KS och KSAU,
-    ur de (upp till) sex första protokollen med text per organ. Samma person, organ och roll
+    """Närvarolistor: ordförande/vice (titel efter namnet), närvarande ledamöter och tjänstgörande
+    ersättare i KS och KSAU, ur de (upp till) tolv första protokollen med text per organ. Samma person, organ och roll
     slås ihop med alla mötesdatum där den syns."""
     d = json.loads((DATA / "uppdrag" / "narvaro.json").read_text(encoding="utf-8"))
     samlat = {}
@@ -122,8 +123,14 @@ def uppdrag_ur_narvaro(period: str) -> list:
             # Ordförandens underskrift (m["ordforande_underskrift"]) är lagrad i narvaro.json men används inte
             # som uppdragsrad: den visar vem som ledde just det mötet, så vice ordförande dyker upp som ordförande.
             for u in m["utlasning"]:
-                roll = u["titel"] or ("ledamot" if u["roll"] == "ledamot" else None)
-                if roll is None or u["roll"] != "ledamot":
+                # Ledamot: titeln om den står efter namnet, annars "ledamot". Tjänstgörande
+                # ersättare i KS och KSAU: "ersättare" (de ordinarie ersättarna syns aldrig i
+                # en närvarolista; bara de som tjänstgjorde vid något av mötena).
+                if u["roll"] == "ledamot":
+                    roll = u["titel"] or "ledamot"
+                elif g[0] in ("KS", "KSAU"):
+                    roll = "ersättare"
+                else:
                     continue
                 if g[0] == "nämnd" and not u["titel"]:
                     continue

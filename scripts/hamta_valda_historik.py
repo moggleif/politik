@@ -110,6 +110,43 @@ def rader_xls(raa: bytes) -> list:
     return ut
 
 
+LISTNAMN_AB = {"Moderaterna": "M", "Arbetarepartiet-Socialdemokraterna": "S", "Centerpartiet": "C",
+               "Liberalerna (tidigare Folkpartiet)": "L", "Kristdemokraterna": "KD", "Miljöpartiet de gröna": "MP",
+               "Sverigedemokraterna": "SD", "Vänsterpartiet": "V", "Kungsbackaborna": "KB"}
+
+
+def listor_per_parti(ar: int) -> dict:
+    """{partikod: kandidater på listan} ur data/kandidater/<år>.json, för partierna i fullmäktige."""
+    lista = json.loads((ROT / "data" / "kandidater" / f"{ar}.json").read_text(encoding="utf-8"))
+    return {LISTNAMN_AB[p["namn"]]: p["listor"][0]["kandidater"] for p in lista["partier"] if p["namn"] in LISTNAMN_AB}
+
+
+_ACCENT = str.maketrans("éèëêáàâüúíóôç", "eeeeaaauuiooc")   # "Nyhlén" i filen, "Nyhlen" på listan
+
+
+def _toks(n):
+    n = n.casefold().replace("-", " ").translate(_ACCENT)
+    return [t for t in re.sub(r"[^a-zåäö0-9 ]+", " ", n).split() if t]
+
+
+def matcha_listplats(namn: str, kandidater: list) -> list:
+    """Kandidaterna på en lista vars namn är samma person som `namn` i Valmyndighetens
+    namnfil. Returnerar träffarna (rätt svar är exakt en):
+      1. alla listans ord ingår i filens namn, och första och sista ordet stämmer;
+      2. annars: alla listans ord ingår (mellannamn och dubbla efternamn i filen,
+         "Stig Anders Ekström" mot listans "Anders Ekström");
+      3. annars: samma efternamn och ett förnamn som liknar (stavning: "Ture"/"Thure")."""
+    t = set(_toks(namn))
+    träffar = [k for k in kandidater
+               if set(_toks(k["namn"])) <= t and _toks(k["namn"])[-1] in t and (_toks(k["namn"])[0] in t)]
+    if len(träffar) != 1:
+        träffar = [k for k in kandidater if set(_toks(k["namn"])) <= t]
+    if len(träffar) == 0:
+        träffar = [k for k in kandidater if _toks(k["namn"])[-1] == _toks(namn)[-1] and
+                   difflib.SequenceMatcher(None, _toks(k["namn"])[0], _toks(namn)[0]).ratio() >= 0.75]
+    return träffar
+
+
 def rader_namn_csv(raa: bytes, ar: int) -> list:
     """2022/2026: Valmyndighetens "ledamöter med historik". Ursprungligen valda
     = rader för Kungsbacka utan invalsdatum. Listplatsen fås genom att
@@ -118,32 +155,14 @@ def rader_namn_csv(raa: bytes, ar: int) -> list:
     rows = list(csv.reader(io.StringIO(text), delimiter=";"))
     hi = next(i for i, r in enumerate(rows) if "Valtyp" in r)
     ix = {n: k for k, n in enumerate(rows[hi])}
-    ab = {"Moderaterna": "M", "Arbetarepartiet-Socialdemokraterna": "S", "Centerpartiet": "C",
-          "Liberalerna (tidigare Folkpartiet)": "L", "Kristdemokraterna": "KD", "Miljöpartiet de gröna": "MP",
-          "Sverigedemokraterna": "SD", "Vänsterpartiet": "V", "Kungsbackaborna": "KB"}
-    lista = json.loads((ROT / "data" / "kandidater" / f"{ar}.json").read_text(encoding="utf-8"))
-    per_parti = {ab[p["namn"]]: p["listor"][0]["kandidater"] for p in lista["partier"] if p["namn"] in ab}
+    per_parti = listor_per_parti(ar)
 
-    def toks(n):
-        return [t for t in re.sub(r"[^a-zåäöéü0-9 ]+", " ", n.casefold().replace("-", " ")).split() if t]
     ut = []
     for r in rows[hi + 1:]:
         if len(r) > 20 and r[0] == "KF" and r[ix["Kommun"]] == "Kungsbacka" and not r[ix["Invalsdatum"]]:
             parti = PARTI.get(r[ix["Partiförkortning"]], r[ix["Partiförkortning"]])
             namn = f"{r[ix['Ledamot förnamn']]} {r[ix['Ledamot efternamn']]}"
-            t = set(toks(namn))
-            träffar = [k for k in per_parti[parti]
-                       if set(toks(k["namn"])) <= t and toks(k["namn"])[-1] in t and
-                       (toks(k["namn"])[0] in t)]
-            # Mellannamn och dubbla efternamn i den officiella filen ("Stig Anders Ekström")
-            # matchar listans kortare namn ("Anders Ekström") om alla listans ord ingår.
-            if len(träffar) != 1:
-                träffar = [k for k in per_parti[parti] if set(toks(k["namn"])) <= t]
-            if len(träffar) == 0:
-                # Stavningsskillnad i förnamnet ("Ture" mot "Thure"): samma efternamn och
-                # ett förnamn som liknar, bara om träffen är unik.
-                träffar = [k for k in per_parti[parti] if toks(k["namn"])[-1] == toks(namn)[-1] and
-                           difflib.SequenceMatcher(None, toks(k["namn"])[0], toks(namn)[0]).ratio() >= 0.75]
+            träffar = matcha_listplats(namn, per_parti[parti])
             if len(träffar) != 1:
                 sys.exit(f"{ar}: {namn} ({parti}) matchar {len(träffar)} platser på listan – tolkas inte")
             ut.append({"parti": parti, "mandat": tal(r[ix["Mandat (invalsordning)"]]),

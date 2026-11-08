@@ -7,6 +7,10 @@ Allt kommer ur data/ (ingenting hämtas här):
   data/kandidater/<år>.json     alla platser på partiets lista (plats, ålder, kön,
                                 uppgift; namn för 2022 och 2026)
   data/valda/<år>.json          vilka listplatser som blev mandat i fullmäktige
+  data/valda/ersattare_<år>.json  ersättarna i fullmäktige med listplats (bara 2022 och
+                                2026; Valmyndigheten har inga ersättarfiler för äldre val)
+  data/uppdrag/narvaro.json     datum för första protokollet med text per organ (visas
+                                för perioder där uppdragen kommer ur närvarolistor)
   data/personer/<parti>.json    namn på platserna 2010–2018 (matchningen, med
                                 säkerhetsgrad) och 2022/2026
   data/valdes_till/<år>.json    uppdrag per person (ur fullmäktiges beslut eller,
@@ -15,7 +19,13 @@ Allt kommer ur data/ (ingenting hämtas här):
 
 Raderna är listans platser i nummerordning. Per rad:
   vald          platsen blev ett mandat i fullmäktige
-  ks, ksau      "ledamot" (även ordförande och vice), "ersättare" eller null
+  kfErsattare   ersättarordningen i fullmäktige (1 = första ersättare) eller null;
+                null betyder "inte ersättare" 2022/2026 och "okänt" för äldre val
+  ort           orten ur Valmyndighetens uppgiftsrad (2014, 2018, 2026); null där
+                Valmyndigheten inte angav ort (2010, 2022)
+  ks, ksau      "ledamot" (även ordförande och vice), "ersättare" eller null.
+                I perioder med närvarolistor betyder "ersättare" att personen
+                tjänstgjorde som ersättare vid något av mötena
   ordforande    [{organ, senare}] – organ där personen var ordförande
   vice          [{organ, ordning, senare}] – organ där personen var vice
                 ordförande (ordning "1:e", "2:e" eller "")
@@ -25,6 +35,10 @@ Raderna är listans platser i nummerordning. Per rad:
                 "stark", "möjlig" (annars null)
 Namn som saknas är null, aldrig ett tomt namn: "tomt är inte noll".
 Uppdrag för personer vars plats på listan inte är känd ligger i `utanPlats`.
+
+Per val finns `protokollDatum` {KS, KSAU}: datumet för det första protokollet
+med text som närvarolistan kommer ur (bara perioder utan valbeslut), så att
+läsaren ser hur långt in i perioden ögonblicksbilden är tagen.
 
 Partierna sorteras i sidan: styrande först (data/styre.json), därefter efter
 antal mandat.
@@ -100,6 +114,30 @@ def sakerhetsord(s):
     return None
 
 
+def ort_ur(k: dict, ar: int):
+    """Orten ur kandidatraden. 2018 har ett eget fält; 2014 ("yrke, ort") och 2026
+    ("ålder, yrke, ort") har den sist i uppgiftsraden. 2010 saknar uppgift och 2022
+    har bara yrke, så där blir det None."""
+    if k.get("ort"):
+        return k["ort"]
+    delar = [d.strip() for d in (k.get("uppgift") or "").split(",")]
+    if ar == 2014 and len(delar) >= 2:
+        return delar[-1] or None
+    if ar == 2026 and len(delar) >= 3:
+        return delar[-1] or None
+    return None
+
+
+def protokolldatum(period: str) -> dict:
+    """{'KS': datum, 'KSAU': datum} för första protokollet med text i perioden, ur narvaro.json."""
+    d = las("uppdrag/narvaro.json")
+    ut = {}
+    for p in d["poster"]:
+        if p["period"] == period and p["slug"] in ("ks", "ks-au"):
+            ut["KS" if p["slug"] == "ks" else "KSAU"] = p.get("datum")
+    return ut
+
+
 def uppdrag_rad(uppdrag: list) -> dict:
     ks = ksau = None
     ordf, vice = [], []
@@ -121,13 +159,19 @@ def uppdrag_rad(uppdrag: list) -> dict:
 
 
 def _unika(rader: list) -> list:
-    sett, ut = set(), []
+    """En rad per organ. Står samma organ både med ordning ("1:e") och utan – närvarolistor
+    skriver titeln olika vid olika möten – slås raderna ihop: ordningen behålls, och `senare`
+    är sant bara om ingen av raderna kommer från organets första möte."""
+    per = {}
     for r in rader:
-        k = (r["organ"], r.get("ordning", ""))
-        if k not in sett:
-            sett.add(k)
-            ut.append(r)
-    return ut
+        g = per.get(r["organ"])
+        if g is None:
+            per[r["organ"]] = dict(r)
+            continue
+        if not g.get("ordning") and r.get("ordning"):
+            g["ordning"] = r["ordning"]
+        g["senare"] = g["senare"] and r["senare"]   # syntes vid första mötet i någon av raderna
+    return list(per.values())
 
 
 def bygg_val(ar: int, personer: dict, styre: dict) -> dict:
@@ -138,6 +182,9 @@ def bygg_val(ar: int, personer: dict, styre: dict) -> dict:
     for r in valda:
         mandat[r["parti"]] = mandat.get(r["parti"], 0) + 1
     vt = las(f"valdes_till/{ar}.json") if (DATA / "valdes_till" / f"{ar}.json").exists() else None
+    ers_fil = DATA / "valda" / f"ersattare_{ar}.json"
+    ers = las(f"valda/ersattare_{ar}.json") if ers_fil.exists() else None
+    ers_plats = {(e["parti"], e["listplats"]): e["ordning"] for e in (ers["ersattare"] if ers else [])}
     uppdrag_pl, utan_plats = {}, {}
     for p in (vt["personer"] if vt else []):
         if p["listplats"] is None:
@@ -159,7 +206,8 @@ def bygg_val(ar: int, personer: dict, styre: dict) -> dict:
                 namn, sak = k["namn"], None
             rad = {"plats": plats, "namn": namn, "namnSakerhet": sakerhetsord(sak),
                    "alder": k.get("alder"), "kon": k.get("kon"), "uppgift": k.get("uppgift"),
-                   "vald": (kort, plats) in vald_set}
+                   "ort": ort_ur(k, ar), "vald": (kort, plats) in vald_set,
+                   "kfErsattare": ers_plats.get((kort, plats))}
             if vt:
                 rad.update(uppdrag_rad(uppdrag_pl[(kort, plats)]["uppdrag"]) if (kort, plats) in uppdrag_pl
                            else {"ks": None, "ksau": None, "ordforande": [], "vice": []})
@@ -173,7 +221,8 @@ def bygg_val(ar: int, personer: dict, styre: dict) -> dict:
             if v["parti"] == kort and v["listplats"] not in har:
                 namn, sak = personer.get((kort, ar, v["listplats"]), (None, None))
                 rad = {"plats": v["listplats"], "namn": namn, "namnSakerhet": sakerhetsord(sak),
-                       "alder": v["alder"], "kon": v["kon"], "uppgift": None, "vald": True, "platsSaknasPaLista": True}
+                       "alder": v["alder"], "kon": v["kon"], "uppgift": None, "ort": None, "vald": True,
+                       "kfErsattare": None, "platsSaknasPaLista": True}
                 rad.update(uppdrag_rad(uppdrag_pl[(kort, v["listplats"])]["uppdrag"]) if (kort, v["listplats"]) in uppdrag_pl
                            else {"ks": None, "ksau": None, "ordforande": [], "vice": []})
                 rader.append(rad)
@@ -187,7 +236,10 @@ def bygg_val(ar: int, personer: dict, styre: dict) -> dict:
     return {"ar": ar, "mandatperiod": period, "uppdragStatus": UPPDRAG_STATUS[ar],
             "styre": ({"partier": st["partier"], "kalla": st["kalla"], "url": st["url"], "styrkt": st["styrkt"]}
                       if st else None),
-            "uppdragKalla": (vt["kalla"] if vt else None), "partier": partier}
+            "uppdragKalla": (vt["kalla"] if vt else None),
+            "protokollDatum": (protokolldatum(period) if UPPDRAG_STATUS[ar] == "partiell" else None),
+            "ersattareKalla": ({"url": ers["kalla"], "uppgiftPer": ers["uppgift_per"]} if ers else None),
+            "partier": partier}
 
 
 def main() -> None:

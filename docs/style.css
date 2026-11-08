@@ -1125,3 +1125,24 @@ details.kallor-dolda {
 }
 
 details.kallor-dolda summary { cursor: pointer; font-weight: 600; }
+
+/* Efter valet: platskartan (SVG) – formen bär informationen, färgen stöder den */
+#sektion-platskarta h2 { margin-top: 0; }
+.platskarta { display: block; max-width: none; }
+.platskarta .pk-ar { font-size: 0.85rem; font-weight: 600; fill: var(--ink); }
+.platskarta .pk-axel { font-size: 0.75rem; fill: var(--muted); }
+.platskarta .pk-linje { stroke: var(--grid); stroke-width: 1; }
+.pk-tom { fill: var(--surface); stroke: var(--muted); stroke-width: 1.2; }
+.pk-kf { fill: var(--ink); stroke: var(--ink); stroke-width: 1.2; }
+.pk-kf-ers { fill: var(--surface); stroke: var(--ink); stroke-width: 1.6; stroke-dasharray: 2 1.5; }
+.pk-ks { fill: none; stroke: var(--blue-dark); stroke-width: 1.8; }
+.pk-ksau { fill: none; stroke: var(--orange-dark); stroke-width: 1.8; }
+.pk-ers { stroke-dasharray: 2.5 2; }
+.pk-ordf { fill: var(--ja); }
+.pk-vice { fill: var(--nej); }
+.platskarta .pk-delvis { opacity: 0.6; }
+.pk-mini { vertical-align: middle; }
+.pk-forklaring { margin-top: 0.5rem; }
+.utfall-lista h3 { font-size: 1rem; margin: 1rem 0 0.25rem; }
+.utfall-lista ul.utfall { margin: 0; padding-left: 1.2rem; }
+.utfall-lista li { margin-bottom: 0.25rem; }

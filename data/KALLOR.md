@@ -2160,3 +2160,23 @@ Sidan visar `data/valdes_till/` och `data/personer/` per listplats; inget nytt d
 - **2026**: fullmäktige väljer KS och nämnder 2026-12-08 och KSAU i början av 2027; kolumnerna är tomma tills dess.
 - **Platser utan namn** (ersättare på mandatplats): 2018 C4, L2, S6, M18; 2010 C1, M19, MP1, S6.
 - SD 2010 plats 3 saknas på Valmyndighetens lista och läggs till ur mandatfilen (`platsSaknasPaLista`).
+
+### Ersättare, ort och platskartan på "Efter valet" (2026-11-08)
+
+- **Ersättare i fullmäktige**: Valmyndighetens `ledamoter_och_ersattare_utokad.csv` (länkad från
+  val.se, "Nuvarande och avgångna ledamöter") finns för 2022 och 2026 och visar de *nuvarande*
+  ersättarna med ersättarordning (filens datum sparas som `uppgift_per`); för 2022 alltså efter fyra
+  års byten (M:s ersättare börjar på plats 23, inte 20). Ingen ursprungsfil för ersättare finns.
+  För 2010, 2014 och 2018 provades `historik.val.se` (`ledav/`-katalogerna, statistiksidorna
+  "Valda ledamöter vid valet" och kommunens `valda.html`): bara ledamöter, inga ersättare.
+  Hämtas av `scripts/hamta_kf_ersattare.py` till `data/valda/ersattare_<val>.json`.
+- **Ersättare i KS och KSAU** 2019–2022 och 2011–2014: närvarolistorna visar bara *tjänstgörande*
+  ersättare (högerkolumnen "ersätter …"); de tas med som roll `ersättare` i `data/valdes_till/`
+  (6 resp. 2 personer i KS). De ordinarie ersättarlistorna är okända.
+- **KS 2019–2022 är en ögonblicksbild från 2021-01-19** (första KS-protokollet med text), två år in i
+  perioden och efter att Hans Forsberg lämnat; KSAU 2021-01-05. KS 2011–2014: 2013-08-20. Datumen
+  ligger i `protokollDatum` i `docs/data-efter-valet.json` och står på sidan. Det förklarar varför
+  M 2018 har KS på platserna 2, 4, 6, 8, 10, 14 (kontrollerat mot matchningen: plats 8 är "bestämd").
+- **Ort** tas ur Valmyndighetens uppgiftsrad: 2018 eget fält, 2014 "yrke, ort", 2026 "ålder, yrke, ort".
+  2010 saknar uppgiftsrad och 2022 anger bara yrke, så där saknas orten.
+- Namnmatchningen mot listan normaliserar nu accenter ("Nyhlén" i filen, "Nyhlen" på listan).

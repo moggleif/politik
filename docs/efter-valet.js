@@ -7,7 +7,11 @@
    (?val=2018&parti=m), så att en länk ger samma vy. Tabellen har en rad per
    plats på listan: plats, namn, KF, KSAU, KS, ordförande, vice ordförande.
    Ett grönt bock betyder att platsen blev ledamot i fullmäktige, KSAU eller
-   KS; ett rött kryss att platsen inte blev något av det. */
+   KS; ett rött kryss att platsen inte blev något av det.
+
+   När ett parti är valt ritas dessutom en platskarta (SVG byggd här, utan
+   Chart.js): ett val per rad, en glyf per plats, så att man ser var på
+   listan uppdragen hamnade, och under den en lista i text med samma sak. */
 (function () {
   "use strict";
 
@@ -34,13 +38,13 @@
     return '<span class="vantar" aria-hidden="true">·</span><span class="dold">Inte beslutat än</span>';
   }
 
-  /* Namn och, när Valmyndigheten gallrat namnet, vad som är känt om platsen. */
+  /* Namn, orten där Valmyndigheten angav den, och, när namnet gallrats, vad som är känt om platsen. */
   function namnCell(r) {
     if (r.namn) {
       var mark = r.namnSakerhet === "möjlig"
         ? ' <span class="osaker" title="Namnet är framtaget ur protokollen och är en möjlig, inte en säker, träff">(osäker)</span>'
         : "";
-      return esc(r.namn) + mark;
+      return esc(r.namn) + mark + (r.ort ? '<br><span class="liten">' + esc(r.ort) + "</span>" : "");
     }
     var delar = [];
     if (r.uppgift) delar.push(r.uppgift);
@@ -74,10 +78,18 @@
     return !vald && !harUppdrag ? nej() : "";
   }
 
+  /* KF: bock för ledamot, "ersättare N" (ersättarordningen) där Valmyndigheten
+     har ersättarna (2022 och 2026), annars kryss. */
+  function kfCell(r) {
+    if (r.vald) return ja();
+    if (r.kfErsattare) return '<span class="liten">ersättare ' + r.kfErsattare + "</span>";
+    return nej();
+  }
+
   function rad(r, status) {
     var harUppdrag = !!(r.ks || r.ksau || r.ordforande.length || r.vice.length);
-    var inteAktuell = !r.vald && !harUppdrag && status !== "ejBeslutat";
-    var kf = r.vald ? ja() : nej();
+    var inteAktuell = !r.vald && !r.kfErsattare && !harUppdrag && status !== "ejBeslutat";
+    var kf = kfCell(r);
     return "<tr" + (inteAktuell ? ' class="inte-aktuell"' : "") + ">" +
       '<th scope="row" class="plats">' + r.plats + "</th>" +
       "<td>" + namnCell(r) + "</td>" +
@@ -125,6 +137,162 @@
       utanPlatsLista(p) + "</div></section>";
   }
 
+  /* ---------- Platskartan: ett parti, alla val ---------- */
+
+  var PK = { steg: 16, vanster: 58, radh: 44, topp: 14 };
+
+  function platsText(r) {
+    var delar = [];
+    if (r.vald) delar.push("ledamot i fullmäktige");
+    else if (r.kfErsattare) delar.push("ersättare " + r.kfErsattare + " i fullmäktige");
+    if (r.ksau) delar.push(r.ksau === "ledamot" ? "KSAU" : "ersättare i KSAU");
+    if (r.ks) delar.push(r.ks === "ledamot" ? "KS" : "ersättare i KS");
+    r.ordforande.forEach(function (u) { delar.push("ordförande " + u.organ); });
+    r.vice.forEach(function (u) { delar.push((u.ordning ? u.ordning + " " : "") + "vice ordförande " + u.organ); });
+    return "Plats " + r.plats + (r.namn ? ", " + r.namn : "") + ": " + (delar.join(", ") || "inget av uppdragen");
+  }
+
+  /* En plats i kartan: ring = plats på listan, fylld = ledamot i fullmäktige,
+     streckad = ersättare i fullmäktige; fyrkant = KS (streckad = ersättare),
+     romb = KSAU, triangel uppåt = ordförande, triangel nedåt = vice ordförande.
+     Varje form har sin egen färgklass, men formen bär informationen. */
+  function platsGlyf(r, x, y) {
+    var g = '<g class="pk-plats"><title>' + esc(platsText(r)) + "</title>";
+    if (r.ks) g += '<rect class="pk-ks' + (r.ks === "ersättare" ? " pk-ers" : "") + '" x="' + (x - 6.5) + '" y="' + (y - 6.5) + '" width="13" height="13"/>';
+    if (r.ksau) g += '<path class="pk-ksau' + (r.ksau === "ersättare" ? " pk-ers" : "") + '" d="M' + x + " " + (y - 9) + "L" + (x + 9) + " " + y + "L" + x + " " + (y + 9) + "L" + (x - 9) + " " + y + 'Z"/>';
+    if (r.ordforande.length) g += '<path class="pk-ordf" d="M' + x + " " + (y - 16) + "l4.5 7h-9z" + '"/>';
+    if (r.vice.length) g += '<path class="pk-vice" d="M' + x + " " + (y + 16) + "l4.5 -7h-9z" + '"/>';
+    var kf = r.vald ? "pk-kf" : (r.kfErsattare ? "pk-kf-ers" : "pk-tom");
+    g += '<circle class="' + kf + '" cx="' + x + '" cy="' + y + '" r="3.5"/>';
+    return g + "</g>";
+  }
+
+  function kartRad(v, p, i) {
+    var y = PK.topp + i * PK.radh + PK.radh / 2;
+    var etikett = String(v.ar);
+    var klass = "pk-rad";
+    if (v.uppdragStatus === "partiell") { etikett += "*"; klass += " pk-delvis"; }
+    if (v.uppdragStatus === "ejBeslutat") { etikett += "†"; klass += " pk-delvis"; }
+    var ut = '<g class="' + klass + '"><text class="pk-ar" x="' + (PK.vanster - 10) + '" y="' + (y + 4) + '" text-anchor="end">' + etikett + "</text>";
+    ut += '<line class="pk-linje" x1="' + PK.vanster + '" y1="' + y + '" x2="' + (PK.vanster + (p.rader.length - 1) * PK.steg) + '" y2="' + y + '"/>';
+    p.rader.forEach(function (r, k) { ut += platsGlyf(r, PK.vanster + k * PK.steg, y); });
+    return ut + "</g>";
+  }
+
+  function platskarta(kod) {
+    var rader = data.val.map(function (v) {
+      var p = v.partier.filter(function (q) { return q.kod === kod; })[0];
+      return p ? { v: v, p: p } : null;
+    }).filter(function (x) { return x; });
+    if (!rader.length) return "";
+    var maxN = Math.max.apply(null, rader.map(function (x) { return x.p.rader.length; }));
+    var bredd = PK.vanster + (maxN - 1) * PK.steg + 16;
+    var hojd = PK.topp + rader.length * PK.radh + 24;
+    var svg = '<svg class="platskarta" width="' + bredd + '" height="' + hojd + '" viewBox="0 0 ' + bredd + " " + hojd + '" role="img" aria-labelledby="pk-titel">' +
+      '<title id="pk-titel">' + esc(rader[0].p.namn) + ": platserna på listan och vad de blev, ett val per rad</title>";
+    rader.forEach(function (x, i) { svg += kartRad(x.v, x.p, i); });
+    var yAxel = PK.topp + rader.length * PK.radh + 14;
+    for (var n = 1; n <= maxN; n += (n === 1 ? 4 : 5)) {
+      svg += '<text class="pk-axel" x="' + (PK.vanster + (n - 1) * PK.steg) + '" y="' + yAxel + '" text-anchor="middle">' + n + "</text>";
+    }
+    svg += '<text class="pk-axel" x="' + (PK.vanster - 10) + '" y="' + yAxel + '" text-anchor="end">plats</text></svg>';
+    return svg;
+  }
+
+  function kartforklaring() {
+    function mini(inre) {
+      return '<svg class="pk-mini" width="22" height="22" viewBox="-11 -11 22 22" aria-hidden="true">' + inre + "</svg>";
+    }
+    return '<p class="forklaring liten pk-forklaring">' +
+      mini('<circle class="pk-tom" r="3.5"/>') + " plats på listan · " +
+      mini('<circle class="pk-kf" r="3.5"/>') + " ledamot i fullmäktige · " +
+      mini('<circle class="pk-kf-ers" r="3.5"/>') + " ersättare i fullmäktige (bara 2022 och 2026) · " +
+      mini('<rect class="pk-ks" x="-6.5" y="-6.5" width="13" height="13"/><circle class="pk-kf" r="3.5"/>') + " KS · " +
+      mini('<rect class="pk-ks pk-ers" x="-6.5" y="-6.5" width="13" height="13"/><circle class="pk-kf" r="3.5"/>') + " ersättare i KS · " +
+      mini('<path class="pk-ksau" d="M0 -9L9 0L0 9L-9 0Z"/><circle class="pk-kf" r="3.5"/>') + " KSAU · " +
+      mini('<path class="pk-ordf" d="M0 -9l4.5 7h-9z"/><circle class="pk-kf" r="3.5"/>') + " ordförande · " +
+      mini('<path class="pk-vice" d="M0 9l4.5 -7h-9z"/><circle class="pk-kf" r="3.5"/>') + " vice ordförande. " +
+      "* = delvis kartlagd ur närvarolistor (tomt är &quot;inte funnet&quot;); † = uppdragen inte beslutade än. " +
+      "Peka på en plats för namn och uppdrag.</p>";
+  }
+
+  /* ---------- Listan under kartan: var på listan uppdragen hamnade ---------- */
+
+  function platsord(r) {
+    return r.plats + (r.namn ? " (" + esc(r.namn) + ")" : "");
+  }
+
+  function intervall(tal) {
+    // [6,7,8,10] -> "6–8, 10"
+    var ut = [], i = 0;
+    while (i < tal.length) {
+      var j = i;
+      while (j + 1 < tal.length && tal[j + 1] === tal[j] + 1) j++;
+      ut.push(j > i + 1 ? tal[i] + "–" + tal[j] : (j === i ? String(tal[i]) : tal[i] + ", " + tal[j]));
+      i = j + 1;
+    }
+    return ut.join(", ");
+  }
+
+  function organRad(p, falt, namn) {
+    var med = p.rader.filter(function (r) { return r[falt] === "ledamot"; });
+    if (!med.length) return "<li><strong>" + namn + ":</strong> ingen på listan.</li>";
+    var lagst = med[med.length - 1];
+    var ovanfor = p.rader.filter(function (r) { return r.plats < lagst.plats && r[falt] !== "ledamot"; });
+    var ers = ovanfor.filter(function (r) { return r[falt] === "ersättare"; }).map(function (r) { return r.plats; });
+    var t = "<li><strong>" + namn + ":</strong> platserna " + intervall(med.map(function (r) { return r.plats; })) +
+      ". Lägsta plats: " + platsord(lagst) + ". ";
+    t += ovanfor.length
+      ? "Platser ovanför den utan " + namn + ": " + intervall(ovanfor.map(function (r) { return r.plats; })) +
+        (ers.length ? " (" + intervall(ers) + (ers.length > 1 ? " är ersättare" : " är ersättare") + " i " + namn + ")" : "") + "."
+      : "Alla platser ovanför har också " + namn + ".";
+    return t + "</li>";
+  }
+
+  function posterRad(p, falt, namn) {
+    var med = p.rader.filter(function (r) { return r[falt].length; });
+    if (!med.length) return "";
+    return "<li><strong>" + namn + ":</strong> " + med.map(function (r) {
+      return platsord(r) + " – " + r[falt].map(function (u) { return esc(u.organ) + (u.ordning ? " (" + esc(u.ordning) + ")" : ""); }).join(", ");
+    }).join("; ") + ".</li>";
+  }
+
+  function utfallLista(kod) {
+    return data.val.map(function (v) {
+      var p = v.partier.filter(function (q) { return q.kod === kod; })[0];
+      if (!p) return "";
+      var kf = p.rader.filter(function (r) { return r.vald; }).map(function (r) { return r.plats; });
+      var t = "<h3>" + v.ar + ' <small class="liten">(mandatperioden ' + esc(v.mandatperiod) + ")</small></h3><ul class=\"utfall\">";
+      t += "<li><strong>Fullmäktige:</strong> platserna " + intervall(kf) + " (" + p.mandat + " mandat).</li>";
+      if (v.uppdragStatus === "ejBeslutat") {
+        t += "<li>KS, KSAU och nämnder väljs av fullmäktige i december 2026 och är inte beslutade än.</li>";
+      } else {
+        if (v.uppdragStatus === "partiell") {
+          var d = v.protokollDatum || {};
+          t += '<li class="liten">Delvis kartlagd ur närvarolistor: KS enligt protokollet ' + esc(d.KS || "saknas") +
+            ", KSAU " + esc(d.KSAU || "saknas") + ". Platser som inte syns där är &quot;inte funna&quot;, inte &quot;nej&quot;.</li>";
+        }
+        t += organRad(p, "ks", "KS") + organRad(p, "ksau", "KSAU") +
+          posterRad(p, "ordforande", "Ordförande") + posterRad(p, "vice", "Vice ordförande");
+      }
+      return t + "</ul>";
+    }).join("");
+  }
+
+  function ritaPlatskarta(kod) {
+    var sekt = el("sektion-platskarta");
+    if (!kod || kod === "alla") { sekt.hidden = true; return; }
+    var namn = "";
+    data.val.forEach(function (v) {
+      v.partier.forEach(function (p) { if (p.kod === kod) namn = p.namn; });
+    });
+    el("platskarta-rubrik").textContent = namn + ": platsen på listan och uppdraget, val för val";
+    el("platskarta-innehall").innerHTML =
+      '<div class="tabell-rull">' + platskarta(kod) + "</div>" + kartforklaring() +
+      '<div class="utfall-lista">' + utfallLista(kod) + "</div>";
+    sekt.hidden = false;
+  }
+
   /* ---------- Sidan ---------- */
 
   /* Valda val: ett, eller alla (nyast först) när reglaget står på "alla". */
@@ -151,19 +319,28 @@
     var t = "<strong>Valet " + v.ar + "</strong> gäller mandatperioden " + esc(v.mandatperiod) + ". ";
     if (v.uppdragStatus === "komplett") {
       t += "Uppdragen kommer ur fullmäktiges beslut om vilka som valdes. ";
+      t += v.ersattareKalla
+        ? "Ersättarna i fullmäktige är Valmyndighetens nuvarande (per " + esc(v.ersattareKalla.uppgiftPer) + "), inte de ursprungligen utsedda. "
+        : "Ersättarna i fullmäktige är okända: Valmyndigheten har ingen ersättarfil för valet. ";
     } else if (v.uppdragStatus === "partiell") {
-      t += "Fullmäktiges beslut saknas för den här perioden, så uppdragen är bara delvis kartlagda ur nämndernas " +
-        "närvarolistor: <strong>en tom ruta betyder &quot;inte funnet&quot;, inte &quot;nej&quot;</strong>, och ersättare saknas. ";
+      var d = v.protokollDatum || {};
+      t += "Fullmäktiges beslut saknas för den här perioden, så uppdragen är bara delvis kartlagda ur närvarolistor: " +
+        "<strong>en tom ruta betyder &quot;inte funnet&quot;, inte &quot;nej&quot;</strong>. KS-kolumnen visar de närvarande vid " +
+        "protokollet " + esc(d.KS || "(saknas)") + (d.KSAU ? " och KSAU vid " + esc(d.KSAU) : "; KSAU saknas i arkivet") +
+        " – en ögonblicksbild, inte den sammansättning som valdes efter valet. Ersättare i KS och KSAU syns bara om de tjänstgjorde vid något möte; " +
+        "ersättarna i fullmäktige är okända. ";
     } else {
       t += "KS, KSAU och nämnder för perioden väljs av fullmäktige i december 2026, så uppdragen är inte beslutade än. ";
+      if (v.ersattareKalla) t += "Ersättarna i fullmäktige är Valmyndighetens per " + esc(v.ersattareKalla.uppgiftPer) + ". ";
     }
     return t + textStyre(v);
   }
 
   function teckenforklaring(v, flera) {
-    var t = '<span class="ja" aria-hidden="true">✓</span> = ledamot (i fullmäktige, KSAU eller KS). ' +
+    var t = '<span class="ja" aria-hidden="true">✓</span> = ledamot (i fullmäktige, KSAU eller KS); ' +
+      "&quot;ersättare&quot; = ersättare där (i fullmäktige med ersättarordningen). " +
       '<span class="nej" aria-hidden="true">✗</span> = inte aktuell: platsen blev inget av det. ' +
-      "Ordförande och vice ordförande anger organet; (1:e) och (2:e) är första och andra vice ordförande. ";
+      "Ordförande och vice ordförande anger organet; (1:e) och (2:e) är första och andra vice ordförande. Under namnet står orten där Valmyndigheten angav den (2014, 2018, 2026). ";
     if (flera) {
       t += '<span class="vantar" aria-hidden="true">·</span> = inte beslutat än (2026). ' +
         '<span class="senare">*</span> = syns först vid ett senare möte (2018 och 2010). ';
@@ -190,6 +367,7 @@
         .forEach(function (p) { ut += ritaParti(p, v, flera); });
     });
     el("sektion-partier").innerHTML = ut || "<p>Partiet ställde inte upp i det här valet.</p>";
+    ritaPlatskarta(parti);
   }
 
   function fyllReglage() {
@@ -235,14 +413,20 @@
       "<h2>Så är sidan gjord</h2>" +
       "<p><strong>Listorna</strong> (plats och, för 2022 och 2026, namn) kommer från Valmyndighetens valpresentation. " +
       "För 2010, 2014 och 2018 har Valmyndigheten gallrat namnen; kvar finns plats, ålder, kön och yrke/ort.</p>" +
-      "<p><strong>Vilka som blev ledamöter</strong> kommer ur Valmyndighetens fil över de ursprungligen valda.</p>" +
+      "<p><strong>Vilka som blev ledamöter</strong> kommer ur Valmyndighetens fil över de ursprungligen valda. " +
+      "<strong>Ersättarna i fullmäktige</strong> kommer ur Valmyndighetens fil &quot;ledamöter och ersättare&quot;, som bara finns för 2022 och 2026 " +
+      "och visar de nuvarande ersättarna (datumet står över tabellen), inte de ursprungligen utsedda. För 2010, 2014 och 2018 finns ingen ersättarfil.</p>" +
+      "<p><strong>Orten</strong> under namnet är den Valmyndigheten angav på valsedeln. 2010 angavs ingen ort och 2022 bara yrke, så där saknas den.</p>" +
       "<p><strong>Namnen för 2010&ndash;2018</strong> är framtagna genom att länka samma person mellan valen (ålder, ort, yrke) och mot " +
       "fullmäktiges närvarologg. De flesta bygger på att loggen listar ledamöterna i en bestämd ordning " +
       "(2014: stämmer för alla 38 kända namn; 2018 och 2010: för nästan alla). Ersättare som tagit över en plats syns inte som valda. " +
       "Där ett namn är en möjlig men inte säker träff står <em>(osäker)</em>. Namn som inte gått att få fram står som &quot;Namn saknas&quot;.</p>" +
       "<p><strong>Uppdragen</strong> (KS, KSAU, ordförande och vice ordförande) kommer 2014 och 2022 ur fullmäktiges och kommunstyrelsens beslut. " +
-      "För 2010 och 2018 saknas besluten i arkivet, och uppdragen är hämtade ur närvarolistorna i de första protokollen med text per organ. " +
-      "Övriga poster (revisorer, bolag, nämndledamöter) ingår inte.</p>" +
+      "För 2010 och 2018 saknas besluten i arkivet, och uppdragen är hämtade ur närvarolistorna i de första protokollen med text per organ " +
+      "(datumet står över tabellen; för KS 2019–2022 är det först 2021-01-19, två år in i perioden). Ersättare i KS och KSAU syns där bara om de " +
+      "tjänstgjorde vid något av de lästa mötena. Övriga poster (revisorer, bolag, nämndledamöter) ingår inte.</p>" +
+      "<p><strong>Platskartan</strong> ritar samma uppgifter per plats, ett val per rad, och listan under den säger var på listan uppdragen hamnade. " +
+      "Den räknar inget och väger inget; den visar bara positionerna.</p>" +
       "<p><strong>Styrande partier:</strong></p><ul>" + styre + "</ul>" +
       "<p><strong>Luckor.</strong> 2018 saknar fullmäktiges decembermöte och 2010 flera nämnder, så uppdragsraderna är där ofullständiga. " +
       "Fyra platser (2018) och fyra (2010) hade en ersättare som tagit över, och namnet på den som valdes är okänt.</p>" +

@@ -5223,3 +5223,55 @@ class TestEfterValet(unittest.TestCase):
                 platser = [r["plats"] for r in p["rader"]]
                 self.assertEqual(platser, sorted(platser))
                 self.assertEqual(sum(1 for r in p["rader"] if r["vald"]), p["mandat"])
+
+
+class TestEfterValetErsattareOchOrt(unittest.TestCase):
+    def setUp(self):
+        self.bev = importlib.import_module("build_efter_valet")
+
+    def test_ort_ur_uppgiftsraden(self):
+        self.assertEqual(self.bev.ort_ur({"ort": "Kolla", "uppgift": "59, Kolla, Kommunalråd"}, 2018), "Kolla")
+        self.assertEqual(self.bev.ort_ur({"uppgift": "undersköterska/omsorgsassistans, Vallda"}, 2014), "Vallda")
+        self.assertEqual(self.bev.ort_ur({"uppgift": "34, Systemspecialist, Kungsbacka"}, 2026), "Kungsbacka")
+        self.assertIsNone(self.bev.ort_ur({"uppgift": "72, Lantbrukare"}, 2026))     # ingen ort angiven
+        self.assertIsNone(self.bev.ort_ur({"uppgift": "Systemutvecklare"}, 2022))    # 2022: bara yrke
+        self.assertIsNone(self.bev.ort_ur({"uppgift": None}, 2010))
+
+    def test_samma_organ_med_och_utan_ordning_blir_en_rad(self):
+        u = [
+            {"organ": "Valnämnden", "roll": "vice ordförande", "kalla": {"typ": "närvarolista", "fran_forsta_motet": True}},
+            {"organ": "Valnämnden", "roll": "1:e vice ordförande", "kalla": {"typ": "närvarolista", "fran_forsta_motet": False}},
+        ]
+        self.assertEqual(self.bev.uppdrag_rad(u)["vice"], [{"organ": "Valnämnden", "ordning": "1:e", "senare": False}])
+
+    def test_ersattare_ur_valmyndighetens_fil(self):
+        hke = importlib.import_module("hamta_kf_ersattare")
+        csvtext = ("﻿;Valmyndigheten 2026-10-30 15:51:25\r"
+                   "Valtyp;Val till;Länskod;Län;Kommunkod;Kommun;Valkretskod;Valkrets;Partikod;Partiförkortning;Partibeteckning;"
+                   "Mandat (invalsordning);Ersättargrupp;Namn ledamot;Kandidatnummer ledamot;Personvald;Ersättarordning;"
+                   "Kandidatnummer ersättare;Namn ersättare;Personvald ersättare;Valtillfälle\r"
+                   "KF;Kommunfullmäktige i Kungsbacka kommun;13;Hallands län;84;Kungsbacka;;;0001;M;Moderaterna;1;1;Lisa Andersson;1;;1;41;Paul Blomdahl;;V\r"
+                   "KF;Kommunfullmäktige i Kungsbacka kommun;13;Hallands län;84;Kungsbacka;;;0001;M;Moderaterna;2;1;Emanuel Forsell;2;;1;41;Paul Blomdahl;;V\r"
+                   "KF;Kommunfullmäktige i Kungsbacka kommun;13;Hallands län;84;Kungsbacka;;;0001;M;Moderaterna;1;1;Lisa Andersson;1;;2;42;Ulrika Nyhlén;Ja;V\r"
+                   "KF;Kommunfullmäktige i Varberg kommun;13;Hallands län;83;Varberg;;;0001;M;Moderaterna;1;1;Någon Annan;9;;1;99;Okänd Person;;V\r")
+        per_parti = {"M": [{"plats": 1, "namn": "Lisa Andersson"}, {"plats": 23, "namn": "Paul Blomdahl"},
+                           {"plats": 25, "namn": "Ulrika Nyhlen"}]}
+        rader, per = hke.ersattare_ur_csv(csvtext.encode("utf-8"), per_parti)
+        self.assertEqual(per, "2026-10-30")
+        self.assertEqual([(r["ordning"], r["listplats"], r["personvald"]) for r in rader], [(1, 23, False), (2, 25, True)])
+
+    def test_tjanstgorande_ersattare_i_ks_blir_ersattare(self):
+        bvt = importlib.import_module("bygg_valdes_till")
+        import unittest.mock as mock
+        narvaro = {"poster": [{"period": "2019–2022", "slug": "ks", "organ": "Kommunstyrelsen", "datum": "2021-01-19",
+                               "utlasning": [], "flera_moten": [{"datum": "2021-01-19", "utlasning": [
+                                   {"namn": "Lisa Andersson", "parti": "M", "roll": "ledamot", "titel": "ordförande"},
+                                   {"namn": "Franklin Eck", "parti": "M", "roll": "tjänstgörande ersättare", "titel": None}]}]},
+                              {"period": "2019–2022", "slug": "vo", "organ": "Nämnden för Vård & Omsorg", "datum": "2019-02-01",
+                               "utlasning": [], "flera_moten": [{"datum": "2019-02-01", "utlasning": [
+                                   {"namn": "Någon Ersättare", "parti": "M", "roll": "tjänstgörande ersättare", "titel": None}]}]}]}
+        with mock.patch("json.loads", return_value=narvaro):
+            u = bvt.uppdrag_ur_narvaro("2019–2022")
+        roller = {(x["namn"], x["organ"]): x["roll"] for x in u}
+        self.assertEqual(roller, {("Lisa Andersson", "Kommunstyrelsen"): "ordförande",
+                                  ("Franklin Eck", "Kommunstyrelsen"): "ersättare"})   # nämndens ersättare tas inte med
