@@ -27,6 +27,7 @@ och vad som återstår.
 | Förtidsröster 2026 (Valmyndigheten) | Hämtas automatiskt två gånger om dagen t.o.m. 16 september 2026 |
 | Röstberättigade 2022 och 2026 (Valmyndigheten) | Klara |
 | Kommunfullmäktiges inspelade möten 2022–2026 (kommunen, Screen9, YouTube) | Klara, hämtas om för hand |
+| Kandidatlistor till kommunfullmäktige 2022 och 2026 (Valmyndighetens valpresentation) | Klara, `data/kandidater/`. 2010, 2014 och 2018 saknas: samma adress ger 404, listorna måste hämtas ur annan källa |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
 jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på nio
