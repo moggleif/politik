@@ -18,7 +18,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 /* Filerna körs i samma sandlåda och i samma ordning som sidan laddar
-   dem: adressmodulen behöver K.slug ur gemensam.js. */
+   dem: adressmodulen behöver K.slug och VALUPPSLAG.distriktFor. */
 function ladda() {
   const sandlada = {
     document: {

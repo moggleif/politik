@@ -21,10 +21,9 @@
    i vilket val.
 
    Datafilen innehåller antal röster, aldrig andelar. Andelarna räknas
-   här, och skälet är sidans viktigaste reglage: användaren kryssar i en
-   fritt vald grupp distrikt, och då måste rösterna summeras först och
-   andelen räknas på summan. Ett medelvärde av distriktens procenttal
-   hade vägt ett litet distrikt lika tungt som ett stort.
+   i webbläsaren, eftersom användaren kryssar i en fritt vald grupp
+   distrikt och rösterna då måste summeras först; hur står i
+   valresultat-uppslag.js.
 
    Valdistrikten ritas om mellan valen. Valmyndighetens egen bedömning av
    vilka distrikt som går att jämföra följer med i datafilen, och en
@@ -50,8 +49,10 @@
   var V = window.VALUPPSLAG;
   var VALEN = V.VALEN;
   var valetFor = V.valetFor;
+  var A = window.VALADRESS;
   var harkomst = V.harkomst;
   var egetAr = V.egetAr;
+  var distriktSerie = V.distriktSerie;
   var rakna_upp = V.raknaUpp;
 
   /* Alla tre valens datafiler, inlästa: { kommun: …, region: …, riksdag: … }.
@@ -124,15 +125,7 @@
       parseInt(farg.slice(5, 7), 16) + ",0.3)";
   }
 
-  /* `kalla` är den inlästa datafilen att läsa ur; utelämnad betyder det
-     val sidan visar.
-
-     Andra argumentet spelar roll: anropas funktionen via
-     Array.prototype.map får den indexet som `kalla`. Gå därför alltid via
-     en egen funktion i map, aldrig `map(distriktFor)`. Diagrammet över de
-     tre valen skickar med de andra två filerna, och kan då bygga sina
-     serier med precis samma kod. */
-  function distriktFor(slug, kalla) { return V.distriktFor(kalla || data, slug); }
+  function distriktFor(slug) { return V.distriktFor(data, slug); }
 
   function valdaSlugar() {
     return data.distrikt.filter(function (d) { return valda[d.slug]; })
@@ -176,15 +169,13 @@
 
   /* ---------- Området: kommunen, ett distrikt eller en grupp ----------
      Se valresultat-uppslag.js för vad ett område är och hur härkomsten
-     räknas in. */
+     räknas in. `kalla` är den inlästa datafilen att läsa ur; utelämnad
+     betyder det val sidan visar. Diagrammet över de tre valen skickar med
+     de andra två filerna, och kan då bygga sina serier med samma kod. */
 
   function kommunSerie(kalla) { return V.kommunSerie(kalla || data); }
 
   function gruppSerie(slugar, kalla) { return V.gruppSerie(kalla || data, slugar); }
-
-  /* Gå alltid via en egen funktion i map, aldrig `map(distriktSerie)`:
-     andra argumentet är `baraEgna`. */
-  function distriktSerie(d, baraEgna) { return V.distriktSerie(d, baraEgna); }
 
   /* Området som allt på sidan handlar om just nu. */
   function omradet(kalla) {
@@ -1102,19 +1093,19 @@
   /* Översättningen mellan adressraden och urvalen bor i
      valresultat-adress.js (#65). */
   function laesUrlDistrikt() {
-    valda = window.VALADRESS.lasDistrikt(data, K.urlLas("distrikt"));
+    valda = A.lasDistrikt(data, K.urlLas("distrikt"));
   }
 
   function urlDistriktVarde() {
-    return window.VALADRESS.distriktVarde(data, valda);
+    return A.distriktVarde(data, valda);
   }
 
   function laesUrlPartier() {
-    valdaPartier = window.VALADRESS.lasPartier(data, K.urlLas("partier"), MAX_PARTIER);
+    valdaPartier = A.lasPartier(data, K.urlLas("partier"), MAX_PARTIER);
   }
 
   function urlPartierVarde() {
-    return window.VALADRESS.partierVarde(data, valdaPartier);
+    return A.partierVarde(data, valdaPartier);
   }
 
   function byggDistriktRutor() {

@@ -5,13 +5,15 @@
    Utbruten ur valresultat.js (#65) för att gå att enhetstesta. Här står
    bara översättningen mellan adressradens text och sidans urval, åt båda
    hållen; att läsa och skriva själva adressraden, och att spegla urvalet
-   i kryssrutorna, gör valresultat.js med K.urlLas och K.urlSatt. Ett
+   i kryssrutorna, gör valresultat.js med K.urlLas och K.urlSatt. Filen
+   laddas efter gemensam.js och valresultat-uppslag.js. Ett
    urval är ett objekt { nyckel: true }. Testerna ligger i
    tests/test_valresultat.js. */
 (function () {
   "use strict";
 
   var K = window.KIS;
+  var V = window.VALUPPSLAG;
 
   /* "alla" markerar varje distrikt. Slugar som inte finns i filen
      hoppas över i stället för att ge ett tomt distrikt. */
@@ -23,9 +25,7 @@
       return valda;
     }
     varde.split(",").forEach(function (s) {
-      for (var i = 0; i < fil.distrikt.length; i++) {
-        if (fil.distrikt[i].slug === s) valda[s] = true;
-      }
+      if (V.distriktFor(fil, s)) valda[s] = true;
     });
     return valda;
   }
