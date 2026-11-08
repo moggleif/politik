@@ -31,6 +31,7 @@ Skriver data/matchning/forslag.json.
 Körs: python3 scripts/bygg_matchning.py
 """
 
+import difflib
 import json
 import re
 import sys
@@ -283,6 +284,27 @@ def namnge(spar: dict, pn: dict) -> list:
     return ut
 
 
+class FuzzyNamn:
+    """Slår upp namn mot en lista med tolerans för stavningsskillnader
+    ("Thorbjörnson"/"Thorbjörnsson"). `in` och `[]` följer nyckel-jämförelsen."""
+
+    def __init__(self, namn):
+        self.namn = {nyckel(n): n for n in namn}
+
+    def hitta(self, n):
+        k = nyckel(n)
+        if k in self.namn:
+            return self.namn[k]
+        liknande = [v for kk, v in self.namn.items() if difflib.SequenceMatcher(None, k, kk).ratio() >= 0.93]
+        return liknande[0] if len(liknande) == 1 else None
+
+    def __contains__(self, n):
+        return self.hitta(n) is not None
+
+    def __getitem__(self, n):
+        return self.hitta(n)
+
+
 def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
     """De 61 valda ett år: namn ur spåren där de finns, kontrollerade mot
     fullmäktiges närvarologg för perioden (första loggen i arkivet).
@@ -353,7 +375,7 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
         namnlista = [r["namn"] for r in logg if r["parti"] == parti]
         if len(namnlista) < len(pos):
             namnlista += obestamda   # ledamöter utan parti i loggen kan höra hit
-        nycklar = {nyckel(n): n for n in namnlista}
+        nycklar = FuzzyNamn(namnlista)
         fasta, rest_pos, avvisade = {}, [], {}
         for r in pos:
             fn = namn_i_spar.get((parti, r["listplats"]))
@@ -403,6 +425,43 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
             if pl in avvisade:
                 post["avvisat_forslag"] = avvisade[pl]
             ut.append(post)
+    if exhaustiv and all(r.get("mandat") for r in valda):
+        ut = tillampa_loggordning(ar, ut, valda, logg)
+    return ut
+
+
+LOGGORDNING_KONTROLL = {}
+
+
+def tillampa_loggordning(ar: int, ut: list, valda: list, logg: list) -> list:
+    """Fullmäktiges första logg listar ledamöterna parti för parti: inom partiet
+    valkrets för valkrets (västra före östra) och i Valmyndighetens mandatordning.
+    Regeln används bara om den stämmer för *alla* platser vars namn redan är känt
+    (verifierat 2014: 38 av 38) och om antalet i loggen är lika med antalet valda."""
+    namn = {(r["parti"], r["listplats"]): r for r in ut}
+    resultat = {}
+    for parti in sorted({r["parti"] for r in valda}):
+        vs = sorted((r for r in valda if r["parti"] == parti), key=lambda r: (r["valkrets"], r["mandat"]))
+        ln = [r["namn"] for r in logg if r["parti"] == parti]
+        if len(vs) != len(ln):
+            return ut
+        resultat[parti] = list(zip(vs, ln))
+    kanda = stammer = 0
+    for parti, par in resultat.items():
+        for r, n in par:
+            post = namn[(parti, r["listplats"])]
+            if post["namn_forslag"] and post["grund"] in ("spår + närvarologg", "bestämd av uppdragsgivaren"):
+                kanda += 1
+                stammer += FuzzyNamn([n]).hitta(post["namn_forslag"]) is not None
+    LOGGORDNING_KONTROLL[ar] = {"kanda": kanda, "stammer": stammer}
+    if kanda == 0 or stammer != kanda:
+        return ut
+    for parti, par in resultat.items():
+        for r, n in par:
+            post = namn[(parti, r["listplats"])]
+            if not post["namn_forslag"]:
+                post.update({"namn_forslag": n, "sakerhet": "stark", "grund": "loggordning (valkrets, mandat)"})
+                post.pop("mojliga_namn", None)
     return ut
 
 
@@ -410,14 +469,18 @@ def skriv_bekraftade(namngivna: list, valda: dict) -> None:
     """Fryser nuvarande förslag som bekräftade (görs bara med --bekrafta, efter
     att uppdragsgivaren godkänt dem). Avvisade förslag tas inte med."""
     poster = {}
+    fil = UT / "bekraftade.json"
+    if fil.exists():   # additivt: tidigare bekräftade platser behålls
+        for b in json.loads(fil.read_text(encoding="utf-8"))["platser"]:
+            poster[(b["parti"], b["val"], b["plats"])] = b
     for sp in namngivna:
         if sp["avvisad_av_protokoll"]:
             continue
         for pl in sp["platser"]:
             if pl["namn_i_kallan"] is None:
-                poster[(sp["parti"], pl["val"], pl["plats"])] = {
+                poster.setdefault((sp["parti"], pl["val"], pl["plats"]), {
                     "parti": sp["parti"], "val": pl["val"], "plats": pl["plats"], "namn": sp["namn"],
-                    "sakerhet": pl["sakerhet"], "grund": "spår"}
+                    "sakerhet": pl["sakerhet"], "grund": "spår"})
     for ar, rs in valda.items():
         for r in rs:
             if r["namn_forslag"] and (r["parti"], ar, r["listplats"]) not in poster:
@@ -473,7 +536,7 @@ def main() -> None:
     (UT / "forslag.json").write_text(json.dumps({
         "byggd": date.today().isoformat(),
         "forklaring": "Förslag, inte fakta. Se scripts/bygg_matchning.py. Säkerhet: säker (namn i båda valen), stark, möjlig.",
-        "kalibrering": kal, "bestamda_platser": bestamda, "platser_totalt": totalt, "statistik_namnforslag": stat,
+        "kalibrering": kal, "loggordning_kontroll": {str(k): v for k, v in LOGGORDNING_KONTROLL.items()}, "bestamda_platser": bestamda, "platser_totalt": totalt, "statistik_namnforslag": stat,
         "spar": [{k: v for k, v in sp.items()} for sp in namngivna], "valda": {str(a): r for a, r in valda.items()}},
         ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 

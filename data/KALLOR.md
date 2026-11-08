@@ -2024,3 +2024,25 @@ namn: ursprunglig innehavare okänd (lämnade före loggen 2019-08-13).
 (`bestämd`); Ulric Björck = plats 7 (`bestämd`, följer av Påsse). Källa för att Björck satt i
 fullmäktige efter valet 2018: Norra Halland 2019-04-12 ("Vårdordförande får kritik").
 
+### 2014: loggordningen löser alla 61 valda (2026-11-08)
+
+Fullmäktiges logg 2014-11-11 (första mötet) listar ledamöterna parti för parti, och *inom
+partiet valkrets för valkrets (västra före östra) i Valmyndighetens mandatordning*. 2014 hade
+två valkretsar och mandaten räknas per valkrets, vilket är varför en global mandatordning inte
+stämde. Regeln stämmer för alla 38 redan kända namn (0 fel; Moderaterna 12 av 12) och för de 9
+som tidigare bestämts med ålder (9 av 9). Med den har alla 61 valda 2014 ett namnförslag
+(`grund: "loggordning (valkrets, mandat)"`, 20 platser, säkerhet stark); används bara när den
+stämmer för alla kända namn (`loggordning_kontroll` i forslag.json).
+
+Två tidigare avvisanden var fel: V plats 2 var Jon Thorbjörnsson (stavning i loggen med dubbelt s;
+jämförelsen tolererar nu stavningsskillnader), och L plats 5 är Madelene *Nordström* i loggen
+(Madelene Höök 2019 är sannolikt samma person under nytt efternamn; ej avgjort). M plats 20 är
+Bengt Adolfsson, inte Ulrika Nyhlén.
+
+**Moderaterna 2014:** 1 Hans Forsberg, 2 Lisa Andersson, 3 Christian Johansson, 4 Marianne
+Kierkemann, 5 Per Ödman, 6 Axel Storckenfeldt, 7 Ulrika Jörgensen, 8 Hravn Forsne, 9 Franklin
+Eck, 10 Anders Ekström, 11 Ulla Krantz, 12 Frida Schill Örne, 13 Per Stenberg, 14 Lars Thelén,
+15 Christina Äng, 16 Maria Gathendahl, 17 Lena Reimertz Thelén, 18 Peter Söderberg, 19 Thure
+Sandén, 20 Bengt Adolfsson, 21 Marianne Pleijel. Franklin Eck på 9 och Per Ödman på 5 stämmer
+med oberoende bedömningar (kandidatspår respektive uppdragsgivaren).
+

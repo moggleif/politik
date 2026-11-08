@@ -5056,7 +5056,7 @@ class TestMatchning(unittest.TestCase):
         s = d["kalibrering"]["stark"]
         self.assertGreaterEqual(s["rätt"] / s["totalt"], 0.9)       # 'stark' ska ha minst 90 % rätt mot facit
         avvisade = {(r["parti"], r["listplats"]) for r in d["valda"]["2014"] if "avvisat_forslag" in r}
-        self.assertEqual(avvisade, {("L", 5), ("M", 20), ("V", 2)})
+        self.assertEqual(avvisade, {("L", 5), ("M", 20)})   # V 2 var en stavningsskillnad (Thorbjörnson/Thorbjörnsson)
         for r in d["valda"]["2014"]:
             if r["grund"] == "spår + närvarologg":
                 self.assertTrue(r["namn_forslag"])
@@ -5076,3 +5076,14 @@ class TestMatchning(unittest.TestCase):
         self.assertEqual([p["sakerhet"] for p in hf["platser"]], ["möjlig", "möjlig", "bestämd"])
         v14 = next(r for r in d["valda"]["2014"] if r["parti"] == "M" and r["listplats"] == 5)
         self.assertEqual((v14["namn_forslag"], v14["sakerhet"]), ("Per Ödman", "bestämd"))
+
+
+    def test_loggordning_2014_verifierad_och_komplett(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        k = d["loggordning_kontroll"]["2014"]
+        self.assertGreaterEqual(k["kanda"], 30)
+        self.assertEqual(k["stammer"], k["kanda"])             # regeln stämde för alla kända namn
+        v = d["valda"]["2014"]
+        self.assertEqual(sum(1 for r in v if r["namn_forslag"]), 61)
+        m = {r["listplats"]: r["namn_forslag"] for r in v if r["parti"] == "M"}
+        self.assertEqual((m[5], m[9], m[19]), ("Per Ödman", "Franklin Eck", "Thure Sandén"))

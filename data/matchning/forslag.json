@@ -14,6 +14,12 @@
   "tröskel_stark": 5,
   "tröskel_möjlig": 3
  },
+ "loggordning_kontroll": {
+  "2014": {
+   "kanda": 32,
+   "stammer": 32
+  }
+ },
  "bestamda_platser": [
   {
    "val": 2014,
@@ -100,15 +106,15 @@
  },
  "statistik_namnforslag": {
   "2010": {
-   "möjlig": 26
+   "möjlig": 27
   },
   "2014": {
-   "möjlig": 29,
+   "möjlig": 30,
    "stark": 37,
    "bestämd": 1
   },
   "2018": {
-   "möjlig": 37,
+   "möjlig": 38,
    "stark": 75,
    "bestämd": 9
   }
@@ -14753,7 +14759,7 @@
      "protokollkallor": []
     }
    ],
-   "avvisad_av_protokoll": true
+   "avvisad_av_protokoll": false
   },
   {
    "parti": "V",
@@ -16742,14 +16748,9 @@
     "kon": "K",
     "mandat": 3,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Erik Nilsson Nordahl",
-     "Kerstin Ekman-Hake",
-     "Maria Mia Andersson"
-    ]
+    "namn_forslag": "Kerstin Ekman-Hake",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "C",
@@ -16758,15 +16759,9 @@
     "kon": "M",
     "mandat": 4,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Erik Nilsson Nordahl",
-     "Kerstin Ekman-Hake",
-     "Maria Mia Andersson",
-     "Marie Andersson"
-    ]
+    "namn_forslag": "Erik Nilsson Nordahl",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "C",
@@ -16786,14 +16781,9 @@
     "kon": "K",
     "mandat": 2,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Erik Nilsson Nordahl",
-     "Kerstin Ekman-Hake",
-     "Maria Mia Andersson"
-    ]
+    "namn_forslag": "Maria Mia Andersson",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "C",
@@ -16802,15 +16792,9 @@
     "kon": "K",
     "mandat": 3,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Erik Nilsson Nordahl",
-     "Kerstin Ekman-Hake",
-     "Maria Mia Andersson",
-     "Marie Andersson"
-    ]
+    "namn_forslag": "Marie Andersson",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "KB",
@@ -16885,13 +16869,9 @@
     "kon": "M",
     "mandat": 2,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Christian Haneson",
-     "Madelene Nordström"
-    ]
+    "namn_forslag": "Christian Haneson",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "L",
@@ -16922,13 +16902,9 @@
     "kon": "K",
     "mandat": 2,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Christian Haneson",
-     "Madelene Nordström"
-    ],
+    "namn_forslag": "Madelene Nordström",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)",
     "avvisat_forslag": "Madelene Höök"
    },
    {
@@ -16982,18 +16958,9 @@
     "kon": "K",
     "mandat": 5,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Adolfsson",
-     "Christina Äng",
-     "Frida Schill Örne",
-     "Lars Thelén",
-     "Lena Reimertz Thelén",
-     "Marianne Kierkemann",
-     "Ulla Krantz"
-    ]
+    "namn_forslag": "Marianne Kierkemann",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "M",
@@ -17068,19 +17035,9 @@
     "kon": "K",
     "mandat": 11,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Adolfsson",
-     "Christina Äng",
-     "Frida Schill Örne",
-     "Lars Thelén",
-     "Lena Reimertz Thelén",
-     "Marianne Kierkemann",
-     "Thure Sandén",
-     "Ulla Krantz"
-    ]
+    "namn_forslag": "Ulla Krantz",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "M",
@@ -17089,18 +17046,9 @@
     "kon": "K",
     "mandat": 12,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Adolfsson",
-     "Christina Äng",
-     "Frida Schill Örne",
-     "Lars Thelén",
-     "Lena Reimertz Thelén",
-     "Marianne Kierkemann",
-     "Ulla Krantz"
-    ]
+    "namn_forslag": "Frida Schill Örne",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "M",
@@ -17120,19 +17068,9 @@
     "kon": "M",
     "mandat": 1,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Adolfsson",
-     "Christina Äng",
-     "Frida Schill Örne",
-     "Lars Thelén",
-     "Lena Reimertz Thelén",
-     "Marianne Kierkemann",
-     "Thure Sandén",
-     "Ulla Krantz"
-    ]
+    "namn_forslag": "Lars Thelén",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "M",
@@ -17141,18 +17079,9 @@
     "kon": "K",
     "mandat": 2,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Adolfsson",
-     "Christina Äng",
-     "Frida Schill Örne",
-     "Lars Thelén",
-     "Lena Reimertz Thelén",
-     "Marianne Kierkemann",
-     "Ulla Krantz"
-    ]
+    "namn_forslag": "Christina Äng",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "M",
@@ -17172,19 +17101,9 @@
     "kon": "K",
     "mandat": 4,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Adolfsson",
-     "Christina Äng",
-     "Frida Schill Örne",
-     "Lars Thelén",
-     "Lena Reimertz Thelén",
-     "Marianne Kierkemann",
-     "Thure Sandén",
-     "Ulla Krantz"
-    ]
+    "namn_forslag": "Lena Reimertz Thelén",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "M",
@@ -17204,19 +17123,9 @@
     "kon": "M",
     "mandat": 6,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Adolfsson",
-     "Christina Äng",
-     "Frida Schill Örne",
-     "Lars Thelén",
-     "Lena Reimertz Thelén",
-     "Marianne Kierkemann",
-     "Thure Sandén",
-     "Ulla Krantz"
-    ]
+    "namn_forslag": "Thure Sandén",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "M",
@@ -17225,18 +17134,9 @@
     "kon": "M",
     "mandat": 7,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Adolfsson",
-     "Christina Äng",
-     "Frida Schill Örne",
-     "Lars Thelén",
-     "Lena Reimertz Thelén",
-     "Marianne Kierkemann",
-     "Ulla Krantz"
-    ],
+    "namn_forslag": "Bengt Adolfsson",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)",
     "avvisat_forslag": "Ulrika Nyhlen"
    },
    {
@@ -17312,13 +17212,9 @@
     "kon": "M",
     "mandat": 2,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Johan Tolinsson",
-     "Thomas Johansson"
-    ]
+    "namn_forslag": "Johan Tolinsson",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "S",
@@ -17382,13 +17278,9 @@
     "kon": "M",
     "mandat": 2,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Johan Tolinsson",
-     "Thomas Johansson"
-    ]
+    "namn_forslag": "Thomas Johansson",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "S",
@@ -17419,15 +17311,9 @@
     "kon": "K",
     "mandat": 2,
     "personvald": true,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Carita Boulwén",
-     "James Kujansuu",
-     "Jessica L Larsson",
-     "Thord Brynielsson"
-    ]
+    "namn_forslag": "Carita Boulwén",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "SD",
@@ -17436,15 +17322,9 @@
     "kon": "M",
     "mandat": 3,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Carita Boulwén",
-     "James Kujansuu",
-     "Jessica L Larsson",
-     "Thord Brynielsson"
-    ]
+    "namn_forslag": "James Kujansuu",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "SD",
@@ -17464,14 +17344,9 @@
     "kon": "K",
     "mandat": 1,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "James Kujansuu",
-     "Jessica L Larsson",
-     "Thord Brynielsson"
-    ]
+    "namn_forslag": "Jessica L Larsson",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "SD",
@@ -17491,14 +17366,9 @@
     "kon": "M",
     "mandat": 1,
     "personvald": true,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "James Kujansuu",
-     "Jessica L Larsson",
-     "Thord Brynielsson"
-    ]
+    "namn_forslag": "Thord Brynielsson",
+    "sakerhet": "stark",
+    "grund": "loggordning (valkrets, mandat)"
    },
    {
     "parti": "V",
@@ -17519,9 +17389,8 @@
     "mandat": 1,
     "personvald": true,
     "namn_forslag": "Jon Thorbjörnsson",
-    "sakerhet": "stark",
-    "grund": "närvarologgens namn + ålder utesluter övriga platser",
-    "avvisat_forslag": "Jon Thorbjörnson"
+    "sakerhet": "möjlig",
+    "grund": "spår + närvarologg"
    }
   ],
   "2018": [
@@ -17721,9 +17590,9 @@
     "kon": "M",
     "mandat": null,
     "personvald": false,
-    "namn_forslag": "Jan Erik Knutas",
+    "namn_forslag": "Jan Eric Knutas",
     "sakerhet": "stark",
-    "grund": "spår, ej i loggen (kan ha lämnat)"
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "L",
