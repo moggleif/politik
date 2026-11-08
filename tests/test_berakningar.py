@@ -4697,3 +4697,68 @@ class TestEnkaterRiktigaFiler(unittest.TestCase):
             self.assertEqual(varde(enhet, grupp, "GR", serie, ar), facit, (enhet, ar))
 
 
+
+
+hamta_uppdrag = ladda("hamta_uppdrag")
+
+ORG_HTML = """
+<h1>Kommunstyrelse</h1>
+<p><strong>Mandatperiod: </strong> 2023-01-01 - 2026-12-31 </p>
+<h2>Uppdrag <small>(2 st)</small></h2>
+<table id="engagementTable"><thead><tr>
+<th>Efternamn</th><th>Förnamn</th><th>Parti</th><th>Uppdrag</th><th>Ordningsnummer</th>
+</tr></thead><tbody>
+<tr><td><a href="/person/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa">Ek</a></td>
+<td><a href="/person/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa">Eva</a></td>
+<td><a href="/parti/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb">M</a></td>
+<td>Ordförande</td><td>1</td></tr>
+<tr><td><a href="/person/cccccccc-cccc-cccc-cccc-cccccccccccc">Lind</a></td>
+<td><a href="/person/cccccccc-cccc-cccc-cccc-cccccccccccc">Lars</a></td>
+<td></td><td>Ledamot</td><td>2</td></tr>
+</tbody></table>
+"""
+
+
+class TestUppdragParsning(unittest.TestCase):
+    """Troman-sidorna: facit räknat för hand ur påhittad HTML."""
+
+    def test_organisationssida(self):
+        s = hamta_uppdrag.organisationssida(ORG_HTML)
+        self.assertEqual(s["mandatperiod"], ["2023-01-01", "2026-12-31"])
+        self.assertEqual(s["antal_enligt_sidan"], 2)
+        self.assertEqual(s["uppdrag"][0]["uppdrag"], "Ordförande")
+        self.assertEqual(s["uppdrag"][0]["parti"], "M")
+        self.assertEqual(s["uppdrag"][0]["person_id"], "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa")
+        # Tomt är inte noll: en person utan parti får None, inte en tom sträng.
+        self.assertIsNone(s["uppdrag"][1]["parti"])
+        self.assertEqual(s["uppdrag"][1]["ordningsnummer"], 2)
+
+    def test_antalet_rader_maste_stamma_med_sidans_egna_siffra(self):
+        with self.assertRaises(SystemExit):
+            hamta_uppdrag.organisationssida(ORG_HTML.replace("(2 st)", "(3 st)"))
+
+    def test_oväntade_kolumner_avbryter(self):
+        with self.assertRaises(SystemExit):
+            hamta_uppdrag.organisationssida(ORG_HTML.replace("Förnamn", "Tilltalsnamn"))
+
+    def test_personsida(self):
+        html = """<h1>Eva Ek</h1>
+        <table><tr><th>Organisation</th><th>Uppdrag</th><th>Start</th><th>Slut</th></tr>
+        <tr><td>Kommunstyrelse</td><td>Ordförande</td><td>2023-01-01</td><td>2026-12-31</td></tr></table>
+        <table><tr><th>Organisation</th><th>Uppdrag</th><th>Parti</th><th>Start</th><th>Slut</th></tr>
+        <tr><td>Kommunfullmäktige</td><td>Ledamot</td><td>M</td><td>2018-10-15</td><td>2022-10-14</td></tr></table>"""
+        p = hamta_uppdrag.personsida(html)
+        self.assertEqual(p["namn"], "Eva Ek")
+        self.assertEqual(p["uppdrag"][0]["organisation"], "Kommunstyrelse")
+        self.assertEqual(p["uppdragshistorik"][0]["slut"], "2022-10-14")
+
+    def test_sparad_fil_har_ordforande_i_ks(self):
+        filer = sorted((ROT / "data" / "uppdrag").glob("troman_*.json"))
+        self.assertTrue(filer)
+        d = json.loads(filer[-1].read_text(encoding="utf-8"))
+        ks = next(o for o in d["organisationer"] if o["namn"] == "Kommunstyrelse")
+        self.assertEqual(ks["antal_enligt_sidan"], len(ks["uppdrag"]))
+        self.assertIn("Ordförande", {r["uppdrag"] for r in ks["uppdrag"]})
+        for o in d["organisationer"]:
+            for r in o["uppdrag"]:
+                self.assertIn(r["person_id"], d["personer"])

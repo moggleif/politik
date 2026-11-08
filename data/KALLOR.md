@@ -28,6 +28,7 @@ och vad som återstår.
 | Röstberättigade 2022 och 2026 (Valmyndigheten) | Klara |
 | Kommunfullmäktiges inspelade möten 2022–2026 (kommunen, Screen9, YouTube) | Klara, hämtas om för hand |
 | Kandidatlistor till kommunfullmäktige 2022 och 2026 (Valmyndighetens valpresentation) | Klara, `data/kandidater/`. 2010, 2014 och 2018 saknas: samma adress ger 404, listorna måste hämtas ur annan källa |
+| Förtroendevalda och uppdrag, nuläget (kommunens register Troman) | Hämtat 2026-11-08, `data/uppdrag/`. Bara nuläget; se "Luckor" i avsnittet Kandidater och uppdrag |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
 jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på nio
@@ -1594,3 +1595,63 @@ Det som inte förs in:
   och är ett ungefärligt tal.
 - Timvikarietimmar och årsarbetare per månad (utvärderingen 2026) mäter
   arbetad tid, inte personer.
+
+## Kandidater och uppdrag (kandidatlistor och förtroendevalda)
+
+Mål: för varje val till kommunfullmäktige se vilka som stod var på
+partiernas listor och vilka av dem som sedan fick plats i kommunstyrelsen
+(KS), kommunstyrelsens arbetsutskott (KSAU) eller blev ordförande eller
+vice ordförande i en nämnd. Underlaget lagras som källorna ger det, utan
+tolkning; kopplingen mellan listorna och uppdragen görs i ett senare steg.
+Ändringar under mandatperioden bortses från: det som eftersträvas är
+fördelningen efter valet, helst den som fullmäktige fastställde i december
+efter valet (2010, 2014, 2018, 2022).
+
+### Kandidatlistor
+
+| Val | Källa | Status |
+|---|---|---|
+| 2022, 2026 | `https://data.val.se/assets/valtillfallen/val<år>/valdata/partier/kandidatur_KF_1384.json` (sidan för människor: `https://data.val.se/val<år>/partier/valsedlar/valtyp/KF/omrade/13/kommun/1384`) | Hämtad med `scripts/hamta_valsedlar.py` till `data/kandidater/<år>.json` |
+| 2010, 2014, 2018 | Valpresentationen data.val.se har bara 2022, 2024 (EU) och 2026. Samma adress för 2010–2018 ger 404, och de gissade adresserna under `historik.val.se/val/val<år>/` (`/`, `/valsedlar/index.html`, `/kandidater/index.html`) ger också 404 | **Lucka.** Källan är inte funnen. Att pröva: partiernas arkiv, Riksarkivet, kommunens protokoll från när fullmäktige konstituerades |
+
+Listplatsen ("ordning") är den på den tryckta valsedeln före valet.
+Källan sorterar platserna som text (1, 10, 11 … 2); hämtningen sorterar om
+numeriskt. Uppgiftsraden (ålder, yrke, ort) sparas som en sträng.
+
+### Uppdrag
+
+Källa: kommunens register över förtroendevalda,
+`https://kungsbacka.tromanpublik.se/` (uppdateras varje natt), hämtat med
+`scripts/hamta_uppdrag.py` till `data/uppdrag/troman_<hämtdatum>.json`.
+Filen har organisationer (med mandatperiod och alla uppdragsrader),
+personer (med person-id, uppdrag och uppdragshistorik) och en lista över
+utelämnade organisationer. Person-id:t (`/person/<uuid>`) är registrets
+eget och det som håller ihop en person mellan perioder.
+
+Hämtat: kommunfullmäktige, kommunstyrelsen, utskott, nämnder och posten
+"Övrigt" (bl.a. kommunalråd). Utelämnat avsiktligt och listat i filen:
+bolag och stiftelser.
+
+**Luckor – dokumenterade, inte åtgärdade**
+
+- **Registret visar bara nuläget.** Perioden 2023-01-01 – 2026-12-31
+  (valet 2022) är den som gäller för alla nämnder och KS i hämtningen
+  2026-11-08. Kommunfullmäktige ligger redan på den nya perioden
+  2026-10-15 – 2030-10-14 (valet 2026), medan KS och nämnderna för
+  2027–2030 inte är valda ännu. Ta en ny ögonblicksbild när de lagts in.
+- **Historiken saknar KS och nämnder.** På personsidorna innehåller
+  "Uppdragshistorik" i praktiken bara perioder som fullmäktigeledamot
+  (tillbaka till 2002). Avslutade poster i KS, KSAU och nämnder syns inte.
+  Stickprov om 14 ledamöter av KS 2026-11-08 gav ingen avslutad KS- eller
+  nämndspost. Därmed saknas uppdragen för mandatperioderna 2011–2014,
+  2015–2018 och 2019–2022.
+- **Hämtningen visar den som sitter nu, inte den som valdes i december.**
+  Avgångna och inträdande ersättare under perioden följer med som registret
+  har dem. Den avgränsningen är medveten (se ovan) men betyder att 2023–2026
+  inte är exakt fullmäktiges decemberbeslut 2022.
+- **Perioderna 2010–2022 måste hämtas ur annan källa**, sannolikt
+  kommunfullmäktiges protokoll där KS, KSAU och nämndernas ordförande och
+  vice ordförande väljs. Inte hittat än.
+- **Partiet anges som förkortning** i registret (M, S, C, …), medan
+  Valmyndighetens filer har en egen partikod (Moderaterna = 1). Mappningen
+  görs vid kopplingen, inte i de lagrade filerna.

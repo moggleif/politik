@@ -413,6 +413,12 @@ data/
                                 Vård & Omsorgs övriga sommarjobb
   rodalinjer/besked.json        Partiernas besked om regering och samarbete,
                                 ett per rad, med länkade källor
+  kandidater/<år>.json          Partiernas kandidatlistor till kommunfullmäktige
+                                i Kungsbacka (2022, 2026): listplats, namn och
+                                uppgiftsrad, ur Valmyndighetens valpresentation
+  uppdrag/troman_<datum>.json   Förtroendevaldas uppdrag i KS, utskott och
+                                nämnder, ur kommunens register Troman: en
+                                ögonblicksbild per hämtning
   kommunval/<år>.json           Kommunvalets resultat per valdistrikt i
   regionval/<år>.json           Kungsbacka, parti för parti (2010, 2014,
   riksdagsval/<år>.json         2018, 2022, 2026) – ett val per mapp. Bara
@@ -528,6 +534,11 @@ scripts/
                                 metoden mot Valmyndighetens egen bedömning –
                                 jämförbara distrikt ska hamna på sig själva –
                                 och avbryter annars
+  hamta_valsedlar.py            Hämtar kandidatlistorna (2022, 2026) till
+                                data/kandidater/; 2010–2018 finns inte i källan
+  hamta_uppdrag.py              Hämtar uppdrag och personer ur Troman till
+                                data/uppdrag/ och kontrollerar radantalet mot
+                                sidans eget
   build_valresultat.py          Bygger docs/data-kommunval.json och de två
                                 andra valens filer: rösterna per distrikt,
                                 parti och val, med jämförbarheten mellan
