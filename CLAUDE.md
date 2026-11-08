@@ -32,9 +32,10 @@ på två ställen är en bugg som väntar på att glida isär.
 data/       Källdatat, ett uttag per fil. Ändras bara av hamta_*/extrahera_*.
 scripts/    hamta_*.py hämtar, extrahera_*.py läser PDF, build_*.py bygger
             docs/data-*.json. *_webbplats.js granskar de färdiga sidorna.
-docs/       Själva hemsidan. En .html + en .js per sida, plus de genererade
+docs/       Själva hemsidan. En .html + dess .js per sida (en stor sida kan
+            dela sitt skript i flera filer), plus de genererade
             data-*.json. Serveras som den är – inget byggsteg, ingen bundler.
-tests/      test_berakningar.py (Python), test_gemensam.js (Node),
+tests/      test_berakningar.py (Python), test_*.js (Node),
             fixtures/ (fruset data) och facit/ (vad sidorna ritar).
 ```
 
