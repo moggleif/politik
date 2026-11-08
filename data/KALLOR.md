@@ -2114,3 +2114,19 @@ oberoende kontroll (ingen ålder eller kön i annat val) och är en bra gissning
 `ersättare på platsen` och har inget namn som vald (C 1, M 19, MP 1, S 6). SD 2010 plats 3 saknas på den hämtade
 listan (XML-filen har två SD-platser), så personens kandidatur har `plats_saknas_pa_hamtad_lista`.
 
+### Vad de valdes till (`data/valdes_till/<val>.json`, `scripts/bygg_valdes_till.py`, 2026-11-08)
+
+Kopplar personerna på valsedlarna (personfilerna: plats och om platsen blev ett mandat) till **KS** (ledamot,
+ersättare, ordförande, 1:e/2:e vice), **KSAU** (samma) och **ordförande/vice ordförande i en nämnd**. Övriga poster
+(revisorer, bolag, nämndledamöter, nämndernas egna utskott, externa nämnder som Patientnämnd Halland) ingår inte.
+
+| Val | Källa | Läge |
+|---|---|---|
+| 2022 (2023–2026) | fullmäktiges beslut 2022-12-06 + KS 2023-01-10 | **komplett**: 37 personer; KS 15 ledamöter + 14 ersättare, KSAU 6 + 6, 28 nämndposter (ordförande/vice); alla knutna till plats på valsedeln, 34 valda i fullmäktige |
+| 2018 (2019–2022) | närvarolistor, upp till sex första protokoll med text per organ | **partiell**: 28 personer; KS 15 av 15 (12 ledamöter + ordförande + två vice), KSAU 5 av 6, nämnders ordförande/vice där titeln står direkt efter namnet; inga ersättare. Varje uppdrag har `fran_forsta_motet`: de som syns först senare är byten under perioden (10 rader, bl.a. Vård & Omsorg: Björck först, Lisa Andersson senare) |
+| 2014 (2015–2018) | fullmäktiges beslut 2014-12-09 + KS 2015-01-20 | **komplett**: 43 personer; 9 saknar plats på valsedeln eftersom de inte var valda och platser utanför de valda saknar namn |
+| 2010 (2011–2014) | närvarolistor | **partiell**: 22 personer; KS 15 av 15 (1:e vice saknas pga titel på egen rad), inga KSAU-protokoll med text; flera nämnder saknas i arkivet |
+
+`luckor` i varje fil listar de utan plats på valsedeln och de som står på listan men inte blev valda i fullmäktige
+(2022: Heinrich Kaufmann, Marie Wadström, Marianne Pleijel, 2014: Bengt Alderin, Marie Wadström).
+

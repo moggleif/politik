@@ -421,6 +421,8 @@ data/
                                 Troman som bekräftelse. Byggs av build_personer.py
   uppdrag/kf_val_<datum>.json   Valbesluten i fullmäktiges decemberprotokoll,
                                 en rad per person och roll
+  valdes_till/<val>.json        Vad personerna på valsedeln valdes till (KS, KSAU,
+                                nämndernas ordförande och vice), per val
   matchning/forslag.json        Namnförslag med säkerhetsgrad för platser där
                                 Valmyndigheten gallrat namnet
   uppdrag/narvaro.json          Närvarolistor ur första protokollet med text
@@ -553,6 +555,8 @@ scripts/
                                 mot protokollen, till data/matchning/forslag.json
   hamta_kf_logg.py              Hämtar fullmäktiges närvarologg (61 ledamöter),
                                 första loggen i arkivet för varje mandatperiod
+  bygg_valdes_till.py           Kopplar valsedelsplats → KS/KSAU/nämnders ordförande
+                                och vice ordförande, till data/valdes_till/<val>.json
   hamta_narvaro.py              Hämtar närvarolistan ur första protokollet med
                                 text per organ och period till
                                 data/uppdrag/narvaro.json (ersättningskälla för

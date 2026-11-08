@@ -57,7 +57,9 @@ PERIODER = {
     "2019–2022": ("2019-01-01", "2022-10-14"),
     "2023–2026": ("2023-01-01", "2026-10-14"),
 }
-KONTROLL = {"2015–2018", "2023–2026"}   # perioder där valbeslut finns att jämföra med
+KONTROLL = {"2015–2018", "2023–2026"}
+FLERA_PERIODER = {"2011–2014", "2019–2022"}   # perioder utan fullmäktiges valbeslut
+FLERA_ANTAL = 6   # perioder där valbeslut finns att jämföra med
 
 NAMN_PARTI = re.compile(r"([A-ZÅÄÖÉ][\wÅÄÖåäöéüáèçšć'’.\-]*(?: [A-Za-zÅÄÖåäöéüáèçšć'’.\-]+){1,4}) \(([A-Z]{1,2})\)")
 TITEL = re.compile(r"^,\s*(första vice ordförande|andra vice ordförande|förste vice ordförande|"
@@ -148,15 +150,23 @@ def hamta_alla() -> dict:
             kand = [d for d in datum if a <= d <= b]
             post = {"organ": namn, "slug": slug, "period": period,
                     "protokoll_i_fonstret": len(kand), "provade": 0, "datum": None}
+            flera = []
             for d in kand:
                 post["provade"] += 1
                 url = f"{BAS}/{slug}/{d[:4]}/{d}/protokoll.html"
                 block = narvarobock(text_ur_html(hamta_text(url)))
                 time.sleep(0.1)
                 if block and len(block) > 40:
-                    post.update({"datum": d, "arkiv": url, "block": block,
-                                 "utlasning": utlasning(block)})
-                    break
+                    if post["datum"] is None:
+                        post.update({"datum": d, "arkiv": url, "block": block,
+                                     "utlasning": utlasning(block)})
+                    flera.append({"datum": d, "arkiv": url, "utlasning": utlasning(block)})
+                    # De sex första protokollen med text i perioder utan valbeslut ger en fullare bild
+                    # (alla ledamöter är sällan med vid ett enda möte); övriga perioder: bara det första.
+                    if period not in FLERA_PERIODER or len(flera) >= FLERA_ANTAL:
+                        break
+            if period in FLERA_PERIODER:
+                post["flera_moten"] = flera
             ut[f"{slug}|{period}"] = post
             print(f"{namn:42} {period}: {post['datum'] or 'inget protokoll med text'} "
                   f"({post['protokoll_i_fonstret']} i fönstret)")

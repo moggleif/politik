@@ -5129,3 +5129,42 @@ class TestMatchning(unittest.TestCase):
         # Renée Sylvan på S 48 2018 (man) togs bort efter kön-kontrollen
         b = json.loads((ROT / "data" / "matchning" / "bekraftade.json").read_text(encoding="utf-8"))["platser"]
         self.assertNotIn(("S", 2018, 48), {(x["parti"], x["val"], x["plats"]) for x in b})
+
+
+bygg_valdes_till = ladda("bygg_valdes_till")
+
+
+class TestValdesTill(unittest.TestCase):
+    """Kopplingen vald → uppdrag (KS, KSAU, nämndernas ordförande och vice)."""
+
+    def test_organgrupper(self):
+        g = bygg_valdes_till.organgrupp
+        self.assertEqual(g("Kommunstyrelsen"), ("KS", "Kommunstyrelsen"))
+        self.assertEqual(g("Kommunstyrelsens arbetsutskott 2015-2018")[0], "KSAU")
+        self.assertEqual(g("Nämnden för Teknik")[0], "nämnd")
+        self.assertIsNone(g("Teknik, arbetsutskott"))          # nämndernas egna utskott ingår inte
+        self.assertIsNone(g("Patientnämnd Halland"))           # externa nämnder ingår inte
+        self.assertIsNone(g("Eksta Bostadsaktiebolag"))
+
+    def test_2022_ar_komplett_ur_besluten(self):
+        d = json.loads((ROT / "data" / "valdes_till" / "2022.json").read_text(encoding="utf-8"))
+        rader = [(p["parti"], p["namn"], u["organ"], u["roll"]) for p in d["personer"] for u in p["uppdrag"]]
+        ks = [r for r in rader if r[2] == "Kommunstyrelsen"]
+        self.assertEqual(sum(1 for r in ks if r[3] == "ledamot"), 15)
+        self.assertEqual(sum(1 for r in ks if r[3] == "ersättare"), 14)
+        self.assertIn(("M", "Lisa Andersson", "Kommunstyrelsen", "ordförande"), rader)
+        self.assertIn(("M", "Lisa Andersson", "Kommunstyrelsens arbetsutskott", "ordförande"), rader)
+        ordf_namnder = {r[2] for r in rader if r[3] == "ordförande" and r[2] not in ("Kommunstyrelsen", "Kommunstyrelsens arbetsutskott")}
+        self.assertGreaterEqual(len(ordf_namnder), 11)
+        self.assertEqual(d["luckor"]["utan_listplats"], [])      # alla är knutna till en plats på valsedeln
+        lisa = next(p for p in d["personer"] if p["namn"] == "Lisa Andersson")
+        self.assertEqual((lisa["listplats"], lisa["vald"]), (1, True))
+
+    def test_2018_narvaro_markerar_senare_byten(self):
+        d = json.loads((ROT / "data" / "valdes_till" / "2018.json").read_text(encoding="utf-8"))
+        rader = {(p["namn"], u["organ"], u["roll"]): u for p in d["personer"] for u in p["uppdrag"]}
+        self.assertEqual(d["kalla"].split()[0], "närvarolistor")
+        self.assertTrue(rader[("Lisa Andersson", "Kommunstyrelsen", "ordförande")]["kalla"]["fran_forsta_motet"])
+        # Vård & Omsorg: Björck vid första mötet, Lisa Andersson först senare
+        self.assertTrue(rader[("Ulric Björck", "Nämnden för Vård & Omsorg", "ordförande")]["kalla"]["fran_forsta_motet"])
+        self.assertFalse(rader[("Lisa Andersson", "Nämnden för Vård & Omsorg", "ordförande")]["kalla"]["fran_forsta_motet"])
