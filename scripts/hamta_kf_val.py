@@ -29,7 +29,7 @@ Kontroller, som avbryter hellre än sparar något som inte stämmer:
   * rader som liknar en person men inte går att tolka hamnar under
     "ej_tolkade" i stället för att tyst försvinna.
 
-Körs: python3 scripts/hamta_kf_val.py [protokolldatum …]
+Körs: python3 scripts/hamta_kf_val.py [organ/protokolldatum …]   (t.ex. kf/2022-12-06)
       (utan argument hämtas de kända decembermötena)
 """
 
@@ -45,11 +45,13 @@ from val import hamta
 
 ROT = Path(__file__).resolve().parent.parent
 UT = ROT / "data" / "uppdrag"
-ARKIV = "https://moggleif.github.io/kommunhandlingar/kungsbacka/kf/{ar}/{datum}/protokoll.html"
+ARKIV = "https://moggleif.github.io/kommunhandlingar/kungsbacka/{organ}/{ar}/{datum}/protokoll.html"
 
 # Decembermötena efter valen som finns i arkivet. 2018 saknas helt i
 # arkivet (inga möten 2018), 2010 ligger före dess början (2013-08-13).
-MOTEN = ["2014-12-09", "2022-12-06"]
+# organ/datum. Kommunstyrelsens första möte efter valet väljer
+# kommunstyrelsens arbetsutskott (KSAU), som inte väljs av fullmäktige.
+MOTEN = ["kf/2014-12-09", "kf/2022-12-06", "ks/2015-01-20", "ks/2023-01-10"]
 
 PARTIER = {"M", "S", "C", "L", "KD", "V", "MP", "SD", "KB", "FP"}
 
@@ -101,6 +103,7 @@ def roll_pa_rad(rad: str):
     råkar börja med ordet ("Ordförande Anders Ekström (M) prövar …") är
     ingen rolllista.
     """
+    rad = re.sub(r"^((?:" + "|".join(re.escape(r) for r, _ in ROLLER) + r")):", r"\1", rad)
     for rubrik, roll in ROLLER:
         if rad == rubrik or rad.startswith(rubrik + " "):
             rest = rad[len(rubrik):].strip()
@@ -113,6 +116,8 @@ def roll_pa_rad(rad: str):
 def namn_och_parti(rad: str):
     """('Hans Forsberg', 'M') eller ('Daniel Hogner', None). None om raden
     inte ser ut som en person."""
+    # Kommunstyrelsens protokoll skriver partiet inom parentes: "Hans Forsberg (M)".
+    rad = re.sub(r" \(([A-Z]{1,2})\)$", r" \1", rad)
     if not NAMN.match(rad):
         return None
     delar = rad.split(" ")
@@ -178,8 +183,8 @@ def kalla_lank(html: str):
     return m.group(1) if m else None
 
 
-def hamta_protokoll(datum: str) -> dict:
-    url = ARKIV.format(ar=datum[:4], datum=datum)
+def hamta_protokoll(organ: str, datum: str) -> dict:
+    url = ARKIV.format(organ=organ, ar=datum[:4], datum=datum)
     for n in range(4):
         try:
             html = hamta(url).decode("utf-8")
@@ -190,19 +195,21 @@ def hamta_protokoll(datum: str) -> dict:
             time.sleep(2 ** (n + 1))
     beslut = valbeslut(text_ur_html(html))
     granska(datum, beslut)
-    return {"protokoll": {"datum": datum, "arkiv": url, "originalet": kalla_lank(html)},
+    return {"protokoll": {"organ": organ, "datum": datum, "arkiv": url,
+                          "originalet": kalla_lank(html)},
             "beslut": beslut}
 
 
 def main(argv: list) -> None:
     UT.mkdir(parents=True, exist_ok=True)
-    for datum in argv or MOTEN:
-        ut = hamta_protokoll(datum)
-        fil = UT / f"kf_val_{datum}.json"
+    for mote in argv or MOTEN:
+        organ, datum = mote.split("/")
+        ut = hamta_protokoll(organ, datum)
+        fil = UT / f"{organ}_val_{datum}.json"
         fil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         antal = sum(len(b["poster"]) for b in ut["beslut"])
         ej = sum(len(b["ej_tolkade"]) for b in ut["beslut"])
-        print(f"{datum}: {len(ut['beslut'])} beslut, {antal} poster, {ej} rader ej tolkade")
+        print(f"{organ} {datum}: {len(ut['beslut'])} beslut, {antal} poster, {ej} rader ej tolkade")
 
 
 if __name__ == "__main__":

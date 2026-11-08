@@ -4833,7 +4833,7 @@ class TestPersonfil(unittest.TestCase):
         "listnamn": "Kungsbacka", "listnummer": "1", "kandidater": [
             {"plats": 1, "namn": "Eva Ek", "samtycke": True, "uppgift": "50 år"},
             {"plats": 2, "namn": "Ermin Škorić", "samtycke": True, "uppgift": "40 år"}]}]}]}}
-    BESLUT = {"2022-12-06": {"beslut": [{
+    BESLUT = {"kf/2022-12-06": {"beslut": [{
         "paragraf": 194, "dnr": "x",
         "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till kommunstyrelsen 2023-01-01–2026-12-31",
         "poster": [
@@ -4873,6 +4873,7 @@ class TestPersonfil(unittest.TestCase):
     def test_perioder_med_luckor_syns(self):
         per = {p["val"]: p for p in self.ut["perioder"]}
         self.assertEqual(per[2018]["valbeslut"], "saknas")
+        self.assertEqual(per[2022]["valbeslut"], "saknas")   # ks/2023-01-10 saknas i testdatat
         self.assertIn("2018", per[2018]["anledning"])
         self.assertEqual(per[2026]["valbeslut"], "valbeslut ej fattat")
 

@@ -4,7 +4,8 @@ uppdrag per mandatperiod.
 
 Indata (alla i data/, inget annat):
   kandidater/<år>.json         partiernas kandidatlistor (Valmyndigheten)
-  uppdrag/kf_val_<datum>.json  valbesluten i fullmäktiges decemberprotokoll
+  uppdrag/<organ>_val_<datum>.json  valbeslut i fullmäktiges decemberprotokoll (kf)
+                               och kommunstyrelsens första möte (ks)
   uppdrag/troman_<datum>.json  kommunens register – bara som bekräftelse
 
 Det som sparas är det källorna säger, ihopparat på namn *inom partiet*:
@@ -45,13 +46,15 @@ ROT = Path(__file__).resolve().parent.parent
 DATA = ROT / "data"
 UT = DATA / "personer"
 
-# Val -> (mandatperiod, datum för fullmäktiges valbeslut | None, anledning)
+# Val -> (mandatperiod, protokoll med valbeslut ("organ/datum"), anledning).
+# Fullmäktige (kf) väljer KS och nämnder; kommunstyrelsens första möte (ks)
+# väljer arbetsutskottet (KSAU).
 VAL = {
-    2010: ("2011–2014", None, "Arkivet kommunhandlingar börjar 2013-08-13; kandidatlistor saknas hos data.val.se"),
-    2014: ("2015–2018", "2014-12-09", None),
-    2018: ("2019–2022", None, "Fullmäktiges decemberprotokoll 2018 ej funnet; kandidatlistor saknas hos data.val.se"),
-    2022: ("2023–2026", "2022-12-06", None),
-    2026: ("2027–2030", None, "Valbeslut ej fattat (nytt fullmäktige konstituerat 2026-10-15)"),
+    2010: ("2011–2014", [], "Arkivet kommunhandlingar börjar 2013-08-13; kandidatlistor saknas hos data.val.se"),
+    2014: ("2015–2018", ["kf/2014-12-09", "ks/2015-01-20"], None),
+    2018: ("2019–2022", [], "Fullmäktiges decemberprotokoll 2018 ej funnet; kandidatlistor saknas hos data.val.se"),
+    2022: ("2023–2026", ["kf/2022-12-06", "ks/2023-01-10"], None),
+    2026: ("2027–2030", [], "Valbeslut ej fattat (nytt fullmäktige konstituerat 2026-10-15)"),
 }
 
 
@@ -124,7 +127,7 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
                     P.tvetydiga.append({"namn": k["namn"], "var": f"kandidatlista {ar} (plats {sedda[n]} och {k['plats']})"})
                 sedda[n] = k["plats"]
     for datum, fil in sorted(valbeslut.items()):
-        ar = next(a for a, (_, d, _) in VAL.items() if d == datum)
+        ar = next(a for a, (_, d, _) in VAL.items() if datum in d)
         period = VAL[ar][0]
         for b in fil["beslut"]:
             sedda = {}
@@ -158,9 +161,10 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
         perioder.append({
             "val": ar, "mandatperiod": period,
             "kandidatlista": "finns" if ar in kandidater else "saknas",
-            "valbeslut": ("finns" if datum in valbeslut
+            "valbeslut": ("finns" if datum and all(d in valbeslut for d in datum)
                           else "valbeslut ej fattat" if ar == 2026 else "saknas"),
-            "anledning": None if (ar in kandidater and datum in valbeslut) else orsak})
+            "protokoll": datum,
+            "anledning": None if (ar in kandidater and datum and all(d in valbeslut for d in datum)) else orsak})
     personer = sorted(P.perso.values(), key=lambda p: nyckel(p["namn"]))
     for i, p in enumerate(personer, 1):
         p["id"] = f"{kort.lower()}-{i:03d}"
@@ -180,8 +184,10 @@ def main(argv: list) -> None:
     partinamn = argv[0] if argv else "Moderaterna"
     kort = argv[1] if len(argv) > 1 else "M"
     kandidater = {int(f.stem): las_json(f) for f in sorted((DATA / "kandidater").glob("*.json"))}
-    valbeslut = {f.stem.removeprefix("kf_val_"): las_json(f)
-                 for f in sorted((DATA / "uppdrag").glob("kf_val_*.json"))}
+    valbeslut = {}
+    for f in sorted((DATA / "uppdrag").glob("*_val_*.json")):
+        organ, datum = f.stem.split("_val_")
+        valbeslut[f"{organ}/{datum}"] = las_json(f)
     trom = sorted((DATA / "uppdrag").glob("troman_*.json"))
     if not trom:
         sys.exit("Ingen Troman-fil i data/uppdrag/ – kör hamta_uppdrag.py")

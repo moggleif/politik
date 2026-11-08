@@ -1689,9 +1689,15 @@ kandidatlistorna i ett senare steg.
   gallrat". Att göra: kommunens egen sida eller diarium för
   KF-protokollen december 2018.
 - **2010 (mandatperioden 2011–2014) saknas.** Arkivet börjar 2013-08-13.
-- **Kommunstyrelsens arbetsutskott (KSAU) finns inte i fullmäktiges
-  protokoll**: kommunstyrelsen utser det själv. Det står i kommunstyrelsens
-  protokoll (arkivet har 104 möten för KS), inte hämtat än.
+- **Kommunstyrelsens arbetsutskott (KSAU) väljs av kommunstyrelsen**, inte av
+  fullmäktige, så det står i kommunstyrelsens första möte efter valet.
+  Hämtat med samma skript (`data/uppdrag/ks_val_<datum>.json`):
+  KS 2015-01-20 § 3 (KSAU 2015–2018) och KS 2023-01-10 § 4 (KSAU
+  2023–2026), båda med ledamöter, ersättare, ordförande och vice
+  ordförande. 2023 stämmer med KSAU:s eget första möte 2023-01-17
+  (beslutande ledamöter med ordförande och vice) och med Troman.
+  KSAU:s första möte 2015-01-27 finns i arkivet men utan text
+  (`ej-hamtad`). **KSAU 2019–2022 och 2011–2014 saknas.**
 - **Rader som inte är personer** hamnar i `ej_tolkade` i stället för att
   försvinna (t.ex. stiftelsernas namn i beslutet om donationsstiftelser,
   § 221 2022). Inga av dem rör KS, KSAU eller nämndernas ordförande.
@@ -1722,4 +1728,29 @@ källor är en person (`namnvarianter` visar olika stavningar). Moderaterna:
   sorteras bort vid visning, inte vid lagring.
 - Troman-id finns bara för dem som sitter i registret idag; tidigare
   ledamöter saknar id.
+
+### Vad som provats för 2018 och 2019 – utan resultat
+
+Arkivets statussida
+(<https://moggleif.github.io/kommunhandlingar/kungsbacka/status.html>,
+byggd 2026-11-08) bekräftar luckan: "År utan dokument: 2018" för
+kommunfullmäktige och KSAU; KS har protokollposter för 2018-12-18 och
+2019-01-15 men utan text (`ej-hamtad`, original på Wayback Machine).
+Arkivets egna källor är kommunens mötessida och Internet Archive.
+
+- Wayback Machine (web.archive.org) går inte att nå från den miljö där
+  skripten kördes (anslutningen bryts), så de arkiverade originalen till
+  KS 2019-01-15 har inte kunnat läsas.
+- `historik.val.se/val/val2018/slutresultat/protokoll/protokoll_1384K.pdf`
+  (länsstyrelsens protokoll med kandidater och personröster 2018) ger 404;
+  2014-motsvarigheten returnerar bara "Protokoll gallrat". En webbsökning
+  visade en äldre kopia med Moderaternas lista 2018, men filen går inte att
+  hämta, så inget därifrån är sparat. **Spår att kontrollera mot källan:**
+  platserna 1–4 enligt sökträffen var Hans Forsberg, Lisa Andersson,
+  Christian Johansson och Maria Gathendahl (ej verifierat).
+- Kommunens sida "Politisk historia" har bara mandatfördelning per parti
+  (2011–2014: M 24, S 10, FP 7, C 5, MP 4, KB 4, KD 3, SD 3, V 1; 2015–2018:
+  M 21, S 10, C 7, L 6, SD 6, MP 4, KB 3, KD 2, V 2; 2019–2022: M 19, S 9,
+  SD 9, C 8, L 6, KD 4, MP 2, V 2, KB 2), inga ordförande.
+- Centerpartiets PDF om representation 2019–2022 (november 2018) ger 404.
 
