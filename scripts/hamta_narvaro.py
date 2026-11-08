@@ -59,7 +59,7 @@ PERIODER = {
 }
 KONTROLL = {"2015–2018", "2023–2026"}
 FLERA_PERIODER = {"2011–2014", "2019–2022"}   # perioder utan fullmäktiges valbeslut
-FLERA_ANTAL = 6   # perioder där valbeslut finns att jämföra med
+FLERA_ANTAL = 12   # perioder där valbeslut finns att jämföra med
 
 NAMN_PARTI = re.compile(r"([A-ZÅÄÖÉ][\wÅÄÖåäöéüáèçšć'’.\-]*(?: [A-Za-zÅÄÖåäöéüáèçšć'’.\-]+){1,4}) \(([A-Z]{1,2})\)")
 TITEL = re.compile(r"^,\s*(första vice ordförande|andra vice ordförande|förste vice ordförande|"
@@ -97,6 +97,16 @@ def protokolldatum(html: str, slug: str) -> list:
     return sorted({d for _, d in re.findall(rf"{slug}/(\d{{4}})/(\d{{4}}-\d\d-\d\d)/protokoll", html)})
 
 
+UNDERSKRIFT = re.compile(r"Ordförande\s+(?:_+\s*)?([A-ZÅÄÖ][^\n(_]+?) \(([A-Z]{1,2})\)")
+
+
+def ordforande_underskrift(text: str):
+    """Ordförandens namn och parti på underskriftsraden ("Ordförande Thure Sandén (M)")."""
+    i = text.find("Underskrifter")
+    m = UNDERSKRIFT.search(text[i if i >= 0 else 0:(i if i >= 0 else 0) + 2500])
+    return {"namn": m.group(1).strip(), "parti": "L" if m.group(2) == "FP" else m.group(2)} if m else None
+
+
 def narvarobock(text: str):
     """Blocket mellan "Beslutande" och "Övriga närvarande", eller None."""
     i = text.find("Beslutande")
@@ -108,11 +118,15 @@ def narvarobock(text: str):
     return text[i:j].strip()
 
 
+TITEL_BRUTEN = re.compile(r"^,\s*(första vice|andra vice|förste vice|andre vice|1:e vice|2:e vice|vice)\b(?!\s*ordförande)", re.I)
+
+
 def utlasning(block: str) -> list:
-    """Se modulens docstring för reglerna."""
+    """Se modulens docstring för reglerna. Titlar som bryts över två rader
+    ("…, 1:e vice" följd av en rad som börjar med "ordförande") läses som hela titeln."""
     ut = []
-    for rad in block.splitlines():
-        rad = rad.strip()
+    rader = [r.strip() for r in block.splitlines()]
+    for i, rad in enumerate(rader):
         m = NAMN_PARTI.match(rad)
         if not m:
             continue
@@ -123,6 +137,13 @@ def utlasning(block: str) -> list:
         if t:
             titel = TITELNORM.get(t.group(1).lower(), t.group(1).lower())
             rest = rest[t.end():]
+        else:
+            tb = TITEL_BRUTEN.match(rest)
+            nasta = next((r for r in rader[i + 1:i + 3] if r), "")
+            if tb and nasta.lower().startswith("ordförande"):
+                bas = tb.group(1).lower()
+                titel = TITELNORM.get(bas + " ordförande", bas + " ordförande")
+                rest = rest[tb.end():]
         tjanstg = bool(re.match(r"\s*(ersätter|för)\b", rest))
         ut.append({"namn": namn, "parti": parti,
                    "roll": "tjänstgörande ersättare" if tjanstg else "ledamot",
@@ -154,13 +175,15 @@ def hamta_alla() -> dict:
             for d in kand:
                 post["provade"] += 1
                 url = f"{BAS}/{slug}/{d[:4]}/{d}/protokoll.html"
-                block = narvarobock(text_ur_html(hamta_text(url)))
+                protokolltext = text_ur_html(hamta_text(url))
+                block = narvarobock(protokolltext)
                 time.sleep(0.1)
                 if block and len(block) > 40:
                     if post["datum"] is None:
                         post.update({"datum": d, "arkiv": url, "block": block,
                                      "utlasning": utlasning(block)})
-                    flera.append({"datum": d, "arkiv": url, "utlasning": utlasning(block)})
+                    flera.append({"datum": d, "arkiv": url, "utlasning": utlasning(block),
+                                  "ordforande_underskrift": ordforande_underskrift(protokolltext)})
                     # De sex första protokollen med text i perioder utan valbeslut ger en fullare bild
                     # (alla ledamöter är sällan med vid ett enda möte); övriga perioder: bara det första.
                     if period not in FLERA_PERIODER or len(flera) >= FLERA_ANTAL:

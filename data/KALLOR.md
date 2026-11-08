@@ -2130,3 +2130,21 @@ ersättare, ordförande, 1:e/2:e vice), **KSAU** (samma) och **ordförande/vice 
 `luckor` i varje fil listar de utan plats på valsedeln och de som står på listan men inte blev valda i fullmäktige
 (2022: Heinrich Kaufmann, Marie Wadström, Marianne Pleijel, 2014: Bengt Alderin, Marie Wadström).
 
+### Nämndprotokollen läses djupare (2019–2022 och 2011–2014), 2026-11-08
+
+`hamta_narvaro.py` hämtar nu upp till 12 protokoll med text per organ för perioderna utan fullmäktiges beslut, och läser
+titlar som bryts över två rader ("…, 1:e vice" / "ordförande"): vice ordförande och 2:e vice, som tidigare föll bort, kommer nu
+med. Ordförandens underskrift ("Ordförande Thure Sandén (M)") lagras per protokoll (`ordforande_underskrift`, 133 av 211) men
+används **inte** som uppdragsrad: den visar vem som ledde just det mötet, så vice ordförande dyker upp som ordförande. Det
+syntes som brus (t.ex. Hravn Forsne som ordförande i Vård & Omsorg) och OCR-fel ("Tisa Andersson").
+
+Fullmäktiges protokoll gav nästan inget om nämndordförande (en träff, 2014-08-12 Harald Pleijel, Teknik).
+
+**Hål som kvarstår och varför**
+- 2019–2022: Gymnasium & Arbetsmarknad (första text 2020-11), Service (2021-01), Miljö & Hälsoskydd (2021-02), Valnämnden
+  (2021-02), Individ & Familjeomsorg (2020-04), Förskola & Grundskola och Teknik (2020-01) saknar protokoll med text för de första
+  åren. Där är ordförande och vice vid periodens start okända; senare byten syns som `fran_forsta_motet: false`.
+- 2011–2014: Förskola & Grundskola, Teknik, Individ & Familjeomsorg, Kultur & Fritid, Valnämnden och KSAU saknas helt i arkivet
+  (organen hette annat före 2015 eller är inte hämtade). KS 12 ledamöter + ordförande + två vice = 15 av 15.
+- KSAU 2019–2022: 5 av 6 ledamöter, inga ersättare.
+

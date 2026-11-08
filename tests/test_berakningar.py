@@ -5168,3 +5168,21 @@ class TestValdesTill(unittest.TestCase):
         # Vård & Omsorg: Björck vid första mötet, Lisa Andersson först senare
         self.assertTrue(rader[("Ulric Björck", "Nämnden för Vård & Omsorg", "ordförande")]["kalla"]["fran_forsta_motet"])
         self.assertFalse(rader[("Lisa Andersson", "Nämnden för Vård & Omsorg", "ordförande")]["kalla"]["fran_forsta_motet"])
+
+
+class TestNarvarolistaBrutnaTitlar(unittest.TestCase):
+    def test_titel_som_bryts_over_tva_rader(self):
+        block = ("Beslutande Ledamöter Tjänstgörande ersättare\n"
+                 "Lisa Andersson (M), Ordförande Tommy Rydfeldt (L) ersätter Monica\n"
+                 "Fredrik Hansson (C), 1:e vice Neptun (L)\n"
+                 "ordförande\n"
+                 "Magdalena Sundqvist (S), 2:e vice\n"
+                 "ordförande\n"
+                 "Emanuel Forsell (M)")
+        titlar = {x["namn"]: x["titel"] for x in hamta_narvaro.utlasning(block) if x["roll"] == "ledamot"}
+        self.assertEqual(titlar, {"Lisa Andersson": "ordförande", "Fredrik Hansson": "1:e vice ordförande",
+                                  "Magdalena Sundqvist": "2:e vice ordförande", "Emanuel Forsell": None})
+
+    def test_ordforande_underskrift(self):
+        text = "Underskrifter Sekreterare Eva Ek Paragrafer 1\nOrdförande Thure Sandén (M)\nProtokolljusterare Daniel Hognert (M)"
+        self.assertEqual(hamta_narvaro.ordforande_underskrift(text), {"namn": "Thure Sandén", "parti": "M"})

@@ -119,6 +119,8 @@ def uppdrag_ur_narvaro(period: str) -> list:
         moten = post.get("flera_moten") or [{"datum": post["datum"], "utlasning": post["utlasning"]}]
         forsta[(post["slug"])] = post["datum"]
         for m in moten:
+            # Ordförandens underskrift (m["ordforande_underskrift"]) är lagrad i narvaro.json men används inte
+            # som uppdragsrad: den visar vem som ledde just det mötet, så vice ordförande dyker upp som ordförande.
             for u in m["utlasning"]:
                 roll = u["titel"] or ("ledamot" if u["roll"] == "ledamot" else None)
                 if roll is None or u["roll"] != "ledamot":
