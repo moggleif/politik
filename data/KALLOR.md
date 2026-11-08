@@ -2020,4 +2020,7 @@ Björck, vilket sänker förtroendet för det.
 Då är Kalle Påsse Sundvall plats 8 ("Administrativ chef, Onsala") och sökutdraget stämmer.
 M 2018 plats 7 och 8 är båda `trolig`. Plats 18 (64 år, Civilekonom, Kullavik) är åter utan
 namn: ursprunglig innehavare okänd (lämnade före loggen 2019-08-13).
+**Avgjort:** Kalle Påsse Sundvall uppger än idag att han är administrativ chef → M 2018 plats 8
+(`bestämd`); Ulric Björck = plats 7 (`bestämd`, följer av Påsse). Källa för att Björck satt i
+fullmäktige efter valet 2018: Norra Halland 2019-04-12 ("Vårdordförande får kritik").
 
