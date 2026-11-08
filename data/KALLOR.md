@@ -2014,4 +2014,6 @@ till **plats 18** (64 år, Civilekonom, Kullavik; trolig). Kalle Påsse Sundvall
 `möjlig (plats 7 eller 8)` på plats 8 (sökutdraget). Platsen i 7/8 som blir över hade en
 ursprunglig innehavare som lämnade före loggen 2019-08-13. Sökutdraget hade alltså fel för
 Björck, vilket sänker förtroendet för det.
+**Nedgradering:** uppdragsgivaren vet inte Björcks ålder, så Ulric Björck på M 2018 plats 18 är
+`möjlig` (inte trolig). Gäller bara om Påsse är yngre än Björck; annars hör Björck till plats 7/8.
 
