@@ -115,6 +115,7 @@ const SIDOR = [
   "efter-valet.html",
   "efter-valet.html?val=2018&parti=m",
   "efter-valet.html?val=2026&parti=kd",
+  "efter-valet.html?val=alla&parti=m",
   "rodalinjer.html",
   "feriejobb.html",
 ];

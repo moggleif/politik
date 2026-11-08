@@ -637,7 +637,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 till varje inspelning (?mote=)
   efter-valet.html              Varje partis lista 2010–2026 i nummerordning: vilka
                                 platser som blev fullmäktigeledamot, KS, KSAU och
-                                ordförande/vice i nämnd (?val=, ?parti=). Källor och
+                                ordförande/vice i nämnd (?val=, ?parti=; val=alla visar ett parti över alla val). Källor och
                                 luckor (2018/2010 delvis, 2026 ej beslutat) längst ner
   kommunval.html                Sidans gamla adress; skickar vidare till
                                 valresultat.html med frågesträngen i behåll
