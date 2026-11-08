@@ -488,12 +488,10 @@
   /* `matt` är normalt måttväljarens värde. Diagrammet över de tre valen
      skickar med "andel" i stället: det visar alltid andelar, och skulle
      annars få heltalsformaterade tickar så fort väljaren står på antal. */
-  /* Axlarna här hämtas medvetet *inte* ur K.kategoriAxel och K.mattAxel.
-     Sidans diagram ritar med Chart.js egna rutnät och axelfärger, till
-     skillnad från de andra sidorna, och att byta till de gemensamma
-     axlarna vore en ändring av vad besökaren ser – inte en städning.
-     Stommen, som bara rör proportioner, pekning och tooltipens plats,
-     delas däremot. */
+  /* Axlarna går genom K.kategoriAxel och K.mattAxel som på de andra
+     sidorna: inget lodrätt rutnät, baslinjen i baslinjefärgen och
+     axelrubriken i den dämpade tonen (#72). Tickarna lämnas som de var –
+     valåren är få nog att alla får plats. */
   function basOptions(ytitel, formatera, matt) {
     matt = matt || valtMatt();
     var opt = K.diagramStomme({
@@ -533,16 +531,16 @@
       }
     });
     opt.scales = {
-      x: { title: { display: true, text: "Valår" } },
-      y: {
-        title: { display: true, text: ytitel },
-        beginAtZero: matt === "antal",
+      x: K.kategoriAxel({ titel: "Valår" }),
+      y: K.mattAxel({
+        titel: ytitel,
+        franNoll: matt === "antal",
         ticks: {
           callback: function (v) {
             return matt === "antal" ? talSv(v) : talSv(v, 1);
           }
         }
-      }
+      })
     };
     return opt;
   }
@@ -823,6 +821,19 @@
 
   /* ---------- Diagram 2: förändringen mellan två val ---------- */
 
+  /* Liggande staplar: här är x måttaxeln. Nollinjen ritas mörkare än
+     rutnätet, eftersom det är den staplarna växer ut från åt båda hållen. */
+  function forandringsAxel() {
+    var axel = K.mattAxel({
+      titel: valtMatt() === "antal"
+        ? "Förändring i antal röster" : "Förändring i procentenheter"
+    });
+    axel.grid.color = function (c) {
+      return c.tick.value === 0 ? FARG.ink2 : FARG.grid;
+    };
+    return axel;
+  }
+
   function forandring(d, overgang, parti) {
     var delar = overgang.split("-");
     var fore = delar[0], efter = delar[1];
@@ -880,15 +891,8 @@
           }
         },
         scales: {
-          x: {
-            title: {
-              display: true,
-              text: valtMatt() === "antal"
-                ? "Förändring i antal röster" : "Förändring i procentenheter"
-            },
-            grid: { color: function (c) { return c.tick.value === 0 ? FARG.ink2 : FARG.grid; } }
-          },
-          y: { ticks: { autoSkip: false, font: { size: 11 } } }
+          x: forandringsAxel(),
+          y: K.kategoriAxel({ ticks: { autoSkip: false, font: { size: 11 } } })
         }
       }
     }, Math.max(320, 22 * poster.length + 90));
