@@ -1887,3 +1887,42 @@ i listan, och för 60 av 61 2010. Avvikelsen 2010 är SD:s tredje mandat
 (plats 3): XML-filen (tagen 2010-09-21) har bara två platser på SD:s
 valsedel. Det testas uttryckligen och är inte åtgärdat.
 
+### Matchningsförslag: vem stod på vilken plats 2010–2018 (`data/matchning/forslag.json`)
+
+Byggd med `scripts/bygg_matchning.py`. **Förslag, inte fakta**: inget är
+inlagt i personfilerna. Metoden (detaljer i skriptets docstring):
+
+1. Kandidaturer länkas mellan valen (2010→2014→2018→2022; 2022→2026 på
+   namn) per parti: ålder +4 år, samma ort/yrke-ord, samma kön där det är
+   känt; bara ömsesidigt bästa par med tydlig marginal.
+2. Spåren som når 2022 eller 2026 får det namnet, bakåt.
+3. **Protokollen kontrollerar:** namnet slås upp bland partiets namn i
+   protokollen för perioden (valbeslut, närvarolistor, fullmäktiges
+   närvarologg). För de 61 valda 2014 är loggen en uttömmande lista över
+   namnen: ett spårnamn som inte finns där avvisas, och övriga namn fördelas
+   på platserna med ålder som villkor.
+
+**Träffsäkerhet (mätt på 2022→2026, där namn finns i båda valen):** av 145
+personer som stod båda gångerna gav metoden "stark" länk för 102, varav 98
+(96 %) rätt, och "möjlig" länk för 26, varav 17 (65 %) rätt.
+
+**Protokollkontroll av spåren 2014:** av 29 valda 2014 som fick namn via
+spåren fanns 26 (90 %) i fullmäktiges närvarologg; de tre som inte gjorde
+det (Madelene Höök, L plats 5; Ulrika Nyhlén, M plats 20; Jon Thorbjörnson,
+V plats 2) är avvisade och spåren märkta `avvisad_av_protokoll`.
+
+| Val | Platser | Med namnförslag | Varav stark |
+|---|---|---|---|
+| 2010 | 266 | 24 | 0 |
+| 2014 | 240 | 59 | 32 |
+| 2018 | 280 | 112 | 75 |
+
+Av de 61 valda 2014 har 36 namnförslag: 26 via spår som loggen bekräftar
+och 10 där loggens namn och ålder utesluter övriga platser. 25 har flera
+möjliga namn (listade). **Begränsningar:** (a) 2018 och 2010 har ingen
+fullmäktigelogg, så de valda där kontrolleras bara mot närvarolistorna;
+(b) 2022 och 2026 års listor saknar kön, så kön används sällan; (c) Socialdemokraterna
+(2022 har inget yrke) och Kungsbackaborna (2022 har bara ort) matchar
+svagare; (d) den som hoppar över ett val (stod 2014 och 2022 men inte 2018)
+länkas inte; (e) partibyten följs inte (matchning sker inom partiet).
+

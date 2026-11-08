@@ -421,6 +421,8 @@ data/
                                 Troman som bekräftelse. Byggs av build_personer.py
   uppdrag/kf_val_<datum>.json   Valbesluten i fullmäktiges decemberprotokoll,
                                 en rad per person och roll
+  matchning/forslag.json        Namnförslag med säkerhetsgrad för platser där
+                                Valmyndigheten gallrat namnet
   uppdrag/narvaro.json          Närvarolistor ur första protokollet med text
                                 per organ och period (ersättningskälla)
   uppdrag/troman_<datum>.json   Förtroendevaldas uppdrag i KS, utskott och
@@ -546,6 +548,11 @@ scripts/
   build_personer.py             Bygger data/personer/<parti>.json ur
                                 kandidatlistor och valbeslut; namn jämförs inom
                                 partiet, tvetydiga namn och luckor redovisas
+  bygg_matchning.py             Föreslår namn på platserna 2010-2018 (namnen är
+                                gallrade) via länkar mellan valen, kontrollerade
+                                mot protokollen, till data/matchning/forslag.json
+  hamta_kf_logg.py              Hämtar fullmäktiges närvarologg (61 ledamöter)
+                                2014 och 2022
   hamta_narvaro.py              Hämtar närvarolistan ur första protokollet med
                                 text per organ och period till
                                 data/uppdrag/narvaro.json (ersättningskälla för

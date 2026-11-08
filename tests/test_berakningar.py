@@ -5012,3 +5012,46 @@ class TestHistoriskaKandidaturer(unittest.TestCase):
             # Känd avvikelse 2010: SD:s tredje mandat (plats 3) finns inte på XML-filens
             # SD-valsedel, som bara har två platser (filen är tagen 2010-09-21).
             self.assertEqual(avvikande, [("SD", 3)] if ar == 2010 else [], ar)
+
+
+bygg_matchning = ladda("bygg_matchning")
+
+
+class TestMatchning(unittest.TestCase):
+    """Förslag till namn på platser där Valmyndigheten gallrat namnet."""
+
+    def kand(self, plats, alder, uppgift, kon=None, namn=None):
+        return {"val": 0, "parti": "M", "plats": plats, "namn": namn, "alder": alder, "kon": kon,
+                "ord": bygg_matchning.ord_ur({"uppgift": uppgift}), "uppgift": uppgift}
+
+    def test_poang_alder_ort_och_kon(self):
+        a = self.kand(1, 49, "49 år, Trädgårdsmästare, Onsala", "K")
+        b = self.kand(2, 53, "53 år, trädgårdsmästare, Onsala")
+        self.assertEqual(bygg_matchning.poang(a, b), 3 + 2 + 2)           # ålder +4, två gemensamma ord
+        self.assertIsNone(bygg_matchning.poang(a, self.kand(3, 60, "60 år, Onsala")))   # fel ålder
+        self.assertIsNone(bygg_matchning.poang(a, self.kand(4, 53, "53 år", "M")))      # fel kön
+        self.assertEqual(bygg_matchning.poang(a, self.kand(5, 54, "54 år, Onsala")), 1 + 2)   # +5 år: avdrag
+
+    def test_lanka_kraver_omsesidigt_basta_par_med_marginal(self):
+        a = [self.kand(1, 40, "40 år, Lärare, Åsa"), self.kand(2, 40, "40 år, Lärare, Åsa")]
+        b = [self.kand(1, 44, "44 år, Lärare, Åsa")]
+        self.assertEqual(bygg_matchning.lanka(a, b, 5, 3), [])      # två lika bra: ingen länk
+        a2 = [self.kand(1, 40, "40 år, Lärare, Åsa"), self.kand(2, 41, "41 år, Ingenjör, Onsala")]
+        ut = bygg_matchning.lanka(a2, b, 5, 3)
+        self.assertEqual([(x["plats"], y["plats"], g) for x, y, _, g in ut], [(1, 1, "stark")])
+
+    def test_logg_med_och_utan_lopnummer(self):
+        text = "Närvarologg för ledamöter\n1 Lisa Andersson (M)\n2 Emanuel Forsell (M)\n3 Ulrika Landergren (FP)\n"
+        hamta_kf_logg = ladda("hamta_kf_logg")
+        self.assertEqual([(p["namn"], p["parti"]) for p in hamta_kf_logg.logg(text)],
+                         [("Lisa Andersson", "M"), ("Emanuel Forsell", "M"), ("Ulrika Landergren", "L")])
+
+    def test_sparad_fil_kalibrering_och_avvisade(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        s = d["kalibrering"]["stark"]
+        self.assertGreaterEqual(s["rätt"] / s["totalt"], 0.9)       # 'stark' ska ha minst 90 % rätt mot facit
+        avvisade = {(r["parti"], r["listplats"]) for r in d["valda_2014"] if "avvisat_forslag" in r}
+        self.assertEqual(avvisade, {("L", 5), ("M", 20), ("V", 2)})
+        for r in d["valda_2014"]:
+            if r["grund"] == "spår + närvarologg":
+                self.assertTrue(r["namn_forslag"])
