@@ -487,11 +487,11 @@
 
   /* `matt` är normalt måttväljarens värde. Diagrammet över de tre valen
      skickar med "andel" i stället: det visar alltid andelar, och skulle
-     annars få heltalsformaterade tickar så fort väljaren står på antal. */
-  /* Axlarna går genom K.kategoriAxel och K.mattAxel som på de andra
-     sidorna: inget lodrätt rutnät, baslinjen i baslinjefärgen och
-     axelrubriken i den dämpade tonen (#72). Tickarna lämnas som de var –
-     valåren är få nog att alla får plats. */
+     annars få heltalsformaterade tickar så fort väljaren står på antal.
+
+     Axlarna går genom K.kategoriAxel och K.mattAxel, så att sidan ser ut
+     som de andra (#72). Tickarna lämnas som de var – valåren är få nog
+     att alla får plats. */
   function basOptions(ytitel, formatera, matt) {
     matt = matt || valtMatt();
     var opt = K.diagramStomme({
