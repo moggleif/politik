@@ -543,6 +543,8 @@ def tillampa_loggordning(ar: int, ut: list, valda: list, logg: list) -> list:
 
 # Platser där ett föreslaget namn inte ska fryssas som kandidatur, med skälet.
 UTESLUTNA = {
+    ("S", 2018, 48): "Renée Sylvan är kvinna på S 9 både 2010 och 2014 (två oberoende förslag) men 2018 plats 48 är en man; "
+                     "kön-kontrollen i kontrollera_matchning.py visade att 2018-länken är fel.",
     ("M", 2018, 18): "Ann-Helene Reimertz är den enda lediga ledamoten i loggen 2019-08-13, men ett sökutdrag "
                      "anger henne som ersättare (som rykte upp); hon har sannolikt inte stått på plats 18.",
 }

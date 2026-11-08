@@ -1,0 +1,94 @@
+{
+ "2010": {
+  "resultat": {
+   "A_alder": {
+    "('möjlig', True)": 60,
+    "('stark', True)": 70
+   },
+   "B_kon": {
+    "('möjlig', True)": 38,
+    "('stark', True)": 49
+   },
+   "C_logg": {
+    "('M', True)": 24,
+    "('C', True)": 4,
+    "('L', False)": 5,
+    "('KD', True)": 3,
+    "('S', True)": 2,
+    "('S', False)": 6,
+    "('V', True)": 1
+   },
+   "D_protokoll": {
+    "('möjlig', True)": 30,
+    "('stark', True)": 22,
+    "('möjlig', False)": 5
+   }
+  },
+  "avvikelser": []
+ },
+ "2014": {
+  "resultat": {
+   "A_alder": {
+    "('stark', True)": 106,
+    "('möjlig', True)": 40,
+    "('stark', False)": 1
+   },
+   "B_kon": {
+    "('stark', True)": 58,
+    "('möjlig', True)": 26
+   },
+   "C_logg": {},
+   "D_protokoll": {
+    "('stark', True)": 49,
+    "('möjlig', True)": 11,
+    "('bestämd', True)": 1
+   }
+  },
+  "avvikelser": [
+   [
+    "ålder",
+    2014,
+    "SD",
+    5,
+    "Kenth Wallin",
+    72,
+    2026,
+    82
+   ]
+  ]
+ },
+ "2018": {
+  "resultat": {
+   "A_alder": {
+    "('stark', True)": 95,
+    "('möjlig', True)": 65,
+    "('bestämd', True)": 13,
+    "('stark', False)": 1
+   },
+   "B_kon": {
+    "('stark', True)": 53,
+    "('möjlig', True)": 38,
+    "('bestämd', True)": 10
+   },
+   "C_logg": {},
+   "D_protokoll": {
+    "('stark', True)": 25,
+    "('möjlig', True)": 23,
+    "('stark', False)": 1,
+    "('bestämd', True)": 9
+   }
+  },
+  "avvikelser": [
+   [
+    "ålder",
+    2018,
+    "SD",
+    7,
+    "Kenth Wallin",
+    76,
+    2026,
+    82
+   ]
+  ]
+ }
+}

@@ -2092,3 +2092,18 @@ Annika Carlsson, 12 Inge Sundberg, 13 Kalle Sundvall, 14 Karin Fahlström August
 Margareta Ödman, 17 Lena Reimertz Thelén, 18 Charlotte Wallenstein, 19 (ersättare på platsen), 20 Ingvar
 Orrelid, 21 Fredrik Hansson, 22 Christian Johansson, 23 Peter Söderberg, 24 Bengt Adolfsson.
 
+### Oberoende kontroller av namnförslagen (`scripts/kontrollera_matchning.py`, `data/matchning/kontroller.json`)
+
+Varje förslag kontrolleras mot sådant som inte användes för att ta fram det: (A) ålder, samma namn i
+annat val ska skilja lika många år som valen; (B) kön, samma namn på en plats i annat val ska ha samma
+kön (platsens kön enligt Valmyndigheten, inte en gissning från namnet); (C) en andra fullmäktigelogg
+(2014-04-08, delvis läsbar: Moderaterna, C, KD, V jämförbara) för att se om innehavaren på platsen är
+densamma över tid; (D) att namnet finns bland partiets namn i protokollen för perioden.
+
+Resultat 2026-11-08: ålder 2010 130/130, 2014 146/147, 2018 173/174; kön 2010 87/87, 2014 84/84, 2018
+101/101; loggen 2014-04-08 identisk med 2013-10-08 för M, C, KD och V (32 av 32 platser). De två
+åldersavvikelserna gäller Kenth Wallin (SD): hans åldrar i 2022 och 2026 års listor (80, 82) ligger bara
+två år isär mellan valen, ett källfel. De fem "saknas i protokoll" 2010 är ledamöterna utan parti i loggen
+(KB 4/20/21, SD 1/2). **Ett fel hittades och rättades:** det frusna 2018-förslaget Renée Sylvan på S 48
+(man) strider mot att hon är kvinna på S 9 både 2010 och 2014; borttaget (`UTESLUTNA`).
+

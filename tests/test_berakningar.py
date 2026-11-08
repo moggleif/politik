@@ -5118,3 +5118,14 @@ class TestMatchning(unittest.TestCase):
                 jamfort += 1
                 self.assertLessEqual(abs(a14[(r["parti"], r["namn_forslag"])] - 4 - r["alder"]), 1, r)
         self.assertGreaterEqual(jamfort, 15)
+
+
+    def test_oberoende_kontroller_hittar_inga_fel(self):
+        d = json.loads((ROT / "data" / "matchning" / "kontroller.json").read_text(encoding="utf-8"))
+        for ar, k in d.items():
+            self.assertNotIn(False, [eval(x)[1] for x in k["resultat"]["B_kon"]], ar)       # inga könsavvikelser
+            for a in k["avvikelser"]:
+                self.assertEqual((a[0], a[4]), ("ålder", "Kenth Wallin"), a)                   # enda avvikelse: källfel hos Wallin
+        # Renée Sylvan på S 48 2018 (man) togs bort efter kön-kontrollen
+        b = json.loads((ROT / "data" / "matchning" / "bekraftade.json").read_text(encoding="utf-8"))["platser"]
+        self.assertNotIn(("S", 2018, 48), {(x["parti"], x["val"], x["plats"]) for x in b})
