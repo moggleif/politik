@@ -400,3 +400,101 @@ test("arsOptions kan stänga av legenden", () => {
   assert.equal(K.arsOptions({}).plugins.legend.display, true);
   assert.equal(K.arsOptions({ legend: false }).plugins.legend.display, false);
 });
+
+/* ---------- Det merit.js och slutbetyg.js delar (#66) ---------- */
+
+test("liggandeStaplar ritar liggande staplar utan legend", () => {
+  const c = K.liggandeStaplar({
+    etiketter: ["A", "B"], varden: [3, -1], farger: ["#111111", "#222222"],
+    titel: "Förändring", tick: (v) => String(v), etikett: () => "x",
+  });
+  assert.equal(c.type, "bar");
+  assert.equal(c.options.indexAxis, "y");
+  assert.equal(c.options.plugins.legend.display, false);
+  assert.deepEqual(c.data.labels, ["A", "B"]);
+  assert.deepEqual(c.data.datasets[0].data, [3, -1]);
+  assert.deepEqual(c.data.datasets[0].backgroundColor, ["#111111", "#222222"]);
+  assert.equal(c.data.datasets[0].borderSkipped, "start");
+  assert.equal(c.options.plugins.tooltip.callbacks.label(), "x");
+});
+
+test("liggandeStaplar: x bär siffran och baslinjen, y kategorin utan rutnät", () => {
+  const c = K.liggandeStaplar({ titel: "Medelmeritvärde", tick: (v) => v + "p" });
+  const { x, y } = c.options.scales;
+  assert.equal(x.title.text, "Medelmeritvärde");
+  assert.equal(x.title.color, K.FARG.muted);
+  assert.equal(x.border.color, K.FARG.baseline);
+  assert.equal(x.grid.color, K.FARG.grid);
+  assert.equal(x.ticks.callback(5), "5p");
+  assert.equal(y.grid.display, false);
+  assert.equal(y.border.color, K.FARG.baseline);
+});
+
+test("liggandeStaplar: noll och tak bara när de ombeds", () => {
+  const utan = K.liggandeStaplar({ titel: "t" }).options.scales.x;
+  assert.equal("beginAtZero" in utan, false);
+  assert.equal("max" in utan, false);
+  const med = K.liggandeStaplar({ titel: "t", franNoll: true, max: 20 }).options.scales.x;
+  assert.equal(med.beginAtZero, true);
+  assert.equal(med.max, 20);
+});
+
+test("liggandeStaplar pekar som Chart.js förval, inte som tidsserierna", () => {
+  assert.equal(K.liggandeStaplar({ titel: "t" }).options.interaction, undefined);
+});
+
+test("stapelhojd: trettio punkter per stapel plus marginal, aldrig under 260", () => {
+  assert.equal(K.stapelhojd(1, 90), 260);
+  assert.equal(K.stapelhojd(10, 90), 390);
+  assert.equal(K.stapelhojd(10, 100), 400);
+});
+
+test("typserier: en linje per grupp, den första mörk, luckor som null", () => {
+  const grupper = [
+    { typ: "hogskoleforberedande", varden: { 2024: { medel: 250, antal: 9 } } },
+    { typ: "yrkesprogram", varden: { 2023: { medel: 200, antal: 4 }, 2024: { medel: 210, antal: 5 } } },
+  ];
+  const s = K.typserier(grupper, [2023, 2024], "medel");
+  assert.equal(s.length, 2);
+  assert.equal(s[0].label, K.TYPNAMN.hogskoleforberedande);
+  assert.deepEqual(s[0].data, [null, 250]);
+  assert.deepEqual(s[0].antal, [null, 9]);
+  assert.deepEqual(s[1].data, [200, 210]);
+  assert.equal(s[0].borderColor, K.FARG.blaMork);
+  assert.equal(s[1].borderColor, K.FARG.bla);
+  assert.equal(s[0].spanGaps, false);
+});
+
+test("typserier läser det fält som anges och visar okänd typ som den är", () => {
+  const s = K.typserier([{ typ: "okand", varden: { 2024: { betygspoang: 14.2, antal: 30 } } }],
+    [2024], "betygspoang");
+  assert.equal(s[0].label, "okand");
+  assert.deepEqual(s[0].data, [14.2]);
+});
+
+test("medTecken: plus för noll och uppåt, riktigt minustecken nedåt", () => {
+  assert.equal(K.medTecken(1.25, 1), "+1,3");
+  assert.equal(K.medTecken(0, 1), "+0,0");
+  assert.equal(K.medTecken(-0.3, 1), "−0,3");
+  assert.equal(K.medTecken(-12, 0), "−12");
+});
+
+test("medTecken: negativt noll får plus, ett litet negativt tal behåller minus", () => {
+  assert.equal(K.medTecken(-0, 1), "+0,0");
+  assert.equal(K.medTecken(-0.04, 1), "−0,0");
+});
+
+test("typOptions bygger på stommen, med årsaxeln och en y-axel som inte börjar vid noll", () => {
+  const titel = () => "t", etikett = () => "e";
+  const o = K.typOptions("Medelmeritvärde", { title: titel, label: etikett });
+  assert.deepEqual(o.interaction, K.diagramStomme().interaction);
+  assert.equal(o.plugins.legend.position, "bottom");
+  assert.equal(o.plugins.tooltip.callbacks.title, titel);
+  assert.equal(o.plugins.tooltip.callbacks.label, etikett);
+  assert.deepEqual(o.scales.x, K.kategoriAxel({ ticks: { maxRotation: 0, autoSkipPadding: 8 } }));
+  assert.equal(o.scales.y.title.text, "Medelmeritvärde");
+  assert.equal(o.scales.y.border.color, K.FARG.baseline);
+  assert.equal(o.scales.y.beginAtZero, false);
+  assert.equal(o.scales.y.grace, "10%");
+  assert.equal(o.scales.y.ticks.callback(1500), K.talSv(1500));
+});
