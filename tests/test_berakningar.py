@@ -4939,3 +4939,25 @@ class TestNarvarolista(unittest.TestCase):
         ks19 = next(p for p in d["poster"] if p["organ"] == "Kommunstyrelsen" and p["period"] == "2019–2022")
         self.assertTrue(ks19["datum"])
         self.assertEqual([x["namn"] for x in ks19["utlasning"] if x["titel"] == "ordförande"], ["Lisa Andersson"])
+
+
+class TestKopplingar(unittest.TestCase):
+    """Uttryckliga beslut om samma namn i olika partier."""
+
+    def test_samma_olika_och_oavgjord(self):
+        def post(i, namn):
+            return {"id": i, "namn": namn}
+        ut = {"M": {"personer": [post("m-1", "Eva Ek"), post("m-2", "Ola Ås"), post("m-3", "Nils Ny")]},
+              "L": {"personer": [post("l-1", "Eva Ek"), post("l-2", "Ola Ås"), post("l-3", "Pia Pe")]},
+              "C": {"personer": [post("c-1", "Nils Ny")]}}
+        kopp = {"beslut_av": "test", "kopplingar": [
+            {"id": "k1", "avgorande": "samma", "poster": [{"parti": "L", "namn": "Eva Ek"}, {"parti": "M", "namn": "Eva Ek"},
+                                                         {"parti": "X", "namn": "Eva Ek", "anmarkning": "partiet saknar fil"}]},
+            {"id": "k2", "avgorande": "olika", "poster": [{"parti": "L", "namn": "Ola Ås"}, {"parti": "M", "namn": "Ola Ås"}]}]}
+        oavgjorda = build_personer.tillampa_kopplingar(ut, kopp)
+        m1 = ut["M"]["personer"][0]["koppling"]
+        self.assertEqual(m1["avgorande"], "samma")
+        self.assertEqual(m1["samma_som"], [{"parti": "L", "id": "l-1", "namn": "Eva Ek"}])   # partiet utan fil hoppas över
+        self.assertEqual(ut["L"]["personer"][1]["koppling"]["skild_fran"][0]["id"], "m-2")
+        self.assertEqual(oavgjorda, ["Nils Ny"])   # M och C, inget beslut
+        self.assertNotIn("koppling", ut["C"]["personer"][0])

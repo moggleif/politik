@@ -1,0 +1,17 @@
+{
+ "forklaring": "Uttryckliga beslut om huruvida personer med samma namn i olika partier är samma person. Handunderhållen indata till scripts/build_personer.py; källdatat ändras inte. 'samma' = en person som bytt parti. 'olika' = skilda personer med samma namn.",
+ "beslut_av": "uppdragsgivaren (i samtal 2026-11-08)",
+ "kopplingar": [
+  {"id": "k-ernegard", "avgorande": "samma",
+   "poster": [{"parti": "KB", "namn": "Agnetha Ernegård"},
+              {"parti": "KFP", "namn": "Agnetha Ernegård", "anmarkning": "Kungsbacka Framtidsparti har aldrig suttit i fullmäktige och saknar personfil; hennes plats 1 på KFP:s lista 2022 finns i data/kandidater/2022.json"}]},
+  {"id": "k-wennerberg", "avgorande": "samma",
+   "poster": [{"parti": "C", "namn": "Charlotte Wennerberg"}, {"parti": "M", "namn": "Charlotte Wennerberg"}]},
+  {"id": "k-ramstrom", "avgorande": "samma",
+   "poster": [{"parti": "L", "namn": "Max Ramström"}, {"parti": "M", "namn": "Max Ramström"}]},
+  {"id": "k-philipson", "avgorande": "samma",
+   "poster": [{"parti": "KB", "namn": "Stephan Philipson"}, {"parti": "M", "namn": "Stephan Philipson"}]},
+  {"id": "k-hansson", "avgorande": "olika", "notering": "Behandlas som två personer (troligen olika).",
+   "poster": [{"parti": "C", "namn": "Fredrik Hansson"}, {"parti": "M", "namn": "Fredrik Hansson"}]}
+ ]
+}

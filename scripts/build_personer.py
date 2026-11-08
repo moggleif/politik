@@ -236,6 +236,41 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
     }
 
 
+def tillampa_kopplingar(utdata: dict, kopplingar: dict) -> list:
+    """Lägger uttryckliga beslut om samma namn i flera partier på personposterna.
+
+    utdata: {kortnamn: partifilens innehåll}. En post får `koppling` med
+    beslutet (`samma`: samma person som posterna i `samma_som`; `olika`:
+    skild från posterna i `skild_fran`). Poster som saknas i utdata (partiet
+    har ingen personfil) hoppas över. Returnerar namn som finns i flera
+    partier utan något beslut (oavgjorda)."""
+    index = {}
+    for kort, ut in utdata.items():
+        for p in ut["personer"]:
+            index[(kort, nyckel(p["namn"]))] = p
+    avgjorda = set()
+    for k in kopplingar["kopplingar"]:
+        funna = [(po["parti"], index.get((po["parti"], nyckel(po["namn"])))) for po in k["poster"]]
+        funna = [(par, p) for par, p in funna if p is not None]
+        for po in k["poster"]:
+            avgjorda.add(nyckel(po["namn"]))
+        for par, p in funna:
+            ovriga = [{"parti": par2, "id": p2["id"], "namn": p2["namn"]} for par2, p2 in funna if p2 is not p]
+            nyckel_lista = "samma_som" if k["avgorande"] == "samma" else "skild_fran"
+            p["koppling"] = {"id": k["id"], "avgorande": k["avgorande"], nyckel_lista: ovriga,
+                             "kalla": kopplingar["beslut_av"]}
+            if k.get("notering"):
+                p["koppling"]["notering"] = k["notering"]
+            for po in k["poster"]:
+                if po["parti"] == par and po.get("anmarkning"):
+                    p["koppling"]["anmarkning"] = po["anmarkning"]
+    per_namn = {}
+    for (kort, n), p in index.items():
+        per_namn.setdefault(n, set()).add(kort)
+    return sorted(index[(sorted(v)[0], n)]["namn"] for n, v in per_namn.items()
+                  if len(v) > 1 and n not in avgjorda)
+
+
 def utan_parti(valbeslut: dict, narvaro: dict | None) -> list:
     """Poster där protokollet inte anger något parti: de kan inte föras till
     ett parti utan tolkning och samlas här så att de inte försvinner."""
@@ -263,15 +298,20 @@ def main(argv: list) -> None:
     troman = las_json(trom[-1])
     partier = [argv[0]] if argv else list(PARTIER)
     UT.mkdir(parents=True, exist_ok=True)
+    utdata = {PARTIER[n][0]: bygg(n, PARTIER[n][0], kandidater, valbeslut, troman, narvaro, PARTIER[n][1])
+              for n in partier}
+    kopp_fil = DATA / "kopplingar.json"
+    oavgjorda = tillampa_kopplingar(utdata, las_json(kopp_fil)) if kopp_fil.exists() else []
     for partinamn in partier:
-        kort, alias = PARTIER[partinamn]
-        ut = bygg(partinamn, kort, kandidater, valbeslut, troman, narvaro, alias)
+        ut = utdata[PARTIER[partinamn][0]]
         fil = UT / f"{filnamn(partinamn)}.json"
         fil.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         pp = ut["personer"]
         print(f"{partinamn[:36]:36} {len(pp):4} personer, {sum(1 for p in pp if p['kandidaturer']):3} med kandidatur, "
               f"{sum(1 for p in pp if p['uppdrag']):3} med uppdrag, {sum(1 for p in pp if p['troman']['funnen']):3} i Troman, "
               f"{len(ut['tvetydiga_namn'])} tvetydiga")
+    if oavgjorda and not argv:
+        print("Samma namn i flera partier utan beslut i data/kopplingar.json:", ", ".join(oavgjorda))
     if not argv:
         saknar = utan_parti(valbeslut, narvaro)
         (UT / "_utan_parti.json").write_text(json.dumps({
