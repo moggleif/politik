@@ -33,6 +33,7 @@ Körs: python3 scripts/bygg_matchning.py
 
 import json
 import re
+import sys
 import unicodedata
 from collections import Counter
 from datetime import date
@@ -378,6 +379,33 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
     return ut
 
 
+def skriv_bekraftade(namngivna: list, valda: dict) -> None:
+    """Fryser nuvarande förslag som bekräftade (görs bara med --bekrafta, efter
+    att uppdragsgivaren godkänt dem). Avvisade förslag tas inte med."""
+    poster = {}
+    for sp in namngivna:
+        if sp["avvisad_av_protokoll"]:
+            continue
+        for pl in sp["platser"]:
+            if pl["namn_i_kallan"] is None:
+                poster[(sp["parti"], pl["val"], pl["plats"])] = {
+                    "parti": sp["parti"], "val": pl["val"], "plats": pl["plats"], "namn": sp["namn"],
+                    "sakerhet": pl["sakerhet"], "grund": "spår"}
+    for ar, rs in valda.items():
+        for r in rs:
+            if r["namn_forslag"] and (r["parti"], ar, r["listplats"]) not in poster:
+                poster[(r["parti"], ar, r["listplats"])] = {
+                    "parti": r["parti"], "val": ar, "plats": r["listplats"], "namn": r["namn_forslag"],
+                    "sakerhet": r["sakerhet"], "grund": r["grund"]}
+    (UT / "bekraftade.json").write_text(json.dumps({
+        "forklaring": "Namnförslag som uppdragsgivaren bekräftat (\"alla namn du har stämmer\", 2026-11-08). "
+                      "Frysta: byggs inte om av bygg_matchning.py utan --bekrafta. Avvisade förslag ingår inte.",
+        "bekraftat_av": "uppdragsgivaren", "bekraftat": "2026-11-08",
+        "platser": [poster[k] for k in sorted(poster, key=lambda k: (k[0], k[1], k[2]))]},
+        ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"Bekräftade: {len(poster)} platser (data/matchning/bekraftade.json)")
+
+
 def main() -> None:
     kand = las_kandidater()
     kal = kalibrera(kand)
@@ -413,6 +441,8 @@ def main() -> None:
     for ar, rs in valda.items():
         print(f"Valda {ar}: {sum(1 for r in rs if r['namn_forslag'])}/{len(rs)} med namnförslag", dict(Counter(r["grund"] for r in rs)))
     UT.mkdir(parents=True, exist_ok=True)
+    if "--bekrafta" in sys.argv:
+        skriv_bekraftade(namngivna, valda)
     (UT / "forslag.json").write_text(json.dumps({
         "byggd": date.today().isoformat(),
         "forklaring": "Förslag, inte fakta. Se scripts/bygg_matchning.py. Säkerhet: säker (namn i båda valen), stark, möjlig.",

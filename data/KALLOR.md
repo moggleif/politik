@@ -1955,3 +1955,30 @@ valen och med i fullmäktiges logg 2014 och 2019. Observation, inte beslut:
 Per Ödmans 2010 kan vara plats 1 (63 år, M), men länken finns inte i
 spåren (ålder +4 stämmer, men inga gemensamma yrkesord).
 
+### Bekräftade namn och valda 2022/2026
+
+- **Bekräftelse:** uppdragsgivaren har bekräftat att alla namnförslag i
+  `forslag.json` (2026-11-08) stämmer. De är frysta i
+  `data/matchning/bekraftade.json` (217 platser: 2010 28, 2014 71, 2018
+  118; stark 117, möjlig 98, bestämd 2; de avvisade ingår inte) och byggs
+  inte om utan `--bekrafta`. Personfilerna tar med dem som kandidaturer märkta
+  `kalla: "matchning, bekräftad av uppdragsgivaren"`.
+- **Valda 2022 och 2026** (`data/valda/2022.json`, `2026.json`) hämtas ur
+  Valmyndighetens "ledamöter med historik" (ursprungligen valda = rader utan
+  invalsdatum) och matchas mot partiets lista för listplats; båda har 61
+  ledamöter och rätt partifördelning. Mellannamn ("Stig Anders Ekström") och
+  en stavningsskillnad ("Ture"/"Thure" Sandén) matchas mot listans kortare
+  namn när träffen är unik.
+- Varje kandidatur i personfilerna har `vald` (true/false) och `kalla`.
+
+**Status 2022 och 2026**
+
+| | 2022 | 2026 |
+|---|---|---|
+| Valsedel, nio partier, namn och plats | ✓ 100 % | ✓ 100 % |
+| Antal per parti mot Valmyndighetens filer | ✓ stämmer | ✓ stämmer |
+| Valda (61, plats och namn) | ✓ | ✓ |
+| KS, nämnder (ordförande, vice) | ✓ KF 2022-12-06 | väntar: KF 2026-12-08 |
+| KSAU | ✓ KS 2023-01-10 | väntar: KS första mötet 2027 |
+| Fullmäktiges logg | ✓ 2022-10-18 | väntar: protokollet 2026-11-03 |
+

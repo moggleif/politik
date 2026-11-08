@@ -4887,7 +4887,11 @@ class TestPersonfil(unittest.TestCase):
     def test_sparad_fil(self):
         d = json.loads((ROT / "data" / "personer" / "moderaterna.json").read_text(encoding="utf-8"))
         lisa = next(p for p in d["personer"] if p["namn"] == "Lisa Andersson")
-        self.assertEqual({k["val"] for k in lisa["kandidaturer"]}, {2022, 2026})
+        # 2010–2018 kommer ur matchningen (bekräftad), 2022/2026 ur Valmyndighetens lista; alla fem valdes.
+        self.assertEqual({k["val"] for k in lisa["kandidaturer"]}, {2010, 2014, 2018, 2022, 2026})
+        self.assertTrue(all(k["vald"] for k in lisa["kandidaturer"]))
+        self.assertEqual({k["val"]: k["plats"] for k in lisa["kandidaturer"]},
+                         {2010: 4, 2014: 2, 2018: 2, 2022: 1, 2026: 1})
         self.assertIn(("Kommunstyrelsen", "ordförande", "2023–2026"),
                       {(u["organisation"], u["roll"], u["mandatperiod"]) for u in lisa["uppdrag"]})
 

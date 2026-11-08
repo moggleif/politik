@@ -79,6 +79,12 @@ PARTIER = {
 }
 
 
+PARTI_PER_NAMN = {"Moderaterna": "M", "Moderata Samlingspartiet": "M", "Arbetarepartiet-Socialdemokraterna": "S",
+                  "Centerpartiet": "C", "Liberalerna (tidigare Folkpartiet)": "L", "Folkpartiet liberalerna": "L",
+                  "Kristdemokraterna": "KD", "Miljöpartiet de gröna": "MP", "Sverigedemokraterna": "SD",
+                  "Vänsterpartiet": "V", "Kungsbackaborna": "KB"}
+
+
 def filnamn(partinamn: str) -> str:
     s = unicodedata.normalize("NFKD", partinamn.casefold().split(" (")[0])
     s = "".join(c for c in s if not unicodedata.combining(c))
@@ -137,7 +143,8 @@ def troman_index(troman: dict) -> dict:
 
 
 def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: dict,
-         narvaro: dict | None = None, alias: tuple = ()) -> dict:
+         narvaro: dict | None = None, alias: tuple = (), bekraftade: list | None = None,
+         valda: dict | None = None) -> dict:
     korts = {kort, *alias}
     """kandidater: {år: kandidatfil}, valbeslut: {datum: kf_val-fil}."""
     P = Personer()
@@ -158,6 +165,21 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
                 if n in sedda:
                     P.tvetydiga.append({"namn": k["namn"], "var": f"kandidatlista {ar} (plats {sedda[n]} och {k['plats']})"})
                 sedda[n] = k["plats"]
+    # Platser på 2010–2018 års listor där Valmyndigheten gallrat namnet: namnet kommer
+    # från matchningen (scripts/bygg_matchning.py), bekräftad av uppdragsgivaren.
+    for b in (bekraftade or []):
+        if b["parti"] not in korts:
+            continue
+        lista = next((q for q in kandidater.get(b["val"], {}).get("partier", [])
+                      if PARTI_PER_NAMN.get(q["namn"]) == b["parti"] or PARTI_PER_NAMN.get(q["namn"]) in korts), None)
+        if lista is None:
+            continue
+        k = next(k for l in lista["listor"] for k in l["kandidater"] if k["plats"] == b["plats"])
+        P.finns(b["namn"])["kandidaturer"].append({
+            "val": b["val"], "listnamn": lista["listor"][0]["listnamn"], "listnummer": lista["listor"][0]["listnummer"],
+            "plats": b["plats"], "samtycke": None, "uppgift": k.get("uppgift"),
+            "alder": k.get("alder"), "kon": k.get("kon"),
+            "kalla": "matchning, bekräftad av uppdragsgivaren", "sakerhet": b["sakerhet"]})
     for datum, fil in sorted(valbeslut.items()):
         ar = next(a for a, (_, d, _) in VAL.items() if datum in d)
         period = VAL[ar][0]
@@ -199,6 +221,13 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
     for p in P.perso.values():
         for u in p["uppdrag"]:
             u.setdefault("kalla", "valbeslut")
+    # Vilka kandidaturer blev mandat? (data/valda/<år>.json: plats på partiets lista)
+    for p in P.perso.values():
+        for c in p["kandidaturer"]:
+            c.setdefault("kalla", "Valmyndighetens kandidatlista")
+            v = (valda or {}).get(c["val"])
+            if v is not None:
+                c["vald"] = (kort, c["plats"]) in v or any((a, c["plats"]) in v for a in alias)
     tidx = troman_index(troman)
     for k, p in P.perso.items():
         t = tidx.get(k)
@@ -303,9 +332,15 @@ def main(argv: list) -> None:
     narv_fil = DATA / "uppdrag" / "narvaro.json"
     narvaro = las_json(narv_fil) if narv_fil.exists() else None
     troman = las_json(trom[-1])
+    bek_fil = DATA / "matchning" / "bekraftade.json"
+    bekraftade = las_json(bek_fil)["platser"] if bek_fil.exists() else []
+    valda = {}
+    for f in sorted((DATA / "valda").glob("*.json")):
+        d = las_json(f)
+        valda[d["val"]] = {(r["parti"], r["listplats"]) for r in d["ledamoter"]}
     partier = [argv[0]] if argv else list(PARTIER)
     UT.mkdir(parents=True, exist_ok=True)
-    utdata = {PARTIER[n][0]: bygg(n, PARTIER[n][0], kandidater, valbeslut, troman, narvaro, PARTIER[n][1])
+    utdata = {PARTIER[n][0]: bygg(n, PARTIER[n][0], kandidater, valbeslut, troman, narvaro, PARTIER[n][1], bekraftade, valda)
               for n in partier}
     kopp_fil = DATA / "kopplingar.json"
     oavgjorda = tillampa_kopplingar(utdata, las_json(kopp_fil)) if kopp_fil.exists() else []
