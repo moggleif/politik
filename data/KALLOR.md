@@ -2008,4 +2008,10 @@ plats 7 Ulric Björck, plats 8 Kalle Påsse Sundvall, plats 15 Franklin Eck lade
 Plats 18 (64 år, Civilekonom, Kullavik) är kvar utan namn: ursprunglig innehavare okänd
 (lämnade före loggen 2019-08-13; Ann-Helene Reimertz rykte upp). Personuppslag på
 Ratsit/Hitta/Mrkoll gjordes inte.
+**Rättelse (Påsse är 56 år idag, yngst):** plats 7 och 8 är båda födda 1970 och är därför
+56 år idag. Är Påsse yngst kan Björck inte vara den andre av dem. Ulric Björck flyttades
+till **plats 18** (64 år, Civilekonom, Kullavik; trolig). Kalle Påsse Sundvall står kvar som
+`möjlig (plats 7 eller 8)` på plats 8 (sökutdraget). Platsen i 7/8 som blir över hade en
+ursprunglig innehavare som lämnade före loggen 2019-08-13. Sökutdraget hade alltså fel för
+Björck, vilket sänker förtroendet för det.
 
