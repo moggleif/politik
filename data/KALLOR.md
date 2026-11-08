@@ -1621,6 +1621,14 @@ numeriskt. Uppgiftsraden (ålder, yrke, ort) sparas som en sträng.
 
 ### Uppdrag
 
+**Troman är en bekräftande källa, inte grunden.** Det som gäller som
+underlag är fullmäktiges beslut (se avsnittet om valbeslut nedan) och
+Valmyndighetens kandidatlistor. Troman används för att kontrollera dem
+(stämmer dagens KS och nämnder med decemberbeslutet 2022, bortsett från
+fyllnadsval?), för namnstavning och som inspiration till vilka poster som
+finns. Avvikelser mot Troman är inte fel i sig: registret visar den som
+sitter nu.
+
 Källa: kommunens register över förtroendevalda,
 `https://kungsbacka.tromanpublik.se/` (uppdateras varje natt), hämtat med
 `scripts/hamta_uppdrag.py` till `data/uppdrag/troman_<hämtdatum>.json`.
