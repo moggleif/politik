@@ -3,7 +3,7 @@
    ur data/ (Valmyndighetens listor och valda, fullmäktiges och nämndernas
    protokoll).
 
-   Sidans reglage är valet och partiet. Valen ligger i adressen
+   Sidans reglage är valet (ett val eller "alla") och partiet. Valen ligger i adressen
    (?val=2018&parti=m), så att en länk ger samma vy. Tabellen har en rad per
    plats på listan: plats, namn, KF, KSAU, KS, ordförande, vice ordförande.
    Ett grönt bock betyder att platsen blev ledamot i fullmäktige, KSAU eller
@@ -105,13 +105,16 @@
       '<ul class="liten utan-plats">' + poster + "</ul>";
   }
 
-  function ritaParti(p, v) {
+  function ritaParti(p, v, medAr) {
     var status = v.uppdragStatus;
     var taggar = "<span class=\"tagg\">" + p.mandat + " mandat</span>";
     if (p.styrande) taggar += ' <span class="tagg tagg-styr">Styrande</span>';
     var rader = p.rader.map(function (r) { return rad(r, status); }).join("");
-    return '<section class="parti-sektion" aria-labelledby="rubrik-' + esc(p.kod) + '">' +
-      '<h2 id="rubrik-' + esc(p.kod) + '">' + esc(p.namn) + " " + taggar + "</h2>" +
+    var id = "rubrik-" + p.kod + "-" + v.ar;
+    var rubrik = esc(p.namn) + (medAr ? " " + v.ar + " <small>(mandatperioden " + esc(v.mandatperiod) + ")</small>" : "");
+    return '<section class="parti-sektion" aria-labelledby="' + esc(id) + '">' +
+      '<h2 id="' + esc(id) + '">' + rubrik + " " + taggar + "</h2>" +
+      (medAr ? '<p class="forklaring liten">' + forklaringVal(v) + "</p>" : "") +
       '<div class="kort"><div class="tabell-rull"><table class="efter-valet">' +
       '<caption class="dold">' + esc(p.namn) + " " + v.ar + ": listan i nummerordning, med vad varje plats blev</caption>" +
       "<thead><tr>" +
@@ -124,9 +127,11 @@
 
   /* ---------- Sidan ---------- */
 
+  /* Valda val: ett, eller alla (nyast först) när reglaget står på "alla". */
   function valda() {
     var ar = el("val-valjare").value;
-    return data.val.filter(function (v) { return String(v.ar) === ar; })[0] || data.val[0];
+    if (ar === "alla") return data.val;
+    return [data.val.filter(function (v) { return String(v.ar) === ar; })[0] || data.val[0]];
   }
 
   function textStyre(v) {
@@ -155,23 +160,36 @@
     return t + textStyre(v);
   }
 
-  function teckenforklaring(v) {
+  function teckenforklaring(v, flera) {
     var t = '<span class="ja" aria-hidden="true">✓</span> = ledamot (i fullmäktige, KSAU eller KS). ' +
       '<span class="nej" aria-hidden="true">✗</span> = inte aktuell: platsen blev inget av det. ' +
       "Ordförande och vice ordförande anger organet; (1:e) och (2:e) är första och andra vice ordförande. ";
-    if (v.uppdragStatus === "ejBeslutat") t += '<span class="vantar" aria-hidden="true">·</span> = inte beslutat än. ';
-    if (v.uppdragStatus === "partiell") t += '<span class="senare">*</span> = syns först vid ett senare möte (ett byte under perioden). ';
+    if (flera) {
+      t += '<span class="vantar" aria-hidden="true">·</span> = inte beslutat än (2026). ' +
+        '<span class="senare">*</span> = syns först vid ett senare möte (2018 och 2010). ';
+    }
+    if (!flera && v.uppdragStatus === "ejBeslutat") t += '<span class="vantar" aria-hidden="true">·</span> = inte beslutat än. ';
+    if (!flera && v.uppdragStatus === "partiell") t += '<span class="senare">*</span> = syns först vid ett senare möte (ett byte under perioden). ';
     t += "<em>(osäker)</em> efter ett namn betyder att Valmyndigheten gallrat namnet och att det är framtaget ur protokollen med en möjlig, inte säker, träff.";
     return t;
   }
 
   function ritaOm() {
-    var v = valda();
+    var vv = valda();
+    var flera = vv.length > 1;
     var parti = el("parti-valjare").value;
-    el("val-forklaring").innerHTML = forklaringVal(v);
-    el("teckenforklaring").innerHTML = teckenforklaring(v);
-    var lista = v.partier.filter(function (p) { return parti === "alla" || p.kod === parti; });
-    el("sektion-partier").innerHTML = lista.map(function (p) { return ritaParti(p, v); }).join("");
+    el("val-forklaring").innerHTML = flera
+      ? "Alla fem val, det senaste först. Varje val har sin egen förklaring över tabellen; " +
+        "<strong>2018 och 2010 är bara delvis kartlagda, och där betyder en tom ruta &quot;inte funnet&quot;, inte &quot;nej&quot;</strong>. " +
+        "Uppdragen för valet 2026 är inte beslutade än."
+      : forklaringVal(vv[0]);
+    el("teckenforklaring").innerHTML = teckenforklaring(vv[0], flera);
+    var ut = "";
+    vv.forEach(function (v) {
+      v.partier.filter(function (p) { return parti === "alla" || p.kod === parti; })
+        .forEach(function (p) { ut += ritaParti(p, v, flera); });
+    });
+    el("sektion-partier").innerHTML = ut || "<p>Partiet ställde inte upp i det här valet.</p>";
   }
 
   function fyllReglage() {
@@ -182,13 +200,24 @@
       o.textContent = v.ar + " (mandatperioden " + v.mandatperiod + ")";
       vv.appendChild(o);
     });
+    var allaVal = document.createElement("option");
+    allaVal.value = "alla";
+    allaVal.textContent = "Alla val (ett parti i taget)";
+    vv.appendChild(allaVal);
     vv.value = "2022";
     var pv = el("parti-valjare");
     var alla = document.createElement("option");
     alla.value = "alla";
     alla.textContent = "Alla partier";
     pv.appendChild(alla);
-    data.val[0].partier.slice().sort(function (a, b) { return a.namn < b.namn ? -1 : 1; }).forEach(function (p) {
+    var sett = {};
+    var unika = [];
+    data.val.forEach(function (v) {
+      v.partier.forEach(function (p) {
+        if (!sett[p.kod]) { sett[p.kod] = true; unika.push(p); }
+      });
+    });
+    unika.sort(function (a, b) { return a.namn < b.namn ? -1 : 1; }).forEach(function (p) {
       var o = document.createElement("option");
       o.value = p.kod;
       o.textContent = p.namn;
