@@ -261,6 +261,8 @@ def tillampa_kopplingar(utdata: dict, kopplingar: dict) -> list:
                              "kalla": kopplingar["beslut_av"]}
             if k.get("notering"):
                 p["koppling"]["notering"] = k["notering"]
+            if k.get("sakerhet"):
+                p["koppling"]["sakerhet"] = k["sakerhet"]
             for po in k["poster"]:
                 if po["parti"] == par and po.get("anmarkning"):
                     p["koppling"]["anmarkning"] = po["anmarkning"]
