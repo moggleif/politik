@@ -4821,3 +4821,71 @@ class TestKfValProtokoll(unittest.TestCase):
             return [(p["namn"], p["parti"]) for p in b["poster"] if p["roll"] == "ordförande"]
         self.assertEqual(ordf("2022-12-06", "kommunstyrelsen"), [("Lisa Andersson", "M")])
         self.assertEqual(ordf("2014-12-09", "Kommunstyrelsen"), [("Hans Forsberg", "M")])
+
+
+build_personer = ladda("build_personer")
+
+
+class TestPersonfil(unittest.TestCase):
+    """Personfilen: ihopparning på namn inom partiet, facit för hand."""
+
+    KAND = {2022: {"partier": [{"namn": "Moderaterna", "listor": [{
+        "listnamn": "Kungsbacka", "listnummer": "1", "kandidater": [
+            {"plats": 1, "namn": "Eva Ek", "samtycke": True, "uppgift": "50 år"},
+            {"plats": 2, "namn": "Ermin Škorić", "samtycke": True, "uppgift": "40 år"}]}]}]}}
+    BESLUT = {"2022-12-06": {"beslut": [{
+        "paragraf": 194, "dnr": "x",
+        "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till kommunstyrelsen 2023-01-01–2026-12-31",
+        "poster": [
+            {"roll": "ledamot", "ordning": 1, "namn": "Eva Ek", "parti": "M"},
+            {"roll": "ordförande", "ordning": 1, "namn": "Eva Ek", "parti": "M"},
+            {"roll": "ledamot", "ordning": 2, "namn": "Ermin Skoric", "parti": "M"},
+            {"roll": "ledamot", "ordning": 3, "namn": "Eva Ek", "parti": "S"}],
+        "ej_tolkade": []}]}}
+    TROMAN = {"organisationer": [{"uppdrag": [
+        {"fornamn": "Eva", "efternamn": "Ek", "person_id": "id-ek-s", "parti": "S"},
+        {"fornamn": "Ermin", "efternamn": "Skoric", "person_id": "id-skoric", "parti": "M"}]}]}
+
+    def setUp(self):
+        self.ut = build_personer.bygg("Moderaterna", "M", self.KAND, self.BESLUT, self.TROMAN)
+        self.p = {p["namn"]: p for p in self.ut["personer"]}
+
+    def test_stavningsvarianter_ar_en_person(self):
+        sk = self.p["Ermin Škorić"]
+        self.assertEqual(sk["namnvarianter"], ["Ermin Škorić", "Ermin Skoric"])
+        self.assertEqual(len(sk["kandidaturer"]), 1)
+        self.assertEqual(len(sk["uppdrag"]), 1)
+
+    def test_andra_partier_tas_inte_med(self):
+        self.assertEqual(len(self.p["Eva Ek"]["uppdrag"]), 2)   # M-raderna, inte S-raden
+
+    def test_organisation_och_period(self):
+        u = self.p["Eva Ek"]["uppdrag"][0]
+        self.assertEqual(u["organisation"], "Kommunstyrelsen")
+        self.assertEqual(u["mandatperiod"], "2023–2026")
+
+    def test_troman_bekraftar_bara_samma_parti(self):
+        self.assertTrue(self.p["Ermin Škorić"]["troman"]["funnen"])
+        ek = self.p["Eva Ek"]["troman"]
+        self.assertFalse(ek["funnen"])
+        self.assertEqual(ek["annan_med_samma_namn"]["parti"], ["S"])
+
+    def test_perioder_med_luckor_syns(self):
+        per = {p["val"]: p for p in self.ut["perioder"]}
+        self.assertEqual(per[2018]["valbeslut"], "saknas")
+        self.assertIn("2018", per[2018]["anledning"])
+        self.assertEqual(per[2026]["valbeslut"], "valbeslut ej fattat")
+
+    def test_organisation_ur_rubriker(self):
+        o = build_personer.organisation
+        self.assertEqual(o("Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Teknik 2023-01-01–2026-12-31"), "Nämnden för Teknik")
+        self.assertEqual(o("Kommunstyrelsen 2015-01-01-2018-12-31"), "Kommunstyrelsen")
+        self.assertEqual(o("Val av ledamöter, suppleanter och ordförande till Tempohus Kungsbacka AB"), "Tempohus Kungsbacka AB")
+        self.assertIsNone(o("Val av revisorer i donationsstiftelser som förvaltas av kommunen 2023-01-01–2026-12-31"))
+
+    def test_sparad_fil(self):
+        d = json.loads((ROT / "data" / "personer" / "moderaterna.json").read_text(encoding="utf-8"))
+        lisa = next(p for p in d["personer"] if p["namn"] == "Lisa Andersson")
+        self.assertEqual({k["val"] for k in lisa["kandidaturer"]}, {2022, 2026})
+        self.assertIn(("Kommunstyrelsen", "ordförande", "2023–2026"),
+                      {(u["organisation"], u["roll"], u["mandatperiod"]) for u in lisa["uppdrag"]})

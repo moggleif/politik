@@ -1701,3 +1701,25 @@ kandidatlistorna i ett senare steg.
 - Posterna är de som fullmäktige beslutade i december efter valet. Senare
   fyllnadsval ingår inte (avgränsning enligt uppdraget).
 
+### Personfilen (data/personer/<parti>.json)
+
+Byggd med `scripts/build_personer.py` ur kandidatlistorna och valbesluten;
+Troman bekräftar. Nyckeln är personen: samma namn i samma parti i flera
+källor är en person (`namnvarianter` visar olika stavningar). Moderaterna:
+137 personer, 65 med kandidatur (2022, 2026), 119 med uppdrag (2015–2018,
+2023–2026), 61 bekräftade i Troman.
+
+**Begränsningar att känna till**
+
+- Två personer med samma namn i samma parti går inte att skilja åt. Sådana
+  fall listas under `tvetydiga_namn` (inga hittade i Moderaterna).
+- Samma namn i ett *annat* parti i Troman räknas inte som bekräftelse
+  (t.ex. Fredrik Hansson M och C), men sparas som `annan_med_samma_namn`.
+- 2014 har uppdrag men ingen kandidatlista; 2010 och 2018 har varken eller;
+  2026 har kandidatlista men inget valbeslut än. Allt står i `perioder`.
+- Uppdrag utanför nämnder och KS (revisorer, bolagsstyrelser, stiftelser)
+  ingår i datat med `organisation: null` där rubriken inte är en nämnd; de
+  sorteras bort vid visning, inte vid lagring.
+- Troman-id finns bara för dem som sitter i registret idag; tidigare
+  ledamöter saknar id.
+
