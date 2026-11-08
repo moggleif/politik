@@ -148,6 +148,8 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
         for lista in parti["listor"]:
             sedda = {}
             for k in lista["kandidater"]:
+                if k["namn"] is None:
+                    continue   # namnet gallrat av Valmyndigheten (2014, 2018): plats finns, namn inte
                 p = P.finns(k["namn"])
                 p["kandidaturer"].append({
                     "val": ar, "listnamn": lista["listnamn"], "listnummer": lista["listnummer"],
@@ -213,7 +215,10 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
     for ar, (period, datum, orsak) in VAL.items():
         perioder.append({
             "val": ar, "mandatperiod": period,
-            "kandidatlista": "finns" if ar in kandidater else "saknas",
+            "kandidatlista": ("saknas" if ar not in kandidater else
+                              "finns utan namn" if any(k["namn"] is None for q in kandidater[ar]["partier"]
+                                                       for l in q["listor"] for k in l["kandidater"])
+                              else "finns"),
             "valbeslut": ("finns" if datum and all(d in valbeslut for d in datum)
                           else "valbeslut ej fattat" if ar == 2026 else "saknas"),
             "protokoll": datum,

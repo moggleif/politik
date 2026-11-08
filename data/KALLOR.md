@@ -1857,3 +1857,25 @@ Sökt efter de nio partier som sitter i fullmäktige idag. Inget hämtbart hitta
   handlingar och kan begäras från Länsstyrelsen i Hallands län (eller
   Valmyndigheten) för valen 2010, 2014 och 2018, kommun 1384.
 
+### Valsedlar och valda 2010–2018: Valmyndighetens rådata (hittat 2026-11-08)
+
+Sidan <https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-fran-val-2002-2022>
+länkar till äldre valpresentationer på `historik.val.se` med riksfiler. Där
+finns listplatserna, men **namnen är gallrade av Valmyndigheten** ("Namnet
+gallrat") och kandidatnumret är bara ett id inom ett val (det byter mellan
+valen), så det går inte att para ihop valen via det.
+
+| Val | Hela listan (plats, ålder, kön, ort, yrke) | De 61 valda (plats, parti, ålder, kön) |
+|---|---|---|
+| 2010 | **Gallrad** (`alkandur_K.skv` finns inte) | ✓ `data/valda/2010.json` |
+| 2014 | ✓ `data/kandidater/2014.json` (10 partier; två valkretsar med identiska listor slås ihop) | ✓ `data/valda/2014.json` |
+| 2018 | ✓ `data/kandidater/2018.json` (9 partier + 2 små) | ✓ `data/valda/2018.json` (med födelseår) |
+
+Hämtat med `scripts/hamta_kandidaturer_historik.py` och
+`scripts/hamta_valda_historik.py` (den senare kontrollerar 61 ledamöter och
+mandaten per parti mot kommunens egna siffror). Det som saknas är **namnen**
+på listorna 2014 och 2018 samt hela listan 2010. Namn finns bara i
+protokollen över uppdrag (utan listplats), därav behovet av ett separat
+steg som kopplar plats till person. Ålder, ort och yrke finns på båda sidor
+för dem som också stod 2022 (då med namn).
+

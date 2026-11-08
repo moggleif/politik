@@ -4961,3 +4961,33 @@ class TestKopplingar(unittest.TestCase):
         self.assertEqual(ut["L"]["personer"][1]["koppling"]["skild_fran"][0]["id"], "m-2")
         self.assertEqual(oavgjorda, ["Nils Ny"])   # M och C, inget beslut
         self.assertNotIn("koppling", ut["C"]["personer"][0])
+
+
+class TestHistoriskaKandidaturer(unittest.TestCase):
+    """Listor och valda 2010–2018: namnen är gallrade, platserna finns."""
+
+    def test_valda_61_och_mandat_per_parti(self):
+        fasit = {2010: {"M": 24, "S": 10, "L": 7, "C": 5, "MP": 4, "KB": 4, "KD": 3, "SD": 3, "V": 1},
+                 2014: {"M": 21, "S": 10, "C": 7, "L": 6, "SD": 6, "MP": 4, "KB": 3, "KD": 2, "V": 2},
+                 2018: {"M": 19, "S": 9, "SD": 9, "C": 8, "L": 6, "KD": 4, "MP": 2, "V": 2, "KB": 2}}
+        for ar, per in fasit.items():
+            d = json.loads((ROT / "data" / "valda" / f"{ar}.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(d["ledamoter"]), 61)
+            antal = {}
+            for r in d["ledamoter"]:
+                antal[r["parti"]] = antal.get(r["parti"], 0) + 1
+            self.assertEqual(antal, per, ar)
+
+    def test_listor_2014_2018_har_plats_men_inte_namn(self):
+        for ar in (2014, 2018):
+            d = json.loads((ROT / "data" / "kandidater" / f"{ar}.json").read_text(encoding="utf-8"))
+            m = next(p for p in d["partier"] if p["namn"] == "Moderaterna")
+            kand = m["listor"][0]["kandidater"]
+            self.assertEqual([k["plats"] for k in kand], list(range(1, len(kand) + 1)))
+            self.assertTrue(all(k["namn"] is None for k in kand))   # gallrat, inte tomt
+        # 2018 plats 2 på Moderaternas lista: 49 år, trädgårdsmästare i Onsala (= den som var 53 år 2022)
+        d = json.loads((ROT / "data" / "kandidater" / "2018.json").read_text(encoding="utf-8"))
+        m = next(p for p in d["partier"] if p["namn"] == "Moderaterna")
+        k2 = m["listor"][0]["kandidater"][1]
+        self.assertEqual((k2["alder"], k2["ort"]), (49, "Kungsbacka"))
+        self.assertIn("Trädgårdsmästare", k2["uppgift"])
