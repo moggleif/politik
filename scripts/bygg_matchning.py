@@ -101,6 +101,19 @@ def las_kandidater() -> dict:
     return ut
 
 
+def lasa_bestamda(kand: dict) -> list:
+    """Lägger `bestamt` (namn) på de platser som uppdragsgivaren avgjort i
+    data/kopplingar_platser.json. Returnerar listan med besluten."""
+    fil = DATA / "kopplingar_platser.json"
+    if not fil.exists():
+        return []
+    beslut = json.loads(fil.read_text(encoding="utf-8"))["platser"]
+    for b in beslut:
+        k = next(k for k in kand[b["val"]][b["parti"]] if k["plats"] == b["plats"])
+        k["bestamt"] = b["namn"]
+    return beslut
+
+
 def poang(a: dict, b: dict):
     """Poäng för att b (nästa val) är samma person som a, eller None om det
     är uteslutet. Se modulens docstring."""
@@ -248,7 +261,8 @@ def namnge(spar: dict, pn: dict) -> list:
     ut = []
     for parti, lista in spar.items():
         for sp in lista:
-            namn = [k["namn"] for k in sp["kedja"] if k.get("namn")]
+            namn = [k["namn"] for k in sp["kedja"] if k.get("namn")] + \
+                [k["bestamt"] for k in sp["kedja"] if k.get("bestamt")]
             unika = {nyckel(n): n for n in namn}
             if not unika:
                 continue
@@ -259,9 +273,11 @@ def namnge(spar: dict, pn: dict) -> list:
                 period = PERIOD_AV_VAL[k["val"]]
                 kallor = sorted(pn.get((parti, period), {}).get(nyckel(namn[0]), []))
                 platser.append({"val": k["val"], "plats": k["plats"], "alder": k["alder"], "kon": k["kon"],
+                                "sakerhet": "bestämd" if k.get("bestamt") else grad,
                                 "uppgift": k["uppgift"], "namn_i_kallan": k["namn"],
                                 "i_protokoll": bool(kallor), "protokollkallor": kallor[:3]})
-            ut.append({"parti": parti, "namn": namn[0], "namnkonflikt": sorted(unika.values()) if len(unika) > 1 else None,
+            ut.append({"parti": parti, "namn": namn[-1] if any(k.get("bestamt") for k in sp["kedja"]) else namn[0],
+                       "namnkonflikt": sorted(unika.values()) if len(unika) > 1 else None,
                        "sakerhet_bakat": grad, "lankar": sp["lankar"], "platser": platser})
     return ut
 
@@ -299,7 +315,7 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
             continue
         for pl in sp["platser"]:
             if pl["val"] == ar:
-                namn_i_spar[(sp["parti"], pl["plats"])] = (sp["namn"], sp["sakerhet_bakat"])
+                namn_i_spar[(sp["parti"], pl["plats"])] = (sp["namn"], pl["sakerhet"])
 
     def villkor(namn, r):
         return all(abs((a - (sen - ar)) - r["alder"]) <= 1 for sen, a in alder_senare.get(nyckel(namn), []))
@@ -365,6 +381,7 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
 def main() -> None:
     kand = las_kandidater()
     kal = kalibrera(kand)
+    bestamda = lasa_bestamda(kand)
     pn = protokollnamn()
     spar = bygg_spar(kand)
     namngivna = namnge(spar, pn)
@@ -386,8 +403,9 @@ def main() -> None:
             continue
         for pl in sp["platser"]:
             if pl["namn_i_kallan"] is None:
-                stat.setdefault(pl["val"], {}).setdefault(sp["sakerhet_bakat"], 0)
-                stat[pl["val"]][sp["sakerhet_bakat"]] += 1
+                g = pl["sakerhet"] if pl["sakerhet"] == "bestämd" else sp["sakerhet_bakat"]
+                stat.setdefault(pl["val"], {}).setdefault(g, 0)
+                stat[pl["val"]][g] += 1
     totalt = {ar: sum(len(v) for v in per.values()) for ar, per in kand.items()}
     print("Kalibrering 2022→2026:", json.dumps(kal, ensure_ascii=False))
     for ar in (2010, 2014, 2018):
@@ -398,7 +416,7 @@ def main() -> None:
     (UT / "forslag.json").write_text(json.dumps({
         "byggd": date.today().isoformat(),
         "forklaring": "Förslag, inte fakta. Se scripts/bygg_matchning.py. Säkerhet: säker (namn i båda valen), stark, möjlig.",
-        "kalibrering": kal, "platser_totalt": totalt, "statistik_namnforslag": stat,
+        "kalibrering": kal, "bestamda_platser": bestamda, "platser_totalt": totalt, "statistik_namnforslag": stat,
         "spar": [{k: v for k, v in sp.items()} for sp in namngivna], "valda": {str(a): r for a, r in valda.items()}},
         ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 

@@ -5056,3 +5056,15 @@ class TestMatchning(unittest.TestCase):
         for r in d["valda"]["2014"]:
             if r["grund"] == "spår + närvarologg":
                 self.assertTrue(r["namn_forslag"])
+
+
+    def test_bestamda_platser_sprids_langs_sparet(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        beslut = {(b["val"], b["parti"], b["plats"]): b["namn"] for b in d["bestamda_platser"]}
+        self.assertEqual(beslut, {(2014, "M", 5): "Per Ödman", (2018, "M", 1): "Hans Forsberg"})
+        hf = next(s for s in d["spar"] if s["namn"] == "Hans Forsberg")
+        self.assertEqual([(p["val"], p["plats"], p["alder"]) for p in hf["platser"]],
+                         [(2010, 2, 46), (2014, 1, 50), (2018, 1, 54)])     # +4 år per val
+        self.assertEqual([p["sakerhet"] for p in hf["platser"]], ["möjlig", "möjlig", "bestämd"])
+        v14 = next(r for r in d["valda"]["2014"] if r["parti"] == "M" and r["listplats"] == 5)
+        self.assertEqual((v14["namn_forslag"], v14["sakerhet"]), ("Per Ödman", "bestämd"))

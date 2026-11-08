@@ -1944,3 +1944,14 @@ ha ersatts och loggen kan inte användas som uttömmande lista där;
 svagare; (d) den som hoppar över ett val (stod 2014 och 2022 men inte 2018)
 länkas inte; (e) partibyten följs inte (matchning sker inom partiet).
 
+**Bestämda platser (`data/kopplingar_platser.json`, handunderhållen):**
+uppdragsgivaren har avgjort två platser där Valmyndigheten gallrat namnet:
+Moderaterna 2014 plats 5 = **Per Ödman** (valsedelsuppgift
+"kommunstyrelseordförande, 67 år, Onsala") och Moderaterna 2018 plats 1 =
+**Hans Forsberg** ("54 år, Kommunalråd, Kungsbacka"). De får säkerhetsgraden
+`bestämd` och namnet sprids längs spåret: Hans Forsberg blir då 2010 plats 2
+(46 år), 2014 plats 1 (50) och 2018 plats 1 (54), med ålder fyra år mellan
+valen och med i fullmäktiges logg 2014 och 2019. Observation, inte beslut:
+Per Ödmans 2010 kan vara plats 1 (63 år, M), men länken finns inte i
+spåren (ålder +4 stämmer, men inga gemensamma yrkesord).
+
