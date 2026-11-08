@@ -413,6 +413,25 @@ data/
                                 Vård & Omsorgs övriga sommarjobb
   rodalinjer/besked.json        Partiernas besked om regering och samarbete,
                                 ett per rad, med länkade källor
+  kandidater/<år>.json          Partiernas kandidatlistor till kommunfullmäktige
+                                i Kungsbacka (2022, 2026): listplats, namn och
+                                uppgiftsrad, ur Valmyndighetens valpresentation
+  personer/<parti>.json         En post per person i partiet: kandidaturer
+                                (listplats) och uppdrag per mandatperiod, med
+                                Troman som bekräftelse. Byggs av build_personer.py
+  uppdrag/kf_val_<datum>.json   Valbesluten i fullmäktiges decemberprotokoll,
+                                en rad per person och roll
+  valdes_till/<val>.json        Vad personerna på valsedeln valdes till (KS, KSAU,
+                                nämndernas ordförande och vice), per val
+  styre.json                    Vilka partier som styrde per mandatperiod (bara för
+                                sorteringen på efter-valet.html); källa per period
+  matchning/forslag.json        Namnförslag med säkerhetsgrad för platser där
+                                Valmyndigheten gallrat namnet
+  uppdrag/narvaro.json          Närvarolistor ur första protokollet med text
+                                per organ och period (ersättningskälla)
+  uppdrag/troman_<datum>.json   Förtroendevaldas uppdrag i KS, utskott och
+                                nämnder, ur kommunens register Troman: en
+                                ögonblicksbild per hämtning
   kommunval/<år>.json           Kommunvalets resultat per valdistrikt i
   regionval/<år>.json           Kungsbacka, parti för parti (2010, 2014,
   riksdagsval/<år>.json         2018, 2022, 2026) – ett val per mapp. Bara
@@ -528,6 +547,30 @@ scripts/
                                 metoden mot Valmyndighetens egen bedömning –
                                 jämförbara distrikt ska hamna på sig själva –
                                 och avbryter annars
+  hamta_valsedlar.py            Hämtar kandidatlistorna (2022, 2026) till
+                                data/kandidater/; 2010–2018 finns inte i källan
+  build_personer.py             Bygger data/personer/<parti>.json ur
+                                kandidatlistor och valbeslut; namn jämförs inom
+                                partiet, tvetydiga namn och luckor redovisas
+  bygg_matchning.py             Föreslår namn på platserna 2010-2018 (namnen är
+                                gallrade) via länkar mellan valen, kontrollerade
+                                mot protokollen, till data/matchning/forslag.json
+  hamta_kf_logg.py              Hämtar fullmäktiges närvarologg (61 ledamöter),
+                                första loggen i arkivet för varje mandatperiod
+  bygg_valdes_till.py           Kopplar valsedelsplats → KS/KSAU/nämnders ordförande
+                                och vice ordförande, till data/valdes_till/<val>.json
+  build_efter_valet.py          Bygger docs/data-efter-valet.json: partiernas listor i
+                                nummerordning med vad varje plats blev
+  hamta_narvaro.py              Hämtar närvarolistan ur första protokollet med
+                                text per organ och period till
+                                data/uppdrag/narvaro.json (ersättningskälla för
+                                perioder utan valbeslut)
+  hamta_kf_val.py               Läser valbesluten (KS, nämnder, ordförande,
+                                vice ordförande) ur fullmäktiges decemberprotokoll
+                                2014 och 2022 till data/uppdrag/kf_val_*.json
+  hamta_uppdrag.py              Hämtar uppdrag och personer ur Troman till
+                                data/uppdrag/ och kontrollerar radantalet mot
+                                sidans eget
   build_valresultat.py          Bygger docs/data-kommunval.json och de två
                                 andra valens filer: rösterna per distrikt,
                                 parti och val, med jämförbarheten mellan
@@ -592,6 +635,10 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 (?val=, ?parti=, ?distrikt=)
   fullmaktige.html              Kommunfullmäktiges inspelade möten, med länk
                                 till varje inspelning (?mote=)
+  efter-valet.html              Varje partis lista 2010–2026 i nummerordning: vilka
+                                platser som blev fullmäktigeledamot, KS, KSAU och
+                                ordförande/vice i nämnd (?val=, ?parti=). Källor och
+                                luckor (2018/2010 delvis, 2026 ej beslutat) längst ner
   kommunval.html                Sidans gamla adress; skickar vidare till
                                 valresultat.html med frågesträngen i behåll
   metod.html                    Metodsidan: källor, transformationer, viktning

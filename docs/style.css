@@ -18,6 +18,8 @@
   --orange-dark: #b57c00; /* framskrivet, aldrig uppmätt */
   --neutral-mid: #f0efec;
   --focus: #1c5cab;
+  --ja: #1a7a38;   /* grön bock; kontrast 5,2:1 mot ytan */
+  --nej: #b3261e;  /* rött kryss; kontrast 6,4:1 mot ytan */
 }
 
 * { box-sizing: border-box; }
@@ -215,7 +217,7 @@ thead th {
   font-weight: 600;
 }
 
-.tabell-rull { overflow-x: auto; }
+.tabell-rull { overflow-x: auto; position: relative; }  /* relative: skärmläsartexter (.dold, absolut) ska klippas av rullningen, inte förlänga sidan */
 
 /* ---------- Källor ---------- */
 
@@ -1061,3 +1063,65 @@ ul.matris-noter { list-style: none; padding: 0; margin: 0.75rem 0 0; font-size: 
 table.matris { font-size: 0.9rem; }
 table.matris th, table.matris td { padding: 0.45rem 0.35rem; }
 table.matris thead th:first-child { white-space: normal; min-width: 5.5rem; }
+
+
+/* ---------- Efter valet: listor och uppdrag ---------- */
+
+.parti-sektion h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tagg {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--neutral-mid);
+  border: 1px solid var(--grid);
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  color: var(--ink-2);
+}
+
+.tagg-styr { border-color: var(--blue-dark); color: var(--blue-dark); }
+
+table.efter-valet {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+table.efter-valet th,
+table.efter-valet td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--grid);
+  text-align: left;
+  vertical-align: top;
+}
+
+table.efter-valet thead th { border-bottom: 2px solid var(--baseline); }
+table.efter-valet th.plats { width: 3.5rem; text-align: right; }
+table.efter-valet .mitt { text-align: center; }
+table.efter-valet tr.inte-aktuell td { color: var(--muted); }
+
+.ja { color: var(--ja); font-weight: 700; }
+.nej { color: var(--nej); font-weight: 700; }
+.vantar { color: var(--muted); font-weight: 700; }
+.liten { font-size: 0.85rem; color: var(--muted); }
+.saknas { font-style: italic; color: var(--muted); }
+.osaker, .senare { font-size: 0.85rem; color: var(--orange-dark); }
+
+.teckenforklaring { font-size: 0.95rem; }
+
+ul.utan-plats { margin: 0.25rem 0 0; padding-left: 1.25rem; }
+
+details.kallor-dolda {
+  margin-top: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+}
+
+details.kallor-dolda summary { cursor: pointer; font-weight: 600; }

@@ -27,6 +27,9 @@ och vad som återstår.
 | Förtidsröster 2026 (Valmyndigheten) | Hämtas automatiskt två gånger om dagen t.o.m. 16 september 2026 |
 | Röstberättigade 2022 och 2026 (Valmyndigheten) | Klara |
 | Kommunfullmäktiges inspelade möten 2022–2026 (kommunen, Screen9, YouTube) | Klara, hämtas om för hand |
+| Kandidatlistor till kommunfullmäktige 2022 och 2026 (Valmyndighetens valpresentation) | Klara, `data/kandidater/`. 2010, 2014 och 2018 saknas: samma adress ger 404, listorna måste hämtas ur annan källa |
+| Valbeslut i fullmäktige, decembermötena 2014 och 2022 (kommunhandlingar) | Klara, `data/uppdrag/kf_val_<datum>.json`. 2018 och 2010 saknas, se Luckor |
+| Förtroendevalda och uppdrag, nuläget (kommunens register Troman) | Hämtat 2026-11-08, `data/uppdrag/`. Bara nuläget; se "Luckor" i avsnittet Kandidater och uppdrag |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
 jämförelsepunkter mot faktiskt utfall. Meritvärdesdelen bygger på nio
@@ -1593,3 +1596,567 @@ Det som inte förs in:
   och är ett ungefärligt tal.
 - Timvikarietimmar och årsarbetare per månad (utvärderingen 2026) mäter
   arbetad tid, inte personer.
+
+## Kandidater och uppdrag (kandidatlistor och förtroendevalda)
+
+Mål: för varje val till kommunfullmäktige se vilka som stod var på
+partiernas listor och vilka av dem som sedan fick plats i kommunstyrelsen
+(KS), kommunstyrelsens arbetsutskott (KSAU) eller blev ordförande eller
+vice ordförande i en nämnd. Underlaget lagras som källorna ger det, utan
+tolkning; kopplingen mellan listorna och uppdragen görs i ett senare steg.
+Ändringar under mandatperioden bortses från: det som eftersträvas är
+fördelningen efter valet, helst den som fullmäktige fastställde i december
+efter valet (2010, 2014, 2018, 2022).
+
+### Kandidatlistor
+
+| Val | Källa | Status |
+|---|---|---|
+| 2022, 2026 | `https://data.val.se/assets/valtillfallen/val<år>/valdata/partier/kandidatur_KF_1384.json` (sidan för människor: `https://data.val.se/val<år>/partier/valsedlar/valtyp/KF/omrade/13/kommun/1384`) | Hämtad med `scripts/hamta_valsedlar.py` till `data/kandidater/<år>.json` |
+| 2010, 2014, 2018 | Valpresentationen data.val.se har bara 2022, 2024 (EU) och 2026. Samma adress för 2010–2018 ger 404, och de gissade adresserna under `historik.val.se/val/val<år>/` (`/`, `/valsedlar/index.html`, `/kandidater/index.html`) ger också 404 | **Lucka.** Källan är inte funnen. Att pröva: partiernas arkiv, Riksarkivet, kommunens protokoll från när fullmäktige konstituerades |
+
+Listplatsen ("ordning") är den på den tryckta valsedeln före valet.
+Källan sorterar platserna som text (1, 10, 11 … 2); hämtningen sorterar om
+numeriskt. Uppgiftsraden (ålder, yrke, ort) sparas som en sträng.
+
+### Uppdrag
+
+**Troman är en bekräftande källa, inte grunden.** Det som gäller som
+underlag är fullmäktiges beslut (se avsnittet om valbeslut nedan) och
+Valmyndighetens kandidatlistor. Troman används för att kontrollera dem
+(stämmer dagens KS och nämnder med decemberbeslutet 2022, bortsett från
+fyllnadsval?), för namnstavning och som inspiration till vilka poster som
+finns. Avvikelser mot Troman är inte fel i sig: registret visar den som
+sitter nu.
+
+Källa: kommunens register över förtroendevalda,
+`https://kungsbacka.tromanpublik.se/` (uppdateras varje natt), hämtat med
+`scripts/hamta_uppdrag.py` till `data/uppdrag/troman_<hämtdatum>.json`.
+Filen har organisationer (med mandatperiod och alla uppdragsrader),
+personer (med person-id, uppdrag och uppdragshistorik) och en lista över
+utelämnade organisationer. Person-id:t (`/person/<uuid>`) är registrets
+eget och det som håller ihop en person mellan perioder.
+
+Hämtat: kommunfullmäktige, kommunstyrelsen, utskott, nämnder och posten
+"Övrigt" (bl.a. kommunalråd). Utelämnat avsiktligt och listat i filen:
+bolag och stiftelser.
+
+**Luckor – dokumenterade, inte åtgärdade**
+
+- **Registret visar bara nuläget.** Perioden 2023-01-01 – 2026-12-31
+  (valet 2022) är den som gäller för alla nämnder och KS i hämtningen
+  2026-11-08. Kommunfullmäktige ligger redan på den nya perioden
+  2026-10-15 – 2030-10-14 (valet 2026), medan KS och nämnderna för
+  2027–2030 inte är valda ännu. Ta en ny ögonblicksbild när de lagts in.
+- **Historiken saknar KS och nämnder.** På personsidorna innehåller
+  "Uppdragshistorik" i praktiken bara perioder som fullmäktigeledamot
+  (tillbaka till 2002). Avslutade poster i KS, KSAU och nämnder syns inte.
+  Stickprov om 14 ledamöter av KS 2026-11-08 gav ingen avslutad KS- eller
+  nämndspost. Därmed saknas uppdragen för mandatperioderna 2011–2014,
+  2015–2018 och 2019–2022.
+- **Hämtningen visar den som sitter nu, inte den som valdes i december.**
+  Avgångna och inträdande ersättare under perioden följer med som registret
+  har dem. Den avgränsningen är medveten (se ovan) men betyder att 2023–2026
+  inte är exakt fullmäktiges decemberbeslut 2022.
+- **Perioderna 2010–2022 måste hämtas ur annan källa**, sannolikt
+  kommunfullmäktiges protokoll där KS, KSAU och nämndernas ordförande och
+  vice ordförande väljs. Inte hittat än.
+- **Partiet anges som förkortning** i registret (M, S, C, …), medan
+  Valmyndighetens filer har en egen partikod (Moderaterna = 1). Mappningen
+  görs vid kopplingen, inte i de lagrade filerna.
+
+### Valbeslut i fullmäktiges protokoll (den primära källan för uppdragen)
+
+Källa: arkivet <https://moggleif.github.io/kommunhandlingar/kungsbacka.html>
+(4 149 dokument 2013-08-13 – 2026-11-12), som återger kommunens
+protokoll som text. Hämtat med `scripts/hamta_kf_val.py` till
+`data/uppdrag/kf_val_<protokolldatum>.json`: varje valbeslut (paragraf,
+diarienummer, rubrik) med en rad per person (roll, namn, parti, ordning
+inom rollen). Inga tolkningar; namn och parti kopplas till Troman-id och
+kandidatlistorna i ett senare steg.
+
+| Val | Protokoll | Innehåll |
+|---|---|---|
+| 2014 | 2014-12-09, §§ 172–204 | KS, krisledning och alla nämnder 2015–2018, revisorer, bolag, stiftelser |
+| 2022 | 2022-12-06, §§ 193–226 | KS, krisledning och alla nämnder 2023–2026, revisorer, arvodesberedning, bolag m.m. |
+
+**Luckor**
+
+- **2018 (mandatperioden 2019–2022) saknas helt.** Arkivet har inga
+  fullmäktigemöten från 2018 och bara ett från 2019 (2019-08-13);
+  decemberprotokollet 2018-12-11 finns inte. Valmyndighetens protokoll för
+  2018 och 2022 gav 404 vid hämtning, och det för 2014 säger "Protokoll
+  gallrat". Att göra: kommunens egen sida eller diarium för
+  KF-protokollen december 2018.
+- **2010 (mandatperioden 2011–2014) saknas.** Arkivet börjar 2013-08-13.
+- **Kommunstyrelsens arbetsutskott (KSAU) väljs av kommunstyrelsen**, inte av
+  fullmäktige, så det står i kommunstyrelsens första möte efter valet.
+  Hämtat med samma skript (`data/uppdrag/ks_val_<datum>.json`):
+  KS 2015-01-20 § 3 (KSAU 2015–2018) och KS 2023-01-10 § 4 (KSAU
+  2023–2026), båda med ledamöter, ersättare, ordförande och vice
+  ordförande. 2023 stämmer med KSAU:s eget första möte 2023-01-17
+  (beslutande ledamöter med ordförande och vice) och med Troman.
+  KSAU:s första möte 2015-01-27 finns i arkivet men utan text
+  (`ej-hamtad`). **KSAU 2019–2022 och 2011–2014 saknas.**
+- **Rader som inte är personer** hamnar i `ej_tolkade` i stället för att
+  försvinna (t.ex. stiftelsernas namn i beslutet om donationsstiftelser,
+  § 221 2022). Inga av dem rör KS, KSAU eller nämndernas ordförande.
+- `originalet` (länk till kommunens PDF) är `null`: arkivets sida anger inte
+  alltid en länk till originalet, så protokollet citeras med arkivets
+  adress. Kontrollera mot kommunens PDF vid tveksamhet.
+- Posterna är de som fullmäktige beslutade i december efter valet. Senare
+  fyllnadsval ingår inte (avgränsning enligt uppdraget).
+
+### Personfilen (data/personer/<parti>.json)
+
+Byggd med `scripts/build_personer.py` ur kandidatlistorna och valbesluten;
+Troman bekräftar. Nyckeln är personen: samma namn i samma parti i flera
+källor är en person (`namnvarianter` visar olika stavningar). Moderaterna:
+137 personer, 65 med kandidatur (2022, 2026), 119 med uppdrag (2015–2018,
+2023–2026), 61 bekräftade i Troman.
+
+**Begränsningar att känna till**
+
+- Två personer med samma namn i samma parti går inte att skilja åt. Sådana
+  fall listas under `tvetydiga_namn` (inga hittade i Moderaterna).
+- Samma namn i ett *annat* parti i Troman räknas inte som bekräftelse
+  (t.ex. Fredrik Hansson M och C), men sparas som `annan_med_samma_namn`.
+- 2014 har uppdrag men ingen kandidatlista; 2010 och 2018 har varken eller;
+  2026 har kandidatlista men inget valbeslut än. Allt står i `perioder`.
+- Uppdrag utanför nämnder och KS (revisorer, bolagsstyrelser, stiftelser)
+  ingår i datat med `organisation: null` där rubriken inte är en nämnd; de
+  sorteras bort vid visning, inte vid lagring.
+- Troman-id finns bara för dem som sitter i registret idag; tidigare
+  ledamöter saknar id.
+
+### Vad som provats för 2018 och 2019 – utan resultat
+
+Arkivets statussida
+(<https://moggleif.github.io/kommunhandlingar/kungsbacka/status.html>,
+byggd 2026-11-08) bekräftar luckan: "År utan dokument: 2018" för
+kommunfullmäktige och KSAU; KS har protokollposter för 2018-12-18 och
+2019-01-15 men utan text (`ej-hamtad`, original på Wayback Machine).
+Arkivets egna källor är kommunens mötessida och Internet Archive.
+
+- Wayback Machine (web.archive.org) går inte att nå från den miljö där
+  skripten kördes (anslutningen bryts), så de arkiverade originalen till
+  KS 2019-01-15 har inte kunnat läsas.
+- `historik.val.se/val/val2018/slutresultat/protokoll/protokoll_1384K.pdf`
+  (länsstyrelsens protokoll med kandidater och personröster 2018) ger 404;
+  2014-motsvarigheten returnerar bara "Protokoll gallrat". En webbsökning
+  visade en äldre kopia med Moderaternas lista 2018, men filen går inte att
+  hämta, så inget därifrån är sparat. **Spår att kontrollera mot källan:**
+  platserna 1–4 enligt sökträffen var Hans Forsberg, Lisa Andersson,
+  Christian Johansson och Maria Gathendahl (ej verifierat).
+- Kommunens sida "Politisk historia" har bara mandatfördelning per parti
+  (2011–2014: M 24, S 10, FP 7, C 5, MP 4, KB 4, KD 3, SD 3, V 1; 2015–2018:
+  M 21, S 10, C 7, L 6, SD 6, MP 4, KB 3, KD 2, V 2; 2019–2022: M 19, S 9,
+  SD 9, C 8, L 6, KD 4, MP 2, V 2, KB 2), inga ordförande.
+- Centerpartiets PDF om representation 2019–2022 (november 2018) ger 404.
+
+### Närvarolistor som ersättningskälla (2011–2014 och 2019–2022)
+
+Valbesluten saknas för de två perioderna. `scripts/hamta_narvaro.py` hämtar
+därför närvarolistan ("Beslutande") ur **första protokollet med text** för
+varje organ och mandatperiod (`data/uppdrag/narvaro.json`): kommunstyrelsen,
+arbetsutskott och nämnder, alltså även alla nämnder. Blocket sparas
+ordagrant tillsammans med en försiktig utläsning (ledamot, tjänstgörande
+ersättare, ordförande/vice ordförande när titeln står direkt efter namnet).
+Personfilen tar med dem för perioder utan valbeslut, märkta
+`kalla: "närvarolista"`.
+
+**Kontroll mot valbesluten.** Samma hämtning gjordes för 2015–2018 och
+2023–2026 och jämfördes med besluten: i alla jämförbara fall (KS, KSAU och
+12 nämnder) är ordföranden i närvarolistan samma person som i beslutet, och
+90–100 % av de utlästa ledamöterna finns i beslutet (avvikelser: en
+ledamot som inte fanns i beslutet, troligen ersatt eller felutläst).
+
+**Begränsningar**
+
+- Närvarolistan visar de närvarande vid *ett* möte. Ersättare som
+  tjänstgjorde kan stå som tjänstgörande, och en ledamot som var frånvarande
+  syns inte. Ledamöter utan titel är därför ledamöter vid det mötet, inte
+  nödvändigtvis hela periodens.
+- Första protokollet med text ligger ibland långt in i perioden (2019–2022:
+  KS 2021-01-19, KSAU 2021-01-05, Gymnasium & Arbetsmarknad 2020-11-04,
+  Service 2021-01-21, Miljö & Hälsoskydd 2021-02-18, Valnämnden 2021-02-22).
+  Då kan sammansättningen ha ändrats sedan valet. Datumet står i varje post.
+- Arkivet saknar sidor för organ som hette annat före 2015 (Fritid &
+  Folkhälsa, Funktionsstöd, Äldreomsorg, Kultur & Turism m.fl.), och flera
+  nämnder saknar protokoll med text 2011–2014: Förskola & Grundskola,
+  Individ & Familjeomsorg, Kultur & Fritid, Teknik, Valnämnden,
+  Kommunrevisionen. KSAU 2011–2014 och 2015–2018 och KSAU:s arbetsutskott
+  Förskola & Grundskola 2011–2014 saknar protokoll med text.
+- Kommunfullmäktiges närvarolista (alla ledamöter) hämtas inte: protokollen
+  har inte den layouten för alla perioder.
+- Namn med brutna efternamn i listan (t.ex. "Kenth / Wallin (SD)") och
+  titlar som hamnat på en egen rad läses inte ut; de finns i `block`.
+
+### Personfiler för alla partier
+
+`python3 scripts/build_personer.py` bygger `data/personer/<parti>.json` för
+de nio partier som suttit i fullmäktige under de fem valen (M, S, C, L, KD, MP, SD, V, KB), samt `_utan_parti.json`. Partier som aldrig fått mandat saknar personfil.
+Liberalerna tar med Folkpartiets förkortning (FP) som äldre namn.
+
+| Parti | Personer | Med kandidatur | Med uppdrag |
+|---|---|---|---|
+| Moderaterna | 147 | 65 | 129 |
+| Socialdemokraterna | 79 | 48 | 60 |
+| Centerpartiet | 76 | 54 | 53 |
+| Liberalerna | 64 | 37 | 45 |
+| Kungsbackaborna | 61 | 50 | 17 |
+| Sverigedemokraterna | 54 | 44 | 33 |
+| Kristdemokraterna | 41 | 31 | 29 |
+| Miljöpartiet | 38 | 31 | 20 |
+| Vänsterpartiet | 34 | 25 | 16 |
+
+Medborgerlig Samling, Alternativ för Sverige, Kungsbacka Framtidsparti och Kristna Värdepartiet har aldrig fått mandat och har ingen personfil (kandidatlistorna 2022 och 2026 finns kvar i `data/kandidater/`).
+
+**Att veta**
+
+- **Samma namn i flera partier** (7 namn): Agnetha Ernegård (KB, KFP; KFP-filen är borttagen),
+  Charlotte Wennerberg (C, M), Fredrik Hansson (C, M), Lars-Ove Samuelsson
+  (L, M), Maria Rasmussen (MP, V), Max Ramström (L, M), Stephan Philipson
+  (KB, M). Det kan vara partibyten eller olika personer med samma namn;
+  filerna avgör det inte, eftersom en ihopslagning vore en tolkning. Varje
+  parti har sin egen post. (Åttonde "namnet" var "Vakant", se nedan.)
+- **"Vakant"** är en tom plats i protokollet, ingen person: 5 rader hoppas
+  över och listas under `ej_personer` i respektive partifil.
+- **18 poster saknar parti i protokollet** (bl.a. stiftelsers och bolags
+  funktionärer, och ett par namn utan partiangivelse); de ligger i
+  `data/personer/_utan_parti.json` och kan inte föras till ett parti utan
+  tolkning.
+- Partiernas kortnamn i protokollen: M, S, C, KD, SD, L (FP), MP, KB, V.
+  "MM" förekommer en gång i en närvarolista och är inte kopplad till något
+  parti.
+- **Bekräftat av uppdragsgivaren:** de åtta Kungsbackaborna som står på både
+  2022 och 2026 års lista (Christer Perfjell, Lars Jönsson, Leif Gullvert,
+  Mats Ståhlberg, Roger Larsson, Susanne Lundin-Larsen, Sven Rahm, Ulf
+  Hellgesson) är samma personer. 2022 års uppgiftsrad för Kungsbackaborna
+  saknar ålder (bara ort), så åldern kan inte användas som kontroll.
+
+### Sökning efter valsedlar 2010, 2014 och 2018 (2026-11-08)
+
+Sökt efter de nio partier som sitter i fullmäktige idag. Inget hämtbart hittat.
+
+- **Länsstyrelsens valprotokoll på `historik.val.se`** är det dokument som
+  har kandidatlistorna i valsedelsordning med personröster (bilaga 4,
+  "valsedlar med kandidater") och valda (bilaga 2). Hela katalogen för 2018
+  (`/val/val2018/slutresultat/protokoll/protokoll_<kommunkod>K.pdf`) ger nu
+  404 för alla kommuner som provats (Kungsbacka 1384 och sex andra), och
+  2014-filen är en sida med texten "Protokoll gallrat". Webbsökning visar
+  utdrag ur 2018-filen med Moderaternas lista (plats 1–4 enligt utdraget:
+  Hans Forsberg, Lisa Andersson, Christian Johansson, Maria Gathendahl),
+  men utdragen är sammanfattade av sökverktyget och ingen siffra eller
+  ordning därifrån är sparad.
+- Partiernas dokument som hittades (Moderaternas länsstatistik,
+  Liberalernas remissvar, Centerpartiets valplattform och
+  nomineringsblad) innehåller inga kandidatlistor. Sveriges Radios
+  valintervjuer 2014 är intervjuer, inte listor.
+- **Väg som återstår:** protokollen över slutlig sammanräkning är allmänna
+  handlingar och kan begäras från Länsstyrelsen i Hallands län (eller
+  Valmyndigheten) för valen 2010, 2014 och 2018, kommun 1384.
+
+### Valsedlar och valda 2010–2018: Valmyndighetens rådata (hittat 2026-11-08)
+
+Sidan <https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-fran-val-2002-2022>
+länkar till äldre valpresentationer på `historik.val.se` med riksfiler. Där
+finns listplatserna, men **namnen är gallrade av Valmyndigheten** ("Namnet
+gallrat") och kandidatnumret är bara ett id inom ett val (det byter mellan
+valen), så det går inte att para ihop valen via det.
+
+| Val | Hela listan (plats, ålder, kön, ort, yrke) | De 61 valda (plats, parti, ålder, kön) |
+|---|---|---|
+| 2010 | ✓ `data/kandidater/2010.json` (11 partier, bara plats/kön/ålder; ingen ort eller yrke) | ✓ `data/valda/2010.json` |
+| 2014 | ✓ `data/kandidater/2014.json` (10 partier; två valkretsar med identiska listor slås ihop) | ✓ `data/valda/2014.json` |
+| 2018 | ✓ `data/kandidater/2018.json` (9 partier + 2 små) | ✓ `data/valda/2018.json` (med födelseår) |
+
+Hämtat med `scripts/hamta_kandidaturer_historik.py` och
+`scripts/hamta_valda_historik.py` (den senare kontrollerar 61 ledamöter och
+mandaten per parti mot kommunens egna siffror). Det som saknas är **namnen**
+på listorna 2014 och 2018 samt hela listan 2010. Namn finns bara i
+protokollen över uppdrag (utan listplats), därav behovet av ett separat
+steg som kopplar plats till person. Ålder, ort och yrke finns på båda sidor
+för dem som också stod 2022 (då med namn).
+
+2010 års listor kommer från valsedelsfilen
+`historik.val.se/val/val2010/valsedlar/K/kommun/13/84/1384K.xml`
+(platser med kön och ålder; ingen ort eller yrke). **Korskontroll:** för alla
+61 valda 2014 och 2018 stämmer ålder och kön med kandidaten på den platsen
+i listan, och för 60 av 61 2010. Avvikelsen 2010 är SD:s tredje mandat
+(plats 3): XML-filen (tagen 2010-09-21) har bara två platser på SD:s
+valsedel. Det testas uttryckligen och är inte åtgärdat.
+
+### Matchningsförslag: vem stod på vilken plats 2010–2018 (`data/matchning/forslag.json`)
+
+Byggd med `scripts/bygg_matchning.py`. **Förslag, inte fakta**: inget är
+inlagt i personfilerna. Metoden (detaljer i skriptets docstring):
+
+1. Kandidaturer länkas mellan valen (2010→2014→2018→2022; 2022→2026 på
+   namn) per parti: ålder +4 år, samma ort/yrke-ord, samma kön där det är
+   känt; bara ömsesidigt bästa par med tydlig marginal.
+2. Spåren som når 2022 eller 2026 får det namnet, bakåt.
+3. **Protokollen kontrollerar:** namnet slås upp bland partiets namn i
+   protokollen för perioden (valbeslut, närvarolistor, fullmäktiges
+   närvarologg). För de 61 valda 2014 är loggen en uttömmande lista över
+   namnen: ett spårnamn som inte finns där avvisas, och övriga namn fördelas
+   på platserna med ålder som villkor.
+
+**Träffsäkerhet (mätt på 2022→2026, där namn finns i båda valen):** av 145
+personer som stod båda gångerna gav metoden "stark" länk för 102, varav 98
+(96 %) rätt, och "möjlig" länk för 26, varav 17 (65 %) rätt.
+
+**Fullmäktiges närvarologg som kontroll (första loggen i arkivet för varje
+period, `scripts/hamta_kf_logg.py`, `data/uppdrag/kf_logg_<datum>.json`):**
+
+| Val | Logg | Dagar efter valet | Använd som |
+|---|---|---|---|
+| 2010 | 2013-10-08 | 1 115 | bekräftelse (5 ledamöter saknar parti i loggen) |
+| 2014 | 2014-11-11 | 58 | **uttömmande** lista över de 61 valda |
+| 2018 | 2019-08-13 | 338 | bekräftelse (ledamöter kan ha ersatts) |
+| 2022 | 2022-10-18 | 37 | (namn finns redan) |
+
+Alla fyra loggar har exakt 61 ordinarie ledamöter, och partifördelningen
+stämmer med kommunens mandatfördelning för 2014, 2018 och 2022.
+
+*2014 (loggen är första mötet):* av 29 valda som fick namn via spåren fanns
+26 (90 %) i loggen; de tre som inte gjorde det (Madelene Höök, L plats 5;
+Ulrika Nyhlén, M plats 20; Jon Thorbjörnson, V plats 2) är avvisade och
+spåren märkta `avvisad_av_protokoll`. *2018:* av 37 valda med namn via
+spåren fanns 35 (95 %) i loggen; de två som inte fanns där kan ha lämnat
+innan 2019-08-13 och är märkta `spår, ej i loggen (kan ha lämnat)`, inte
+avvisade.
+
+| Val | Platser | Med namnförslag | Varav stark | Valda med namnförslag |
+|---|---|---|---|---|
+| 2010 | 266 | 24 | 0 | 13 av 61 |
+| 2014 | 240 | 59 | 32 | 36 av 61 |
+| 2018 | 280 | 112 | 75 | 42 av 61 |
+
+Valda 2014: 26 via spår som loggen bekräftar, 10 där loggens namn och ålder
+utesluter övriga platser, 25 med flera möjliga namn. Valda 2018: 35 via
+spår som loggen bekräftar, 5 unika par namn–plats, 2 spår som saknas i
+loggen, 19 med flera möjliga namn. Valda 2010: 10 bekräftade, 3 unika par.
+**Begränsningar:** (a) loggarna 2010 och 2018 är från ett senare möte än det första, så ledamöter kan
+ha ersatts och loggen kan inte användas som uttömmande lista där;
+(b) 2022 och 2026 års listor saknar kön, så kön används sällan; (c) Socialdemokraterna
+(2022 har inget yrke) och Kungsbackaborna (2022 har bara ort) matchar
+svagare; (d) den som hoppar över ett val (stod 2014 och 2022 men inte 2018)
+länkas inte; (e) partibyten följs inte (matchning sker inom partiet).
+
+**Bestämda platser (`data/kopplingar_platser.json`, handunderhållen):**
+uppdragsgivaren har avgjort två platser där Valmyndigheten gallrat namnet:
+Moderaterna 2014 plats 5 = **Per Ödman** (valsedelsuppgift
+"kommunstyrelseordförande, 67 år, Onsala") och Moderaterna 2018 plats 1 =
+**Hans Forsberg** ("54 år, Kommunalråd, Kungsbacka"). De får säkerhetsgraden
+`bestämd` och namnet sprids längs spåret: Hans Forsberg blir då 2010 plats 2
+(46 år), 2014 plats 1 (50) och 2018 plats 1 (54), med ålder fyra år mellan
+valen och med i fullmäktiges logg 2014 och 2019. Observation, inte beslut:
+Per Ödmans 2010 kan vara plats 1 (63 år, M), men länken finns inte i
+spåren (ålder +4 stämmer, men inga gemensamma yrkesord).
+
+### Bekräftade namn och valda 2022/2026
+
+- **Bekräftelse:** uppdragsgivaren har bekräftat att alla namnförslag i
+  `forslag.json` (2026-11-08) stämmer. De är frysta i
+  `data/matchning/bekraftade.json` (217 platser: 2010 28, 2014 71, 2018
+  118; stark 117, möjlig 98, bestämd 2; de avvisade ingår inte) och byggs
+  inte om utan `--bekrafta`. Personfilerna tar med dem som kandidaturer märkta
+  `kalla: "matchning, bekräftad av uppdragsgivaren"`.
+- **Valda 2022 och 2026** (`data/valda/2022.json`, `2026.json`) hämtas ur
+  Valmyndighetens "ledamöter med historik" (ursprungligen valda = rader utan
+  invalsdatum) och matchas mot partiets lista för listplats; båda har 61
+  ledamöter och rätt partifördelning. Mellannamn ("Stig Anders Ekström") och
+  en stavningsskillnad ("Ture"/"Thure" Sandén) matchas mot listans kortare
+  namn när träffen är unik.
+- Varje kandidatur i personfilerna har `vald` (true/false) och `kalla`.
+
+**Status 2022 och 2026**
+
+| | 2022 | 2026 |
+|---|---|---|
+| Valsedel, nio partier, namn och plats | ✓ 100 % | ✓ 100 % |
+| Antal per parti mot Valmyndighetens filer | ✓ stämmer | ✓ stämmer |
+| Valda (61, plats och namn) | ✓ | ✓ |
+| KS, nämnder (ordförande, vice) | ✓ KF 2022-12-06 | väntar: KF 2026-12-08 |
+| KSAU | ✓ KS 2023-01-10 | väntar: KS första mötet 2027 |
+| Fullmäktiges logg | ✓ 2022-10-18 | väntar: protokollet 2026-11-03 |
+
+**2018, valda (61): läge 2026-11-08.** 47 av 61 har bekräftat eller bestämt namn;
+14 återstår: M plats 7, 8, 12, 15, 18 (fem namn, ingen ytterligare uppgift),
+S plats 2, 6, 7, 8 (Tolinsson 50/50 på plats 2 eller 8; Wäst och Heikkinen
+Breitholtz på 6/7), SD plats 5, 6, 9 (Krantz, Fransson, Brynielsson), C plats 4
+och L plats 2 (innehavarna hade lämnat före loggen 2019-08-13).
+Bestämda av uppdragsgivaren 2026-11-08: S 9 Maj-Britt Rane-Andersson, SD 3 Tommy
+Bech, V 1 Maria Rasmussen ("mycket troligt samma" som MP 2026 plats 21; partibyte
+V → MP, `data/kopplingar.json` k-rasmussen), V 2 Kristina Rasmussen (följer av V 1).
+
+**M 2018, de fem sista platserna (7, 8, 12, 15, 18):** pool i loggen 2019-08-13: Björck,
+Sundvall, Wallenstein, Eck, Reimertz. Plats 12 (59 år, kvinna) = Charlotte Wallenstein
+(bestämd: uppdragsgivaren, "Wallenstein är kvinna"; enda kvinnoplatsen). Plats 15 =
+Franklin Eck föreslås (2014 plats 9 "herr, Särö" ↔ 2018 plats 15 "Herr, Särö"; i loggen 2014),
+ej bestämd. Uppdragsgivaren: Björck och Påsse har *olika* ålder, så de kan inte båda stå på
+plats 7 och 8 (båda 48 år, född 1970), som sökutdraget angav; den av dem som är 48 står på
+7 eller 8, den andra troligen på plats 18 (64 år). Ann-Helene Reimertz var ersättare 2018 och
+rykte upp (ordinarie i loggen 2019-08-13); en ursprunglig innehavare av en av platserna 7, 8,
+18 hade då lämnat. Ålder på Ratsit slogs inte upp av skriptet/assistenten (sökverktyget
+avböjde uppslag av privatpersoners ålder).
+**Uppdatering:** uppdragsgivaren bedömer att sökutdragets placering stämmer till ca 90 %:
+plats 7 Ulric Björck, plats 8 Kalle Påsse Sundvall, plats 15 Franklin Eck lades in som
+`trolig (uppdragsgivaren: ca 90 %)` (platserna 7/8 kan i princip vara omkastade). Dagens
+åldersskillnad mellan Björck och Påsse är förenlig med att båda var 48 år på valdagen.
+Plats 18 (64 år, Civilekonom, Kullavik) är kvar utan namn: ursprunglig innehavare okänd
+(lämnade före loggen 2019-08-13; Ann-Helene Reimertz rykte upp). Personuppslag på
+Ratsit/Hitta/Mrkoll gjordes inte.
+**Rättelse (Påsse är 56 år idag, yngst):** plats 7 och 8 är båda födda 1970 och är därför
+56 år idag. Är Påsse yngst kan Björck inte vara den andre av dem. Ulric Björck flyttades
+till **plats 18** (64 år, Civilekonom, Kullavik; trolig). Kalle Påsse Sundvall står kvar som
+`möjlig (plats 7 eller 8)` på plats 8 (sökutdraget). Platsen i 7/8 som blir över hade en
+ursprunglig innehavare som lämnade före loggen 2019-08-13. Sökutdraget hade alltså fel för
+Björck, vilket sänker förtroendet för det.
+**Nedgradering:** uppdragsgivaren vet inte Björcks ålder, så Ulric Björck på M 2018 plats 18 är
+`möjlig` (inte trolig). Gäller bara om Påsse är yngre än Björck; annars hör Björck till plats 7/8.
+**Åter:** uppdragsgivaren tror att Ulric Björck är Fil. dr, vilket är plats 7 ("Fil. dr, Kungsbacka").
+Då är Kalle Påsse Sundvall plats 8 ("Administrativ chef, Onsala") och sökutdraget stämmer.
+M 2018 plats 7 och 8 är båda `trolig`. Plats 18 (64 år, Civilekonom, Kullavik) är åter utan
+namn: ursprunglig innehavare okänd (lämnade före loggen 2019-08-13).
+**Avgjort:** Kalle Påsse Sundvall uppger än idag att han är administrativ chef → M 2018 plats 8
+(`bestämd`); Ulric Björck = plats 7 (`bestämd`, följer av Påsse). Källa för att Björck satt i
+fullmäktige efter valet 2018: Norra Halland 2019-04-12 ("Vårdordförande får kritik").
+
+### 2014: loggordningen löser alla 61 valda (2026-11-08)
+
+Fullmäktiges logg 2014-11-11 (första mötet) listar ledamöterna parti för parti, och *inom
+partiet valkrets för valkrets (västra före östra) i Valmyndighetens mandatordning*. 2014 hade
+två valkretsar och mandaten räknas per valkrets, vilket är varför en global mandatordning inte
+stämde. Regeln stämmer för alla 38 redan kända namn (0 fel; Moderaterna 12 av 12) och för de 9
+som tidigare bestämts med ålder (9 av 9). Med den har alla 61 valda 2014 ett namnförslag
+(`grund: "loggordning (valkrets, mandat)"`, 20 platser, säkerhet stark); används bara när den
+stämmer för alla kända namn (`loggordning_kontroll` i forslag.json).
+
+Två tidigare avvisanden var fel: V plats 2 var Jon Thorbjörnsson (stavning i loggen med dubbelt s;
+jämförelsen tolererar nu stavningsskillnader), och L plats 5 är Madelene *Nordström* i loggen
+(Madelene Höök 2019 är sannolikt samma person under nytt efternamn; ej avgjort). M plats 20 är
+Bengt Adolfsson, inte Ulrika Nyhlén.
+
+**Moderaterna 2014:** 1 Hans Forsberg, 2 Lisa Andersson, 3 Christian Johansson, 4 Marianne
+Kierkemann, 5 Per Ödman, 6 Axel Storckenfeldt, 7 Ulrika Jörgensen, 8 Hravn Forsne, 9 Franklin
+Eck, 10 Anders Ekström, 11 Ulla Krantz, 12 Frida Schill Örne, 13 Per Stenberg, 14 Lars Thelén,
+15 Christina Äng, 16 Maria Gathendahl, 17 Lena Reimertz Thelén, 18 Peter Söderberg, 19 Thure
+Sandén, 20 Bengt Adolfsson, 21 Marianne Pleijel. Franklin Eck på 9 och Per Ödman på 5 stämmer
+med oberoende bedömningar (kandidatspår respektive uppdragsgivaren).
+
+**Fryst 2026-11-08 (uppdragsgivarens val, alternativ 1):** de loggordningsbaserade namnen för valda 2014
+frystes i `data/matchning/bekraftade.json` (`bygg_matchning.py --bekrafta=2014`, additivt; 243 platser
+totalt). De 20 loggordningsposterna har `status: "härledd ur fullmäktiges loggordning (valkrets, mandat),
+verifierad; frusen enligt uppdragsgivarens val"` och skiljs därmed från namn uppdragsgivaren själv
+bekräftat. Oberoende kontroll: alla 10 åldersjämförelser mot 2018/2022/2026 stämde.
+
+### 2018: loggplats-regeln (listplatsordning i senare logg), frusen 2026-11-08
+
+2018 hade en enda valkrets, och fullmäktiges logg 2019-08-13 ligger inom varje parti i
+listplatsordning: den n:te i loggen sitter på partiets n:te valda listplats (50 av 52 kända namn
+stämmer; de två avvikelserna är en stavning, Knutas Erik/Eric, och en ersättare, KD plats 4).
+Loggen visar dock vem som *satt* på platsen vid mötet. Ett namn vars ålder i andra val strider mot
+platsen behandlas därför som `ersättare på platsen` och sparas som `innehavare_logg`, inte som vald:
+
+| Plats | Innehavare i loggen 2019-08-13 | Varför ersättare |
+|---|---|---|
+| C 4 (55 år, K) | Henrik Arnesson | 52 år 2022 → 48 år 2018 |
+| L 2 (58 år, M) | Max Ramström | 37 år 2018 (samma person som M-Ramström) |
+| S 6 (42 år, M) | Kent Stenhammar | 74 år 2022 → 70 år 2018 |
+| M 18 (64 år, M) | Ann-Helene Reimertz | sökutdrag: ersättare; ej frusen |
+
+Frysta (alternativ 1, härledda): S 2 Johan Tolinsson och SD 9 Thord Brynielsson (stark; ålder i andra
+val stämmer), S 7 Sara Heikkinen Breitholtz, S 8 Rickard Wäst, SD 5 Roger Krantz, SD 6 Bengt Fransson
+(möjlig; ingen ålder att kontrollera mot). Dessutom frystes V 3 Jon Thorbjörnson (möjlig; spår: 2014
+plats 2, 38 år → 2018 plats 3, 42 år; 2022 "riksdagsledamot, Vallda"). M 18 är undantagen
+(`UTESLUTNA` i bygg_matchning.py).
+
+### 2010: samma regel med loggen 2013-10-08 (förslag, ej fryst)
+
+Loggen 2013-10-08 är den första fullmäktigeloggen i arkivet för perioden (1 115 dagar efter valet) och
+ligger parti för parti (M, C, L, KD, S, V, MP, KB, SD; fem ledamöter saknar parti i systemet och ingår i
+blocket där de står: KB 4 och SD 3). Inom partiet: valkrets (västra före östra) och Valmyndighetens
+mandatordning, som 2014. Regeln stämmer för alla 15 kända namn. 57 av 61 valda 2010 får ett namnförslag:
+22 `stark` (namnet har en ålder i annat val som stämmer), 20 `möjlig` (loggplats utan ålder att kontrollera
+mot), 12 via kandidatspår, 3 unika par. 4 platser är `ersättare på platsen` (ålder strider mot platsen):
+C 1 (Kerstin Ekman-Hake), M 19 (Anders Ekström), MP 1 (Clas Rosander), S 6 (Ingela Hansson).
+
+**Oberoende kontroll:** 48 av 48 åldersjämförelser mot samma namn bland de valda 2014/2018 stämmer (ålder +4
+respektive +8 år), varav 29 för namn som kom från loggplats-regeln. Eftersom loggen är tre år in i perioden
+kan en ersättare ha tagit en plats utan att åldern kan jämföras; de 20 `möjliga` är därför de mest osäkra.
+Moderaterna 2010 (24 valda): 1 Per Ödman, 2 Hans Forsberg, 3 Marianne Kierkemann, 4 Lisa Andersson, 5 Per
+Stenberg, 6 Jan Österdahl, 7 Kjell-Åke Andersson, 8 Franklin Eck, 9 Michael Cassaras, 10 Thure Sandén, 11
+Annika Carlsson, 12 Inge Sundberg, 13 Kalle Sundvall, 14 Karin Fahlström Augustsson, 15 Lars Stranne, 16
+Margareta Ödman, 17 Lena Reimertz Thelén, 18 Charlotte Wallenstein, 19 (ersättare på platsen), 20 Ingvar
+Orrelid, 21 Fredrik Hansson, 22 Christian Johansson, 23 Peter Söderberg, 24 Bengt Adolfsson.
+
+### Oberoende kontroller av namnförslagen (`scripts/kontrollera_matchning.py`, `data/matchning/kontroller.json`)
+
+Varje förslag kontrolleras mot sådant som inte användes för att ta fram det: (A) ålder, samma namn i
+annat val ska skilja lika många år som valen; (B) kön, samma namn på en plats i annat val ska ha samma
+kön (platsens kön enligt Valmyndigheten, inte en gissning från namnet); (C) en andra fullmäktigelogg
+(2014-04-08, delvis läsbar: Moderaterna, C, KD, V jämförbara) för att se om innehavaren på platsen är
+densamma över tid; (D) att namnet finns bland partiets namn i protokollen för perioden.
+
+Resultat 2026-11-08: ålder 2010 130/130, 2014 146/147, 2018 173/174; kön 2010 87/87, 2014 84/84, 2018
+101/101; loggen 2014-04-08 identisk med 2013-10-08 för M, C, KD och V (32 av 32 platser). De två
+åldersavvikelserna gäller Kenth Wallin (SD): hans åldrar i 2022 och 2026 års listor (80, 82) ligger bara
+två år isär mellan valen, ett källfel. De fem "saknas i protokoll" 2010 är ledamöterna utan parti i loggen
+(KB 4/20/21, SD 1/2). **Ett fel hittades och rättades:** det frusna 2018-förslaget Renée Sylvan på S 48
+(man) strider mot att hon är kvinna på S 9 både 2010 och 2014; borttaget (`UTESLUTNA`).
+
+**Fryst 2026-11-08 (uppdragsgivaren: "godkänn alla, en bra gissning"):** de 42 härledda namnen för valda 2010
+(22 stark, 20 möjlig; `bygg_matchning.py --bekrafta=2010`) ligger i `bekraftade.json` (301 platser totalt) och
+personfilerna, märkta med säkerhetsgrad och `status: härledd ur fullmäktiges logg…`. De 20 "möjliga" saknar
+oberoende kontroll (ingen ålder eller kön i annat val) och är en bra gissning, inte bekräftade. Fyra platser är
+`ersättare på platsen` och har inget namn som vald (C 1, M 19, MP 1, S 6). SD 2010 plats 3 saknas på den hämtade
+listan (XML-filen har två SD-platser), så personens kandidatur har `plats_saknas_pa_hamtad_lista`.
+
+### Vad de valdes till (`data/valdes_till/<val>.json`, `scripts/bygg_valdes_till.py`, 2026-11-08)
+
+Kopplar personerna på valsedlarna (personfilerna: plats och om platsen blev ett mandat) till **KS** (ledamot,
+ersättare, ordförande, 1:e/2:e vice), **KSAU** (samma) och **ordförande/vice ordförande i en nämnd**. Övriga poster
+(revisorer, bolag, nämndledamöter, nämndernas egna utskott, externa nämnder som Patientnämnd Halland) ingår inte.
+
+| Val | Källa | Läge |
+|---|---|---|
+| 2022 (2023–2026) | fullmäktiges beslut 2022-12-06 + KS 2023-01-10 | **komplett**: 37 personer; KS 15 ledamöter + 14 ersättare, KSAU 6 + 6, 28 nämndposter (ordförande/vice); alla knutna till plats på valsedeln, 34 valda i fullmäktige |
+| 2018 (2019–2022) | närvarolistor, upp till sex första protokoll med text per organ | **partiell**: 28 personer; KS 15 av 15 (12 ledamöter + ordförande + två vice), KSAU 5 av 6, nämnders ordförande/vice där titeln står direkt efter namnet; inga ersättare. Varje uppdrag har `fran_forsta_motet`: de som syns först senare är byten under perioden (10 rader, bl.a. Vård & Omsorg: Björck först, Lisa Andersson senare) |
+| 2014 (2015–2018) | fullmäktiges beslut 2014-12-09 + KS 2015-01-20 | **komplett**: 43 personer; 9 saknar plats på valsedeln eftersom de inte var valda och platser utanför de valda saknar namn |
+| 2010 (2011–2014) | närvarolistor | **partiell**: 22 personer; KS 15 av 15 (1:e vice saknas pga titel på egen rad), inga KSAU-protokoll med text; flera nämnder saknas i arkivet |
+
+`luckor` i varje fil listar de utan plats på valsedeln och de som står på listan men inte blev valda i fullmäktige
+(2022: Heinrich Kaufmann, Marie Wadström, Marianne Pleijel, 2014: Bengt Alderin, Marie Wadström).
+
+### Nämndprotokollen läses djupare (2019–2022 och 2011–2014), 2026-11-08
+
+`hamta_narvaro.py` hämtar nu upp till 12 protokoll med text per organ för perioderna utan fullmäktiges beslut, och läser
+titlar som bryts över två rader ("…, 1:e vice" / "ordförande"): vice ordförande och 2:e vice, som tidigare föll bort, kommer nu
+med. Ordförandens underskrift ("Ordförande Thure Sandén (M)") lagras per protokoll (`ordforande_underskrift`, 133 av 211) men
+används **inte** som uppdragsrad: den visar vem som ledde just det mötet, så vice ordförande dyker upp som ordförande. Det
+syntes som brus (t.ex. Hravn Forsne som ordförande i Vård & Omsorg) och OCR-fel ("Tisa Andersson").
+
+Fullmäktiges protokoll gav nästan inget om nämndordförande (en träff, 2014-08-12 Harald Pleijel, Teknik).
+
+**Hål som kvarstår och varför**
+- 2019–2022: Gymnasium & Arbetsmarknad (första text 2020-11), Service (2021-01), Miljö & Hälsoskydd (2021-02), Valnämnden
+  (2021-02), Individ & Familjeomsorg (2020-04), Förskola & Grundskola och Teknik (2020-01) saknar protokoll med text för de första
+  åren. Där är ordförande och vice vid periodens start okända; senare byten syns som `fran_forsta_motet: false`.
+- 2011–2014: Förskola & Grundskola, Teknik, Individ & Familjeomsorg, Kultur & Fritid, Valnämnden och KSAU saknas helt i arkivet
+  (organen hette annat före 2015 eller är inte hämtade). KS 12 ledamöter + ordförande + två vice = 15 av 15.
+- KSAU 2019–2022: 5 av 6 ledamöter, inga ersättare.
+
+
+### Sidan "Efter valet" (`docs/efter-valet.html`, `data/styre.json`, 2026-11-08)
+
+Sidan visar `data/valdes_till/` och `data/personer/` per listplats; inget nytt datat hämtas.
+- **Styrande partier** (`data/styre.json`) används bara för sorteringen. Bara 2023–2026 är styrkt
+  med fristående källa (Hyresgästföreningen, URL i filen); övriga perioder är uppgift från
+  uppdragsgivaren och märks `styrkt: false` på sidan. 2027–2030 saknas: ingen koalition är känd.
+- **2018 och 2010**: valbeslut saknas, uppdragen kommer ur närvarolistor. En tom ruta betyder
+  "inte funnet", inte "nej"; ersättare saknas. 2022 och 2014 är kompletta ur besluten.
+- **2026**: fullmäktige väljer KS och nämnder 2026-12-08 och KSAU i början av 2027; kolumnerna är tomma tills dess.
+- **Platser utan namn** (ersättare på mandatplats): 2018 C4, L2, S6, M18; 2010 C1, M19, MP1, S6.
+- SD 2010 plats 3 saknas på Valmyndighetens lista och läggs till ur mandatfilen (`platsSaknasPaLista`).

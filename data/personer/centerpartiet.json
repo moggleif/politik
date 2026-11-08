@@ -1,0 +1,4235 @@
+{
+ "parti": "Centerpartiet",
+ "kortnamn": "C",
+ "aldre_kortnamn": [],
+ "byggd": "2026-11-08",
+ "kallor": {
+  "kandidatlistor": "data/kandidater/<år>.json (Valmyndighetens valpresentation)",
+  "valbeslut": "data/uppdrag/kf_val_<datum>.json (fullmäktiges protokoll)",
+  "bekraftelse": "data/uppdrag/troman_<datum>.json (kommunens register, nuläget)"
+ },
+ "perioder": [
+  {
+   "val": 2010,
+   "mandatperiod": "2011–2014",
+   "kandidatlista": "finns utan namn",
+   "valbeslut": "saknas",
+   "protokoll": [],
+   "narvarolista": 7,
+   "anledning": "Arkivet kommunhandlingar börjar 2013-08-13; kandidatlistor saknas hos data.val.se"
+  },
+  {
+   "val": 2014,
+   "mandatperiod": "2015–2018",
+   "kandidatlista": "finns utan namn",
+   "valbeslut": "finns",
+   "protokoll": [
+    "kf/2014-12-09",
+    "ks/2015-01-20"
+   ],
+   "narvarolista": 7,
+   "anledning": null
+  },
+  {
+   "val": 2018,
+   "mandatperiod": "2019–2022",
+   "kandidatlista": "finns utan namn",
+   "valbeslut": "saknas",
+   "protokoll": [],
+   "narvarolista": 15,
+   "anledning": "Fullmäktiges decemberprotokoll 2018 ej funnet; kandidatlistor saknas hos data.val.se"
+  },
+  {
+   "val": 2022,
+   "mandatperiod": "2023–2026",
+   "kandidatlista": "finns",
+   "valbeslut": "finns",
+   "protokoll": [
+    "kf/2022-12-06",
+    "ks/2023-01-10"
+   ],
+   "narvarolista": 16,
+   "anledning": null
+  },
+  {
+   "val": 2026,
+   "mandatperiod": "2027–2030",
+   "kandidatlista": "finns",
+   "valbeslut": "valbeslut ej fattat",
+   "protokoll": [],
+   "narvarolista": 0,
+   "anledning": "Valbeslut ej fattat (nytt fullmäktige konstituerat 2026-10-15)"
+  }
+ ],
+ "tvetydiga_namn": [],
+ "ej_personer": [],
+ "personer": [
+  {
+   "namn": "Anders Eriksson",
+   "namnvarianter": [
+    "Anders Eriksson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 3,
+     "samtycke": true,
+     "uppgift": "45 år, Kungsbacka, Försäljningschef",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 3,
+     "samtycke": true,
+     "uppgift": "49 år, Kungsbacka, Säljare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 5,
+     "samtycke": null,
+     "uppgift": "41 år, Företagare, Kungsbacka",
+     "alder": 41,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 203,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Teknik 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Teknik",
+     "roll": "ledamot",
+     "ordning": 9,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2020-01-22",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Teknik",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "3d4ea88b-9962-422e-9a6e-40ae608986d5",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-001"
+  },
+  {
+   "namn": "Annika Hedman",
+   "namnvarianter": [
+    "Annika Hedman"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 2,
+     "samtycke": true,
+     "uppgift": "59 år, Förlanda, Företagare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 2,
+     "samtycke": true,
+     "uppgift": "63 år, Förlanda, Hästföretagare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 14,
+     "samtycke": null,
+     "uppgift": "51 år, Egen företagare, Förlanda",
+     "alder": 51,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 10,
+     "samtycke": null,
+     "uppgift": "55 år, Företagare, Förlanda",
+     "alder": 55,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 178,
+     "rubrik": "Nämnden för Gymnasie & Vuxenutbildning 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Gymnasie & Vuxenutbildning",
+     "roll": "ledamot",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 188,
+     "rubrik": "Eksta Bostadsaktiebolag - val av bolagsfunktionärer med mera",
+     "organisation": null,
+     "roll": "partirepresentant",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 194,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till kommunstyrelsen 2023-01-01–2026-12-31",
+     "organisation": "Kommunstyrelsen",
+     "roll": "ersättare",
+     "ordning": 12,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 195,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till krisledningsnämnden 2023-01-01–2026-12-31",
+     "organisation": "Krisledningsnämnden",
+     "roll": "ersättare",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 200,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Kultur & Fritid 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Kultur & Fritid",
+     "roll": "ledamot",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 200,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Kultur & Fritid 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Kultur & Fritid",
+     "roll": "ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "ks/2023-01-10",
+     "paragraf": 4,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till kommunstyrelsens arbetsutskott 2023-01-01–2026-12-31",
+     "organisation": "Kommunstyrelsens arbetsutskott",
+     "roll": "ersättare",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "ks/2023-01-10",
+     "paragraf": 10,
+     "rubrik": "Nominering av ledamöter till Lokala säkerhetsnämnden vid Ringhals kärnkraftverk 2023-01-01–2026-12-31",
+     "organisation": "Nominering av ledamöter till Lokala säkerhetsnämnden vid Ringhals kärnkraftverk",
+     "roll": "ledamot",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2020-11-04",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Gymnasium & Arbetsmarknad",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "cc0ea8b2-e7cb-4d2a-97ea-b631fdc3d7b9",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-002"
+  },
+  {
+   "namn": "Annika Saxevall",
+   "namnvarianter": [
+    "Annika Saxevall"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 14,
+     "samtycke": true,
+     "uppgift": "63 år, Frillesås, Farmaceut",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-003"
+  },
+  {
+   "namn": "Bengt Alderin",
+   "namnvarianter": [
+    "Bengt Alderin"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 5,
+     "samtycke": true,
+     "uppgift": "69 år, Kungsbacka, Fd idrottslärare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 7,
+     "samtycke": true,
+     "uppgift": "73 år, Kungsbacka, Pensionerad Idrottslärare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 9,
+     "samtycke": null,
+     "uppgift": "61 år, Gymnasielärare, Kungsbacka",
+     "alder": 61,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 3,
+     "samtycke": null,
+     "uppgift": "65 år, Gymnasielärare, Kungsbacka",
+     "alder": 65,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 176,
+     "rubrik": "Nämnden för Fritid & Folkhälsa 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Fritid & Folkhälsa",
+     "roll": "ledamot",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 176,
+     "rubrik": "Nämnden för Fritid & Folkhälsa 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Fritid & Folkhälsa",
+     "roll": "vice ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 205,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Vård & Omsorg 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Vård & Omsorg",
+     "roll": "ledamot",
+     "ordning": 9,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2019-02-20",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Vård & Omsorg",
+     "roll": "1:e vice ordförande",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "0b6d07cb-22da-4fa7-96d0-2b84b61a155c",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-004"
+  },
+  {
+   "namn": "Bengt Asplund",
+   "namnvarianter": [
+    "Bengt Asplund"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 28,
+     "samtycke": true,
+     "uppgift": "67 år, Onsala, Säljare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-005"
+  },
+  {
+   "namn": "Bengt Hansson",
+   "namnvarianter": [
+    "Bengt Hansson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 17,
+     "samtycke": true,
+     "uppgift": "56 år, Vallda, Kemist",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": true,
+    "id": "48f47a33-85dd-48b0-aaea-8e9d03521021",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-006"
+  },
+  {
+   "namn": "Bo Isberg",
+   "namnvarianter": [
+    "Bo Isberg"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 187,
+     "rubrik": "Valnämnden 2015-01-01-2018-12-31",
+     "organisation": "Valnämnden",
+     "roll": "ersättare",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-007"
+  },
+  {
+   "namn": "Charlotta Hedqvist",
+   "namnvarianter": [
+    "Charlotta Hedqvist"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 10,
+     "samtycke": true,
+     "uppgift": "54 år, Kungsbacka, Ansvarig Fritids",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-008"
+  },
+  {
+   "namn": "Charlotte Bergqvist",
+   "namnvarianter": [
+    "Charlotte Bergqvist"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 37,
+     "samtycke": true,
+     "uppgift": "49 år, Särö, Entreprenör",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-009"
+  },
+  {
+   "namn": "Charlotte Wennerberg",
+   "namnvarianter": [
+    "Charlotte Wennerberg"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 19,
+     "samtycke": true,
+     "uppgift": "70 år, Onsala, Arkitekt",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 15,
+     "samtycke": null,
+     "uppgift": "66 år, Arkitekt, Onsala",
+     "alder": 66,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 201,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Miljö & Hälsoskydd 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Miljö & Hälsoskydd",
+     "roll": "ersättare",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-010",
+   "koppling": {
+    "id": "k-wennerberg",
+    "avgorande": "samma",
+    "samma_som": [
+     {
+      "parti": "M",
+      "id": "m-028",
+      "namn": "Charlotte Wennerberg"
+     }
+    ],
+    "kalla": "uppdragsgivaren (i samtal 2026-11-08)"
+   }
+  },
+  {
+   "namn": "Christina Åkesson",
+   "namnvarianter": [
+    "Christina Åkesson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 23,
+     "samtycke": true,
+     "uppgift": "72 år, Idala, Pensionär",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 20,
+     "samtycke": true,
+     "uppgift": "76 år, Idala, Pensionär",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 18,
+     "samtycke": null,
+     "uppgift": "68 år, Kanslisekreterare, Idala",
+     "alder": 68,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2021-02-22",
+     "kalla": "närvarolista",
+     "organisation": "Valnämnden",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-011"
+  },
+  {
+   "namn": "Claes-Erik Bergstrand",
+   "namnvarianter": [
+    "Claes-Erik Bergstrand"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 15,
+     "samtycke": true,
+     "uppgift": "48 år, Vallda, Lantbrukare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": true,
+    "id": "35e51842-50d8-479f-b8b6-bed588950e01",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-012"
+  },
+  {
+   "namn": "David Dagemark",
+   "namnvarianter": [
+    "David Dagemark"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 24,
+     "samtycke": true,
+     "uppgift": "40 år, Kungsbacka, Evenemangschef",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 10,
+     "samtycke": true,
+     "uppgift": "44 år, Kungsbacka, Teamlead",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 197,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Förskola & Grundskola 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Förskola & Grundskola",
+     "roll": "ersättare",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "44836a8f-7438-4446-9462-e7f0c23e2449",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-013"
+  },
+  {
+   "namn": "Elisabeth Storhäll",
+   "namnvarianter": [
+    "Elisabeth Storhäll"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 30,
+     "samtycke": true,
+     "uppgift": "68 år, Vallda, Sjuksköterska",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 179,
+     "rubrik": "Nämnden för Funktionsstöd 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Funktionsstöd",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-014"
+  },
+  {
+   "namn": "Erik Nilsson Nordahl",
+   "namnvarianter": [
+    "Erik Nilsson Nordahl",
+    "Erik Nilsson-Nordahl"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 4,
+     "samtycke": null,
+     "uppgift": "53 år, Riksdagsledamot, Kungsbacka",
+     "alder": 53,
+     "kon": "M",
+     "kalla": "härledd ur fullmäktiges loggordning (valkrets, mandat), verifierad; frusen enligt uppdragsgivarens val 2026-11-08",
+     "sakerhet": "stark",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 184,
+     "rubrik": "Nämnden för Teknik 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Teknik",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-015"
+  },
+  {
+   "namn": "Evelina Grönlund",
+   "namnvarianter": [
+    "Evelina Grönlund"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 8,
+     "samtycke": true,
+     "uppgift": "33 år, Förlanda, Fotograf",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 9,
+     "samtycke": true,
+     "uppgift": "37 år, Förlanda, Församlingsassistent",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 20,
+     "samtycke": null,
+     "uppgift": "29 år, Fotograf, Förlanda",
+     "alder": 29,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 205,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Vård & Omsorg 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Vård & Omsorg",
+     "roll": "ersättare",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "d02d9baf-b521-48bd-8ab1-92e126601b62",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-016"
+  },
+  {
+   "namn": "Fabian Ruben",
+   "namnvarianter": [
+    "Fabian Ruben"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 33,
+     "samtycke": true,
+     "uppgift": "39 år, Kullavik, Läkare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 42,
+     "samtycke": null,
+     "uppgift": "35 år, Läkare, Malevik",
+     "alder": 35,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-017"
+  },
+  {
+   "namn": "Fredrik Hansson",
+   "namnvarianter": [
+    "Fredrik Hansson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 1,
+     "samtycke": true,
+     "uppgift": "46 år, Vallda, Kommunalråd",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 1,
+     "samtycke": true,
+     "uppgift": "50 år, Vallda, Kommunalråd",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2010,
+     "listnamn": "Kungsbacka",
+     "listnummer": "01940",
+     "plats": 3,
+     "samtycke": null,
+     "uppgift": null,
+     "alder": 34,
+     "kon": "M",
+     "kalla": "härledd ur fullmäktiges loggordning, verifierad mot kända namn; frusen enligt uppdragsgivarens val 2026-11-08",
+     "sakerhet": "stark",
+     "vald": true
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 1,
+     "samtycke": null,
+     "uppgift": "38 år, Brandman, Vallda",
+     "alder": 38,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": true
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 1,
+     "samtycke": null,
+     "uppgift": "43 år, Kommunalråd, Vallda",
+     "alder": 42,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 173,
+     "rubrik": "Kommunstyrelsen 2015-01-01-2018-12-31",
+     "organisation": "Kommunstyrelsen",
+     "roll": "ledamot",
+     "ordning": 8,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 173,
+     "rubrik": "Kommunstyrelsen 2015-01-01-2018-12-31",
+     "organisation": "Kommunstyrelsen",
+     "roll": "1:e vice ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 174,
+     "rubrik": "Krisledningsnämnden 2015-01-01-2018-12-31",
+     "organisation": "Krisledningsnämnden",
+     "roll": "ledamot",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 174,
+     "rubrik": "Krisledningsnämnden 2015-01-01-2018-12-31",
+     "organisation": "Krisledningsnämnden",
+     "roll": "vice ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 183,
+     "rubrik": "Nämnden för Service 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Service",
+     "roll": "ledamot",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 183,
+     "rubrik": "Nämnden för Service 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Service",
+     "roll": "ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 190,
+     "rubrik": "HallWan AB - val av bolagsfunktionärer med mera",
+     "organisation": null,
+     "roll": "suppleant",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 194,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till kommunstyrelsen 2023-01-01–2026-12-31",
+     "organisation": "Kommunstyrelsen",
+     "roll": "ledamot",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 194,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till kommunstyrelsen 2023-01-01–2026-12-31",
+     "organisation": "Kommunstyrelsen",
+     "roll": "1:e vice ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 195,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till krisledningsnämnden 2023-01-01–2026-12-31",
+     "organisation": "Krisledningsnämnden",
+     "roll": "ledamot",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 195,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till krisledningsnämnden 2023-01-01–2026-12-31",
+     "organisation": "Krisledningsnämnden",
+     "roll": "vice ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 202,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Service 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Service",
+     "roll": "ledamot",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 202,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Service 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Service",
+     "roll": "ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "ks/2015-01-20",
+     "paragraf": 3,
+     "rubrik": "Val av ledamöter och ersättare till kommunstyrelsens arbetsutskott 2015-2018",
+     "organisation": "Kommunstyrelsens arbetsutskott 2015-2018",
+     "roll": "ledamot",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "ks/2015-01-20",
+     "paragraf": 3,
+     "rubrik": "Val av ledamöter och ersättare till kommunstyrelsens arbetsutskott 2015-2018",
+     "organisation": "Kommunstyrelsens arbetsutskott 2015-2018",
+     "roll": "vice ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "ks/2015-01-20",
+     "paragraf": 5,
+     "rubrik": "Val till kommunala uppdrag",
+     "organisation": null,
+     "roll": "ersättare",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "ks/2023-01-10",
+     "paragraf": 4,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till kommunstyrelsens arbetsutskott 2023-01-01–2026-12-31",
+     "organisation": "Kommunstyrelsens arbetsutskott",
+     "roll": "ledamot",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "ks/2023-01-10",
+     "paragraf": 4,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till kommunstyrelsens arbetsutskott 2023-01-01–2026-12-31",
+     "organisation": "Kommunstyrelsens arbetsutskott",
+     "roll": "vice ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2011–2014",
+     "val": 2010,
+     "protokoll": "2013-08-20",
+     "kalla": "närvarolista",
+     "organisation": "Kommunstyrelsen",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2021-01-19",
+     "kalla": "närvarolista",
+     "organisation": "Kommunstyrelsen",
+     "roll": "1:e vice ordförande",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2021-01-05",
+     "kalla": "närvarolista",
+     "organisation": "Kommunstyrelsens arbetsutskott",
+     "roll": "1:e vice ordförande",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2021-01-21",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Service",
+     "roll": "ordförande",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "ac47751c-4e33-4b54-81cf-23e3ae1c506a",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-018",
+   "koppling": {
+    "id": "k-hansson",
+    "avgorande": "olika",
+    "skild_fran": [
+     {
+      "parti": "M",
+      "id": "m-043",
+      "namn": "Fredrik Hansson"
+     }
+    ],
+    "kalla": "uppdragsgivaren (i samtal 2026-11-08)",
+    "notering": "Behandlas som två personer (troligen olika)."
+   }
+  },
+  {
+   "namn": "Fredrika Eineskog",
+   "namnvarianter": [
+    "Fredrika Eineskog"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 36,
+     "samtycke": true,
+     "uppgift": "50 år, Fjärås, Workforce Manager",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": true,
+    "id": "7b392ea1-c335-4c0a-b422-3b790bdd19ba",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-019"
+  },
+  {
+   "namn": "Gunilla Franzén",
+   "namnvarianter": [
+    "Gunilla Franzén"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2011–2014",
+     "val": 2010,
+     "protokoll": "2013-10-03",
+     "kalla": "närvarolista",
+     "organisation": "Byggnadsnämnden",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-020"
+  },
+  {
+   "namn": "Hans-Martin Heyn",
+   "namnvarianter": [
+    "Hans-Martin Heyn"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 34,
+     "samtycke": true,
+     "uppgift": "39 år, Åsa, Universitetslektor",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-021"
+  },
+  {
+   "namn": "Heinrich Kaufmann",
+   "namnvarianter": [
+    "Heinrich Kaufmann"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 11,
+     "samtycke": true,
+     "uppgift": "73 år, Fjärås, Civilingenjör",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 22,
+     "samtycke": true,
+     "uppgift": "77 år, Fjärås, Civilingenjör",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2010,
+     "listnamn": "Kungsbacka",
+     "listnummer": "01940",
+     "plats": 9,
+     "samtycke": null,
+     "uppgift": null,
+     "alder": 61,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 5,
+     "samtycke": null,
+     "uppgift": "65 år, Civilingenjör, Fjärås",
+     "alder": 65,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": true
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 7,
+     "samtycke": null,
+     "uppgift": "69 år, Civilingenjör, Fjärås",
+     "alder": 69,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 173,
+     "rubrik": "Kommunstyrelsen 2015-01-01-2018-12-31",
+     "organisation": "Kommunstyrelsen",
+     "roll": "ersättare",
+     "ordning": 7,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 175,
+     "rubrik": "Byggnadsnämnden 2015-01-01-2018-12-31",
+     "organisation": "Byggnadsnämnden",
+     "roll": "ledamot",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 196,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till byggnadsnämnden 2023-01-01–2026-12-31",
+     "organisation": "Byggnadsnämnden",
+     "roll": "ledamot",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 196,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till byggnadsnämnden 2023-01-01–2026-12-31",
+     "organisation": "Byggnadsnämnden",
+     "roll": "vice ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 207,
+     "rubrik": "Val av ledamöter, suppleanter, ordförande och vice ordförande, ställföreträdare, lekmannarevisorer och partirepresentanter till Eksta Bostads AB",
+     "organisation": "Eksta Bostads AB",
+     "roll": "partirepresentant",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 208,
+     "rubrik": "Val av ledamöter, suppleanter, ordförande och vice ordförande, lekmannarevisorer och partirepresentanter till Tempohus Kungsbacka AB",
+     "organisation": "Tempohus Kungsbacka AB",
+     "roll": "partirepresentant",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2019-09-12",
+     "kalla": "närvarolista",
+     "organisation": "Byggnadsnämnden",
+     "roll": "vice ordförande",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2019-01-31",
+     "kalla": "närvarolista",
+     "organisation": "Byggnadsnämndens arbetsutskott",
+     "roll": "vice ordförande",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "dcfe36d0-20c7-439e-884d-40de9b40557a",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-022"
+  },
+  {
+   "namn": "Heinz Martini",
+   "namnvarianter": [
+    "Heinz Martini"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 188,
+     "rubrik": "Eksta Bostadsaktiebolag - val av bolagsfunktionärer med mera",
+     "organisation": null,
+     "roll": "suppleant",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2011–2014",
+     "val": 2010,
+     "protokoll": "2013-10-24",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Miljö & Hälsoskydd",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-023"
+  },
+  {
+   "namn": "Henrik Arnesson",
+   "namnvarianter": [
+    "Henrik Arnesson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 13,
+     "samtycke": true,
+     "uppgift": "52 år, Åsa, Lantmästare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 13,
+     "samtycke": true,
+     "uppgift": "56 år, Åsa, Lantmästare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 9,
+     "samtycke": null,
+     "uppgift": "48 år, Lantbrukare/Lantmästare, Åsa",
+     "alder": 48,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 182,
+     "rubrik": "Nämnden för Miljö & Hälsoskydd 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Miljö & Hälsoskydd",
+     "roll": "ledamot",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 201,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Miljö & Hälsoskydd 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Miljö & Hälsoskydd",
+     "roll": "ledamot",
+     "ordning": 9,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2021-02-18",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Miljö & Hälsoskydd",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "20bc3014-cdc7-49a6-afd6-1dc93730b247",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-024"
+  },
+  {
+   "namn": "Hildegard Ekman",
+   "namnvarianter": [
+    "Hildegard Ekman"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 181,
+     "rubrik": "Nämnden för Kultur & Turism 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Kultur & Turism",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-025"
+  },
+  {
+   "namn": "Inga-Lill Bengtsson",
+   "namnvarianter": [
+    "Inga-Lill Bengtsson"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 192,
+     "rubrik": "Stiftelsen Tjolöholm 2015-01-01-2018-12-31 - val av stiftelsefunktionärer",
+     "organisation": "Stiftelsen Tjolöholm",
+     "roll": "styrelseledamot",
+     "ordning": 8,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-026"
+  },
+  {
+   "namn": "Inga-Lill Kihlberg",
+   "namnvarianter": [
+    "Inga-Lill Kihlberg"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 27,
+     "samtycke": true,
+     "uppgift": "71 år, Gällinge, Pensionär",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 32,
+     "samtycke": true,
+     "uppgift": "75 år, Gällinge, Pensionär",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2010,
+     "listnamn": "Kungsbacka",
+     "listnummer": "01940",
+     "plats": 22,
+     "samtycke": null,
+     "uppgift": null,
+     "alder": 59,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 23,
+     "samtycke": null,
+     "uppgift": "63 år, Laboratorietekniker, Gällinge",
+     "alder": 63,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 25,
+     "samtycke": null,
+     "uppgift": "67 år, Pensionär, Gällinge",
+     "alder": 67,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 180,
+     "rubrik": "Nämnden för Individ & Familjeomsorg 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Individ & Familjeomsorg",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 206,
+     "rubrik": "Val av ledamöter, ersättare och ordförande till arvodesberedningen 2023-01-01–2026-12-31",
+     "organisation": "Arvodesberedningen",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2020-04-16",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Individ & Familjeomsorg",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "3f22c053-e584-4c10-bf19-94a1a06ff36b",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-027"
+  },
+  {
+   "namn": "Inger Offneby",
+   "namnvarianter": [
+    "Inger Offneby"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 187,
+     "rubrik": "Valnämnden 2015-01-01-2018-12-31",
+     "organisation": "Valnämnden",
+     "roll": "ledamot",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-028"
+  },
+  {
+   "namn": "Jan-Erik Lind",
+   "namnvarianter": [
+    "Jan-Erik Lind"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 176,
+     "rubrik": "Nämnden för Fritid & Folkhälsa 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Fritid & Folkhälsa",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-029"
+  },
+  {
+   "namn": "Jesper Bernhed Uhlén",
+   "namnvarianter": [
+    "Jesper Bernhed Uhlén"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 25,
+     "samtycke": true,
+     "uppgift": "39 år, Fjärås, Skadereglerare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": true,
+    "id": "9aa524f8-6a07-4f7a-834e-dac836f67f8a",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-030"
+  },
+  {
+   "namn": "Jesper Lindgren",
+   "namnvarianter": [
+    "Jesper Lindgren"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 19,
+     "samtycke": true,
+     "uppgift": "55 år, Frillesås, Utredare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": true,
+    "id": "02172ae3-1d07-41b4-88a9-606acce45bf2",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-031"
+  },
+  {
+   "namn": "Joakim Carlson",
+   "namnvarianter": [
+    "Joakim Carlson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 29,
+     "samtycke": true,
+     "uppgift": "52 år, Onsala, Bemanningscontroller",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 35,
+     "samtycke": null,
+     "uppgift": "48 år, Butikschef, Onsala",
+     "alder": 48,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-032"
+  },
+  {
+   "namn": "Jonathan Samuelsson",
+   "namnvarianter": [
+    "Jonathan Samuelsson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 26,
+     "samtycke": true,
+     "uppgift": "39 år, Frillesås, Lantbrukare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-033"
+  },
+  {
+   "namn": "Karin Green",
+   "namnvarianter": [
+    "Karin Green"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 4,
+     "samtycke": true,
+     "uppgift": "59 år, Fjärås, Rederitjänsteman",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 4,
+     "samtycke": true,
+     "uppgift": "63 år, Fjärås, Rederitjänsteman",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 12,
+     "samtycke": null,
+     "uppgift": "51 år, Rederitjänsteman, Fjärås",
+     "alder": 51,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 8,
+     "samtycke": null,
+     "uppgift": "55 år, Rederitjänsteman, Fjärås",
+     "alder": 55,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 177,
+     "rubrik": "Nämnden för Förskola & Grundskola 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Förskola & Grundskola",
+     "roll": "ledamot",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 198,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Gymnasium & Arbetsmarknad 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Gymnasium & Arbetsmarknad",
+     "roll": "ledamot",
+     "ordning": 9,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2020-01-22",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Förskola & Grundskola",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2019-02-06",
+     "kalla": "närvarolista",
+     "organisation": "Förskola & Grundskolas arbetsutskott",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "80acdc73-ae06-4859-ada4-fcb395172751",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-034"
+  },
+  {
+   "namn": "Karl-Johan Söderholm",
+   "namnvarianter": [
+    "Karl-Johan Söderholm"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 28,
+     "samtycke": true,
+     "uppgift": "58 år, Kullavik, Senior kundansvarig",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-035"
+  },
+  {
+   "namn": "Kerstin Ekman-Hake",
+   "namnvarianter": [
+    "Kerstin Ekman-Hake"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 3,
+     "samtycke": null,
+     "uppgift": "48 år, Skolchef, Onsala",
+     "alder": 48,
+     "kon": "K",
+     "kalla": "härledd ur fullmäktiges loggordning (valkrets, mandat), verifierad; frusen enligt uppdragsgivarens val 2026-11-08",
+     "sakerhet": "stark",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 173,
+     "rubrik": "Kommunstyrelsen 2015-01-01-2018-12-31",
+     "organisation": "Kommunstyrelsen",
+     "roll": "ersättare",
+     "ordning": 8,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-036"
+  },
+  {
+   "namn": "Kerstin Ohlsson",
+   "namnvarianter": [
+    "Kerstin Ohlsson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 34,
+     "samtycke": true,
+     "uppgift": "61 år, Kungsbacka, Administratör",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 27,
+     "samtycke": true,
+     "uppgift": "65 år, Kungsbacka, Administratör",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 38,
+     "samtycke": null,
+     "uppgift": "57 år, Administratör, Kungsbacka",
+     "alder": 57,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 204,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till valnämnden 2023-01-01–2026-12-31",
+     "organisation": "Valnämnden",
+     "roll": "ledamot",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "dfe4667b-8735-48cd-bfd1-66eeed13179e",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-037"
+  },
+  {
+   "namn": "Kristina Karlsson",
+   "namnvarianter": [
+    "Kristina Karlsson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 6,
+     "samtycke": true,
+     "uppgift": "65 år, Gällinge, Deltidspolitiker",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    },
+    {
+     "val": 2010,
+     "listnamn": "Kungsbacka",
+     "listnummer": "01940",
+     "plats": 2,
+     "samtycke": null,
+     "uppgift": null,
+     "alder": 53,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": true
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 2,
+     "samtycke": null,
+     "uppgift": "57 år, Fritidspedagog, Gällinge",
+     "alder": 57,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": true
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 2,
+     "samtycke": null,
+     "uppgift": "61 år, Fritidspedagog, Gällinge",
+     "alder": 61,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 173,
+     "rubrik": "Kommunstyrelsen 2015-01-01-2018-12-31",
+     "organisation": "Kommunstyrelsen",
+     "roll": "ledamot",
+     "ordning": 9,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 174,
+     "rubrik": "Krisledningsnämnden 2015-01-01-2018-12-31",
+     "organisation": "Krisledningsnämnden",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 179,
+     "rubrik": "Nämnden för Funktionsstöd 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Funktionsstöd",
+     "roll": "ledamot",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 179,
+     "rubrik": "Nämnden för Funktionsstöd 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Funktionsstöd",
+     "roll": "ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 206,
+     "rubrik": "Val av ledamöter, ersättare och ordförande till arvodesberedningen 2023-01-01–2026-12-31",
+     "organisation": "Arvodesberedningen",
+     "roll": "ledamot",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 210,
+     "rubrik": "Val av ledamöter, suppleanter, ordförande och vice ordförande till Stiftelsen Tjolöholm",
+     "organisation": "Stiftelsen Tjolöholm",
+     "roll": "suppleant",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 218,
+     "rubrik": "Val av styrelseledamot och ställföreträdare vid föreningsstämma till Coompanion Halland 2023-01-01–2026-12-31",
+     "organisation": "Coompanion Halland",
+     "roll": "styrelseledamot",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "ks/2015-01-20",
+     "paragraf": 3,
+     "rubrik": "Val av ledamöter och ersättare till kommunstyrelsens arbetsutskott 2015-2018",
+     "organisation": "Kommunstyrelsens arbetsutskott 2015-2018",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2021-01-19",
+     "kalla": "närvarolista",
+     "organisation": "Kommunstyrelsen",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2019-02-28",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Kultur & Fritid",
+     "roll": "ordförande",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "69a8c38e-2422-4f2a-a8ae-0d813f1b4c9e",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-038"
+  },
+  {
+   "namn": "Kristoffer Bergendahl",
+   "namnvarianter": [
+    "Kristoffer Bergendahl"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 21,
+     "samtycke": true,
+     "uppgift": "49 år, Onsala, Föreläsare/utbildare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-039"
+  },
+  {
+   "namn": "Lena Hammarberg",
+   "namnvarianter": [
+    "Lena Hammarberg"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 226,
+     "rubrik": "Val av ledamot och ersättare till Tölö bygdegårdsförening 2023-01-01–2023-12-31",
+     "organisation": "Tölö bygdegårdsförening",
+     "roll": "ersättare",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "210fbf5c-10f0-408a-9089-7a93da17f616",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-040"
+  },
+  {
+   "namn": "Lena Hasslöf Gustafsson",
+   "namnvarianter": [
+    "Lena Hasslöf Gustafsson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 17,
+     "samtycke": true,
+     "uppgift": "48 år, Kungsbacka, Företagare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 200,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Kultur & Fritid 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Kultur & Fritid",
+     "roll": "ersättare",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-041"
+  },
+  {
+   "namn": "Lisbeth Andersson",
+   "namnvarianter": [
+    "Lisbeth Andersson"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2011–2014",
+     "val": 2010,
+     "protokoll": "2013-08-22",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Vård & Omsorg",
+     "roll": "tjänstgörande ersättare",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "95cbfb58-6805-4920-bf29-938a04ce515c",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-042"
+  },
+  {
+   "namn": "Lou-Lou Andersson",
+   "namnvarianter": [
+    "Lou-Lou Andersson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 16,
+     "samtycke": true,
+     "uppgift": "72 år, Frillesås, Pensionär",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 172,
+     "rubrik": "Val av revisorer för granskning av kommunens verksamhet 2015-2018",
+     "organisation": null,
+     "roll": "revisor",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 188,
+     "rubrik": "Eksta Bostadsaktiebolag - val av bolagsfunktionärer med mera",
+     "organisation": null,
+     "roll": "lekmannarevisor",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 189,
+     "rubrik": "Fastighets AB Sankta Gertrud - val av bolagsfunktionärer med mera",
+     "organisation": null,
+     "roll": "revisor",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 192,
+     "rubrik": "Stiftelsen Tjolöholm 2015-01-01-2018-12-31 - val av stiftelsefunktionärer",
+     "organisation": "Stiftelsen Tjolöholm",
+     "roll": "revisor",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 194,
+     "rubrik": "Gemensamma patientnämnden i Hallands län 2015-01-01-2018-12-31",
+     "organisation": "Gemensamma patientnämnden i Hallands län",
+     "roll": "revisor",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 195,
+     "rubrik": "Gemensam nämnd för hemsjukvård och hjälpmedel 2015-01-01-2018- 12-31",
+     "organisation": "Gemensam nämnd för hemsjukvård och hjälpmedel",
+     "roll": "revisor",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 196,
+     "rubrik": "Val av revisorer i donationsstiftelser som förvaltas av kommunen 2015- 01-01-2018-12-31",
+     "organisation": null,
+     "roll": "suppleant",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 196,
+     "rubrik": "Val av revisorer i donationsstiftelser som förvaltas av kommunen 2015- 01-01-2018-12-31",
+     "organisation": null,
+     "roll": "suppleant",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 196,
+     "rubrik": "Val av revisorer i donationsstiftelser som förvaltas av kommunen 2015- 01-01-2018-12-31",
+     "organisation": null,
+     "roll": "revisor",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 196,
+     "rubrik": "Val av revisorer i donationsstiftelser som förvaltas av kommunen 2015- 01-01-2018-12-31",
+     "organisation": null,
+     "roll": "suppleant",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 196,
+     "rubrik": "Val av revisorer i donationsstiftelser som förvaltas av kommunen 2015- 01-01-2018-12-31",
+     "organisation": null,
+     "roll": "suppleant",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "d3cd8390-cfb9-42f3-982b-47935a7e81df",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-043"
+  },
+  {
+   "namn": "Love Barkman",
+   "namnvarianter": [
+    "Love Barkman"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 178,
+     "rubrik": "Nämnden för Gymnasie & Vuxenutbildning 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Gymnasie & Vuxenutbildning",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-044"
+  },
+  {
+   "namn": "Magnus Andreasson",
+   "namnvarianter": [
+    "Magnus Andreasson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 9,
+     "samtycke": true,
+     "uppgift": "49 år, Frillesås, Företagare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 24,
+     "samtycke": null,
+     "uppgift": "46 år, Företagare, Frillesås",
+     "alder": 45,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 202,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Service 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Service",
+     "roll": "ersättare",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "ad538557-295b-440f-8c03-8a5941dbc679",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-045"
+  },
+  {
+   "namn": "Måns Åberg",
+   "namnvarianter": [
+    "Måns Åberg"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 36,
+     "samtycke": true,
+     "uppgift": "27 år, Anneberg, Student",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-046"
+  },
+  {
+   "namn": "Maria Andersson",
+   "namnvarianter": [
+    "Maria Andersson"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 181,
+     "rubrik": "Nämnden för Kultur & Turism 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Kultur & Turism",
+     "roll": "ledamot",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 181,
+     "rubrik": "Nämnden för Kultur & Turism 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Kultur & Turism",
+     "roll": "ordförande",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-047"
+  },
+  {
+   "namn": "Maria Derner",
+   "namnvarianter": [
+    "Maria Derner"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 6,
+     "samtycke": true,
+     "uppgift": "63 år, Kullavik, Kommunikatör",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": true,
+    "id": "76ac9b82-7941-4c40-b39a-c5f7991bc09d",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-048"
+  },
+  {
+   "namn": "Maria Lundgren",
+   "namnvarianter": [
+    "Maria Lundgren"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 21,
+     "samtycke": true,
+     "uppgift": "58 år, Vallda, Företagare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 18,
+     "samtycke": true,
+     "uppgift": "62 år, Vallda, Trädgårdsföretagare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2010,
+     "listnamn": "Kungsbacka",
+     "listnummer": "01940",
+     "plats": 4,
+     "samtycke": null,
+     "uppgift": null,
+     "alder": 46,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": true
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 11,
+     "samtycke": null,
+     "uppgift": "50 år, Företagare, Kungsbacka",
+     "alder": 50,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 16,
+     "samtycke": null,
+     "uppgift": "55 år, Företagare, Vallda",
+     "alder": 54,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 188,
+     "rubrik": "Eksta Bostadsaktiebolag - val av bolagsfunktionärer med mera",
+     "organisation": null,
+     "roll": "ledamot",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 207,
+     "rubrik": "Val av ledamöter, suppleanter, ordförande och vice ordförande, ställföreträdare, lekmannarevisorer och partirepresentanter till Eksta Bostads AB",
+     "organisation": "Eksta Bostads AB",
+     "roll": "ledamot",
+     "ordning": 7,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "892939bd-c5f8-4dbb-87b8-3cbb65152023",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-049"
+  },
+  {
+   "namn": "Maria Mia Andersson",
+   "namnvarianter": [
+    "Maria Mia Andersson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 6,
+     "samtycke": null,
+     "uppgift": "51 år, Ekonom, Särö",
+     "alder": 51,
+     "kon": "K",
+     "kalla": "härledd ur fullmäktiges loggordning (valkrets, mandat), verifierad; frusen enligt uppdragsgivarens val 2026-11-08",
+     "sakerhet": "stark",
+     "vald": true
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-050"
+  },
+  {
+   "namn": "Maria Valeberg",
+   "namnvarianter": [
+    "Maria Valeberg"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 32,
+     "samtycke": true,
+     "uppgift": "55 år, Kungsbacka, Regionchef",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 177,
+     "rubrik": "Nämnden för Förskola & Grundskola 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Förskola & Grundskola",
+     "roll": "ersättare",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-051"
+  },
+  {
+   "namn": "Marie Andersson",
+   "namnvarianter": [
+    "Marie Andersson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 23,
+     "samtycke": true,
+     "uppgift": "66 år, Frillesås, Behandlingspedagog",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 7,
+     "samtycke": null,
+     "uppgift": "54 år, Undersköterska, Frillesås",
+     "alder": 54,
+     "kon": "K",
+     "kalla": "härledd ur fullmäktiges loggordning (valkrets, mandat), verifierad; frusen enligt uppdragsgivarens val 2026-11-08",
+     "sakerhet": "stark",
+     "vald": true
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 6,
+     "samtycke": null,
+     "uppgift": "58 år, Undersköterska, Frillesås",
+     "alder": 58,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 180,
+     "rubrik": "Nämnden för Individ & Familjeomsorg 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Individ & Familjeomsorg",
+     "roll": "ledamot",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-052"
+  },
+  {
+   "namn": "Marie Björsell",
+   "namnvarianter": [
+    "Marie Björsell"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 15,
+     "samtycke": true,
+     "uppgift": "45 år, Åsa, Teamledare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 31,
+     "samtycke": true,
+     "uppgift": "49 år, Åsa, Företagare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2010,
+     "listnamn": "Kungsbacka",
+     "listnummer": "01940",
+     "plats": 36,
+     "samtycke": null,
+     "uppgift": null,
+     "alder": 33,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 15,
+     "samtycke": null,
+     "uppgift": "37 år, Processledare, Åsa",
+     "alder": 37,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 12,
+     "samtycke": null,
+     "uppgift": "41 år, Processledare, Åsa",
+     "alder": 41,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 199,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Individ & Familjeomsorg 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Individ & Familjeomsorg",
+     "roll": "ledamot",
+     "ordning": 9,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2011–2014",
+     "val": 2010,
+     "protokoll": "2013-10-03",
+     "kalla": "närvarolista",
+     "organisation": "Byggnadsnämnden",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-053"
+  },
+  {
+   "namn": "Marita Arvidsson",
+   "namnvarianter": [
+    "Marita Arvidsson"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2011–2014",
+     "val": 2010,
+     "protokoll": "2013-08-22",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Vård & Omsorg",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "d4b30eea-3a57-4c7f-b90c-0e921f614a79",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-054"
+  },
+  {
+   "namn": "Markus Hallman",
+   "namnvarianter": [
+    "Markus Hallman"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 35,
+     "samtycke": true,
+     "uppgift": "41 år, Älvsåker, Fastighetsstrateg",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 29,
+     "samtycke": true,
+     "uppgift": "45 år, Älvsåker, Samordnare Utvecklingsledare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-055"
+  },
+  {
+   "namn": "Martin Petersson",
+   "namnvarianter": [
+    "Martin Petersson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 16,
+     "samtycke": true,
+     "uppgift": "42 år, Vallda, Pilot",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-056"
+  },
+  {
+   "namn": "Niklas Wellholt",
+   "namnvarianter": [
+    "Niklas Wellholt"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 182,
+     "rubrik": "Nämnden för Miljö & Hälsoskydd 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Miljö & Hälsoskydd",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-057"
+  },
+  {
+   "namn": "Osama Mesto",
+   "namnvarianter": [
+    "Osama Mesto"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 198,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Gymnasium & Arbetsmarknad 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Gymnasium & Arbetsmarknad",
+     "roll": "ersättare",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2019-02-20",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Vård & Omsorg",
+     "roll": "tjänstgörande ersättare",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "c1771910-c6d1-4e1e-b84b-e631b1038b1d",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-058"
+  },
+  {
+   "namn": "Pär Olsson",
+   "namnvarianter": [
+    "Pär Olsson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 26,
+     "samtycke": true,
+     "uppgift": "79 år, Gällinge, Företagare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2010,
+     "listnamn": "Kungsbacka",
+     "listnummer": "01940",
+     "plats": 31,
+     "samtycke": null,
+     "uppgift": null,
+     "alder": 67,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 21,
+     "samtycke": null,
+     "uppgift": "71 år, Egen företagare, Gällinge",
+     "alder": 71,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 26,
+     "samtycke": null,
+     "uppgift": "75 år, Civilingenjör, Gällinge",
+     "alder": 75,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "möjlig",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 184,
+     "rubrik": "Nämnden för Teknik 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Teknik",
+     "roll": "ledamot",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 199,
+     "rubrik": "Lygnerns vattenråd (tidigare Lygnerns vattenvårdsförbund) 2015-01-01- 2018-12-31",
+     "organisation": "Lygnerns vattenråd (tidigare Lygnerns vattenvårdsförbund)",
+     "roll": "ledamot",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 215,
+     "rubrik": "Val av representant och ersättare för representant till Kattegatts kustvattenråd 2023-01-01–2026-12-31",
+     "organisation": "Kattegatts kustvattenråd",
+     "roll": "ersättare",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-059"
+  },
+  {
+   "namn": "Peter Fritzson",
+   "namnvarianter": [
+    "Peter Fritzson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 20,
+     "samtycke": true,
+     "uppgift": "52 år, Tölö, VD",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 33,
+     "samtycke": true,
+     "uppgift": "56 år, Tölö, VD",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 17,
+     "samtycke": null,
+     "uppgift": "48 år, Företagare, Tölö",
+     "alder": 48,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-060"
+  },
+  {
+   "namn": "Peter Lundin",
+   "namnvarianter": [
+    "Peter Lundin"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 22,
+     "samtycke": true,
+     "uppgift": "63 år, Vallda, Civilingenjör",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 24,
+     "samtycke": true,
+     "uppgift": "67 år, Vallda, Pensionär",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 36,
+     "samtycke": null,
+     "uppgift": "59 år, IT-konsult, Vallda",
+     "alder": 59,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 197,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Förskola & Grundskola 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Förskola & Grundskola",
+     "roll": "ledamot",
+     "ordning": 11,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "f3363127-4733-45e9-8522-4cde5eed5a07",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-061"
+  },
+  {
+   "namn": "Pierre Staag",
+   "namnvarianter": [
+    "Pierre Staag"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 30,
+     "samtycke": true,
+     "uppgift": "46 år, Gällinge, Mättekniker",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-062"
+  },
+  {
+   "namn": "Revisorssuppleant Stefan Friberg",
+   "namnvarianter": [
+    "Revisorssuppleant Stefan Friberg"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 221,
+     "rubrik": "Val av revisorer i donationsstiftelser som förvaltas av kommunen 2023-01-01–2026-12-31",
+     "organisation": null,
+     "roll": "revisor",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 221,
+     "rubrik": "Val av revisorer i donationsstiftelser som förvaltas av kommunen 2023-01-01–2026-12-31",
+     "organisation": null,
+     "roll": "revisor",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-063"
+  },
+  {
+   "namn": "Richard Hansson",
+   "namnvarianter": [
+    "Richard Hansson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 7,
+     "samtycke": true,
+     "uppgift": "49 år, Vallda, Fastighetsförvaltare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 11,
+     "samtycke": true,
+     "uppgift": "53 år, Vallda, Marknadsområdeschef",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 21,
+     "samtycke": null,
+     "uppgift": "45 år, Fastighetsförvaltare, Vallda",
+     "alder": 45,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 175,
+     "rubrik": "Byggnadsnämnden 2015-01-01-2018-12-31",
+     "organisation": "Byggnadsnämnden",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 196,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till byggnadsnämnden 2023-01-01–2026-12-31",
+     "organisation": "Byggnadsnämnden",
+     "roll": "ersättare",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2019-09-12",
+     "kalla": "närvarolista",
+     "organisation": "Byggnadsnämnden",
+     "roll": "tjänstgörande ersättare",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "31991868-e0f0-4aac-aea6-f6eb0377321d",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-064"
+  },
+  {
+   "namn": "Rickard Person",
+   "namnvarianter": [
+    "Rickard Person"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 38,
+     "samtycke": true,
+     "uppgift": "42 år, Vallda, Säljare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2014,
+     "listnamn": "Kungsbacka",
+     "listnummer": "8114",
+     "plats": 30,
+     "samtycke": null,
+     "uppgift": "34 år, Säljare, Vallda",
+     "alder": 34,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 33,
+     "samtycke": null,
+     "uppgift": "38 år, Säljare, Vallda",
+     "alder": 38,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2019-02-28",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Kultur & Fritid",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-065"
+  },
+  {
+   "namn": "Roger Nordin",
+   "namnvarianter": [
+    "Roger Nordin"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 31,
+     "samtycke": true,
+     "uppgift": "62 år, Hanhals, Idrottsadministratör",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 207,
+     "rubrik": "Val av ledamöter, suppleanter, ordförande och vice ordförande, ställföreträdare, lekmannarevisorer och partirepresentanter till Eksta Bostads AB",
+     "organisation": "Eksta Bostads AB",
+     "roll": "ersättare",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 208,
+     "rubrik": "Val av ledamöter, suppleanter, ordförande och vice ordförande, lekmannarevisorer och partirepresentanter till Tempohus Kungsbacka AB",
+     "organisation": "Tempohus Kungsbacka AB",
+     "roll": "ersättare",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-066"
+  },
+  {
+   "namn": "Sara Aderby",
+   "namnvarianter": [
+    "Sara Aderby"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 25,
+     "samtycke": true,
+     "uppgift": "43 år, Kungsbacka, Lärare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 8,
+     "samtycke": true,
+     "uppgift": "47 år, Kungsbacka, Lärare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 207,
+     "rubrik": "Val av ledamöter, suppleanter, ordförande och vice ordförande, ställföreträdare, lekmannarevisorer och partirepresentanter till Eksta Bostads AB",
+     "organisation": "Eksta Bostads AB",
+     "roll": "suppleant",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "bded902e-c98b-41f5-94d8-e248512141ff",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-067"
+  },
+  {
+   "namn": "Sarah Dunér",
+   "namnvarianter": [
+    "Sarah Dunér"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 14,
+     "samtycke": true,
+     "uppgift": "50 år, Kullavik, Verksamhetschef",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-068"
+  },
+  {
+   "namn": "Sofie Sandell",
+   "namnvarianter": [
+    "Sofie Sandell"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 12,
+     "samtycke": true,
+     "uppgift": "46 år, Frillesås, Gymnasielärare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 12,
+     "samtycke": true,
+     "uppgift": "50 år, Frillesås, Projektledare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 14,
+     "samtycke": null,
+     "uppgift": "42 år, Projektkoordinator, Frillesås",
+     "alder": 42,
+     "kon": "K",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 204,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till valnämnden 2023-01-01–2026-12-31",
+     "organisation": "Valnämnden",
+     "roll": "ersättare",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "cf4c6c89-c5fb-4d3d-ae1f-ef1266c1aa8c",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-069"
+  },
+  {
+   "namn": "Stefan Friberg",
+   "namnvarianter": [
+    "Stefan Friberg"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 18,
+     "samtycke": true,
+     "uppgift": "54 år, Frillesås, Entreprenör",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2018,
+     "listnamn": "Kungsbacka",
+     "listnummer": "12169",
+     "plats": 29,
+     "samtycke": null,
+     "uppgift": "50 år, Entreprenör, Frillesås",
+     "alder": 50,
+     "kon": "M",
+     "kalla": "matchning, bekräftad av uppdragsgivaren",
+     "sakerhet": "stark",
+     "vald": false
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 193,
+     "rubrik": "Val av revisorer för granskning av kommunens verksamhet 2023–2026",
+     "organisation": null,
+     "roll": "revisor",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 207,
+     "rubrik": "Val av ledamöter, suppleanter, ordförande och vice ordförande, ställföreträdare, lekmannarevisorer och partirepresentanter till Eksta Bostads AB",
+     "organisation": "Eksta Bostads AB",
+     "roll": "lekmannarevisor",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 208,
+     "rubrik": "Val av ledamöter, suppleanter, ordförande och vice ordförande, lekmannarevisorer och partirepresentanter till Tempohus Kungsbacka AB",
+     "organisation": "Tempohus Kungsbacka AB",
+     "roll": "lekmannarevisor",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 209,
+     "rubrik": "Val av ledamot, suppleant, ställföreträdare och lekmannarevisorer till Fastighets AB Sankta Gertrud",
+     "organisation": "Fastighets AB Sankta Gertrud",
+     "roll": "lekmannarevisor",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 211,
+     "rubrik": "Val av revisorer för Stiftelsen Tjolöholm",
+     "organisation": null,
+     "roll": "revisor",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 212,
+     "rubrik": "Val av ledamot, ersättare och revisorer samt nominering av vice ordförande till nämnden för överförmyndare i samverkan 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för överförmyndare i samverkan",
+     "roll": "revisor",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 213,
+     "rubrik": "Val av ledamot, ersättare och revisorer till Patientnämnden Halland 2023-01-01–2026-12-31",
+     "organisation": "Patientnämnden Halland",
+     "roll": "revisor",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 214,
+     "rubrik": "Val av ledamot, ersättare och revisorer till gemensam nämnd för hemsjukvård och hjälpmedel 2023-01-01–2026-12-31",
+     "organisation": "Gemensam nämnd för hemsjukvård och hjälpmedel",
+     "roll": "revisor",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 221,
+     "rubrik": "Val av revisorer i donationsstiftelser som förvaltas av kommunen 2023-01-01–2026-12-31",
+     "organisation": null,
+     "roll": "revisor",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2019–2022",
+     "val": 2018,
+     "protokoll": "2019-05-20",
+     "kalla": "närvarolista",
+     "organisation": "Kommunrevisionen",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "f4fdca2c-4518-49db-9b60-91aa8a2d9188",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-070"
+  },
+  {
+   "namn": "Stefan Jakobsson",
+   "namnvarianter": [
+    "Stefan Jakobsson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "1165",
+     "plats": 37,
+     "samtycke": true,
+     "uppgift": "47 år, Onsala, Spec.sjuksköterska",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    },
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 5,
+     "samtycke": true,
+     "uppgift": "51 år, Onsala, Enhetschef",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 203,
+     "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Teknik 2023-01-01–2026-12-31",
+     "organisation": "Nämnden för Teknik",
+     "roll": "ersättare",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2023–2026",
+     "val": 2022,
+     "protokoll": "kf/2022-12-06",
+     "paragraf": 222,
+     "rubrik": "Val av ledamot och ersättare till Kungsbacka Jaktvårdskrets 2023-01-01–2023-12-31",
+     "organisation": "Kungsbacka Jaktvårdskrets",
+     "roll": "ersättare",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": true,
+    "id": "c9a243f0-17f4-4259-843b-ffd2656c0880",
+    "parti": [
+     "C"
+    ]
+   },
+   "id": "c-071"
+  },
+  {
+   "namn": "Stellan Petré",
+   "namnvarianter": [
+    "Stellan Petré"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 185,
+     "rubrik": "Nämnden för Äldreomsorg 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Äldreomsorg",
+     "roll": "ledamot",
+     "ordning": 6,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 188,
+     "rubrik": "Eksta Bostadsaktiebolag - val av bolagsfunktionärer med mera",
+     "organisation": null,
+     "roll": "ersättare",
+     "ordning": 2,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "ks/2015-01-20",
+     "paragraf": 5,
+     "rubrik": "Val till kommunala uppdrag",
+     "organisation": null,
+     "roll": "ersättare",
+     "ordning": 4,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2011–2014",
+     "val": 2010,
+     "protokoll": "2013-08-28",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Gymnasium & Arbetsmarknad",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-072"
+  },
+  {
+   "namn": "Susanne Rivesjö",
+   "namnvarianter": [
+    "Susanne Rivesjö"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "6976",
+     "plats": 35,
+     "samtycke": true,
+     "uppgift": "63 år, Kungsbacka, Företagare",
+     "kalla": "Valmyndighetens kandidatlista",
+     "vald": false
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-073"
+  },
+  {
+   "namn": "Sven Börjesson",
+   "namnvarianter": [
+    "Sven Börjesson"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 197,
+     "rubrik": "Kungsbacka Jaktvårdskrets 2015-01-01-2015-12-31",
+     "organisation": "Kungsbacka Jaktvårdskrets",
+     "roll": "ersättare",
+     "ordning": 1,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-074"
+  },
+  {
+   "namn": "Thomas Sahlström",
+   "namnvarianter": [
+    "Thomas Sahlström"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "ks/2015-01-20",
+     "paragraf": 5,
+     "rubrik": "Val till kommunala uppdrag",
+     "organisation": null,
+     "roll": "ersättare",
+     "ordning": 5,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2011–2014",
+     "val": 2010,
+     "protokoll": "2013-10-23",
+     "kalla": "närvarolista",
+     "organisation": "Nämnden för Service",
+     "roll": "ledamot",
+     "rubrik": null,
+     "paragraf": null,
+     "ordning": null
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-075"
+  },
+  {
+   "namn": "Tomas Sahlström",
+   "namnvarianter": [
+    "Tomas Sahlström"
+   ],
+   "kandidaturer": [],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 183,
+     "rubrik": "Nämnden för Service 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Service",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-076"
+  },
+  {
+   "namn": "Ulf Persson",
+   "namnvarianter": [
+    "Ulf Persson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2010,
+     "listnamn": "Kungsbacka",
+     "listnummer": "01940",
+     "plats": 5,
+     "samtycke": null,
+     "uppgift": null,
+     "alder": 65,
+     "kon": "M",
+     "kalla": "härledd ur fullmäktiges loggordning, verifierad mot kända namn; frusen enligt uppdragsgivarens val 2026-11-08",
+     "sakerhet": "möjlig",
+     "vald": true
+    }
+   ],
+   "uppdrag": [
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 185,
+     "rubrik": "Nämnden för Äldreomsorg 2015-01-01-2018-12-31",
+     "organisation": "Nämnden för Äldreomsorg",
+     "roll": "ersättare",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    },
+    {
+     "mandatperiod": "2015–2018",
+     "val": 2014,
+     "protokoll": "kf/2014-12-09",
+     "paragraf": 192,
+     "rubrik": "Stiftelsen Tjolöholm 2015-01-01-2018-12-31 - val av stiftelsefunktionärer",
+     "organisation": "Stiftelsen Tjolöholm",
+     "roll": "styrelseledamot",
+     "ordning": 3,
+     "kalla": "valbeslut"
+    }
+   ],
+   "troman": {
+    "funnen": false
+   },
+   "id": "c-077"
+  }
+ ]
+}

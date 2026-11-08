@@ -4697,3 +4697,529 @@ class TestEnkaterRiktigaFiler(unittest.TestCase):
             self.assertEqual(varde(enhet, grupp, "GR", serie, ar), facit, (enhet, ar))
 
 
+
+
+hamta_uppdrag = ladda("hamta_uppdrag")
+
+ORG_HTML = """
+<h1>Kommunstyrelse</h1>
+<p><strong>Mandatperiod: </strong> 2023-01-01 - 2026-12-31 </p>
+<h2>Uppdrag <small>(2 st)</small></h2>
+<table id="engagementTable"><thead><tr>
+<th>Efternamn</th><th>Förnamn</th><th>Parti</th><th>Uppdrag</th><th>Ordningsnummer</th>
+</tr></thead><tbody>
+<tr><td><a href="/person/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa">Ek</a></td>
+<td><a href="/person/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa">Eva</a></td>
+<td><a href="/parti/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb">M</a></td>
+<td>Ordförande</td><td>1</td></tr>
+<tr><td><a href="/person/cccccccc-cccc-cccc-cccc-cccccccccccc">Lind</a></td>
+<td><a href="/person/cccccccc-cccc-cccc-cccc-cccccccccccc">Lars</a></td>
+<td></td><td>Ledamot</td><td>2</td></tr>
+</tbody></table>
+"""
+
+
+class TestUppdragParsning(unittest.TestCase):
+    """Troman-sidorna: facit räknat för hand ur påhittad HTML."""
+
+    def test_organisationssida(self):
+        s = hamta_uppdrag.organisationssida(ORG_HTML)
+        self.assertEqual(s["mandatperiod"], ["2023-01-01", "2026-12-31"])
+        self.assertEqual(s["antal_enligt_sidan"], 2)
+        self.assertEqual(s["uppdrag"][0]["uppdrag"], "Ordförande")
+        self.assertEqual(s["uppdrag"][0]["parti"], "M")
+        self.assertEqual(s["uppdrag"][0]["person_id"], "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa")
+        # Tomt är inte noll: en person utan parti får None, inte en tom sträng.
+        self.assertIsNone(s["uppdrag"][1]["parti"])
+        self.assertEqual(s["uppdrag"][1]["ordningsnummer"], 2)
+
+    def test_antalet_rader_maste_stamma_med_sidans_egna_siffra(self):
+        with self.assertRaises(SystemExit):
+            hamta_uppdrag.organisationssida(ORG_HTML.replace("(2 st)", "(3 st)"))
+
+    def test_oväntade_kolumner_avbryter(self):
+        with self.assertRaises(SystemExit):
+            hamta_uppdrag.organisationssida(ORG_HTML.replace("Förnamn", "Tilltalsnamn"))
+
+    def test_personsida(self):
+        html = """<h1>Eva Ek</h1>
+        <table><tr><th>Organisation</th><th>Uppdrag</th><th>Start</th><th>Slut</th></tr>
+        <tr><td>Kommunstyrelse</td><td>Ordförande</td><td>2023-01-01</td><td>2026-12-31</td></tr></table>
+        <table><tr><th>Organisation</th><th>Uppdrag</th><th>Parti</th><th>Start</th><th>Slut</th></tr>
+        <tr><td>Kommunfullmäktige</td><td>Ledamot</td><td>M</td><td>2018-10-15</td><td>2022-10-14</td></tr></table>"""
+        p = hamta_uppdrag.personsida(html)
+        self.assertEqual(p["namn"], "Eva Ek")
+        self.assertEqual(p["uppdrag"][0]["organisation"], "Kommunstyrelse")
+        self.assertEqual(p["uppdragshistorik"][0]["slut"], "2022-10-14")
+
+    def test_sparad_fil_har_ordforande_i_ks(self):
+        filer = sorted((ROT / "data" / "uppdrag").glob("troman_*.json"))
+        self.assertTrue(filer)
+        d = json.loads(filer[-1].read_text(encoding="utf-8"))
+        ks = next(o for o in d["organisationer"] if o["namn"] == "Kommunstyrelse")
+        self.assertEqual(ks["antal_enligt_sidan"], len(ks["uppdrag"]))
+        self.assertIn("Ordförande", {r["uppdrag"] for r in ks["uppdrag"]})
+        for o in d["organisationer"]:
+            for r in o["uppdrag"]:
+                self.assertIn(r["person_id"], d["personer"])
+
+
+hamta_kf_val = ladda("hamta_kf_val")
+
+KF_TEXT = """§ 7 Dnr 2022-1
+Val av ledamöter, ersättare, ordförande och vice ordförande till
+byggnadsnämnden 2023-01-01–2026-12-31
+Beslut
+Ledamöter Eva Ek M
+Lars Lind S
+Daniel Hogner
+Justerare Expedierat/bestyrkt
+Sida 2
+Kommunfullmäktige
+Datum
+2022-12-06
+Ersättare Kim Ås C
+Ordförande Eva Ek M
+Förste vice ordförande Lars Lind S
+Beslutsunderlag
+Valberedningens förslag 2022-11-22, § 3
+§ 8 Dnr 2022-2
+Redovisning av inkomna skrivelser
+Beslut
+Ordförande Anders Ekström (M) prövar om fullmäktige kan notera
+"""
+
+
+class TestKfValProtokoll(unittest.TestCase):
+    """Valbeslut ur fullmäktiges protokoll: facit räknat för hand."""
+
+    def test_roller_namn_och_parti(self):
+        b = hamta_kf_val.valbeslut(KF_TEXT)
+        self.assertEqual(len(b), 1)   # § 8 är brödtext, inget valbeslut
+        p = [(x["roll"], x["namn"], x["parti"], x["ordning"]) for x in b[0]["poster"]]
+        self.assertEqual(p, [
+            ("ledamot", "Eva Ek", "M", 1),
+            ("ledamot", "Lars Lind", "S", 2),
+            ("ledamot", "Daniel Hogner", None, 3),   # parti saknas: None, inte ""
+            ("ersättare", "Kim Ås", "C", 1),          # sidbrytningen stör inte
+            ("ordförande", "Eva Ek", "M", 1),
+            ("1:e vice ordförande", "Lars Lind", "S", 1),
+        ])
+        self.assertEqual(b[0]["paragraf"], 7)
+        self.assertEqual(b[0]["dnr"], "2022-1")
+
+    def test_flera_ordforande_avbryter(self):
+        b = hamta_kf_val.valbeslut(KF_TEXT.replace("Förste vice ordförande Lars Lind S",
+                                                   "Ordförande Lars Lind S"))
+        with self.assertRaises(SystemExit):
+            hamta_kf_val.granska("2022-12-06", b)
+
+    def test_sparade_filer(self):
+        def ordf(datum, org):
+            d = json.loads((ROT / "data" / "uppdrag" / f"kf_val_{datum}.json").read_text(encoding="utf-8"))
+            b = next(x for x in d["beslut"] if org in x["rubrik"])
+            return [(p["namn"], p["parti"]) for p in b["poster"] if p["roll"] == "ordförande"]
+        self.assertEqual(ordf("2022-12-06", "kommunstyrelsen"), [("Lisa Andersson", "M")])
+        self.assertEqual(ordf("2014-12-09", "Kommunstyrelsen"), [("Hans Forsberg", "M")])
+
+
+build_personer = ladda("build_personer")
+
+
+class TestPersonfil(unittest.TestCase):
+    """Personfilen: ihopparning på namn inom partiet, facit för hand."""
+
+    KAND = {2022: {"partier": [{"namn": "Moderaterna", "listor": [{
+        "listnamn": "Kungsbacka", "listnummer": "1", "kandidater": [
+            {"plats": 1, "namn": "Eva Ek", "samtycke": True, "uppgift": "50 år"},
+            {"plats": 2, "namn": "Ermin Škorić", "samtycke": True, "uppgift": "40 år"}]}]}]}}
+    BESLUT = {"kf/2022-12-06": {"beslut": [{
+        "paragraf": 194, "dnr": "x",
+        "rubrik": "Val av ledamöter, ersättare, ordförande och vice ordförande till kommunstyrelsen 2023-01-01–2026-12-31",
+        "poster": [
+            {"roll": "ledamot", "ordning": 1, "namn": "Eva Ek", "parti": "M"},
+            {"roll": "ordförande", "ordning": 1, "namn": "Eva Ek", "parti": "M"},
+            {"roll": "ledamot", "ordning": 2, "namn": "Ermin Skoric", "parti": "M"},
+            {"roll": "ledamot", "ordning": 3, "namn": "Eva Ek", "parti": "S"}],
+        "ej_tolkade": []}]}}
+    TROMAN = {"organisationer": [{"uppdrag": [
+        {"fornamn": "Eva", "efternamn": "Ek", "person_id": "id-ek-s", "parti": "S"},
+        {"fornamn": "Ermin", "efternamn": "Skoric", "person_id": "id-skoric", "parti": "M"}]}]}
+
+    def setUp(self):
+        self.ut = build_personer.bygg("Moderaterna", "M", self.KAND, self.BESLUT, self.TROMAN)
+        self.p = {p["namn"]: p for p in self.ut["personer"]}
+
+    def test_stavningsvarianter_ar_en_person(self):
+        sk = self.p["Ermin Škorić"]
+        self.assertEqual(sk["namnvarianter"], ["Ermin Škorić", "Ermin Skoric"])
+        self.assertEqual(len(sk["kandidaturer"]), 1)
+        self.assertEqual(len(sk["uppdrag"]), 1)
+
+    def test_andra_partier_tas_inte_med(self):
+        self.assertEqual(len(self.p["Eva Ek"]["uppdrag"]), 2)   # M-raderna, inte S-raden
+
+    def test_organisation_och_period(self):
+        u = self.p["Eva Ek"]["uppdrag"][0]
+        self.assertEqual(u["organisation"], "Kommunstyrelsen")
+        self.assertEqual(u["mandatperiod"], "2023–2026")
+
+    def test_troman_bekraftar_bara_samma_parti(self):
+        self.assertTrue(self.p["Ermin Škorić"]["troman"]["funnen"])
+        ek = self.p["Eva Ek"]["troman"]
+        self.assertFalse(ek["funnen"])
+        self.assertEqual(ek["annan_med_samma_namn"]["parti"], ["S"])
+
+    def test_perioder_med_luckor_syns(self):
+        per = {p["val"]: p for p in self.ut["perioder"]}
+        self.assertEqual(per[2018]["valbeslut"], "saknas")
+        self.assertEqual(per[2022]["valbeslut"], "saknas")   # ks/2023-01-10 saknas i testdatat
+        self.assertIn("2018", per[2018]["anledning"])
+        self.assertEqual(per[2026]["valbeslut"], "valbeslut ej fattat")
+
+    def test_organisation_ur_rubriker(self):
+        o = build_personer.organisation
+        self.assertEqual(o("Val av ledamöter, ersättare, ordförande och vice ordförande till nämnden för Teknik 2023-01-01–2026-12-31"), "Nämnden för Teknik")
+        self.assertEqual(o("Kommunstyrelsen 2015-01-01-2018-12-31"), "Kommunstyrelsen")
+        self.assertEqual(o("Val av ledamöter, suppleanter och ordförande till Tempohus Kungsbacka AB"), "Tempohus Kungsbacka AB")
+        self.assertIsNone(o("Val av revisorer i donationsstiftelser som förvaltas av kommunen 2023-01-01–2026-12-31"))
+
+    def test_sparad_fil(self):
+        d = json.loads((ROT / "data" / "personer" / "moderaterna.json").read_text(encoding="utf-8"))
+        lisa = next(p for p in d["personer"] if p["namn"] == "Lisa Andersson")
+        # 2010–2018 kommer ur matchningen (bekräftad), 2022/2026 ur Valmyndighetens lista; alla fem valdes.
+        self.assertEqual({k["val"] for k in lisa["kandidaturer"]}, {2010, 2014, 2018, 2022, 2026})
+        self.assertTrue(all(k["vald"] for k in lisa["kandidaturer"]))
+        self.assertEqual({k["val"]: k["plats"] for k in lisa["kandidaturer"]},
+                         {2010: 4, 2014: 2, 2018: 2, 2022: 1, 2026: 1})
+        self.assertIn(("Kommunstyrelsen", "ordförande", "2023–2026"),
+                      {(u["organisation"], u["roll"], u["mandatperiod"]) for u in lisa["uppdrag"]})
+
+
+hamta_narvaro = ladda("hamta_narvaro")
+
+NARV_BLOCK = """Beslutande Ledamöter Tjänstgörande ersättare
+Thure Sandén (M), Ordförande Richard Hansson (C) ersätter Mårten
+Heinrich Kaufmann (C), Vice ordförande Carlquist (M)
+Per Stenberg (M)
+Thomas Lindqvist (L) ersätter Kenth
+Daniel Hognert (M)
+Wallin (SD)
+Maj-Britt Rane Andersson (S), andra vice
+ordförande
+Eirik Langjord (L)"""
+
+
+class TestNarvarolista(unittest.TestCase):
+    """Närvarolistan i två kolumner: facit räknat för hand."""
+
+    def setUp(self):
+        self.u = hamta_narvaro.utlasning(NARV_BLOCK)
+
+    def namn(self, roll):
+        return [x["namn"] for x in self.u if x["roll"] == roll]
+
+    def test_ledamoter_och_ersattare(self):
+        self.assertEqual(self.namn("ledamot"), ["Thure Sandén", "Heinrich Kaufmann", "Per Stenberg",
+                                                "Daniel Hognert", "Maj-Britt Rane Andersson", "Eirik Langjord"])
+        # Raden där bara högerkolumnen finns ("… ersätter …") är en tjänstgörande ersättare.
+        self.assertIn("Thomas Lindqvist", self.namn("tjänstgörande ersättare"))
+        self.assertIn("Richard Hansson", self.namn("tjänstgörande ersättare"))
+
+    def test_titel_bara_nar_den_star_efter_namnet(self):
+        titlar = {x["namn"]: x["titel"] for x in self.u}
+        self.assertEqual(titlar["Thure Sandén"], "ordförande")
+        self.assertEqual(titlar["Heinrich Kaufmann"], "vice ordförande")
+        # Titeln "andra vice / ordförande" bryts över två rader och läses som hela titeln
+        # (tidigare begränsning, rättad 2026-11-08 när hamta_narvaro fick stöd för brutna titlar).
+        self.assertEqual(titlar["Maj-Britt Rane Andersson"], "2:e vice ordförande")
+
+    def test_brutet_efternamn_blir_inte_en_person(self):
+        self.assertNotIn("Wallin", [x["namn"] for x in self.u])
+
+    def test_sparad_fil_stammer_med_valbeslut(self):
+        d = json.loads((ROT / "data" / "uppdrag" / "narvaro.json").read_text(encoding="utf-8"))
+        ks = next(p for p in d["poster"] if p["organ"] == "Kommunstyrelsen" and p["period"] == "2023–2026")
+        self.assertEqual([x["namn"] for x in ks["utlasning"] if x["titel"] == "ordförande"], ["Lisa Andersson"])
+        ks19 = next(p for p in d["poster"] if p["organ"] == "Kommunstyrelsen" and p["period"] == "2019–2022")
+        self.assertTrue(ks19["datum"])
+        self.assertEqual([x["namn"] for x in ks19["utlasning"] if x["titel"] == "ordförande"], ["Lisa Andersson"])
+
+
+class TestKopplingar(unittest.TestCase):
+    """Uttryckliga beslut om samma namn i olika partier."""
+
+    def test_samma_olika_och_oavgjord(self):
+        def post(i, namn):
+            return {"id": i, "namn": namn}
+        ut = {"M": {"personer": [post("m-1", "Eva Ek"), post("m-2", "Ola Ås"), post("m-3", "Nils Ny")]},
+              "L": {"personer": [post("l-1", "Eva Ek"), post("l-2", "Ola Ås"), post("l-3", "Pia Pe")]},
+              "C": {"personer": [post("c-1", "Nils Ny")]}}
+        kopp = {"beslut_av": "test", "kopplingar": [
+            {"id": "k1", "avgorande": "samma", "poster": [{"parti": "L", "namn": "Eva Ek"}, {"parti": "M", "namn": "Eva Ek"},
+                                                         {"parti": "X", "namn": "Eva Ek", "anmarkning": "partiet saknar fil"}]},
+            {"id": "k2", "avgorande": "olika", "poster": [{"parti": "L", "namn": "Ola Ås"}, {"parti": "M", "namn": "Ola Ås"}]}]}
+        oavgjorda = build_personer.tillampa_kopplingar(ut, kopp)
+        m1 = ut["M"]["personer"][0]["koppling"]
+        self.assertEqual(m1["avgorande"], "samma")
+        self.assertEqual(m1["samma_som"], [{"parti": "L", "id": "l-1", "namn": "Eva Ek"}])   # partiet utan fil hoppas över
+        self.assertEqual(ut["L"]["personer"][1]["koppling"]["skild_fran"][0]["id"], "m-2")
+        self.assertEqual(oavgjorda, ["Nils Ny"])   # M och C, inget beslut
+        self.assertNotIn("koppling", ut["C"]["personer"][0])
+
+
+class TestHistoriskaKandidaturer(unittest.TestCase):
+    """Listor och valda 2010–2018: namnen är gallrade, platserna finns."""
+
+    def test_valda_61_och_mandat_per_parti(self):
+        fasit = {2010: {"M": 24, "S": 10, "L": 7, "C": 5, "MP": 4, "KB": 4, "KD": 3, "SD": 3, "V": 1},
+                 2014: {"M": 21, "S": 10, "C": 7, "L": 6, "SD": 6, "MP": 4, "KB": 3, "KD": 2, "V": 2},
+                 2018: {"M": 19, "S": 9, "SD": 9, "C": 8, "L": 6, "KD": 4, "MP": 2, "V": 2, "KB": 2}}
+        for ar, per in fasit.items():
+            d = json.loads((ROT / "data" / "valda" / f"{ar}.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(d["ledamoter"]), 61)
+            antal = {}
+            for r in d["ledamoter"]:
+                antal[r["parti"]] = antal.get(r["parti"], 0) + 1
+            self.assertEqual(antal, per, ar)
+
+    def test_listor_2014_2018_har_plats_men_inte_namn(self):
+        for ar in (2014, 2018):
+            d = json.loads((ROT / "data" / "kandidater" / f"{ar}.json").read_text(encoding="utf-8"))
+            m = next(p for p in d["partier"] if p["namn"] == "Moderaterna")
+            kand = m["listor"][0]["kandidater"]
+            self.assertEqual([k["plats"] for k in kand], list(range(1, len(kand) + 1)))
+            self.assertTrue(all(k["namn"] is None for k in kand))   # gallrat, inte tomt
+        # 2018 plats 2 på Moderaternas lista: 49 år, trädgårdsmästare i Onsala (= den som var 53 år 2022)
+        d = json.loads((ROT / "data" / "kandidater" / "2018.json").read_text(encoding="utf-8"))
+        m = next(p for p in d["partier"] if p["namn"] == "Moderaterna")
+        k2 = m["listor"][0]["kandidater"][1]
+        self.assertEqual((k2["alder"], k2["ort"]), (49, "Kungsbacka"))
+        self.assertIn("Trädgårdsmästare", k2["uppgift"])
+
+
+    def test_valda_stammer_med_listorna(self):
+        """Varje vald har samma ålder och kön som kandidaten på sin plats på listan."""
+        ab = {"Moderaterna": "M", "Moderata Samlingspartiet": "M", "Arbetarepartiet-Socialdemokraterna": "S",
+              "Centerpartiet": "C", "Liberalerna (tidigare Folkpartiet)": "L", "Folkpartiet liberalerna": "L",
+              "Kristdemokraterna": "KD", "Miljöpartiet de gröna": "MP", "Sverigedemokraterna": "SD",
+              "Vänsterpartiet": "V", "Kungsbackaborna": "KB"}
+        for ar in (2010, 2014, 2018):
+            lista = json.loads((ROT / "data" / "kandidater" / f"{ar}.json").read_text(encoding="utf-8"))
+            valda = json.loads((ROT / "data" / "valda" / f"{ar}.json").read_text(encoding="utf-8"))
+            plats = {}
+            for p in lista["partier"]:
+                if p["namn"] in ab:
+                    for k in p["listor"][0]["kandidater"]:
+                        plats[(ab[p["namn"]], k["plats"])] = (k["alder"], k["kon"])
+            avvikande = [(r["parti"], r["listplats"]) for r in valda["ledamoter"]
+                         if plats.get((r["parti"], r["listplats"])) != (r["alder"], r["kon"])]
+            # Känd avvikelse 2010: SD:s tredje mandat (plats 3) finns inte på XML-filens
+            # SD-valsedel, som bara har två platser (filen är tagen 2010-09-21).
+            self.assertEqual(avvikande, [("SD", 3)] if ar == 2010 else [], ar)
+
+
+bygg_matchning = ladda("bygg_matchning")
+
+
+class TestMatchning(unittest.TestCase):
+    """Förslag till namn på platser där Valmyndigheten gallrat namnet."""
+
+    def kand(self, plats, alder, uppgift, kon=None, namn=None):
+        return {"val": 0, "parti": "M", "plats": plats, "namn": namn, "alder": alder, "kon": kon,
+                "ord": bygg_matchning.ord_ur({"uppgift": uppgift}), "uppgift": uppgift}
+
+    def test_poang_alder_ort_och_kon(self):
+        a = self.kand(1, 49, "49 år, Trädgårdsmästare, Onsala", "K")
+        b = self.kand(2, 53, "53 år, trädgårdsmästare, Onsala")
+        self.assertEqual(bygg_matchning.poang(a, b), 3 + 2 + 2)           # ålder +4, två gemensamma ord
+        self.assertIsNone(bygg_matchning.poang(a, self.kand(3, 60, "60 år, Onsala")))   # fel ålder
+        self.assertIsNone(bygg_matchning.poang(a, self.kand(4, 53, "53 år", "M")))      # fel kön
+        self.assertEqual(bygg_matchning.poang(a, self.kand(5, 54, "54 år, Onsala")), 1 + 2)   # +5 år: avdrag
+
+    def test_lanka_kraver_omsesidigt_basta_par_med_marginal(self):
+        a = [self.kand(1, 40, "40 år, Lärare, Åsa"), self.kand(2, 40, "40 år, Lärare, Åsa")]
+        b = [self.kand(1, 44, "44 år, Lärare, Åsa")]
+        self.assertEqual(bygg_matchning.lanka(a, b, 5, 3), [])      # två lika bra: ingen länk
+        a2 = [self.kand(1, 40, "40 år, Lärare, Åsa"), self.kand(2, 41, "41 år, Ingenjör, Onsala")]
+        ut = bygg_matchning.lanka(a2, b, 5, 3)
+        self.assertEqual([(x["plats"], y["plats"], g) for x, y, _, g in ut], [(1, 1, "stark")])
+
+    def test_logg_med_och_utan_lopnummer(self):
+        text = "Närvarologg för ledamöter\n1 Lisa Andersson (M)\n2 Emanuel Forsell (M)\n3 Ulrika Landergren (FP)\n"
+        hamta_kf_logg = ladda("hamta_kf_logg")
+        text = text.replace("Närvarologg för ledamöter", "Närvarologg för ledamöter")
+        self.assertEqual([(p["namn"], p["parti"]) for p in hamta_kf_logg.logg(text)],
+                         [("Lisa Andersson", "M"), ("Emanuel Forsell", "M"), ("Ulrika Landergren", "L")])
+
+    def test_sparad_fil_kalibrering_och_avvisade(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        s = d["kalibrering"]["stark"]
+        self.assertGreaterEqual(s["rätt"] / s["totalt"], 0.9)       # 'stark' ska ha minst 90 % rätt mot facit
+        avvisade = {(r["parti"], r["listplats"]) for r in d["valda"]["2014"] if "avvisat_forslag" in r}
+        self.assertEqual(avvisade, {("L", 5), ("M", 20)})   # V 2 var en stavningsskillnad (Thorbjörnson/Thorbjörnsson)
+        for r in d["valda"]["2014"]:
+            if r["grund"] == "spår + närvarologg":
+                self.assertTrue(r["namn_forslag"])
+
+
+    def test_bestamda_platser_sprids_langs_sparet(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        beslut = {(b["val"], b["parti"], b["plats"]): b["namn"] for b in d["bestamda_platser"]}
+        self.assertEqual(beslut, {(2014, "M", 5): "Per Ödman", (2018, "M", 1): "Hans Forsberg",
+                                  (2018, "S", 9): "Maj-Britt Rane-Andersson", (2018, "SD", 3): "Tommy Bech",
+                                  (2018, "V", 1): "Maria Rasmussen", (2018, "V", 2): "Kristina Rasmussen",
+                                  (2018, "M", 12): "Charlotte Wallenstein", (2018, "M", 7): "Ulric Björck",
+                                  (2018, "M", 8): "Kalle Påsse Sundvall", (2018, "M", 15): "Franklin Eck"})
+        hf = next(s for s in d["spar"] if s["namn"] == "Hans Forsberg")
+        self.assertEqual([(p["val"], p["plats"], p["alder"]) for p in hf["platser"]],
+                         [(2010, 2, 46), (2014, 1, 50), (2018, 1, 54)])     # +4 år per val
+        self.assertEqual([p["sakerhet"] for p in hf["platser"]], ["möjlig", "möjlig", "bestämd"])
+        v14 = next(r for r in d["valda"]["2014"] if r["parti"] == "M" and r["listplats"] == 5)
+        self.assertEqual((v14["namn_forslag"], v14["sakerhet"]), ("Per Ödman", "bestämd"))
+
+
+    def test_loggordning_2014_verifierad_och_komplett(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        k = d["loggordning_kontroll"]["2014"]
+        self.assertGreaterEqual(k["kanda"], 30)
+        self.assertEqual(k["stammer"], k["kanda"])             # regeln stämde för alla kända namn
+        v = d["valda"]["2014"]
+        self.assertEqual(sum(1 for r in v if r["namn_forslag"]), 61)
+        m = {r["listplats"]: r["namn_forslag"] for r in v if r["parti"] == "M"}
+        self.assertEqual((m[5], m[9], m[19]), ("Per Ödman", "Franklin Eck", "Thure Sandén"))
+
+
+    def test_loggplats_2018_ersattare_ar_inte_valda(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        v = {(r["parti"], r["listplats"]): r for r in d["valda"]["2018"]}
+        self.assertEqual(v[("S", 2)]["namn_forslag"], "Johan Tolinsson")
+        self.assertEqual(v[("SD", 9)]["namn_forslag"], "Thord Brynielsson")
+        for plats, innehavare in ((("C", 4), "Henrik Arnesson"), (("L", 2), "Max Ramström"), (("S", 6), "Kent Stenhammar")):
+            self.assertIsNone(v[plats]["namn_forslag"])             # ersättare: ingen vald, bara innehavare
+            self.assertEqual(v[plats]["innehavare_logg"], innehavare)
+        kontroll = d["loggordning_kontroll"]["2018"]
+        self.assertGreaterEqual(kontroll["stammer"] / kontroll["kanda"], 0.9)
+
+
+    def test_2010_loggplats_och_oberoende_alderskontroll(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        v = {(r["parti"], r["listplats"]): r for r in d["valda"]["2010"]}
+        self.assertEqual(v[("M", 1)]["namn_forslag"], "Per Ödman")
+        self.assertEqual(v[("M", 5)]["namn_forslag"], "Per Stenberg")
+        self.assertIsNone(v[("M", 19)]["namn_forslag"])
+        self.assertEqual(v[("M", 19)]["innehavare_logg"], "Anders Ekström")
+        k = d["loggordning_kontroll"]["2010"]
+        self.assertEqual(k["stammer"], k["kanda"])
+        # Samma person i 2010 och 2014: ålder +4 år (±1) – oberoende av hur namnen togs fram.
+        a14 = {(r["parti"], r["namn_forslag"]): r["alder"] for r in d["valda"]["2014"] if r["namn_forslag"]}
+        jamfort = 0
+        for r in d["valda"]["2010"]:
+            if r["namn_forslag"] and (r["parti"], r["namn_forslag"]) in a14:
+                jamfort += 1
+                self.assertLessEqual(abs(a14[(r["parti"], r["namn_forslag"])] - 4 - r["alder"]), 1, r)
+        self.assertGreaterEqual(jamfort, 15)
+
+
+    def test_oberoende_kontroller_hittar_inga_fel(self):
+        d = json.loads((ROT / "data" / "matchning" / "kontroller.json").read_text(encoding="utf-8"))
+        for ar, k in d.items():
+            self.assertNotIn(False, [eval(x)[1] for x in k["resultat"]["B_kon"]], ar)       # inga könsavvikelser
+            for a in k["avvikelser"]:
+                self.assertEqual((a[0], a[4]), ("ålder", "Kenth Wallin"), a)                   # enda avvikelse: källfel hos Wallin
+        # Renée Sylvan på S 48 2018 (man) togs bort efter kön-kontrollen
+        b = json.loads((ROT / "data" / "matchning" / "bekraftade.json").read_text(encoding="utf-8"))["platser"]
+        self.assertNotIn(("S", 2018, 48), {(x["parti"], x["val"], x["plats"]) for x in b})
+
+
+bygg_valdes_till = ladda("bygg_valdes_till")
+
+
+class TestValdesTill(unittest.TestCase):
+    """Kopplingen vald → uppdrag (KS, KSAU, nämndernas ordförande och vice)."""
+
+    def test_organgrupper(self):
+        g = bygg_valdes_till.organgrupp
+        self.assertEqual(g("Kommunstyrelsen"), ("KS", "Kommunstyrelsen"))
+        self.assertEqual(g("Kommunstyrelsens arbetsutskott 2015-2018")[0], "KSAU")
+        self.assertEqual(g("Nämnden för Teknik")[0], "nämnd")
+        self.assertIsNone(g("Teknik, arbetsutskott"))          # nämndernas egna utskott ingår inte
+        self.assertIsNone(g("Patientnämnd Halland"))           # externa nämnder ingår inte
+        self.assertIsNone(g("Eksta Bostadsaktiebolag"))
+
+    def test_2022_ar_komplett_ur_besluten(self):
+        d = json.loads((ROT / "data" / "valdes_till" / "2022.json").read_text(encoding="utf-8"))
+        rader = [(p["parti"], p["namn"], u["organ"], u["roll"]) for p in d["personer"] for u in p["uppdrag"]]
+        ks = [r for r in rader if r[2] == "Kommunstyrelsen"]
+        self.assertEqual(sum(1 for r in ks if r[3] == "ledamot"), 15)
+        self.assertEqual(sum(1 for r in ks if r[3] == "ersättare"), 14)
+        self.assertIn(("M", "Lisa Andersson", "Kommunstyrelsen", "ordförande"), rader)
+        self.assertIn(("M", "Lisa Andersson", "Kommunstyrelsens arbetsutskott", "ordförande"), rader)
+        ordf_namnder = {r[2] for r in rader if r[3] == "ordförande" and r[2] not in ("Kommunstyrelsen", "Kommunstyrelsens arbetsutskott")}
+        self.assertGreaterEqual(len(ordf_namnder), 11)
+        self.assertEqual(d["luckor"]["utan_listplats"], [])      # alla är knutna till en plats på valsedeln
+        lisa = next(p for p in d["personer"] if p["namn"] == "Lisa Andersson")
+        self.assertEqual((lisa["listplats"], lisa["vald"]), (1, True))
+
+    def test_2018_narvaro_markerar_senare_byten(self):
+        d = json.loads((ROT / "data" / "valdes_till" / "2018.json").read_text(encoding="utf-8"))
+        rader = {(p["namn"], u["organ"], u["roll"]): u for p in d["personer"] for u in p["uppdrag"]}
+        self.assertEqual(d["kalla"].split()[0], "närvarolistor")
+        self.assertTrue(rader[("Lisa Andersson", "Kommunstyrelsen", "ordförande")]["kalla"]["fran_forsta_motet"])
+        # Vård & Omsorg: Björck vid första mötet, Lisa Andersson först senare
+        self.assertTrue(rader[("Ulric Björck", "Nämnden för Vård & Omsorg", "ordförande")]["kalla"]["fran_forsta_motet"])
+        self.assertFalse(rader[("Lisa Andersson", "Nämnden för Vård & Omsorg", "ordförande")]["kalla"]["fran_forsta_motet"])
+
+
+class TestNarvarolistaBrutnaTitlar(unittest.TestCase):
+    def test_titel_som_bryts_over_tva_rader(self):
+        block = ("Beslutande Ledamöter Tjänstgörande ersättare\n"
+                 "Lisa Andersson (M), Ordförande Tommy Rydfeldt (L) ersätter Monica\n"
+                 "Fredrik Hansson (C), 1:e vice Neptun (L)\n"
+                 "ordförande\n"
+                 "Magdalena Sundqvist (S), 2:e vice\n"
+                 "ordförande\n"
+                 "Emanuel Forsell (M)")
+        titlar = {x["namn"]: x["titel"] for x in hamta_narvaro.utlasning(block) if x["roll"] == "ledamot"}
+        self.assertEqual(titlar, {"Lisa Andersson": "ordförande", "Fredrik Hansson": "1:e vice ordförande",
+                                  "Magdalena Sundqvist": "2:e vice ordförande", "Emanuel Forsell": None})
+
+    def test_ordforande_underskrift(self):
+        text = "Underskrifter Sekreterare Eva Ek Paragrafer 1\nOrdförande Thure Sandén (M)\nProtokolljusterare Daniel Hognert (M)"
+        self.assertEqual(hamta_narvaro.ordforande_underskrift(text), {"namn": "Thure Sandén", "parti": "M"})
+
+
+class TestEfterValet(unittest.TestCase):
+    def setUp(self):
+        self.bev = importlib.import_module("build_efter_valet")
+
+    def test_uppdrag_rad_ks_ordforande_och_vice(self):
+        u = [
+            {"organ": "Kommunstyrelsen", "roll": "ordförande", "kalla": {"typ": "beslut"}},
+            {"organ": "Kommunstyrelsens arbetsutskott", "roll": "ersättare", "kalla": {"typ": "beslut"}},
+            {"organ": "Nämnden för Teknik", "roll": "ordförande", "kalla": {"typ": "beslut"}},
+            {"organ": "Nämnden för Kultur", "roll": "2:e vice ordförande",
+             "kalla": {"typ": "närvarolista", "fran_forsta_motet": False}},
+        ]
+        r = self.bev.uppdrag_rad(u)
+        self.assertEqual(r["ks"], "ledamot")
+        self.assertEqual(r["ksau"], "ersättare")
+        self.assertEqual(r["ordforande"], [{"organ": "Kommunstyrelsen", "senare": False},
+                                           {"organ": "Teknik", "senare": False}])
+        self.assertEqual(r["vice"], [{"organ": "Kultur", "ordning": "2:e", "senare": True}])
+
+    def test_sakerhetsord(self):
+        self.assertIsNone(self.bev.sakerhetsord(None))
+        self.assertEqual(self.bev.sakerhetsord("bestämd (protokoll)"), "bestämd")
+        self.assertEqual(self.bev.sakerhetsord("möjlig"), "möjlig")
+
+    def test_filen_ar_reproducerbar_och_listorna_i_ordning(self):
+        fil = json.loads((ROT / "docs" / "data-efter-valet.json").read_text(encoding="utf-8"))
+        personer = self.bev.personer_per_plats()
+        styre = self.bev.las("styre.json")
+        self.assertEqual([self.bev.bygg_val(v["ar"], personer, styre) for v in fil["val"]], fil["val"])
+        for v in fil["val"]:
+            for p in v["partier"]:
+                platser = [r["plats"] for r in p["rader"]]
+                self.assertEqual(platser, sorted(platser))
+                self.assertEqual(sum(1 for r in p["rader"] if r["vald"]), p["mandat"])

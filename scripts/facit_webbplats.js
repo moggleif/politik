@@ -110,6 +110,11 @@ const SIDOR = [
   "fullmaktige.html",
   /* Ett äldre möte ur adressen, med inlägg före första ärendet. */
   "fullmaktige.html?mote=2025-02-04",
+  /* Efter valet: standardvyn (2022, alla partier), ett parti ur ett val där namn och
+     uppdrag är delvis framtagna, och ett val där uppdragen inte är beslutade. */
+  "efter-valet.html",
+  "efter-valet.html?val=2018&parti=m",
+  "efter-valet.html?val=2026&parti=kd",
   "rodalinjer.html",
   "feriejobb.html",
 ];

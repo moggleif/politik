@@ -51,6 +51,7 @@ MENY = [
     ("Valen", [
         ("fortidsrostning.html", "Förtidsröstningen 2026"),
         ("valresultat.html", "Valresultat per distrikt"),
+        ("efter-valet.html", "Efter valet: listor och uppdrag"),
         ("rodalinjer.html", "Röda linjer i regeringsfrågan"),
     ]),
     ("Elevenkäter", [
