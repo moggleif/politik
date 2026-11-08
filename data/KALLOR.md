@@ -1835,3 +1835,25 @@ Medborgerlig Samling, Alternativ för Sverige, Kungsbacka Framtidsparti och Kris
   Hellgesson) är samma personer. 2022 års uppgiftsrad för Kungsbackaborna
   saknar ålder (bara ort), så åldern kan inte användas som kontroll.
 
+### Sökning efter valsedlar 2010, 2014 och 2018 (2026-11-08)
+
+Sökt efter de nio partier som sitter i fullmäktige idag. Inget hämtbart hittat.
+
+- **Länsstyrelsens valprotokoll på `historik.val.se`** är det dokument som
+  har kandidatlistorna i valsedelsordning med personröster (bilaga 4,
+  "valsedlar med kandidater") och valda (bilaga 2). Hela katalogen för 2018
+  (`/val/val2018/slutresultat/protokoll/protokoll_<kommunkod>K.pdf`) ger nu
+  404 för alla kommuner som provats (Kungsbacka 1384 och sex andra), och
+  2014-filen är en sida med texten "Protokoll gallrat". Webbsökning visar
+  utdrag ur 2018-filen med Moderaternas lista (plats 1–4 enligt utdraget:
+  Hans Forsberg, Lisa Andersson, Christian Johansson, Maria Gathendahl),
+  men utdragen är sammanfattade av sökverktyget och ingen siffra eller
+  ordning därifrån är sparad.
+- Partiernas dokument som hittades (Moderaternas länsstatistik,
+  Liberalernas remissvar, Centerpartiets valplattform och
+  nomineringsblad) innehåller inga kandidatlistor. Sveriges Radios
+  valintervjuer 2014 är intervjuer, inte listor.
+- **Väg som återstår:** protokollen över slutlig sammanräkning är allmänna
+  handlingar och kan begäras från Länsstyrelsen i Hallands län (eller
+  Valmyndigheten) för valen 2010, 2014 och 2018, kommun 1384.
+
