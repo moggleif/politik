@@ -602,8 +602,9 @@ tests/
                                 docs/gemensam.js – talformat, escapning,
                                 adressnycklar, årsskalor och seriestilar
                                 (node --test tests/*.js)
-  test_valresultat.js           Enhetstestar valresultatsidans uppslagning
-                                (docs/valresultat-uppslag.js) mot en påhittad
+  test_valresultat.js           Enhetstestar valresultatsidans uppslagning och
+                                adressrad (docs/valresultat-uppslag.js och
+                                docs/valresultat-adress.js) mot en påhittad
                                 datafil
   fixtures/data/                Fryst kopia av docs/data*.json plus tre
                                 områden ur docs/data-fortidsroster/.
@@ -681,6 +682,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 sidan laddas om
   valresultat-uppslag.js        Valresultatsidans uppslagning i datafilerna:
                                 områden, härkomst, andelar. Rör inte sidan
+  valresultat-adress.js         Valresultatsidans urval i adressraden
+                                (?distrikt=, ?partier=), åt båda hållen
   flyttad.js                    Skickar den gamla adressen kommunval.html
                                 vidare; GitHub Pages kan inte svara med en
                                 omdirigering

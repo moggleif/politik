@@ -1099,49 +1099,22 @@
 
   /* ---------- Reglagen ---------- */
 
+  /* Översättningen mellan adressraden och urvalen bor i
+     valresultat-adress.js (#65). */
   function laesUrlDistrikt() {
-    var v = K.urlLas("distrikt");
-    valda = {};
-    if (!v) return;
-    if (v === "alla") {
-      data.distrikt.forEach(function (d) { valda[d.slug] = true; });
-      return;
-    }
-    v.split(",").forEach(function (s) {
-      if (distriktFor(s)) valda[s] = true;
-    });
+    valda = window.VALADRESS.lasDistrikt(data, K.urlLas("distrikt"));
   }
 
   function urlDistriktVarde() {
-    var s = valdaSlugar();
-    if (!s.length) return null;
-    if (s.length === data.distrikt.length) return "alla";
-    return s.join(",");
+    return window.VALADRESS.distriktVarde(data, valda);
   }
 
   function laesUrlPartier() {
-    var v = K.urlLas("partier");
-    valdaPartier = {};
-    if (v) {
-      v.split(",").forEach(function (kod) {
-        for (var i = 0; i < data.partier.length; i++) {
-          if (K.slug(data.partier[i].kod) === kod) valdaPartier[data.partier[i].kod] = true;
-        }
-      });
-    }
-    if (!Object.keys(valdaPartier).length) {
-      /* Förval: de största partierna i det senaste valet. Datafilen är
-         redan ordnad så. */
-      data.partier.slice(0, MAX_PARTIER).forEach(function (p) {
-        valdaPartier[p.kod] = true;
-      });
-    }
+    valdaPartier = window.VALADRESS.lasPartier(data, K.urlLas("partier"), MAX_PARTIER);
   }
 
   function urlPartierVarde() {
-    var koder = data.partier.filter(function (p) { return valdaPartier[p.kod]; })
-      .map(function (p) { return K.slug(p.kod); });
-    return koder.length ? koder.join(",") : null;
+    return window.VALADRESS.partierVarde(data, valdaPartier);
   }
 
   function byggDistriktRutor() {

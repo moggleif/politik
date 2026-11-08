@@ -1,5 +1,5 @@
-/* Enhetstest av valresultatsidans uppslagning:
-   docs/valresultat-uppslag.js (#65).
+/* Enhetstest av valresultatsidans uppslagning och adressrad:
+   docs/valresultat-uppslag.js och docs/valresultat-adress.js (#65).
 
    Datafilen är påhittad och liten nog att facit går att räkna för hand:
    två distrikt, två partier, tre valår. Distriktet "nytt" fanns inte 2018
@@ -18,7 +18,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 /* Filerna körs i samma sandlåda och i samma ordning som sidan laddar
-   dem. */
+   dem: adressmodulen behöver K.slug ur gemensam.js. */
 function ladda() {
   const sandlada = {
     document: {
@@ -32,14 +32,14 @@ function ladda() {
   };
   sandlada.window = sandlada;
   vm.createContext(sandlada);
-  for (const fil of ["gemensam.js", "valresultat-uppslag.js"]) {
+  for (const fil of ["gemensam.js", "valresultat-uppslag.js", "valresultat-adress.js"]) {
     const kalla = fs.readFileSync(path.join(__dirname, "..", "docs", fil), "utf8");
     vm.runInContext(kalla, sandlada, { filename: fil });
   }
   return sandlada;
 }
 
-const { VALUPPSLAG: V } = ladda();
+const { VALUPPSLAG: V, VALADRESS: A } = ladda();
 
 const FIL = {
   partier: [{ kod: "S", namn: "Socialdemokraterna" }, { kod: "L", namn: "Lokalpartiet" }],
@@ -164,4 +164,35 @@ test("varde är null – aldrig noll – när partiet saknas eller området inte
   const g = V.gruppSerie(FIL, ["gamla", "nytt"]);
   assert.equal(V.varde(FIL, g, "L", "2018", "andel"), null);
   assert.equal(V.varde(FIL, V.distriktSerie(nytt, true), "S", "2018", "antal"), null);
+});
+
+/* ---------- Adressraden ---------- */
+
+test("lasDistrikt: tom adress ger inget urval, okända slugar hoppas över", () => {
+  assert.deepEqual(Object.keys(A.lasDistrikt(FIL, null)), []);
+  assert.deepEqual(Object.keys(A.lasDistrikt(FIL, "nytt,finns-inte")), ["nytt"]);
+  assert.deepEqual(Object.keys(A.lasDistrikt(FIL, "alla")).sort(), ["gamla", "nytt"]);
+});
+
+test("distriktVarde skriver i filens ordning och förkortar alla till \"alla\"", () => {
+  assert.equal(A.distriktVarde(FIL, {}), null);
+  assert.equal(A.distriktVarde(FIL, { nytt: true }), "nytt");
+  assert.equal(A.distriktVarde(FIL, { nytt: true, gamla: true }), "alla");
+});
+
+test("distrikten går fram och tillbaka genom adressen utan att ändras", () => {
+  for (const v of ["gamla", "nytt", "alla"]) {
+    assert.equal(A.distriktVarde(FIL, A.lasDistrikt(FIL, v)), v);
+  }
+});
+
+test("lasPartier läser slugar och faller tillbaka på de största partierna", () => {
+  assert.deepEqual(Object.keys(A.lasPartier(FIL, "l", 9)), ["L"]);
+  assert.deepEqual(Object.keys(A.lasPartier(FIL, null, 1)), ["S"]);
+  assert.deepEqual(Object.keys(A.lasPartier(FIL, "finns-inte", 9)), ["S", "L"]);
+});
+
+test("partierVarde skriver slugar i filens ordning, tomt urval tar bort parametern", () => {
+  assert.equal(A.partierVarde(FIL, { L: true, S: true }), "s,l");
+  assert.equal(A.partierVarde(FIL, {}), null);
 });
