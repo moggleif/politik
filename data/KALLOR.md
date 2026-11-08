@@ -1829,4 +1829,9 @@ Medborgerlig Samling, Alternativ för Sverige, Kungsbacka Framtidsparti och Kris
 - Partiernas kortnamn i protokollen: M, S, C, KD, SD, L (FP), MP, KB, V.
   "MM" förekommer en gång i en närvarolista och är inte kopplad till något
   parti.
+- **Bekräftat av uppdragsgivaren:** de åtta Kungsbackaborna som står på både
+  2022 och 2026 års lista (Christer Perfjell, Lars Jönsson, Leif Gullvert,
+  Mats Ståhlberg, Roger Larsson, Susanne Lundin-Larsen, Sven Rahm, Ulf
+  Hellgesson) är samma personer. 2022 års uppgiftsrad för Kungsbackaborna
+  saknar ålder (bara ort), så åldern kan inte användas som kontroll.
 
