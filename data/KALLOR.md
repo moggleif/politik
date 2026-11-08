@@ -1991,3 +1991,14 @@ Bestämda av uppdragsgivaren 2026-11-08: S 9 Maj-Britt Rane-Andersson, SD 3 Tomm
 Bech, V 1 Maria Rasmussen ("mycket troligt samma" som MP 2026 plats 21; partibyte
 V → MP, `data/kopplingar.json` k-rasmussen), V 2 Kristina Rasmussen (följer av V 1).
 
+**M 2018, de fem sista platserna (7, 8, 12, 15, 18):** pool i loggen 2019-08-13: Björck,
+Sundvall, Wallenstein, Eck, Reimertz. Plats 12 (59 år, kvinna) = Charlotte Wallenstein
+(bestämd: uppdragsgivaren, "Wallenstein är kvinna"; enda kvinnoplatsen). Plats 15 =
+Franklin Eck föreslås (2014 plats 9 "herr, Särö" ↔ 2018 plats 15 "Herr, Särö"; i loggen 2014),
+ej bestämd. Uppdragsgivaren: Björck och Påsse har *olika* ålder, så de kan inte båda stå på
+plats 7 och 8 (båda 48 år, född 1970), som sökutdraget angav; den av dem som är 48 står på
+7 eller 8, den andra troligen på plats 18 (64 år). Ann-Helene Reimertz var ersättare 2018 och
+rykte upp (ordinarie i loggen 2019-08-13); en ursprunglig innehavare av en av platserna 7, 8,
+18 hade då lämnat. Ålder på Ratsit slogs inte upp av skriptet/assistenten (sökverktyget
+avböjde uppslag av privatpersoners ålder).
+

@@ -5067,7 +5067,8 @@ class TestMatchning(unittest.TestCase):
         beslut = {(b["val"], b["parti"], b["plats"]): b["namn"] for b in d["bestamda_platser"]}
         self.assertEqual(beslut, {(2014, "M", 5): "Per Ödman", (2018, "M", 1): "Hans Forsberg",
                                   (2018, "S", 9): "Maj-Britt Rane-Andersson", (2018, "SD", 3): "Tommy Bech",
-                                  (2018, "V", 1): "Maria Rasmussen", (2018, "V", 2): "Kristina Rasmussen"})
+                                  (2018, "V", 1): "Maria Rasmussen", (2018, "V", 2): "Kristina Rasmussen",
+                                  (2018, "M", 12): "Charlotte Wallenstein"})
         hf = next(s for s in d["spar"] if s["namn"] == "Hans Forsberg")
         self.assertEqual([(p["val"], p["plats"], p["alder"]) for p in hf["platser"]],
                          [(2010, 2, 46), (2014, 1, 50), (2018, 1, 54)])     # +4 år per val
