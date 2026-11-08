@@ -478,3 +478,23 @@ test("medTecken: plus för noll och uppåt, riktigt minustecken nedåt", () => {
   assert.equal(K.medTecken(-0.3, 1), "−0,3");
   assert.equal(K.medTecken(-12, 0), "−12");
 });
+
+test("medTecken: negativt noll får plus, ett litet negativt tal behåller minus", () => {
+  assert.equal(K.medTecken(-0, 1), "+0,0");
+  assert.equal(K.medTecken(-0.04, 1), "−0,0");
+});
+
+test("typOptions bygger på stommen, med årsaxeln och en y-axel som inte börjar vid noll", () => {
+  const titel = () => "t", etikett = () => "e";
+  const o = K.typOptions("Medelmeritvärde", { title: titel, label: etikett });
+  assert.deepEqual(o.interaction, K.diagramStomme().interaction);
+  assert.equal(o.plugins.legend.position, "bottom");
+  assert.equal(o.plugins.tooltip.callbacks.title, titel);
+  assert.equal(o.plugins.tooltip.callbacks.label, etikett);
+  assert.deepEqual(o.scales.x, K.kategoriAxel({ ticks: { maxRotation: 0, autoSkipPadding: 8 } }));
+  assert.equal(o.scales.y.title.text, "Medelmeritvärde");
+  assert.equal(o.scales.y.border.color, K.FARG.baseline);
+  assert.equal(o.scales.y.beginAtZero, false);
+  assert.equal(o.scales.y.grace, "10%");
+  assert.equal(o.scales.y.ticks.callback(1500), K.talSv(1500));
+});

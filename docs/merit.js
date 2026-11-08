@@ -115,12 +115,12 @@
     });
   }
 
-  /* Syskonsidan slutbetyg.js har funktioner med samma namn. Det de delar –
-     de liggande staplarna, programgruppernas linjer och förändringens
-     tecken – ligger i gemensam.js (#66). Utvecklingen program för
-     program, dess slutsatstext och dess tabell lämnades medvetet kvar:
-     de ritar olika mått på olika skalor, här med namnbyten och sist antagnas poäng, och likheten är
-     formen, inte innehållet. Slå inte ihop dem för likhetens skull. */
+  /* Syskonsidan slutbetyg.js har funktioner med samma namn, och det de
+     delar ligger i gemensam.js (#66). Utvecklingen program för program,
+     dess slutsatstext och dess tabell lämnades medvetet kvar: de ritar
+     olika mått på olika skalor, här med namnbyten och sist antagnas poäng,
+     och likheten är formen, inte innehållet. Slå inte ihop dem för
+     likhetens skull. */
 
   function ritaUtveckling() {
     var valt = el("program-valjare").value;
@@ -678,39 +678,14 @@
         labels: ar.map(String),
         datasets: K.typserier(rader, ar, "medel")
       },
-      options: {
-        maintainAspectRatio: false,
-        responsive: true,
-        interaction: { mode: "index", intersect: false },
-        plugins: {
-          legend: { display: true, position: "bottom", labels: { boxWidth: 40 } },
-          tooltip: {
-            callbacks: {
-              title: function (it) { return "År " + it[0].label; },
-              label: function (it) {
-                var n = it.dataset.antal ? it.dataset.antal[it.dataIndex] : null;
-                return it.dataset.label + ": " + talSv(it.parsed.y, 1) +
-                  (n ? " (" + n + " utbildningar)" : "");
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            grid: { display: false },
-            border: { color: FARG.baseline },
-            ticks: { maxRotation: 0, autoSkipPadding: 8 }
-          },
-          y: {
-            title: { display: true, text: "Medelmeritvärde", color: FARG.muted },
-            grid: { color: FARG.grid },
-            border: { color: FARG.baseline },
-            beginAtZero: false,
-            grace: "10%",
-            ticks: { callback: function (v) { return talSv(v); } }
-          }
+      options: K.typOptions("Medelmeritvärde", {
+        title: function (it) { return "År " + it[0].label; },
+        label: function (it) {
+          var n = it.dataset.antal ? it.dataset.antal[it.dataIndex] : null;
+          return it.dataset.label + ": " + talSv(it.parsed.y, 1) +
+            (n ? " (" + n + " utbildningar)" : "");
         }
-      }
+      })
     }, 380);
 
     el("kalla-typ").textContent =

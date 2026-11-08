@@ -175,12 +175,12 @@
 
   /* ---------- Avsnitt 1: utvecklingen program för program ---------- */
 
-  /* Syskonsidan merit.js har funktioner med samma namn. Det de delar –
-     de liggande staplarna, programgruppernas linjer och förändringens
-     tecken – ligger i gemensam.js (#66). Utvecklingen program för
-     program, dess slutsatstext och dess tabell lämnades medvetet kvar:
-     de ritar olika mått på olika skalor, här med sekretessprickning och skolbyten, och likheten är
-     formen, inte innehållet. Slå inte ihop dem för likhetens skull. */
+  /* Syskonsidan merit.js har funktioner med samma namn, och det de delar
+     ligger i gemensam.js (#66). Utvecklingen program för program, dess
+     slutsatstext och dess tabell lämnades medvetet kvar: de ritar olika
+     mått på olika skalor, här med sekretessprickning och skolbyten, och
+     likheten är formen, inte innehållet. Slå inte ihop dem för likhetens
+     skull. */
 
   function ritaUtveckling() {
     var matt = mattMed(el("matt-valjare").value);
@@ -704,39 +704,14 @@
         labels: ar.map(String),
         datasets: K.typserier(rader, ar, "betygspoang")
       },
-      options: {
-        maintainAspectRatio: false,
-        responsive: true,
-        interaction: { mode: "index", intersect: false },
-        plugins: {
-          legend: { display: true, position: "bottom", labels: { boxWidth: 40 } },
-          tooltip: {
-            callbacks: {
-              title: function (it) { return "Avgångna " + it[0].label; },
-              label: function (it) {
-                var n = it.dataset.antal ? it.dataset.antal[it.dataIndex] : null;
-                return it.dataset.label + ": " + talSv(it.parsed.y, 1) +
-                  (n ? " (" + n + " avgångselever)" : "");
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            grid: { display: false },
-            border: { color: FARG.baseline },
-            ticks: { maxRotation: 0, autoSkipPadding: 8 }
-          },
-          y: {
-            title: { display: true, text: HUVUDMATT.axel, color: FARG.muted },
-            grid: { color: FARG.grid },
-            border: { color: FARG.baseline },
-            beginAtZero: false,
-            grace: "10%",
-            ticks: { callback: function (v) { return talSv(v); } }
-          }
+      options: K.typOptions(HUVUDMATT.axel, {
+        title: function (it) { return "Avgångna " + it[0].label; },
+        label: function (it) {
+          var n = it.dataset.antal ? it.dataset.antal[it.dataIndex] : null;
+          return it.dataset.label + ": " + talSv(it.parsed.y, 1) +
+            (n ? " (" + n + " avgångselever)" : "");
         }
-      }
+      })
     }, 380);
 
     el("kalla-typ").textContent =
@@ -859,7 +834,7 @@
       "nationella programmen var " +
       talSv(sista.betygspoang, 1) + " år " + esc(sista.ar) + ", mot " +
       talSv(forsta.betygspoang, 1) + " år " + esc(forsta.ar) + " (" +
-      (diff >= 0 ? "+" : "−") + talSv(Math.abs(diff), 1) + " på skalan 0–20).");
+      K.medTecken(diff, 1) + " på skalan 0–20).");
 
     if (sista.andelExamen !== null && forsta.andelExamen !== null) {
       punkter.push("Andelen avgångselever på de nationella programmen med " +

@@ -496,6 +496,30 @@
     });
   }
 
+  /* Diagrammet över programgrupperna, utan sina tooltiptexter: de säger
+     vad som räknats ("utbildningar", "avgångselever") och skickas in som
+     `tooltip`, callbacks-objektet med title och label. y-axeln har till
+     skillnad från mattAxel en baslinje och lämnar luft över och under
+     linjerna, eftersom skalan inte börjar vid noll. */
+  function typOptions(ytitel, tooltip) {
+    var opt = diagramStomme({
+      legend: { display: true, position: "bottom", labels: { boxWidth: 40 } },
+      tooltip: tooltip
+    });
+    opt.scales = {
+      x: kategoriAxel({ ticks: { maxRotation: 0, autoSkipPadding: 8 } }),
+      y: {
+        title: { display: true, text: ytitel, color: FARG.muted },
+        grid: { color: FARG.grid },
+        border: { color: FARG.baseline },
+        beginAtZero: false,
+        grace: "10%",
+        ticks: { callback: function (v) { return talSv(v); } }
+      }
+    };
+    return opt;
+  }
+
   /* "+1,5" och "−0,3" med riktigt minustecken; noll skrivs med plus.
      Inte samma sak som axlarnas tickar, där talSv själv skriver minus. */
   function medTecken(v, decimaler) {
@@ -1072,6 +1096,7 @@
     liggandeStaplar: liggandeStaplar,
     stapelhojd: stapelhojd,
     typserier: typserier,
+    typOptions: typOptions,
     regimmarkering: regimmarkering,
     utfallDataset: utfallDataset,
     aktiveraToning: aktiveraToning,
