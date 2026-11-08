@@ -1867,7 +1867,7 @@ valen), så det går inte att para ihop valen via det.
 
 | Val | Hela listan (plats, ålder, kön, ort, yrke) | De 61 valda (plats, parti, ålder, kön) |
 |---|---|---|
-| 2010 | **Gallrad** (`alkandur_K.skv` finns inte) | ✓ `data/valda/2010.json` |
+| 2010 | ✓ `data/kandidater/2010.json` (11 partier, bara plats/kön/ålder; ingen ort eller yrke) | ✓ `data/valda/2010.json` |
 | 2014 | ✓ `data/kandidater/2014.json` (10 partier; två valkretsar med identiska listor slås ihop) | ✓ `data/valda/2014.json` |
 | 2018 | ✓ `data/kandidater/2018.json` (9 partier + 2 små) | ✓ `data/valda/2018.json` (med födelseår) |
 
@@ -1878,4 +1878,12 @@ på listorna 2014 och 2018 samt hela listan 2010. Namn finns bara i
 protokollen över uppdrag (utan listplats), därav behovet av ett separat
 steg som kopplar plats till person. Ålder, ort och yrke finns på båda sidor
 för dem som också stod 2022 (då med namn).
+
+2010 års listor kommer från valsedelsfilen
+`historik.val.se/val/val2010/valsedlar/K/kommun/13/84/1384K.xml`
+(platser med kön och ålder; ingen ort eller yrke). **Korskontroll:** för alla
+61 valda 2014 och 2018 stämmer ålder och kön med kandidaten på den platsen
+i listan, och för 60 av 61 2010. Avvikelsen 2010 är SD:s tredje mandat
+(plats 3): XML-filen (tagen 2010-09-21) har bara två platser på SD:s
+valsedel. Det testas uttryckligen och är inte åtgärdat.
 

@@ -4991,3 +4991,24 @@ class TestHistoriskaKandidaturer(unittest.TestCase):
         k2 = m["listor"][0]["kandidater"][1]
         self.assertEqual((k2["alder"], k2["ort"]), (49, "Kungsbacka"))
         self.assertIn("Trädgårdsmästare", k2["uppgift"])
+
+
+    def test_valda_stammer_med_listorna(self):
+        """Varje vald har samma ålder och kön som kandidaten på sin plats på listan."""
+        ab = {"Moderaterna": "M", "Moderata Samlingspartiet": "M", "Arbetarepartiet-Socialdemokraterna": "S",
+              "Centerpartiet": "C", "Liberalerna (tidigare Folkpartiet)": "L", "Folkpartiet liberalerna": "L",
+              "Kristdemokraterna": "KD", "Miljöpartiet de gröna": "MP", "Sverigedemokraterna": "SD",
+              "Vänsterpartiet": "V", "Kungsbackaborna": "KB"}
+        for ar in (2010, 2014, 2018):
+            lista = json.loads((ROT / "data" / "kandidater" / f"{ar}.json").read_text(encoding="utf-8"))
+            valda = json.loads((ROT / "data" / "valda" / f"{ar}.json").read_text(encoding="utf-8"))
+            plats = {}
+            for p in lista["partier"]:
+                if p["namn"] in ab:
+                    for k in p["listor"][0]["kandidater"]:
+                        plats[(ab[p["namn"]], k["plats"])] = (k["alder"], k["kon"])
+            avvikande = [(r["parti"], r["listplats"]) for r in valda["ledamoter"]
+                         if plats.get((r["parti"], r["listplats"])) != (r["alder"], r["kon"])]
+            # Känd avvikelse 2010: SD:s tredje mandat (plats 3) finns inte på XML-filens
+            # SD-valsedel, som bara har två platser (filen är tagen 2010-09-21).
+            self.assertEqual(avvikande, [("SD", 3)] if ar == 2010 else [], ar)

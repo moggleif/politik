@@ -1,12 +1,15 @@
 """Hämtar kandidaturerna (listplats, ålder, kön, ort, yrke) till
-kommunfullmäktige i Kungsbacka 2014 och 2018 ur Valmyndighetens rådata.
+kommunfullmäktige i Kungsbacka 2010, 2014 och 2018 ur Valmyndighetens rådata.
 
 Källa: Valmyndighetens äldre valpresentationer, "Rådata från val 2002–2022"
 (https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-fran-val-2002-2022):
 
   2018  https://historik.val.se/val/val2018/valsedlar/partier/kandidaturer.skv
   2014  https://historik.val.se/val/val2014/alkon/alkandur_K.skv
-  2010  alkandur_K.skv är "gallrad" hos Valmyndigheten (404) – ingen lista.
+  2010  https://historik.val.se/val/val2010/valsedlar/K/kommun/13/84/1384K.xml
+        (sidan för människor: …/valsedlar/K/kommun/13/84/valsedlar.html).
+        Bara plats, kön och ålder – ingen ort eller yrke. Den stora
+        riksfilen alkandur_K.skv för 2010 är gallrad (404).
 
 Filerna är riksfiler (28 MB respektive 12 MB, Latin-1, semikolon). Här sparas
 bara Kungsbackas rader. **Namnen är gallrade av Valmyndigheten** ("Namnet
@@ -34,6 +37,7 @@ import csv
 import io
 import json
 import sys
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from val import hamta
@@ -43,6 +47,7 @@ UT = ROT / "data" / "kandidater"
 KALLA = {
     2018: "https://historik.val.se/val/val2018/valsedlar/partier/kandidaturer.skv",
     2014: "https://historik.val.se/val/val2014/alkon/alkandur_K.skv",
+    2010: "https://historik.val.se/val/val2010/valsedlar/K/kommun/13/84/1384K.xml",
 }
 KOMMUN, LAN, KOMMUNDEL = "1384", "13", "84"
 
@@ -82,6 +87,25 @@ def rader_2014(raa: bytes) -> list:
     return ut
 
 
+def rader_2010(raa: bytes) -> list:
+    """2010 års XML: LÄN/VALKRETS/PARTI/VALSEDEL/KANDIDAT med ORDNING, KÖN, ÅLDER."""
+    rot = ET.fromstring(raa)
+    if rot.find("OMRÅDE").get("KOD") != KOMMUN:
+        sys.exit("2010: XML-filen gäller inte Kungsbacka (1384)")
+    ut = []
+    for kr in rot.iter("VALKRETS"):
+        for parti in kr.findall("PARTI"):
+            for sedel in parti.findall("VALSEDEL"):
+                for k in sedel.findall("KANDIDAT"):
+                    ut.append({"parti": parti.get("BETECKNING"), "kod": parti.get("KOD"),
+                               "listnummer": sedel.get("LISTNUMMER"), "valkrets": kr.get("NAMN"),
+                               "plats": int(k.get("ORDNING")), "kandidatnummer": None,
+                               "namn_i_kallan": k.get("KANDIDATUPPGIFT"), "alder": k.get("ÅLDER"),
+                               "kon": {"Man": "M", "Kvinna": "K"}.get(k.get("KÖN"), k.get("KÖN")),
+                               "ort": None, "uppgift": None})
+    return ut
+
+
 def bygg(ar: int, rader: list) -> dict:
     """Grupperar per parti och lista. Identiska valkretslistor slås ihop."""
     per_parti = {}
@@ -115,14 +139,14 @@ def bygg(ar: int, rader: list) -> dict:
                     "kon": r["kon"], "ort": r["ort"] or None,
                     "uppgift": r["uppgift"], "kandidatnummer": r["kandidatnummer"]} for r in kand]}]})
     return {"val": ar, "valtyp": "KF", "kommun": KOMMUN, "kalla": KALLA[ar],
-            "namn_status": "Namnet gallrat av Valmyndigheten – namn saknas, plats/ålder/kön/ort/yrke finns",
+            "namn_status": "Namnet gallrat av Valmyndigheten – namn saknas" + (", plats/ålder/kön finns" if ar == 2010 else ", plats/ålder/kön/ort/yrke finns"),
             "partier": partier}
 
 
 def main() -> None:
     for ar, url in KALLA.items():
         raa = hamta(url)
-        rader = rader_2018(raa) if ar == 2018 else rader_2014(raa)
+        rader = {2018: rader_2018, 2014: rader_2014, 2010: rader_2010}[ar](raa)
         if not rader:
             sys.exit(f"{ar}: inga rader för Kungsbacka – ändrad layout?")
         ut = bygg(ar, rader)
