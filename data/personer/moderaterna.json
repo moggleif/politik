@@ -1,6 +1,7 @@
 {
  "parti": "Moderaterna",
  "kortnamn": "M",
+ "aldre_kortnamn": [],
  "byggd": "2026-11-08",
  "kallor": {
   "kandidatlistor": "data/kandidater/<år>.json (Valmyndighetens valpresentation)",
@@ -61,6 +62,28 @@
   }
  ],
  "tvetydiga_namn": [],
+ "ej_personer": [
+  {
+   "protokoll": "kf/2014-12-09",
+   "paragraf": 177,
+   "rad": "Vakant"
+  },
+  {
+   "protokoll": "kf/2014-12-09",
+   "paragraf": 188,
+   "rad": "Vakant"
+  },
+  {
+   "protokoll": "kf/2014-12-09",
+   "paragraf": 188,
+   "rad": "Vakant"
+  },
+  {
+   "protokoll": "kf/2014-12-09",
+   "paragraf": 192,
+   "rad": "Vakant"
+  }
+ ],
  "personer": [
   {
    "namn": "Alma Bernesson",
@@ -6957,63 +6980,6 @@
    "id": "m-145"
   },
   {
-   "namn": "Vakant",
-   "namnvarianter": [
-    "Vakant"
-   ],
-   "kandidaturer": [],
-   "uppdrag": [
-    {
-     "mandatperiod": "2015–2018",
-     "val": 2014,
-     "protokoll": "kf/2014-12-09",
-     "paragraf": 177,
-     "rubrik": "Nämnden för Förskola & Grundskola 2015-01-01-2018-12-31",
-     "organisation": "Nämnden för Förskola & Grundskola",
-     "roll": "ledamot",
-     "ordning": 5,
-     "kalla": "valbeslut"
-    },
-    {
-     "mandatperiod": "2015–2018",
-     "val": 2014,
-     "protokoll": "kf/2014-12-09",
-     "paragraf": 188,
-     "rubrik": "Eksta Bostadsaktiebolag - val av bolagsfunktionärer med mera",
-     "organisation": null,
-     "roll": "ledamot",
-     "ordning": 2,
-     "kalla": "valbeslut"
-    },
-    {
-     "mandatperiod": "2015–2018",
-     "val": 2014,
-     "protokoll": "kf/2014-12-09",
-     "paragraf": 188,
-     "rubrik": "Eksta Bostadsaktiebolag - val av bolagsfunktionärer med mera",
-     "organisation": null,
-     "roll": "suppleant",
-     "ordning": 2,
-     "kalla": "valbeslut"
-    },
-    {
-     "mandatperiod": "2015–2018",
-     "val": 2014,
-     "protokoll": "kf/2014-12-09",
-     "paragraf": 192,
-     "rubrik": "Stiftelsen Tjolöholm 2015-01-01-2018-12-31 - val av stiftelsefunktionärer",
-     "organisation": "Stiftelsen Tjolöholm",
-     "roll": "styrelseledamot",
-     "ordning": 7,
-     "kalla": "valbeslut"
-    }
-   ],
-   "troman": {
-    "funnen": false
-   },
-   "id": "m-146"
-  },
-  {
    "namn": "Victoria Karlsson",
    "namnvarianter": [
     "Victoria Karlsson"
@@ -7035,7 +7001,7 @@
    "troman": {
     "funnen": false
    },
-   "id": "m-147"
+   "id": "m-146"
   }
  ]
 }

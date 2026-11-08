@@ -1,0 +1,152 @@
+{
+ "parti": "Kristna Värdepartiet",
+ "kortnamn": "KV",
+ "aldre_kortnamn": [],
+ "byggd": "2026-11-08",
+ "kallor": {
+  "kandidatlistor": "data/kandidater/<år>.json (Valmyndighetens valpresentation)",
+  "valbeslut": "data/uppdrag/kf_val_<datum>.json (fullmäktiges protokoll)",
+  "bekraftelse": "data/uppdrag/troman_<datum>.json (kommunens register, nuläget)"
+ },
+ "perioder": [
+  {
+   "val": 2010,
+   "mandatperiod": "2011–2014",
+   "kandidatlista": "saknas",
+   "valbeslut": "saknas",
+   "protokoll": [],
+   "narvarolista": 7,
+   "anledning": "Arkivet kommunhandlingar börjar 2013-08-13; kandidatlistor saknas hos data.val.se"
+  },
+  {
+   "val": 2014,
+   "mandatperiod": "2015–2018",
+   "kandidatlista": "saknas",
+   "valbeslut": "finns",
+   "protokoll": [
+    "kf/2014-12-09",
+    "ks/2015-01-20"
+   ],
+   "narvarolista": 7,
+   "anledning": null
+  },
+  {
+   "val": 2018,
+   "mandatperiod": "2019–2022",
+   "kandidatlista": "saknas",
+   "valbeslut": "saknas",
+   "protokoll": [],
+   "narvarolista": 15,
+   "anledning": "Fullmäktiges decemberprotokoll 2018 ej funnet; kandidatlistor saknas hos data.val.se"
+  },
+  {
+   "val": 2022,
+   "mandatperiod": "2023–2026",
+   "kandidatlista": "finns",
+   "valbeslut": "finns",
+   "protokoll": [
+    "kf/2022-12-06",
+    "ks/2023-01-10"
+   ],
+   "narvarolista": 16,
+   "anledning": null
+  },
+  {
+   "val": 2026,
+   "mandatperiod": "2027–2030",
+   "kandidatlista": "finns",
+   "valbeslut": "valbeslut ej fattat",
+   "protokoll": [],
+   "narvarolista": 0,
+   "anledning": "Valbeslut ej fattat (nytt fullmäktige konstituerat 2026-10-15)"
+  }
+ ],
+ "tvetydiga_namn": [],
+ "ej_personer": [],
+ "personer": [
+  {
+   "namn": "Jakob Mellander",
+   "namnvarianter": [
+    "Jakob Mellander"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "10134",
+     "plats": 3,
+     "samtycke": true,
+     "uppgift": "student, 26, Onsala"
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "kv-001"
+  },
+  {
+   "namn": "Lars Yngfors",
+   "namnvarianter": [
+    "Lars Yngfors"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2022,
+     "listnamn": "Kungsbacka",
+     "listnummer": "3243",
+     "plats": 1,
+     "samtycke": true,
+     "uppgift": "medicinskteknisk ingenjör, 65, Åsa"
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "kv-002"
+  },
+  {
+   "namn": "Lisbet Svensson",
+   "namnvarianter": [
+    "Lisbet Svensson"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "10134",
+     "plats": 2,
+     "samtycke": true,
+     "uppgift": "f.d. vårdare, 65, Kungsbacka"
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "kv-003"
+  },
+  {
+   "namn": "William Åkerlund",
+   "namnvarianter": [
+    "William Åkerlund"
+   ],
+   "kandidaturer": [
+    {
+     "val": 2026,
+     "listnamn": "Kungsbacka kommun",
+     "listnummer": "10134",
+     "plats": 1,
+     "samtycke": true,
+     "uppgift": "vårdbiträde, 31, Åsa"
+    }
+   ],
+   "uppdrag": [],
+   "troman": {
+    "funnen": false
+   },
+   "id": "kv-004"
+  }
+ ]
+}

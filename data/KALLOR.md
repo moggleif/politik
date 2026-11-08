@@ -1792,3 +1792,42 @@ ledamot som inte fanns i beslutet, troligen ersatt eller felutläst).
 - Namn med brutna efternamn i listan (t.ex. "Kenth / Wallin (SD)") och
   titlar som hamnat på en egen rad läses inte ut; de finns i `block`.
 
+### Personfiler för alla partier
+
+`python3 scripts/build_personer.py` bygger `data/personer/<parti>.json` för
+de 13 partier som finns i kandidatfilerna, samt `_utan_parti.json`.
+Liberalerna tar med Folkpartiets förkortning (FP) som äldre namn.
+
+| Parti | Personer | Med kandidatur | Med uppdrag |
+|---|---|---|---|
+| Moderaterna | 147 | 65 | 129 |
+| Socialdemokraterna | 79 | 48 | 60 |
+| Centerpartiet | 76 | 54 | 53 |
+| Liberalerna | 64 | 37 | 45 |
+| Kungsbackaborna | 61 | 50 | 17 |
+| Sverigedemokraterna | 54 | 44 | 33 |
+| Kristdemokraterna | 41 | 31 | 29 |
+| Miljöpartiet | 38 | 31 | 20 |
+| Vänsterpartiet | 34 | 25 | 16 |
+| Medborgerlig Samling, Kungsbacka Framtidsparti, Alternativ för Sverige, Kristna Värdepartiet | 29 | 29 | 0 |
+
+De fyra sista partierna har kandidatlistor men inga poster i nämnder.
+
+**Att veta**
+
+- **Samma namn i flera partier** (8 namn): Agnetha Ernegård (KB, KFP),
+  Charlotte Wennerberg (C, M), Fredrik Hansson (C, M), Lars-Ove Samuelsson
+  (L, M), Maria Rasmussen (MP, V), Max Ramström (L, M), Stephan Philipson
+  (KB, M). Det kan vara partibyten eller olika personer med samma namn;
+  filerna avgör det inte, eftersom en ihopslagning vore en tolkning. Varje
+  parti har sin egen post. (Åttonde "namnet" var "Vakant", se nedan.)
+- **"Vakant"** är en tom plats i protokollet, ingen person: 5 rader hoppas
+  över och listas under `ej_personer` i respektive partifil.
+- **18 poster saknar parti i protokollet** (bl.a. stiftelsers och bolags
+  funktionärer, och ett par namn utan partiangivelse); de ligger i
+  `data/personer/_utan_parti.json` och kan inte föras till ett parti utan
+  tolkning.
+- Partiernas kortnamn i protokollen: M, S, C, KD, SD, L (FP), MP, KB, V.
+  "MM" förekommer en gång i en närvarolista och är inte kopplad till något
+  parti.
+
