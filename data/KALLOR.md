@@ -2107,3 +2107,10 @@ två år isär mellan valen, ett källfel. De fem "saknas i protokoll" 2010 är 
 (KB 4/20/21, SD 1/2). **Ett fel hittades och rättades:** det frusna 2018-förslaget Renée Sylvan på S 48
 (man) strider mot att hon är kvinna på S 9 både 2010 och 2014; borttaget (`UTESLUTNA`).
 
+**Fryst 2026-11-08 (uppdragsgivaren: "godkänn alla, en bra gissning"):** de 42 härledda namnen för valda 2010
+(22 stark, 20 möjlig; `bygg_matchning.py --bekrafta=2010`) ligger i `bekraftade.json` (301 platser totalt) och
+personfilerna, märkta med säkerhetsgrad och `status: härledd ur fullmäktiges logg…`. De 20 "möjliga" saknar
+oberoende kontroll (ingen ålder eller kön i annat val) och är en bra gissning, inte bekräftade. Fyra platser är
+`ersättare på platsen` och har inget namn som vald (C 1, M 19, MP 1, S 6). SD 2010 plats 3 saknas på den hämtade
+listan (XML-filen har två SD-platser), så personens kandidatur har `plats_saknas_pa_hamtad_lista`.
+

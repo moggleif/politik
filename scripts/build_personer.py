@@ -174,8 +174,13 @@ def bygg(partinamn: str, kort: str, kandidater: dict, valbeslut: dict, troman: d
                       if PARTI_PER_NAMN.get(q["namn"]) == b["parti"] or PARTI_PER_NAMN.get(q["namn"]) in korts), None)
         if lista is None:
             continue
-        k = next(k for l in lista["listor"] for k in l["kandidater"] if k["plats"] == b["plats"])
-        P.finns(b["namn"])["kandidaturer"].append({
+        k = next((k for l in lista["listor"] for k in l["kandidater"] if k["plats"] == b["plats"]), None)
+        extra = {}
+        if k is None:
+            # Vald plats som inte finns på den hämtade listan (SD 2010 plats 3: XML-filen har bara två platser).
+            k = {}
+            extra = {"plats_saknas_pa_hamtad_lista": True}
+        P.finns(b["namn"])["kandidaturer"].append({**extra,
             "val": b["val"], "listnamn": lista["listor"][0]["listnamn"], "listnummer": lista["listor"][0]["listnummer"],
             "plats": b["plats"], "samtycke": None, "uppgift": k.get("uppgift"),
             "alder": k.get("alder"), "kon": k.get("kon"),
