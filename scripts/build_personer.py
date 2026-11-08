@@ -61,9 +61,11 @@ VAL = {
 }
 
 
-# Partierna i kandidatfilerna -> (kortnamn i protokollen, äldre förkortningar).
-# Partier utan förkortning i protokollen (inga poster i nämnder) har bara
-# kandidatlistor. Liberalerna hette Folkpartiet (FP) före 2018/2019.
+# Partierna som suttit i fullmäktige 2011–2030 -> (kortnamn i protokollen,
+# äldre förkortningar). Partier som aldrig fått mandat (Medborgerlig Samling,
+# Alternativ för Sverige, Kungsbacka Framtidsparti, Kristna Värdepartiet)
+# har ingen personfil; deras kandidatlistor ligger kvar i data/kandidater/.
+# Liberalerna hette Folkpartiet (FP) före 2018/2019.
 PARTIER = {
     "Moderaterna": ("M", ()),
     "Arbetarepartiet-Socialdemokraterna": ("S", ()),
@@ -74,10 +76,6 @@ PARTIER = {
     "Sverigedemokraterna": ("SD", ()),
     "Vänsterpartiet": ("V", ()),
     "Kungsbackaborna": ("KB", ()),
-    "Alternativ för Sverige": ("AFS", ()),
-    "Kristna Värdepartiet": ("KV", ()),
-    "Kungsbacka Framtidsparti": ("KFP", ()),
-    "Medborgerlig Samling": ("MED", ()),
 }
 
 

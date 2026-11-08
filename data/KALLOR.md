@@ -1795,7 +1795,7 @@ ledamot som inte fanns i beslutet, troligen ersatt eller felutläst).
 ### Personfiler för alla partier
 
 `python3 scripts/build_personer.py` bygger `data/personer/<parti>.json` för
-de 13 partier som finns i kandidatfilerna, samt `_utan_parti.json`.
+de nio partier som suttit i fullmäktige under de fem valen (M, S, C, L, KD, MP, SD, V, KB), samt `_utan_parti.json`. Partier som aldrig fått mandat saknar personfil.
 Liberalerna tar med Folkpartiets förkortning (FP) som äldre namn.
 
 | Parti | Personer | Med kandidatur | Med uppdrag |
@@ -1809,13 +1809,12 @@ Liberalerna tar med Folkpartiets förkortning (FP) som äldre namn.
 | Kristdemokraterna | 41 | 31 | 29 |
 | Miljöpartiet | 38 | 31 | 20 |
 | Vänsterpartiet | 34 | 25 | 16 |
-| Medborgerlig Samling, Kungsbacka Framtidsparti, Alternativ för Sverige, Kristna Värdepartiet | 29 | 29 | 0 |
 
-De fyra sista partierna har kandidatlistor men inga poster i nämnder.
+Medborgerlig Samling, Alternativ för Sverige, Kungsbacka Framtidsparti och Kristna Värdepartiet har aldrig fått mandat och har ingen personfil (kandidatlistorna 2022 och 2026 finns kvar i `data/kandidater/`).
 
 **Att veta**
 
-- **Samma namn i flera partier** (8 namn): Agnetha Ernegård (KB, KFP),
+- **Samma namn i flera partier** (7 namn): Agnetha Ernegård (KB, KFP; KFP-filen är borttagen),
   Charlotte Wennerberg (C, M), Fredrik Hansson (C, M), Lars-Ove Samuelsson
   (L, M), Maria Rasmussen (MP, V), Max Ramström (L, M), Stephan Philipson
   (KB, M). Det kan vara partibyten eller olika personer med samma namn;
