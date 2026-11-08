@@ -334,6 +334,14 @@ def main(argv: list) -> None:
     troman = las_json(trom[-1])
     bek_fil = DATA / "matchning" / "bekraftade.json"
     bekraftade = las_json(bek_fil)["platser"] if bek_fil.exists() else []
+    # Bestämda platser (data/kopplingar_platser.json) läggs till; de går före om samma plats finns i båda.
+    best_fil = DATA / "kopplingar_platser.json"
+    if best_fil.exists():
+        bestamda = {(b["parti"], b["val"], b["plats"]): {"parti": b["parti"], "val": b["val"], "plats": b["plats"],
+                                                       "namn": b["namn"], "sakerhet": b.get("sakerhet", "bestämd"),
+                                                       "grund": "bestämd av uppdragsgivaren"}
+                    for b in las_json(best_fil)["platser"]}
+        bekraftade = [b for b in bekraftade if (b["parti"], b["val"], b["plats"]) not in bestamda] + list(bestamda.values())
     valda = {}
     for f in sorted((DATA / "valda").glob("*.json")):
         d = las_json(f)

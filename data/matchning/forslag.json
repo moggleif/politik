@@ -28,6 +28,36 @@
    "plats": 1,
    "namn": "Hans Forsberg",
    "notering": "Uppgift på valsedeln: '54 år, Kommunalråd, Kungsbacka'. Stämmer med ett sökutdrag ur länsstyrelsens protokoll 2018 (Hans Forsberg överst)."
+  },
+  {
+   "val": 2018,
+   "parti": "S",
+   "plats": 9,
+   "namn": "Maj-Britt Rane-Andersson",
+   "notering": "78 år, socionom, Vallda. 2014 S plats 5 var 'socionom, Vallda'; 2022 S plats 9 var 82 år, Vallda. Enda S-kandidat i loggen 2019 som passar åldern."
+  },
+  {
+   "val": 2018,
+   "parti": "SD",
+   "plats": 3,
+   "namn": "Tommy Bech",
+   "notering": "67 år, pensionär, Kungsbacka. SD 2022 plats 6 var 72 år, f.d. säkerhetskonsult, Kungsbacka. Enda SD-namn i loggen 2019 som passar åldern."
+  },
+  {
+   "val": 2018,
+   "parti": "V",
+   "plats": 1,
+   "namn": "Maria Rasmussen",
+   "sakerhet": "mycket trolig",
+   "notering": "42 år, socionom/socialsekreterare. Samma person som MP 2026 plats 21 enligt data/kopplingar.json (k-rasmussen)."
+  },
+  {
+   "val": 2018,
+   "parti": "V",
+   "plats": 2,
+   "namn": "Kristina Rasmussen",
+   "sakerhet": "följer av V plats 1",
+   "notering": "52 år, lärare. Enda återstående V-namn i loggen 2019 när Maria Rasmussen är placerad på plats 1."
   }
  ],
  "platser_totalt": {
@@ -43,13 +73,13 @@
   },
   "2014": {
    "möjlig": 28,
-   "stark": 32,
+   "stark": 35,
    "bestämd": 1
   },
   "2018": {
    "möjlig": 37,
    "stark": 75,
-   "bestämd": 1
+   "bestämd": 5
   }
  },
  "spar": [
@@ -11552,6 +11582,52 @@
   },
   {
    "parti": "S",
+   "namn": "Maj-Britt Rane-Andersson",
+   "namnkonflikt": null,
+   "sakerhet_bakat": "stark",
+   "lankar": [
+    {
+     "från": 2014,
+     "till": 2018,
+     "grad": "stark",
+     "poäng": 8.0
+    }
+   ],
+   "platser": [
+    {
+     "val": 2014,
+     "plats": 5,
+     "alder": 74,
+     "kon": "K",
+     "sakerhet": "stark",
+     "uppgift": "socionom, Vallda",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2014-11-11",
+      "närvaro Kommunfullmäktige 2017-02-07",
+      "närvaro Nämnden för Vård & Omsorg 2015-01-28"
+     ]
+    },
+    {
+     "val": 2018,
+     "plats": 9,
+     "alder": 78,
+     "kon": "K",
+     "sakerhet": "bestämd",
+     "uppgift": "78, Vallda, Socionom",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2019-08-13",
+      "närvaro Nämnden för Vård & Omsorg 2019-02-20"
+     ]
+    }
+   ],
+   "avvisad_av_protokoll": false
+  },
+  {
+   "parti": "S",
    "namn": "Britt Tönnberg",
    "namnkonflikt": null,
    "sakerhet_bakat": "stark",
@@ -13109,6 +13185,31 @@
   },
   {
    "parti": "SD",
+   "namn": "Tommy Bech",
+   "namnkonflikt": null,
+   "sakerhet_bakat": "säker",
+   "lankar": [],
+   "platser": [
+    {
+     "val": 2018,
+     "plats": 3,
+     "alder": 67,
+     "kon": "M",
+     "sakerhet": "bestämd",
+     "uppgift": "67 år, Pensionär, Kungsbacka",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2019-08-13",
+      "närvaro Nämnden för Vård & Omsorg 2019-02-20",
+      "närvaro Valnämnden 2021-02-22"
+     ]
+    }
+   ],
+   "avvisad_av_protokoll": false
+  },
+  {
+   "parti": "SD",
    "namn": "Susanne Andersson",
    "namnkonflikt": null,
    "sakerhet_bakat": "stark",
@@ -14446,6 +14547,95 @@
     }
    ],
    "avvisad_av_protokoll": true
+  },
+  {
+   "parti": "V",
+   "namn": "Maria Rasmussen",
+   "namnkonflikt": null,
+   "sakerhet_bakat": "stark",
+   "lankar": [
+    {
+     "från": 2014,
+     "till": 2018,
+     "grad": "stark",
+     "poäng": 6.0
+    }
+   ],
+   "platser": [
+    {
+     "val": 2014,
+     "plats": 1,
+     "alder": 38,
+     "kon": "K",
+     "sakerhet": "stark",
+     "uppgift": "38 år, socionom, Frillesås",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2014-11-11",
+      "närvaro Kommunfullmäktige 2017-02-07",
+      "valbeslut kf 2014-12-09"
+     ]
+    },
+    {
+     "val": 2018,
+     "plats": 1,
+     "alder": 42,
+     "kon": "K",
+     "sakerhet": "bestämd",
+     "uppgift": "42 år, socionom/social- sekreterare, Kungsbacka",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2019-08-13"
+     ]
+    }
+   ],
+   "avvisad_av_protokoll": false
+  },
+  {
+   "parti": "V",
+   "namn": "Kristina Rasmussen",
+   "namnkonflikt": null,
+   "sakerhet_bakat": "stark",
+   "lankar": [
+    {
+     "från": 2014,
+     "till": 2018,
+     "grad": "stark",
+     "poäng": 6.5
+    }
+   ],
+   "platser": [
+    {
+     "val": 2014,
+     "plats": 3,
+     "alder": 48,
+     "kon": "K",
+     "sakerhet": "stark",
+     "uppgift": "48 år, lärare, Kungsbacka",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "valbeslut kf 2014-12-09"
+     ]
+    },
+    {
+     "val": 2018,
+     "plats": 2,
+     "alder": 52,
+     "kon": "K",
+     "sakerhet": "bestämd",
+     "uppgift": "52 år, lärare, Kungsbacka",
+     "namn_i_kallan": null,
+     "i_protokoll": true,
+     "protokollkallor": [
+      "fullmäktiges närvarologg 2019-08-13",
+      "närvaro Valnämnden 2021-02-22"
+     ]
+    }
+   ],
+   "avvisad_av_protokoll": false
   },
   {
    "parti": "V",
@@ -17010,7 +17200,7 @@
     "personvald": false,
     "namn_forslag": "Maj-Britt Rane Andersson",
     "sakerhet": "stark",
-    "grund": "närvarologgens namn + ålder utesluter övriga platser"
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "S",
@@ -17166,13 +17356,9 @@
     "kon": "K",
     "mandat": 1,
     "personvald": true,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Jon Thorbjörnsson",
-     "Maria Rasmussen"
-    ]
+    "namn_forslag": "Maria Rasmussen",
+    "sakerhet": "stark",
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "V",
@@ -17181,13 +17367,9 @@
     "kon": "M",
     "mandat": 1,
     "personvald": true,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Jon Thorbjörnsson",
-     "Maria Rasmussen"
-    ],
+    "namn_forslag": "Jon Thorbjörnsson",
+    "sakerhet": "stark",
+    "grund": "närvarologgens namn + ålder utesluter övriga platser",
     "avvisat_forslag": "Jon Thorbjörnson"
    }
   ],
@@ -17793,14 +17975,9 @@
     "kon": "K",
     "mandat": null,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Maj-Britt Rane-Andersson",
-     "Rickard Wäst",
-     "Sara Heikkinen Breitholtz"
-    ]
+    "namn_forslag": "Maj-Britt Rane-Andersson",
+    "sakerhet": "bestämd",
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "SD",
@@ -17831,15 +18008,9 @@
     "kon": "M",
     "mandat": null,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Bengt Fransson",
-     "Roger Krantz",
-     "Thord Brynielsson",
-     "Tommy Bech"
-    ]
+    "namn_forslag": "Tommy Bech",
+    "sakerhet": "bestämd",
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "SD",
@@ -17929,13 +18100,9 @@
     "kon": "K",
     "mandat": null,
     "personvald": true,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Kristina Rasmussen",
-     "Maria Rasmussen"
-    ]
+    "namn_forslag": "Maria Rasmussen",
+    "sakerhet": "bestämd",
+    "grund": "spår + närvarologg"
    },
    {
     "parti": "V",
@@ -17944,13 +18111,9 @@
     "kon": "K",
     "mandat": null,
     "personvald": false,
-    "namn_forslag": null,
-    "sakerhet": null,
-    "grund": "flera möjliga namn",
-    "mojliga_namn": [
-     "Kristina Rasmussen",
-     "Maria Rasmussen"
-    ]
+    "namn_forslag": "Kristina Rasmussen",
+    "sakerhet": "bestämd",
+    "grund": "spår + närvarologg"
    }
   ]
  }

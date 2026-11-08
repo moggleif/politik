@@ -1982,3 +1982,12 @@ spåren (ålder +4 stämmer, men inga gemensamma yrkesord).
 | KSAU | ✓ KS 2023-01-10 | väntar: KS första mötet 2027 |
 | Fullmäktiges logg | ✓ 2022-10-18 | väntar: protokollet 2026-11-03 |
 
+**2018, valda (61): läge 2026-11-08.** 47 av 61 har bekräftat eller bestämt namn;
+14 återstår: M plats 7, 8, 12, 15, 18 (fem namn, ingen ytterligare uppgift),
+S plats 2, 6, 7, 8 (Tolinsson 50/50 på plats 2 eller 8; Wäst och Heikkinen
+Breitholtz på 6/7), SD plats 5, 6, 9 (Krantz, Fransson, Brynielsson), C plats 4
+och L plats 2 (innehavarna hade lämnat före loggen 2019-08-13).
+Bestämda av uppdragsgivaren 2026-11-08: S 9 Maj-Britt Rane-Andersson, SD 3 Tommy
+Bech, V 1 Maria Rasmussen ("mycket troligt samma" som MP 2026 plats 21; partibyte
+V → MP, `data/kopplingar.json` k-rasmussen), V 2 Kristina Rasmussen (följer av V 1).
+
