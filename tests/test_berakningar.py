@@ -4762,3 +4762,62 @@ class TestUppdragParsning(unittest.TestCase):
         for o in d["organisationer"]:
             for r in o["uppdrag"]:
                 self.assertIn(r["person_id"], d["personer"])
+
+
+hamta_kf_val = ladda("hamta_kf_val")
+
+KF_TEXT = """§ 7 Dnr 2022-1
+Val av ledamöter, ersättare, ordförande och vice ordförande till
+byggnadsnämnden 2023-01-01–2026-12-31
+Beslut
+Ledamöter Eva Ek M
+Lars Lind S
+Daniel Hogner
+Justerare Expedierat/bestyrkt
+Sida 2
+Kommunfullmäktige
+Datum
+2022-12-06
+Ersättare Kim Ås C
+Ordförande Eva Ek M
+Förste vice ordförande Lars Lind S
+Beslutsunderlag
+Valberedningens förslag 2022-11-22, § 3
+§ 8 Dnr 2022-2
+Redovisning av inkomna skrivelser
+Beslut
+Ordförande Anders Ekström (M) prövar om fullmäktige kan notera
+"""
+
+
+class TestKfValProtokoll(unittest.TestCase):
+    """Valbeslut ur fullmäktiges protokoll: facit räknat för hand."""
+
+    def test_roller_namn_och_parti(self):
+        b = hamta_kf_val.valbeslut(KF_TEXT)
+        self.assertEqual(len(b), 1)   # § 8 är brödtext, inget valbeslut
+        p = [(x["roll"], x["namn"], x["parti"], x["ordning"]) for x in b[0]["poster"]]
+        self.assertEqual(p, [
+            ("ledamot", "Eva Ek", "M", 1),
+            ("ledamot", "Lars Lind", "S", 2),
+            ("ledamot", "Daniel Hogner", None, 3),   # parti saknas: None, inte ""
+            ("ersättare", "Kim Ås", "C", 1),          # sidbrytningen stör inte
+            ("ordförande", "Eva Ek", "M", 1),
+            ("1:e vice ordförande", "Lars Lind", "S", 1),
+        ])
+        self.assertEqual(b[0]["paragraf"], 7)
+        self.assertEqual(b[0]["dnr"], "2022-1")
+
+    def test_flera_ordforande_avbryter(self):
+        b = hamta_kf_val.valbeslut(KF_TEXT.replace("Förste vice ordförande Lars Lind S",
+                                                   "Ordförande Lars Lind S"))
+        with self.assertRaises(SystemExit):
+            hamta_kf_val.granska("2022-12-06", b)
+
+    def test_sparade_filer(self):
+        def ordf(datum, org):
+            d = json.loads((ROT / "data" / "uppdrag" / f"kf_val_{datum}.json").read_text(encoding="utf-8"))
+            b = next(x for x in d["beslut"] if org in x["rubrik"])
+            return [(p["namn"], p["parti"]) for p in b["poster"] if p["roll"] == "ordförande"]
+        self.assertEqual(ordf("2022-12-06", "kommunstyrelsen"), [("Lisa Andersson", "M")])
+        self.assertEqual(ordf("2014-12-09", "Kommunstyrelsen"), [("Hans Forsberg", "M")])

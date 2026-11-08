@@ -416,6 +416,8 @@ data/
   kandidater/<år>.json          Partiernas kandidatlistor till kommunfullmäktige
                                 i Kungsbacka (2022, 2026): listplats, namn och
                                 uppgiftsrad, ur Valmyndighetens valpresentation
+  uppdrag/kf_val_<datum>.json   Valbesluten i fullmäktiges decemberprotokoll,
+                                en rad per person och roll
   uppdrag/troman_<datum>.json   Förtroendevaldas uppdrag i KS, utskott och
                                 nämnder, ur kommunens register Troman: en
                                 ögonblicksbild per hämtning
@@ -536,6 +538,9 @@ scripts/
                                 och avbryter annars
   hamta_valsedlar.py            Hämtar kandidatlistorna (2022, 2026) till
                                 data/kandidater/; 2010–2018 finns inte i källan
+  hamta_kf_val.py               Läser valbesluten (KS, nämnder, ordförande,
+                                vice ordförande) ur fullmäktiges decemberprotokoll
+                                2014 och 2022 till data/uppdrag/kf_val_*.json
   hamta_uppdrag.py              Hämtar uppdrag och personer ur Troman till
                                 data/uppdrag/ och kontrollerar radantalet mot
                                 sidans eget

@@ -28,6 +28,7 @@ och vad som återstår.
 | Röstberättigade 2022 och 2026 (Valmyndigheten) | Klara |
 | Kommunfullmäktiges inspelade möten 2022–2026 (kommunen, Screen9, YouTube) | Klara, hämtas om för hand |
 | Kandidatlistor till kommunfullmäktige 2022 och 2026 (Valmyndighetens valpresentation) | Klara, `data/kandidater/`. 2010, 2014 och 2018 saknas: samma adress ger 404, listorna måste hämtas ur annan källa |
+| Valbeslut i fullmäktige, decembermötena 2014 och 2022 (kommunhandlingar) | Klara, `data/uppdrag/kf_val_<datum>.json`. 2018 och 2010 saknas, se Luckor |
 | Förtroendevalda och uppdrag, nuläget (kommunens register Troman) | Hämtat 2026-11-08, `data/uppdrag/`. Bara nuläget; se "Luckor" i avsnittet Kandidater och uppdrag |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
@@ -1655,3 +1656,40 @@ bolag och stiftelser.
 - **Partiet anges som förkortning** i registret (M, S, C, …), medan
   Valmyndighetens filer har en egen partikod (Moderaterna = 1). Mappningen
   görs vid kopplingen, inte i de lagrade filerna.
+
+### Valbeslut i fullmäktiges protokoll (den primära källan för uppdragen)
+
+Källa: arkivet <https://moggleif.github.io/kommunhandlingar/kungsbacka.html>
+(4 149 dokument 2013-08-13 – 2026-11-12), som återger kommunens
+protokoll som text. Hämtat med `scripts/hamta_kf_val.py` till
+`data/uppdrag/kf_val_<protokolldatum>.json`: varje valbeslut (paragraf,
+diarienummer, rubrik) med en rad per person (roll, namn, parti, ordning
+inom rollen). Inga tolkningar; namn och parti kopplas till Troman-id och
+kandidatlistorna i ett senare steg.
+
+| Val | Protokoll | Innehåll |
+|---|---|---|
+| 2014 | 2014-12-09, §§ 172–204 | KS, krisledning och alla nämnder 2015–2018, revisorer, bolag, stiftelser |
+| 2022 | 2022-12-06, §§ 193–226 | KS, krisledning och alla nämnder 2023–2026, revisorer, arvodesberedning, bolag m.m. |
+
+**Luckor**
+
+- **2018 (mandatperioden 2019–2022) saknas helt.** Arkivet har inga
+  fullmäktigemöten från 2018 och bara ett från 2019 (2019-08-13);
+  decemberprotokollet 2018-12-11 finns inte. Valmyndighetens protokoll för
+  2018 och 2022 gav 404 vid hämtning, och det för 2014 säger "Protokoll
+  gallrat". Att göra: kommunens egen sida eller diarium för
+  KF-protokollen december 2018.
+- **2010 (mandatperioden 2011–2014) saknas.** Arkivet börjar 2013-08-13.
+- **Kommunstyrelsens arbetsutskott (KSAU) finns inte i fullmäktiges
+  protokoll**: kommunstyrelsen utser det själv. Det står i kommunstyrelsens
+  protokoll (arkivet har 104 möten för KS), inte hämtat än.
+- **Rader som inte är personer** hamnar i `ej_tolkade` i stället för att
+  försvinna (t.ex. stiftelsernas namn i beslutet om donationsstiftelser,
+  § 221 2022). Inga av dem rör KS, KSAU eller nämndernas ordförande.
+- `originalet` (länk till kommunens PDF) är `null`: arkivets sida anger inte
+  alltid en länk till originalet, så protokollet citeras med arkivets
+  adress. Kontrollera mot kommunens PDF vid tveksamhet.
+- Posterna är de som fullmäktige beslutade i december efter valet. Senare
+  fyllnadsval ingår inte (avgränsning enligt uppdraget).
+
