@@ -2016,4 +2016,8 @@ ursprunglig innehavare som lämnade före loggen 2019-08-13. Sökutdraget hade a
 Björck, vilket sänker förtroendet för det.
 **Nedgradering:** uppdragsgivaren vet inte Björcks ålder, så Ulric Björck på M 2018 plats 18 är
 `möjlig` (inte trolig). Gäller bara om Påsse är yngre än Björck; annars hör Björck till plats 7/8.
+**Åter:** uppdragsgivaren tror att Ulric Björck är Fil. dr, vilket är plats 7 ("Fil. dr, Kungsbacka").
+Då är Kalle Påsse Sundvall plats 8 ("Administrativ chef, Onsala") och sökutdraget stämmer.
+M 2018 plats 7 och 8 är båda `trolig`. Plats 18 (64 år, Civilekonom, Kullavik) är åter utan
+namn: ursprunglig innehavare okänd (lämnade före loggen 2019-08-13).
 
