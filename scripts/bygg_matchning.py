@@ -435,11 +435,14 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
     if exhaustiv and all(r.get("mandat") for r in valda):
         ut = tillampa_loggordning(ar, ut, valda, logg)
     elif not exhaustiv and len({r.get("valkrets") for r in valda}) <= 2:
-        ut = tillampa_loggplats(ar, ut, valda, logg, villkor, alder_senare)
+        # Har Valmyndighetens fil mandatordning (2010) gäller (valkrets, mandat); annars listplats (2018).
+        nyckelfn = ((lambda r: (r["valkrets"], r["mandat"])) if all(r.get("mandat") for r in valda)
+                    else (lambda r: r["listplats"]))
+        ut = tillampa_loggplats(ar, ut, valda, logg, villkor, alder_senare, nyckelfn)
     return ut
 
 
-def tillampa_loggplats(ar, ut, valda, logg, villkor, alder_senare):
+def tillampa_loggplats(ar, ut, valda, logg, villkor, alder_senare, nyckelfn):
     kanon = SAMMA_PERSON()[1]
     """Senare logg (inte första mötet): inom partiet ligger ledamöterna i listplatsordning,
     så den n:te i loggen sitter på partiets n:te valda listplats. Loggen visar vem som *satt*
@@ -449,12 +452,34 @@ def tillampa_loggplats(ar, ut, valda, logg, villkor, alder_senare):
     (sparas som `innehavare_logg`, inte som vald)."""
     namn = {(r["parti"], r["listplats"]): r for r in ut}
     par_per_parti = {}
-    for parti in sorted({r["parti"] for r in valda}):
-        vs = sorted((r for r in valda if r["parti"] == parti), key=lambda r: r["listplats"])
-        ln = [r["namn"] for r in logg if r["parti"] == parti]
-        if len(vs) != len(ln):
-            return ut
-        par_per_parti[parti] = list(zip(vs, ln))
+    # Loggen är sorterad parti för parti. Partiernas ordning = ordningen de först nämns med
+    # parti; ledamöter utan parti i loggen ("-", 2013) ingår i blocket där de står. Blockens
+    # storlekar är antalet valda per parti, och varje namn med uttryckligt parti måste ligga i
+    # rätt block, annars gäller inte regeln.
+    ordning = []
+    for r in logg:
+        if r["parti"] != "-" and r["parti"] not in ordning:
+            ordning.append(r["parti"])
+    antal = {p: sum(1 for r in valda if r["parti"] == p) for p in {r["parti"] for r in valda}}
+    blockvis = set(ordning) == set(antal) and sum(antal.values()) == len(logg)
+    if blockvis:
+        i = 0
+        for parti in ordning:
+            block = logg[i:i + antal[parti]]
+            i += antal[parti]
+            if any(r["parti"] not in ("-", parti) for r in block):
+                blockvis = False   # loggen är inte sorterad parti för parti
+                break
+            vs = sorted((r for r in valda if r["parti"] == parti), key=nyckelfn)
+            par_per_parti[parti] = list(zip(vs, [r["namn"] for r in block]))
+    if not blockvis:
+        par_per_parti = {}
+        for parti in sorted(antal):
+            vs = sorted((r for r in valda if r["parti"] == parti), key=nyckelfn)
+            ln = [r["namn"] for r in logg if r["parti"] == parti]
+            if len(vs) != len(ln):
+                return ut
+            par_per_parti[parti] = list(zip(vs, ln))
     kanda = stammer = 0
     for parti, par in par_per_parti.items():
         for r, n in par:
@@ -462,7 +487,7 @@ def tillampa_loggplats(ar, ut, valda, logg, villkor, alder_senare):
             if post["namn_forslag"]:
                 kanda += 1
                 stammer += FuzzyNamn([n]).hitta(post["namn_forslag"]) is not None
-    LOGGORDNING_KONTROLL[ar] = {"kanda": kanda, "stammer": stammer, "regel": "listplatsordning, senare logg"}
+    LOGGORDNING_KONTROLL[ar] = {"kanda": kanda, "stammer": stammer, "regel": "senare logg, blockvis per parti"}
     if kanda == 0 or stammer / kanda < 0.9:
         return ut
     for parti, par in par_per_parti.items():
@@ -476,7 +501,7 @@ def tillampa_loggplats(ar, ut, valda, logg, villkor, alder_senare):
                              "innehavare_logg": n})
             else:
                 post.update({"namn_forslag": n, "sakerhet": "stark" if kand_alder else "möjlig",
-                             "grund": "loggplats (listplatsordning, senare logg)" + (" + ålder" if kand_alder else "")})
+                             "grund": "loggplats (senare logg)" + (" + ålder" if kand_alder else "")})
             post.pop("mojliga_namn", None)
     return ut
 

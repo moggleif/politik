@@ -2073,3 +2073,22 @@ val stämmer), S 7 Sara Heikkinen Breitholtz, S 8 Rickard Wäst, SD 5 Roger Kran
 plats 2, 38 år → 2018 plats 3, 42 år; 2022 "riksdagsledamot, Vallda"). M 18 är undantagen
 (`UTESLUTNA` i bygg_matchning.py).
 
+### 2010: samma regel med loggen 2013-10-08 (förslag, ej fryst)
+
+Loggen 2013-10-08 är den första fullmäktigeloggen i arkivet för perioden (1 115 dagar efter valet) och
+ligger parti för parti (M, C, L, KD, S, V, MP, KB, SD; fem ledamöter saknar parti i systemet och ingår i
+blocket där de står: KB 4 och SD 3). Inom partiet: valkrets (västra före östra) och Valmyndighetens
+mandatordning, som 2014. Regeln stämmer för alla 15 kända namn. 57 av 61 valda 2010 får ett namnförslag:
+22 `stark` (namnet har en ålder i annat val som stämmer), 20 `möjlig` (loggplats utan ålder att kontrollera
+mot), 12 via kandidatspår, 3 unika par. 4 platser är `ersättare på platsen` (ålder strider mot platsen):
+C 1 (Kerstin Ekman-Hake), M 19 (Anders Ekström), MP 1 (Clas Rosander), S 6 (Ingela Hansson).
+
+**Oberoende kontroll:** 48 av 48 åldersjämförelser mot samma namn bland de valda 2014/2018 stämmer (ålder +4
+respektive +8 år), varav 29 för namn som kom från loggplats-regeln. Eftersom loggen är tre år in i perioden
+kan en ersättare ha tagit en plats utan att åldern kan jämföras; de 20 `möjliga` är därför de mest osäkra.
+Moderaterna 2010 (24 valda): 1 Per Ödman, 2 Hans Forsberg, 3 Marianne Kierkemann, 4 Lisa Andersson, 5 Per
+Stenberg, 6 Jan Österdahl, 7 Kjell-Åke Andersson, 8 Franklin Eck, 9 Michael Cassaras, 10 Thure Sandén, 11
+Annika Carlsson, 12 Inge Sundberg, 13 Kalle Sundvall, 14 Karin Fahlström Augustsson, 15 Lars Stranne, 16
+Margareta Ödman, 17 Lena Reimertz Thelén, 18 Charlotte Wallenstein, 19 (ersättare på platsen), 20 Ingvar
+Orrelid, 21 Fredrik Hansson, 22 Christian Johansson, 23 Peter Söderberg, 24 Bengt Adolfsson.
+

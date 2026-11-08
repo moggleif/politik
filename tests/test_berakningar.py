@@ -5099,3 +5099,22 @@ class TestMatchning(unittest.TestCase):
             self.assertEqual(v[plats]["innehavare_logg"], innehavare)
         kontroll = d["loggordning_kontroll"]["2018"]
         self.assertGreaterEqual(kontroll["stammer"] / kontroll["kanda"], 0.9)
+
+
+    def test_2010_loggplats_och_oberoende_alderskontroll(self):
+        d = json.loads((ROT / "data" / "matchning" / "forslag.json").read_text(encoding="utf-8"))
+        v = {(r["parti"], r["listplats"]): r for r in d["valda"]["2010"]}
+        self.assertEqual(v[("M", 1)]["namn_forslag"], "Per Ödman")
+        self.assertEqual(v[("M", 5)]["namn_forslag"], "Per Stenberg")
+        self.assertIsNone(v[("M", 19)]["namn_forslag"])
+        self.assertEqual(v[("M", 19)]["innehavare_logg"], "Anders Ekström")
+        k = d["loggordning_kontroll"]["2010"]
+        self.assertEqual(k["stammer"], k["kanda"])
+        # Samma person i 2010 och 2014: ålder +4 år (±1) – oberoende av hur namnen togs fram.
+        a14 = {(r["parti"], r["namn_forslag"]): r["alder"] for r in d["valda"]["2014"] if r["namn_forslag"]}
+        jamfort = 0
+        for r in d["valda"]["2010"]:
+            if r["namn_forslag"] and (r["parti"], r["namn_forslag"]) in a14:
+                jamfort += 1
+                self.assertLessEqual(abs(a14[(r["parti"], r["namn_forslag"])] - 4 - r["alder"]), 1, r)
+        self.assertGreaterEqual(jamfort, 15)
