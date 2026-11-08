@@ -2148,3 +2148,15 @@ Fullmäktiges protokoll gav nästan inget om nämndordförande (en träff, 2014-
   (organen hette annat före 2015 eller är inte hämtade). KS 12 ledamöter + ordförande + två vice = 15 av 15.
 - KSAU 2019–2022: 5 av 6 ledamöter, inga ersättare.
 
+
+### Sidan "Efter valet" (`docs/efter-valet.html`, `data/styre.json`, 2026-11-08)
+
+Sidan visar `data/valdes_till/` och `data/personer/` per listplats; inget nytt datat hämtas.
+- **Styrande partier** (`data/styre.json`) används bara för sorteringen. Bara 2023–2026 är styrkt
+  med fristående källa (Hyresgästföreningen, URL i filen); övriga perioder är uppgift från
+  uppdragsgivaren och märks `styrkt: false` på sidan. 2027–2030 saknas: ingen koalition är känd.
+- **2018 och 2010**: valbeslut saknas, uppdragen kommer ur närvarolistor. En tom ruta betyder
+  "inte funnet", inte "nej"; ersättare saknas. 2022 och 2014 är kompletta ur besluten.
+- **2026**: fullmäktige väljer KS och nämnder 2026-12-08 och KSAU i början av 2027; kolumnerna är tomma tills dess.
+- **Platser utan namn** (ersättare på mandatplats): 2018 C4, L2, S6, M18; 2010 C1, M19, MP1, S6.
+- SD 2010 plats 3 saknas på Valmyndighetens lista och läggs till ur mandatfilen (`platsSaknasPaLista`).

@@ -50,6 +50,7 @@ const SIDOR = [
   "fortidsrostning.html",
   "valresultat.html",
   "fullmaktige.html",
+  "efter-valet.html",
 ];
 
 /* Hur många alternativ per väljare som provas. Fler ger inte mer: det som

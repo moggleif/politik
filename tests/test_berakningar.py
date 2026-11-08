@@ -5187,3 +5187,39 @@ class TestNarvarolistaBrutnaTitlar(unittest.TestCase):
     def test_ordforande_underskrift(self):
         text = "Underskrifter Sekreterare Eva Ek Paragrafer 1\nOrdförande Thure Sandén (M)\nProtokolljusterare Daniel Hognert (M)"
         self.assertEqual(hamta_narvaro.ordforande_underskrift(text), {"namn": "Thure Sandén", "parti": "M"})
+
+
+class TestEfterValet(unittest.TestCase):
+    def setUp(self):
+        self.bev = importlib.import_module("build_efter_valet")
+
+    def test_uppdrag_rad_ks_ordforande_och_vice(self):
+        u = [
+            {"organ": "Kommunstyrelsen", "roll": "ordförande", "kalla": {"typ": "beslut"}},
+            {"organ": "Kommunstyrelsens arbetsutskott", "roll": "ersättare", "kalla": {"typ": "beslut"}},
+            {"organ": "Nämnden för Teknik", "roll": "ordförande", "kalla": {"typ": "beslut"}},
+            {"organ": "Nämnden för Kultur", "roll": "2:e vice ordförande",
+             "kalla": {"typ": "närvarolista", "fran_forsta_motet": False}},
+        ]
+        r = self.bev.uppdrag_rad(u)
+        self.assertEqual(r["ks"], "ledamot")
+        self.assertEqual(r["ksau"], "ersättare")
+        self.assertEqual(r["ordforande"], [{"organ": "Kommunstyrelsen", "senare": False},
+                                           {"organ": "Teknik", "senare": False}])
+        self.assertEqual(r["vice"], [{"organ": "Kultur", "ordning": "2:e", "senare": True}])
+
+    def test_sakerhetsord(self):
+        self.assertIsNone(self.bev.sakerhetsord(None))
+        self.assertEqual(self.bev.sakerhetsord("bestämd (protokoll)"), "bestämd")
+        self.assertEqual(self.bev.sakerhetsord("möjlig"), "möjlig")
+
+    def test_filen_ar_reproducerbar_och_listorna_i_ordning(self):
+        fil = json.loads((ROT / "docs" / "data-efter-valet.json").read_text(encoding="utf-8"))
+        personer = self.bev.personer_per_plats()
+        styre = self.bev.las("styre.json")
+        self.assertEqual([self.bev.bygg_val(v["ar"], personer, styre) for v in fil["val"]], fil["val"])
+        for v in fil["val"]:
+            for p in v["partier"]:
+                platser = [r["plats"] for r in p["rader"]]
+                self.assertEqual(platser, sorted(platser))
+                self.assertEqual(sum(1 for r in p["rader"] if r["vald"]), p["mandat"])

@@ -423,6 +423,8 @@ data/
                                 en rad per person och roll
   valdes_till/<val>.json        Vad personerna på valsedeln valdes till (KS, KSAU,
                                 nämndernas ordförande och vice), per val
+  styre.json                    Vilka partier som styrde per mandatperiod (bara för
+                                sorteringen på efter-valet.html); källa per period
   matchning/forslag.json        Namnförslag med säkerhetsgrad för platser där
                                 Valmyndigheten gallrat namnet
   uppdrag/narvaro.json          Närvarolistor ur första protokollet med text
@@ -557,6 +559,8 @@ scripts/
                                 första loggen i arkivet för varje mandatperiod
   bygg_valdes_till.py           Kopplar valsedelsplats → KS/KSAU/nämnders ordförande
                                 och vice ordförande, till data/valdes_till/<val>.json
+  build_efter_valet.py          Bygger docs/data-efter-valet.json: partiernas listor i
+                                nummerordning med vad varje plats blev
   hamta_narvaro.py              Hämtar närvarolistan ur första protokollet med
                                 text per organ och period till
                                 data/uppdrag/narvaro.json (ersättningskälla för
@@ -631,6 +635,10 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 (?val=, ?parti=, ?distrikt=)
   fullmaktige.html              Kommunfullmäktiges inspelade möten, med länk
                                 till varje inspelning (?mote=)
+  efter-valet.html              Varje partis lista 2010–2026 i nummerordning: vilka
+                                platser som blev fullmäktigeledamot, KS, KSAU och
+                                ordförande/vice i nämnd (?val=, ?parti=). Källor och
+                                luckor (2018/2010 delvis, 2026 ej beslutat) längst ner
   kommunval.html                Sidans gamla adress; skickar vidare till
                                 valresultat.html med frågesträngen i behåll
   metod.html                    Metodsidan: källor, transformationer, viktning

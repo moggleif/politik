@@ -69,7 +69,7 @@ const DIAGRAMSIDOR = [
 const TEXTSIDOR = ["index.html", "metod.html"];
 /* Sidor vars innehåll är en tabell och inget diagram: matrisen ska ritas,
    men något canvas finns inte att kräva. */
-const TABELLSIDOR = ["rodalinjer.html"];
+const TABELLSIDOR = ["rodalinjer.html", "efter-valet.html"];
 
 /* Diagram med regimmarkeringar, och de år markeringarna gäller. Åren står
    här och hämtas inte ur sidan – annars skulle testet bekräfta det koden
