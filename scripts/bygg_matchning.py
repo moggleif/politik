@@ -304,12 +304,22 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
     exhaustiv = lg["forsta_motet_efter_valet"]
     logg = lg["ledamoter"]
     obestamda = [r["namn"] for r in logg if r["parti"] == "-"]
+    # Åldrar för namngivna personer ur andra val än det som löses: namnlistorna 2022/2026 och
+    # de platser som uppdragsgivaren bekräftat för övriga val. alder_senare[namn] = [(år, ålder)].
     alder_senare = {}
     for sen in (2022, 2026):
         for lista in kand.get(sen, {}).values():
             for k in lista:
                 if k["alder"] is not None and k["namn"]:
                     alder_senare.setdefault(nyckel(k["namn"]), []).append((sen, k["alder"]))
+    bek_fil = DATA / "matchning" / "bekraftade.json"
+    if bek_fil.exists():
+        for b in json.loads(bek_fil.read_text(encoding="utf-8"))["platser"]:
+            if b["val"] == ar or b["val"] not in kand:
+                continue
+            k = next((k for k in kand[b["val"]].get(b["parti"], []) if k["plats"] == b["plats"]), None)
+            if k and k["alder"] is not None:
+                alder_senare.setdefault(nyckel(b["namn"]), []).append((b["val"], k["alder"]))
     namn_i_spar = {}
     for sp in spar_namn:
         if sp["avvisad_av_protokoll"]:
@@ -319,7 +329,8 @@ def valda_val(ar: int, spar_namn: list, kand: dict) -> list:
                 namn_i_spar[(sp["parti"], pl["plats"])] = (sp["namn"], pl["sakerhet"])
 
     def villkor(namn, r):
-        return all(abs((a - (sen - ar)) - r["alder"]) <= 1 for sen, a in alder_senare.get(nyckel(namn), []))
+        # förväntad ålder det här valåret = ålder det andra året + (detta år − andra året)
+        return all(abs((a + (ar - sen)) - r["alder"]) <= 1 for sen, a in alder_senare.get(nyckel(namn), []))
     ut = []
     for parti in sorted({r["parti"] for r in valda}):
         pos = [r for r in valda if r["parti"] == parti]
