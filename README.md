@@ -645,8 +645,8 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
                                 till varje inspelning (?mote=)
   efter-valet.html              Varje partis lista 2010–2026 i nummerordning: vilka
                                 platser som blev fullmäktigeledamot, KS, KSAU och
-                                ordförande/vice i nämnd, med ersättare där de finns och ort under
-                                namnet (?val=, ?parti=; val=alla visar ett parti över alla val).
+                                ordförande/vice i nämnd, med ersättare där de finns och kandidatens ort
+                                under namnet (2014–2026) (?val=, ?parti=; val=alla visar ett parti över alla val).
                                 Med ett parti valt: platskarta och lista över var på listan
                                 uppdragen hamnade, val för val. Källor och
                                 luckor (2018/2010 delvis, 2026 ej beslutat) längst ner

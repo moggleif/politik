@@ -340,7 +340,7 @@
     var t = '<span class="ja" aria-hidden="true">✓</span> = ledamot (i fullmäktige, KSAU eller KS); ' +
       "&quot;ersättare&quot; = ersättare där (i fullmäktige med ersättarordningen). " +
       '<span class="nej" aria-hidden="true">✗</span> = inte aktuell: platsen blev inget av det. ' +
-      "Ordförande och vice ordförande anger organet; (1:e) och (2:e) är första och andra vice ordförande. Under namnet står orten där Valmyndigheten angav den (2014, 2018, 2026). ";
+      "Ordförande och vice ordförande anger organet; (1:e) och (2:e) är första och andra vice ordförande. Under namnet står orten som kandidaten angav på valsedeln (saknas helt 2010). ";
     if (flera) {
       t += '<span class="vantar" aria-hidden="true">·</span> = inte beslutat än (2026). ' +
         '<span class="senare">*</span> = syns först vid ett senare möte (2018 och 2010). ';
@@ -416,7 +416,8 @@
       "<p><strong>Vilka som blev ledamöter</strong> kommer ur Valmyndighetens fil över de ursprungligen valda. " +
       "<strong>Ersättarna i fullmäktige</strong> kommer ur Valmyndighetens fil &quot;ledamöter och ersättare&quot;, som bara finns för 2022 och 2026 " +
       "och visar de nuvarande ersättarna (datumet står över tabellen), inte de ursprungligen utsedda. För 2010, 2014 och 2018 finns ingen ersättarfil.</p>" +
-      "<p><strong>Orten</strong> under namnet är den Valmyndigheten angav på valsedeln. 2010 angavs ingen ort och 2022 bara yrke, så där saknas den.</p>" +
+      "<p><strong>Orten</strong> under namnet är kandidatens egen uppgift på valsedeln (Valmyndighetens uppgiftsrad), igenkänd mot en lista över orterna som förekommer; " +
+      "2010 angavs ingen ort alls, och enstaka kandidater anger bara ålder och yrke.</p>" +
       "<p><strong>Namnen för 2010&ndash;2018</strong> är framtagna genom att länka samma person mellan valen (ålder, ort, yrke) och mot " +
       "fullmäktiges närvarologg. De flesta bygger på att loggen listar ledamöterna i en bestämd ordning " +
       "(2014: stämmer för alla 38 kända namn; 2018 och 2010: för nästan alla). Ersättare som tagit över en plats syns inte som valda. " +

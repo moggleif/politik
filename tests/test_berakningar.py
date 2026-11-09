@@ -5230,11 +5230,17 @@ class TestEfterValetErsattareOchOrt(unittest.TestCase):
         self.bev = importlib.import_module("build_efter_valet")
 
     def test_ort_ur_uppgiftsraden(self):
-        self.assertEqual(self.bev.ort_ur({"ort": "Kolla", "uppgift": "59, Kolla, Kommunalråd"}, 2018), "Kolla")
+        """Ordningen i uppgiftsraden skiljer mellan partier; orten känns igen på namnet."""
+        self.assertEqual(self.bev.ort_ur({"ort": "Kungsbacka", "uppgift": "59, Kolla, Kommunalråd"}, 2018), "Kolla")
         self.assertEqual(self.bev.ort_ur({"uppgift": "undersköterska/omsorgsassistans, Vallda"}, 2014), "Vallda")
-        self.assertEqual(self.bev.ort_ur({"uppgift": "34, Systemspecialist, Kungsbacka"}, 2026), "Kungsbacka")
-        self.assertIsNone(self.bev.ort_ur({"uppgift": "72, Lantbrukare"}, 2026))     # ingen ort angiven
-        self.assertIsNone(self.bev.ort_ur({"uppgift": "Systemutvecklare"}, 2022))    # 2022: bara yrke
+        self.assertEqual(self.bev.ort_ur({"uppgift": "kommunalråd, Kullavik, 55 år"}, 2014), "Kullavik")
+        self.assertEqual(self.bev.ort_ur({"uppgift": "57 år, trädgårdsmästare, Onsala"}, 2026), "Onsala")
+        self.assertEqual(self.bev.ort_ur({"uppgift": "72 år, Frillesås, Pensionär"}, 2026), "Frillesås")
+        self.assertEqual(self.bev.ort_ur({"uppgift": "lärare. Frillesås"}, 2014), "Frillesås")
+        self.assertIsNone(self.bev.ort_ur({"uppgift": "72 år, Lantbrukare"}, 2026))     # ingen ort angiven
+        self.assertIsNone(self.bev.ort_ur({"uppgift": "54 år"}, 2026))
+        self.assertIsNone(self.bev.ort_ur({"uppgift": "Systemutvecklare"}, 2022))    # bara yrke angivet
+        self.assertEqual(self.bev.ort_ur({"uppgift": "Köpman, 80 år, Kullavik"}, 2022), "Kullavik")
         self.assertIsNone(self.bev.ort_ur({"uppgift": None}, 2010))
 
     def test_samma_organ_med_och_utan_ordning_blir_en_rad(self):
