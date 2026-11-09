@@ -21,8 +21,8 @@ Raderna är listans platser i nummerordning. Per rad:
   vald          platsen blev ett mandat i fullmäktige
   kfErsattare   ersättarordningen i fullmäktige (1 = första ersättare) eller null;
                 null betyder "inte ersättare" 2022/2026 och "okänt" för äldre val
-  ort           orten ur Valmyndighetens uppgiftsrad (2014, 2018, 2026); null där
-                Valmyndigheten inte angav ort (2010, 2022)
+  ort           orten ur Valmyndighetens uppgiftsrad (2014–2026), igenkänd mot
+                ORTER; null där ingen ort står (hela 2010, och enstaka kandidater)
   ks, ksau      "ledamot" (även ordförande och vice), "ersättare" eller null.
                 I perioder med närvarolistor betyder "ersättare" att personen
                 tjänstgjorde som ersättare vid något av mötena
@@ -114,17 +114,34 @@ def sakerhetsord(s):
     return None
 
 
+# Orter som förekommer i Valmyndighetens uppgiftsrader 2014–2026 (kandidatens egen
+# uppgift; Billdal ligger i Göteborg men stod så på valsedeln). Uppgiftsraden är
+# fritext och ordningen skiljer mellan partier ("59, Kolla, Kommunalråd",
+# "57 år, trädgårdsmästare, Onsala", "kommunalråd, Kullavik, 55 år"), så orten
+# känns igen på namnet, inte på platsen i raden. Valmyndighetens eget ortfält
+# (2018) är folkbokföringskommunen och används inte.
+ORTER = {
+    "Kungsbacka", "Onsala", "Fjärås", "Vallda", "Åsa", "Kullavik", "Frillesås", "Särö", "Älvsåker",
+    "Gällinge", "Förlanda", "Anneberg", "Hanhals", "Malevik", "Hammerö", "Södra Hammarö", "Hede",
+    "Kolla", "Hjälm", "Innerstaden", "Presse", "Varla", "Alslöv", "Björkris", "Gottskär", "Idala",
+    "Skällared", "Spårhaga", "Tölö", "Västra Villastaden", "Östra Villastaden", "Billdal", "Bröndome",
+    "Budskär", "Centrum", "Fors", "Forsbäck", "Iserås", "Signeskulle", "Strannegården", "Tingberget",
+    "Vallda Sandö", "Ölmanäs",
+}
+
+
 def ort_ur(k: dict, ar: int):
-    """Orten ur kandidatraden. 2018 har ett eget fält; 2014 ("yrke, ort") och 2026
-    ("ålder, yrke, ort") har den sist i uppgiftsraden. 2010 saknar uppgift och 2022
-    har bara yrke, så där blir det None."""
-    if k.get("ort"):
-        return k["ort"]
-    delar = [d.strip() for d in (k.get("uppgift") or "").split(",")]
-    if ar == 2014 and len(delar) >= 2:
-        return delar[-1] or None
-    if ar == 2026 and len(delar) >= 3:
-        return delar[-1] or None
+    """Orten ur uppgiftsraden: den del (mellan kommatecken) som är en känd ort, annars
+    en del vars sista ord är det ("lärare. Frillesås"). None där ingen ort står
+    (2010 saknar uppgiftsrad; enstaka kandidater anger bara ålder och yrke)."""
+    delar = [d.strip() for d in (k.get("uppgift") or "").split(",") if d.strip()]
+    for d in delar:
+        if d in ORTER:
+            return d
+    for d in delar:
+        sista = d.split()[-1] if d.split() else ""
+        if sista in ORTER:
+            return sista
     return None
 
 

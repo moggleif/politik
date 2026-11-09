@@ -2177,6 +2177,10 @@ Sidan visar `data/valdes_till/` och `data/personer/` per listplats; inget nytt d
   perioden och efter att Hans Forsberg lämnat; KSAU 2021-01-05. KS 2011–2014: 2013-08-20. Datumen
   ligger i `protokollDatum` i `docs/data-efter-valet.json` och står på sidan. Det förklarar varför
   M 2018 har KS på platserna 2, 4, 6, 8, 10, 14 (kontrollerat mot matchningen: plats 8 är "bestämd").
-- **Ort** tas ur Valmyndighetens uppgiftsrad: 2018 eget fält, 2014 "yrke, ort", 2026 "ålder, yrke, ort".
-  2010 saknar uppgiftsrad och 2022 anger bara yrke, så där saknas orten.
+- **Ort** tas ur Valmyndighetens uppgiftsrad (kandidatens egen uppgift). Raden är fritext och ordningen
+  skiljer mellan partier ("59, Kolla, Kommunalråd", "57 år, trädgårdsmästare, Onsala", "kommunalråd,
+  Kullavik, 55 år"), så orten känns igen mot listan `ORTER` i `build_efter_valet.py` (de orter som
+  förekommer i raderna), inte på platsen i raden. Valmyndighetens eget ortfält 2018 är
+  folkbokföringskommunen ("Kungsbacka" för alla) och används inte – ett första försök tog det, fel.
+  2010 saknar uppgiftsrad; övriga år saknar orten bara för enstaka kandidater som angav ålder och yrke.
 - Namnmatchningen mot listan normaliserar nu accenter ("Nyhlén" i filen, "Nyhlen" på listan).
