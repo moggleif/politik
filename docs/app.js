@@ -57,6 +57,10 @@
 
     var ctx = el("diagram-malar");
     if (malarChart) malarChart.destroy();
+    /* Liggande staplar som K.liggandeStaplar ritar, men medvetet inte via
+       den (#88): diagrammet har rubrik på årsaxeln, året i tooltipens
+       titel och tjockare, glesare staplar (24 px, 44 px per rad). Att gå
+       via den delade formen hade ändrat hur det ser ut. */
     var hojd = Math.max(220, punkter.length * 44 + 80);
     ctx.parentElement.style.height = hojd + "px";
 
@@ -86,7 +90,9 @@
                 return [
                   "Prognosen sa: " + talSv(a.prognos) + " " + ENHET,
                   "Det blev: " + talSv(a.utfall) + " " + ENHET,
-                  (a.diff >= 0 ? "För högt: " : "För lågt: ") + talSv(Math.abs(a.diff)) +
+                  K.riktning(a.diff, 0,
+                    { upp: "För högt: ", ner: "För lågt: ", noll: "Avvikelse: " }) +
+                    talSv(Math.abs(a.diff)) +
                     " personer (" + talSv(Math.abs(a.pct), 1) + " %)"
                 ];
               }
@@ -114,20 +120,21 @@
       "Röd stapel = prognosen för hög, blå = för låg. Källor: se längst ned.";
 
     /* Klarspråkssammanfattning */
+    var FEL_ORD = { upp: "för högt", ner: "för lågt", noll: "från utfallet" };
     var forsta = punkter[0], sista = punkter[punkter.length - 1];
     var html = "";
     html += "<p><strong>Tidigaste prognosen</strong> (gjord " + esc(forsta.prognosAr) + ", " +
       esc(forsta.avv.avstand) + " år i förväg) trodde på " + talSv(forsta.avv.prognos) +
       " " + ENHET + " år " + malAr + ". Det blev " + talSv(forsta.avv.utfall) +
       " – prognosen låg " + talSv(Math.abs(forsta.avv.diff)) + " personer " +
-      (forsta.avv.diff >= 0 ? "för högt" : "för lågt") +
+      K.riktning(forsta.avv.diff, 0, FEL_ORD) +
       " (" + talSv(Math.abs(forsta.avv.pct), 1) + " %).</p>";
     if (sista !== forsta) {
       html += "<p><strong>Senaste prognosen</strong> (gjord " + esc(sista.prognosAr) + ", " +
         (sista.avv.avstand === 0 ? "samma år" : esc(sista.avv.avstand) + " år i förväg") +
         ") trodde på " + talSv(sista.avv.prognos) + ". Den låg " +
         talSv(Math.abs(sista.avv.diff)) + " personer " +
-        (sista.avv.diff >= 0 ? "för högt" : "för lågt") +
+        K.riktning(sista.avv.diff, 0, FEL_ORD) +
         " (" + talSv(Math.abs(sista.avv.pct), 1) + " %).</p>";
     }
     el("slutsats-malar").innerHTML = html;
@@ -139,7 +146,7 @@
       "<th scope=\"col\">Skillnad (personer)</th><th scope=\"col\">Fel i procent</th></tr></thead><tbody>";
     punkter.forEach(function (p) {
       t += "<tr><td>" + esc(p.prognosAr) + "</td><td>" + talSv(p.avv.prognos) + "</td><td>" +
-        (p.avv.diff >= 0 ? "+" : "−") + talSv(Math.abs(p.avv.diff)) + "</td><td>" +
+        K.medTecken(p.avv.diff) + "</td><td>" +
         talSv(p.avv.pct, 1) + " %</td></tr>";
     });
     t += "</tbody>";
@@ -321,8 +328,7 @@
               label: function (it) {
                 var r = rader[it.dataIndex];
                 return [
-                  "Genomsnittligt fel med riktning: " + (r.medelPct >= 0 ? "+" : "−") +
-                    talSv(Math.abs(r.medelPct), 1) + " %",
+                  "Genomsnittligt fel med riktning: " + K.medTecken(r.medelPct, 1) + " %",
                   r.antalOver + " av " + r.antal + " prognoser låg för högt"
                 ];
               }
@@ -340,7 +346,7 @@
             grid: { color: FARG.grid },
             border: { color: FARG.baseline },
             ticks: {
-              callback: function (v) { return (v > 0 ? "+" : "") + talSv(v, 1) + " %"; }
+              callback: function (v) { return K.medTecken(v, 1) + " %"; }
             }
           }
         }
@@ -361,7 +367,7 @@
     var html = "<p><strong>" + dominans + " av " + esc(n) + "</strong> jämförelser " +
       "ligger " + hall + ".</p>";
     html += "<p>Genomsnittet över alla jämförelser är <strong>" +
-      (sk.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(sk.medelPct), 1) +
+      K.medTecken(sk.medelPct, 1) +
       " %</strong>.</p>";
     var arg = data.perArgang || [];
     var skiftar = sk.bytterRiktning && arg.length > 1;
@@ -410,7 +416,7 @@
       var minsta = Math.min.apply(null, absfel);
       var storsta = Math.max.apply(null, absfel);
       var senast = ett[ett.length - 1];
-      var tecken = function (v) { return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), 1) + " %"; };
+      var tecken = function (v) { return K.medTecken(v, 1) + " %"; };
       html += "<p><strong>Har det blivit bättre?</strong> Frågan kräver att " +
         "årgångarna jämförs på samma sikt &ndash; en gammal prognos har " +
         "hunnit prövas många år framåt, en ny bara på kort sikt. Mätt " +
@@ -434,7 +440,7 @@
       "<th scope=\"col\">Antal prognosvärden</th></tr></thead><tbody>";
     rader.forEach(function (r) {
       t += "<tr><td>" + (r.avstand === 0 ? "Samma år" : esc(r.avstand) + " år före") +
-        "</td><td>" + (r.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) +
+        "</td><td>" + K.medTecken(r.medelPct, 1) +
         " %</td><td>" + esc(r.antalOver) + "</td><td>" + esc(r.antal) + "</td></tr>";
     });
     t += "</tbody>";
@@ -446,9 +452,9 @@
       arg.forEach(function (r) {
         var e = (r.ettArPct === null || r.ettArPct === undefined)
           ? "–"
-          : (r.ettArPct >= 0 ? "+" : "−") + talSv(Math.abs(r.ettArPct), 1) + " %";
+          : K.medTecken(r.ettArPct, 1) + " %";
         t += "<tr><td>" + esc(r.prognosAr) + "</td><td>" + e + "</td><td>" +
-          (r.medelPct >= 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) +
+          K.medTecken(r.medelPct, 1) +
           " %</td><td>" + (r.maxAvstand === 0 ? "samma år" : esc(r.maxAvstand) + " år framåt") +
           "</td></tr>";
       });
@@ -747,7 +753,7 @@
       var forra = i === 0 ? data.utfall[String(a - 1)] : data.utfall[String(ar[i - 1])];
       var d = forra === undefined ? null : v - forra;
       t += "<tr><td>" + a + "</td><td>" + talSv(v) + "</td><td>" +
-        (d === null ? "–" : (d >= 0 ? "+" : "−") + talSv(Math.abs(d))) + "</td></tr>";
+        (d === null ? "–" : K.medTecken(d)) + "</td></tr>";
     });
     t += "</tbody>";
     el("tabell-utfall").innerHTML = t;
@@ -786,7 +792,7 @@
     var sk = data.skevhet;
     if (!sk || !sk.antal) return;
     var punkter = [];
-    var tecken = function (v) { return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), 1) + " %"; };
+    var tecken = function (v) { return K.medTecken(v, 1) + " %"; };
 
     punkter.push("I de <strong>" + esc(sk.antal) + " jämförelser</strong> som kan " +
       "göras har prognoserna i genomsnitt avvikit <strong>" +

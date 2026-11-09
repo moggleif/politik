@@ -44,7 +44,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var a = punkter[it.dataIndex].avv; return [ \"Prognosen sa: \" + talSv(a.prognos) + \" \" + ENHET, \"Det blev: \" + talSv(a.utfall) + \" \" + ENHET, (a.diff >= 0 ? \"För högt: \" : \"För lågt: \") + talSv(Math.abs(a.diff)) + \" personer (\" + talSv(Math.abs(a.pct), 1) + \" %)\" ]; }",
+       "label": "fn:function (it) { var a = punkter[it.dataIndex].avv; return [ \"Prognosen sa: \" + talSv(a.prognos) + \" \" + ENHET, \"Det blev: \" + talSv(a.utfall) + \" \" + ENHET, K.riktning(a.diff, 0, { upp: \"För högt: \", ner: \"För lågt: \", noll: \"Avvikelse: \" }) + talSv(Math.abs(a.diff)) + \" personer (\" + talSv(Math.abs(a.pct), 1) + \" %)\" ]; }",
        "title": "fn:function (it) { return \"Prognosen gjord \" + it[0].label; }"
       }
      }
@@ -559,7 +559,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var r = rader[it.dataIndex]; return [ \"Genomsnittligt fel med riktning: \" + (r.medelPct >= 0 ? \"+\" : \"−\") + talSv(Math.abs(r.medelPct), 1) + \" %\", r.antalOver + \" av \" + r.antal + \" prognoser låg för högt\" ]; }"
+       "label": "fn:function (it) { var r = rader[it.dataIndex]; return [ \"Genomsnittligt fel med riktning: \" + K.medTecken(r.medelPct, 1) + \" %\", r.antalOver + \" av \" + r.antal + \" prognoser låg för högt\" ]; }"
       }
      }
     },
@@ -661,7 +661,7 @@
        "autoSkipPadding": 3,
        "backdropColor": "rgba(255, 255, 255, 0.75)",
        "backdropPadding": 2,
-       "callback": "fn:function (v) { return (v > 0 ? \"+\" : \"\") + talSv(v, 1) + \" %\"; }",
+       "callback": "fn:function (v) { return K.medTecken(v, 1) + \" %\"; }",
        "color": "#52514e",
        "crossAlign": "near",
        "display": true,
@@ -3676,7 +3676,7 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "+0,0 %"
+      "text": "0,0 %"
      },
      {
       "scope": null,
@@ -8293,7 +8293,7 @@
   },
   "#tabell-skevhet": {
    "dold": false,
-   "html": "<caption>Genomsnittligt fel med riktning, per antal år i förväg. Plus betyder att prognosen låg för högt.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kalenderår före målåret\">Kalenderår före målåret</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Genomsnittligt fel med riktning\">Genomsnittligt fel med riktning</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Antal för höga\">Antal för höga</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Antal prognosvärden\">Antal prognosvärden</th></tr></thead><tbody><tr><td>Samma år</td><td>−0,6 %</td><td>1</td><td>6</td></tr><tr><td>1 år före</td><td>−1,1 %</td><td>0</td><td>2</td></tr><tr><td>2 år före</td><td>−0,7 %</td><td>0</td><td>1</td></tr><tr><td>3 år före</td><td>+0,1 %</td><td>1</td><td>1</td></tr><tr><td>5 år före</td><td>+4,4 %</td><td>3</td><td>3</td></tr><tr><td>7 år före</td><td>+4,9 %</td><td>1</td><td>1</td></tr><tr><td>8 år före</td><td>+1,4 %</td><td>1</td><td>1</td></tr></tbody><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos gjord år\">Prognos gjord år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Fel ett år framåt\">Fel ett år framåt</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Genomsnitt, alla år\">Genomsnitt, alla år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prövad t.o.m.\">Prövad t.o.m.</th></tr></thead><tbody><tr><td>2017</td><td>–</td><td>+0,0 %</td><td>8 år framåt</td></tr><tr><td>2018</td><td>–</td><td>+2,8 %</td><td>7 år framåt</td></tr><tr><td>2019</td><td>–</td><td>+1,9 %</td><td>5 år framåt</td></tr><tr><td>2020</td><td>–</td><td>+5,2 %</td><td>5 år framåt</td></tr><tr><td>2023</td><td>−0,3 %</td><td>−0,2 %</td><td>2 år framåt</td></tr><tr><td>2024</td><td>−1,9 %</td><td>−1,4 %</td><td>1 år framåt</td></tr><tr><td>2025</td><td>–</td><td>−1,0 %</td><td>samma år</td></tr></tbody>"
+   "html": "<caption>Genomsnittligt fel med riktning, per antal år i förväg. Plus betyder att prognosen låg för högt.</caption><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Kalenderår före målåret\">Kalenderår före målåret</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Genomsnittligt fel med riktning\">Genomsnittligt fel med riktning</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Antal för höga\">Antal för höga</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Antal prognosvärden\">Antal prognosvärden</th></tr></thead><tbody><tr><td>Samma år</td><td>−0,6 %</td><td>1</td><td>6</td></tr><tr><td>1 år före</td><td>−1,1 %</td><td>0</td><td>2</td></tr><tr><td>2 år före</td><td>−0,7 %</td><td>0</td><td>1</td></tr><tr><td>3 år före</td><td>+0,1 %</td><td>1</td><td>1</td></tr><tr><td>5 år före</td><td>+4,4 %</td><td>3</td><td>3</td></tr><tr><td>7 år före</td><td>+4,9 %</td><td>1</td><td>1</td></tr><tr><td>8 år före</td><td>+1,4 %</td><td>1</td><td>1</td></tr></tbody><thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prognos gjord år\">Prognos gjord år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Fel ett år framåt\">Fel ett år framåt</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Genomsnitt, alla år\">Genomsnitt, alla år</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Prövad t.o.m.\">Prövad t.o.m.</th></tr></thead><tbody><tr><td>2017</td><td>–</td><td>0,0 %</td><td>8 år framåt</td></tr><tr><td>2018</td><td>–</td><td>+2,8 %</td><td>7 år framåt</td></tr><tr><td>2019</td><td>–</td><td>+1,9 %</td><td>5 år framåt</td></tr><tr><td>2020</td><td>–</td><td>+5,2 %</td><td>5 år framåt</td></tr><tr><td>2023</td><td>−0,3 %</td><td>−0,2 %</td><td>2 år framåt</td></tr><tr><td>2024</td><td>−1,9 %</td><td>−1,4 %</td><td>1 år framåt</td></tr><tr><td>2025</td><td>–</td><td>−1,0 %</td><td>samma år</td></tr></tbody>"
   },
   "#tabell-spagetti": {
    "dold": false,

@@ -1932,7 +1932,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var v = it.parsed.x; return v > 0 ? \"+\" + talSv(v, 1) + \" till flickornas fördel\" : talSv(v, 1) + \" till pojkarnas fördel\"; }"
+       "label": "fn:function (it) { var v = it.parsed.x; return K.medTecken(v, 1) + K.riktning(v, 1, { upp: \" till flickornas fördel\", ner: \" till pojkarnas fördel\", noll: \", ingen skillnad\" }); }"
       }
      }
     },

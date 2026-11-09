@@ -2147,7 +2147,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var p = rader[it.dataIndex]; return [ p.forstaAr + \": \" + talSv(p.forsta, 1), p.sistaAr + \": \" + talSv(p.sista, 1), (p.forandring >= 0 ? \"Upp \" : \"Ner \") + talSv(Math.abs(p.forandring), 1) + \" meritpoäng\" ]; }"
+       "label": "fn:function (it) { var p = rader[it.dataIndex]; return [ p.forstaAr + \": \" + talSv(p.forsta, 1), p.sistaAr + \": \" + talSv(p.sista, 1), K.riktning(p.forandring, 1, { upp: \"Upp \", ner: \"Ner \", noll: \"Oförändrat, \" }) + talSv(Math.abs(p.forandring), 1) + \" meritpoäng\" ]; }"
       }
      }
     },
@@ -2188,7 +2188,7 @@
        "autoSkipPadding": 3,
        "backdropColor": "rgba(255, 255, 255, 0.75)",
        "backdropPadding": 2,
-       "callback": "fn:function (v) { return (v > 0 ? \"+\" : \"\") + talSv(v); }",
+       "callback": "fn:function (v) { return K.medTecken(v); }",
        "color": "#52514e",
        "crossAlign": "near",
        "display": true,

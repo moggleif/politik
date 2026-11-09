@@ -178,7 +178,7 @@
 
     var f = a.forsta, s = a.sista;
     var riktning = a.forandring === null ? "" :
-      (a.forandring > 0 ? "stigit" : (a.forandring < 0 ? "sjunkit" : "legat stilla"));
+      K.riktning(a.forandring, 1, { upp: "stigit", ner: "sjunkit", noll: "legat stilla" });
     el("slutsats-amne").innerHTML = a.forandring === null
       ? "<p>" + esc(namn) + " har betygspoäng redovisad " + esc(a.arMedPoang) +
         " av " + ar.length + " läsår. Förändringen mellan första och sista " +
@@ -186,7 +186,7 @@
       : "<p>I " + esc(namn.toLowerCase()) + " har betygspoängen <strong>" + riktning +
         "</strong> från " + talSv(f, 1) + " (" + esc(lasar(a.forstaAr)) + ") till " +
         talSv(s, 1) + " (" + esc(lasar(a.sistaAr)) + ") &ndash; en förändring på <strong>" +
-        (a.forandring > 0 ? "+" : "") + talSv(a.forandring, 1) + "</strong> poäng.</p>";
+        K.medTecken(a.forandring, 1) + "</strong> poäng.</p>";
 
     /* Dubbelprickade år ska synas, inte tigas ihjäl. */
     var dolda = ar.filter(function (y) { return cell(a, y, "betygspoang") === null; });
@@ -368,13 +368,13 @@
       "ämnenas genomsnittliga betygspoäng");
 
     var diff = s.betygspoang - f.betygspoang;
-    var riktning = diff > 0 ? "stigit" : (diff < 0 ? "sjunkit" : "legat stilla");
+    var riktning = K.riktning(diff, 2, { upp: "stigit", ner: "sjunkit", noll: "legat stilla" });
     el("slutsats-poang").innerHTML =
       "<p>Snittet över ämnena har <strong>" + riktning + "</strong> från " +
       talSv(f.betygspoang, 2) + " (" + esc(lasar(f.ar)) + ") till <strong>" +
       talSv(s.betygspoang, 2) + "</strong> (" + esc(lasar(s.ar)) + ") av " +
-      esc(DATA.maxPoang) + " &ndash; en förändring på " + (diff > 0 ? "+" : "") +
-      talSv(diff, 2) + " poäng. Ett snitt på 15 motsvarar ungefär betyget C. " +
+      esc(DATA.maxPoang) + " &ndash; en förändring på " + K.medTecken(diff, 2) +
+      " poäng. Ett snitt på 15 motsvarar ungefär betyget C. " +
       "Talet är ett ovägt medel av de " + DATA.karnamnen.length +
       " ämnenas genomsnittliga betygspoäng, inte årskullens elevviktade snitt.</p>";
 
@@ -434,8 +434,11 @@
 
     var opt = basOptions("Flickornas betygspoäng minus pojkarnas", function (it) {
       var v = it.parsed.x;
-      return v > 0 ? "+" + talSv(v, 1) + " till flickornas fördel"
-                   : talSv(v, 1) + " till pojkarnas fördel";
+      return K.medTecken(v, 1) + K.riktning(v, 1, {
+        upp: " till flickornas fördel",
+        ner: " till pojkarnas fördel",
+        noll: ", ingen skillnad"
+      });
     }, true);
     opt.scales.x.grid.color = function (c) {
       return c.tick.value === 0 ? FARG.baseline : FARG.grid;
@@ -467,7 +470,7 @@
       "<p>Av " + rader.length + " redovisade ämnen läsåret " + esc(lasar(ar)) +
       " hade flickorna högre betygspoäng i <strong>" + flick + "</strong>. " +
       "Störst är skillnaden i " + esc(rader[0].namn.toLowerCase()) + " (" +
-      (rader[0].v > 0 ? "+" : "") + talSv(rader[0].v, 1) + " poäng).</p>";
+      K.medTecken(rader[0].v, 1) + " poäng).</p>";
 
     el("tabell-kon").innerHTML =
       "<thead><tr><th scope=\"col\">Ämne</th><th scope=\"col\">Flickor</th>" +
@@ -477,7 +480,7 @@
         return "<tr><th scope=\"row\">" + esc(r.namn) + "</th><td>" +
           talSv(cell(a, ar, "betygspoangFlickor"), 1) + "</td><td>" +
           talSv(cell(a, ar, "betygspoangPojkar"), 1) + "</td><td>" +
-          (r.v > 0 ? "+" : "") + talSv(r.v, 1) + "</td></tr>";
+          K.medTecken(r.v, 1) + "</td></tr>";
       }).join("") + "</tbody>";
     return true;
   }

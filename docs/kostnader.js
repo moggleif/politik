@@ -108,7 +108,7 @@
       esc(data.prisniva) + " års prisnivå motsvarar " + esc(forsta) +
       " års kostnad <strong>" + kronor(o.forstaFast) + "</strong>, vilket " +
       "gör förändringen fram till " + esc(sista) + " till <strong>" +
-      (o.realTotal > 0 ? "+" : "") + talSv(o.realTotal, 1) +
+      K.medTecken(o.realTotal, 1) +
       "&nbsp;%</strong> i fasta priser.</p>";
 
     var rader = ar.map(function (a) {
@@ -171,7 +171,7 @@
       el("slutsats-riket").innerHTML =
         "<p>År " + esc(sistaJamfor) + " låg Kungsbacka <strong>" +
         talSv(Math.abs(diff), 1) + "&nbsp;%</strong> " +
-        (diff < 0 ? "under" : "över") + " riket: " +
+        K.riktning(diff, 1, { upp: "över", ner: "under", noll: "från" }) + " riket: " +
         kronor(cell(kb, sistaJamfor, "fast")) + " mot " +
         kronor(cell(ri, sistaJamfor, "fast")) + " per elev. Av de " +
         jamfor.length + " år som går att jämföra låg Kungsbacka under " +
@@ -185,7 +185,7 @@
       return "<tr><th scope=\"row\">" + esc(a) + "</th><td>" +
         visa(cell(kb, a, "fast")) + "</td><td>" +
         (ri ? visa(cell(ri, a, "fast")) : "&ndash;") + "</td><td>" +
-        (d === null ? "&ndash;" : (d > 0 ? "+" : "") + talSv(d, 1) + "&nbsp;%") +
+        (d === null ? "&ndash;" : K.medTecken(d, 1) + "&nbsp;%") +
         "</td></tr>";
     }).join("");
     el("tabell-riket").innerHTML =
@@ -269,7 +269,7 @@
 
     var opt = basOptions("Förändring mot föregående år (%)", function (it) {
       var v = it.parsed.y;
-      return it.dataset.label + ": " + (v > 0 ? "+" : "") + talSv(v, 1) + " %";
+      return it.dataset.label + ": " + K.medTecken(v, 1) + " %";
     });
     opt.scales.y.grid.color = function (c) {
       return c.tick.value === 0 ? FARG.baseline : FARG.grid;
@@ -327,8 +327,8 @@
     var rader = ar.map(function (a, i) {
       var r = ri ? cell(ri, a, "forandring") : null;
       return "<tr><th scope=\"row\">" + esc(a) + "</th><td>" +
-        (varden[i] > 0 ? "+" : "") + talSv(varden[i], 1) + "&nbsp;%</td><td>" +
-        (r === null ? "&ndash;" : (r > 0 ? "+" : "") + talSv(r, 1) + "&nbsp;%") +
+        K.medTecken(varden[i], 1) + "&nbsp;%</td><td>" +
+        (r === null ? "&ndash;" : K.medTecken(r, 1) + "&nbsp;%") +
         "</td></tr>";
     }).join("");
     el("tabell-forandring").innerHTML =
@@ -481,7 +481,7 @@
       var diff = cell(kb, kb.sistaAr, "motRiket");
       if (diff !== null) {
         punkter.push("Kungsbacka ligger <strong>" + talSv(Math.abs(diff), 1) +
-          "&nbsp;%</strong> " + (diff < 0 ? "under" : "över") + " riket " +
+          "&nbsp;%</strong> " + K.riktning(diff, 1, { upp: "över", ner: "under", noll: "från" }) + " riket " +
           esc(kb.sistaAr) + ".");
       }
     }

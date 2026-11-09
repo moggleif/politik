@@ -117,8 +117,10 @@
        i kohorterna, och datat delar inte upp den i flyttning, dödlighet
        och folkbokföringsändringar. */
     function riktning(r) {
-      return (r.medelPct > 0 ? "för högt" : "för lågt") + " (" +
-        (r.medelPct > 0 ? "+" : "−") + talSv(Math.abs(r.medelPct), 1) + " %)";
+      return K.riktning(r.medelPct, 1, {
+        upp: "för högt", ner: "för lågt", noll: "varken för högt eller för lågt"
+      }) + " (" +
+        K.medTecken(r.medelPct, 1) + " %)";
     }
     K.sattDataNot("not-kohort",
       "Framskrivningen räknar <strong>varken in- eller utflyttning</strong> " +
@@ -172,7 +174,8 @@
           "vilket i den här åldersgruppen huvudsakligen skulle kunna komma " +
           "från nettoutflyttning. Framskrivningen har legat " +
           talSv(Math.abs(kort.medelPct), 1) + " % " +
-          (kort.medelPct >= 0 ? "för högt" : "för lågt") +
+          K.riktning(kort.medelPct, 1,
+            { upp: "för högt", ner: "för lågt", noll: "från utfallet" }) +
           " ett år framåt, men i en helt " +
           "annan storleksordning än den skillnaden.</p>";
       }
@@ -194,7 +197,7 @@
           talSv(k.framskrivning[String(a)]) + "</td><td>" +
           esc(kallor[0].alder) + "–" + esc(kallor[kallor.length - 1].alder) + " år</td><td>" +
           (rad ? talSv(rad.kommun) : "–") + "</td><td>" +
-          (rad ? (rad.diff > 0 ? "+" : "−") + talSv(Math.abs(rad.diff)) : "–") +
+          (rad ? K.medTecken(rad.diff) : "–") +
           "</td></tr>";
       });
     el("tabell-kohort").innerHTML = tabell + "</tbody>";

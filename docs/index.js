@@ -307,7 +307,7 @@
         kb.varden[String(kb.sistaAr)].motRiket;
       if (diff !== null && diff !== undefined) {
         rader.push(rad("Kungsbacka mot riket " + esc(kb.sistaAr),
-          (diff > 0 ? "+" : "") + talSv(diff, 1) + " %"));
+          K.medTecken(diff, 1) + " %"));
       }
     }
     fyll("fakta-kostnader", rader);
@@ -329,7 +329,7 @@
     if (!avv) return;
 
     var rader = [rad("Avvikelse från referenskostnaden " + esc(avv.sistaAr),
-      (avv.sista > 0 ? "+" : "") + talSv(avv.sista, 1) + " %")];
+      K.medTecken(avv.sista, 1) + " %")];
     if (andel) {
       rader.push(rad("Grundskolans andel av kommunens driftkostnad",
         talSv(andel.sista, 1) + " %"));
@@ -361,7 +361,7 @@
     if (daVid) {
       var diff = sista.ack - daVid.ack;
       rader.push(rad(esc(data.forra) + " vid samma punkt (" + sista.kvar + " dagar kvar)",
-        talSv(daVid.ack) + " (" + (diff > 0 ? "+" : diff < 0 ? "−" : "") + talSv(Math.abs(diff)) + ")"));
+        talSv(daVid.ack) + " (" + K.medTecken(diff) + ")"));
     }
     if (rb) {
       rader.push(rad("Andel av de röstberättigade i riksdagsvalet",

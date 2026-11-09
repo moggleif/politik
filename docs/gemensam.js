@@ -93,11 +93,15 @@
     }
   }
 
+  /* Noll har inget tecken. toLocaleString skriver "−0,0" för ett litet
+     negativt tal som avrundas till noll, och för −0; ett tal utan en
+     enda siffra skild från noll är noll och skrivs utan minus. */
   function talSv(n, dec) {
-    return n.toLocaleString("sv-SE", {
+    var s = n.toLocaleString("sv-SE", {
       minimumFractionDigits: dec || 0,
       maximumFractionDigits: dec === undefined ? 0 : dec
     });
+    return /[1-9]/.test(s) ? s : s.replace(/^[\u2212-]/, "");
   }
 
   /* All HTML på sidorna byggs som strängar. Värden som kommer ur
@@ -520,10 +524,22 @@
     return opt;
   }
 
-  /* "+1,5" och "−0,3" med riktigt minustecken; noll skrivs med plus.
-     Inte samma sak som axlarnas tickar, där talSv själv skriver minus. */
+  /* En förändring med sitt tecken: "+1,5", "−0,3" med riktigt
+     minustecken, och noll utan tecken – också det som avrundas till noll,
+     så att "+0,0" och "−0,0" aldrig visas. */
   function medTecken(v, decimaler) {
-    return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), decimaler);
+    var belopp = talSv(Math.abs(v), decimaler);
+    if (!/[1-9]/.test(belopp)) return belopp;
+    return (v > 0 ? "+" : "\u2212") + belopp;
+  }
+
+  /* Riktningen i ord – "för högt", "Upp", "till flickornas fördel" –
+     avgörs på samma sätt som tecknet: på talet så som det skrivs med
+     `decimaler`. Står det 0,0 bredvid får ordet inte säga upp eller ner,
+     och då gäller `ord.noll`. */
+  function riktning(v, decimaler, ord) {
+    if (!/[1-9]/.test(talSv(Math.abs(v), decimaler))) return ord.noll;
+    return v > 0 ? ord.upp : ord.ner;
   }
 
   /* ---------- Serier som inte är lika långa ----------
@@ -887,11 +903,11 @@
     var tbody = thead && thead.nextElementSibling;
     if (!tbody || tbody.tagName !== "TBODY") return;
     var kol = th.cellIndex;
-    var riktning = th.getAttribute("aria-sort") === "ascending" ? "descending" : "ascending";
-    var stigande = riktning === "ascending";
+    var sortering = th.getAttribute("aria-sort") === "ascending" ? "descending" : "ascending";
+    var stigande = sortering === "ascending";
 
     Array.prototype.forEach.call(thead.querySelectorAll("th"), function (o) {
-      o.setAttribute("aria-sort", o === th ? riktning : "none");
+      o.setAttribute("aria-sort", o === th ? sortering : "none");
     });
 
     var rader = Array.prototype.slice.call(tbody.rows);
@@ -914,8 +930,10 @@
       var celler = Array.prototype.map.call(rad.cells, function (c) {
         var t = c.textContent.replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
         /* En cell som inleds med =, + eller @ skulle kunna tolkas som
-           formel när filen öppnas i ett kalkylprogram. Talen på sidorna
-           börjar aldrig så; neutralisera med en inledande apostrof. */
+           formel när filen öppnas i ett kalkylprogram; neutralisera med en
+           inledande apostrof. Det träffar också förändringar som "+1,5"
+           (K.medTecken), och det är priset för att aldrig släppa igenom en
+           formel. */
         if (/^[=+@]/.test(t)) t = "'" + t;
         if (skilje === ";" && /[";\n]/.test(t)) t = '"' + t.replace(/"/g, '""') + '"';
         return t;
@@ -1073,6 +1091,7 @@
     talSv: talSv,
     visaTal: visaTal,
     medTecken: medTecken,
+    riktning: riktning,
     esc: esc,
     sakerUrl: sakerUrl,
     slug: slug,

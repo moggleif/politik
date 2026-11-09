@@ -328,7 +328,7 @@
     var upp = andrade[0], ner = andrade[andrade.length - 1];
     var html = "<p>Mellan läsåren " + esc(lasaret(forsta)) + " och " +
       esc(lasaret(sista)) + " ökade <strong>" + esc(upp.namn) + "</strong> mest (" +
-      (upp.diff >= 0 ? "+" : "") + talSv(upp.diff) + " platser) och <strong>" +
+      K.medTecken(upp.diff) + " platser) och <strong>" +
       esc(ner.namn) + "</strong> minskade mest (" + talSv(ner.diff) +
       " platser).</p>";
     var oforandrade = andrade.filter(function (p) { return p.diff === 0; }).length;
@@ -449,7 +449,7 @@
     el("slutsats-borjade").innerHTML =
       "<p>Mellan läsåren " + esc(lasaret(ar[0])) + " och " +
       esc(lasaret(ar[ar.length - 1])) + " växte <strong>" + esc(upp.namn) +
-      "</strong> mest (" + (upp.diff >= 0 ? "+" : "") + talSv(upp.diff) +
+      "</strong> mest (" + K.medTecken(upp.diff) +
       " elever i årskurs 1) och <strong>" + esc(ner.namn) +
       "</strong> krympte mest (" + talSv(ner.diff) + " elever).</p>";
   }
@@ -549,7 +549,7 @@
     }).sort(function (x, y) { return y.skillnad - x.skillnad; });
   }
 
-  function tecknat(v) { return (v > 0 ? "+" : "") + talSv(v); }
+  function tecknat(v) { return K.medTecken(v); }
 
   function ritaSkillnad() {
     var a = el("ar-valjare").value;
@@ -676,7 +676,7 @@
       "gymnasieskolor <strong>" + talSv(sista.platser) + " platser</strong> " +
       "på " + talSv(sista.antalProgram) + " program.");
     var diff = sista.platser - forsta.platser;
-    punkter.push("Det är <strong>" + (diff >= 0 ? "+" : "") + talSv(diff) +
+    punkter.push("Det är <strong>" + K.medTecken(diff) +
       " platser</strong> jämfört med läsåret " + esc(lasaret(forsta.ar)) + ".");
 
     var ar = elevar();

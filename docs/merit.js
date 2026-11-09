@@ -491,13 +491,13 @@
         return p.forandring >= 0 ? FARG.bla : FARG.rod;
       }),
       titel: "Förändring i ovägt inriktningssnitt, första till sista mätår",
-      tick: function (v) { return (v > 0 ? "+" : "") + talSv(v); },
+      tick: function (v) { return K.medTecken(v); },
       etikett: function (it) {
         var p = rader[it.dataIndex];
         return [
           p.forstaAr + ": " + talSv(p.forsta, 1),
           p.sistaAr + ": " + talSv(p.sista, 1),
-          (p.forandring >= 0 ? "Upp " : "Ner ") +
+          K.riktning(p.forandring, 1, { upp: "Upp ", ner: "Ner ", noll: "Oförändrat, " }) +
             talSv(Math.abs(p.forandring), 1) + " meritpoäng"
         ];
       }

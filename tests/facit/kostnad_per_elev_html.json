@@ -1038,7 +1038,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var v = it.parsed.y; return it.dataset.label + \": \" + (v > 0 ? \"+\" : \"\") + talSv(v, 1) + \" %\"; }",
+       "label": "fn:function (it) { var v = it.parsed.y; return it.dataset.label + \": \" + K.medTecken(v, 1) + \" %\"; }",
        "title": "fn:function (it) { return \"År \" + it[0].label; }"
       }
      }
