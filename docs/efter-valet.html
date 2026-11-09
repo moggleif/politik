@@ -96,12 +96,9 @@
   <div class="sidhuvud-inre">
     <h1>Efter valet: listorna och vad platserna blev</h1>
     <p class="ingress">
-      För varje val till kommunfullmäktige i Kungsbacka visas partiets
-      <strong>lista i nummerordning</strong>: vem som stod på varje plats,
-      vilka som blev ledamöter i fullmäktige, och vad de sedan blev i
-      kommunstyrelsen (KS), dess arbetsutskott (KSAU) och som ordförande
-      eller vice ordförande i en nämnd. Välj val och parti, eller se alla
-      partier på en gång. Källor och metod finns längst ned.
+      Varje partis lista i nummerordning, 2010–2026, och vad platserna blev:
+      ledamot i fullmäktige (KF), kommunstyrelsen (KS), dess arbetsutskott
+      (KSAU) eller ordförande i en nämnd.
     </p>
   </div>
 </header>
@@ -110,15 +107,19 @@
 
   <div id="status" class="status-ruta" hidden></div>
 
-  <section id="sektion-reglage" hidden>
-    <div class="valj-ar">
-      <label for="val-valjare">Val:</label>
-      <select id="val-valjare"></select>
-      <label for="parti-valjare">Parti:</label>
-      <select id="parti-valjare"></select>
+  <section id="sektion-reglage" class="ev-reglage" aria-label="Välj val och parti" hidden>
+    <div class="valjarrad">
+      <div class="valj-ar">
+        <label for="val-valjare">Val</label>
+        <select id="val-valjare"></select>
+      </div>
+      <div class="valj-ar">
+        <label for="parti-valjare">Parti</label>
+        <select id="parti-valjare"></select>
+      </div>
     </div>
-    <p class="forklaring" id="val-forklaring"></p>
-    <p class="forklaring teckenforklaring" id="teckenforklaring"></p>
+    <div id="val-forklaring"></div>
+    <ul class="ev-tecken" id="teckenforklaring" aria-label="Teckenförklaring"></ul>
   </section>
 
   <section id="sektion-platskarta" class="kort" aria-labelledby="platskarta-rubrik" hidden>

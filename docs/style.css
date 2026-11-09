@@ -1146,3 +1146,37 @@ details.kallor-dolda summary { cursor: pointer; font-weight: 600; }
 .utfall-lista h3 { font-size: 1rem; margin: 1rem 0 0.25rem; }
 .utfall-lista ul.utfall { margin: 0; padding-left: 1.2rem; }
 .utfall-lista li { margin-bottom: 0.25rem; }
+
+/* Efter valet: reglage, statusrad, utfällbara detaljer och kompakt teckenförklaring */
+.ev-reglage { margin-top: 1.5rem; }
+.ev-reglage .valjarrad { margin-top: 0; gap: 0.75rem 1.5rem; }
+.ev-reglage .valj-ar { flex-direction: column; align-items: stretch; gap: 0.25rem; }
+.ev-reglage .valj-ar label { font-size: 0.9rem; color: var(--ink-2); }
+.ev-reglage select { font-size: 1.05rem; padding: 0.5rem 0.75rem; max-width: 100%; }
+.ev-status { margin: 1rem 0 0.25rem; color: var(--ink-2); max-width: 46rem; }
+.ev-status .tagg { margin-right: 0.25rem; }
+.tagg-komplett { border-color: var(--ja); color: var(--ja); }
+.tagg-partiell { border-color: var(--orange-dark); color: var(--orange-dark); }
+.tagg-ejBeslutat { border-color: var(--muted); color: var(--muted); }
+details.ev-mer { margin: 0.25rem 0 0; color: var(--ink-2); font-size: 0.95rem; max-width: 46rem; }
+details.ev-mer summary { cursor: pointer; color: var(--blue-dark); font-weight: 600; padding: 0.25rem 0; }
+details.ev-mer ul { margin: 0.25rem 0 0.5rem; padding-left: 1.2rem; }
+details.ev-mer li { margin-bottom: 0.2rem; }
+ul.ev-tecken {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.1rem;
+  padding: 0.5rem 0 0;
+  margin: 0.75rem 0 0;
+  border-top: 1px solid var(--grid);
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+ul.ev-tecken li { display: inline-flex; align-items: center; gap: 0.3rem; white-space: nowrap; }
+.pk-not { margin: 0.35rem 0 0; }
+details.utfall-lista { margin-top: 1rem; max-width: none; }
+.parti-sektion { margin-top: 2rem; }
+.parti-sektion .ev-status { margin-top: 0; }
+.parti-sektion .kort { margin-top: 0.75rem; }
+ul.ev-tecken .osaker { color: var(--ink-2); font-style: italic; }   /* orange-dark klarar inte kontrastkravet i liten text på sidans bakgrund */
