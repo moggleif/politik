@@ -527,11 +527,11 @@
   function prognosUtfall(U) {
     if (!U) return "";
     var av = Math.abs(U.avvikelse);
-    var hall = U.avvikelse > 0 ? "över" : "under";
+    var hall = K.riktning(U.avvikelse, 1, { upp: "över", ner: "under", noll: "från" });
     if (U.klart) {
       return '<p class="prognos-facit"><strong>Facit:</strong> ' + talSv(U.faktiskt) +
         " förtidsröster. Prognosen låg " + talSv(av, 1) + "&nbsp;% " +
-        (U.avvikelse > 0 ? "för lågt" : "för högt") +
+        K.riktning(U.avvikelse, 1, { upp: "för lågt", ner: "för högt", noll: "från utfallet" }) +
         (U.inomOmfang ? ", inom omfånget." : ", utanför omfånget.") + "</p>";
     }
     return '<p class="prognos-facit"><strong>Så här har det gått:</strong> vid ' +

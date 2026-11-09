@@ -155,7 +155,8 @@
       "gymnasiets yrkesprogram har gått från <strong>" +
       pct(f.andelBehorigYrkes) + "</strong> läsåret " + esc(f.lasar) + " till <strong>" +
       pct(s.andelBehorigYrkes) + "</strong> läsåret " + esc(s.lasar) + " &ndash; " +
-      (diff < 0 ? "en minskning" : "en ökning") + " med " +
+      K.riktning(diff, 1, { upp: "en ökning", ner: "en minskning", noll: "en förändring" }) +
+      " med " +
       talSv(Math.abs(diff), 1) + " procentenheter. Andelen med godkänt i " +
       "samtliga ämnen var " + pct(s.andelAllaAmnen) + " det sista läsåret.</p>";
 

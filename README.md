@@ -1203,7 +1203,8 @@ komponenter (docs/gemensam.js):
   (&rdquo;+1,5&rdquo;, &rdquo;&minus;0,3&rdquo;), men det som avrundas
   till noll skrivs utan: &rdquo;0,0&rdquo;, aldrig &rdquo;+0,0&rdquo; eller
   &rdquo;&minus;0,0&rdquo;. Det gäller varje tal på sidorna, också på
-  axlarna och i tabellerna.
+  axlarna och i tabellerna, och ordet bredvid: står det 0,0 säger texten
+  inte &rdquo;för högt&rdquo; eller &rdquo;upp&rdquo;.
 - **Samma diagram på syskonsidorna.** Meritvärdes- och slutbetygssidan
   ritar de bilder de har gemensamt &ndash; rangordningen, förändringen och
   programgrupperna &ndash; med samma byggstenar i docs/gemensam.js, så att

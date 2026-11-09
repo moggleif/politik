@@ -531,7 +531,7 @@
             (flyttat ? " (" + kort(u.forstaSkola) + ")" : ""),
           u.sistaAr + ": " + talSv(u.sista, 1) +
             (flyttat ? " (" + kort(u.sistaSkola) + ")" : ""),
-          (u.forandring >= 0 ? "Upp " : "Ner ") +
+          K.riktning(u.forandring, 1, { upp: "Upp ", ner: "Ner ", noll: "Oförändrat, " }) +
             talSv(Math.abs(u.forandring), 1) + " betygspoäng"
         ];
       }

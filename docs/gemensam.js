@@ -533,6 +533,15 @@
     return (v > 0 ? "+" : "\u2212") + belopp;
   }
 
+  /* Riktningen i ord – "för högt", "Upp", "till flickornas fördel" –
+     avgörs på samma sätt som tecknet: på talet så som det skrivs med
+     `decimaler`. Står det 0,0 bredvid får ordet inte säga upp eller ner,
+     och då gäller `ord.noll`. */
+  function riktning(v, decimaler, ord) {
+    if (!/[1-9]/.test(talSv(Math.abs(v), decimaler))) return ord.noll;
+    return v > 0 ? ord.upp : ord.ner;
+  }
+
   /* ---------- Serier som inte är lika långa ----------
      Riket börjar senare än kommunen, skolskjutsen senare än båda. Ett år
      utan värde ska bli ett tankstreck i tabellen, inte ett undantag mitt
@@ -894,11 +903,11 @@
     var tbody = thead && thead.nextElementSibling;
     if (!tbody || tbody.tagName !== "TBODY") return;
     var kol = th.cellIndex;
-    var riktning = th.getAttribute("aria-sort") === "ascending" ? "descending" : "ascending";
-    var stigande = riktning === "ascending";
+    var sortering = th.getAttribute("aria-sort") === "ascending" ? "descending" : "ascending";
+    var stigande = sortering === "ascending";
 
     Array.prototype.forEach.call(thead.querySelectorAll("th"), function (o) {
-      o.setAttribute("aria-sort", o === th ? riktning : "none");
+      o.setAttribute("aria-sort", o === th ? sortering : "none");
     });
 
     var rader = Array.prototype.slice.call(tbody.rows);
@@ -921,8 +930,10 @@
       var celler = Array.prototype.map.call(rad.cells, function (c) {
         var t = c.textContent.replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
         /* En cell som inleds med =, + eller @ skulle kunna tolkas som
-           formel när filen öppnas i ett kalkylprogram. Talen på sidorna
-           börjar aldrig så; neutralisera med en inledande apostrof. */
+           formel när filen öppnas i ett kalkylprogram; neutralisera med en
+           inledande apostrof. Det träffar också förändringar som "+1,5"
+           (K.medTecken), och det är priset för att aldrig släppa igenom en
+           formel. */
         if (/^[=+@]/.test(t)) t = "'" + t;
         if (skilje === ";" && /[";\n]/.test(t)) t = '"' + t.replace(/"/g, '""') + '"';
         return t;
@@ -1080,6 +1091,7 @@
     talSv: talSv,
     visaTal: visaTal,
     medTecken: medTecken,
+    riktning: riktning,
     esc: esc,
     sakerUrl: sakerUrl,
     slug: slug,

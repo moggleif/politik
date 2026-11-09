@@ -56,8 +56,9 @@ reproducerbarhetstesterna faller om innehållet inte går att räkna fram ur
   lucka, aldrig som en nolla. Skolverkets prickning (`..` färre än tio
   elever, `.` uppgift saknas) skiljs från "fanns inte".
 - **Noll är noll.** Ett tal som avrundas till noll skrivs utan tecken –
-  aldrig "+0" eller "−0,0". `talSv` och `K.medTecken` i `docs/gemensam.js`
-  sköter det; skriv inget eget `? "+" :`.
+  aldrig "+0" eller "−0,0", och ordet bredvid säger då inte "upp" eller
+  "för högt". `talSv`, `K.medTecken` och `K.riktning` i `docs/gemensam.js`
+  sköter det; skriv inget eget tecken eller `v > 0 ? "över" : "under"`.
 - **Hellre stanna än spara siffror som inte går ihop.** Hämt- och
   byggskripten kontrollerar kolumnlayout och summor mot källans egna tal och
   avbryter vid avvikelse, i stället för att läsa fel kolumn under tystnad.

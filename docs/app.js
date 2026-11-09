@@ -58,10 +58,9 @@
     var ctx = el("diagram-malar");
     if (malarChart) malarChart.destroy();
     /* Liggande staplar som K.liggandeStaplar ritar, men medvetet inte via
-       den (#88): en stapel per prognosår i stället för per utbildning,
-       med rubrik på årsaxeln, året i tooltipens titel och tjockare,
-       glesare staplar. Att gå via den delade formen hade ändrat hur
-       diagrammet ser ut, inte bara var koden står. */
+       den (#88): diagrammet har rubrik på årsaxeln, året i tooltipens
+       titel och tjockare, glesare staplar (24 px, 44 px per rad). Att gå
+       via den delade formen hade ändrat hur det ser ut. */
     var hojd = Math.max(220, punkter.length * 44 + 80);
     ctx.parentElement.style.height = hojd + "px";
 
@@ -91,7 +90,9 @@
                 return [
                   "Prognosen sa: " + talSv(a.prognos) + " " + ENHET,
                   "Det blev: " + talSv(a.utfall) + " " + ENHET,
-                  (a.diff >= 0 ? "För högt: " : "För lågt: ") + talSv(Math.abs(a.diff)) +
+                  K.riktning(a.diff, 0,
+                    { upp: "För högt: ", ner: "För lågt: ", noll: "Avvikelse: " }) +
+                    talSv(Math.abs(a.diff)) +
                     " personer (" + talSv(Math.abs(a.pct), 1) + " %)"
                 ];
               }
@@ -119,20 +120,21 @@
       "Röd stapel = prognosen för hög, blå = för låg. Källor: se längst ned.";
 
     /* Klarspråkssammanfattning */
+    var FEL_ORD = { upp: "för högt", ner: "för lågt", noll: "från utfallet" };
     var forsta = punkter[0], sista = punkter[punkter.length - 1];
     var html = "";
     html += "<p><strong>Tidigaste prognosen</strong> (gjord " + esc(forsta.prognosAr) + ", " +
       esc(forsta.avv.avstand) + " år i förväg) trodde på " + talSv(forsta.avv.prognos) +
       " " + ENHET + " år " + malAr + ". Det blev " + talSv(forsta.avv.utfall) +
       " – prognosen låg " + talSv(Math.abs(forsta.avv.diff)) + " personer " +
-      (forsta.avv.diff >= 0 ? "för högt" : "för lågt") +
+      K.riktning(forsta.avv.diff, 0, FEL_ORD) +
       " (" + talSv(Math.abs(forsta.avv.pct), 1) + " %).</p>";
     if (sista !== forsta) {
       html += "<p><strong>Senaste prognosen</strong> (gjord " + esc(sista.prognosAr) + ", " +
         (sista.avv.avstand === 0 ? "samma år" : esc(sista.avv.avstand) + " år i förväg") +
         ") trodde på " + talSv(sista.avv.prognos) + ". Den låg " +
         talSv(Math.abs(sista.avv.diff)) + " personer " +
-        (sista.avv.diff >= 0 ? "för högt" : "för lågt") +
+        K.riktning(sista.avv.diff, 0, FEL_ORD) +
         " (" + talSv(Math.abs(sista.avv.pct), 1) + " %).</p>";
     }
     el("slutsats-malar").innerHTML = html;

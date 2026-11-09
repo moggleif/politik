@@ -117,7 +117,9 @@
        i kohorterna, och datat delar inte upp den i flyttning, dödlighet
        och folkbokföringsändringar. */
     function riktning(r) {
-      return (r.medelPct > 0 ? "för högt" : "för lågt") + " (" +
+      return K.riktning(r.medelPct, 1, {
+        upp: "för högt", ner: "för lågt", noll: "varken för högt eller för lågt"
+      }) + " (" +
         K.medTecken(r.medelPct, 1) + " %)";
     }
     K.sattDataNot("not-kohort",
@@ -172,7 +174,8 @@
           "vilket i den här åldersgruppen huvudsakligen skulle kunna komma " +
           "från nettoutflyttning. Framskrivningen har legat " +
           talSv(Math.abs(kort.medelPct), 1) + " % " +
-          (kort.medelPct >= 0 ? "för högt" : "för lågt") +
+          K.riktning(kort.medelPct, 1,
+            { upp: "för högt", ner: "för lågt", noll: "från utfallet" }) +
           " ett år framåt, men i en helt " +
           "annan storleksordning än den skillnaden.</p>";
       }

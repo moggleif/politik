@@ -44,7 +44,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var a = punkter[it.dataIndex].avv; return [ \"Prognosen sa: \" + talSv(a.prognos) + \" \" + ENHET, \"Det blev: \" + talSv(a.utfall) + \" \" + ENHET, (a.diff >= 0 ? \"För högt: \" : \"För lågt: \") + talSv(Math.abs(a.diff)) + \" personer (\" + talSv(Math.abs(a.pct), 1) + \" %)\" ]; }",
+       "label": "fn:function (it) { var a = punkter[it.dataIndex].avv; return [ \"Prognosen sa: \" + talSv(a.prognos) + \" \" + ENHET, \"Det blev: \" + talSv(a.utfall) + \" \" + ENHET, K.riktning(a.diff, 0, { upp: \"För högt: \", ner: \"För lågt: \", noll: \"Avvikelse: \" }) + talSv(Math.abs(a.diff)) + \" personer (\" + talSv(Math.abs(a.pct), 1) + \" %)\" ]; }",
        "title": "fn:function (it) { return \"Prognosen gjord \" + it[0].label; }"
       }
      }

@@ -178,7 +178,7 @@
 
     var f = a.forsta, s = a.sista;
     var riktning = a.forandring === null ? "" :
-      (a.forandring > 0 ? "stigit" : (a.forandring < 0 ? "sjunkit" : "legat stilla"));
+      K.riktning(a.forandring, 1, { upp: "stigit", ner: "sjunkit", noll: "legat stilla" });
     el("slutsats-amne").innerHTML = a.forandring === null
       ? "<p>" + esc(namn) + " har betygspoäng redovisad " + esc(a.arMedPoang) +
         " av " + ar.length + " läsår. Förändringen mellan första och sista " +
@@ -368,12 +368,13 @@
       "ämnenas genomsnittliga betygspoäng");
 
     var diff = s.betygspoang - f.betygspoang;
-    var riktning = diff > 0 ? "stigit" : (diff < 0 ? "sjunkit" : "legat stilla");
+    var riktning = K.riktning(diff, 2, { upp: "stigit", ner: "sjunkit", noll: "legat stilla" });
     el("slutsats-poang").innerHTML =
       "<p>Snittet över ämnena har <strong>" + riktning + "</strong> från " +
       talSv(f.betygspoang, 2) + " (" + esc(lasar(f.ar)) + ") till <strong>" +
       talSv(s.betygspoang, 2) + "</strong> (" + esc(lasar(s.ar)) + ") av " +
-      esc(DATA.maxPoang) + " &ndash; en förändring på " + K.medTecken(diff, 2) + " poäng. Ett snitt på 15 motsvarar ungefär betyget C. " +
+      esc(DATA.maxPoang) + " &ndash; en förändring på " + K.medTecken(diff, 2) +
+      " poäng. Ett snitt på 15 motsvarar ungefär betyget C. " +
       "Talet är ett ovägt medel av de " + DATA.karnamnen.length +
       " ämnenas genomsnittliga betygspoäng, inte årskullens elevviktade snitt.</p>";
 
@@ -433,8 +434,11 @@
 
     var opt = basOptions("Flickornas betygspoäng minus pojkarnas", function (it) {
       var v = it.parsed.x;
-      return v > 0 ? "+" + talSv(v, 1) + " till flickornas fördel"
-                   : talSv(v, 1) + " till pojkarnas fördel";
+      return K.medTecken(v, 1) + K.riktning(v, 1, {
+        upp: " till flickornas fördel",
+        ner: " till pojkarnas fördel",
+        noll: ", ingen skillnad"
+      });
     }, true);
     opt.scales.x.grid.color = function (c) {
       return c.tick.value === 0 ? FARG.baseline : FARG.grid;

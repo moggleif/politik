@@ -1691,7 +1691,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var u = rader[it.dataIndex]; var flyttat = harFlyttat(u); return [ u.forstaAr + \": \" + talSv(u.forsta, 1) + (flyttat ? \" (\" + kort(u.forstaSkola) + \")\" : \"\"), u.sistaAr + \": \" + talSv(u.sista, 1) + (flyttat ? \" (\" + kort(u.sistaSkola) + \")\" : \"\"), (u.forandring >= 0 ? \"Upp \" : \"Ner \") + talSv(Math.abs(u.forandring), 1) + \" betygspoäng\" ]; }"
+       "label": "fn:function (it) { var u = rader[it.dataIndex]; var flyttat = harFlyttat(u); return [ u.forstaAr + \": \" + talSv(u.forsta, 1) + (flyttat ? \" (\" + kort(u.forstaSkola) + \")\" : \"\"), u.sistaAr + \": \" + talSv(u.sista, 1) + (flyttat ? \" (\" + kort(u.sistaSkola) + \")\" : \"\"), K.riktning(u.forandring, 1, { upp: \"Upp \", ner: \"Ner \", noll: \"Oförändrat, \" }) + talSv(Math.abs(u.forandring), 1) + \" betygspoäng\" ]; }"
       }
      }
     },

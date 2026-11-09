@@ -171,7 +171,7 @@
       el("slutsats-riket").innerHTML =
         "<p>År " + esc(sistaJamfor) + " låg Kungsbacka <strong>" +
         talSv(Math.abs(diff), 1) + "&nbsp;%</strong> " +
-        (diff < 0 ? "under" : "över") + " riket: " +
+        K.riktning(diff, 1, { upp: "över", ner: "under", noll: "från" }) + " riket: " +
         kronor(cell(kb, sistaJamfor, "fast")) + " mot " +
         kronor(cell(ri, sistaJamfor, "fast")) + " per elev. Av de " +
         jamfor.length + " år som går att jämföra låg Kungsbacka under " +
@@ -481,7 +481,7 @@
       var diff = cell(kb, kb.sistaAr, "motRiket");
       if (diff !== null) {
         punkter.push("Kungsbacka ligger <strong>" + talSv(Math.abs(diff), 1) +
-          "&nbsp;%</strong> " + (diff < 0 ? "under" : "över") + " riket " +
+          "&nbsp;%</strong> " + K.riktning(diff, 1, { upp: "över", ner: "under", noll: "från" }) + " riket " +
           esc(kb.sistaAr) + ".");
       }
     }

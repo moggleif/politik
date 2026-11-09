@@ -500,6 +500,16 @@ test("medTecken: det som avrundas till noll är noll", () => {
   assert.equal(K.medTecken(0.05, 1), "+0,1");
 });
 
+test("riktning: ordet följer det avrundade talet, som tecknet", () => {
+  const ord = { upp: "upp", ner: "ner", noll: "oförändrat" };
+  assert.equal(K.riktning(1.2, 1, ord), "upp");
+  assert.equal(K.riktning(-1.2, 1, ord), "ner");
+  assert.equal(K.riktning(0, 1, ord), "oförändrat");
+  assert.equal(K.riktning(-0.04, 1, ord), "oförändrat");
+  assert.equal(K.riktning(0.4, 0, ord), "oförändrat");
+  assert.equal(K.riktning(0.05, 1, ord), "upp");
+});
+
 test("typOptions bygger på stommen, med årsaxeln och en y-axel som inte börjar vid noll", () => {
   const titel = () => "t", etikett = () => "e";
   const o = K.typOptions("Medelmeritvärde", { title: titel, label: etikett });
@@ -521,6 +531,6 @@ test("inget sidskript sätter tecken själv", () => {
   const docs = path.join(__dirname, "..", "docs");
   const syndare = fs.readdirSync(docs)
     .filter((f) => f.endsWith(".js") && f !== "gemensam.js" && f !== "chart.umd.js")
-    .filter((f) => /\?\s*"\+"\s*:/.test(fs.readFileSync(path.join(docs, f), "utf8")));
+    .filter((f) => /"\+"/.test(fs.readFileSync(path.join(docs, f), "utf8")));
   assert.deepEqual(syndare, []);
 });

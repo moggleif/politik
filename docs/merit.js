@@ -497,7 +497,7 @@
         return [
           p.forstaAr + ": " + talSv(p.forsta, 1),
           p.sistaAr + ": " + talSv(p.sista, 1),
-          (p.forandring >= 0 ? "Upp " : "Ner ") +
+          K.riktning(p.forandring, 1, { upp: "Upp ", ner: "Ner ", noll: "Oförändrat, " }) +
             talSv(Math.abs(p.forandring), 1) + " meritpoäng"
         ];
       }

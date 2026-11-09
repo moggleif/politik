@@ -180,7 +180,7 @@
     el("slutsats-kronor").innerHTML =
       "<p>År " + esc(o.sistaAr) + " motsvarade avvikelsen <strong>" +
       talSv(Math.abs(o.sista), 1) + " miljoner kronor</strong> " +
-      (o.sista < 0 ? "under" : "över") + " referenskostnaden. Störst var " +
+      K.riktning(o.sista, 1, { upp: "över", ner: "under", noll: "från" }) + " referenskostnaden. Störst var " +
       "den " + esc(o.lagstaAr) + " (" + talSv(Math.abs(o.lagsta), 1) +
       " miljoner).</p>";
 
@@ -240,7 +240,7 @@
       talSv(cell(faktisk, sista)) + " kr</strong> per elev, mot en " +
       "referenskostnad på " + talSv(cell(referens, sista)) + " kr &ndash; " +
       talSv(Math.abs(diff)) + " kr per elev " +
-      (diff < 0 ? "under" : "över") + " den. Bilden visar " + ar.length +
+      K.riktning(diff, 0, { upp: "över", ner: "under", noll: "från" }) + " den. Bilden visar " + ar.length +
       " år, " + esc(ar[0]) + "&ndash;" + esc(ar[ar.length - 1]) + ".</p>";
 
     var rader = ar.map(function (a) {
@@ -377,7 +377,7 @@
       " indexenheter isär. Vägen dit var inte rak: som mest skilde de " +
       "<strong>" + talSv(Math.abs(storst.gap), 1) + "</strong> indexenheter " +
       "(" + esc(storst.ar) + "), då budgetandelen låg " +
-      (storst.gap < 0 ? "under" : "över") + " barnandelen.</p>";
+      K.riktning(storst.gap, 1, { upp: "över", ner: "under", noll: "från" }) + " barnandelen.</p>";
 
     var rader = ar.map(function (a) {
       return "<tr><th scope=\"row\">" + esc(a) + "</th><td>" +
@@ -482,7 +482,7 @@
 
     punkter.push("År " + esc(avv.sistaAr) + " låg Kungsbacka <strong>" +
       talSv(Math.abs(avv.sista), 1) + "&nbsp;%</strong> " +
-      (avv.sista < 0 ? "under" : "över") + " sin referenskostnad för " +
+      K.riktning(avv.sista, 1, { upp: "över", ner: "under", noll: "från" }) + " sin referenskostnad för " +
       "grundskolan – det utjämningssystemet räknar fram att en kommun med " +
       "den här strukturen förväntas lägga.");
 
