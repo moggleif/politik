@@ -59,7 +59,7 @@
   function nivaCell(niva, vald, harUppdrag, status) {
     if (status === "ejBeslutat") return vantar();
     if (niva === "ledamot") return ja();
-    if (niva === "ersättare") return '<span class="liten">ersättare</span>';
+    if (niva === "ersättare") return '<span class="liten" title="Ersättare">ers.</span>';
     return !vald && !harUppdrag ? nej() : "";
   }
 
@@ -82,7 +82,7 @@
      har ersättarna (2022 och 2026), annars kryss. */
   function kfCell(r) {
     if (r.vald) return ja();
-    if (r.kfErsattare) return '<span class="liten">ersättare ' + r.kfErsattare + "</span>";
+    if (r.kfErsattare) return '<span class="liten" title="Ersättare nummer ' + r.kfErsattare + ' i fullmäktige">ers. ' + r.kfErsattare + "</span>";
     return nej();
   }
 
@@ -123,10 +123,10 @@
     if (p.styrande) taggar += ' <span class="tagg tagg-styr">Styrande</span>';
     var rader = p.rader.map(function (r) { return rad(r, status); }).join("");
     var id = "rubrik-" + p.kod + "-" + v.ar;
-    var rubrik = esc(p.namn) + (medAr ? " " + v.ar + " <small>(mandatperioden " + esc(v.mandatperiod) + ")</small>" : "");
+    var rubrik = esc(p.namn) + (medAr ? " " + v.ar + ' <small class="liten">' + esc(v.mandatperiod) + "</small>" : "");
     return '<section class="parti-sektion" aria-labelledby="' + esc(id) + '">' +
       '<h2 id="' + esc(id) + '">' + rubrik + " " + taggar + "</h2>" +
-      (medAr ? '<p class="forklaring liten">' + forklaringVal(v) + "</p>" : "") +
+      (medAr ? statusRad(v, true) + merOmVal(v) : "") +
       '<div class="kort"><div class="tabell-rull"><table class="efter-valet">' +
       '<caption class="dold">' + esc(p.namn) + " " + v.ar + ": listan i nummerordning, med vad varje plats blev</caption>" +
       "<thead><tr>" +
@@ -203,17 +203,19 @@
     function mini(inre) {
       return '<svg class="pk-mini" width="22" height="22" viewBox="-11 -11 22 22" aria-hidden="true">' + inre + "</svg>";
     }
-    return '<p class="forklaring liten pk-forklaring">' +
-      mini('<circle class="pk-tom" r="3.5"/>') + " plats på listan · " +
-      mini('<circle class="pk-kf" r="3.5"/>') + " ledamot i fullmäktige · " +
-      mini('<circle class="pk-kf-ers" r="3.5"/>') + " ersättare i fullmäktige (bara 2022 och 2026) · " +
-      mini('<rect class="pk-ks" x="-6.5" y="-6.5" width="13" height="13"/><circle class="pk-kf" r="3.5"/>') + " KS · " +
-      mini('<rect class="pk-ks pk-ers" x="-6.5" y="-6.5" width="13" height="13"/><circle class="pk-kf" r="3.5"/>') + " ersättare i KS · " +
-      mini('<path class="pk-ksau" d="M0 -9L9 0L0 9L-9 0Z"/><circle class="pk-kf" r="3.5"/>') + " KSAU · " +
-      mini('<path class="pk-ordf" d="M0 -9l4.5 7h-9z"/><circle class="pk-kf" r="3.5"/>') + " ordförande · " +
-      mini('<path class="pk-vice" d="M0 9l4.5 -7h-9z"/><circle class="pk-kf" r="3.5"/>') + " vice ordförande. " +
-      "* = delvis kartlagd ur närvarolistor (tomt är &quot;inte funnet&quot;); † = uppdragen inte beslutade än. " +
-      "Peka på en plats för namn och uppdrag.</p>";
+    var kf = '<circle class="pk-kf" r="3.5"/>';
+    var poster = [
+      [mini('<circle class="pk-tom" r="3.5"/>'), "på listan"],
+      [mini(kf), "ledamot i KF"],
+      [mini('<circle class="pk-kf-ers" r="3.5"/>'), "ersättare i KF"],
+      [mini('<rect class="pk-ks" x="-6.5" y="-6.5" width="13" height="13"/>' + kf), "KS"],
+      [mini('<rect class="pk-ks pk-ers" x="-6.5" y="-6.5" width="13" height="13"/>' + kf), "ersättare i KS"],
+      [mini('<path class="pk-ksau" d="M0 -9L9 0L0 9L-9 0Z"/>' + kf), "KSAU"],
+      [mini('<path class="pk-ordf" d="M0 -9l4.5 7h-9z"/>' + kf), "ordförande"],
+      [mini('<path class="pk-vice" d="M0 9l4.5 -7h-9z"/>' + kf), "vice ordf."]
+    ];
+    return '<ul class="ev-tecken pk-forklaring">' + poster.map(function (x) { return "<li>" + x[0] + " " + x[1] + "</li>"; }).join("") +
+      "</ul>" + '<p class="liten pk-not">* delvis kartlagt (tomt = inte funnet) · † inte beslutat än · Peka på en plats för namn och uppdrag.</p>';
   }
 
   /* ---------- Listan under kartan: var på listan uppdragen hamnade ---------- */
@@ -286,10 +288,11 @@
     data.val.forEach(function (v) {
       v.partier.forEach(function (p) { if (p.kod === kod) namn = p.namn; });
     });
-    el("platskarta-rubrik").textContent = namn + ": platsen på listan och uppdraget, val för val";
+    el("platskarta-rubrik").textContent = namn + ": plats på listan och uppdrag, val för val";
     el("platskarta-innehall").innerHTML =
       '<div class="tabell-rull">' + platskarta(kod) + "</div>" + kartforklaring() +
-      '<div class="utfall-lista">' + utfallLista(kod) + "</div>";
+      '<details class="ev-mer utfall-lista"><summary>Var på listan hamnade uppdragen? Val för val, i text</summary>' +
+      utfallLista(kod) + "</details>";
     sekt.hidden = false;
   }
 
@@ -302,53 +305,66 @@
     return [data.val.filter(function (v) { return String(v.ar) === ar; })[0] || data.val[0]];
   }
 
-  function textStyre(v) {
-    if (!v.styre) {
-      return "Styret för " + esc(v.mandatperiod) + " är inte bildat än, så partierna står i storleksordning efter antal mandat.";
-    }
-    var namn = v.styre.partier.map(function (k) {
-      var p = v.partier.filter(function (q) { return q.kod === k; })[0];
-      return p ? p.namn : k;
-    });
-    return "Styrande partier (" + esc(namn.join(", ")) + ") står först, därefter övriga; inom varje grupp efter antal mandat. " +
-      (v.styre.styrkt ? "Uppgiften om styret är styrkt av en fristående källa." :
-        "Uppgiften om styret är inte styrkt i en fristående källa (se längst ned).");
+  /* Kort statusrad per val: en tagg och en mening. Allt annat om valet
+     (källor, ersättare, styre, protokolldatum) ligger i en utfällbar del. */
+  var STATUS = {
+    komplett: { tagg: "Komplett", text: "Uppdragen kommer ur fullmäktiges beslut." },
+    partiell: { tagg: "Delvis kartlagt", text: "Ur närvarolistor: en tom ruta betyder &quot;inte funnet&quot;, inte &quot;nej&quot;." },
+    ejBeslutat: { tagg: "Inte beslutat", text: "KS, KSAU och nämnder väljs i december 2026." }
+  };
+
+  function statusRad(v, medAr) {
+    var st = STATUS[v.uppdragStatus];
+    return '<p class="ev-status">' + (medAr ? "" : "<strong>Valet " + v.ar + "</strong> · mandatperioden " + esc(v.mandatperiod) + " ") +
+      '<span class="tagg tagg-' + esc(v.uppdragStatus) + '">' + st.tagg + "</span> " + st.text + "</p>";
   }
 
-  function forklaringVal(v) {
-    var t = "<strong>Valet " + v.ar + "</strong> gäller mandatperioden " + esc(v.mandatperiod) + ". ";
+  function merOmVal(v) {
+    var punkter = [];
     if (v.uppdragStatus === "komplett") {
-      t += "Uppdragen kommer ur fullmäktiges beslut om vilka som valdes. ";
-      t += v.ersattareKalla
-        ? "Ersättarna i fullmäktige är Valmyndighetens nuvarande (per " + esc(v.ersattareKalla.uppgiftPer) + "), inte de ursprungligen utsedda. "
-        : "Ersättarna i fullmäktige är okända: Valmyndigheten har ingen ersättarfil för valet. ";
+      punkter.push("KS, KSAU, ordförande och vice ordförande enligt fullmäktiges och kommunstyrelsens valbeslut.");
     } else if (v.uppdragStatus === "partiell") {
       var d = v.protokollDatum || {};
-      t += "Fullmäktiges beslut saknas för den här perioden, så uppdragen är bara delvis kartlagda ur närvarolistor: " +
-        "<strong>en tom ruta betyder &quot;inte funnet&quot;, inte &quot;nej&quot;</strong>. KS-kolumnen visar de närvarande vid " +
-        "protokollet " + esc(d.KS || "(saknas)") + (d.KSAU ? " och KSAU vid " + esc(d.KSAU) : "; KSAU saknas i arkivet") +
-        " – en ögonblicksbild, inte den sammansättning som valdes efter valet. Ersättare i KS och KSAU syns bara om de tjänstgjorde vid något möte; " +
-        "ersättarna i fullmäktige är okända. ";
+      punkter.push("Fullmäktiges valbeslut saknas i arkivet. KS visar de närvarande vid protokollet " + esc(d.KS || "(saknas)") +
+        (d.KSAU ? ", KSAU vid " + esc(d.KSAU) : ", KSAU saknas") + " – en ögonblicksbild, inte sammansättningen direkt efter valet.");
+      punkter.push("Ersättare i KS och KSAU syns bara om de tjänstgjorde vid något av de lästa mötena.");
+      punkter.push('<span class="senare">*</span> efter en nämnd: syns först vid ett senare möte (ett byte under perioden).');
     } else {
-      t += "KS, KSAU och nämnder för perioden väljs av fullmäktige i december 2026, så uppdragen är inte beslutade än. ";
-      if (v.ersattareKalla) t += "Ersättarna i fullmäktige är Valmyndighetens per " + esc(v.ersattareKalla.uppgiftPer) + ". ";
+      punkter.push("Fullmäktige väljer KS och nämnder 2026-12-08 och KSAU i början av 2027.");
     }
-    return t + textStyre(v);
+    punkter.push(v.ersattareKalla
+      ? "Ersättarna i fullmäktige är Valmyndighetens per " + esc(v.ersattareKalla.uppgiftPer) + ", inte de ursprungligen utsedda."
+      : "Ersättarna i fullmäktige är okända: Valmyndigheten har ingen ersättarfil för valet.");
+    if (v.styre) {
+      var namn = v.styre.partier.map(function (k) {
+        var p = v.partier.filter(function (q) { return q.kod === k; })[0];
+        return p ? p.namn : k;
+      });
+      punkter.push("Styrande: " + esc(namn.join(", ")) + " – visas först. " +
+        (v.styre.styrkt ? "Styrkt av en fristående källa." : "Inte styrkt i en fristående källa (se längst ned)."));
+    } else {
+      punkter.push("Styret är inte bildat än; partierna står efter antal mandat.");
+    }
+    return '<details class="ev-mer"><summary>Mer om valet ' + v.ar + "</summary><ul>" +
+      punkter.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul></details>";
   }
 
-  function teckenforklaring(v, flera) {
-    var t = '<span class="ja" aria-hidden="true">✓</span> = ledamot (i fullmäktige, KSAU eller KS); ' +
-      "&quot;ersättare&quot; = ersättare där (i fullmäktige med ersättarordningen). " +
-      '<span class="nej" aria-hidden="true">✗</span> = inte aktuell: platsen blev inget av det. ' +
-      "Ordförande och vice ordförande anger organet; (1:e) och (2:e) är första och andra vice ordförande. Under namnet står orten som kandidaten angav på valsedeln (saknas helt 2010). ";
-    if (flera) {
-      t += '<span class="vantar" aria-hidden="true">·</span> = inte beslutat än (2026). ' +
-        '<span class="senare">*</span> = syns först vid ett senare möte (2018 och 2010). ';
-    }
-    if (!flera && v.uppdragStatus === "ejBeslutat") t += '<span class="vantar" aria-hidden="true">·</span> = inte beslutat än. ';
-    if (!flera && v.uppdragStatus === "partiell") t += '<span class="senare">*</span> = syns först vid ett senare möte (ett byte under perioden). ';
-    t += "<em>(osäker)</em> efter ett namn betyder att Valmyndigheten gallrat namnet och att det är framtaget ur protokollen med en möjlig, inte säker, träff.";
-    return t;
+  /* Teckenförklaringen som en kompakt rad med en post per tecken; bara de
+     tecken som kan förekomma i det som visas. */
+  function teckenforklaring(vv) {
+    var status = {};
+    vv.forEach(function (v) { status[v.uppdragStatus] = true; });
+    var poster = [
+      ['<span class="ja">✓</span>', "ledamot"],
+      ['<span class="liten">ers. 3</span>', "ersättare (ordning)"],
+      ['<span class="nej">✗</span>', "inte aktuell"]
+    ];
+    if (status.ejBeslutat) poster.push(['<span class="vantar">·</span>', "inte beslutat än"]);
+    if (status.partiell) poster.push(['<span class="senare">*</span>', "byte under perioden"]);
+    poster.push(['<span class="osaker">(osäker)</span>', "namnet är en möjlig träff"]);
+    return poster.map(function (x) {
+      return '<li><span aria-hidden="true">' + x[0] + "</span> " + x[1] + "</li>";
+    }).join("");
   }
 
   function ritaOm() {
@@ -356,11 +372,9 @@
     var flera = vv.length > 1;
     var parti = el("parti-valjare").value;
     el("val-forklaring").innerHTML = flera
-      ? "Alla fem val, det senaste först. Varje val har sin egen förklaring över tabellen; " +
-        "<strong>2018 och 2010 är bara delvis kartlagda, och där betyder en tom ruta &quot;inte funnet&quot;, inte &quot;nej&quot;</strong>. " +
-        "Uppdragen för valet 2026 är inte beslutade än."
-      : forklaringVal(vv[0]);
-    el("teckenforklaring").innerHTML = teckenforklaring(vv[0], flera);
+      ? '<p class="ev-status"><strong>Alla val</strong>, det senaste först. Varje val har sin status över tabellen.</p>'
+      : statusRad(vv[0], false) + merOmVal(vv[0]);
+    el("teckenforklaring").innerHTML = teckenforklaring(vv);
     var ut = "";
     vv.forEach(function (v) {
       v.partier.filter(function (p) { return parti === "alla" || p.kod === parti; })
@@ -375,12 +389,12 @@
     data.val.forEach(function (v) {
       var o = document.createElement("option");
       o.value = String(v.ar);
-      o.textContent = v.ar + " (mandatperioden " + v.mandatperiod + ")";
+      o.textContent = v.ar + " (" + v.mandatperiod + ")";
       vv.appendChild(o);
     });
     var allaVal = document.createElement("option");
     allaVal.value = "alla";
-    allaVal.textContent = "Alla val (ett parti i taget)";
+    allaVal.textContent = "Alla val";
     vv.appendChild(allaVal);
     vv.value = "2022";
     var pv = el("parti-valjare");

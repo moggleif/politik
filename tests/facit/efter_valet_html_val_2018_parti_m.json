@@ -3,12 +3,12 @@
  "reglage": [
   {
    "alternativ": [
-    "2026=2026 (mandatperioden 2027–2030)",
-    "2022=2022 (mandatperioden 2023–2026)",
-    "2018=2018 (mandatperioden 2019–2022)",
-    "2014=2014 (mandatperioden 2015–2018)",
-    "2010=2010 (mandatperioden 2011–2014)",
-    "alla=Alla val (ett parti i taget)"
+    "2026=2026 (2027–2030)",
+    "2022=2022 (2023–2026)",
+    "2018=2018 (2019–2022)",
+    "2014=2014 (2015–2018)",
+    "2010=2010 (2011–2014)",
+    "alla=Alla val"
    ],
    "id": "val-valjare",
    "varde": "2018"
@@ -244,7 +244,7 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "ersättare"
+      "text": "ers."
      },
      {
       "scope": null,
@@ -614,7 +614,7 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "ersättare"
+      "text": "ers."
      },
      {
       "scope": null,
@@ -1840,7 +1840,7 @@
   },
   "#platskarta-rubrik": {
    "dold": false,
-   "html": "Moderaterna: platsen på listan och uppdraget, val för val"
+   "html": "Moderaterna: plats på listan och uppdrag, val för val"
   },
   "#rubrik-M-2018": {
    "dold": false,
@@ -1864,15 +1864,15 @@
   },
   "#teckenforklaring": {
    "dold": false,
-   "html": "<span class=\"ja\" aria-hidden=\"true\">✓</span> = ledamot (i fullmäktige, KSAU eller KS); \"ersättare\" = ersättare där (i fullmäktige med ersättarordningen). <span class=\"nej\" aria-hidden=\"true\">✗</span> = inte aktuell: platsen blev inget av det. Ordförande och vice ordförande anger organet; (1:e) och (2:e) är första och andra vice ordförande. Under namnet står orten som kandidaten angav på valsedeln (saknas helt 2010). <span class=\"senare\">*</span> = syns först vid ett senare möte (ett byte under perioden). <em>(osäker)</em> efter ett namn betyder att Valmyndigheten gallrat namnet och att det är framtaget ur protokollen med en möjlig, inte säker, träff."
+   "html": "<li><span aria-hidden=\"true\"><span class=\"ja\">✓</span></span> ledamot</li><li><span aria-hidden=\"true\"><span class=\"liten\">ers. 3</span></span> ersättare (ordning)</li><li><span aria-hidden=\"true\"><span class=\"nej\">✗</span></span> inte aktuell</li><li><span aria-hidden=\"true\"><span class=\"senare\">*</span></span> byte under perioden</li><li><span aria-hidden=\"true\"><span class=\"osaker\">(osäker)</span></span> namnet är en möjlig träff</li>"
   },
   "#val-forklaring": {
    "dold": false,
-   "html": "<strong>Valet 2018</strong> gäller mandatperioden 2019–2022. Fullmäktiges beslut saknas för den här perioden, så uppdragen är bara delvis kartlagda ur närvarolistor: <strong>en tom ruta betyder \"inte funnet\", inte \"nej\"</strong>. KS-kolumnen visar de närvarande vid protokollet 2021-01-19 och KSAU vid 2021-01-05 – en ögonblicksbild, inte den sammansättning som valdes efter valet. Ersättare i KS och KSAU syns bara om de tjänstgjorde vid något möte; ersättarna i fullmäktige är okända. Styrande partier (Moderaterna, Centerpartiet, Liberalerna, Kristdemokraterna) står först, därefter övriga; inom varje grupp efter antal mandat. Uppgiften om styret är inte styrkt i en fristående källa (se längst ned)."
+   "html": "<p class=\"ev-status\"><strong>Valet 2018</strong> · mandatperioden 2019–2022 <span class=\"tagg tagg-partiell\">Delvis kartlagt</span> Ur närvarolistor: en tom ruta betyder \"inte funnet\", inte \"nej\".</p><details class=\"ev-mer\"><summary>Mer om valet 2018</summary><ul><li>Fullmäktiges valbeslut saknas i arkivet. KS visar de närvarande vid protokollet 2021-01-19, KSAU vid 2021-01-05 – en ögonblicksbild, inte sammansättningen direkt efter valet.</li><li>Ersättare i KS och KSAU syns bara om de tjänstgjorde vid något av de lästa mötena.</li><li><span class=\"senare\">*</span> efter en nämnd: syns först vid ett senare möte (ett byte under perioden).</li><li>Ersättarna i fullmäktige är okända: Valmyndigheten har ingen ersättarfil för valet.</li><li>Styrande: Moderaterna, Centerpartiet, Liberalerna, Kristdemokraterna – visas först. Inte styrkt i en fristående källa (se längst ned).</li></ul></details>"
   },
   "#val-valjare": {
    "dold": false,
-   "html": "<option value=\"2026\">2026 (mandatperioden 2027–2030)</option><option value=\"2022\">2022 (mandatperioden 2023–2026)</option><option value=\"2018\">2018 (mandatperioden 2019–2022)</option><option value=\"2014\">2014 (mandatperioden 2015–2018)</option><option value=\"2010\">2010 (mandatperioden 2011–2014)</option><option value=\"alla\">Alla val (ett parti i taget)</option>"
+   "html": "<option value=\"2026\">2026 (2027–2030)</option><option value=\"2022\">2022 (2023–2026)</option><option value=\"2018\">2018 (2019–2022)</option><option value=\"2014\">2014 (2015–2018)</option><option value=\"2010\">2010 (2011–2014)</option><option value=\"alla\">Alla val</option>"
   }
  }
 }
