@@ -522,7 +522,7 @@
         return u.forandring >= 0 ? FARG.bla : FARG.rod;
       }),
       titel: "Förändring i betygspoäng, första till sista mätår",
-      tick: function (v) { return (v > 0 ? "+" : "") + talSv(v, 1); },
+      tick: function (v) { return K.medTecken(v, 1); },
       etikett: function (it) {
         var u = rader[it.dataIndex];
         var flyttat = harFlyttat(u);

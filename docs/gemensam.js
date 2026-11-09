@@ -93,11 +93,15 @@
     }
   }
 
+  /* Noll har inget tecken. toLocaleString skriver "−0,0" för ett litet
+     negativt tal som avrundas till noll, och för −0; ett tal utan en
+     enda siffra skild från noll är noll och skrivs utan minus. */
   function talSv(n, dec) {
-    return n.toLocaleString("sv-SE", {
+    var s = n.toLocaleString("sv-SE", {
       minimumFractionDigits: dec || 0,
       maximumFractionDigits: dec === undefined ? 0 : dec
     });
+    return /[1-9]/.test(s) ? s : s.replace(/^[\u2212-]/, "");
   }
 
   /* All HTML på sidorna byggs som strängar. Värden som kommer ur
@@ -520,10 +524,13 @@
     return opt;
   }
 
-  /* "+1,5" och "−0,3" med riktigt minustecken; noll skrivs med plus.
-     Inte samma sak som axlarnas tickar, där talSv själv skriver minus. */
+  /* En förändring med sitt tecken: "+1,5", "−0,3" med riktigt
+     minustecken, och noll utan tecken – också det som avrundas till noll,
+     så att "+0,0" och "−0,0" aldrig visas. */
   function medTecken(v, decimaler) {
-    return (v >= 0 ? "+" : "−") + talSv(Math.abs(v), decimaler);
+    var belopp = talSv(Math.abs(v), decimaler);
+    if (!/[1-9]/.test(belopp)) return belopp;
+    return (v > 0 ? "+" : "\u2212") + belopp;
   }
 
   /* ---------- Serier som inte är lika långa ----------

@@ -85,7 +85,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var v = it.parsed.y; return (v > 0 ? \"+\" : \"\") + talSv(v, 1) + \" % mot referenskostnaden\"; }",
+       "label": "fn:function (it) { var v = it.parsed.y; return K.medTecken(v, 1) + \" % mot referenskostnaden\"; }",
        "title": "fn:function (it) { return \"År \" + it[0].label; }"
       }
      }
@@ -372,7 +372,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var v = it.parsed.y; return (v > 0 ? \"+\" : \"\") + talSv(v, 1) + \" miljoner kronor\"; }",
+       "label": "fn:function (it) { var v = it.parsed.y; return K.medTecken(v, 1) + \" miljoner kronor\"; }",
        "title": "fn:function (it) { return \"År \" + it[0].label; }"
       }
      }

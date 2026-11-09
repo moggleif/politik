@@ -160,6 +160,13 @@ test("talSv skriver tal på svenskt vis", () => {
   assert.equal(K.talSv(-4.7, 1), "−4,7");
 });
 
+test("talSv skriver aldrig minus framför en nolla", () => {
+  assert.equal(K.talSv(-0), "0");
+  assert.equal(K.talSv(-0.04, 1), "0,0");
+  assert.equal(K.talSv(-0.4), "0");
+  assert.equal(K.talSv(-0.05, 1), "\u22120,1");
+});
+
 test("talSv utan decimalargument avrundar till heltal", () => {
   assert.equal(K.talSv(14.53), "15");
   assert.equal(K.talSv(2.5), "3");
@@ -472,16 +479,25 @@ test("typserier läser det fält som anges och visar okänd typ som den är", ()
   assert.deepEqual(s[0].data, [14.2]);
 });
 
-test("medTecken: plus för noll och uppåt, riktigt minustecken nedåt", () => {
+test("medTecken: plus uppåt, riktigt minustecken nedåt", () => {
   assert.equal(K.medTecken(1.25, 1), "+1,3");
-  assert.equal(K.medTecken(0, 1), "+0,0");
-  assert.equal(K.medTecken(-0.3, 1), "−0,3");
-  assert.equal(K.medTecken(-12, 0), "−12");
+  assert.equal(K.medTecken(-0.3, 1), "\u22120,3");
+  assert.equal(K.medTecken(-12, 0), "\u221212");
+  assert.equal(K.medTecken(1234), "+1\u00a0234");
 });
 
-test("medTecken: negativt noll får plus, ett litet negativt tal behåller minus", () => {
-  assert.equal(K.medTecken(-0, 1), "+0,0");
-  assert.equal(K.medTecken(-0.04, 1), "−0,0");
+test("medTecken: noll har inget tecken", () => {
+  assert.equal(K.medTecken(0, 1), "0,0");
+  assert.equal(K.medTecken(0), "0");
+  assert.equal(K.medTecken(-0, 1), "0,0");
+});
+
+test("medTecken: det som avrundas till noll är noll", () => {
+  assert.equal(K.medTecken(-0.04, 1), "0,0");
+  assert.equal(K.medTecken(0.04, 1), "0,0");
+  assert.equal(K.medTecken(0.4), "0");
+  assert.equal(K.medTecken(-0.4), "0");
+  assert.equal(K.medTecken(0.05, 1), "+0,1");
 });
 
 test("typOptions bygger på stommen, med årsaxeln och en y-axel som inte börjar vid noll", () => {
@@ -497,4 +513,14 @@ test("typOptions bygger på stommen, med årsaxeln och en y-axel som inte börja
   assert.equal(o.scales.y.beginAtZero, false);
   assert.equal(o.scales.y.grace, "10%");
   assert.equal(o.scales.y.ticks.callback(1500), K.talSv(1500));
+});
+
+/* Regeln "Noll är noll" i CLAUDE.md: ett eget `? "+" :` på en sida är hur
+   "+0" och "−0,0" kom in förut (#88). Tecknet sätts bara i gemensam.js. */
+test("inget sidskript sätter tecken själv", () => {
+  const docs = path.join(__dirname, "..", "docs");
+  const syndare = fs.readdirSync(docs)
+    .filter((f) => f.endsWith(".js") && f !== "gemensam.js" && f !== "chart.umd.js")
+    .filter((f) => /\?\s*"\+"\s*:/.test(fs.readFileSync(path.join(docs, f), "utf8")));
+  assert.deepEqual(syndare, []);
 });

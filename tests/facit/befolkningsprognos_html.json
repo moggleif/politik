@@ -566,7 +566,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var r = rader[it.dataIndex]; return [ \"Genomsnittligt fel med riktning: \" + (r.medelPct >= 0 ? \"+\" : \"−\") + talSv(Math.abs(r.medelPct), 1) + \" %\", r.antalOver + \" av \" + r.antal + \" prognoser låg för högt\" ]; }"
+       "label": "fn:function (it) { var r = rader[it.dataIndex]; return [ \"Genomsnittligt fel med riktning: \" + K.medTecken(r.medelPct, 1) + \" %\", r.antalOver + \" av \" + r.antal + \" prognoser låg för högt\" ]; }"
       }
      }
     },
@@ -668,7 +668,7 @@
        "autoSkipPadding": 3,
        "backdropColor": "rgba(255, 255, 255, 0.75)",
        "backdropPadding": 2,
-       "callback": "fn:function (v) { return (v > 0 ? \"+\" : \"\") + talSv(v, 1) + \" %\"; }",
+       "callback": "fn:function (v) { return K.medTecken(v, 1) + \" %\"; }",
        "color": "#52514e",
        "crossAlign": "near",
        "display": true,

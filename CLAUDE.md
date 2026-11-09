@@ -55,6 +55,9 @@ reproducerbarhetstesterna faller om innehållet inte går att räkna fram ur
 - **Tomt är inte noll.** Ett år utan uppgift blir `null` och ritas som en
   lucka, aldrig som en nolla. Skolverkets prickning (`..` färre än tio
   elever, `.` uppgift saknas) skiljs från "fanns inte".
+- **Noll är noll.** Ett tal som avrundas till noll skrivs utan tecken –
+  aldrig "+0" eller "−0,0". `talSv` och `K.medTecken` i `docs/gemensam.js`
+  sköter det; skriv inget eget `? "+" :`.
 - **Hellre stanna än spara siffror som inte går ihop.** Hämt- och
   byggskripten kontrollerar kolumnlayout och summor mot källans egna tal och
   avbryter vid avvikelse, i stället för att läsa fel kolumn under tystnad.

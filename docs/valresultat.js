@@ -108,10 +108,7 @@
   function ar() { return data.ar; }
   function arStr() { return data.ar.map(String); }
 
-  function tecken(n, decimaler) {
-    var t = (n > 0 ? "+" : n < 0 ? "−" : "");
-    return t + talSv(Math.abs(n), decimaler);
-  }
+  var tecken = K.medTecken;
 
   function procentenheter(n) { return tecken(n, 1) + " pe"; }
 

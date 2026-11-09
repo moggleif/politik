@@ -188,11 +188,9 @@
         html += "<p>Mellan den första och den sista av dessa kullar gick " +
           "det ovägda inriktningssnittet vid antagningen från " +
           talSv(forsta.antagning.medel, 1) + " till " +
-          talSv(sista.antagning.medel, 1) + " (" + (mDiff >= 0 ? "+" : "−") +
-          talSv(Math.abs(mDiff), 1) + " meritpoäng), och betygspoängen vid " +
+          talSv(sista.antagning.medel, 1) + " (" + K.medTecken(mDiff, 1) + " meritpoäng), och betygspoängen vid " +
           "examen från " + talSv(forsta.examen.betygspoang, 1) + " till " +
-          talSv(sista.examen.betygspoang, 1) + " (" + (bDiff >= 0 ? "+" : "−") +
-          talSv(Math.abs(bDiff), 1) + " betygspoäng).</p>";
+          talSv(sista.examen.betygspoang, 1) + " (" + K.medTecken(bDiff, 1) + " betygspoäng).</p>";
         var andelar = kompletta.filter(function (r) {
           return r.examen.andelExamen !== null && r.examen.andelExamen !== undefined;
         }).map(function (r) { return r.examen.andelExamen; });

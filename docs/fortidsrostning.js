@@ -62,8 +62,8 @@
     return text;
   }
 
-  function tecken(n) { return (n > 0 ? "+" : n < 0 ? "−" : "") + talSv(Math.abs(n)); }
-  function teckenPct(p) { return (p > 0 ? "+" : p < 0 ? "−" : "") + talSv(Math.abs(p), 1) + " %"; }
+  function tecken(n) { return K.medTecken(n); }
+  function teckenPct(p) { return K.medTecken(p, 1) + " %"; }
   function pct(antal, av) { return av ? 100 * antal / av : null; }
 
   function kvarText(k) {

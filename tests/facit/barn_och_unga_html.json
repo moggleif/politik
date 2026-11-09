@@ -635,7 +635,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { var v = it.parsed.y; return (v > 0 ? \"+\" : \"\") + talSv(v) + \" personer\"; }",
+       "label": "fn:function (it) { var v = it.parsed.y; return K.medTecken(v) + \" personer\"; }",
        "title": "fn:function (it) { return \"År \" + it[0].label; }"
       }
      }

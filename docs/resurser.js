@@ -56,7 +56,7 @@
 
   function medTecken(v, dec) {
     if (v === null || v === undefined) return "&ndash;";
-    return (v > 0 ? "+" : "") + talSv(v, dec);
+    return K.medTecken(v, dec);
   }
 
   /* Reformåren som markeringar i de diagram som avvikelsen ritas i. */
@@ -110,7 +110,7 @@
     var opt = nollinje(basOptions("Avvikelse från referenskostnaden (%)",
       function (it) {
         var v = it.parsed.y;
-        return (v > 0 ? "+" : "") + talSv(v, 1) + " % mot referenskostnaden";
+        return K.medTecken(v, 1) + " % mot referenskostnaden";
       }));
     opt.scales.y.ticks.callback = function (v) { return talSv(v, 0) + " %"; };
 
@@ -164,7 +164,7 @@
     var opt = nollinje(basOptions("Avvikelse (miljoner kronor)",
       function (it) {
         var v = it.parsed.y;
-        return (v > 0 ? "+" : "") + talSv(v, 1) + " miljoner kronor";
+        return K.medTecken(v, 1) + " miljoner kronor";
       }));
 
     K.rita("diagram-kronor", {

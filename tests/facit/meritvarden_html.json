@@ -2188,7 +2188,7 @@
        "autoSkipPadding": 3,
        "backdropColor": "rgba(255, 255, 255, 0.75)",
        "backdropPadding": 2,
-       "callback": "fn:function (v) { return (v > 0 ? \"+\" : \"\") + talSv(v); }",
+       "callback": "fn:function (v) { return K.medTecken(v); }",
        "color": "#52514e",
        "crossAlign": "near",
        "display": true,

@@ -109,7 +109,7 @@
     var rader = data.ar.map(function (a) {
       var f = cell(s, a, "forandring");
       return "<tr><th scope=\"row\">" + esc(a) + "</th><td>" + talSv(cell(s, a, "antal")) +
-        "</td><td>" + (f === null ? "&ndash;" : (f > 0 ? "+" : "") + talSv(f)) +
+        "</td><td>" + (f === null ? "&ndash;" : K.medTecken(f)) +
         "</td><td>" + talSv(cell(s, a, "andel"), 1) + "&nbsp;%</td></tr>";
     }).join("");
     el("tabell-antal").innerHTML =
@@ -185,7 +185,7 @@
 
     var opt = basOptions("Förändring mot föregående år (personer)", function (it) {
       var v = it.parsed.y;
-      return (v > 0 ? "+" : "") + talSv(v) + " personer";
+      return K.medTecken(v) + " personer";
     });
     opt.scales.y.grid.color = function (c) {
       return c.tick.value === 0 ? FARG.baseline : FARG.grid;
@@ -223,7 +223,7 @@
     var rader = ar.map(function (a, i) {
       var v = varden[i];
       return "<tr><th scope=\"row\">" + esc(a) + "</th><td>" +
-        (v > 0 ? "+" : "") + talSv(v) + "</td></tr>";
+        K.medTecken(v) + "</td></tr>";
     }).join("");
     el("tabell-forandring").innerHTML =
       "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Förändring</th></tr></thead>" +

@@ -413,7 +413,7 @@
       talSv(s.gymnasiet.inpendling) + "</strong> av eleverna i kommunens " +
       "gymnasieskolor utifrån &ndash; " + pct(s.gymnasiet.andelInAvEleverna) +
       " av alla som läser här. Inpendling minus utpendling ger " +
-      (s.gymnasiet.netto > 0 ? "+" : "") + talSv(s.gymnasiet.netto) +
+      K.medTecken(s.gymnasiet.netto) +
       " elever.</p>" +
       "<p>Samma läsår läste " + pct(s.grundskolan.andelUt) + " av kommunens " +
       "grundskoleelever i en annan kommun, mot " + pct(s.gymnasiet.andelUt) +
@@ -428,8 +428,7 @@
       talSv(mestIn.gymnasiet.inpendling) + " elever (" + esc(mestIn.lasar) +
       "), mot " + talSv(s.gymnasiet.inpendling) + " läsåret " + esc(s.lasar) +
       ". Nettots högsta värde är " +
-      (bastNetto.gymnasiet.netto > 0 ? "+" : "") +
-      talSv(bastNetto.gymnasiet.netto) +
+      K.medTecken(bastNetto.gymnasiet.netto) +
       " elever (" + esc(bastNetto.lasar) + "), mot " +
       talSv(s.gymnasiet.netto) + " sista läsåret.</p>";
 
