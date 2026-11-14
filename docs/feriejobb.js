@@ -227,6 +227,41 @@
       "Medelvärden på skalan 1–5. Siffrorna inom hakparentes är källor.";
   }
 
+  /* ---------- Hur många kunde söka ----------
+     Årskullen ur Kolada: 15-åringarna den 31 december året före
+     sommaren, de som går första året när sommaren kommer. Sidan räknar
+     ingen andel – årskullen är en uppskattning av vilka som fick söka,
+     inte en räkning av dem. */
+
+  function talCell(v) {
+    if (!v) return "<td>&ndash;</td>";
+    return "<td>" + v.uppgifter.map(function (u) {
+      return talSv(u.varde) + " " + fotnoter(u.kallor);
+    }).join(" eller ") + "</td>";
+  }
+
+  function arskullCell(n) {
+    return n === null ? "<td>&ndash;</td>" : "<td>" + talSv(n) + "</td>";
+  }
+
+  function ritaArskull() {
+    var ak = data.arskullar;
+    var rader = data.ar.map(function (a) {
+      return '<tr><th scope="row">' + esc(a) + "</th>" +
+        arskullCell(ak.varden.feriejobb[String(a)]) +
+        talCell(varde("sokande", a)) + talCell(varde("tillsatta", a)) + "</tr>";
+    }).join("");
+    el("tabell-arskull").innerHTML =
+      '<thead><tr><th scope="col">Sommar</th><th scope="col">Årskullen i kommunen</th>' +
+      '<th scope="col">Sökande</th><th scope="col">Tillsatta feriejobb</th></tr></thead>' +
+      "<tbody>" + rader + "</tbody>";
+    var url = K.sakerUrl(ak.kallaUrl);
+    el("kalla-arskull").innerHTML = "Årskullen: " +
+      (url ? '<a href="' + url + '">' + esc(ak.kalla) + "</a>" : esc(ak.kalla)) +
+      ", nyckeltal N01832, hämtat " + esc(datumSv(ak.hamtad)) +
+      ". Sökande och tillsatta: nämndens handlingar, källorna inom hakparentes.";
+  }
+
   /* ---------- Övriga sommarjobb ----------
      Grupperna räknas inte ihop med feriejobben eller med varandra: de
      mäts på olika sätt och vid olika tidpunkter. Feriejobben står överst
@@ -250,17 +285,18 @@
     var huvud = sj.ar.map(function (a) { return '<th scope="col">' + esc(a) + "</th>"; }).join("");
     var ferie = '<tr><th scope="row">Feriejobb, tillsatta i hela kommunen' +
       "<br><small>Gymnasieettor</small></th>" + sj.ar.map(function (a) {
-        var v = data.varden.tillsatta[String(a)];
-        if (!v) return "<td>&ndash;</td>";
-        return "<td>" + v.uppgifter.map(function (u) {
-          return talSv(u.varde) + " " + fotnoter(u.kallor);
-        }).join(" eller ") + "</td>";
+        return talCell(varde("tillsatta", a));
+      }).join("") + "</tr>";
+    var sjutton = '<tr><th scope="row">Alla 17-åringar i kommunen' +
+      "<br><small>16 år den 31 december året före, enligt Kolada</small></th>" +
+      sj.ar.map(function (a) {
+        return arskullCell(data.arskullar.varden.sjuttonaringar[String(a)]);
       }).join("") + "</tr>";
     var rader = sj.grupper.map(function (g) {
       var alder = esc(g.alder) + (g.alder_kalla ? " " + fotnoter([g.alder_kalla]) : "");
       return '<tr><th scope="row">' + esc(g.namn) + "<br><small>Ålder: " + alder + "</small></th>" +
         sj.ar.map(function (a) { return sommarCell(sj.varden[g.id][String(a)]); }).join("") +
-        "</tr>";
+        "</tr>" + (g.id === "17-aringar" ? sjutton : "");
     }).join("");
     el("tabell-sommarjobb").innerHTML =
       '<thead><tr><th scope="col">Grupp och ålder</th>' + huvud +
@@ -323,6 +359,12 @@
         ". Båda talen visas.");
     }
 
+    var ak = data.ar.filter(function (x) {
+      return data.arskullar.varden.feriejobb[String(x)] !== null;
+    }).pop();
+    punkter.push("I årskullen som kunde söka sommaren " + esc(ak) + " fanns <strong>" +
+      talSv(data.arskullar.varden.feriejobb[String(ak)]) + "</strong> ungdomar folkbokförda i kommunen.");
+
     var unga = data.sommarjobb.varden["17-aringar"];
     var au = data.sommarjobb.ar.filter(function (x) { return unga[String(x)]; }).pop();
     if (au) {
@@ -345,10 +387,11 @@
     ritaUtveckling();
     visaLuckor();
     ritaTabell();
+    ritaArskull();
     ritaEnkat();
     ritaSommarjobb();
     visaKallor();
-    ["utveckling", "enkat", "sommarjobb", "kallor", "om"].forEach(function (id) {
+    ["utveckling", "arskull", "enkat", "sommarjobb", "kallor", "om"].forEach(function (id) {
       el("sektion-" + id).hidden = false;
     });
     el("om-uppdaterad").textContent = "Talen lästes in " + datumSv(data.hamtad) + ".";

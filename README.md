@@ -119,6 +119,9 @@ redovisat dem i sina handlingar.
   sommarjobb för unga som nämnden för Vård & Omsorg redovisar &ndash;
   17-åringar, riktade lovjobb och sommarvikarier 2023&ndash;2026, med
   ålder där handlingarna anger den &ndash; ur samma fil och på samma sätt.
+  Hur många som kunde söka visas som årskullen ur Kolada: invånare som är
+  15 år den 31 december före sommaren (N01832), och för Vård & Omsorgs
+  17-åringar 16 år (N01833), hämtade av `hamta_kolada.py --del invanare`.
 
 **Betygen i grundskolan** &ndash; vad niondeklassarna i Kungsbacka fick,
 ämne för ämne. Den gymnasiestatistik på skol- och programnivå som används
@@ -388,6 +391,8 @@ data/
                                 Kungsbacka och riket, ur Koladas API
   kolada/resurser_grundskola.json   Avvikelse från referenskostnaden,
                                 referenskostnad och budgetandel
+  kolada/invanare_15_16.json    Invånare 15 och 16 år den 31 december,
+                                årskullarna på feriejobbssidan
   kostnader/kostnader_<år>.json Skolverkets egna kostnadstal för
                                 Kungsbacka, kontrollkälla till Kolada
   scb/kpi.json                  Fastställda KPI-årsmedeltal, för
