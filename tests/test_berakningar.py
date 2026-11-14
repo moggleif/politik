@@ -1981,7 +1981,8 @@ class TestGenereradeFiler(unittest.TestCase):
 
     def test_data_feriejobb_ar_reproducerbar(self):
         ombyggd = json.loads(json.dumps(
-            build_feriejobb.bygg(build_feriejobb.las_indata())))
+            build_feriejobb.bygg_fil(build_feriejobb.las_indata(),
+                                     build_feriejobb.las_kolada())))
         self.assertEqual(ombyggd, self.las("data-feriejobb.json"))
 
     def test_data_resurser_ar_reproducerbar(self):
@@ -3733,8 +3734,21 @@ class TestFeriejobb(unittest.TestCase):
             with self.assertRaises(SystemExit, msg=sj):
                 build_feriejobb.bygg(self.indata(sommarjobb=sj))
 
+    def test_arskullen_ar_aldern_vid_arsskiftet_fore_sommaren(self):
+        kolada = {"matt": "M", "kalla": "Kolada", "kallaUrl": "https://kolada.se", "hamtad": "2026-01-01",
+                  "nyckeltal": [
+                      {"kolada": "N01832", "omraden": {"1384": {"2023": 1200.0, "2024": 1300.0}}},
+                      {"kolada": "N01833", "omraden": {"1384": {"2023": 1100.0, "2024": 1250.0}}}]}
+        ut = build_feriejobb.arskullar(kolada, [2024, 2025, 2026])
+        # Sommaren 2025: 15-åringarna och 16-åringarna den 31 december 2024
+        self.assertEqual(ut["varden"]["feriejobb"], {"2024": 1200, "2025": 1300, "2026": None})
+        self.assertEqual(ut["varden"]["sjuttonaringar"]["2025"], 1250)
+
     def test_de_riktiga_talen(self):
         ut = json.loads((ROT / "docs" / "data-feriejobb.json").read_text(encoding="utf-8"))
+        # Kolada N01832: 15-åringar i Kungsbacka 31 december 2024 och 2025
+        self.assertEqual(ut["arskullar"]["varden"]["feriejobb"]["2025"], 1310)
+        self.assertEqual(ut["arskullar"]["varden"]["feriejobb"]["2026"], 1303)
         sj = ut["sommarjobb"]["varden"]
         # Vård & Omsorgs 17-åringar och sommarvikarier, ur nämndens egna handlingar
         self.assertEqual([sj["17-aringar"][a]["varde"] for a in ["2023", "2024", "2025"]], [40, 58, 50])

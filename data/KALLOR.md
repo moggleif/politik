@@ -21,6 +21,7 @@ och vad som återstår.
 | Grundskolans kostnader 2002–2024, Kungsbacka (Skolverket, kontrollkälla) | Klara |
 | Konsumentprisindex 1980–2025, fastställda årsmedeltal (SCB) | Klart |
 | Avvikelse från referenskostnaden 1998–2025, budgetandel 2010–2025 (Kolada) | Klara |
+| Invånare 15 och 16 år 1998–2025 (Kolada, N01832 och N01833) | Klara |
 | BNP 2000–2024 och rikets folkmängd (SCB) | Klart |
 | Förtidsröster 2010, 2014, 2018 och 2022 (Valmyndigheten) | Klara, historiska |
 | Ångerröster 2018 och 2022, riket (Valmyndigheten) | Klara, avskrivna |
@@ -1566,6 +1567,17 @@ Det som inte fanns:
 - Handlingarna från 2021 och 2022 finns bara i Internet Archive, och två
   av adresserna där är avklippta i poolen. De länkas därför bara till
   datapoolen.
+
+### Hur många som kunde söka (Kolada)
+
+Ingen av nämndens handlingar anger hur många elever i årskurs 1 som är
+folkbokförda i kommunen, och Kolada har inget nyckeltal för gymnasiets
+årskurser per hemkommun (bara alla gymnasieelever, N17800). Sidan visar
+därför årskullen: *Invånare 15 år, antal* (N01832) den 31 december året
+före sommaren, och för Vård & Omsorgs 17-åringar *Invånare 16 år*
+(N01833). Kolada anger SCB som källa, och talen är desamma som i
+`data/scb/folkmangd_kungsbacka.json`. Hämtas med
+`python3 scripts/hamta_kolada.py --del invanare`.
 
 ### Övriga sommarjobb (nämnden för Vård & Omsorg)
 

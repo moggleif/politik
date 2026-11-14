@@ -5,6 +5,7 @@ verksamheterna anmälde – och vad feriearbetarna svarade i enkäten.
 
 Läser:
   data/feriejobb/uppgifter.json   (skrivs för hand, en uppgift per rad)
+  data/kolada/invanare_15_16.json  (från hamta_kolada.py --del invanare)
 
 Skriver:
   docs/data-feriejobb.json
@@ -44,6 +45,18 @@ med varandra: de mäts på olika sätt och vid olika tidpunkter, vilket en
 `anmarkning` på uppgiften säger där det behövs. En grupp har en uppgift
 per år.
 
+**Hur många som kunde söka.** Nämndens handlingar säger vem som får
+söka – elever i årskurs 1 på gymnasiet, folkbokförda i Kungsbacka –
+men inte hur många de är. Sidan visar i stället årskullen ur Kolada
+(N01832, SCB:s folkmängd): de som är folkbokförda i kommunen den 31
+december året före sommaren och då är 15 år. Det är de som går första året när
+sommaren kommer, om de följt skolan i sin årskull. Talet är en
+uppskattning åt båda håll: några i årskullen går inte i gymnasiet eller
+går i en annan årskurs, och några ettor är födda ett annat år. Samma sätt
+ger 17-åringarna som Vård & Omsorg anställer: 16 år den 31 december året
+före (N01833), alltså 17 under sommaren. Ett år som Kolada ännu inte har
+är `null`.
+
 Bygget stannar hellre än sparar något som inte går ihop: okänt mått eller
 okänd källa, ett tal som inte står i sitt citat, delar som inte summerar
 till talet, en källa som ger två tal för samma år och mått, en källa som
@@ -60,6 +73,7 @@ from pathlib import Path
 ROT = Path(__file__).resolve().parent.parent
 IN = ROT / "data" / "feriejobb" / "uppgifter.json"
 UT = ROT / "docs" / "data-feriejobb.json"
+KOLADA = ROT / "data" / "kolada" / "invanare_15_16.json"
 
 MATT = [
     ("sokande", "Sökande",
@@ -254,8 +268,37 @@ def bygg(indata):
     }
 
 
+# Kolada-nyckeltalet för åldern den 31 december året före sommaren
+ARSKULLAR = [("feriejobb", "N01832"), ("sjuttonaringar", "N01833")]
+KOMMUNKOD = "1384"
+
+
+def arskullar(kolada, ar):
+    serier = {n["kolada"]: n["omraden"][KOMMUNKOD] for n in kolada["nyckeltal"]}
+
+    def antal(nyckeltal, a):
+        v = serier[nyckeltal].get(str(a - 1))
+        return None if v is None else int(v)
+
+    return {
+        "matt": kolada["matt"], "kalla": kolada["kalla"], "kallaUrl": kolada["kallaUrl"],
+        "hamtad": kolada["hamtad"],
+        "varden": {namn: {str(a): antal(n, a) for a in ar} for namn, n in ARSKULLAR},
+    }
+
+
+def las_kolada():
+    return json.loads(KOLADA.read_text(encoding="utf-8"))
+
+
+def bygg_fil(indata, kolada):
+    ut = bygg(indata)
+    ut["arskullar"] = arskullar(kolada, ut["ar"])
+    return ut
+
+
 def main():
-    ut = bygg(las_indata())
+    ut = bygg_fil(las_indata(), las_kolada())
     UT.write_text(json.dumps(ut, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     olika = sum(1 for m in ut["varden"].values() for v in m.values() if v and v["olika"])
     print(f"Skrev {UT.relative_to(ROT)}: {ut['ar'][0]}–{ut['ar'][-1]}, "

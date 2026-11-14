@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Hämtar grundskolans nyckeltal ur Kolada, för Kungsbacka och riket.
+"""Hämtar nyckeltal ur Kolada, för Kungsbacka och riket.
 
-Två delar, som svarar på olika frågor och därför skrivs till var sin fil:
+Tre delar, som svarar på olika frågor och därför skrivs till var sin fil:
 
   --del kostnader   Vad grundskolan kostar per elev (kostnadssidan)
   --del resurser    Vad kommunen valt att lägga, jämfört med vad
                     strukturen motiverar (resurssidan)
+  --del invanare    Hur många invånare som är 15 och 16 år den 31
+                    december (feriejobbssidan: hur många som kunde söka)
 
-Gemensamt för båda: samma API, samma två områden, och talen oavrundade.
+Gemensamt för alla: samma API, samma två områden, och talen oavrundade.
 
 Kolada drivs av Rådet för främjande av kommunala analyser (RKA) och
 samlar kommunernas nyckeltal. Kostnadsnyckeltalen bygger på kommunernas
@@ -179,18 +181,39 @@ RESURSER = [
      "enhet": "kronor per invånare"},
 ]
 
+# Feriejobbsdelen: årskullarna som kunde söka sommarjobb året efter.
+# Kolada återger SCB:s folkmängd den 31 december per ettårsklass.
+INVANARE = [
+    {"nyckel": "femton", "kolada": "N01832",
+     "etikett": "Invånare 15 år den 31 december", "enhet": "personer"},
+    {"nyckel": "sexton", "kolada": "N01833",
+     "etikett": "Invånare 16 år den 31 december", "enhet": "personer"},
+]
+
+KALLA_RAKENSKAPER = ("Kolada (Rådet för främjande av kommunala analyser, RKA), "
+                     "nyckeltal ur kommunernas räkenskapssammandrag")
+
 # Vilken fil varje del skrivs till, och vad filen säger sig innehålla.
 DELAR = {
     "kostnader": {
         "nyckeltal": KOSTNADER,
         "fil": "kostnader_grundskola.json",
         "matt": "Kostnad för grundskolan per elev, kalenderår, löpande priser",
+        "kalla": KALLA_RAKENSKAPER,
     },
     "resurser": {
         "nyckeltal": RESURSER,
         "fil": "resurser_grundskola.json",
         "matt": "Grundskolans resurser jämförda med referenskostnad och "
                 "med kommunens övriga verksamhet, kalenderår",
+        "kalla": KALLA_RAKENSKAPER,
+    },
+    "invanare": {
+        "nyckeltal": INVANARE,
+        "fil": "invanare_15_16.json",
+        "matt": "Antal invånare i en ettårsklass den 31 december",
+        "kalla": "Kolada (Rådet för främjande av kommunala analyser, RKA), "
+                 "nyckeltal ur SCB:s befolkningsstatistik",
     },
 }
 
@@ -264,8 +287,7 @@ def bygg_del(namn: str, del_: dict) -> tuple:
     ut = {
         "omraden": OMRADEN,
         "matt": del_["matt"],
-        "kalla": "Kolada (Rådet för främjande av kommunala analyser, RKA), "
-                 "nyckeltal ur kommunernas räkenskapssammandrag",
+        "kalla": del_["kalla"],
         "kallaUrl": KOLADA_URL,
         "apiUrl": f"{API}/data/kpi/{','.join(nyckeltal)}"
                   f"/municipality/{','.join(koder)}",
@@ -278,7 +300,7 @@ def bygg_del(namn: str, del_: dict) -> tuple:
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--del", dest="delen", choices=sorted(DELAR),
-                   help="hämta bara den här delen (standard: båda)")
+                   help="hämta bara den här delen (standard: alla)")
     args = p.parse_args()
 
     valda = [args.delen] if args.delen else sorted(DELAR)
