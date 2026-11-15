@@ -312,7 +312,7 @@ a:hover { text-decoration-thickness: 2px; }
 @media print {
   .kort { border: none; padding: 0; }
   details { display: none; }
-  .toppnav, .sidfot-nav { display: none; }
+  .sidfot-nav { display: none; }
 }
 
 /* ---------- Startsidans översikt ----------
@@ -408,155 +408,22 @@ ul.undersidor a { font-weight: 600; }
    sidan i sidled på en smal skärm. */
 .valjarrad .valj-ar { margin: 0; min-width: 0; }
 
-/* ---------- Toppnavigering ----------
-   Samma rad högst upp på varje sida: webbplatsens namn till vänster och
-   ämnena som utfällbara menyer. Menyerna är <details>, så de fungerar
-   utan JavaScript; gemensam.js lägger bara till att en öppen meny stängs
-   av Escape, av ett klick utanför och när en annan meny öppnas. */
-
-.toppnav {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  font-size: 1rem;
+/* ---------- Menyn ----------
+   Menyns form, sajtraden ovanför och knappen Meny på smal skärm kommer
+   från Giffås gemensamma meny (/giffa/sajter.css och sajter.js). Här står
+   bara det som är den här sajtens: färgen, ytan och bredden. */
+:root {
+  --sajtaccent: var(--blue-dark);
+  --sajtyta: var(--surface);
+  --sajtbredd: 60rem;
+  --sajtkant: 1.25rem;
 }
 
-.toppnav-inre {
+header.sidhuvud .sajtmeny {
   max-width: 60rem;
   margin: 0 auto;
-  padding: 0 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0 1.5rem;
-}
-
-.markesnamn {
-  font-weight: 700;
-  color: var(--ink);
-  text-decoration: none;
-  padding: 0.8rem 0;
-  white-space: nowrap;
-}
-
-.markesnamn:hover { color: var(--blue-dark); }
-
-.navrad {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.navpost { position: relative; }
-
-.navpost > a, .navmeny > summary {
-  display: block;
-  padding: 0.55rem 0.7rem;
-  margin: 0.2rem 0.1rem;
-  border-radius: 7px;
-  color: var(--blue-dark);
-  text-decoration: none;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-/* Triangeln ritas av oss, så att den kan peka uppåt när menyn är öppen. */
-.navmeny > summary { list-style: none; }
-.navmeny > summary::-webkit-details-marker { display: none; }
-
-.navmeny > summary::after {
-  content: "";
-  display: inline-block;
-  width: 0.36em;
-  height: 0.36em;
-  margin-left: 0.5em;
-  vertical-align: 0.15em;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg);
-}
-
-.navmeny[open] > summary::after { transform: rotate(-135deg); vertical-align: 0; }
-
-.navpost > a:hover, .navmeny > summary:hover,
-.navmeny[open] > summary { background: var(--neutral-mid); }
-
-/* Sidan man står på, och den meny den ligger i. */
-.navpost > a[aria-current="page"], .navmeny.aktuell > summary {
-  color: var(--ink);
-  font-weight: 700;
-}
-
-.markesnamn[aria-current="page"] { color: var(--ink); }
-
-.navpanel {
-  list-style: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 31;
-  min-width: 16rem;
-  margin: 0;
-  padding: 0.35rem;
-  background: var(--surface);
-  border: 1px solid var(--baseline);
-  border-radius: 10px;
-  box-shadow: 0 10px 28px rgba(11, 11, 11, 0.14);
-}
-
-/* De sista menyerna fälls ut åt vänster, annars hamnar de utanför kanten. */
-.navrad > .navpost:nth-last-child(-n+3) .navpanel { left: auto; right: 0; }
-
-.navpanel a {
-  display: block;
-  padding: 0.5rem 0.7rem;
-  border-radius: 6px;
-  color: var(--blue-dark);
-  text-decoration: none;
-}
-
-.navpanel a:hover { background: var(--neutral-mid); }
-
-.navpanel a[aria-current="page"] {
-  color: var(--ink);
-  font-weight: 700;
-  background: var(--neutral-mid);
-}
-
-/* Smal skärm: menyraden radbryts och de utfällda menyerna läggs över
-   hela navigeringens bredd i stället för intill sin egen knapp. */
-/* Menyraden ryms på en enda rad först vid 60rem – samma bredd som
-   textkolumnen. Under det radbryts den till två eller tre rader, och en
-   klistrad rad så hög skulle äta för mycket av en liten skärm: den
-   rullar därför med sidan i stället. (Gränsen låg tidigare vid 46rem,
-   vilket lämnade fönster mellan 46 och 60rem med en klistrad meny på
-   upp till tre rader.) */
-@media (max-width: 60rem) {
-  .toppnav { position: relative; }
-}
-
-@media (max-width: 46rem) {
-  /* Menyerna är positionerade mot hela raden i stället för mot sin egen
-     knapp, så att de utfällda panelerna får plats på en smal skärm. */
-  .toppnav-inre { gap: 0; padding-bottom: 0.35rem; }
-  .markesnamn { padding: 0.7rem 0 0.4rem; width: 100%; }
-  .navpost { position: static; }
-  .navpost > a, .navmeny > summary {
-    padding: 0.45rem 0.6rem;
-    margin: 0.15rem 0.35rem 0.15rem 0;
-    font-size: 0.95rem;
-  }
-  .navpanel, .navrad > .navpost:nth-last-child(-n+3) .navpanel {
-    left: 1.25rem;
-    right: 1.25rem;
-    min-width: 0;
-  }
+  padding: 0.4rem 1.25rem;
+  font-size: 1rem;
 }
 
 /* ---------- Metadataraden ---------- */

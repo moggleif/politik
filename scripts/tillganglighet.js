@@ -17,6 +17,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
+const { giffasMeny } = require("./testserver");
 
 const DOCS = path.join(__dirname, "..", "docs");
 const AXE = require.resolve("axe-core/axe.min.js");
@@ -55,11 +56,13 @@ function startaServer() {
 }
 
 /* Sidorna läser in GoatCounters count.js; besvaras lokalt så att
-   kontrollen går utan nät (samma stubb som i smoke_webbplats.js). */
+   kontrollen går utan nät (samma stubb som i smoke_webbplats.js).
+   Giffås gemensamma meny kommer ur sin fixtur (testserver.js). */
 async function stubbaGoatcounter(page) {
   await page.route("https://gc.zgo.at/**", function (r) {
     r.fulfill({ status: 200, contentType: "text/javascript", body: "" });
   });
+  await giffasMeny(page);
 }
 
 async function granska(browser, bas, sida) {

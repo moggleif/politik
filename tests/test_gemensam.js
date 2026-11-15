@@ -25,8 +25,7 @@ const vm = require("node:vm");
 /* gemensam.js är skrivet för webbläsaren och sätter window.KIS när det
    körs. Här körs det i en sandlåda med precis så mycket DOM som filen rör
    vid när den läses in: readyState (så att uppstarten inte väntar på
-   DOMContentLoaded) och en toppnav som inte finns (så att
-   aktiveraToppnav avbryter direkt). Ingen webbläsare behövs. */
+   DOMContentLoaded). Ingen webbläsare behövs. */
 function laddaKis() {
   const kalla = fs.readFileSync(
     path.join(__dirname, "..", "docs", "gemensam.js"), "utf8");

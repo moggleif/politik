@@ -26,47 +26,59 @@ START = "index.html"
 MARKESNAMN = "Kungsbacka i siffror"
 GITHUB = "https://github.com/moggleif/politik"
 
-# Menyn: antingen ("rubrik", [(fil, etikett), ...]) för en meny som fälls
-# ut, eller (fil, "etikett") för en ensam länk.
+# Menyn följer den gemensamma menyns form från Giffå (Giffås beslut 0013):
+# högst sex poster, var och en antingen (fil, "etikett") för en ensam länk
+# eller ("rubrik", [...]) för en undermeny. Undermenyns poster är länkar
+# (fil, etikett), eller grupper ("grupp", [(fil, etikett), ...]) som står
+# i var sin kolumn. Varberg står under Jämför, där fler kommuner och
+# regioner kan läggas till som egna grupper.
 MENY = [
     ("Befolkning", [
         ("befolkningsprognos.html", "Hela befolkningen"),
         ("barn-och-unga.html", "0–15 år"),
         ("gymnasiealdern.html", "16–19 år"),
     ]),
-    ("Grundskolan", [
-        ("grundskolor.html", "Skola för skola i nian"),
-        ("amnesbetyg.html", "Betyg per ämne i nian"),
-        ("kostnad-per-elev.html", "Kostnad per elev"),
-        ("resurser-till-skolan.html", "Resurser mot referenskostnad"),
+    ("Skolan", [
+        ("Grundskolan", [
+            ("grundskolor.html", "Skola för skola i nian"),
+            ("amnesbetyg.html", "Betyg per ämne i nian"),
+            ("kostnad-per-elev.html", "Kostnad per elev"),
+            ("resurser-till-skolan.html", "Resurser mot referenskostnad"),
+        ]),
+        ("Gymnasiet", [
+            ("platser.html", "Platser på programmen"),
+            ("meritvarden.html", "Meritvärden vid antagningen"),
+            ("slutbetyg.html", "Slutbetyg från gymnasiet"),
+            ("antagning-till-examen.html", "Från antagning till examen"),
+            ("nian-till-gymnasiet.html", "Från nian till gymnasiet"),
+            ("feriejobb.html", "Feriejobb för ettorna"),
+        ]),
+        ("Elevenkäter", [
+            ("enkater.html", "Skola för skola"),
+        ]),
     ]),
-    ("Gymnasiet", [
-        ("platser.html", "Platser på programmen"),
-        ("meritvarden.html", "Meritvärden vid antagningen"),
-        ("slutbetyg.html", "Slutbetyg från gymnasiet"),
-        ("antagning-till-examen.html", "Från antagning till examen"),
-        ("nian-till-gymnasiet.html", "Från nian till gymnasiet"),
-        ("feriejobb.html", "Feriejobb för ettorna"),
-    ]),
-    ("Valen", [
+    ("Valen och fullmäktige", [
         ("fortidsrostning.html", "Förtidsröstningen 2026"),
         ("valresultat.html", "Valresultat per distrikt"),
         ("efter-valet.html", "Efter valet: listor och uppdrag"),
         ("rodalinjer.html", "Röda linjer i regeringsfrågan"),
+        ("fullmaktige.html", "Inspelade möten i fullmäktige"),
     ]),
-    ("Elevenkäter", [
-        ("enkater.html", "Skola för skola"),
-    ]),
-    ("Kommunfullmäktige", [
-        ("fullmaktige.html", "Inspelade möten"),
-    ]),
-    ("Varberg", [
-        ("varberg-befolkningsprognos.html", "Hela befolkningen"),
-        ("varberg-barn-och-unga.html", "0–15 år"),
-        ("varberg-gymnasiealdern.html", "16–18 år"),
+    ("Jämför", [
+        ("Varberg", [
+            ("varberg-befolkningsprognos.html", "Hela befolkningen"),
+            ("varberg-barn-och-unga.html", "0–15 år"),
+            ("varberg-gymnasiealdern.html", "16–18 år"),
+        ]),
     ]),
     ("metod.html", "Metod"),
 ]
+
+# Den gemensamma menyns stil och skript, som Giffå publicerar på samma
+# adress som de här sidorna. Raderna skrivs in efter sidans egen stil.
+SAJTER = ('<link rel="stylesheet" href="/giffa/sajter.css">\n'
+          '<script src="/giffa/sajter.js" defer></script>\n')
+EGEN_STIL = '<link rel="stylesheet" href="style.css">\n'
 
 SIDFOT_LANKAR = [
     (START, "Start"),
@@ -81,7 +93,7 @@ SIDFOT_NOT = (
     "MIT-licensierad."
 )
 
-NAV_MONSTER = re.compile(r'[ \t]*<nav class="toppnav".*?</nav>\n', re.S)
+NAV_MONSTER = re.compile(r'[ \t]*<nav class="(?:sajtmeny|toppnav)".*?</nav>\n', re.S)
 GAMMAL_NAV = re.compile(r'[ \t]*<nav class="huvudnav".*?</nav>\n', re.S)
 SIDFOT_MONSTER = re.compile(r'[ \t]*<footer.*?</footer>\n', re.S)
 DATARAD = re.compile(r'<p class="sidfot-data">(.*?)</p>', re.S)
@@ -94,37 +106,45 @@ def sidor():
 
 
 def nav_html(fil):
-    """Menyn för en sida. Sidan själv märks med aria-current, och den
-    grupp den ligger i får klassen "aktuell" så att den syns även när
-    menyn är hopfälld."""
-    rader = ['<nav class="toppnav" aria-label="Webbplatsens sidor">',
-             '  <div class="toppnav-inre">']
-    markes = f'    <a class="markesnamn" href="{START}"'
-    if fil == START:
-        markes += ' aria-current="page"'
-    rader.append(markes + f">{MARKESNAMN}</a>")
-    rader.append('    <ul class="navrad">')
-    for post in MENY:
-        if isinstance(post[1], list):
-            rubrik, lankar = post
-            aktuell = any(mal == fil for mal, _ in lankar)
-            klass = "navmeny aktuell" if aktuell else "navmeny"
-            rader.append('      <li class="navpost">')
-            rader.append(f'        <details class="{klass}">')
-            rader.append(f"          <summary>{rubrik}</summary>")
-            rader.append('          <ul class="navpanel">')
-            for mal, etikett in lankar:
-                nu = ' aria-current="page"' if mal == fil else ""
-                rader.append(f'            <li><a href="{mal}"{nu}>{etikett}</a></li>')
-            rader.append("          </ul>")
-            rader.append("        </details>")
-            rader.append("      </li>")
+    """Menyn för en sida i den gemensamma formen. Sidan själv märks med
+    aria-current; undermenyn den ligger i märks av Giffås sajter.js."""
+    nu = ' aria-current="page"' if fil == START else ""
+    rader = ['<nav class="sajtmeny" aria-label="Webbplatsens sidor">',
+             f'  <a class="sajtnamn" href="{START}"{nu}>{MARKESNAMN}</a>',
+             "  <ul>"]
+    for rubrik, innehall in MENY:
+        if isinstance(innehall, str):
+            rader.append(f"    <li>{lank(rubrik, innehall, fil)}</li>")
         else:
-            mal, etikett = post
-            nu = ' aria-current="page"' if mal == fil else ""
-            rader.append(f'      <li class="navpost"><a href="{mal}"{nu}>{etikett}</a></li>')
-    rader += ["    </ul>", "  </div>", "</nav>"]
+            rader += undermeny(rubrik, innehall, fil)
+    rader += ["  </ul>", "</nav>"]
     return "\n".join(rader) + "\n"
+
+
+def undermeny(rubrik, poster, fil):
+    rader = ["    <li>", "      <details>", f"        <summary>{rubrik}</summary>"]
+    if isinstance(poster[0][1], str):
+        rader += lista(poster, fil, 8)
+    else:
+        rader.append('        <div class="grupper">')
+        for grupp, lankar in poster:
+            rader += ["          <div>", f'            <p class="grupp">{grupp}</p>']
+            rader += lista(lankar, fil, 12)
+            rader.append("          </div>")
+        rader.append("        </div>")
+    return rader + ["      </details>", "    </li>"]
+
+
+def lista(lankar, fil, steg):
+    prefix = " " * steg
+    return ([prefix + "<ul>"]
+            + [f"{prefix}  <li>{lank(mal, etikett, fil)}</li>" for mal, etikett in lankar]
+            + [prefix + "</ul>"])
+
+
+def lank(mal, etikett, fil):
+    nu = ' aria-current="page"' if mal == fil else ""
+    return f'<a href="{mal}"{nu}>{etikett}</a>'
 
 
 def sidfot_html(datarad):
@@ -173,6 +193,11 @@ def bygg(fil):
     else:
         ny = ny.replace('<header class="sidhuvud">\n',
                         '<header class="sidhuvud">\n' + nav, 1)
+
+    if SAJTER not in ny:
+        if EGEN_STIL not in ny:
+            raise SystemExit(f"{fil.name}: hittade ingen länk till style.css")
+        ny = ny.replace(EGEN_STIL, EGEN_STIL + SAJTER, 1)
 
     sidfot = sidfot_html(las_datarad(ny, fil))
     if not SIDFOT_MONSTER.search(ny):
