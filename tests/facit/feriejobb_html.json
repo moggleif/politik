@@ -12,17 +12,42 @@
        200,
        356,
        326,
-       310,
-       null,
-       null,
+       364.5,
+       297,
+       412.5,
        null
       ],
       "label": "Sökande",
       "matt": "sokande",
       "pointBorderColor": "#fcfcfb",
       "pointBorderWidth": 2,
-      "pointHoverRadius": 7,
-      "pointRadius": 5,
+      "pointHitRadius": [
+       5,
+       5,
+       5,
+       0,
+       0,
+       0,
+       5
+      ],
+      "pointHoverRadius": [
+       7,
+       7,
+       7,
+       0,
+       0,
+       0,
+       7
+      ],
+      "pointRadius": [
+       5,
+       5,
+       5,
+       0,
+       0,
+       0,
+       5
+      ],
       "pointStyle": "circle",
       "spanGaps": false,
       "tension": 0.1
@@ -36,7 +61,7 @@
       ],
       "borderWidth": 2,
       "data": [
-       null,
+       181.5,
        281,
        null,
        199,
@@ -48,8 +73,33 @@
       "matt": "tillsatta",
       "pointBorderColor": "#fcfcfb",
       "pointBorderWidth": 2,
-      "pointHoverRadius": 7,
-      "pointRadius": 5,
+      "pointHitRadius": [
+       0,
+       5,
+       5,
+       5,
+       5,
+       5,
+       5
+      ],
+      "pointHoverRadius": [
+       0,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7
+      ],
+      "pointRadius": [
+       0,
+       5,
+       5,
+       5,
+       5,
+       5,
+       5
+      ],
       "pointStyle": "rect",
       "spanGaps": false,
       "tension": 0.1
@@ -63,7 +113,7 @@
        null,
        null,
        null,
-       null,
+       321,
        247,
        229,
        null
@@ -73,8 +123,33 @@
       "pointBackgroundColor": "#fcfcfb",
       "pointBorderColor": "#6e6c66",
       "pointBorderWidth": 2,
-      "pointHoverRadius": 7,
-      "pointRadius": 6,
+      "pointHitRadius": [
+       5,
+       5,
+       5,
+       5,
+       5,
+       5,
+       5
+      ],
+      "pointHoverRadius": [
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7
+      ],
+      "pointRadius": [
+       6,
+       6,
+       6,
+       6,
+       6,
+       6,
+       6
+      ],
       "pointStyle": "rectRot",
       "showLine": false,
       "spanGaps": false,
@@ -100,6 +175,7 @@
     "maintainAspectRatio": false,
     "plugins": {
      "legend": {
+      "align": "start",
       "display": true,
       "labels": {
        "usePointStyle": true
@@ -107,7 +183,7 @@
      },
      "tooltip": {
       "callbacks": {
-       "label": "fn:function (it) { return it.dataset.label + \": \" + talSv(it.parsed.y); }",
+       "label": "fn:function (it) { return it.dataset.label + \": \" + talet(varde(it.dataset.matt, data.ar[it.dataIndex])); }",
        "title": "fn:function (it) { return \"År \" + it[0].label; }"
       }
      }
@@ -289,138 +365,16 @@
       "scope": "col",
       "tagg": "TH",
       "text": "Anmälda platser"
-     }
-    ],
-    [
+     },
      {
-      "scope": "row",
+      "scope": "col",
       "tagg": "TH",
-      "text": "2020"
+      "text": "Årskullen15 år vid årsskiftet före"
      },
      {
-      "scope": null,
-      "tagg": "TD",
-      "text": "200 [1]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "180 [2] eller 183 [1]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "–"
-     }
-    ],
-    [
-     {
-      "scope": "row",
+      "scope": "col",
       "tagg": "TH",
-      "text": "2021"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "356 [2][3]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "281 [2][3]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "–"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2022"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "326 [4]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "–"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "–"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2023"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "310 [4]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "199 [4]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "–"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2024"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "273 [5][6] eller 321 [7]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "200 [5][6][7]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "247 [5][6]"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2025"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "403 [8] eller 422 [9][10][11]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "200 [8][11]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "229 [8][9][10][11]"
+      "text": "Det handlingarna säger runt omkring"
      }
     ],
     [
@@ -437,179 +391,12 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "224 [12][13]"
+      "text": "224 [14][15]"
      },
      {
       "scope": null,
       "tagg": "TD",
       "text": "–"
-     }
-    ]
-   ]
-  },
-  {
-   "caption": null,
-   "id": "tabell-arskull",
-   "rader": [
-    [
-     {
-      "scope": "col",
-      "tagg": "TH",
-      "text": "Sommar"
-     },
-     {
-      "scope": "col",
-      "tagg": "TH",
-      "text": "Årskullen i kommunen"
-     },
-     {
-      "scope": "col",
-      "tagg": "TH",
-      "text": "Sökande"
-     },
-     {
-      "scope": "col",
-      "tagg": "TH",
-      "text": "Tillsatta feriejobb"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2020"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "1 208"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "200 [1]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "180 [2] eller 183 [1]"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2021"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "1 254"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "356 [2][3]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "281 [2][3]"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2022"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "1 286"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "326 [4]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "–"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2023"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "1 259"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "310 [4]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "199 [4]"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2024"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "1 236"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "273 [5][6] eller 321 [7]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "200 [5][6][7]"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2025"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "1 310"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "403 [8] eller 422 [9][10][11]"
-     },
-     {
-      "scope": null,
-      "tagg": "TD",
-      "text": "200 [8][11]"
-     }
-    ],
-    [
-     {
-      "scope": "row",
-      "tagg": "TH",
-      "text": "2026"
      },
      {
       "scope": null,
@@ -619,12 +406,367 @@
      {
       "scope": null,
       "tagg": "TD",
+      "text": "Tillsatta feriejobb: 200 och 24 extra till Kultur & Fritid. [14]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "403 [10] eller 422 [11][12][13]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "200 [10][13]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "229 [10][11][12][13]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 310"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Tillsatta feriejobb: Varav fem prioriterade. [11]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "273 [7][8] eller 321 [9]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "200 [7][8][9]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "247 [7][8]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 236"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Tillsatta feriejobb: Varav 9 prioriterade platser. [7]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "310 [5] eller 419 [6]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "199 [5]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "321 [6]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 259"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Anmälda platser: Budget för 200. [6]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2022"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "326 [5]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
       "text": "–"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "224 [12][13]"
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 286"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Anmälda platser: Fler än budgeterat; antalet anges inte. [17]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2021"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "356 [2][4]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "281 [2][4]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 254"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Sökande: 75 tackade nej till erbjudandet. [4]Anmälda platser: 230 platser var klara i början av året. [4]Anmälda platser: Utökningen från 200 till 262 platser kostade ca 500 tkr. [16]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "2020"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "200 [1]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "180 [2] eller 183 [1][3]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "1 208"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "Anmälda platser: 192 platser var klara i början av året. 102 avbokades under covid och 110 nya togs fram. [3]"
+     }
+    ]
+   ]
+  },
+  {
+   "caption": null,
+   "id": "tabell-forvaltningar",
+   "rader": [
+    [
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "Förvaltning"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2023"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2024"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2025"
+     },
+     {
+      "scope": "col",
+      "tagg": "TH",
+      "text": "2026"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Service"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "50 [25]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "58 [26]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "72 [27]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "59 [28]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Kultur & Fritid"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "omkring 50 [29]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Vård & Omsorg"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "8 [18]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "41 [19]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Bygg"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 [30]"
+     }
+    ],
+    [
+     {
+      "scope": "row",
+      "tagg": "TH",
+      "text": "Teknik"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "4 [31]"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
+     },
+     {
+      "scope": null,
+      "tagg": "TD",
+      "text": "–"
      }
     ]
    ]
@@ -647,27 +789,27 @@
      {
       "scope": "col",
       "tagg": "TH",
-      "text": "2021 [4]"
+      "text": "2021 [5]"
      },
      {
       "scope": "col",
       "tagg": "TH",
-      "text": "2022 [4]"
+      "text": "2022 [5]"
      },
      {
       "scope": "col",
       "tagg": "TH",
-      "text": "2023 [4]"
+      "text": "2023 [5]"
      },
      {
       "scope": "col",
       "tagg": "TH",
-      "text": "2024 [7]"
+      "text": "2024 [9]"
      },
      {
       "scope": "col",
       "tagg": "TH",
-      "text": "2025 [11]"
+      "text": "2025 [13]"
      }
     ],
     [
@@ -934,44 +1076,44 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "199 [4]"
+      "text": "199 [5]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "200 [5][6][7]"
+      "text": "200 [7][8][9]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "200 [8][11]"
+      "text": "200 [10][13]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "224 [12][13]"
+      "text": "224 [14][15]"
      }
     ],
     [
      {
       "scope": "row",
       "tagg": "TH",
-      "text": "17-åringarÅlder: 17 år; inför sommaren 2023 också 16-åringar som fyllde 17 under året [20]"
+      "text": "17-åringarÅlder: 17 år; inför sommaren 2023 också 16-åringar som fyllde 17 under året [24]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "40 [14]"
+      "text": "40 [18]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "58 [15]"
+      "text": "58 [19]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "50 [16]"
+      "text": "50 [20]"
      },
      {
       "scope": null,
@@ -1015,12 +1157,12 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "19 [17]"
+      "text": "19 [21]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "12 [15]"
+      "text": "12 [19]"
      },
      {
       "scope": null,
@@ -1042,17 +1184,17 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "312 av 437 beställda [18]och omkring 300 som bara anmält sig tillgängligaLäget i slutet av maj 2023, före sommaren."
+      "text": "312 av 437 beställda [22]och omkring 300 som bara anmält sig tillgängligaLäget i slutet av maj 2023, före sommaren."
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "375 av 380 beställda [19]"
+      "text": "375 av 380 beställda [23]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "515 av 522 beställda [19]och omkring 310 som bara anmält sig tillgängliga"
+      "text": "515 av 522 beställda [23]och omkring 310 som bara anmält sig tillgängliga"
      },
      {
       "scope": null,
@@ -1074,17 +1216,17 @@
      {
       "scope": null,
       "tagg": "TD",
-      "text": "60 [19]"
+      "text": "60 [23]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "49 [19]"
+      "text": "49 [23]"
      },
      {
       "scope": null,
       "tagg": "TD",
-      "text": "70 [19]"
+      "text": "70 [23]"
      }
     ]
    ]
@@ -1109,95 +1251,139 @@
   },
   "#kalla-1": {
    "dold": false,
-   "html": "<span class=\"titel\">[1] Kvalitetsberättelse 2020</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 14 april 2021, sidan 37 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2021/2021-04-14/handlingar.html#sida-37\">Läs i datapoolen</a></div>"
+   "html": "<span class=\"titel\">[1] Kvalitetsberättelse 2020</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 14 april 2021, sidan 37.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2021/2021-04-14/handlingar.html#sida-37\">Läs i datapoolen</a></div>"
   },
   "#kalla-10": {
    "dold": false,
-   "html": "<span class=\"titel\">[10] Nämndens årsredovisning 2025</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 19 februari 2026, sidan 111 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-02-19/handlingar.html#sida-111\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.46db326b19c4795e0085ada9/1770984948457/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202026-02-19.pdf#page=111\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[10] Protokoll, § 116 Återrapport feriejobb 2025</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 16 oktober 2025, sidan 6.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-10-16/protokoll.html#sida-6\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.4ac81f8819a0f459fef1dd70/1761285111298/Protokoll%20f%C3%B6r%20n%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20%202025-10-16.pdf#page=6\">Kommunens PDF</a></div>"
   },
   "#kalla-11": {
    "dold": false,
-   "html": "<span class=\"titel\">[11] Kvalitetsberättelse 2025</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 16 april 2026, sidan 12 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-04-16/handlingar.html#sida-12\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.7118072419d9a48ae7711df/1776415201363/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202026-04-16%20(3).pdf#page=12\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[11] Delårsrapport augusti 2025</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 25 september 2025, sidan 38.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-09-25/handlingar.html#sida-38\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.32f2dc5a1995b7e9114b14/1758178242517/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202025-09-25.pdf#page=38\">Kommunens PDF</a></div>"
   },
   "#kalla-12": {
    "dold": false,
-   "html": "<span class=\"titel\">[12] Uppföljning arbetsmarknadsprocess, kvartal 2 2026</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 27 augusti 2026, sidan 23 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-08-27/handlingar.html#sida-23\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.4d978f5f1a01d631f6a7d63/1787228558248/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202026-08-27%20(1).pdf#page=23\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[12] Nämndens årsredovisning 2025</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 19 februari 2026, sidan 111.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-02-19/handlingar.html#sida-111\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.46db326b19c4795e0085ada9/1770984948457/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202026-02-19.pdf#page=111\">Kommunens PDF</a></div>"
   },
   "#kalla-13": {
    "dold": false,
-   "html": "<span class=\"titel\">[13] Delårsrapport augusti 2026</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 17 september 2026, sidan 14 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-09-17/handlingar.html#sida-14\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.65c780211a0adcd46dd258bb/1789724895272/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202026-09-17%20(1).pdf#page=14\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[13] Kvalitetsberättelse 2025</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 16 april 2026, sidan 12.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-04-16/handlingar.html#sida-12\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.7118072419d9a48ae7711df/1776415201363/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202026-04-16%20(3).pdf#page=12\">Kommunens PDF</a></div>"
   },
   "#kalla-14": {
    "dold": false,
-   "html": "<span class=\"titel\">[14] Delårsrapport augusti 2023</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 21 september 2023, sidan 141 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2023/2023-09-21/handlingar.html#sida-141\">Läs i datapoolen</a></div>"
+   "html": "<span class=\"titel\">[14] Uppföljning arbetsmarknadsprocess, kvartal 2 2026</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 27 augusti 2026, sidan 23.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-08-27/handlingar.html#sida-23\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.4d978f5f1a01d631f6a7d63/1787228558248/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202026-08-27%20(1).pdf#page=23\">Kommunens PDF</a></div>"
   },
   "#kalla-15": {
    "dold": false,
-   "html": "<span class=\"titel\">[15] Nämndens årsredovisning 2024</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 20 februari 2025, sidan 25 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2025/2025-02-20/handlingar.html#sida-25\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.4a9fcfaa1950506f02663282/1739794588550/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&amp;%20Omsorg%20handlingar%202025-02-20.pdf#page=25\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[15] Delårsrapport augusti 2026</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 17 september 2026, sidan 14.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2026/2026-09-17/handlingar.html#sida-14\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.65c780211a0adcd46dd258bb/1789724895272/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202026-09-17%20(1).pdf#page=14\">Kommunens PDF</a></div>"
   },
   "#kalla-16": {
    "dold": false,
-   "html": "<span class=\"titel\">[16] Nämndens årsredovisning 2025</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 19 februari 2026, sidan 52 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2026/2026-02-19/handlingar.html#sida-52\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.4dbd19e519c47bd57e6e4956/1771312646588/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&amp;%20Omsorg%20handlingar%20%202026-02-19.pdf#page=52\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[16] Uppföljning april 2021</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 19 maj 2021, sidan 94.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2021/2021-05-19/handlingar.html#sida-94\">Läs i datapoolen</a></div>"
   },
   "#kalla-17": {
    "dold": false,
-   "html": "<span class=\"titel\">[17] Nämndens årsredovisning 2023</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 22 februari 2024, sidan 23 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2024/2024-02-22/handlingar.html#sida-23\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.366666ef18d873f2cac23599/1708354939519/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&amp;%20Omsorg%20handlingar%202024-02-22.pdf#page=23\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[17] Protokoll § 56, uppföljning april 2022</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 18 maj 2022, sidan 4.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2022/2022-05-18/protokoll.html#sida-4\">Läs i datapoolen</a></div>"
   },
   "#kalla-18": {
    "dold": false,
-   "html": "<span class=\"titel\">[18] Tjänsteskrivelse om sommarbemanningen 2023</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 15 juni 2023, sidan 114 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2023/2023-06-15/handlingar.html#sida-114\">Läs i datapoolen</a></div>"
+   "html": "<span class=\"titel\">[18] Delårsrapport augusti 2023</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 21 september 2023, sidan 141.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2023/2023-09-21/handlingar.html#sida-141\">Läs i datapoolen</a></div>"
   },
   "#kalla-19": {
    "dold": false,
-   "html": "<span class=\"titel\">[19] Utvärdering av sommaren 2026</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 15 oktober 2026, sidan 347 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2026/2026-10-15/handlingar.html#sida-347\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.dedd4261a115a113768e09a/1791809251201/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&amp;%20Omsorg%20handlingar%20%202026-10-15.pdf#page=347\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[19] Nämndens årsredovisning 2024</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 20 februari 2025, sidan 25.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2025/2025-02-20/handlingar.html#sida-25\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.4a9fcfaa1950506f02663282/1739794588550/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&amp;%20Omsorg%20handlingar%202025-02-20.pdf#page=25\">Kommunens PDF</a></div>"
   },
   "#kalla-2": {
    "dold": false,
-   "html": "<span class=\"titel\">[2] Nämndens årsredovisning 2021</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 23 februari 2022, sidan 20 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2022/2022-02-23/handlingar.html#sida-20\">Läs i datapoolen</a></div>"
+   "html": "<span class=\"titel\">[2] Nämndens årsredovisning 2021</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 23 februari 2022, sidan 20.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2022/2022-02-23/handlingar.html#sida-20\">Läs i datapoolen</a></div>"
   },
   "#kalla-20": {
    "dold": false,
-   "html": "<span class=\"titel\">[20] Svar på kommunrevisionens granskning av vikarieplaneringen</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 20 april 2023, sidan 73 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2023/2023-04-20/handlingar.html#sida-73\">Läs i datapoolen</a></div>"
+   "html": "<span class=\"titel\">[20] Nämndens årsredovisning 2025</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 19 februari 2026, sidan 52.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2026/2026-02-19/handlingar.html#sida-52\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.4dbd19e519c47bd57e6e4956/1771312646588/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&amp;%20Omsorg%20handlingar%20%202026-02-19.pdf#page=52\">Kommunens PDF</a></div>"
+  },
+  "#kalla-21": {
+   "dold": false,
+   "html": "<span class=\"titel\">[21] Nämndens årsredovisning 2023</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 22 februari 2024, sidan 23.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2024/2024-02-22/handlingar.html#sida-23\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.366666ef18d873f2cac23599/1708354939519/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&amp;%20Omsorg%20handlingar%202024-02-22.pdf#page=23\">Kommunens PDF</a></div>"
+  },
+  "#kalla-22": {
+   "dold": false,
+   "html": "<span class=\"titel\">[22] Tjänsteskrivelse om sommarbemanningen 2023</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 15 juni 2023, sidan 114.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2023/2023-06-15/handlingar.html#sida-114\">Läs i datapoolen</a></div>"
+  },
+  "#kalla-23": {
+   "dold": false,
+   "html": "<span class=\"titel\">[23] Utvärdering av sommaren 2026</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 15 oktober 2026, sidan 347.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2026/2026-10-15/handlingar.html#sida-347\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.dedd4261a115a113768e09a/1791809251201/N%C3%A4mnden%20f%C3%B6r%20V%C3%A5rd%20&amp;%20Omsorg%20handlingar%20%202026-10-15.pdf#page=347\">Kommunens PDF</a></div>"
+  },
+  "#kalla-24": {
+   "dold": false,
+   "html": "<span class=\"titel\">[24] Svar på kommunrevisionens granskning av vikarieplaneringen</span><br><span class=\"detalj\">Nämnden för Vård &amp; Omsorg, mötet den 20 april 2023, sidan 73.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/vo/2023/2023-04-20/handlingar.html#sida-73\">Läs i datapoolen</a></div>"
+  },
+  "#kalla-25": {
+   "dold": false,
+   "html": "<span class=\"titel\">[25] Delårsrapport augusti 2023</span><br><span class=\"detalj\">Nämnden för Service, mötet den 19 september 2023, sidan 13.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/service/2023/2023-09-19/handlingar.html#sida-13\">Läs i datapoolen</a></div>"
+  },
+  "#kalla-26": {
+   "dold": false,
+   "html": "<span class=\"titel\">[26] Nämndens årsredovisning 2024</span><br><span class=\"detalj\">Nämnden för Service, mötet den 20 februari 2025, sidan 19.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/service/2025/2025-02-20/handlingar.html#sida-19\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.1db334b719504a0b18a6488d/1739790353077/N%C3%A4mnden%20f%C3%B6r%20Service%20handlingar%202025-02-20.pdf#page=19\">Kommunens PDF</a></div>"
+  },
+  "#kalla-27": {
+   "dold": false,
+   "html": "<span class=\"titel\">[27] Nämndens årsredovisning 2025</span><br><span class=\"detalj\">Nämnden för Service, mötet den 19 februari 2026, sidan 20.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/service/2026/2026-02-19/handlingar.html#sida-20\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.5ca69e5719c47cd9687cd05b/1771229065737/N%C3%A4mnden%20f%C3%B6r%20Service%20handlingar%202026-02-19.pdf#page=20\">Kommunens PDF</a></div>"
+  },
+  "#kalla-28": {
+   "dold": false,
+   "html": "<span class=\"titel\">[28] Delårsrapport augusti 2026</span><br><span class=\"detalj\">Nämnden för Service, mötet den 15 september 2026, sidan 12.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/service/2026/2026-09-15/handlingar.html#sida-12\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.5689acbf1a086271040b82ab/1789363875798/N%C3%A4mnden%20f%C3%B6r%20Service%20handlingar%202026-09-15.pdf#page=12\">Kommunens PDF</a></div>"
+  },
+  "#kalla-29": {
+   "dold": false,
+   "html": "<span class=\"titel\">[29] Svar på initiativ om fler ferieplatser</span><br><span class=\"detalj\">Nämnden för Kultur &amp; Fritid, mötet den 19 november 2025, sidan 23.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/kultur/2025/2025-11-19/handlingar.html#sida-23\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.7573952919a7bcb3bbe4edb/1763042395287/N%C3%A4mnden%20f%C3%B6r%20Kultur%20&amp;%20Fritid%20handlingar%202025-11-19.pdf#page=23\">Kommunens PDF</a></div>"
   },
   "#kalla-3": {
    "dold": false,
-   "html": "<span class=\"titel\">[3] Delårsrapport augusti 2021</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 15 september 2021, sidan 18 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2021/2021-09-15/handlingar.html#sida-18\">Läs i datapoolen</a></div>"
+   "html": "<span class=\"titel\">[3] Nämndens årsredovisning 2020</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 10 februari 2021, sidan 57.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2021/2021-02-10/handlingar.html#sida-57\">Läs i datapoolen</a></div>"
+  },
+  "#kalla-30": {
+   "dold": false,
+   "html": "<span class=\"titel\">[30] Delårsrapport augusti 2026</span><br><span class=\"detalj\">Byggnadsnämnden, mötet den 17 september 2026, sidan 19.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/bygg/2026/2026-09-17/handlingar.html#sida-19\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.2da4b3f51a0864b91543b215/1789112180156/Byggnadsn%C3%A4mndens%20handlingar%202026-09-17.pdf#page=19\">Kommunens PDF</a></div>"
+  },
+  "#kalla-31": {
+   "dold": false,
+   "html": "<span class=\"titel\">[31] Delårsrapport augusti 2024</span><br><span class=\"detalj\">Nämnden för Teknik, mötet den 25 september 2024, sidan 15.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/teknik/2024/2024-09-25/handlingar.html#sida-15\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.6ed85a58192080e2362c4150/1727073314917/N%C3%A4mnden%20f%C3%B6r%20Teknik%20Handlingar%202024-09-25.pdf#page=15\">Kommunens PDF</a></div>"
   },
   "#kalla-4": {
    "dold": false,
-   "html": "<span class=\"titel\">[4] Kvalitetsberättelse 2023</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 17 april 2024, sidan 10 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-04-17/handlingar.html#sida-10\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.2f18dd4b18ecb6094451bb/1712815146255/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202024-04-17.pdf#page=10\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[4] Delårsrapport augusti 2021</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 15 september 2021, sidan 18.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2021/2021-09-15/handlingar.html#sida-18\">Läs i datapoolen</a></div>"
   },
   "#kalla-5": {
    "dold": false,
-   "html": "<span class=\"titel\">[5] Delårsrapport augusti 2024</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 26 september 2024, sidan 17 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-09-26/handlingar.html#sida-17\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.33d6d97191e4f00c90e0aef/1726726178075/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202024-09-26.pdf#page=17\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[5] Kvalitetsberättelse 2023</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 17 april 2024, sidan 10.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-04-17/handlingar.html#sida-10\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.2f18dd4b18ecb6094451bb/1712815146255/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202024-04-17.pdf#page=10\">Kommunens PDF</a></div>"
   },
   "#kalla-6": {
    "dold": false,
-   "html": "<span class=\"titel\">[6] Nämndens årsredovisning 2024</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 20 februari 2025, sidan 56 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-02-20/handlingar.html#sida-56\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.6725411a194d849cc4beb87a/1739522774953/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202025-02-20.pdf#page=56\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[6] Initiativ – feriejobb (C, KD, L, M)</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 17 april 2024, sidan 35.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-04-17/handlingar.html#sida-35\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.2f18dd4b18ecb6094451bb/1712815146255/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202024-04-17.pdf#page=35\">Kommunens PDF</a></div>"
   },
   "#kalla-7": {
    "dold": false,
-   "html": "<span class=\"titel\">[7] Kvalitetsberättelse 2024</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 24 april 2025, sidan 28 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-04-24/handlingar.html#sida-28\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.5b0e44671961df388b27f8e4/1744873104622/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202025-04-24.pdf#page=28\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[7] Delårsrapport augusti 2024</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 26 september 2024, sidan 17.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-09-26/handlingar.html#sida-17\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.33d6d97191e4f00c90e0aef/1726726178075/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202024-09-26.pdf#page=17\">Kommunens PDF</a></div>"
   },
   "#kalla-8": {
    "dold": false,
-   "html": "<span class=\"titel\">[8] Protokoll, § 116 Återrapport feriejobb 2025</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 16 oktober 2025, sidan 6 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-10-16/protokoll.html#sida-6\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.4ac81f8819a0f459fef1dd70/1761285111298/Protokoll%20f%C3%B6r%20n%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20%202025-10-16.pdf#page=6\">Kommunens PDF</a></div>"
+   "html": "<span class=\"titel\">[8] Nämndens årsredovisning 2024</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 20 februari 2025, sidan 56.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-02-20/handlingar.html#sida-56\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.6725411a194d849cc4beb87a/1739522774953/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202025-02-20.pdf#page=56\">Kommunens PDF</a></div>"
   },
   "#kalla-9": {
    "dold": false,
-   "html": "<span class=\"titel\">[9] Delårsrapport augusti 2025</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 25 september 2025, sidan 38 i handlingen.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-09-25/handlingar.html#sida-38\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.32f2dc5a1995b7e9114b14/1758178242517/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202025-09-25.pdf#page=38\">Kommunens PDF</a></div>"
-  },
-  "#kalla-arskull": {
-   "dold": false,
-   "html": "Årskullen: <a href=\"https://www.kolada.se/\">Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur SCB:s befolkningsstatistik</a>, nyckeltal N01832, hämtat 14 november 2026. Sökande och tillsatta: nämndens handlingar, källorna inom hakparentes."
+   "html": "<span class=\"titel\">[9] Kvalitetsberättelse 2024</span><br><span class=\"detalj\">Nämnden för Gymnasium &amp; Arbetsmarknad, mötet den 24 april 2025, sidan 28.</span><div class=\"lankar\"><a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2025/2025-04-24/handlingar.html#sida-28\">Läs i datapoolen</a><a href=\"https://kungsbacka.se/download/18.5b0e44671961df388b27f8e4/1744873104622/Handlingar%20f%C3%B6r%20m%C3%B6te%20N%C3%A4mnden%20f%C3%B6r%20Gymnasium%20&amp;%20Arbetsmarknad%20den%202025-04-24.pdf#page=28\">Kommunens PDF</a></div>"
   },
   "#kalla-enkat": {
    "dold": false,
-   "html": "Medelvärden på skalan 1–5. Siffrorna inom hakparentes är källor."
+   "html": "Medelvärden på skalan 1–5. Siffrorna inom hakparentes är källor.<br>2020: 88 av 183 svarade: 54 tjejer, 32 killar och 2 som inte ville ange kön. <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a>"
+  },
+  "#kalla-tabell": {
+   "dold": false,
+   "html": "Siffrorna inom hakparentes är källor, se listan längre ned. Årskullen: <a href=\"https://www.kolada.se/\">Kolada (Rådet för främjande av kommunala analyser, RKA), nyckeltal ur SCB:s befolkningsstatistik</a>, nyckeltal N01832, hämtat 14 november 2026."
   },
   "#kalla-utveckling": {
    "dold": false,
-   "html": "Källa: nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun. Varje tal har sin källa i tabellen under diagrammet."
+   "html": "Källa: nämndernas handlingar, Kungsbacka kommun. Varje tal har sin källa i tabellen under diagrammet."
   },
   "#kort-sagt": {
    "dold": false,
@@ -1205,7 +1391,7 @@
   },
   "#kort-sagt-lista": {
    "dold": false,
-   "html": "<li>2025 sökte <strong>403 eller 422</strong> ungdomar ett feriejobb, och <strong>200</strong> fick ett.</li><li>2026 tillsattes <strong>224</strong> feriejobb. Hur många som sökte har nämnden inte redovisat än.</li><li>Flest feriejobb: <strong>281</strong> år 2021.</li><li>Handlingarna anger olika tal för sökande 2024 och 2025 och tillsatta feriejobb 2020. Båda talen visas.</li><li>I årskullen som kunde söka sommaren 2026 fanns <strong>1&nbsp;303</strong> ungdomar folkbokförda i kommunen.</li><li>Utöver feriejobben anställde Vård &amp; Omsorg <strong>50</strong> 17-åringar för sommaren 2025.</li>"
+   "html": "<li>2025 sökte <strong>403 eller 422</strong> ungdomar ett feriejobb, och <strong>200</strong> fick ett.</li><li>2026 tillsattes <strong>224</strong> feriejobb. Hur många som sökte har nämnden inte redovisat än.</li><li>Flest feriejobb: <strong>281</strong> år 2021.</li><li>Handlingarna anger olika tal för sökande 2023, 2024 och 2025 och tillsatta feriejobb 2020. Båda talen visas, se osäkerheterna längre ned.</li><li>I årskullen som kunde söka sommaren 2026 fanns <strong>1&nbsp;303</strong> ungdomar folkbokförda i kommunen.</li><li>Utöver feriejobben anställde Vård &amp; Omsorg <strong>50</strong> 17-åringar för sommaren 2025.</li>"
   },
   "#kort-sagt-rubrik": {
    "dold": false,
@@ -1215,23 +1401,23 @@
    "dold": false,
    "innehall": "…tabell, diagram eller egna id:n"
   },
+  "#lista-osakerheter": {
+   "dold": false,
+   "html": "<li><strong>Handlingarna säger olika</strong> för sökande 2023 (310 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a> eller 419 <a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a>), sökande 2024 (273 <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a><a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a> eller 321 <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a>), sökande 2025 (403 <a class=\"fotnot\" href=\"#kalla-10\" aria-label=\"Källa 10\">[10]</a> eller 422 <a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a><a class=\"fotnot\" href=\"#kalla-12\" aria-label=\"Källa 12\">[12]</a><a class=\"fotnot\" href=\"#kalla-13\" aria-label=\"Källa 13\">[13]</a>) och tillsatta feriejobb 2020 (180 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a> eller 183 <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a><a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a>). Båda talen visas, och sidan väljer inte mellan dem.</li><li><strong>Uppgift saknas</strong> i handlingarna för sökande 2026, tillsatta feriejobb 2022 och anmälda platser 2020, 2021, 2022 och 2026.</li>\n      <li><strong>Sökande är inte samma mått varje år.</strong> Handlingarna\n        skriver omväxlande ungdomar som ”fullföljde sin ansökan”,\n        ”ansökte” och ”sökte”, och de kan vara\n        räknade på olika sätt.</li>\n      <li><strong>”200 ungdomar har sökt”</strong> står i\n        <a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-10-23/protokoll.html#sida-6\">protokollet\n        den 23 oktober 2024, § 123</a>, om sommaren 2024. Övriga handlingar\n        anger fler sökande det året, och talet är detsamma som de 200\n        tillsatta jobben, så det räknas inte som sökande här.</li>\n      <li><strong>Budgeten.</strong> Kommunen har ingen gemensam budget för\n        feriejobben. Ramen till Gymnasium &amp; Arbetsmarknad avser 200\n        platser, enligt\n        <a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-04-17/handlingar.html#sida-33\">handlingarna\n        den 17 april 2024, sidan 33</a>.</li>\n      <li><strong>Före 2020.</strong> Det äldsta talet i datapoolen är från\n        2014: inom budgeten fanns 100 feriearbetsplatser\n        (<a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2014/2014-02-19/protokoll.html#sida-8\">protokollet\n        i februari 2014</a>), och nämnden beslutade att anordna 150\n        feriejobb sommaren 2014\n        (<a href=\"https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2014/2014-04-15/protokoll.html#sida-9\">protokollet\n        § 34</a>). Nämndens handlingar från 2015–2019 finns inte i\n        datapoolen, så diagrammet börjar 2020.</li>\n      <li><strong>Kön och arbetsplatser</strong> redovisas bara enstaka år:\n        könen bara i enkäten 2020, arbetsplatserna bara för de förvaltningar\n        som står i tabellen ovan.</li>\n      <li><strong>Kommunens egen sida</strong>\n        <a href=\"https://kungsbacka.se/foretagande-och-jobb/jobb/feriejobb-for-dig-pa-gymnasiet\">om\n        feriejobb</a> beskriver vem som får söka och hur, men anger inga\n        tal.</li>\n    "
+  },
   "#meta-rad": {
    "dold": false,
-   "html": "<span>Källa: Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2020–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 22 oktober 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
-  },
-  "#not-luckor": {
-   "dold": false,
-   "html": "<div class=\"data-not\" role=\"note\"><span class=\"data-not-marke\" aria-hidden=\"true\">!</span><div><p>Uppgift saknas i handlingarna för sökande 2026, tillsatta feriejobb 2022 och anmälda platser 2020, 2021, 2022, 2023 och 2026.</p></div></div>"
+   "html": "<span>Källa: Nämndernas handlingar, Kungsbacka kommun, och Kolada</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2020–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 15 november 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
   },
   "#om-uppdaterad": {
    "dold": false,
-   "html": "Talen lästes in 22 oktober 2026."
+   "html": "Talen lästes in 15 november 2026."
   },
-  "#sektion-arskull": {
+  "#sektion-enkat": {
    "dold": false,
    "innehall": "…tabell, diagram eller egna id:n"
   },
-  "#sektion-enkat": {
+  "#sektion-forvaltningar": {
    "dold": false,
    "innehall": "…tabell, diagram eller egna id:n"
   },
@@ -1240,6 +1426,10 @@
    "innehall": "…tabell, diagram eller egna id:n"
   },
   "#sektion-om": {
+   "dold": false,
+   "innehall": "…tabell, diagram eller egna id:n"
+  },
+  "#sektion-osakerheter": {
    "dold": false,
    "innehall": "…tabell, diagram eller egna id:n"
   },
@@ -1257,23 +1447,23 @@
   },
   "#tabell-ar": {
    "dold": false,
-   "html": "<thead><tr><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på År\">År</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Sökande\">Sökande</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Tillsatta feriejobb\">Tillsatta feriejobb</th><th scope=\"col\" aria-sort=\"none\" tabindex=\"0\" title=\"Sortera på Anmälda platser\">Anmälda platser</th></tr></thead><tbody><tr><th scope=\"row\">2020</th><td>200 <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></td><td>180 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a> eller 183 <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></td><td>–</td></tr><tr><th scope=\"row\">2021</th><td>356 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a><a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td>281 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a><a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td>–</td></tr><tr><th scope=\"row\">2022</th><td>326 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td>–</td><td>–</td></tr><tr><th scope=\"row\">2023</th><td>310 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td>199 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td>–</td></tr><tr><th scope=\"row\">2024</th><td>273 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a><a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a> eller 321 <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a></td><td>200 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a><a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a><a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a></td><td>247 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a><a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></td></tr><tr><th scope=\"row\">2025</th><td>403 <a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a> eller 422 <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a><a class=\"fotnot\" href=\"#kalla-10\" aria-label=\"Källa 10\">[10]</a><a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a></td><td>200 <a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a><a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a></td><td>229 <a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a><a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a><a class=\"fotnot\" href=\"#kalla-10\" aria-label=\"Källa 10\">[10]</a><a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a></td></tr><tr><th scope=\"row\">2026</th><td>–</td><td>224 <a class=\"fotnot\" href=\"#kalla-12\" aria-label=\"Källa 12\">[12]</a><a class=\"fotnot\" href=\"#kalla-13\" aria-label=\"Källa 13\">[13]</a></td><td>–</td></tr></tbody>"
-  },
-  "#tabell-arskull": {
-   "dold": false,
-   "html": "<thead><tr><th scope=\"col\">Sommar</th><th scope=\"col\">Årskullen i kommunen</th><th scope=\"col\">Sökande</th><th scope=\"col\">Tillsatta feriejobb</th></tr></thead><tbody><tr><th scope=\"row\">2020</th><td>1&nbsp;208</td><td>200 <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></td><td>180 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a> eller 183 <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></td></tr><tr><th scope=\"row\">2021</th><td>1&nbsp;254</td><td>356 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a><a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td><td>281 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a><a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td></tr><tr><th scope=\"row\">2022</th><td>1&nbsp;286</td><td>326 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td>–</td></tr><tr><th scope=\"row\">2023</th><td>1&nbsp;259</td><td>310 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td>199 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td></tr><tr><th scope=\"row\">2024</th><td>1&nbsp;236</td><td>273 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a><a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a> eller 321 <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a></td><td>200 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a><a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a><a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a></td></tr><tr><th scope=\"row\">2025</th><td>1&nbsp;310</td><td>403 <a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a> eller 422 <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a><a class=\"fotnot\" href=\"#kalla-10\" aria-label=\"Källa 10\">[10]</a><a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a></td><td>200 <a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a><a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a></td></tr><tr><th scope=\"row\">2026</th><td>1&nbsp;303</td><td>–</td><td>224 <a class=\"fotnot\" href=\"#kalla-12\" aria-label=\"Källa 12\">[12]</a><a class=\"fotnot\" href=\"#kalla-13\" aria-label=\"Källa 13\">[13]</a></td></tr></tbody>"
+   "html": "<thead><tr><th scope=\"col\">År</th><th scope=\"col\">Sökande</th><th scope=\"col\">Tillsatta feriejobb</th><th scope=\"col\">Anmälda platser</th><th scope=\"col\">Årskullen<br><small>15 år vid årsskiftet före</small></th><th scope=\"col\" class=\"text\">Det handlingarna säger runt omkring</th></tr></thead><tbody><tr><th scope=\"row\">2026</th><td>–</td><td><span class=\"hel\">224 <a class=\"fotnot\" href=\"#kalla-14\" aria-label=\"Källa 14\">[14]</a><a class=\"fotnot\" href=\"#kalla-15\" aria-label=\"Källa 15\">[15]</a></span></td><td>–</td><td>1&nbsp;303</td><td class=\"text\"><strong>Tillsatta feriejobb:</strong> 200 och 24 extra till Kultur &amp; Fritid. <a class=\"fotnot\" href=\"#kalla-14\" aria-label=\"Källa 14\">[14]</a></td></tr><tr><th scope=\"row\">2025</th><td><span class=\"hel\">403 <a class=\"fotnot\" href=\"#kalla-10\" aria-label=\"Källa 10\">[10]</a></span> eller <span class=\"hel\">422 <a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a><a class=\"fotnot\" href=\"#kalla-12\" aria-label=\"Källa 12\">[12]</a><a class=\"fotnot\" href=\"#kalla-13\" aria-label=\"Källa 13\">[13]</a></span></td><td><span class=\"hel\">200 <a class=\"fotnot\" href=\"#kalla-10\" aria-label=\"Källa 10\">[10]</a><a class=\"fotnot\" href=\"#kalla-13\" aria-label=\"Källa 13\">[13]</a></span></td><td><span class=\"hel\">229 <a class=\"fotnot\" href=\"#kalla-10\" aria-label=\"Källa 10\">[10]</a><a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a><a class=\"fotnot\" href=\"#kalla-12\" aria-label=\"Källa 12\">[12]</a><a class=\"fotnot\" href=\"#kalla-13\" aria-label=\"Källa 13\">[13]</a></span></td><td>1&nbsp;310</td><td class=\"text\"><strong>Tillsatta feriejobb:</strong> Varav fem prioriterade. <a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a></td></tr><tr><th scope=\"row\">2024</th><td><span class=\"hel\">273 <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a><a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a></span> eller <span class=\"hel\">321 <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></span></td><td><span class=\"hel\">200 <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a><a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a><a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></span></td><td><span class=\"hel\">247 <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a><a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a></span></td><td>1&nbsp;236</td><td class=\"text\"><strong>Tillsatta feriejobb:</strong> Varav 9 prioriterade platser. <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a></td></tr><tr><th scope=\"row\">2023</th><td><span class=\"hel\">310 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></span> eller <span class=\"hel\">419 <a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></span></td><td><span class=\"hel\">199 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></span></td><td><span class=\"hel\">321 <a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></span></td><td>1&nbsp;259</td><td class=\"text\"><strong>Anmälda platser:</strong> Budget för 200. <a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a></td></tr><tr><th scope=\"row\">2022</th><td><span class=\"hel\">326 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></span></td><td>–</td><td>–</td><td>1&nbsp;286</td><td class=\"text\"><strong>Anmälda platser:</strong> Fler än budgeterat; antalet anges inte. <a class=\"fotnot\" href=\"#kalla-17\" aria-label=\"Källa 17\">[17]</a></td></tr><tr><th scope=\"row\">2021</th><td><span class=\"hel\">356 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a><a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></span></td><td><span class=\"hel\">281 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a><a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></span></td><td>–</td><td>1&nbsp;254</td><td class=\"text\"><strong>Sökande:</strong> 75 tackade nej till erbjudandet. <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a><br><strong>Anmälda platser:</strong> 230 platser var klara i början av året. <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a><br><strong>Anmälda platser:</strong> Utökningen från 200 till 262 platser kostade ca 500 tkr. <a class=\"fotnot\" href=\"#kalla-16\" aria-label=\"Källa 16\">[16]</a></td></tr><tr><th scope=\"row\">2020</th><td><span class=\"hel\">200 <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></span></td><td><span class=\"hel\">180 <a class=\"fotnot\" href=\"#kalla-2\" aria-label=\"Källa 2\">[2]</a></span> eller <span class=\"hel\">183 <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a><a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></span></td><td>–</td><td>1&nbsp;208</td><td class=\"text\"><strong>Anmälda platser:</strong> 192 platser var klara i början av året. 102 avbokades under covid och 110 nya togs fram. <a class=\"fotnot\" href=\"#kalla-3\" aria-label=\"Källa 3\">[3]</a></td></tr></tbody>"
   },
   "#tabell-enkat": {
    "dold": false,
-   "html": "<thead><tr><th scope=\"col\">Fråga</th><th scope=\"col\">2020 <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></th><th scope=\"col\">2021 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></th><th scope=\"col\">2022 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></th><th scope=\"col\">2023 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></th><th scope=\"col\">2024 <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a></th><th scope=\"col\">2025 <a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a></th></tr></thead><tbody><tr><th scope=\"row\">Tycker du att det var positivt att feriearbeta i Kungsbacka kommun?</th><td>4,33</td><td>4,5</td><td>4</td><td>4</td><td>4,3</td><td>4,5</td></tr><tr><th scope=\"row\">Tycker du att det var lätt att ansöka om feriejobb?</th><td>4,16</td><td>4,35</td><td>4</td><td>4</td><td>4,3</td><td>4,4</td></tr><tr><th scope=\"row\">Tycker du att du fick nödvändig information om feriejobbet innan start?</th><td>3,41</td><td>3,85</td><td>4</td><td>4</td><td>3,8</td><td>3,7</td></tr><tr><th scope=\"row\">Tycker du att du fick en bra introduktion på arbetsplatsen?</th><td>4,18</td><td>4,4</td><td>4</td><td>4</td><td>4,2</td><td>4,3</td></tr><tr><th scope=\"row\">Tycker du att det var lätt att tidsrapportera?</th><td>3,85</td><td>3,8</td><td>4</td><td>4</td><td>3,8</td><td>4,3</td></tr><tr><th scope=\"row\">Kan du tänka dig att arbeta i Kungsbacka kommun igen i framtiden?</th><td>3,82</td><td>4,1</td><td>4</td><td>4</td><td>3,5</td><td>4,1</td></tr></tbody>"
+   "html": "<thead><tr><th scope=\"col\">Fråga</th><th scope=\"col\">2020 <a class=\"fotnot\" href=\"#kalla-1\" aria-label=\"Källa 1\">[1]</a></th><th scope=\"col\">2021 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></th><th scope=\"col\">2022 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></th><th scope=\"col\">2023 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></th><th scope=\"col\">2024 <a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></th><th scope=\"col\">2025 <a class=\"fotnot\" href=\"#kalla-13\" aria-label=\"Källa 13\">[13]</a></th></tr></thead><tbody><tr><th scope=\"row\">Tycker du att det var positivt att feriearbeta i Kungsbacka kommun?</th><td>4,33</td><td>4,5</td><td>4</td><td>4</td><td>4,3</td><td>4,5</td></tr><tr><th scope=\"row\">Tycker du att det var lätt att ansöka om feriejobb?</th><td>4,16</td><td>4,35</td><td>4</td><td>4</td><td>4,3</td><td>4,4</td></tr><tr><th scope=\"row\">Tycker du att du fick nödvändig information om feriejobbet innan start?</th><td>3,41</td><td>3,85</td><td>4</td><td>4</td><td>3,8</td><td>3,7</td></tr><tr><th scope=\"row\">Tycker du att du fick en bra introduktion på arbetsplatsen?</th><td>4,18</td><td>4,4</td><td>4</td><td>4</td><td>4,2</td><td>4,3</td></tr><tr><th scope=\"row\">Tycker du att det var lätt att tidsrapportera?</th><td>3,85</td><td>3,8</td><td>4</td><td>4</td><td>3,8</td><td>4,3</td></tr><tr><th scope=\"row\">Kan du tänka dig att arbeta i Kungsbacka kommun igen i framtiden?</th><td>3,82</td><td>4,1</td><td>4</td><td>4</td><td>3,5</td><td>4,1</td></tr></tbody>"
+  },
+  "#tabell-forvaltningar": {
+   "dold": false,
+   "html": "<thead><tr><th scope=\"col\">Förvaltning</th><th scope=\"col\">2023</th><th scope=\"col\">2024</th><th scope=\"col\">2025</th><th scope=\"col\">2026</th></tr></thead><tbody><tr><th scope=\"row\">Service</th><td>50 <a class=\"fotnot\" href=\"#kalla-25\" aria-label=\"Källa 25\">[25]</a></td><td>58 <a class=\"fotnot\" href=\"#kalla-26\" aria-label=\"Källa 26\">[26]</a></td><td>72 <a class=\"fotnot\" href=\"#kalla-27\" aria-label=\"Källa 27\">[27]</a></td><td>59 <a class=\"fotnot\" href=\"#kalla-28\" aria-label=\"Källa 28\">[28]</a></td></tr><tr><th scope=\"row\">Kultur &amp; Fritid</th><td>–</td><td>–</td><td>omkring 50 <a class=\"fotnot\" href=\"#kalla-29\" aria-label=\"Källa 29\">[29]</a></td><td>–</td></tr><tr><th scope=\"row\">Vård &amp; Omsorg</th><td>8 <a class=\"fotnot\" href=\"#kalla-18\" aria-label=\"Källa 18\">[18]</a></td><td>41 <a class=\"fotnot\" href=\"#kalla-19\" aria-label=\"Källa 19\">[19]</a></td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Bygg</th><td>–</td><td>–</td><td>–</td><td>4 <a class=\"fotnot\" href=\"#kalla-30\" aria-label=\"Källa 30\">[30]</a></td></tr><tr><th scope=\"row\">Teknik</th><td>–</td><td>4 <a class=\"fotnot\" href=\"#kalla-31\" aria-label=\"Källa 31\">[31]</a></td><td>–</td><td>–</td></tr></tbody>"
   },
   "#tabell-sommarjobb": {
    "dold": false,
-   "html": "<thead><tr><th scope=\"col\">Grupp och ålder</th><th scope=\"col\">2023</th><th scope=\"col\">2024</th><th scope=\"col\">2025</th><th scope=\"col\">2026</th></tr></thead><tbody><tr><th scope=\"row\">Feriejobb, tillsatta i hela kommunen<br><small>Gymnasieettor</small></th><td>199 <a class=\"fotnot\" href=\"#kalla-4\" aria-label=\"Källa 4\">[4]</a></td><td>200 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a><a class=\"fotnot\" href=\"#kalla-6\" aria-label=\"Källa 6\">[6]</a><a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a></td><td>200 <a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a><a class=\"fotnot\" href=\"#kalla-11\" aria-label=\"Källa 11\">[11]</a></td><td>224 <a class=\"fotnot\" href=\"#kalla-12\" aria-label=\"Källa 12\">[12]</a><a class=\"fotnot\" href=\"#kalla-13\" aria-label=\"Källa 13\">[13]</a></td></tr><tr><th scope=\"row\">17-åringar<br><small>Ålder: 17 år; inför sommaren 2023 också 16-åringar som fyllde 17 under året <a class=\"fotnot\" href=\"#kalla-20\" aria-label=\"Källa 20\">[20]</a></small></th><td>40 <a class=\"fotnot\" href=\"#kalla-14\" aria-label=\"Källa 14\">[14]</a></td><td>58 <a class=\"fotnot\" href=\"#kalla-15\" aria-label=\"Källa 15\">[15]</a></td><td>50 <a class=\"fotnot\" href=\"#kalla-16\" aria-label=\"Källa 16\">[16]</a></td><td>–</td></tr><tr><th scope=\"row\">Alla 17-åringar i kommunen<br><small>16 år den 31 december året före, enligt Kolada</small></th><td>1&nbsp;287</td><td>1&nbsp;263</td><td>1&nbsp;260</td><td>1&nbsp;307</td></tr><tr><th scope=\"row\">Riktade lovjobb<br><small>Ålder: gymnasieelever, åldern anges inte</small></th><td>19 <a class=\"fotnot\" href=\"#kalla-17\" aria-label=\"Källa 17\">[17]</a></td><td>12 <a class=\"fotnot\" href=\"#kalla-15\" aria-label=\"Källa 15\">[15]</a></td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Sommarvikarier på schema<br><small>Ålder: anges inte i handlingarna</small></th><td>312 av 437 beställda <a class=\"fotnot\" href=\"#kalla-18\" aria-label=\"Källa 18\">[18]</a><br><small>och omkring 300 som bara anmält sig tillgängliga</small><br><small>Läget i slutet av maj 2023, före sommaren.</small></td><td>375 av 380 beställda <a class=\"fotnot\" href=\"#kalla-19\" aria-label=\"Källa 19\">[19]</a></td><td>515 av 522 beställda <a class=\"fotnot\" href=\"#kalla-19\" aria-label=\"Källa 19\">[19]</a><br><small>och omkring 310 som bara anmält sig tillgängliga</small></td><td>–</td></tr><tr><th scope=\"row\">Månadsanställda sommarvikarier<br><small>Ålder: anges inte i handlingarna</small></th><td>–</td><td>60 <a class=\"fotnot\" href=\"#kalla-19\" aria-label=\"Källa 19\">[19]</a></td><td>49 <a class=\"fotnot\" href=\"#kalla-19\" aria-label=\"Källa 19\">[19]</a></td><td>70 <a class=\"fotnot\" href=\"#kalla-19\" aria-label=\"Källa 19\">[19]</a></td></tr></tbody>"
+   "html": "<thead><tr><th scope=\"col\">Grupp och ålder</th><th scope=\"col\">2023</th><th scope=\"col\">2024</th><th scope=\"col\">2025</th><th scope=\"col\">2026</th></tr></thead><tbody><tr><th scope=\"row\">Feriejobb, tillsatta i hela kommunen<br><small>Gymnasieettor</small></th><td><span class=\"hel\">199 <a class=\"fotnot\" href=\"#kalla-5\" aria-label=\"Källa 5\">[5]</a></span></td><td><span class=\"hel\">200 <a class=\"fotnot\" href=\"#kalla-7\" aria-label=\"Källa 7\">[7]</a><a class=\"fotnot\" href=\"#kalla-8\" aria-label=\"Källa 8\">[8]</a><a class=\"fotnot\" href=\"#kalla-9\" aria-label=\"Källa 9\">[9]</a></span></td><td><span class=\"hel\">200 <a class=\"fotnot\" href=\"#kalla-10\" aria-label=\"Källa 10\">[10]</a><a class=\"fotnot\" href=\"#kalla-13\" aria-label=\"Källa 13\">[13]</a></span></td><td><span class=\"hel\">224 <a class=\"fotnot\" href=\"#kalla-14\" aria-label=\"Källa 14\">[14]</a><a class=\"fotnot\" href=\"#kalla-15\" aria-label=\"Källa 15\">[15]</a></span></td></tr><tr><th scope=\"row\">17-åringar<br><small>Ålder: 17 år; inför sommaren 2023 också 16-åringar som fyllde 17 under året <a class=\"fotnot\" href=\"#kalla-24\" aria-label=\"Källa 24\">[24]</a></small></th><td>40 <a class=\"fotnot\" href=\"#kalla-18\" aria-label=\"Källa 18\">[18]</a></td><td>58 <a class=\"fotnot\" href=\"#kalla-19\" aria-label=\"Källa 19\">[19]</a></td><td>50 <a class=\"fotnot\" href=\"#kalla-20\" aria-label=\"Källa 20\">[20]</a></td><td>–</td></tr><tr><th scope=\"row\">Alla 17-åringar i kommunen<br><small>16 år den 31 december året före, enligt Kolada</small></th><td>1&nbsp;287</td><td>1&nbsp;263</td><td>1&nbsp;260</td><td>1&nbsp;307</td></tr><tr><th scope=\"row\">Riktade lovjobb<br><small>Ålder: gymnasieelever, åldern anges inte</small></th><td>19 <a class=\"fotnot\" href=\"#kalla-21\" aria-label=\"Källa 21\">[21]</a></td><td>12 <a class=\"fotnot\" href=\"#kalla-19\" aria-label=\"Källa 19\">[19]</a></td><td>–</td><td>–</td></tr><tr><th scope=\"row\">Sommarvikarier på schema<br><small>Ålder: anges inte i handlingarna</small></th><td>312 av 437 beställda <a class=\"fotnot\" href=\"#kalla-22\" aria-label=\"Källa 22\">[22]</a><br><small>och omkring 300 som bara anmält sig tillgängliga</small><br><small>Läget i slutet av maj 2023, före sommaren.</small></td><td>375 av 380 beställda <a class=\"fotnot\" href=\"#kalla-23\" aria-label=\"Källa 23\">[23]</a></td><td>515 av 522 beställda <a class=\"fotnot\" href=\"#kalla-23\" aria-label=\"Källa 23\">[23]</a><br><small>och omkring 310 som bara anmält sig tillgängliga</small></td><td>–</td></tr><tr><th scope=\"row\">Månadsanställda sommarvikarier<br><small>Ålder: anges inte i handlingarna</small></th><td>–</td><td>60 <a class=\"fotnot\" href=\"#kalla-23\" aria-label=\"Källa 23\">[23]</a></td><td>49 <a class=\"fotnot\" href=\"#kalla-23\" aria-label=\"Källa 23\">[23]</a></td><td>70 <a class=\"fotnot\" href=\"#kalla-23\" aria-label=\"Källa 23\">[23]</a></td></tr></tbody>"
   },
   ".meta-rad[meta-rad]": {
    "dold": false,
-   "html": "<span>Källa: Nämnden för Gymnasium &amp; Arbetsmarknad, Kungsbacka kommun</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2020–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 22 oktober 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
+   "html": "<span>Källa: Nämndernas handlingar, Kungsbacka kommun, och Kolada</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Period: 2020–2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data hämtad: 15 november 2026</span><span class=\"meta-skilje\" aria-hidden=\"true\">·</span><span>Data och källkod: <a href=\"https://github.com/moggleif/politik\">GitHub</a></span>"
   }
  }
 }

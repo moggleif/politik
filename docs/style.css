@@ -210,6 +210,9 @@ th, td {
 th:first-child, td:first-child { text-align: left; }
 /* En förklarande rad under en radrubrik är text, inte rubrik */
 th small { font-weight: normal; }
+/* Ett tal med sina källor bryts inte mitt i; en textkolumn läses vänsterställd. */
+td .hel { white-space: nowrap; }
+th.text, td.text { text-align: left; min-width: 13rem; }
 
 thead th {
   border-bottom: 2px solid var(--baseline);
