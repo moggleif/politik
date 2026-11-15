@@ -593,7 +593,8 @@ scripts/
                                 Valmyndighetens filer: hämtningen med
                                 återförsök, xlsx-läsaren, valdistriktskoden
                                 och partinormaliseringen
-  testserver.js                 Serverar docs/ med fryst fixturdata till
+  testserver.js                 Serverar docs/ med fryst fixturdata och
+                                Giffås meny ur tests/fixtures/giffa/ till
                                 facit- och interaktionskontrollerna
   bygg_sidmall.py               Skriver in samma meny och samma sidfot på
                                 alla sidor i docs/. Menyn finns bara här;
@@ -1172,15 +1173,24 @@ Alla sidor delar samma ram, och analyssidorna dessutom samma
 komponenter (docs/gemensam.js):
 
 - **Samma sidhuvud och samma sidfot på varje sida.** Högst upp ligger
-  en navigeringsrad med webbplatsens namn och ämnena som utfällbara
-  menyer; längst ner en sidfot med länkar till startsidan, metodsidan,
+  sajtraden till projektets andra sajter,
+  [Giffå](https://moggleif.github.io/giffa/) och
+  [Kungsbacka kommun](https://moggleif.github.io/kommunhandlingar/), och
+  under den webbplatsens namn och ämnena som utfällbara menyer:
+  Befolkning, Skolan (grundskolan, gymnasiet och elevenkäterna i var sin
+  kolumn), Valen och fullmäktige, Jämför (Varberg, och fler kommuner och
+  regioner när de kommer) och Metod. Längst ner en sidfot med länkar till
+  startsidan, metodsidan,
   [källkoden på GitHub](https://github.com/moggleif/politik) och
   felanmälan, sidans egna källor och en rad om att sidorna är
   fristående. Båda byggs av `scripts/bygg_sidmall.py`, som skriver in
   dem i varje docs/*.html &ndash; menyn finns alltså bara på ett ställe,
-  och CI faller om en sida hamnat i otakt. Menyerna är `<details>` och
-  fungerar utan JavaScript; skriptet lägger bara till att en öppen meny
-  stängs av Escape, av ett klick utanför och när en annan öppnas.
+  och CI faller om en sida hamnat i otakt. Menyns form, sajtraden och
+  knappen *Meny* på smal skärm kommer från Giffås gemensamma meny
+  (`/giffa/sajter.css` och `/giffa/sajter.js`, Giffås
+  [beslut 0013](https://github.com/moggleif/giffa/blob/main/beslut/0013-gemensam-meny-fran-giffa.md)),
+  som ligger på samma adress. Menyerna är `<details>` och fungerar utan
+  JavaScript; utan Giffås skript saknas bara sajtraden och knappen.
 - **"Kort sagt"** överst: de viktigaste observationerna, beräknade ur
   sidans datafil vid varje sidvisning &ndash; ingenting är hårdkodat.
 - **Delbara URL:er**: valen i reglagen speglas i adressraden

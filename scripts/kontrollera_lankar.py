@@ -4,6 +4,8 @@
 Tre kontroller, alla utan nätverk:
 
   1. Varje relativ href/src i docs/*.html ska peka på en fil i docs/.
+     En adress som börjar med / hör till en annan sajt på samma värd, som
+     Giffås gemensamma meny under /giffa/, och kontrolleras inte här.
   2. Varje docs/data*.json och docs/data-*/*.json ska gå att läsa som JSON.
   3. Varje lokalPdf/lokalFil i data/**/*.json ska peka på en fil i docs/.
 
@@ -25,7 +27,7 @@ fel = []
 
 def ar_intern(url: str) -> bool:
     p = urlparse(url)
-    return not p.scheme and not p.netloc and bool(p.path)
+    return not p.scheme and not p.netloc and bool(p.path) and not p.path.startswith("/")
 
 
 for html in sorted(DOCS.glob("*.html")):

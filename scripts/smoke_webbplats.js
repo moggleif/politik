@@ -19,6 +19,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
+const { giffasMeny } = require("./testserver");
 
 const DOCS = path.join(__dirname, "..", "docs");
 
@@ -110,11 +111,13 @@ function startaServer() {
 
 /* Sidorna läser in GoatCounters count.js. Testet ska gå utan nät, så
    skriptet besvaras här med en tom fil (och räknas gör ändå inget från
-   127.0.0.1 – count.js hoppar över lokala adresser). */
+   127.0.0.1 – count.js hoppar över lokala adresser). Giffås gemensamma
+   meny kommer ur sin fixtur (testserver.js). */
 async function stubbaGoatcounter(page) {
   await page.route("https://gc.zgo.at/**", function (r) {
     r.fulfill({ status: 200, contentType: "text/javascript", body: "" });
   });
+  await giffasMeny(page);
 }
 
 async function granska(browser, bas, sida, medDiagram, medTabell) {

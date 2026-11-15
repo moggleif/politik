@@ -83,6 +83,18 @@ function startaServer() {
   });
 }
 
+/* Den gemensamma menyn – sajtraden, knappen Meny och menyns stil – laddas
+   från Giffå på samma adress (/giffa/sajter.js och /giffa/sajter.css).
+   Kontrollerna går utan nät, så de får en fryst kopia ur
+   tests/fixtures/giffa/, som byts när Giffås filer ändras. */
+const GIFFA = path.join(ROT, "tests", "fixtures", "giffa");
+
+async function giffasMeny(page) {
+  await page.route("**/giffa/sajter.*", function (r) {
+    r.fulfill({ path: path.join(GIFFA, path.basename(r.request().url().split("?")[0])) });
+  });
+}
+
 /* En sida med frusen klocka och utan nät: GoatCounters count.js besvaras
    lokalt med en tom fil, så att kontrollerna går utan uppkoppling. */
 async function nySida(browser, alternativ) {
@@ -91,7 +103,8 @@ async function nySida(browser, alternativ) {
   await page.route("https://gc.zgo.at/**", function (r) {
     r.fulfill({ status: 200, contentType: "text/javascript", body: "" });
   });
+  await giffasMeny(page);
   return page;
 }
 
-module.exports = { startaServer, nySida, FRUSEN_TID, DOCS, FIXTURER };
+module.exports = { startaServer, nySida, giffasMeny, FRUSEN_TID, DOCS, FIXTURER };

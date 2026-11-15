@@ -21,6 +21,7 @@ vägledningen i samma ändring. Tydlighet före fyndighet.
 | Programindelning, skolor, betygsskalor         | `scripts/program.py`                      |
 | Färger, talformat, delade komponenter          | `docs/gemensam.js`                        |
 | Menyn och sidfoten                             | `scripts/bygg_sidmall.py`                 |
+| Menyns form och sajtraden till de andra sajterna | Giffås `docs/sajter.js` och `sajter.css` (beslut 0013 där) |
 | Vad sidorna faktiskt ritar                     | `tests/facit/*.json`                      |
 
 Skriv aldrig om ett annat dokuments fakta – länka till dem. Ett faktum som står
@@ -68,6 +69,9 @@ reproducerbarhetstesterna faller om innehållet inte går att räkna fram ur
 - **Inget externt vid körning.** Chart.js ligger vendrad som
   `docs/chart.umd.js`, inga CDN:er, och sidornas Content Security Policy
   släpper bara igenom besöksräknaren. Nya externa resurser tillkommer inte.
+  Undantaget är projektets gemensamma meny, `/giffa/sajter.css` och
+  `/giffa/sajter.js`, som Giffå publicerar på samma adress; kontrollerna
+  kör den mot en fryst kopia i `tests/fixtures/giffa/`.
 - **Färger kommer ur `FARG`/`PALETT` i `docs/gemensam.js`** – inga hexvärden
   i sidskripten. Ingen information får bäras av färgen ensam: serier skiljs
   med färg *och* punktform eller streckning.
