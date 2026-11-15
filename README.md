@@ -106,14 +106,17 @@ redovisat dem i sina handlingar.
 
 - [Feriejobb för ettorna](https://moggleif.github.io/politik/feriejobb.html)
   &ndash; sökande, tillsatta jobb och anmälda platser år för år sedan 2020,
-  och feriearbetarnas svar i kommunens enkät 2020&ndash;2025. Varje tal är
+  i ett diagram och en tabell med det handlingarna säger runt omkring
+  talen, hur många feriearbetare de förvaltningar som redovisar det tog
+  emot, feriearbetarnas svar i kommunens enkät 2020&ndash;2025 och en
+  lista över osäkerheter och luckor. Varje tal är
   inläst för hand ur en delårsrapport, årsredovisning, kvalitetsberättelse
   eller ett protokoll, med meningen där det står sparad ordagrant i
   `data/feriejobb/uppgifter.json`.
   [`scripts/build_feriejobb.py`](scripts/build_feriejobb.py) stannar om ett
   tal inte står i sin mening. Där två handlingar anger olika tal för samma
   år visas båda, och diagrammet ritar spannet mellan dem i stället för en
-  punkt. Källorna länkas till datapoolen
+  punkt; linjen går genom spannets mitt utan att mitten blir ett tal. Källorna länkas till datapoolen
   [kommunhandlingar](https://github.com/moggleif/kommunhandlingar) och till
   kommunens egen PDF där den finns kvar. Samma sida visar de andra
   sommarjobb för unga som nämnden för Vård & Omsorg redovisar &ndash;
@@ -414,7 +417,8 @@ data/
                                 riket och Kungsbacka. Skrivs en gång och
                                 ändras inte (se gor_prognos.py)
   feriejobb/uppgifter.json      Feriejobben år för år: varje tal med sin
-                                mening ur nämndens handlingar, enkäten och
+                                mening ur nämndens handlingar, noter,
+                                enkäten, förvaltningarnas feriearbetare och
                                 Vård & Omsorgs övriga sommarjobb
   rodalinjer/besked.json        Partiernas besked om regering och samarbete,
                                 ett per rad, med länkade källor

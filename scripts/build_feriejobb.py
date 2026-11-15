@@ -57,11 +57,34 @@ ger 17-åringarna som Vård & Omsorg anställer: 16 år den 31 december året
 före (N01833), alltså 17 under sommaren. Ett år som Kolada ännu inte har
 är `null`.
 
+**Noter.** Det som står kring ett tal – att 75 tackade nej, att platserna
+budgeterades till 200, att 24 av platserna gick till Kultur & Fritid –
+följer med som en kort not på året och måttet, med sin källa och sitt
+citat. Varje tal i noten ska stå i citatet. Noten är en återgivning av
+handlingen, inget eget omdöme.
+
+**Var feriearbetarna jobbade.** Några förvaltningar skriver i sina
+egna delårsrapporter och årsredovisningar hur många feriearbetare de tog
+emot. De talen visas förvaltning för förvaltning och år för år, men
+räknas aldrig ihop: de flesta förvaltningar anger inget, och en
+förvaltning som inte nämns har inte haft noll. Ett tal som handlingen
+anger ungefärligt ("ett femtiotal") märks `ungefar`.
+
+**Tal med bokstäver.** Handlingarna skriver små tal som ord ("fyra
+feriearbetare"). Kontrollen att ett tal står i sitt citat godtar därför
+också talordet för 1–12.
+
+**2023 i initiativet.** Initiativet om feriejobb (GA 2024-04-17) anger
+419 sökande och 321 erbjudna platser för 2023, medan kvalitetsberättelsen
+anger 310 sökande. Båda står kvar som olika uppgifter för året.
+
 Bygget stannar hellre än sparar något som inte går ihop: okänt mått eller
 okänd källa, ett tal som inte står i sitt citat, delar som inte summerar
 till talet, en källa som ger två tal för samma år och mått, en källa som
 inte används, enkätvärden utanför skalan eller för okända frågor, och en
-sommarjobbsgrupp som är okänd eller har två uppgifter för samma år.
+sommarjobbsgrupp som är okänd eller har två uppgifter för samma år, en
+not med ett tal som inte står i citatet och en förvaltning med två tal
+samma år.
 
 Körs:  python3 scripts/build_feriejobb.py
 """
@@ -93,8 +116,15 @@ def las_indata():
     return json.loads(IN.read_text(encoding="utf-8"))
 
 
+# Handlingarna skriver små tal med bokstäver: "fyra feriearbetare".
+TALORD = {1: "en", 2: "två", 3: "tre", 4: "fyra", 5: "fem", 6: "sex",
+          7: "sju", 8: "åtta", 9: "nio", 10: "tio", 11: "elva", 12: "tolv"}
+
+
 def star_i(tal, text):
-    return re.search(r"(?<!\d)" + str(tal) + r"(?!\d)", text) is not None
+    if re.search(r"(?<!\d)" + str(tal) + r"(?!\d)", text):
+        return True
+    return tal in TALORD and re.search(r"\b" + TALORD[tal] + r"\b", text, re.I) is not None
 
 
 def kontrollera_kallor(kallor):
@@ -180,6 +210,31 @@ def kontrollera_sommarjobb(sj, kallor):
                 raise SystemExit(f"{namn}: {u[falt]} står inte i citatet")
 
 
+def kontrollera_noter(noter, kallor):
+    for n in noter:
+        namn = f"Noten {n.get('ar')} {n.get('matt')} ({n.get('kalla')})"
+        if n["matt"] not in MATTKODER + ["enkat"]:
+            raise SystemExit(f"{namn}: okänt mått")
+        if n["kalla"] not in kallor:
+            raise SystemExit(f"{namn}: källan finns inte")
+        for tal in re.findall(r"\d+", n["text"]):
+            if not star_i(int(tal), n["citat"]):
+                raise SystemExit(f"{namn}: {tal} står inte i citatet")
+
+
+def kontrollera_forvaltningar(rader, kallor):
+    sedda = set()
+    for u in rader:
+        namn = f"{u.get('forvaltning')} {u.get('ar')} ({u.get('kalla')})"
+        if u["kalla"] not in kallor:
+            raise SystemExit(f"{namn}: källan finns inte")
+        if (u["forvaltning"], u["ar"]) in sedda:
+            raise SystemExit(f"{namn}: förvaltningen har redan ett tal det året")
+        sedda.add((u["forvaltning"], u["ar"]))
+        if not isinstance(u["varde"], int) or not star_i(u["varde"], u["citat"]):
+            raise SystemExit(f"{namn}: {u['varde']} står inte i citatet")
+
+
 def kontrollera(indata):
     kallor = kontrollera_kallor(indata["kallor"])
     sedda = {}
@@ -191,9 +246,13 @@ def kontrollera(indata):
         sedda[nyckel] = u
     kontrollera_enkat(indata["enkat"], kallor)
     kontrollera_sommarjobb(indata["sommarjobb"], kallor)
+    kontrollera_noter(indata["noter"], kallor)
+    kontrollera_forvaltningar(indata["forvaltningar"], kallor)
     sj = indata["sommarjobb"]
     anvanda = ({u["kalla"] for u in indata["uppgifter"]} | {a["kalla"] for a in indata["enkat"]["ar"]}
                | {u["kalla"] for u in sj["uppgifter"]}
+               | {n["kalla"] for n in indata["noter"]}
+               | {u["kalla"] for u in indata["forvaltningar"]}
                | {g["alder_kalla"] for g in sj["grupper"] if g["alder_kalla"]})
     for k in kallor:
         if k not in anvanda:
@@ -227,11 +286,24 @@ def bygg(indata):
                     for t in tal
                 ],
             }
+    noter = {m: {} for m in MATTKODER + ["enkat"]}
+
+    def lagg_till_noter(m, a):
+        ns = [{"text": n["text"], "kalla": nr(n["kalla"])}
+              for n in indata["noter"] if n["ar"] == a and n["matt"] == m]
+        if ns:
+            noter[m][str(a)] = ns
+
+    for a in ar:
+        for m in MATTKODER:
+            lagg_till_noter(m, a)
     enkat = {
         "fragor": indata["enkat"]["fragor"],
         "ar": [{"ar": a["ar"], "kalla": nr(a["kalla"]), "medel": a["medel"]}
                for a in sorted(indata["enkat"]["ar"], key=lambda a: a["ar"])],
     }
+    for a in enkat["ar"]:
+        lagg_till_noter("enkat", a["ar"])
     sj = indata["sommarjobb"]
     sj_ar = sorted({u["ar"] for u in sj["uppgifter"]})
     sj_ar = list(range(sj_ar[0], sj_ar[-1] + 1))
@@ -251,13 +323,16 @@ def bygg(indata):
          "alder_kalla": nr(g["alder_kalla"]) if g["alder_kalla"] else None}
         for g in sj["grupper"]
     ]
+    forvaltningar = bygg_forvaltningar(indata["forvaltningar"], nr)
     return {
         "hamtad": indata["hamtad"],
         "ar": ar,
         "matt": [{"id": i, "namn": n, "forklaring": f} for i, n, f in MATT],
         "varden": varden,
+        "noter": noter,
         "enkat": enkat,
         "sommarjobb": {"ar": sj_ar, "grupper": grupper, "varden": sj_varden},
+        "forvaltningar": forvaltningar,
         "kallor": [
             {"nr": nummer[k], "namnd": kallor[k]["namnd"], "rubrik": kallor[k]["rubrik"],
              "mote": kallor[k]["mote"],
@@ -266,6 +341,23 @@ def bygg(indata):
             for k in sorted(nummer, key=nummer.get)
         ],
     }
+
+
+def bygg_forvaltningar(rader, nr):
+    ar = sorted({u["ar"] for u in rader})
+    ar = list(range(ar[0], ar[-1] + 1))
+    # Förvaltningen med flest feriearbetare först
+    namn = sorted({u["forvaltning"] for u in rader},
+                  key=lambda f: (-sum(u["varde"] for u in rader if u["forvaltning"] == f), f))
+    ut = []
+    for f in namn:
+        varden = {}
+        for a in ar:
+            u = next((u for u in rader if u["forvaltning"] == f and u["ar"] == a), None)
+            varden[str(a)] = u and {"varde": u["varde"], "ungefar": u.get("ungefar", False),
+                                    "kalla": nr(u["kalla"])}
+        ut.append({"namn": f, "varden": varden})
+    return {"ar": ar, "rader": ut}
 
 
 # Kolada-nyckeltalet för åldern den 31 december året före sommaren

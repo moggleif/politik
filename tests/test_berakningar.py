@@ -3600,7 +3600,7 @@ class TestFeriejobb(unittest.TestCase):
     """Feriejobben år för år: påhittade uppgifter där facit går att räkna
     för hand, och de riktiga mot handlingarnas egna tal."""
 
-    def indata(self, uppgifter=None, enkat=None, sommarjobb=None):
+    def indata(self, uppgifter=None, enkat=None, sommarjobb=None, noter=None, forvaltningar=None):
         return {
             "hamtad": "2026-10-22",
             "kallor": [
@@ -3637,6 +3637,18 @@ class TestFeriejobb(unittest.TestCase):
                      "citat": "anställt 40 stycken 17-åringar"},
                 ],
             },
+            "noter": noter if noter is not None else [
+                {"ar": 2022, "matt": "platser", "text": "Budget för 200.", "kalla": "b",
+                 "citat": "budget för 200 platser"},
+            ],
+            "forvaltningar": forvaltningar if forvaltningar is not None else [
+                {"forvaltning": "Teknik", "ar": 2024, "varde": 4, "kalla": "a",
+                 "citat": "tog emot fyra feriearbetare"},
+                {"forvaltning": "Service", "ar": 2022, "varde": 50, "kalla": "b",
+                 "citat": "50 feriearbetare"},
+                {"forvaltning": "Service", "ar": 2024, "varde": 58, "ungefar": True, "kalla": "b",
+                 "citat": "ett sextiotal, 58"},
+            ],
         }
 
     def test_ett_ar_utan_uppgift_ar_null_och_inte_noll(self):
@@ -3703,7 +3715,8 @@ class TestFeriejobb(unittest.TestCase):
         sj = self.indata()["sommarjobb"]
         bara_a = {"grupper": sj["grupper"][:1], "uppgifter": [sj["uppgifter"][1] | {"kalla": "a"}]}
         with self.assertRaises(SystemExit):
-            build_feriejobb.bygg(self.indata(self.indata()["uppgifter"][1:2], sommarjobb=bara_a))
+            build_feriejobb.bygg(self.indata(self.indata()["uppgifter"][1:2], sommarjobb=bara_a,
+                                             noter=[], forvaltningar=self.indata()["forvaltningar"][:1]))
 
     def test_sommarjobben_ar_grupp_for_grupp_och_tomt_ar_null(self):
         sj = build_feriejobb.bygg(self.indata())["sommarjobb"]
@@ -3734,6 +3747,43 @@ class TestFeriejobb(unittest.TestCase):
             with self.assertRaises(SystemExit, msg=sj):
                 build_feriejobb.bygg(self.indata(sommarjobb=sj))
 
+    def test_noten_hamnar_pa_ar_och_matt_med_sin_kalla(self):
+        ut = build_feriejobb.bygg(self.indata())
+        self.assertEqual(ut["noter"]["platser"], {"2022": [{"text": "Budget för 200.", "kalla": 2}]})
+        self.assertEqual(ut["noter"]["sokande"], {})
+
+    def test_tal_med_bokstaver_star_i_citatet(self):
+        self.assertTrue(build_feriejobb.star_i(4, "tog emot fyra feriearbetare"))
+        self.assertTrue(build_feriejobb.star_i(4, "4 feriearbetare"))
+        self.assertFalse(build_feriejobb.star_i(4, "40 feriearbetare"))
+        self.assertFalse(build_feriejobb.star_i(4, "fyrtio feriearbetare"))
+        self.assertFalse(build_feriejobb.star_i(14, "fjorton"))
+
+    def test_forvaltningarna_flest_forst_och_tomt_ar_null(self):
+        f = build_feriejobb.bygg(self.indata())["forvaltningar"]
+        self.assertEqual(f["ar"], [2022, 2023, 2024])
+        self.assertEqual([r["namn"] for r in f["rader"]], ["Service", "Teknik"])
+        service, teknik = f["rader"]
+        self.assertIsNone(service["varden"]["2023"])
+        self.assertIsNone(teknik["varden"]["2022"])
+        self.assertEqual((service["varden"]["2024"]["varde"], service["varden"]["2024"]["ungefar"]),
+                         (58, True))
+        self.assertFalse(teknik["varden"]["2024"]["ungefar"])
+
+    def test_bygget_stannar_vid_noter_och_forvaltningar_som_inte_haller(self):
+        not_ = self.indata()["noter"][0]
+        fv = self.indata()["forvaltningar"]
+        for kw in [
+            {"noter": [not_ | {"text": "Budget för 300."}]},      # talet står inte i citatet
+            {"noter": [not_ | {"matt": "annat"}]},                # okänt mått
+            {"noter": [not_ | {"kalla": "c"}]},                   # okänd källa
+            {"forvaltningar": fv + [fv[0] | {"varde": 4}]},       # två tal samma år
+            {"forvaltningar": [fv[0] | {"varde": 5}]},            # talet står inte i citatet
+            {"forvaltningar": [fv[0] | {"kalla": "c"}]},          # okänd källa
+        ]:
+            with self.assertRaises(SystemExit, msg=kw):
+                build_feriejobb.bygg(self.indata(**kw))
+
     def test_arskullen_ar_aldern_vid_arsskiftet_fore_sommaren(self):
         kolada = {"matt": "M", "kalla": "Kolada", "kallaUrl": "https://kolada.se", "hamtad": "2026-01-01",
                   "nyckeltal": [
@@ -3761,10 +3811,19 @@ class TestFeriejobb(unittest.TestCase):
         self.assertIsNone(v["tillsatta"]["2022"])
         # Där handlingarna säger olika står båda talen kvar
         self.assertEqual({(m, a) for m in v for a in v[m] if v[m][a] and v[m][a]["olika"]},
-                         {("tillsatta", "2020"), ("sokande", "2024"), ("sokande", "2025")})
+                         {("tillsatta", "2020"), ("sokande", "2023"), ("sokande", "2024"),
+                          ("sokande", "2025")})
         self.assertEqual((v["sokande"]["2025"]["lag"], v["sokande"]["2025"]["hog"]), (403, 422))
-        # Platser finns bara där handlingarna säger anmälda eller tillgängliga platser
-        self.assertEqual({a for a in v["platser"] if v["platser"][a]}, {"2024", "2025"})
+        # 2023: kvalitetsberättelsen 310 sökande, initiativet 419 och 321 platser
+        self.assertEqual((v["sokande"]["2023"]["lag"], v["sokande"]["2023"]["hog"]), (310, 419))
+        self.assertEqual(v["platser"]["2023"]["lag"], 321)
+        # Platser finns bara där handlingarna säger anmälda, erbjudna eller tillgängliga platser
+        self.assertEqual({a for a in v["platser"] if v["platser"][a]}, {"2023", "2024", "2025"})
+        # Servicens egna feriearbetare, ur nämndens delårsrapporter och årsredovisningar
+        service = next(r for r in ut["forvaltningar"]["rader"] if r["namn"] == "Service")
+        self.assertEqual([service["varden"][a]["varde"] for a in ["2023", "2024", "2025", "2026"]],
+                         [50, 58, 72, 59])
+        self.assertEqual(ut["noter"]["sokande"]["2021"][0]["text"], "75 tackade nej till erbjudandet.")
 
 
 if __name__ == "__main__":

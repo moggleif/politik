@@ -1543,12 +1543,29 @@ Var talen hittades:
 - **Kvalitetsberättelsen** (april, avsnittet *Feriearbetsplatser* under
   *Brukarundersökningar*): sökande, tillsatta och enkätens medelvärden.
   Kvalitetsberättelsen för 2023 har enkätens värden bakåt till 2020; den
-  för 2020 (mötet 2021-04-14) har antal svarande och kön, som inte förs in.
+  för 2020 (mötet 2021-04-14) har antal svarande och kön, som står som en
+  not under enkäten.
 - **Delårsrapporten** (augusti) och **årsredovisningen**: ett stycke
   *Feriejobb(en)* under arbetsmarknad. Årsredovisningen upprepar oftast
   delårsrapportens mening ordagrant.
 - **Protokollet 2025-10-16 § 116** (Återrapport feriejobb 2025) och
   **uppföljningen av arbetsmarknadsprocessen** kvartal 2 2026.
+- **Årsredovisningen 2020** (mötet 2021-02-10, sidan 57): 192 platser i
+  början av året, avbokningarna under covid och de 183 som tackade ja.
+- **Initiativet om feriejobb** (C, KD, L, M; mötet 2024-04-17, sidan 35):
+  sommaren 2023 budget för 200, 321 erbjudna platser och 419 sökande.
+  Kvalitetsberättelsen anger 310 sökande samma år; båda talen står kvar.
+  Tjänsteskrivelsen på sidan 33 säger att ramen avser 200 platser.
+- **Uppföljningen april 2021** (sidan 94) och **protokollet 2022-05-18
+  § 56**: kostnaden för utökningen 2021 och att 2022 hade fler platser än
+  budgeterat. De står som noter, inte som anmälda platser.
+
+Förvaltningarnas egna feriearbetare står i deras delårsrapporter och
+årsredovisningar och visas i en egen tabell, utan att räknas ihop:
+Service (`data/kungsbacka/service/`, 2023–2026), Vård & Omsorg (2023 och
+2024), Kultur & Fritid (svaret på initiativet om fler ferieplatser,
+2025-11-19), Teknik (delårsrapporten 2024) och Bygg (delårsrapporten
+2026). Övriga förvaltningar anger inget antal.
 
 Det som inte fanns:
 
@@ -1556,14 +1573,14 @@ Det som inte fanns:
   2023 års handlingar kunde mest inte hämtas. Kvalitetsberättelsen för
   2022 saknas därför; 2022 års sökande står i den för 2023.
 - Protokollet 2014-04-15 § 34 beslutar om 150 feriejobb för sommaren 2014,
-  men något utfall har inte hittats i poolen. Året förs inte in.
+  men något utfall har inte hittats i poolen. Året förs inte in i datat;
+  sidan nämner beslutet under osäkerheter och luckor. Protokollet är i
+  poolen sparat under 2014-04-15 men daterat 2014-05-14 på varje sida.
 - Uppföljningen april 2021 säger att platserna utökades från 200 till 262.
-  Det är ett planerat antal, inte anmälda platser, och förs inte in.
+  Det är ett planerat antal, inte anmälda platser, och står bara i en not.
 - Protokollet 2024-10-23 § 123 säger att "200 ungdomar har sökt arbete".
-  Talet stämmer med de tillsatta, inte de sökande, och förs inte in.
-- Kultur & Fritid (cirka 50 feriearbetare 2025) och Vård & Omsorg (41
-  2024) redovisar sina egna feriearbetare i sina handlingar. Det är delar
-  av kommunens total och förs inte in.
+  Talet stämmer med de tillsatta, inte de sökande, och förs inte in; sidan
+  nämner det under osäkerheter och luckor.
 - Handlingarna från 2021 och 2022 finns bara i Internet Archive, och två
   av adresserna där är avklippta i poolen. De länkas därför bara till
   datapoolen.

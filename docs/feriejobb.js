@@ -4,9 +4,11 @@
    Läser docs/data-feriejobb.json, byggd av scripts/build_feriejobb.py
    ur data/feriejobb/uppgifter.json.
 
-   Ett år där handlingarna anger olika tal har inget eget värde: linjen
-   bryts där, och ett lodstreck går från det lägsta till det högsta
-   talet. Sidan väljer aldrig ett av talen. */
+   Ett år där handlingarna anger olika tal har inget eget värde: ett
+   lodstreck går från det lägsta till det högsta talet, och linjen går
+   genom mitten av strecket utan att ha någon punkt där. Mitten är ingen
+   uppgift, bara en förbindelse, och visas aldrig som ett tal. Sidan
+   väljer aldrig ett av talen. */
 (function () {
   "use strict";
 
@@ -126,15 +128,21 @@
       var stil = STIL[m.id];
       var linje = K.linjeSerie(m.namn, stil.farg, data.ar.map(function (a) {
         var v = varde(m.id, a);
-        return v && !v.olika ? v.lag : null;
+        return v ? (v.lag + v.hog) / 2 : null;
       }), stil.streck);
+      /* Ingen punkt och ingen pekruta i mitten av ett spann. */
+      var punkt = data.ar.map(function (a) {
+        var v = varde(m.id, a);
+        return v && v.olika ? 0 : 5;
+      });
       linje.matt = m.id;
       linje.pointStyle = stil.punkt;
-      linje.pointRadius = 5;
-      linje.pointHoverRadius = 7;
+      linje.pointRadius = punkt;
+      linje.pointHoverRadius = punkt.map(function (r) { return r && 7; });
+      linje.pointHitRadius = punkt;
       if (stil.ihalig) {
         linje.showLine = false;
-        linje.pointRadius = 6;
+        linje.pointRadius = punkt.map(function (r) { return r && 6; });
         linje.pointBackgroundColor = K.FARG.surface;
         linje.pointBorderColor = stil.farg;
         linje.backgroundColor = K.FARG.surface;
@@ -144,7 +152,9 @@
 
     var opt = K.arsOptions({
       ytitel: "Antal",
-      etikett: function (it) { return it.dataset.label + ": " + talSv(it.parsed.y); }
+      etikett: function (it) {
+        return it.dataset.label + ": " + talet(varde(it.dataset.matt, data.ar[it.dataIndex]));
+      }
     });
     opt.scales.y.beginAtZero = true;
     /* Första och sista året en bit in från kanten, så att talen inte
@@ -161,6 +171,7 @@
     opt.scales.y.suggestedMax = hogst * 1.12;
     /* Teckenförklaringen visar punktformen, inte bara färgen. */
     opt.plugins.legend.labels = { usePointStyle: true };
+    opt.plugins.legend.align = "start";
 
     K.rita("diagram-utveckling", {
       type: "line",
@@ -170,24 +181,73 @@
     }, 400);
 
     el("kalla-utveckling").textContent =
-      "Källa: nämnden för Gymnasium & Arbetsmarknad, Kungsbacka kommun. " +
+      "Källa: nämndernas handlingar, Kungsbacka kommun. " +
       "Varje tal har sin källa i tabellen under diagrammet.";
   }
 
-  /* Åren utan uppgift, mått för mått, i klartext under diagrammet. */
-  function visaLuckor() {
-    var delar = [];
+  /* ---------- Osäkerheter och luckor ----------
+     De två första punkterna räknas ur datafilen: åren där handlingarna
+     säger olika, med varje tal och dess källa, och åren utan uppgift.
+     Resten av listan står i sidan. */
+
+  function arMedOlika(matt) {
+    return data.ar.filter(function (a) {
+      var v = varde(matt, a);
+      return v && v.olika;
+    });
+  }
+
+  function visaOsakerheter() {
+    var punkter = [];
+    var olika = [];
+    data.matt.forEach(function (m) {
+      arMedOlika(m.id).forEach(function (a) {
+        olika.push(esc(m.namn.toLowerCase()) + " " + esc(a) + " (" +
+          varde(m.id, a).uppgifter.map(function (u) {
+            return talSv(u.varde) + " " + fotnoter(u.kallor);
+          }).join(" eller ") + ")");
+      });
+    });
+    if (olika.length) {
+      punkter.push("<li><strong>Handlingarna säger olika</strong> för " + upprakning(olika) +
+        ". Båda talen visas, och sidan väljer inte mellan dem.</li>");
+    }
+    var luckor = [];
     data.matt.forEach(function (m) {
       var saknas = data.ar.filter(function (a) { return !varde(m.id, a); });
-      if (saknas.length) delar.push(m.namn.toLowerCase() + " " + upprakning(saknas.map(String)));
+      if (saknas.length) luckor.push(m.namn.toLowerCase() + " " + upprakning(saknas.map(String)));
     });
-    K.sattDataNot("not-luckor", delar.length
-      ? "<p>Uppgift saknas i handlingarna för " + esc(upprakning(delar)) + ".</p>"
-      : "");
+    if (luckor.length) {
+      punkter.push("<li><strong>Uppgift saknas</strong> i handlingarna för " +
+        esc(upprakning(luckor)) + ".</li>");
+    }
+    var lista = el("lista-osakerheter");
+    lista.innerHTML = punkter.join("") + lista.innerHTML;
   }
 
   /* ---------- Tabellerna ---------- */
 
+  /* Årets noter i en egen kolumn, med måttet först. */
+  function noter(ar) {
+    var delar = [];
+    data.matt.forEach(function (m) {
+      (data.noter[m.id][String(ar)] || []).forEach(function (n) {
+        delar.push("<strong>" + esc(m.namn) + ":</strong> " + esc(n.text) + " " +
+          fotnoter([n.kalla]));
+      });
+    });
+    return '<td class="text">' + (delar.join("<br>") || "&ndash;") + "</td>";
+  }
+
+  function talMedKallor(v) {
+    if (!v) return "&ndash;";
+    return v.uppgifter.map(function (u) {
+      return '<span class="hel">' + talSv(u.varde) + " " + fotnoter(u.kallor) + "</span>";
+    }).join(" eller ");
+  }
+
+  /* Tabellen per år, senaste året först. Varje ruta har sina tal med
+     källor och det handlingarna säger runt omkring. */
   function ritaTabell() {
     el("forklaring-matt").innerHTML = data.matt.map(function (m) {
       return "<strong>" + esc(m.namn) + ":</strong> " + esc(m.forklaring);
@@ -196,18 +256,22 @@
     var huvud = data.matt.map(function (m) {
       return '<th scope="col">' + esc(m.namn) + "</th>";
     }).join("");
-    var rader = data.ar.map(function (a) {
+    var rader = data.ar.slice().reverse().map(function (a) {
       return '<tr><th scope="row">' + esc(a) + "</th>" + data.matt.map(function (m) {
-        var v = varde(m.id, a);
-        if (!v) return "<td>&ndash;</td>";
-        return "<td>" + v.uppgifter.map(function (u) {
-          return talSv(u.varde) + " " + fotnoter(u.kallor);
-        }).join(" eller ") + "</td>";
-      }).join("") + "</tr>";
+        return "<td>" + talMedKallor(varde(m.id, a)) + "</td>";
+      }).join("") + arskullCell(data.arskullar.varden.feriejobb[String(a)]) +
+        noter(a) + "</tr>";
     }).join("");
     el("tabell-ar").innerHTML =
-      '<thead><tr><th scope="col">År</th>' + huvud + "</tr></thead><tbody>" +
-      rader + "</tbody>";
+      '<thead><tr><th scope="col">År</th>' + huvud +
+      '<th scope="col">Årskullen<br><small>15 år vid årsskiftet före</small></th>' +
+      '<th scope="col" class="text">Det handlingarna säger runt omkring</th>' +
+      "</tr></thead><tbody>" + rader + "</tbody>";
+    var ak = data.arskullar;
+    var url = K.sakerUrl(ak.kallaUrl);
+    el("kalla-tabell").innerHTML = "Siffrorna inom hakparentes är källor, se listan längre ned. " +
+      "Årskullen: " + (url ? '<a href="' + url + '">' + esc(ak.kalla) + "</a>" : esc(ak.kalla)) +
+      ", nyckeltal N01832, hämtat " + esc(datumSv(ak.hamtad)) + ".";
   }
 
   function ritaEnkat() {
@@ -223,43 +287,47 @@
     el("tabell-enkat").innerHTML =
       '<thead><tr><th scope="col">Fråga</th>' + huvud + "</tr></thead><tbody>" +
       rader + "</tbody>";
-    el("kalla-enkat").textContent =
-      "Medelvärden på skalan 1–5. Siffrorna inom hakparentes är källor.";
+    el("kalla-enkat").innerHTML =
+      "Medelvärden på skalan 1–5. Siffrorna inom hakparentes är källor." +
+      e.ar.map(function (a) {
+        return (data.noter.enkat[String(a.ar)] || []).map(function (n) {
+          return "<br>" + esc(a.ar) + ": " + esc(n.text) + " " + fotnoter([n.kalla]);
+        }).join("");
+      }).join("");
   }
 
   /* ---------- Hur många kunde söka ----------
-     Årskullen ur Kolada: 15-åringarna den 31 december året före
-     sommaren, de som går första året när sommaren kommer. Sidan räknar
-     ingen andel – årskullen är en uppskattning av vilka som fick söka,
-     inte en räkning av dem. */
+     Årskullen ur Kolada står som sista kolumn i tabellen per år:
+     15-åringarna den 31 december året före sommaren, de som går första
+     året när sommaren kommer. Sidan räknar ingen andel – årskullen är en
+     uppskattning av vilka som fick söka, inte en räkning av dem. */
 
   function talCell(v) {
-    if (!v) return "<td>&ndash;</td>";
-    return "<td>" + v.uppgifter.map(function (u) {
-      return talSv(u.varde) + " " + fotnoter(u.kallor);
-    }).join(" eller ") + "</td>";
+    return "<td>" + talMedKallor(v) + "</td>";
   }
 
   function arskullCell(n) {
     return n === null ? "<td>&ndash;</td>" : "<td>" + talSv(n) + "</td>";
   }
 
-  function ritaArskull() {
-    var ak = data.arskullar;
-    var rader = data.ar.map(function (a) {
-      return '<tr><th scope="row">' + esc(a) + "</th>" +
-        arskullCell(ak.varden.feriejobb[String(a)]) +
-        talCell(varde("sokande", a)) + talCell(varde("tillsatta", a)) + "</tr>";
+  /* ---------- Var feriearbetarna jobbade ----------
+     Förvaltningarnas egna tal, inte en fördelning av feriejobben: de
+     flesta förvaltningar anger inget, och talen räknas inte ihop. */
+
+  function ritaForvaltningar() {
+    var f = data.forvaltningar;
+    var huvud = f.ar.map(function (a) { return '<th scope="col">' + esc(a) + "</th>"; }).join("");
+    var rader = f.rader.map(function (r) {
+      return '<tr><th scope="row">' + esc(r.namn) + "</th>" + f.ar.map(function (a) {
+        var v = r.varden[String(a)];
+        if (!v) return "<td>&ndash;</td>";
+        return "<td>" + (v.ungefar ? "omkring " : "") + talSv(v.varde) + " " +
+          fotnoter([v.kalla]) + "</td>";
+      }).join("") + "</tr>";
     }).join("");
-    el("tabell-arskull").innerHTML =
-      '<thead><tr><th scope="col">Sommar</th><th scope="col">Årskullen i kommunen</th>' +
-      '<th scope="col">Sökande</th><th scope="col">Tillsatta feriejobb</th></tr></thead>' +
-      "<tbody>" + rader + "</tbody>";
-    var url = K.sakerUrl(ak.kallaUrl);
-    el("kalla-arskull").innerHTML = "Årskullen: " +
-      (url ? '<a href="' + url + '">' + esc(ak.kalla) + "</a>" : esc(ak.kalla)) +
-      ", nyckeltal N01832, hämtat " + esc(datumSv(ak.hamtad)) +
-      ". Sökande och tillsatta: nämndens handlingar, källorna inom hakparentes.";
+    el("tabell-forvaltningar").innerHTML =
+      '<thead><tr><th scope="col">Förvaltning</th>' + huvud + "</tr></thead><tbody>" +
+      rader + "</tbody>";
   }
 
   /* ---------- Övriga sommarjobb ----------
@@ -310,8 +378,7 @@
     el("lista-kallor").innerHTML = data.kallor.map(function (k) {
       var html = K.kallpost({
         titel: "[" + k.nr + "] " + k.rubrik,
-        detalj: "Nämnden för " + k.namnd + ", mötet den " +
-          datumSv(k.mote) + ", sidan " + k.sida + " i handlingen.",
+        detalj: k.namnd + ", mötet den " + datumSv(k.mote) + ", sidan " + k.sida + ".",
         lankar: [[k.url, "Läs i datapoolen"], [k.original || "", "Kommunens PDF"]]
       });
       return html.replace("<li>", '<li id="kalla-' + esc(k.nr) + '">');
@@ -348,15 +415,12 @@
 
     var olika = [];
     data.matt.forEach(function (m) {
-      var ar = data.ar.filter(function (x) {
-        var v = varde(m.id, x);
-        return v && v.olika;
-      });
+      var ar = arMedOlika(m.id);
       if (ar.length) olika.push(m.namn.toLowerCase() + " " + upprakning(ar.map(String)));
     });
     if (olika.length) {
       punkter.push("Handlingarna anger olika tal för " + esc(upprakning(olika)) +
-        ". Båda talen visas.");
+        ". Båda talen visas, se osäkerheterna längre ned.");
     }
 
     var ak = data.ar.filter(function (x) {
@@ -378,20 +442,20 @@
     data = inlast;
 
     K.visaMeta({
-      kalla: "Nämnden för Gymnasium & Arbetsmarknad, Kungsbacka kommun",
+      kalla: "Nämndernas handlingar, Kungsbacka kommun, och Kolada",
       period: data.ar[0] + "–" + data.ar[data.ar.length - 1],
       hamtad: datumSv(data.hamtad)
     });
 
     kortSagt();
     ritaUtveckling();
-    visaLuckor();
     ritaTabell();
-    ritaArskull();
+    ritaForvaltningar();
     ritaEnkat();
     ritaSommarjobb();
+    visaOsakerheter();
     visaKallor();
-    ["utveckling", "arskull", "enkat", "sommarjobb", "kallor", "om"].forEach(function (id) {
+    ["utveckling", "forvaltningar", "enkat", "sommarjobb", "osakerheter", "kallor", "om"].forEach(function (id) {
       el("sektion-" + id).hidden = false;
     });
     el("om-uppdaterad").textContent = "Talen lästes in " + datumSv(data.hamtad) + ".";

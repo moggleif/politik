@@ -121,47 +121,42 @@
     <h2>Sökande och feriejobb år för år</h2>
     <p class="forklaring">
       Antal per sommar. Ett lodstreck betyder att två handlingar anger
-      olika tal för samma år. En lucka betyder att uppgift saknas.
+      olika tal för samma år; linjen går då genom mitten av strecket. En
+      lucka i linjen betyder att uppgift saknas.
     </p>
     <div class="kort">
       <div class="diagram-wrap"><canvas id="diagram-utveckling" aria-label="Diagram: sökande, tillsatta feriejobb och anmälda platser per år" role="img"></canvas></div>
       <p class="kalla-rad" id="kalla-utveckling"></p>
     </div>
-    <div id="not-luckor" hidden></div>
-    <details>
-      <summary>Visa talen och deras källor som tabell</summary>
+
+    <h3>Siffror per år, med källa</h3>
+    <p class="forklaring">
+      Senaste året först. Sista kolumnen återger det handlingarna säger
+      runt omkring talen. Årskullen är alla i kommunen som var 15 år vid årsskiftet
+      före sommaren, ungefär de som fick söka.
+    </p>
+    <div class="kort">
       <div class="tabell-rull"><table id="tabell-ar"></table></div>
-      <p class="kalla-rad">Siffrorna inom hakparentes är källor, se listan längre ned. Två tal i samma ruta betyder att källorna säger olika.</p>
-    </details>
+      <p class="kalla-rad" id="kalla-tabell"></p>
+    </div>
     <details>
       <summary>Läs mer om måtten</summary>
       <p class="forklaring" id="forklaring-matt"></p>
       <p class="forklaring">
         Där två handlingar anger olika tal för samma år visas båda. Sidan
-        väljer inte vilket av dem som stämmer och räknar inte fram något
-        mellanting, och linjen går bara genom de år där talet är ett.
-        Kommunen har en budget för omkring 200 jobb om året, och de anmälda
-        platserna kan därför vara fler än jobben.
+        väljer inte vilket av dem som stämmer. Linjen i diagrammet går
+        genom mitten av lodstrecket bara för att hålla ihop åren; mitten
+        är ingen uppgift och visas aldrig som ett tal. De anmälda platserna
+        kan vara fler än jobben, eftersom budgeten avser omkring 200 jobb
+        om året.
       </p>
     </details>
-  </section>
-
-  <section id="sektion-arskull" hidden>
-    <h2>Hur många kunde söka?</h2>
-    <p class="forklaring">
-      Feriejobben är till för elever som går första året på gymnasiet och
-      är folkbokförda i Kungsbacka. Hur många de är redovisar nämnden inte.
-      Tabellen visar i stället årskullen: alla i kommunen som var 15 år vid
-      årsskiftet före sommaren.
-    </p>
-    <div class="kort">
-      <div class="tabell-rull"><table id="tabell-arskull"></table></div>
-      <p class="kalla-rad" id="kalla-arskull"></p>
-    </div>
     <details>
       <summary>Läs mer om årskullen</summary>
       <p class="forklaring">
-        Den som är 15 år den 31 december går i regel första året på
+        Feriejobben är till för elever som går första året på gymnasiet och
+        är folkbokförda i Kungsbacka. Hur många de är redovisar nämnden
+        inte. Den som är 15 år den 31 december går i regel första året på
         gymnasiet våren efter. Årskullen är därför en uppskattning åt båda
         håll: några i den går inte i gymnasiet eller går i en annan
         årskurs, och några ettor är födda ett annat år. Talet är SCB:s
@@ -170,6 +165,20 @@
         2025.
       </p>
     </details>
+  </section>
+
+  <section id="sektion-forvaltningar" hidden>
+    <h2>Var feriearbetarna jobbade</h2>
+    <p class="forklaring">
+      Några förvaltningar skriver i sina egna delårsrapporter och
+      årsredovisningar hur många feriearbetare de tog emot. Talen ingår i
+      feriejobben ovan. De går inte att lägga ihop: de flesta förvaltningar
+      anger inget, och en förvaltning utan tal har inte haft noll.
+    </p>
+    <div class="kort">
+      <div class="tabell-rull"><table id="tabell-forvaltningar"></table></div>
+      <p class="kalla-rad">Siffrorna inom hakparentes är källor. &rdquo;Omkring&rdquo; står där handlingen anger ett ungefärligt tal.</p>
+    </div>
   </section>
 
   <section id="sektion-enkat" hidden>
@@ -208,12 +217,46 @@
       <summary>Läs mer om grupperna</summary>
       <dl class="metod-lista" id="forklaring-grupper"></dl>
       <p class="forklaring">
-        Förvaltningarna tar också emot feriearbetare &ndash; Vård &amp;
-        Omsorg, Service, Kultur &amp; Fritid och andra &ndash; men de
-        räknas redan in i feriejobben ovan. Övriga förvaltningars egna
-        sommarvikarier redovisas inte med antal i nämndernas handlingar.
+        Förvaltningarnas feriearbetare räknas redan in i feriejobben ovan.
+        Övriga förvaltningars egna sommarvikarier redovisas inte med antal
+        i nämndernas handlingar.
       </p>
     </details>
+  </section>
+
+  <section id="sektion-osakerheter" hidden>
+    <h2>Osäkerheter och luckor</h2>
+    <ul class="forklaring" id="lista-osakerheter">
+      <li><strong>Sökande är inte samma mått varje år.</strong> Handlingarna
+        skriver omväxlande ungdomar som &rdquo;fullföljde sin ansökan&rdquo;,
+        &rdquo;ansökte&rdquo; och &rdquo;sökte&rdquo;, och de kan vara
+        räknade på olika sätt.</li>
+      <li><strong>&rdquo;200 ungdomar har sökt&rdquo;</strong> står i
+        <a href="https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-10-23/protokoll.html#sida-6">protokollet
+        den 23 oktober 2024, § 123</a>, om sommaren 2024. Övriga handlingar
+        anger fler sökande det året, och talet är detsamma som de 200
+        tillsatta jobben, så det räknas inte som sökande här.</li>
+      <li><strong>Budgeten.</strong> Kommunen har ingen gemensam budget för
+        feriejobben. Ramen till Gymnasium &amp; Arbetsmarknad avser 200
+        platser, enligt
+        <a href="https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2024/2024-04-17/handlingar.html#sida-33">handlingarna
+        den 17 april 2024, sidan 33</a>.</li>
+      <li><strong>Före 2020.</strong> Det äldsta talet i datapoolen är från
+        2014: inom budgeten fanns 100 feriearbetsplatser
+        (<a href="https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2014/2014-02-19/protokoll.html#sida-8">protokollet
+        i februari 2014</a>), och nämnden beslutade att anordna 150
+        feriejobb sommaren 2014
+        (<a href="https://moggleif.github.io/kommunhandlingar/kungsbacka/ga/2014/2014-04-15/protokoll.html#sida-9">protokollet
+        § 34</a>). Nämndens handlingar från 2015&ndash;2019 finns inte i
+        datapoolen, så diagrammet börjar 2020.</li>
+      <li><strong>Kön och arbetsplatser</strong> redovisas bara enstaka år:
+        könen bara i enkäten 2020, arbetsplatserna bara för de förvaltningar
+        som står i tabellen ovan.</li>
+      <li><strong>Kommunens egen sida</strong>
+        <a href="https://kungsbacka.se/foretagande-och-jobb/jobb/feriejobb-for-dig-pa-gymnasiet">om
+        feriejobb</a> beskriver vem som får söka och hur, men anger inga
+        tal.</li>
+    </ul>
   </section>
 
   <section id="sektion-kallor" hidden>
@@ -254,8 +297,18 @@
         <strong>Luckorna.</strong> Nämndens handlingar från 2015&ndash;2019
         och 2023 finns inte eller kunde inte hämtas i datapoolen, och därför
         saknas kvalitetsberättelsen för 2022 och de flesta tal före 2020.
-        Kostnaden, könsfördelningen och fördelningen på arbetsplatser
-        redovisas bara enstaka år och finns inte med här.
+        Kostnaden och könsfördelningen redovisas bara enstaka år och står
+        som noter där de finns.
+      </p>
+      <p class="forklaring">
+        <strong>Noterna</strong> under talen i tabellen per år återger vad
+        handlingen säger runt omkring talet, med samma källa. Varje tal i en
+        not ska stå i handlingens mening, precis som talen i tabellen.
+      </p>
+      <p class="forklaring">
+        <strong>Förvaltningarnas feriearbetare</strong> kommer ur
+        förvaltningarnas egna delårsrapporter och årsredovisningar. Små tal
+        skrivs där ofta med bokstäver, &rdquo;fyra feriearbetare&rdquo;.
       </p>
       <p class="forklaring">
         <strong>Vård &amp; Omsorgs sommarjobb</strong> kommer ur nämndens
