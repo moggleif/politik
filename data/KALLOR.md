@@ -29,7 +29,7 @@ och vad som återstår.
 | Röstberättigade 2022 och 2026 (Valmyndigheten) | Klara |
 | Kommunfullmäktiges inspelade möten 2022–2026 (kommunen, Screen9, YouTube) | Klara, hämtas om för hand |
 | Kandidatlistor till kommunfullmäktige 2022 och 2026 (Valmyndighetens valpresentation) | Klara, `data/kandidater/`. 2010, 2014 och 2018 saknas: samma adress ger 404, listorna måste hämtas ur annan källa |
-| Valbeslut i fullmäktige, decembermötena 2014 och 2022 (kommunhandlingar) | Klara, `data/uppdrag/kf_val_<datum>.json`. 2018 och 2010 saknas, se Luckor |
+| Valbeslut i fullmäktige, decembermötena 2014 och 2022 (arkivet Kungsbacka kommun) | Klara, `data/uppdrag/kf_val_<datum>.json`. 2018 och 2010 saknas, se Luckor |
 | Förtroendevalda och uppdrag, nuläget (kommunens register Troman) | Hämtat 2026-11-08, `data/uppdrag/`. Bara nuläget; se "Luckor" i avsnittet Kandidater och uppdrag |
 
 Prognosdelen bygger på tolv prognosårgångar (2015–2026) och ger 54
@@ -1533,7 +1533,7 @@ Hur beskeden lästes:
 
 Inga filer hämtas automatiskt. `data/feriejobb/uppgifter.json` skrivs för
 hand ur nämndens handlingar, så som de finns som text i datapoolen
-[kommunhandlingar](https://github.com/moggleif/kommunhandlingar)
+[kungsbackakommun](https://github.com/moggleif/kungsbackakommun)
 (`data/kungsbacka/ga/`). Varje tal har mötesdatum, sida och meningen där
 det står. `scripts/build_feriejobb.py` stannar om talet inte finns i
 meningen.
@@ -1696,7 +1696,7 @@ bolag och stiftelser.
 
 ### Valbeslut i fullmäktiges protokoll (den primära källan för uppdragen)
 
-Källa: arkivet <https://moggleif.github.io/kommunhandlingar/kungsbacka.html>
+Källa: arkivet <https://moggleif.github.io/kungsbackakommun/kungsbacka.html>
 (4 149 dokument 2013-08-13 – 2026-11-12), som återger kommunens
 protokoll som text. Hämtat med `scripts/hamta_kf_val.py` till
 `data/uppdrag/kf_val_<protokolldatum>.json`: varje valbeslut (paragraf,
@@ -1761,7 +1761,7 @@ källor är en person (`namnvarianter` visar olika stavningar). Moderaterna:
 ### Vad som provats för 2018 och 2019 – utan resultat
 
 Arkivets statussida
-(<https://moggleif.github.io/kommunhandlingar/kungsbacka/status.html>,
+(<https://moggleif.github.io/kungsbackakommun/kungsbacka/status.html>,
 byggd 2026-11-08) bekräftar luckan: "År utan dokument: 2018" för
 kommunfullmäktige och KSAU; KS har protokollposter för 2018-12-18 och
 2019-01-15 men utan text (`ej-hamtad`, original på Wayback Machine).

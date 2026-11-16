@@ -117,7 +117,7 @@ redovisat dem i sina handlingar.
   tal inte står i sin mening. Där två handlingar anger olika tal för samma
   år visas båda, och diagrammet ritar spannet mellan dem i stället för en
   punkt; linjen går genom spannets mitt utan att mitten blir ett tal. Källorna länkas till datapoolen
-  [kommunhandlingar](https://github.com/moggleif/kommunhandlingar) och till
+  [kungsbackakommun](https://github.com/moggleif/kungsbackakommun) och till
   kommunens egen PDF där den finns kvar. Samma sida visar de andra
   sommarjobb för unga som nämnden för Vård & Omsorg redovisar &ndash;
   17-åringar, riktade lovjobb och sommarvikarier 2023&ndash;2026, med
@@ -1175,7 +1175,7 @@ komponenter (docs/gemensam.js):
 - **Samma sidhuvud och samma sidfot på varje sida.** Högst upp ligger
   sajtraden till projektets andra sajter,
   [Giffå](https://moggleif.github.io/giffa/) och
-  [Kungsbacka kommun](https://moggleif.github.io/kommunhandlingar/), och
+  [Kungsbacka kommun](https://moggleif.github.io/kungsbackakommun/), och
   under den webbplatsens namn och ämnena som utfällbara menyer:
   Befolkning, Skolan (grundskolan, gymnasiet och elevenkäterna i var sin
   kolumn), Valen och fullmäktige, Jämför (Varberg, och fler kommuner och
