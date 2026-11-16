@@ -23,7 +23,7 @@
     return e;
   }
 
-  function lista(sajter, sokvag) {
+  function sajtlista(sajter, sokvag) {
     var ul = element("ul", {});
     sajter.forEach(function (sajt) {
       var li = ul.appendChild(element("li", {}));
@@ -38,22 +38,28 @@
 
   function sajtrad(sokvag) {
     var rad = element("nav", { "class": "sajtrad", "aria-label": "Sajterna" });
-    rad.appendChild(element("div", {})).appendChild(lista(SAJTER, sokvag));
+    rad.appendChild(element("div", {})).appendChild(sajtlista(SAJTER, sokvag));
     return rad;
   }
 
-  // På smal skärm visar sajtraden bara den här sajten, med knappen bredvid. De andra
-  // sajterna står då sist i den utfällda menyn.
-  function andraSajter(meny, sokvag) {
+  // När sidan hör till en av sajterna står dess namn bara i sajtraden, och på smal skärm
+  // visar raden bara den, med knappen bredvid. De andra sajterna står då sist i den
+  // utfällda menyn. En okänd adress, som en förhandsvisning, behåller sajtens eget namn.
+  function baraDenna(rad, meny, sokvag) {
     var andra = SAJTER.filter(function (sajt) { return sokvag.indexOf(sajt[0]) !== 0; });
-    var li = element("li", { "class": "andra-sajter" });
-    li.appendChild(element("p", { "class": "grupp" }, "Projektets andra sajter"));
-    li.appendChild(lista(andra, sokvag));
-    meny.querySelector("ul").appendChild(li);
+    if (andra.length === SAJTER.length) return;
+    rad.classList.add("kand");
+    meny.classList.add("kand");
+    var ruta = element("div", { "class": "andra-sajter" });
+    ruta.appendChild(element("p", { "class": "grupp" }, "Projektets andra sajter"));
+    ruta.appendChild(sajtlista(andra, ""));
+    meny.appendChild(ruta);
   }
 
   function menyknapp(meny, rad) {
-    var knapp = element("button", { type: "button", "class": "menyknapp", "aria-expanded": "false" }, "Meny");
+    if (!meny.id) meny.id = "sajtmeny";
+    var knapp = element("button", { type: "button", "class": "menyknapp", "aria-expanded": "false",
+                                     "aria-controls": meny.id }, "Meny");
     knapp.addEventListener("click", function () {
       var oppen = knapp.getAttribute("aria-expanded") !== "true";
       knapp.setAttribute("aria-expanded", String(oppen));
@@ -98,6 +104,6 @@
   var meny = document.querySelector(".sajtmeny");
   var rad = sajtrad(location.pathname);
   meny.parentNode.insertBefore(rad, meny);
-  andraSajter(meny, location.pathname);
+  baraDenna(rad, meny, location.pathname);
   undermenyer(meny, menyknapp(meny, rad));
 })();

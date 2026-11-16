@@ -1,6 +1,7 @@
-/* Krav: K35 i KRAV.md, beslut 0013 och 0014. Den gemensamma menyn på projektets sajter:
-   sajtraden som sajter.js lägger överst och sajtens meny (.sajtmeny). Med skriptet står
-   sajtens namn bara i sajtraden; på smal skärm står där bara den här sajten och knappen. Storlekarna står i em, så att
+/* Krav: K35 i KRAV.md, beslut 0013 och 0014. Den gemensamma menyn på
+   projektets sajter: sajtraden som sajter.js lägger överst och sajtens meny
+   (.sajtmeny). När sidan hör till en känd sajt (.kand) står dess namn bara i
+   sajtraden, och på smal skärm står där bara den sajten och knappen. Storlekarna står i em, så att
    menyn följer sajtens egen textstorlek. En sajt sätter --sajtaccent, --sajtyta och,
    för sajtradens kanter, --sajtbredd och --sajtkant. */
 .sajtrad { font-size: max(0.85em, 15px); background: rgba(128, 128, 128, 0.1);
@@ -23,7 +24,7 @@
 .sajtmeny li, .sajtmeny details, .sajtmeny summary { margin: 0; padding: 0; border: 0; background: none; }
 .sajtmeny > ul { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.25em; }
 .sajtmeny > ul > li { position: relative; }
-.sajtmeny.har-knapp .sajtnamn, .sajtmeny .andra-sajter { display: none; }
+.sajtmeny.kand .sajtnamn, .sajtmeny .andra-sajter { display: none; }
 .sajtmeny > ul > li > a, .sajtmeny summary {
   display: inline-flex; align-items: center; min-height: 2.5em; cursor: pointer;
   color: var(--sajtaccent, #1d5d73); text-decoration: none; font-weight: 500; }
@@ -49,7 +50,7 @@
 .menyknapp { display: none; }
 
 @media (max-width: 40rem) {
-  .sajtrad li:not(.denna) { display: none; }
+  .sajtrad.kand li:not(.denna) { display: none; }
   .sajtrad .denna a { font-size: 1.15em; min-height: 2.75em; white-space: nowrap; }
   .sajtrad .menyknapp {
     display: inline-flex; align-items: center; margin-left: auto; min-height: 2.5em;
@@ -57,8 +58,9 @@
     border: 1px solid rgba(128, 128, 128, 0.5); border-radius: 999px; }
   .sajtmeny.har-knapp:not(.oppen) { display: none; }
   .sajtmeny.har-knapp > ul { flex-basis: 100%; flex-direction: column; align-items: stretch; }
-  .sajtmeny .andra-sajter { display: block; margin-top: 0.5em; padding-top: 0.3em;
-                            border-top: 1px solid rgba(128, 128, 128, 0.3); }
+  .sajtmeny .andra-sajter { display: block; flex-basis: 100%; margin-top: 0.5em;
+                            padding-top: 0.3em; border-top: 1px solid rgba(128, 128, 128, 0.3); }
+  .sajtmeny .andra-sajter ul { list-style: none; margin: 0; padding: 0; }
   .sajtmeny .andra-sajter a { display: block; padding: 0.35em 0; color: inherit; }
   .sajtmeny details > ul, .sajtmeny .grupper {
     position: static; min-width: 0; padding: 0 0 0.5em 1em; border: none; box-shadow: none;
@@ -68,6 +70,7 @@
 }
 
 @media print {
-  .sajtrad, .sajtmeny > ul { display: none; }
-  .sajtmeny.har-knapp .sajtnamn { display: inline; }
+  .sajtrad, .sajtmeny > ul, .andra-sajter { display: none; }
+  .sajtmeny.har-knapp { display: flex; }
+  .sajtmeny.kand .sajtnamn { display: inline; }
 }
