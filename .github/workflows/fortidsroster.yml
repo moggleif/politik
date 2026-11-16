@@ -1,7 +1,7 @@
-# Hämtar Valmyndighetens mottagna förtidsröster två gånger om dagen under
-# förtidsröstningen 2026 och bygger om sidans datafiler (en per kommun,
-# län och riket). Valmyndigheten uppdaterar filen kl. 06 och 14 svensk tid
-# (CEST = UTC+2 i september), så jobbet går kl. 04.40 och 12.40 UTC.
+# Hämtar Valmyndighetens mottagna förtidsröster och bygger om sidans
+# datafiler (en per kommun, län och riket). Förtidsröstningen 2026 är
+# avslutad och siffrorna slutliga, så jobbet går inte längre på schema;
+# det körs bara för hand (workflow_dispatch).
 # Committar bara när innehållet faktiskt ändrats: hämtskriptet skriver
 # inte om filen om datat är oförändrat, och tidsstämpeln i hamtad.json
 # anger därför när datat senast ändrades.
@@ -19,8 +19,6 @@
 name: Förtidsröster
 
 on:
-  schedule:
-    - cron: "40 4,12 * * *"
   workflow_dispatch:
 
 permissions:
@@ -43,29 +41,13 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      # Siffrorna kan justeras fram till den 16 september 2026; därefter
-      # finns inget nytt att hämta, och jobbet avslutas utan att göra något
-      # tills schemat tas bort. Manuell körning går alltid.
-      - name: Är förtidsröstningen fortfarande aktuell?
-        id: aktuell
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%Y-%m-%d)" \< "2026-09-18" ]; then
-            echo "kor=ja" >> "$GITHUB_OUTPUT"
-          else
-            echo "Förtidsröstningen 2026 är avslutad och siffrorna slutliga; inget att hämta."
-            echo "kor=nej" >> "$GITHUB_OUTPUT"
-          fi
       - name: Hämta Valmyndighetens fil
-        if: steps.aktuell.outputs.kor == 'ja'
         run: python3 scripts/hamta_fortidsroster.py
       - name: Bygg om sidans datafil
-        if: steps.aktuell.outputs.kor == 'ja'
         run: python3 scripts/build_fortidsroster.py
       - name: Kontrollräkna
-        if: steps.aktuell.outputs.kor == 'ja'
         run: python3 -m unittest tests.test_berakningar -k Fortidsroster
       - name: Finns tokenen som får pusha till main?
-        if: steps.aktuell.outputs.kor == 'ja'
         env:
           TOKEN_SATT: ${{ secrets.FORTIDSROSTER_TOKEN != '' }}
         run: |
@@ -73,7 +55,6 @@ jobs:
             echo "::warning::Secreten FORTIDSROSTER_TOKEN saknas. Pushen till main stoppas av regeluppsättningen (pull request krävs); se kommentaren överst i arbetsflödet."
           fi
       - name: Committa om något ändrats
-        if: steps.aktuell.outputs.kor == 'ja'
         run: |
           git add -A data/fortidsroster docs/data-fortidsroster
           if git diff --cached --quiet; then
