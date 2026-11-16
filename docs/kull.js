@@ -16,8 +16,8 @@
   /* Olika mått får olika kulör ur den validerade paletten, så att
      panelerna inte ser ut att visa samma sak: lila = grundskolebetyg,
      blått = gymnasiebetyg. */
-  var FARG_MERIT = "#7a5195";
-  var FARG_BETYG = "#1c5cab";
+  var FARG_MERIT = K.PALETT[6];
+  var FARG_BETYG = K.PALETT[0];
 
   var ANTAGNING_STATUS = {
     rapport_saknas: "antagningsrapporten saknas",

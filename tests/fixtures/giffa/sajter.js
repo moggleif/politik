@@ -1,8 +1,8 @@
-// Krav: K35 i KRAV.md, beslut 0013 och 0014. Test: tests/test_sajter.js.
+// Krav: K35 och K36 i KRAV.md, beslut 0013–0015. Test: tests/test_sajter.js.
 // Projektets sajter laddar det här skriptet och sajter.css från Giffå. Skriptet lägger
-// sajtraden före sajtens egen meny (.sajtmeny) och knappen Meny i sajtraden, så att sajtens
-// namn bara står där. Det låter bara en undermeny vara öppen åt gången. Utan skriptet står
-// menyn som en lista med sajtens namn först.
+// sajtraden före sajtens egen meny (.sajtmeny), med knappen för mörkt tema och knappen
+// Meny, så att sajtens namn bara står där. Det låter bara en undermeny vara öppen åt
+// gången. Utan skriptet står menyn som en lista med sajtens namn först.
 (function () {
   var VARD = "https://moggleif.github.io";
   var SAJTER = [
@@ -68,6 +68,37 @@
     return knapp;
   }
 
+  function morkt(rot) {
+    if (rot.dataset.tema) return rot.dataset.tema === "morkt";
+    return matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  // Etiketten är alltid Mörkt tema, nedtryckt eller inte; rutan vid pekaren säger vad
+  // ett klick gör.
+  function visaTema(knapp, mork) {
+    knapp.setAttribute("aria-pressed", String(mork));
+    knapp.setAttribute("title", mork ? "Byt till ljust tema" : "Byt till mörkt tema");
+  }
+
+  // Knappen byter tema och sparar valet under samma nyckel som tema.js läser. Ikonen
+  // ritas av sajter.css. En webbläsare utan light-dark() får ingen knapp (tema.js).
+  function temaknapp(rad) {
+    var rot = document.documentElement;
+    if (!window.CSS || !CSS.supports("color", "light-dark(black, white)")) return;
+    var knapp = element("button", { type: "button", "class": "temaknapp", "aria-label": "Mörkt tema" });
+    visaTema(knapp, morkt(rot));
+    knapp.addEventListener("click", function () {
+      rot.dataset.tema = morkt(rot) ? "ljust" : "morkt";
+      visaTema(knapp, morkt(rot));
+      try {
+        localStorage.setItem("sajter-tema", rot.dataset.tema);
+      } catch (e) {
+        // Spärrad lagring: valet gäller bara på sidan.
+      }
+    });
+    rad.querySelector("div").appendChild(knapp);
+  }
+
   function stang(undermenyer, utom) {
     undermenyer.forEach(function (d) { if (d !== utom) d.open = false; });
   }
@@ -103,5 +134,6 @@
   var rad = sajtrad(location.pathname);
   meny.parentNode.insertBefore(rad, meny);
   baraDenna(rad, meny, location.pathname);
+  temaknapp(rad);
   undermenyer(meny, menyknapp(meny, rad));
 })();

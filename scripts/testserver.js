@@ -83,14 +83,15 @@ function startaServer() {
   });
 }
 
-/* Den gemensamma menyn – sajtraden, knappen Meny och menyns stil – laddas
-   från Giffå på samma adress (/giffa/sajter.js och /giffa/sajter.css).
+/* Den gemensamma menyn – sajtraden, knapparna för mörkt tema och Meny och
+   menyns stil – laddas från Giffå på samma adress (/giffa/sajter.js,
+   /giffa/sajter.css och /giffa/tema.js).
    Kontrollerna går utan nät, så de får en fryst kopia ur
    tests/fixtures/giffa/, som byts när Giffås filer ändras. */
 const GIFFA = path.join(ROT, "tests", "fixtures", "giffa");
 
 async function giffasMeny(page) {
-  await page.route("**/giffa/sajter.*", function (r) {
+  await page.route(/\/giffa\/(sajter|tema)\.(js|css)(\?|$)/, function (r) {
     r.fulfill({ path: path.join(GIFFA, path.basename(r.request().url().split("?")[0])) });
   });
 }

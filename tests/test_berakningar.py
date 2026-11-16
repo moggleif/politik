@@ -5354,3 +5354,19 @@ class TestEfterValetErsattareOchOrt(unittest.TestCase):
         roller = {(x["namn"], x["organ"]): x["roll"] for x in u}
         self.assertEqual(roller, {("Lisa Andersson", "Kommunstyrelsen"): "ordförande",
                                   ("Franklin Eck", "Kommunstyrelsen"): "ersättare"})   # nämndens ersättare tas inte med
+
+
+class TestGiffasRaderISidmallen(unittest.TestCase):
+    """bygg_sidmall.py byter sidans rader från Giffå mot SAJTER, en gång."""
+
+    def test_gamla_rader_ersatts_och_inga_dubbleras(self):
+        mall = ladda("bygg_sidmall")
+        gammal = (
+            mall.EGEN_STIL
+            + '<link rel="stylesheet" href="/giffa/sajter.css">\n'
+            '<script src="/giffa/sajter.js" defer></script>\n'
+            "<title>x</title>\n"
+        )
+        ny = mall.med_giffas_rader(gammal)
+        self.assertEqual(ny, mall.EGEN_STIL + mall.SAJTER + "<title>x</title>\n")
+        self.assertEqual(mall.med_giffas_rader(ny), ny)

@@ -14,29 +14,63 @@
      punktform och, efter åtta serier, streckning — så att ingen
      information bärs av färgen ensam. */
 
+  /* Mörkt tema (Giffås beslut 0015). Giffås tema.js har satt data-tema
+     på <html> innan sidan ritades; utan val gäller läsarens inställning,
+     och en webbläsare utan light-dark() har bara ljust tema, som sidans
+     stil. Diagrammen ritas med temats färger när sidan laddas, så sidan
+     laddas om när temat byts med knappen. */
+  var ROT = document.documentElement;
+
+  function arMorkt() {
+    if (!window.CSS || !window.CSS.supports("color", "light-dark(black, white)")) return false;
+    if (ROT.dataset.tema) return ROT.dataset.tema === "morkt";
+    return !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }
+
+  var MORKT = arMorkt();
+
+  function tema(ljust, morkt) { return MORKT ? morkt : ljust; }
+
+  if (window.MutationObserver) {
+    new MutationObserver(function () {
+      if (arMorkt() !== MORKT) location.reload();
+    }).observe(ROT, { attributes: true, attributeFilter: ["data-tema"] });
+  }
+
   var FARG = {
-    ink: "#0b0b0b",
-    ink2: "#52514e",
-    muted: "#6e6c66",
-    grid: "#e1e0d9",
-    baseline: "#c3c2b7",
-    surface: "#fcfcfb",
-    bla: "#2a78d6",
-    blaMork: "#1c5cab",
-    blaLjus: "#9ec5f4",
-    rod: "#e34948",
+    ink: tema("#0b0b0b", "#ecebe7"),
+    ink2: tema("#52514e", "#bdbbb4"),
+    muted: tema("#6e6c66", "#a09e96"),
+    grid: tema("#e1e0d9", "#353430"),
+    baseline: tema("#c3c2b7", "#5a5852"),
+    surface: tema("#fcfcfb", "#1e1e1c"),
+    bla: tema("#2a78d6", "#5c9ce8"),
+    blaMork: tema("#1c5cab", "#8dbbf2"),
+    blaLjus: tema("#9ec5f4", "#2f5486"),
+    rod: tema("#e34948", "#ff6f6e"),
     /* Orange bryter mot den blå prognosrampen utan att krocka med den
        röda avvikelsefärgen; värdet är hämtat ur den kategoriska paletten
        och är kontrast- och färgblindhetsvaliderat. */
-    orange: "#e69f00",
-    orangeMork: "#b57c00",
-    gra: "#c3c2b7"
+    orange: tema("#e69f00", "#f0b43c"),
+    orangeMork: tema("#b57c00", "#e9b64c"),
+    gra: tema("#c3c2b7", "#5a5852"),
+    /* Neutral grå för en referens (det förra valet, hela kommunen), lika
+       väl synlig mot båda temanas yta, och en svagare grå för det som
+       ligger bakom referensen (äldre val). */
+    referens: "#8f8d85",
+    bakom: tema("#adaba2", "#5e5c56"),
+    /* Bandet runt en framskrivning: orange, genomskinlig. */
+    orangeBand: tema("rgba(230, 159, 0, 0.18)", "rgba(240, 180, 60, 0.22)")
   };
 
-  var PALETT = [
-    "#1c5cab", "#e69f00", "#009e73", "#cc79a7",
-    "#56b4e9", "#d55e00", "#7a5195", "#6b8f00"
-  ];
+  /* I mörkt tema är färgerna ljusare, så att de står ut mot den mörka
+     ytan; ordningen och kulörerna är desamma. */
+  var PALETT = tema(
+    ["#1c5cab", "#e69f00", "#009e73", "#cc79a7",
+     "#56b4e9", "#d55e00", "#7a5195", "#6b8f00"],
+    ["#8dbbf2", "#f0b43c", "#3cc79f", "#e59ac4",
+     "#7cc8f2", "#ff8a4c", "#b496dc", "#a5c94a"]
+  );
   var STRECK = [[], [7, 4], [2, 3], [9, 3, 2, 3]];
   var PUNKT = ["circle", "rect", "triangle", "rectRot"];
 
@@ -62,12 +96,15 @@
     };
   }
 
-  /* Ramper för ordnade serier (årgångar): ljus = äldst. Den blå används
+  /* Ramper för ordnade serier (årgångar): ljus = äldst, och i mörkt tema
+     mörk = äldst, så att den nyaste alltid står ut mest mot ytan. Den blå används
      för kommunens prognosårgångar, den orange för kohortframskrivningens
      – samma färgspråk som de enskilda linjerna på sidan, så att en
      orange linje alltid betyder framskrivning och en blå prognos. */
-  var RAMP = ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"];
-  var RAMP_ORANGE = ["#f2d08a", "#eab54a", "#e69f00", "#b57c00", "#845a00"];
+  var RAMP = tema(["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"],
+                  ["#2f5486", "#3f6fae", "#5c9ce8", "#8dbbf2", "#c2dcf8"]);
+  var RAMP_ORANGE = tema(["#f2d08a", "#eab54a", "#e69f00", "#b57c00", "#845a00"],
+                         ["#6f4d0f", "#9a6c12", "#d0951a", "#f0b43c", "#f7d690"]);
 
   function urRamp(ramp, i, n) {
     if (n <= 1) return ramp[ramp.length - 1];
@@ -210,6 +247,8 @@
     Chart.defaults.color = FARG.ink2;
     Chart.defaults.borderColor = FARG.grid;
     Chart.defaults.plugins.tooltip.backgroundColor = FARG.ink;
+    Chart.defaults.plugins.tooltip.titleColor = tema("#fff", FARG.surface);
+    Chart.defaults.plugins.tooltip.bodyColor = tema("#fff", FARG.surface);
     Chart.defaults.plugins.tooltip.titleFont = { size: 15, weight: "600" };
     Chart.defaults.plugins.tooltip.bodyFont = { size: 15 };
     Chart.defaults.plugins.tooltip.padding = 10;

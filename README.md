@@ -1191,6 +1191,16 @@ komponenter (docs/gemensam.js):
   [beslut 0013](https://github.com/moggleif/giffa/blob/main/beslut/0013-gemensam-meny-fran-giffa.md)),
   som ligger på samma adress. Menyerna är `<details>` och fungerar utan
   JavaScript; utan Giffås skript saknas bara sajtraden och knappen.
+- **Mörkt tema.** Knappen med månen i sajtraden byter till mörkt tema,
+  och valet gäller också på projektets andra sajter; utan val följer
+  sidorna läsarens inställning. Giffås `/giffa/tema.js` sätter det valda
+  temat innan sidan ritas
+  ([beslut 0015](https://github.com/moggleif/giffa/blob/main/beslut/0015-morkt-tema-i-sajtraden.md)).
+  Sidans färger står med ett ljust och ett mörkt värde i `docs/style.css`,
+  diagrammens i `FARG`, `PALETT` och ramperna i `docs/gemensam.js`, och
+  sidan laddas om när temat byts, så att diagrammen ritas med de nya
+  färgerna. I en webbläsare som spärrat lagringen kan valet därför inte
+  följa med omladdningen, och sidan behåller läsarens inställning.
 - **"Kort sagt"** överst: de viktigaste observationerna, beräknade ur
   sidans datafil vid varje sidvisning &ndash; ingenting är hårdkodat.
 - **Delbara URL:er**: valen i reglagen speglas i adressraden

@@ -26,17 +26,18 @@ const vm = require("node:vm");
    körs. Här körs det i en sandlåda med precis så mycket DOM som filen rör
    vid när den läses in: readyState (så att uppstarten inte väntar på
    DOMContentLoaded). Ingen webbläsare behövs. */
-function laddaKis() {
+function laddaKis(extra = {}, rot = undefined) {
   const kalla = fs.readFileSync(
     path.join(__dirname, "..", "docs", "gemensam.js"), "utf8");
   const dokument = {
+    documentElement: rot,
     readyState: "complete",
     querySelector() { return null; },
     querySelectorAll() { return []; },
     addEventListener() {},
     createElement() { return { value: "", textContent: "" }; },
   };
-  const sandlada = { document: dokument, Intl, Date, console };
+  const sandlada = { document: dokument, Intl, Date, console, ...extra };
   sandlada.window = sandlada;
   vm.createContext(sandlada);
   vm.runInContext(kalla, sandlada, { filename: "gemensam.js" });
@@ -532,4 +533,47 @@ test("inget sidskript sätter tecken själv", () => {
     .filter((f) => f.endsWith(".js") && f !== "gemensam.js" && f !== "chart.umd.js")
     .filter((f) => /"\+"/.test(fs.readFileSync(path.join(docs, f), "utf8")));
   assert.deepEqual(syndare, []);
+});
+
+/* ---------- Mörkt tema (Giffås beslut 0015) ---------- */
+
+/* En webbläsare med light-dark(), läsarens inställning och en
+   MutationObserver som fångar vad gemensam.js lyssnar på. */
+function temaMiljo(tema, morkInstallning) {
+  const rot = { dataset: { tema } };
+  const lyssnare = [];
+  const lage = { omladdad: 0 };
+  const extra = {
+    CSS: { supports: () => true },
+    matchMedia: () => ({ matches: morkInstallning }),
+    MutationObserver: function (fn) { this.observe = () => lyssnare.push(fn); },
+    location: { reload: () => { lage.omladdad += 1; } },
+  };
+  return { K: laddaKis(extra, rot), rot, lyssnare, lage };
+}
+
+test("ljust tema ger de ljusa färgerna, som utan stöd för light-dark()", () => {
+  const { K: ljus } = temaMiljo("ljust", true);
+  assert.equal(ljus.FARG.ink, K.FARG.ink);
+  assert.deepEqual(ljus.PALETT, K.PALETT);
+  assert.equal(K.FARG.ink, "#0b0b0b");
+});
+
+test("mörkt tema, valt eller ur inställningen, ger de mörka färgerna", () => {
+  for (const [tema, installning] of [["morkt", false], ["", true]]) {
+    const { K: mork } = temaMiljo(tema, installning);
+    assert.equal(mork.FARG.ink, "#ecebe7");
+    assert.equal(mork.PALETT[0], "#8dbbf2");
+    assert.equal(mork.rampFarg(4, 5), "#c2dcf8");
+  }
+});
+
+test("sidan laddas om bara när temat faktiskt byts", () => {
+  const { rot, lyssnare, lage } = temaMiljo("", false);
+  rot.dataset.tema = "ljust";
+  lyssnare.forEach((fn) => fn());
+  assert.equal(lage.omladdad, 0);
+  rot.dataset.tema = "morkt";
+  lyssnare.forEach((fn) => fn());
+  assert.equal(lage.omladdad, 1);
 });
