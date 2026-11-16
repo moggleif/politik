@@ -1,19 +1,21 @@
-/* Krav: K35 i KRAV.md, beslut 0013. Den gemensamma menyn på projektets sajter: sajtraden
-   som sajter.js lägger överst och sajtens meny (.sajtmeny). Storlekarna står i em, så att
+/* Krav: K35 i KRAV.md, beslut 0013 och 0014. Den gemensamma menyn på
+   projektets sajter: sajtraden som sajter.js lägger överst och sajtens meny
+   (.sajtmeny). När sidan hör till en känd sajt (.kand) står dess namn bara i
+   sajtraden, och på smal skärm står där bara den sajten och knappen. Storlekarna står i em, så att
    menyn följer sajtens egen textstorlek. En sajt sätter --sajtaccent, --sajtyta och,
    för sajtradens kanter, --sajtbredd och --sajtkant. */
 .sajtrad { font-size: max(0.85em, 15px); background: rgba(128, 128, 128, 0.1);
            border-bottom: 1px solid rgba(128, 128, 128, 0.3); }
-.sajtrad ul { list-style: none; margin: 0 auto; padding: 0 var(--sajtkant, 1rem);
-              max-width: var(--sajtbredd, 72rem); box-sizing: border-box;
-              display: flex; flex-wrap: wrap; gap: 0 1.25em; }
+.sajtrad > div { margin: 0 auto; padding: 0 var(--sajtkant, 1rem); box-sizing: border-box;
+                 max-width: var(--sajtbredd, 72rem); display: flex; align-items: center; gap: 1em; }
+.sajtrad ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.25em; }
 .sajtrad a { display: inline-flex; align-items: center; min-height: max(2.25em, 32px);
              color: inherit; opacity: 0.85; }
 .sajtrad a[aria-current] { opacity: 1; font-weight: 600; text-decoration: none; }
 .sajtrad a[aria-current]::before { content: "◆" / ""; margin-right: 0.35em;
                                    color: var(--sajtaccent, #1d5d73); }
 
-.sajtmeny { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.75em;
+.sajtmeny { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.75em;
             padding: 0.4em 0; margin-bottom: 1em;
             border-bottom: 1px solid rgba(128, 128, 128, 0.3); }
 .sajtnamn { font-weight: 700; font-size: 1.15em; color: inherit; text-decoration: none;
@@ -22,6 +24,7 @@
 .sajtmeny li, .sajtmeny details, .sajtmeny summary { margin: 0; padding: 0; border: 0; background: none; }
 .sajtmeny > ul { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.25em; }
 .sajtmeny > ul > li { position: relative; }
+.sajtmeny.kand .sajtnamn, .sajtmeny .andra-sajter { display: none; }
 .sajtmeny > ul > li > a, .sajtmeny summary {
   display: inline-flex; align-items: center; min-height: 2.5em; cursor: pointer;
   color: var(--sajtaccent, #1d5d73); text-decoration: none; font-weight: 500; }
@@ -34,23 +37,31 @@
   position: absolute; z-index: 40; top: 100%; left: 0; min-width: 14em;
   background: var(--sajtyta, Canvas); padding: 0.5em 1em; border-radius: 0.5em;
   border: 1px solid rgba(128, 128, 128, 0.4); box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.12); }
-.sajtmeny > ul > li:last-child details > ul,
-.sajtmeny > ul > li:last-child .grupper { left: auto; right: 0; }
+.sajtmeny > ul > li:last-child details > ul { left: auto; right: 0; }
+/* En undermeny med grupper kan vara bredare än vad som får plats till höger om sin rubrik.
+   Den står därför under hela menyn, från dess vänsterkant, och grupperna bryts till en ny
+   rad när de inte får plats bredvid varandra. */
+.sajtmeny > ul > li:has(> details > .grupper) { position: static; }
 .sajtmeny details a { display: block; padding: 0.35em 0; color: inherit; }
-.sajtmeny .grupper { display: flex; gap: 1.5em; }
+.sajtmeny .grupper { display: flex; flex-wrap: wrap; gap: 0 1.5em; }
 .sajtmeny details a, .sajtmeny .grupp { white-space: nowrap; }
 .sajtmeny .grupp { margin: 0.3em 0 0.1em; font-weight: 600; font-size: 0.9em;
                    color: var(--sajtaccent, #1d5d73); }
 .menyknapp { display: none; }
 
 @media (max-width: 40rem) {
-  .sajtmeny.har-knapp .menyknapp {
+  .sajtrad.kand li:not(.denna) { display: none; }
+  .sajtrad .denna a { font-size: 1.15em; min-height: 2.75em; white-space: nowrap; }
+  .sajtrad .menyknapp {
     display: inline-flex; align-items: center; margin-left: auto; min-height: 2.5em;
     font: inherit; padding: 0 1em; cursor: pointer; color: inherit; background: none;
     border: 1px solid rgba(128, 128, 128, 0.5); border-radius: 999px; }
-  .sajtmeny.har-knapp > ul { display: none; flex-basis: 100%; flex-direction: column;
-                             align-items: stretch; }
-  .sajtmeny.har-knapp.oppen > ul { display: flex; }
+  .sajtmeny.har-knapp:not(.oppen) { display: none; }
+  .sajtmeny.har-knapp > ul { flex-basis: 100%; flex-direction: column; align-items: stretch; }
+  .sajtmeny .andra-sajter { display: block; flex-basis: 100%; margin-top: 0.5em;
+                            padding-top: 0.3em; border-top: 1px solid rgba(128, 128, 128, 0.3); }
+  .sajtmeny .andra-sajter ul { list-style: none; margin: 0; padding: 0; }
+  .sajtmeny .andra-sajter a { display: block; padding: 0.35em 0; color: inherit; }
   .sajtmeny details > ul, .sajtmeny .grupper {
     position: static; min-width: 0; padding: 0 0 0.5em 1em; border: none; box-shadow: none;
     background: none; }
@@ -59,5 +70,7 @@
 }
 
 @media print {
-  .sajtrad, .sajtmeny > ul, .menyknapp { display: none; }
+  .sajtrad, .sajtmeny > ul, .andra-sajter { display: none; }
+  .sajtmeny.har-knapp { display: flex; }
+  .sajtmeny.kand .sajtnamn { display: inline; }
 }
