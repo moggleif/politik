@@ -218,8 +218,9 @@ haft. Till skillnad från prognossidorna innehåller den inga prognoser alls.
 **Valet 2026** &ndash; hur många som förtidsröstat i Kungsbacka, dag för
 dag, jämfört med riksdagsvalet 2022 vid samma antal dagar kvar till
 valdagen &ndash; och samma sak för varje annan kommun, varje län och
-hela riket. Siffrorna kommer från Valmyndighetens öppna data och hämtas
-automatiskt två gånger om dagen under förtidsröstningen. Sidan visar hur
+hela riket. Siffrorna kommer från Valmyndighetens öppna data och hämtades
+automatiskt två gånger om dagen under förtidsröstningen; nu är de slutliga
+och jobbet körs bara för hand. Sidan visar hur
 många som röstat &ndash; inte vad de röstat på.
 
 - [Förtidsröstningen dag för dag](https://moggleif.github.io/politik/fortidsrostning.html)
@@ -709,8 +710,7 @@ docs/                           Själva hemsidan (serveras av GitHub Pages)
   data-kostnader.json           Data till kostnadssidan (genereras)
   data-resurser.json            Data till resurssidan (genereras)
   data-fortidsroster/<kod>.json Data till förtidsröstningssidan, en fil per
-                                område, plus index.json (genereras, två gånger
-                                om dagen under förtidsröstningen)
+                                område, plus index.json (genereras)
   data-kommunval.json           Data till sidan om valresultat per
   data-regionval.json           valdistrikt, en fil per val (genereras)
   data-riksdagsval.json
@@ -1046,8 +1046,8 @@ node scripts/facit_webbplats.js --skriv-om   # skriv om facit efter en avsedd ä
 ```
 
 **Datat är fruset.** Kontrollen serveras ur `tests/fixtures/data/`, inte ur
-`docs/`. Förtidsröstjobbet skriver om `docs/data-fortidsroster/` två gånger
-om dygnet och pushar till `main`; kördes facit mot de riktiga filerna vore
+`docs/`. Förtidsröstjobbet skrev om `docs/data-fortidsroster/` två gånger
+om dygnet och pushade till `main`; kördes facit mot de riktiga filerna vore
 kontrollen röd inom ett dygn och avstängd inom en vecka. Sidorna märker
 ingenting &ndash; de begär samma adresser som vanligt, och servern svarar
 med fixturen. Av samma skäl fryses klockan i webbläsaren: `fortidsrostning.js`
