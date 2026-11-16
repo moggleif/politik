@@ -31,7 +31,7 @@ from hamta_kf_val import text_ur_html
 
 ROT = Path(__file__).resolve().parent.parent
 DATA = ROT / "data"
-ARKIV = "https://moggleif.github.io/kommunhandlingar/kungsbacka/kf/{ar}/{d}/protokoll.html"
+ARKIV = "https://moggleif.github.io/kungsbackakommun/kungsbacka/kf/{ar}/{d}/protokoll.html"
 VAL = (2010, 2014, 2018, 2022, 2026)
 PARTI_AB = {"Moderaterna": "M", "Moderata Samlingspartiet": "M", "Arbetarepartiet-Socialdemokraterna": "S",
             "Centerpartiet": "C", "Liberalerna (tidigare Folkpartiet)": "L", "Folkpartiet liberalerna": "L",

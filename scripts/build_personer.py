@@ -53,7 +53,7 @@ UT = DATA / "personer"
 # Fullmäktige (kf) väljer KS och nämnder; kommunstyrelsens första möte (ks)
 # väljer arbetsutskottet (KSAU).
 VAL = {
-    2010: ("2011–2014", [], "Arkivet kommunhandlingar börjar 2013-08-13; kandidatlistor saknas hos data.val.se"),
+    2010: ("2011–2014", [], "Arkivet Kungsbacka kommun börjar 2013-08-13; kandidatlistor saknas hos data.val.se"),
     2014: ("2015–2018", ["kf/2014-12-09", "ks/2015-01-20"], None),
     2018: ("2019–2022", [], "Fullmäktiges decemberprotokoll 2018 ej funnet; kandidatlistor saknas hos data.val.se"),
     2022: ("2023–2026", ["kf/2022-12-06", "ks/2023-01-10"], None),
