@@ -87,7 +87,7 @@
      distrikten får den kategoriska paletten. Gruppen kan inte ta sajtens
      blå – det är också palettens första färg, och gruppen hade då fått
      samma färg som det första markerade distriktet. */
-  var FARG_KOMMUN = "#8f8d85";
+  var FARG_KOMMUN = FARG.referens;
   var FARG_GRUPP = FARG.ink;
   var STRECK_BROTT = [6, 4];
 

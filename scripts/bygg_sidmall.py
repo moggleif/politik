@@ -182,6 +182,12 @@ def dra_in(block, steg):
     return "".join(prefix + r if r.strip() else r for r in block.splitlines(True))
 
 
+def med_giffas_rader(text):
+    """Byter sidans rader från Giffå mot SAJTER, direkt efter sidans stil."""
+    utan = GIFFAS_RADER.sub("", text)
+    return utan.replace(EGEN_STIL, EGEN_STIL + SAJTER, 1)
+
+
 def bygg(fil):
     text = fil.read_text(encoding="utf-8")
     ny = text
@@ -201,8 +207,7 @@ def bygg(fil):
     if SAJTER not in ny:
         if EGEN_STIL not in ny:
             raise SystemExit(f"{fil.name}: hittade ingen länk till style.css")
-        ny = GIFFAS_RADER.sub("", ny)
-        ny = ny.replace(EGEN_STIL, EGEN_STIL + SAJTER, 1)
+        ny = med_giffas_rader(ny)
 
     sidfot = sidfot_html(las_datarad(ny, fil))
     if not SIDFOT_MONSTER.search(ny):

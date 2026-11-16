@@ -22,8 +22,8 @@
   --orange-dark: light-dark(#b57c00, #e9b64c); /* framskrivet, aldrig uppmätt */
   --neutral-mid: light-dark(#f0efec, #2a2a27);
   --focus: light-dark(#1c5cab, #8dbbf2);
-  --ja: light-dark(#1a7a38, #66cf85);   /* grön bock; kontrast 5,2:1 mot ytan */
-  --nej: light-dark(#b3261e, #ff8f85);  /* rött kryss; kontrast 6,4:1 mot ytan */
+  --ja: light-dark(#1a7a38, #66cf85);   /* grön bock; kontrast 5,2:1 (ljust) och 9,3:1 (mörkt) mot ytan */
+  --nej: light-dark(#b3261e, #ff8f85);  /* rött kryss; kontrast 6,4:1 (ljust) och 8,2:1 (mörkt) mot ytan */
   --ja-yta: light-dark(#e3eefb, #1d3350);
   --nej-yta: light-dark(#fbe3e2, #4a2423);
 }

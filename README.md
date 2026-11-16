@@ -1199,7 +1199,8 @@ komponenter (docs/gemensam.js):
   Sidans färger står med ett ljust och ett mörkt värde i `docs/style.css`,
   diagrammens i `FARG`, `PALETT` och ramperna i `docs/gemensam.js`, och
   sidan laddas om när temat byts, så att diagrammen ritas med de nya
-  färgerna.
+  färgerna. I en webbläsare som spärrat lagringen kan valet därför inte
+  följa med omladdningen, och sidan behåller läsarens inställning.
 - **"Kort sagt"** överst: de viktigaste observationerna, beräknade ur
   sidans datafil vid varje sidvisning &ndash; ingenting är hårdkodat.
 - **Delbara URL:er**: valen i reglagen speglas i adressraden

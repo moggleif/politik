@@ -53,7 +53,14 @@
        och är kontrast- och färgblindhetsvaliderat. */
     orange: tema("#e69f00", "#f0b43c"),
     orangeMork: tema("#b57c00", "#e9b64c"),
-    gra: tema("#c3c2b7", "#5a5852")
+    gra: tema("#c3c2b7", "#5a5852"),
+    /* Neutral grå för en referens (det förra valet, hela kommunen), lika
+       väl synlig mot båda temanas yta, och en svagare grå för det som
+       ligger bakom referensen (äldre val). */
+    referens: "#8f8d85",
+    bakom: tema("#adaba2", "#5e5c56"),
+    /* Bandet runt en framskrivning: orange, genomskinlig. */
+    orangeBand: tema("rgba(230, 159, 0, 0.18)", "rgba(240, 180, 60, 0.22)")
   };
 
   /* I mörkt tema är färgerna ljusare, så att de står ut mot den mörka

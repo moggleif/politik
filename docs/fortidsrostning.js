@@ -29,16 +29,16 @@
      ritas bara i huvudgrafen: tunna, ljusare grå linjer som skiljs åt
      med streckning, inte med färg. */
   var FARG_NU = FARG.blaMork;
-  var FARG_DA = "#8f8d85";
+  var FARG_DA = FARG.referens;
   var FARG_PAGAR = FARG.blaLjus;
-  var FARG_ALDRE = "#adaba2";
+  var FARG_ALDRE = FARG.bakom;
   var STRECK_ALDRE = [[2, 3], [9, 3, 2, 3], [1, 3]];
 
   /* Framskrivningen i orange, aldrig i sidans blå: på hela webbplatsen
      betyder blått uppmätt utfall och orange något som är räknat fram.
      Prickad linje, inte heldragen, av samma skäl. */
   var FARG_PROGNOS = FARG.orangeMork;
-  var FARG_PROGNOS_BAND = "rgba(230, 159, 0, 0.18)";
+  var FARG_PROGNOS_BAND = FARG.orangeBand;
   var STRECK_PROGNOS = [2, 4];
 
   /* Så gammalt får datat vara under pågående förtidsröstning innan
