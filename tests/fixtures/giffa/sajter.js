@@ -57,9 +57,7 @@
   }
 
   function menyknapp(meny, rad) {
-    if (!meny.id) meny.id = "sajtmeny";
-    var knapp = element("button", { type: "button", "class": "menyknapp", "aria-expanded": "false",
-                                     "aria-controls": meny.id }, "Meny");
+    var knapp = element("button", { type: "button", "class": "menyknapp", "aria-expanded": "false" }, "Meny");
     knapp.addEventListener("click", function () {
       var oppen = knapp.getAttribute("aria-expanded") !== "true";
       knapp.setAttribute("aria-expanded", String(oppen));
