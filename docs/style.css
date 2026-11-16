@@ -6,25 +6,41 @@
    inte här: två listor som ska vara lika glider isär. */
 
 :root {
-  --page: #f9f9f7;
-  --surface: #fcfcfb;
-  --ink: #0b0b0b;
-  --ink-2: #52514e;
-  --muted: #6e6c66;   /* mörkad från #898781 för att klara kontrastkravet AA */
-  --grid: #e1e0d9;
-  --baseline: #c3c2b7;
-  --border: rgba(11, 11, 11, 0.10);
-  --blue-dark: #1c5cab;   /* länkar, markerat läge */
-  --orange-dark: #b57c00; /* framskrivet, aldrig uppmätt */
-  --neutral-mid: #f0efec;
-  --focus: #1c5cab;
-  --ja: #1a7a38;   /* grön bock; kontrast 5,2:1 mot ytan */
-  --nej: #b3261e;  /* rött kryss; kontrast 6,4:1 mot ytan */
+  /* Varje färg har ett ljust och ett mörkt värde. Temat väljs med knappen
+     i sajtraden (Giffås beslut 0015); utan val följer det läsarens
+     inställning. */
+  color-scheme: light dark;
+  --page: light-dark(#f9f9f7, #161614);
+  --surface: light-dark(#fcfcfb, #1e1e1c);
+  --ink: light-dark(#0b0b0b, #ecebe7);
+  --ink-2: light-dark(#52514e, #bdbbb4);
+  --muted: light-dark(#6e6c66, #a09e96);   /* ljust mörkat från #898781 för att klara kontrastkravet AA */
+  --grid: light-dark(#e1e0d9, #353430);
+  --baseline: light-dark(#c3c2b7, #5a5852);
+  --border: light-dark(rgba(11, 11, 11, 0.10), rgba(255, 255, 255, 0.14));
+  --blue-dark: light-dark(#1c5cab, #8dbbf2);   /* länkar, markerat läge */
+  --orange-dark: light-dark(#b57c00, #e9b64c); /* framskrivet, aldrig uppmätt */
+  --neutral-mid: light-dark(#f0efec, #2a2a27);
+  --focus: light-dark(#1c5cab, #8dbbf2);
+  --ja: light-dark(#1a7a38, #66cf85);   /* grön bock; kontrast 5,2:1 mot ytan */
+  --nej: light-dark(#b3261e, #ff8f85);  /* rött kryss; kontrast 6,4:1 mot ytan */
+  --ja-yta: light-dark(#e3eefb, #1d3350);
+  --nej-yta: light-dark(#fbe3e2, #4a2423);
+}
+
+/* En webbläsare utan light-dark() får de ljusa värdena och ingen knapp. */
+@supports not (color: light-dark(black, white)) {
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e;
+    --muted: #6e6c66; --grid: #e1e0d9; --baseline: #c3c2b7;
+    --border: rgba(11, 11, 11, 0.10); --blue-dark: #1c5cab; --orange-dark: #b57c00;
+    --neutral-mid: #f0efec; --focus: #1c5cab; --ja: #1a7a38; --nej: #b3261e;
+    --ja-yta: #e3eefb; --nej-yta: #fbe3e2;
+  }
 }
 
 * { box-sizing: border-box; }
-
-html { color-scheme: light; }
 
 body {
   margin: 0;
@@ -241,7 +257,7 @@ ul.kallista li {
 ul.kallista .titel { font-weight: 600; }
 
 ul.kallista .detalj {
-  color: #6e6c66;   /* samma som --muted; #898781 klarade inte AA-kontrast */
+  color: var(--muted);
   font-size: 0.95rem;
 }
 
@@ -919,8 +935,8 @@ tr.rad-markerad > th, tr.rad-markerad > td {
 
 table.matris td { text-align: center; white-space: nowrap; }
 table.matris th:first-child { white-space: nowrap; }
-.matris-ja { background: #e3eefb; }
-.matris-nej { background: #fbe3e2; }
+.matris-ja { background: var(--ja-yta); }
+.matris-nej { background: var(--nej-yta); }
 .matris-oklart { background: var(--neutral-mid); color: var(--ink-2); }
 .matris-sjalv { color: var(--muted); }
 .matris-tecken { font-weight: 700; }

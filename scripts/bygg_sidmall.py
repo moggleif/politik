@@ -75,9 +75,13 @@ MENY = [
 ]
 
 # Den gemensamma menyns stil och skript, som Giffå publicerar på samma
-# adress som de här sidorna. Raderna skrivs in efter sidans egen stil.
+# adress som de här sidorna, och tema.js, som sätter det valda temat innan
+# sidan ritas (Giffås beslut 0015). Raderna skrivs in efter sidans egen
+# stil och ersätter de rader från Giffå som sidan hade förut.
 SAJTER = ('<link rel="stylesheet" href="/giffa/sajter.css">\n'
+          '<script src="/giffa/tema.js"></script>\n'
           '<script src="/giffa/sajter.js" defer></script>\n')
+GIFFAS_RADER = re.compile(r'<(?:link|script) [^>]*"/giffa/[^"]*"[^>]*>(?:</script>)?\n')
 EGEN_STIL = '<link rel="stylesheet" href="style.css">\n'
 
 SIDFOT_LANKAR = [
@@ -197,6 +201,7 @@ def bygg(fil):
     if SAJTER not in ny:
         if EGEN_STIL not in ny:
             raise SystemExit(f"{fil.name}: hittade ingen länk till style.css")
+        ny = GIFFAS_RADER.sub("", ny)
         ny = ny.replace(EGEN_STIL, EGEN_STIL + SAJTER, 1)
 
     sidfot = sidfot_html(las_datarad(ny, fil))

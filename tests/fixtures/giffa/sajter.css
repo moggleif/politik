@@ -1,9 +1,13 @@
-/* Krav: K35 i KRAV.md, beslut 0013 och 0014. Den gemensamma menyn på
+/* Krav: K35 och K36 i KRAV.md, beslut 0013–0015. Den gemensamma menyn på
    projektets sajter: sajtraden som sajter.js lägger överst och sajtens meny
    (.sajtmeny). När sidan hör till en känd sajt (.kand) står dess namn bara i
    sajtraden, och på smal skärm står där bara den sajten och knappen. Storlekarna står i em, så att
    menyn följer sajtens egen textstorlek. En sajt sätter --sajtaccent, --sajtyta och,
-   för sajtradens kanter, --sajtbredd och --sajtkant. */
+   för sajtradens kanter, --sajtbredd och --sajtkant. En sajt som har mörka färger skriver
+   dem med light-dark() och sätter color-scheme: light dark; temat som valts med knappen
+   (data-tema, se tema.js) väljer sedan sida. */
+:root[data-tema="ljust"] { color-scheme: light; }
+:root[data-tema="morkt"] { color-scheme: dark; }
 .sajtrad { font-size: max(0.85em, 15px); background: rgba(128, 128, 128, 0.1);
            border-bottom: 1px solid rgba(128, 128, 128, 0.3); }
 .sajtrad > div { margin: 0 auto; padding: 0 var(--sajtkant, 1rem); box-sizing: border-box;
@@ -48,11 +52,27 @@
 .sajtmeny .grupp { margin: 0.3em 0 0.1em; font-weight: 600; font-size: 0.9em;
                    color: var(--sajtaccent, #1d5d73); }
 .menyknapp { display: none; }
+.sajtrad .temaknapp {
+  flex: none; margin-left: auto; width: max(2.25em, 32px); height: max(2.25em, 32px); padding: 0;
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+  font: inherit; color: inherit; background: none;
+  border: 1px solid rgba(128, 128, 128, 0.5); border-radius: 50%; }
+/* Månen byter till mörkt tema, solen tillbaka till ljust. */
+.temaknapp::before {
+  content: ""; width: 1.2em; height: 1.2em; background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.temaknapp[aria-pressed="true"]::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='4.5'/%3E%3Cpath d='M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8'/%3E%3C/svg%3E"); }
 
 @media (max-width: 40rem) {
   .sajtrad.kand li:not(.denna) { display: none; }
   .sajtrad .denna a { font-size: 1.15em; min-height: 2.75em; white-space: nowrap; }
+  /* Temaknappen står mitt i utrymmet mellan sajtens namn och knappen Meny. */
+  .sajtrad.kand > div { display: grid; grid-template-columns: max-content 1fr max-content; }
+  .sajtrad.kand .temaknapp { margin: 0; justify-self: center; }
+  .sajtrad .temaknapp { width: 2.75em; height: 2.75em; }
   .sajtrad .menyknapp {
+    grid-column: 3; justify-self: end;
     display: inline-flex; align-items: center; margin-left: auto; min-height: 2.5em;
     font: inherit; padding: 0 1em; cursor: pointer; color: inherit; background: none;
     border: 1px solid rgba(128, 128, 128, 0.5); border-radius: 999px; }
