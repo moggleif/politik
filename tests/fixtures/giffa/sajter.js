@@ -1,13 +1,15 @@
-// Krav: K35 i KRAV.md, beslut 0013. Test: tests/test_sajter.js.
+// Krav: K35 i KRAV.md, beslut 0013 och 0014. Test: tests/test_sajter.js.
 // Projektets sajter laddar det här skriptet och sajter.css från Giffå. Skriptet lägger
-// sajtraden före sajtens egen meny (.sajtmeny), fäller ihop menyn bakom en knapp på smal
-// skärm och låter bara en undermeny vara öppen åt gången. Utan skriptet står menyn som en lista.
+// sajtraden före sajtens egen meny (.sajtmeny) och knappen Meny i sajtraden, så att sajtens
+// namn bara står där. Det låter bara en undermeny vara öppen åt gången. Utan skriptet står
+// menyn som en lista med sajtens namn först.
 (function () {
   var VARD = "https://moggleif.github.io";
   var SAJTER = [
     ["/giffa/", "Giffå"],
-    ["/kommunhandlingar/", "Kungsbacka kommun"],
-    ["/politik/", "Kungsbacka i siffror"]
+    ["/kungsbackakommun/", "Kungsbacka kommun"],
+    ["/politik/", "Kungsbacka i siffror"],
+    ["/regionhalland/", "Region Halland"]
   ];
 
   function alla(valjare, rot) {
@@ -21,19 +23,36 @@
     return e;
   }
 
-  function sajtrad(sokvag) {
-    var lista = element("ul", {});
-    SAJTER.forEach(function (sajt) {
-      var lank = element("a", { href: VARD + sajt[0] }, sajt[1]);
-      if (sokvag.indexOf(sajt[0]) === 0) lank.setAttribute("aria-current", "true");
-      lista.appendChild(element("li", {})).appendChild(lank);
+  function lista(sajter, sokvag) {
+    var ul = element("ul", {});
+    sajter.forEach(function (sajt) {
+      var li = ul.appendChild(element("li", {}));
+      var lank = li.appendChild(element("a", { href: VARD + sajt[0] }, sajt[1]));
+      if (sokvag.indexOf(sajt[0]) === 0) {
+        lank.setAttribute("aria-current", "true");
+        li.classList.add("denna");
+      }
     });
+    return ul;
+  }
+
+  function sajtrad(sokvag) {
     var rad = element("nav", { "class": "sajtrad", "aria-label": "Sajterna" });
-    rad.appendChild(lista);
+    rad.appendChild(element("div", {})).appendChild(lista(SAJTER, sokvag));
     return rad;
   }
 
-  function menyknapp(meny) {
+  // På smal skärm visar sajtraden bara den här sajten, med knappen bredvid. De andra
+  // sajterna står då sist i den utfällda menyn.
+  function andraSajter(meny, sokvag) {
+    var andra = SAJTER.filter(function (sajt) { return sokvag.indexOf(sajt[0]) !== 0; });
+    var li = element("li", { "class": "andra-sajter" });
+    li.appendChild(element("p", { "class": "grupp" }, "Projektets andra sajter"));
+    li.appendChild(lista(andra, sokvag));
+    meny.querySelector("ul").appendChild(li);
+  }
+
+  function menyknapp(meny, rad) {
     var knapp = element("button", { type: "button", "class": "menyknapp", "aria-expanded": "false" }, "Meny");
     knapp.addEventListener("click", function () {
       var oppen = knapp.getAttribute("aria-expanded") !== "true";
@@ -41,7 +60,7 @@
       meny.classList.toggle("oppen", oppen);
     });
     meny.classList.add("har-knapp");
-    meny.insertBefore(knapp, meny.querySelector("ul"));
+    rad.querySelector("div").appendChild(knapp);
     return knapp;
   }
 
@@ -77,6 +96,8 @@
 
   // Varje sida som laddar skriptet har en .sajtmeny (K35).
   var meny = document.querySelector(".sajtmeny");
-  meny.parentNode.insertBefore(sajtrad(location.pathname), meny);
-  undermenyer(meny, menyknapp(meny));
+  var rad = sajtrad(location.pathname);
+  meny.parentNode.insertBefore(rad, meny);
+  andraSajter(meny, location.pathname);
+  undermenyer(meny, menyknapp(meny, rad));
 })();
