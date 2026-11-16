@@ -2,7 +2,7 @@
 fullmäktigeprotokoll med logg i varje mandatperiod: namn och parti för de 61
 ledamöterna.
 
-Källa: arkivet https://moggleif.github.io/kommunhandlingar/kungsbacka.html
+Källa: arkivet https://moggleif.github.io/kungsbackakommun/kungsbacka.html
 (fullmäktiges protokoll som text). Protokollens logg heter "Närvarologg för
 ordinarie ledamöter" (nyare) eller "Närvarolista för ordinarie ledamöter".
 
@@ -41,7 +41,7 @@ from val import hamta
 
 ROT = Path(__file__).resolve().parent.parent
 UT = ROT / "data" / "uppdrag"
-ARKIV = "https://moggleif.github.io/kommunhandlingar/kungsbacka/kf/{ar}/{datum}/protokoll.html"
+ARKIV = "https://moggleif.github.io/kungsbackakommun/kungsbacka/kf/{ar}/{datum}/protokoll.html"
 # (datum, mandatperiod, första mötet efter valet?, valdag)
 MOTEN = [
     ("2013-10-08", "2011–2014", False, "2010-09-19"),

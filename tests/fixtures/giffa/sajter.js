@@ -6,7 +6,7 @@
   var VARD = "https://moggleif.github.io";
   var SAJTER = [
     ["/giffa/", "Giffå"],
-    ["/kommunhandlingar/", "Kungsbacka kommun"],
+    ["/kungsbackakommun/", "Kungsbacka kommun"],
     ["/politik/", "Kungsbacka i siffror"]
   ];
 

@@ -10,7 +10,7 @@ fastställda sammansättning. Ändringar under perioden bortses från (se
 data/KALLOR.md), men ju längre in i perioden första protokollet med text
 ligger, desto större risk för det; datumet står i varje post.
 
-Källa: arkivet https://moggleif.github.io/kommunhandlingar/kungsbacka.html,
+Källa: arkivet https://moggleif.github.io/kungsbackakommun/kungsbacka.html,
 som återger kommunens protokoll som text. För varje organ och period tas
 det första protokollet i fönstret vars text innehåller en närvarolista.
 Fönstren är valdagens period: 2013-08-01–2014-10-14 (arkivet börjar
@@ -49,7 +49,7 @@ from val import hamta
 
 ROT = Path(__file__).resolve().parent.parent
 UT = ROT / "data" / "uppdrag"
-BAS = "https://moggleif.github.io/kommunhandlingar/kungsbacka"
+BAS = "https://moggleif.github.io/kungsbackakommun/kungsbacka"
 
 PERIODER = {
     "2011–2014": ("2013-08-01", "2014-10-14"),

@@ -2,7 +2,7 @@
 styrelser inför en ny mandatperiod, och sparar dem som de står.
 
 Källa: protokollen från fullmäktiges decembermöte efter valet, så som
-arkivet https://moggleif.github.io/kommunhandlingar/kungsbacka.html
+arkivet https://moggleif.github.io/kungsbackakommun/kungsbacka.html
 återger kommunens PDF-protokoll som text (varje protokollsida länkar till
 kommunens egen PDF eller en Wayback-kopia). I protokollet har varje
 valbeslut en paragraf med ledamöter, ersättare, ordförande och vice
@@ -45,7 +45,7 @@ from val import hamta
 
 ROT = Path(__file__).resolve().parent.parent
 UT = ROT / "data" / "uppdrag"
-ARKIV = "https://moggleif.github.io/kommunhandlingar/kungsbacka/{organ}/{ar}/{datum}/protokoll.html"
+ARKIV = "https://moggleif.github.io/kungsbackakommun/kungsbacka/{organ}/{ar}/{datum}/protokoll.html"
 
 # Decembermötena efter valen som finns i arkivet. 2018 saknas helt i
 # arkivet (inga möten 2018), 2010 ligger före dess början (2013-08-13).
