@@ -1,16 +1,20 @@
-// Krav: K35 och K36 i KRAV.md, beslut 0013–0015. Test: tests/test_sajter.js.
+// Krav: K28, K35, K36 och K38 i KRAV.md, beslut 0013–0015, 0017 och 0018. Test: tests/test_sajter.js.
 // Projektets sajter laddar det här skriptet och sajter.css från Giffå. Skriptet lägger
-// sajtraden före sajtens egen meny (.sajtmeny), med knappen för mörkt tema och knappen
+// varningen om AI och sajtraden före sajtens egen meny (.sajtmeny), med knappen för mörkt tema och knappen
 // Meny, så att sajtens namn bara står där. Det låter bara en undermeny vara öppen åt
 // gången. Utan skriptet står menyn som en lista med sajtens namn först.
 (function () {
   var VARD = "https://moggleif.github.io";
+  // Skripten och stilen för sökningen ligger bredvid det här skriptet.
+  var BAS = document.currentScript.src.replace(/sajter\.js(\?.*)?$/, "");
   var SAJTER = [
     ["/giffa/", "Giffå"],
     ["/kungsbackakommun/", "Kungsbacka kommun"],
     ["/politik/", "Kungsbacka i siffror"],
     ["/regionhalland/", "Region Halland"]
   ];
+  var VARNING = "Skapad med AI ur offentliga uppgifter från kommunen, regionen och statliga " +
+    "myndigheter. Fel kan förekomma, så kontrollera mot källan.";
 
   function alla(valjare, rot) {
     return Array.prototype.slice.call(rot.querySelectorAll(valjare));
@@ -21,6 +25,12 @@
     Object.keys(attribut).forEach(function (namn) { e.setAttribute(namn, attribut[namn]); });
     if (text) e.textContent = text;
     return e;
+  }
+
+  function varning() {
+    var ruta = element("div", { "class": "ai-varning", role: "note" });
+    ruta.appendChild(element("p", {}, VARNING));
+    return ruta;
   }
 
   function sajtlista(sajter, sokvag) {
@@ -129,11 +139,23 @@
     });
   }
 
+  // Sökningen (K28) ritas av sokruta.js, som körs efter sokning.js när sajtraden finns.
+  function laddaSok() {
+    document.head.appendChild(element("link", { rel: "stylesheet", href: BAS + "sok.css" }));
+    ["sokning.js", "sokruta.js"].forEach(function (namn) {
+      var skript = element("script", { src: BAS + namn });
+      skript.async = false;
+      document.head.appendChild(skript);
+    });
+  }
+
   // Varje sida som laddar skriptet har en .sajtmeny (K35).
   var meny = document.querySelector(".sajtmeny");
   var rad = sajtrad(location.pathname);
   meny.parentNode.insertBefore(rad, meny);
+  meny.parentNode.insertBefore(varning(), rad);
   baraDenna(rad, meny, location.pathname);
   temaknapp(rad);
   undermenyer(meny, menyknapp(meny, rad));
+  laddaSok();
 })();

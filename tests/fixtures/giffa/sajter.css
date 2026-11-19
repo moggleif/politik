@@ -1,5 +1,5 @@
-/* Krav: K35 och K36 i KRAV.md, beslut 0013–0015. Den gemensamma menyn på
-   projektets sajter: sajtraden som sajter.js lägger överst och sajtens meny
+/* Krav: K35, K36 och K38 i KRAV.md, beslut 0013–0015 och 0017. Den gemensamma menyn
+   på projektets sajter: varningen om AI och sajtraden som sajter.js lägger överst och sajtens meny
    (.sajtmeny). När sidan hör till en känd sajt (.kand) står dess namn bara i
    sajtraden, och på smal skärm står där bara den sajten, knappen för mörkt tema och
    knappen Meny. Storlekarna står i em, så att menyn följer sajtens egen textstorlek.
@@ -9,6 +9,11 @@
    väljer sedan sida. */
 :root[data-tema="ljust"] { color-scheme: light; }
 :root[data-tema="morkt"] { color-scheme: dark; }
+.ai-varning { font-size: max(0.8em, 14px); line-height: 1.35; background: rgba(230, 160, 0, 0.14);
+               border-bottom: 1px solid rgba(180, 120, 0, 0.3); }
+.ai-varning p { margin: 0 auto; padding: 0.3em var(--sajtkant, 1rem); box-sizing: border-box;
+                max-width: var(--sajtbredd, 72rem); }
+.ai-varning p::before { content: "⚠" / ""; margin-right: 0.4em; }
 .sajtrad { font-size: max(0.85em, 15px); background: rgba(128, 128, 128, 0.1);
            border-bottom: 1px solid rgba(128, 128, 128, 0.3); }
 .sajtrad > div { margin: 0 auto; padding: 0 var(--sajtkant, 1rem); box-sizing: border-box;

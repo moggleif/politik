@@ -601,6 +601,9 @@ scripts/
                                 alla sidor i docs/. Menyn finns bara här;
                                 --kontrollera faller om någon sida hamnat
                                 i otakt (körs i CI)
+  bygg_sokindex.py              Skriver docs/sok.json, sidorna som knappen
+                                Sök i sajtraden söker i; --kontrollera
+                                faller om filen hamnat i otakt (körs i CI)
   gor_prognos.py                Engångsskript: ställde prognosen för valet
                                 2026 och frös den till
                                 data/fortidsroster/prognos.json. Körs inte
@@ -1175,7 +1178,9 @@ komponenter (docs/gemensam.js):
 - **Samma sidhuvud och samma sidfot på varje sida.** Högst upp ligger
   sajtraden till projektets andra sajter,
   [Giffå](https://moggleif.github.io/giffa/) och
-  [Kungsbacka kommun](https://moggleif.github.io/kungsbackakommun/), och
+  [Kungsbacka kommun](https://moggleif.github.io/kungsbackakommun/), med
+  knappen *Sök*, som söker på alla sajterna – här i sidornas rubriker,
+  ingresser och mellanrubriker (`docs/sok.json`) – och
   under den webbplatsens namn och ämnena som utfällbara menyer:
   Befolkning, Skolan (grundskolan, gymnasiet och elevenkäterna i var sin
   kolumn), Valen och fullmäktige, Jämför (Varberg, och fler kommuner och

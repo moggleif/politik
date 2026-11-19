@@ -46,6 +46,8 @@ jobs:
         run: python3 scripts/kontrollera_lankar.py
       - name: Kontrollera att alla sidor har samma meny och sidfot
         run: python3 scripts/bygg_sidmall.py --kontrollera
+      - name: Sökindexet stämmer med sidorna
+        run: python3 scripts/bygg_sokindex.py --kontrollera
 
   webbplats:
     name: Webbplatsens sidor

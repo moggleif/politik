@@ -91,7 +91,7 @@ function startaServer() {
 const GIFFA = path.join(ROT, "tests", "fixtures", "giffa");
 
 async function giffasMeny(page) {
-  await page.route(/\/giffa\/(sajter|tema)\.(js|css)(\?|$)/, function (r) {
+  await page.route(/\/giffa\/(sajter|tema|sok|sokning|sokruta)\.(js|css)(\?|$)/, function (r) {
     r.fulfill({ path: path.join(GIFFA, path.basename(r.request().url().split("?")[0])) });
   });
 }
