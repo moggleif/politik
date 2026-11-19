@@ -83,9 +83,10 @@ function startaServer() {
   });
 }
 
-/* Den gemensamma menyn – sajtraden, knapparna för mörkt tema och Meny och
+/* Den gemensamma menyn – sajtraden, knapparna Sök, mörkt tema och Meny och
    menyns stil – laddas från Giffå på samma adress (/giffa/sajter.js,
-   /giffa/sajter.css och /giffa/tema.js).
+   /giffa/sajter.css och /giffa/tema.js, och sökningens sok.css, sokning.js
+   och sokruta.js).
    Kontrollerna går utan nät, så de får en fryst kopia ur
    tests/fixtures/giffa/, som byts när Giffås filer ändras. */
 const GIFFA = path.join(ROT, "tests", "fixtures", "giffa");
