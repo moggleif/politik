@@ -3,7 +3,8 @@
 // sajtraden finns. Första gången hämtas varje sajts sok.json, där sajtradens länk pekar, och
 // träffarna ritas medan man skriver: sajt för sajt, den här först, och grupp för grupp.
 // Urvalet i adressen gäller Giffås ärenden. Escape eller knappen fäller ihop fältet. På en
-// sida med data-sok-oppen, som Giffås sida Sök, är fältet utfällt från början.
+// sida med data-sok-oppen, som Giffås sida Sök, är fältet utfällt från början och indexen
+// hämtas först när man skriver.
 (function () {
   var MINST = 2;
   var VISAS = 20;
@@ -44,11 +45,11 @@
   }
 
   function lista(ul, traffar, ritaRad) {
-    traffar.forEach(function (t) { ul.appendChild(ritaRad(t)); });
+    return traffar.map(function (t) { return ul.appendChild(ritaRad(t)); });
   }
 
   // De första träffarna står direkt och resten bakom en knapp, så att ett vanligt ord inte
-  // ritar tusentals.
+  // ritar tusentals. Knappen försvinner, så fokus flyttas till den första av de nya.
   function grupp(ruta, rubrik, traffar, ritaRad) {
     ruta.appendChild(element("h3", {}, rubrik + " (" + traffar.length + ")"));
     var ul = ruta.appendChild(element("ul", {}));
@@ -57,8 +58,9 @@
     var knapp = element("button", { type: "button", "class": "visa-alla" }, "Visa alla " + traffar.length);
     ruta.appendChild(knapp);
     knapp.addEventListener("click", function () {
-      lista(ul, traffar.slice(VISAS), ritaRad);
+      var nya = lista(ul, traffar.slice(VISAS), ritaRad);
       knapp.parentNode.removeChild(knapp);
+      nya[0].querySelector("a").focus();
     });
   }
 
@@ -77,7 +79,7 @@
     }).filter(function (g) { return g.traffar.length; });
   }
 
-  // En sajt vars index inte gick att hämta, eller inte hämtats än, sägs med en rad.
+  // En sajt vars index inte gick att hämta, inte har formatet eller inte hämtats än, sägs med en rad.
   function ritaSajt(resultat, sajt, ord) {
     if (!sajt.index) {
       var text = sajt.fel ? "Gick inte att söka i " + sajt.namn + "." : "Söker i " + sajt.namn + " …";
@@ -114,6 +116,9 @@
       fetch(sajt.adress + "sok.json").then(function (svar) {
         if (!svar.ok) throw new Error(sajt.adress + "sok.json: " + svar.status);
         return svar.json();
+      }).then(function (index) {
+        if (!Array.isArray(index.grupper)) throw new Error(sajt.adress + "sok.json: utan grupper");
+        return index;
       }).then(function (index) { sajt.index = index; }, function () { sajt.fel = true; })
         .then(function () {
           sajt.laddas = false;
@@ -131,16 +136,16 @@
     }));
     panel.appendChild(element("p", { role: "status" }));
     panel.appendChild(element("div", { "class": "sokresultat" }));
-    falt.addEventListener("input", function () { rita(panel, sajter); });
+    falt.addEventListener("input", function () {
+      if (!sajter.some(function (s) { return s.index || s.laddas || s.fel; })) ladda(panel, sajter);
+      rita(panel, sajter);
+    });
     return panel;
   }
 
-  function vaxla(knapp, panel, sajter, oppen) {
+  function vaxla(knapp, panel, oppen) {
     knapp.setAttribute("aria-expanded", String(oppen));
     panel.hidden = !oppen;
-    if (!oppen) return;
-    ladda(panel, sajter);
-    rita(panel, sajter);
   }
 
   var sajter = sajterna();
@@ -153,15 +158,18 @@
   sajtrad.insertBefore(knapp, sajtrad.querySelector(".temaknapp") || sajtrad.querySelector(".menyknapp"));
   meny.parentNode.insertBefore(panel, meny);
   knapp.addEventListener("click", function () {
-    vaxla(knapp, panel, sajter, panel.hidden);
-    if (!panel.hidden) panel.querySelector("input").focus();
+    vaxla(knapp, panel, panel.hidden);
+    if (panel.hidden) return;
+    ladda(panel, sajter);
+    rita(panel, sajter);
+    panel.querySelector("input").focus();
   });
   // Escape stänger bara fältet; sajter.js ska inte också stänga menyn och flytta fokus dit.
   panel.addEventListener("keydown", function (h) {
     if (h.key !== "Escape") return;
     h.stopPropagation();
-    vaxla(knapp, panel, sajter, false);
+    vaxla(knapp, panel, false);
     knapp.focus();
   });
-  if (document.querySelector("[data-sok-oppen]")) vaxla(knapp, panel, sajter, true);
+  if (document.querySelector("[data-sok-oppen]")) vaxla(knapp, panel, true);
 })();

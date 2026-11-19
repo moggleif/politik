@@ -2,7 +2,7 @@
    på projektets sajter: varningen om AI och sajtraden som sajter.js lägger överst och sajtens meny
    (.sajtmeny). När sidan hör till en känd sajt (.kand) står dess namn bara i
    sajtraden, och på smal skärm står där bara den sajten, knappen för mörkt tema och
-   knappen Meny. Storlekarna står i em, så att menyn följer sajtens egen textstorlek.
+   knappen Meny, och knappen Sök som sok.css lägger till. Storlekarna står i em, så att menyn följer sajtens egen textstorlek.
    En sajt sätter --sajtaccent, --sajtyta och, för sajtradens kanter, --sajtbredd och
    --sajtkant. En sajt som har mörka färger skriver dem med light-dark() och sätter
    color-scheme: light dark; temat som valts med knappen (data-tema, se tema.js)
@@ -73,8 +73,9 @@
 @media (max-width: 40rem) {
   .sajtrad.kand li:not(.denna) { display: none; }
   .sajtrad .denna a { font-size: 1.15em; min-height: 2.75em; white-space: nowrap; }
-  /* Temaknappen står mitt i utrymmet mellan sajtens namn och knappen Meny. Får namnet
-     inte plats kortas det med en ellips, så att raden aldrig blir bredare än skärmen. */
+  /* Temaknappen står mitt i utrymmet mellan sajtens namn och knappen Meny; sok.css lägger
+     knappen Sök bredvid den i en fjärde kolumn. Får namnet inte plats kortas det med en
+     ellips, så att raden aldrig blir bredare än skärmen. */
   .sajtrad.kand > div { display: grid; grid-template-columns: minmax(0, max-content) 1fr max-content; }
   .sajtrad.kand ul, .sajtrad.kand li { min-width: 0; }
   .sajtrad.kand .denna a { display: block; overflow: hidden; text-overflow: ellipsis;
