@@ -23,6 +23,7 @@ vägledningen i samma ändring. Tydlighet före fyndighet.
 | Menyn och sidfoten                             | `scripts/bygg_sidmall.py`                 |
 | Menyns form och sajtraden till de andra sajterna | Giffås `docs/sajter.js` och `sajter.css` (beslut 0013 där) |
 | Temaknappen och det valda temat (ljust/mörkt)  | Giffås `docs/sajter.js` och `tema.js` (beslut 0015 där) |
+| Knappen Sök och sökindexets format             | Giffås `docs/sokruta.js` (beslut 0018 där); `docs/sok.json` byggs av `scripts/bygg_sokindex.py` |
 | Vad sidorna faktiskt ritar                     | `tests/facit/*.json`                      |
 
 Skriv aldrig om ett annat dokuments fakta – länka till dem. Ett faktum som står
@@ -71,8 +72,9 @@ reproducerbarhetstesterna faller om innehållet inte går att räkna fram ur
   `docs/chart.umd.js`, inga CDN:er, och sidornas Content Security Policy
   släpper bara igenom besöksräknaren. Nya externa resurser tillkommer inte.
   Undantaget är projektets gemensamma meny, `/giffa/sajter.css`,
-  `/giffa/sajter.js` och `/giffa/tema.js`, som Giffå publicerar på samma
-  adress; kontrollerna
+  `/giffa/sajter.js` och `/giffa/tema.js`, och sökningen den laddar
+  (`sok.css`, `sokning.js`, `sokruta.js` och de andra sajternas `sok.json`),
+  som Giffå och de andra sajterna publicerar på samma adress; kontrollerna
   kör den mot en fryst kopia i `tests/fixtures/giffa/`.
 - **Färger kommer ur `FARG`/`PALETT` i `docs/gemensam.js`** – inga hexvärden
   i sidskripten. Ingen information får bäras av färgen ensam: serier skiljs
@@ -113,7 +115,8 @@ funktion med parametrar, inte två.
    `ruff check && python3 -m unittest discover tests && npx eslint &&
    node --test tests/*.js && node scripts/smoke_webbplats.js &&
    node scripts/facit_webbplats.js && node scripts/interaktion_webbplats.js &&
-   node scripts/tillganglighet.js && python3 scripts/bygg_sidmall.py --kontrollera`
+   node scripts/tillganglighet.js && python3 scripts/bygg_sidmall.py --kontrollera &&
+   python3 scripts/bygg_sokindex.py --kontrollera`
 6. **Att skriva om facit är en avsedd handling, inte en utväg.** Faller
    facit är första frågan om ändringen var menad. Var den det, kör
    `node scripts/facit_webbplats.js --skriv-om` och låt diffen följa med i

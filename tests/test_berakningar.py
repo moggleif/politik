@@ -5370,3 +5370,26 @@ class TestGiffasRaderISidmallen(unittest.TestCase):
         ny = mall.med_giffas_rader(gammal)
         self.assertEqual(ny, mall.EGEN_STIL + mall.SAJTER + "<title>x</title>\n")
         self.assertEqual(mall.med_giffas_rader(ny), ny)
+
+
+class TestSokindex(unittest.TestCase):
+    """bygg_sokindex.py: varje sida i menyn med rubrik, plats och det som söks i."""
+
+    def test_rubrikerna_ur_sidan_som_text(self):
+        sok = ladda("bygg_sokindex")
+        delar = sok.Rubriker()
+        delar.feed('<h1>Skolorna</h1><p class="ingress">Hur det <em>gått</em>\n  i nian.</p>'
+                   "<p>Annat.</p><h2>Kort <span>sagt</span></h2><h2>Källor</h2>")
+        self.assertEqual(delar.delar, {"h1": ["Skolorna"], "ingress": ["Hur det gått i nian."],
+                                       "h2": ["Kort sagt", "Källor"]})
+
+    def test_menyns_sidor_med_var_de_star(self):
+        sok = ladda("bygg_sokindex")
+        platser = list(sok.menyplatser())
+        self.assertIn(("grundskolor.html", "Skola för skola i nian", ["Skolan", "Grundskolan"]), platser)
+        self.assertIn(("metod.html", "Metod", []), platser)
+        self.assertIn(("befolkningsprognos.html", "Hela befolkningen", ["Befolkning"]), platser)
+
+    def test_indexet_stammer_med_sidorna(self):
+        sok = ladda("bygg_sokindex")
+        self.assertEqual(sok.UT.read_text(encoding="utf-8"), sok.index())
