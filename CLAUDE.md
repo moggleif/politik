@@ -25,6 +25,7 @@ vägledningen i samma ändring. Tydlighet före fyndighet.
 | Temaknappen och det valda temat (ljust/mörkt)  | Giffås `docs/sajter.js` och `tema.js` (beslut 0015 där) |
 | Knappen Sök och sökindexets format             | Giffås `docs/sokruta.js` (beslut 0018 där); `docs/sok.json` byggs av `scripts/bygg_sokindex.py` |
 | Vad sidorna faktiskt ritar                     | `tests/facit/*.json`                      |
+| Hur måtten i "Ren kod – strikt" mäts          | `scripts/ren_kod.py`                      |
 
 Skriv aldrig om ett annat dokuments fakta – länka till dem. Ett faktum som står
 på två ställen är en bugg som väntar på att glida isär.
@@ -87,6 +88,29 @@ reproducerbarhetstesterna faller om innehållet inte går att räkna fram ur
   hamnat i otakt.
 - **Namn skrivs på svenska**, i kod som i data: `varden`, `argangar`,
   `lasaret`, `platser`. Följ omgivningens ordval.
+
+## Ren kod – strikt
+
+Små, enkla filer och funktioner, med samma gränser som systerrepona. Ny
+och ändrad kod håller målet; den hårda gränsen är den som CI ska hålla
+när koden väl klarar den. Tills dess mäts båda som en rapport som inte
+fäller bygget, i körningens sammanfattning på varje PR.
+
+| Mått                    | Mål | Hård gräns |
+| ----------------------- | --- | ---------- |
+| Rader per funktion      | 15  | 30         |
+| Rader per fil           | 150 | 250        |
+| Parametrar per funktion | 3   | 4          |
+| Nästlingsnivåer         | 2   | 3          |
+| Cyklomatisk komplexitet | 5   | 8          |
+
+Gränserna gäller `scripts/`, `tests/` och `docs/*.js` utom den vendrade
+`chart.umd.js`. Samma rapport lokalt, med ruff och ESLint installerade
+som för punkt 5 nedan:
+
+```
+python3 scripts/mat_ren_kod.py
+```
 
 ## Återanvänd – skriv inte av
 
