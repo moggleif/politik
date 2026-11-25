@@ -16,6 +16,11 @@
 # röda inom ett dygn, eftersom förtidsröstjobbet skriver om sina datafiler
 # två gånger om dagen. Rök-testet kör däremot mot de riktiga filerna, för
 # det är dess uppgift att upptäcka ett trasigt databygge.
+#
+# Ren kod-jobbet mäter koden mot gränserna i "Ren kod – strikt" i
+# CLAUDE.md och lägger rapporten i körningens sammanfattning. Det fäller
+# aldrig bygget, inte ens om mätningen själv går sönder, förrän koden
+# klarar gränserna.
 name: Tester
 
 on:
@@ -78,3 +83,22 @@ jobs:
         run: node scripts/interaktion_webbplats.js
       - name: Tillgänglighet (axe, tangentbord, smal skärm)
         run: node scripts/tillganglighet.js
+
+  ren-kod:
+    name: Ren kod (rapport)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Installera ruff och ESLint
+        run: |
+          pip install "ruff==0.15.*"
+          npm install --no-save eslint@9
+      - name: Mät mot gränserna, utan att fälla bygget
+        continue-on-error: true
+        run: python3 scripts/mat_ren_kod.py | tee -a "$GITHUB_STEP_SUMMARY"
